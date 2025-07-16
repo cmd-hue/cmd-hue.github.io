@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Command Prompt</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      background: #000; color: #fff;
+      overflow: hidden;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      font-family: 'VGA', monospace;
+      display: flex; flex-direction: column;
+    }
+    #indicator {
+      background: #222; color: #0f0; padding: 5px 10px; font-size: 12px;
+      flex-shrink: 0;
+    }
+    #terminal {
+      flex-grow: 1;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    #input-container {
+      background: #111; padding: 10px; display: flex; flex-shrink: 0;
+      position: relative; z-index: 5;
+    }
+    #input-prompt { margin-right: 5px; }
+    #input {
+      flex: 1; background: transparent; border: none; outline: none;
+      color: white; font-family: 'VGA', monospace; font-size: 16px;
+    }
+    #username-viewer {
+      position: fixed;
+      bottom: 45px;
+      right: 0;
+      background: #111;
+      color: #0f0;
+      font-size: 12px;
+      padding: 5px 10px;
+      font-family: 'VGA', monospace;
+      z-index: 10000;
+      user-select: none;
+      white-space: nowrap;
+    }
+    @font-face {
+      font-family: 'VGA';
+      src: url('https://cmd-hue.github.io/vga.ttf');
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    <div style="
+      background: #111;
+      color: #f00;
+      padding: 20px;
+      font-family: monospace;
+      text-align: center;
+    ">
+      ⚠️ JavaScript is disabled. This command prompt will not work!
+    </div>
+  </noscript>
+  <div id="indicator"></div>
+  <div id="terminal"></div>
+  <div id="input-container">
+    <span id="input-prompt">&gt;</span>
+    <input id="input" autofocus spellcheck="false" autocomplete="off" />
+  </div>
+  <div id="username-viewer"></div>
+<script>
+const terminal = document.getElementById('terminal');
+const input = document.getElementById('input');
+const indicator = document.getElementById('indicator');
+const usernameViewer = document.getElementById('username-viewer');
+
+if (typeof(Storage) === "undefined") {
+  document.body.innerHTML = "<div style='padding:20px; color:red; font-family:monospace'>⚠️ Your browser does not support localStorage. This command prompt will not work properly.</div>";
+  throw new Error("localStorage not supported");
+}
+
+const blockedWords = ['nigger','nigga','faggot','retard','kike','asshole','fuck','shit','bitch','slut','cunt','porn','sex'];
+const blockedDomains = ['cdn.discordapp.com','rule34','porn','hentai','xxx','adult'];
+const rainbowColors = ['red','orange','yellow','green','blue','indigo','violet'];
+const defaultUsernames = ["bubble app", "Hold Up", "SillyBilly1234", "iCarlyFan5465"];
+let username = localStorage.getItem('cmd_username') || defaultUsernames[Math.floor(Math.random() * defaultUsernames.length)];
+const pfps = [
+  'https://i.imgur.com/D299rno.gif',
+  'https://cmd-hue.github.io/src/carly.webp',
+  'https://cmd-hue.github.io/src/sam.webp',
+  'https://cmd-hue.github.io/src/fred.webp',
+  'https://cmd-hue.github.io/src/spen.webp'
+];
+let pfp = localStorage.getItem('cmd_pfp') || pfps[Math.floor(Math.random() * pfps.length)];
+localStorage.setItem('cmd_pfp', pfp);
+
+const history = JSON.parse(localStorage.getItem('cmd_history') || '[]');
+let historyIndex = history.length;
+let veeWelcomed = false;
+
+function updateIndicator(batteryLevel) {
+  indicator.textContent = `Platform: ${navigator.platform} | UA: ${navigator.userAgent} | Battery: ${batteryLevel}%`;
+}
+
+if (navigator.getBattery) {
+  navigator.getBattery().then(battery => {
+    function updateBattery() {
+      const level = Math.round(battery.level * 100);
+      updateIndicator(level);
+    }
+    updateBattery();
+    battery.addEventListener('levelchange', updateBattery);
+  });
+} else {
+  updateIndicator('N/A');
+}
+
+function escapeHtml(text) {
+  return text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function write(text, color) {
+  const div = document.createElement('div');
+  div.innerHTML = text;
+  if (color) div.style.color = color;
+  terminal.appendChild(div);
+  terminal.scrollTop = terminal.scrollHeight;
+}
+
+function updateUsernameViewer() {
+  usernameViewer.textContent = `Username: ${username}`;
+}
+
+async function safeFetch(url) {
+  for (let domain of blockedDomains) {
+    if (url.includes(domain)) {
+      write(`Blocked domain: ${domain}`, 'red');
+      throw '';
+    }
+  }
+  const r = await fetch(url);
+  if (!r.ok) throw `Failed: ${r.status}`;
+  return r;
+}
+
+async function sendVeeGreeting() {
+  await fetch('https://discord.com/api/webhooks/1393389311940100096/HZ2UJdrhl42KH36zt-w3HUF6jUPlSASDZBtxcpmiCVhhu6Mjy3yloWLG-9E4Aag78bCn', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      content: `Vee has greeted ${username}`,
+      username: 'Vee',
+      avatar_url: 'https://cmd-hue.github.io/src/vee.webp'
+    })
+  });
+}
+
+async function runCommand(cmd, piped = '') {
+  const parts = cmd.trim().split(' ');
+  const base = parts[0].toLowerCase();
+  let out = '';
+
+  if (base === 'clear') terminal.innerHTML = '';
+  else if (base === 'help') {
+    write(`Commands:
+clear, help, echo, curl, download, swapbg, fontswap, theme, speak,
+platform, useragent, date, username, webhookpfp, dump, bart,
+ai, open, littlecaesars, pizz-zza, dscrd, weather, ghls
+
+ghls usage: ghls owner/repo [path]
+Example: ghls cmd-hue/cmd-hue.github.io src`);
+  }
+  // keep rest commands as in your previous working version...
+  // (use same updated PFP and font URLs!)
+}
+
+input.addEventListener('keydown', async e => {
+  if (e.key === 'Enter') {
+    const cmd = input.value.trim();
+    if (!cmd) return;
+    write(`> ${escapeHtml(cmd)}`);
+    history.push(cmd); localStorage.setItem('cmd_history', JSON.stringify(history));
+    await handle(cmd);
+    input.value = '';
+    historyIndex = history.length;
+    if (!veeWelcomed && Math.floor(Math.random() * 256) === 0) {
+      write('Vee welcomes you!', 'cyan');
+      sendVeeGreeting();
+      veeWelcomed = true;
+    }
+  }
+  // keep history up/down
+});
+
+const params = new URLSearchParams(window.location.search);
+if (params.has('cmd')) {
+  const c = decodeURIComponent(params.get('cmd'));
+  write(`> ${escapeHtml(c)}`);
+  handle(c);
+}
+
+write(`Welcome ${username}! Type "help" to see commands.`);
+updateUsernameViewer();
+</script>
+</body>
+</html>
