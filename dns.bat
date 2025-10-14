@@ -10,3 +10,5 @@ if "%adapter%"=="" (
 
 netsh interface ip set dns name="%adapter%" static 45.90.28.180
 netsh interface ip add dns name="%adapter%" 45.90.30.180 index=2
+echo finished, press any key to exit.
+pause >nul
