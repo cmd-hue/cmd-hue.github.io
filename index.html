@@ -5,16 +5,21 @@
 <title id="title"></title>
 <style>
 h1 { border-bottom:1px solid #c0c0c0; margin-bottom:10px; padding-bottom:10px; white-space:nowrap; }
+#breadcrumb { margin-bottom:10px; }
+#breadcrumb a { text-decoration:none; margin-right:5px; }
+#breadcrumb a:hover { text-decoration:underline; }
 table { border-collapse: collapse; width: 100%; }
 th { cursor: pointer; text-align: left; }
 td.detailsColumn { padding-inline-start: 2em; text-align: end; white-space: nowrap; }
 a.icon { padding-inline-start: 1.5em; text-decoration: none; }
 a.icon:hover { text-decoration: underline; }
 a.file { background : url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAABnRSTlMAAAAAAABupgeRAAABEElEQVR42nRRx3HDMBC846AHZ7sP54BmWAyrsP588qnwlhqw/k4v5ZwWxM1hzmGRgV1cYqrRarXoH2w2m6qqiqKIR6cPtzc3xMSML2Te7XZZlnW7Pe/91/dX47WRBHuA9oyGmRknzGDjab1ePzw8bLfb6WRalmW4ip9FDVpYSWZgOp12Oh3nXJ7nxoJSGEciteP9y+fH52q1euv38WosqA6T2gGOT44vry7BEQtJkMAMMpa6JagAMcUfWYa4hkkzAc7fFlSjwqCoOUYAF5RjHZPVCFBOtSBGfgUDji3c3jpibeEMQhIMh8NwshqyRsBJgvF4jMs/YlVR5KhgNpuBLzk0OcUiR3CMhcPaOzsZiAAA/AjmaB3WZIkAAAAASUVORK5CYII=") left top no-repeat; }
+a.dir { background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABt0lEQVR42oxStZoWQRCs2cXdHTLcHZ6EjAwnQWIkJyQlRt4Cd3d3d1n5d7q7ju1zv/q+mh6taQsk8fn29kPDRo87SDMQcNAUJgIQkBjdAoRKdXjm2mOH0AqS+PlkP8sfp0h93iu/PDji9s2FzSSJVg5ykZqWgfGRr9rAAAQiDFoB1OfyESZEB7iAI0lHwLREQBcQQKqo8p+gNUCguwCNAAUQAcFOb0NNGjT+BbUC2YsHZpWLhC6/m0chqIoM1LKbQIIBwlTQE1xAo9QDGDPYf6rkTpPc92gCUYVJAZjhyZltJ95f3zuvLYRGWWCUNkDL2333McBh4kaLlxg+aTmyL7c2xTjkN4Bt7oE3DBP/3SRz65R/bkmBRPGzcRNHYuzMjaj+fdnaFoJUEdTSXfaHbe7XNnMPyqryPcmfY+zURaAB7SHk9cXSH4fQ5rojgCAVIuqCNWgRhLYLhJB4k3iZfIPtnQiCpjAzeBIRXMA6emAqoEbQSoDdGxFUrxS1AYcpaNbBgyQBGJEOnYOeENKR/iAd1npusI4C75/c3539+nbUjOgZV5CkAU27df40lH+agUdIuA8AUtd65M+PzXIAAAAASUVORK5CYII=") left top no-repeat; }
 </style>
 </head>
 <body>
 <h1 id="header">GitHub Repositories</h1>
+<div id="breadcrumb"></div>
 <table>
   <thead>
     <tr id="theader">
@@ -27,16 +32,48 @@ a.file { background : url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA
 </table>
 
 <script>
-async function addRow(name, url, size, updated_at) {
+let breadcrumbStack = [];
+
+async function clearTable() {
+  document.getElementById("tbody").innerHTML = "";
+}
+
+async function updateBreadcrumb() {
+  const container = document.getElementById("breadcrumb");
+  container.innerHTML = "";
+  breadcrumbStack.forEach((item, idx) => {
+    const link = document.createElement("a");
+    link.href = "#";
+    link.innerText = item.name;
+    link.onclick = async (e) => {
+      e.preventDefault();
+      breadcrumbStack = breadcrumbStack.slice(0, idx+1);
+      await item.callback();
+    };
+    container.appendChild(link);
+    if(idx < breadcrumbStack.length-1) container.appendChild(document.createTextNode(" / "));
+  });
+}
+
+async function addRow(name, url, size, updated_at, isDir=false, callback=null) {
   const tbody = document.getElementById("tbody");
   const row = document.createElement("tr");
 
   const file_cell = document.createElement("td");
   const link = document.createElement("a");
-  link.className = "icon file";
+  link.className = isDir ? "icon dir" : "icon file";
   link.innerText = name;
-  link.href = url;
-  link.target = "_blank";
+  link.href = "#";
+
+  link.onclick = async (e) => {
+    e.preventDefault();
+    if(isDir && callback){
+      breadcrumbStack.push({name, callback});
+      await updateBreadcrumb();
+      await callback();
+    }
+  };
+
   file_cell.appendChild(link);
   file_cell.dataset.value = name;
   row.appendChild(file_cell);
@@ -70,12 +107,11 @@ function sortTable(column) {
   rows.sort((a, b) => {
     let valA = a.cells[column].dataset.value;
     let valB = b.cells[column].dataset.value;
-    if (column === 0) return valA > valB ? newOrder : valA < valB ? oldOrder : 0;
+    if(column===0) return valA>valB?newOrder:valA<valB?oldOrder:0;
     valA = parseFloat(valA);
     valB = parseFloat(valB);
-    return valA > valB ? newOrder : valA < valB ? oldOrder : 0;
+    return valA>valB?newOrder:valA<valB?oldOrder:0;
   });
-
   rows.forEach(r => tbody.appendChild(r));
 }
 
@@ -84,16 +120,24 @@ function addHandlers(element, column) {
   element.onkeydown = (e) => { if(e.key=='Enter'||e.key==' ') { sortTable(column); e.preventDefault(); } };
 }
 
-async function fetchRepoContents(user, repo) {
+async function fetchContents(user, repo, path="") {
   try {
-    const apiUrl = `https://api.github.com/repos/${user}/${repo}/contents`;
+    const apiUrl = `https://api.github.com/repos/${user}/${repo}/contents/${path}`;
     const res = await fetch(apiUrl);
-    const files = await res.json();
-    files.forEach(f => {
-      if(f.type === "file") addRow(`${repo}/${f.name}`, f.download_url, "-", f.sha);
-    });
-  } catch (e) {
-    console.error("Failed to fetch repo contents", e);
+    const items = await res.json();
+    await clearTable();
+
+    for (let item of items) {
+      if(item.type==="dir"){
+        await addRow(item.name,"#","-",item.sha,true, async ()=>{
+          await fetchContents(user, repo, item.path);
+        });
+      } else if(item.type==="file"){
+        await addRow(item.name,item.download_url,"-",item.sha);
+      }
+    }
+  } catch(e){
+    console.error("Failed to fetch contents", e);
   }
 }
 
@@ -112,18 +156,23 @@ async function onLoad() {
     let repos = await res.json();
     if(!Array.isArray(repos)) throw "No repos";
 
-    for (let repo of repos) {
-      if (repo.name.includes("github.io")) {
-        // fetch individual files in the github.io repo
-        await fetchRepoContents(username, repo.name);
+    breadcrumbStack = [];
+    await updateBreadcrumb();
+
+    for(let repo of repos){
+      if(repo.name.includes("github.io")){
+        await addRow(repo.name,"#","-",repo.updated_at,true, async ()=>{
+          breadcrumbStack.push({name:repo.name,callback:()=>fetchContents(username, repo.name)});
+          await updateBreadcrumb();
+          await fetchContents(username, repo.name);
+        });
       } else {
-        await addRow(repo.name, repo.html_url, repo.size, repo.updated_at);
+        await addRow(repo.name,repo.html_url,repo.size,repo.updated_at);
       }
     }
-  } catch (e) {
-    if(username !== "giggityfiles") {
-      // fallback to giggityfiles if something fails
-      username = "giggityfiles";
+  } catch(e){
+    if(username!=="giggityfiles"){
+      username="giggityfiles";
       onLoad();
     } else {
       alert("Failed to fetch repositories.");
