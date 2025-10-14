@@ -1,0 +1,70 @@
+{python:
+load {av}
+import os
+import numpy as np
+import subprocess
+import json
+
+input_file = os.getenv('FILE_1')
+
+# extract audio info
+result = subprocess.run(['ffprobe', '-v', 'quiet', '-print_format', 'json', '-show_format', '-show_streams', input_file], capture_output=True, text=True)
+info = json.loads(result.stdout)
+
+# find audio stream
+audio_stream = None
+for stream in info['streams']:
+    if stream['codec_type'] == 'audio':
+        audio_stream = stream
+        break
+
+if not audio_stream:
+    print('no audio found in file')
+    exit()
+
+# extract raw audio
+subprocess.run(['ffmpeg', '-i', input_file, '-f', 'f32le', '-acodec', 'pcm_f32le', '-ac', '1', '-ar', '22050', '/tmp/audio.raw'], check=True)
+
+# load audio data
+with open('/tmp/audio.raw', 'rb') as f:
+    audio_data = np.frombuffer(f.read(), dtype=np.float32)
+
+# segment audio into chunks
+sample_rate = 22050
+chunk_duration = 0.1  # 100ms chunks
+chunk_size = int(sample_rate * chunk_duration)
+
+chunks = []
+for i in range(0, len(audio_data) - chunk_size, chunk_size):
+    chunk = audio_data[i:i + chunk_size]
+    
+    # calculate pitch using autocorrelation
+    correlation = np.correlate(chunk, chunk, mode='full')
+    correlation = correlation[len(correlation)//2:]
+    
+    # find first peak after initial peak
+    diff = np.diff(correlation)
+    peaks = np.where((diff[:-1] > 0) & (diff[1:] < 0))[0] + 1
+    
+    if len(peaks) > 0:
+        period = peaks[0]
+        pitch = sample_rate / period if period > 0 else 0
+    else:
+        pitch = 0
+    
+    chunks.append((pitch, chunk))
+
+# sort by pitch
+chunks.sort(key=lambda x: x[0])
+
+# concatenate sorted chunks
+sorted_audio = np.concatenate([chunk for _, chunk in chunks])
+
+# save sorted audio
+sorted_audio.astype(np.float32).tofile('/tmp/sorted.raw')
+
+# convert back to audio file
+subprocess.run(['ffmpeg', '-f', 'f32le', '-ar', '22050', '-ac', '1', '-i', '/tmp/sorted.raw', '/home/notsocoder/output/sorted.mp3'], check=True)
+
+print(f'sorted {len(chunks)} audio chunks by pitch')
+}
