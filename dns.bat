@@ -3,15 +3,17 @@ setlocal enabledelayedexpansion
 
 set "found=0"
 
-for /f "tokens=1,2*" %%a in ('netsh interface show interface ^| findstr /R /C:"Connected"') do (
-    set "adapter=%%c"
+for /f "skip=3 tokens=1,*" %%A in ('netsh interface show interface ^| findstr /R /C:"Connected"') do (
+    set "adapter=%%B"
     
-    REM Trim leading/trailing spaces
-    for /f "tokens=* delims= " %%A in ("!adapter!") do set "adapter=%%A"
+    REM Remove leading/trailing spaces
+    for /f "tokens=* delims= " %%X in ("!adapter!") do set "adapter=%%X"
     
+    REM Skip empty adapter names
     if not "!adapter!"=="" (
-        netsh interface ip set dns name="!adapter!" static 45.90.28.180
-        netsh interface ip add dns name="!adapter!" 45.90.30.180 index=2
+        REM Set DNS using ipv4 (more reliable)
+        netsh interface ipv4 set dns name="!adapter!" static 45.90.28.180
+        netsh interface ipv4 add dns name="!adapter!" 45.90.30.180 index=2
         set found=1
     )
 )
