@@ -36,6 +36,7 @@ canvas {
 .admin { color: #ff4a4a; }
 .mod { color: #4aff74; }
 </style>
+<script src="https://youtomb-mobile.github.io/shark.js"></script>
 </head>
 <body>
 <h2>CollabVM VM2 Live Status</h2>
@@ -85,8 +86,8 @@ async function updateScreenshot() {
   } catch {}
 }
 
-setInterval(updateInfo, 1000)
-setInterval(updateScreenshot, 1000)
+setInterval(updateInfo, 5000)
+setInterval(updateScreenshot, 3000)
 updateInfo()
 updateScreenshot()
 </script>
