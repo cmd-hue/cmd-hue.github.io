@@ -1,186 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title id="title"></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CollabVM VM2 Live Viewer</title>
 <style>
-h1 { border-bottom:1px solid #c0c0c0; margin-bottom:10px; padding-bottom:10px; white-space:nowrap; }
-#breadcrumb { margin-bottom:10px; }
-#breadcrumb a { text-decoration:none; margin-right:5px; }
-#breadcrumb a:hover { text-decoration:underline; }
-table { border-collapse: collapse; width: 100%; }
-th { cursor: pointer; text-align: left; }
-td.detailsColumn { padding-inline-start: 2em; text-align: end; white-space: nowrap; }
-a.icon { padding-inline-start: 1.5em; text-decoration: none; }
-a.icon:hover { text-decoration: underline; }
-a.file { background : url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAABnRSTlMAAAAAAABupgeRAAABEElEQVR42nRRx3HDMBC846AHZ7sP54BmWAyrsP588qnwlhqw/k4v5ZwWxM1hzmGRgV1cYqrRarXoH2w2m6qqiqKIR6cPtzc3xMSML2Te7XZZlnW7Pe/91/dX47WRBHuA9oyGmRknzGDjab1ePzw8bLfb6WRalmW4ip9FDVpYSWZgOp12Oh3nXJ7nxoJSGEciteP9y+fH52q1euv38WosqA6T2gGOT44vry7BEQtJkMAMMpa6JagAMcUfWYa4hkkzAc7fFlSjwqCoOUYAF5RjHZPVCFBOtSBGfgUDji3c3jpibeEMQhIMh8NwshqyRsBJgvF4jMs/YlVR5KhgNpuBLzk0OcUiR3CMhcPaOzsZiAAA/AjmaB3WZIkAAAAASUVORK5CYII=") left top no-repeat; }
-a.dir { background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABt0lEQVR42oxStZoWQRCs2cXdHTLcHZ6EjAwnQWIkJyQlRt4Cd3d3d1n5d7q7ju1zv/q+mh6taQsk8fn29kPDRo87SDMQcNAUJgIQkBjdAoRKdXjm2mOH0AqS+PlkP8sfp0h93iu/PDji9s2FzSSJVg5ykZqWgfGRr9rAAAQiDFoB1OfyESZEB7iAI0lHwLREQBcQQKqo8p+gNUCguwCNAAUQAcFOb0NNGjT+BbUC2YsHZpWLhC6/m0chqIoM1LKbQIIBwlTQE1xAo9QDGDPYf6rkTpPc92gCUYVJAZjhyZltJ95f3zuvLYRGWWCUNkDL2333McBh4kaLlxg+aTmyL7c2xTjkN4Bt7oE3DBP/3SRz65R/bkmBRPGzcRNHYuzMjaj+fdnaFoJUEdTSXfaHbe7XNnMPyqryPcmfY+zURaAB7SHk9cXSH4fQ5rojgCAVIuqCNWgRhLYLhJB4k3iZfIPtnQiCpjAzeBIRXMA6emAqoEbQSoDdGxFUrxS1AYcpaNbBgyQBGJEOnYOeENKR/iAd1npusI4C75/c3539+nbUjOgZV5CkAU27df40lH+agUdIuA8AUtd65M+PzXIAAAAASUVORK5CYII=") left top no-repeat; }
+body {
+  font-family: sans-serif;
+  background: #111;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+#info {
+  margin-top: 10px;
+  background: #222;
+  padding: 10px;
+  border-radius: 8px;
+  width: 400px;
+  overflow-x: auto;
+}
+canvas {
+  border: 2px solid #444;
+  margin-top: 10px;
+  background: #000;
+}
+.user {
+  display: block;
+  margin: 2px 0;
+}
+.unregistered { color: gray; }
+.registered { color: #4aa3ff; }
+.admin { color: #ff4a4a; }
+.mod { color: #4aff74; }
 </style>
 </head>
 <body>
-<h1 id="header">GitHub Repositories</h1>
-<div id="breadcrumb"></div>
-<table>
-  <thead>
-    <tr id="theader">
-      <th id="nameColumnHeader" tabindex="0">Name</th>
-      <th id="sizeColumnHeader" class="detailsColumn" tabindex="0">Size (KB)</th>
-      <th id="dateColumnHeader" class="detailsColumn" tabindex="0">Last Updated</th>
-    </tr>
-  </thead>
-  <tbody id="tbody"></tbody>
-</table>
-
+<h2>CollabVM VM2 Live Status</h2>
+<div id="info">Loading...</div>
+<canvas id="screen" width="640" height="480"></canvas>
 <script>
-let breadcrumbStack = [];
+const infoBox = document.getElementById('info')
+const canvas = document.getElementById('screen')
+const ctx = canvas.getContext('2d')
 
-async function clearTable() {
-  document.getElementById("tbody").innerHTML = "";
+const rankNames = {
+  0: 'Unregistered',
+  1: 'Registered',
+  2: 'Admin',
+  3: 'Mod'
+}
+const rankClasses = {
+  0: 'unregistered',
+  1: 'registered',
+  2: 'admin',
+  3: 'mod'
 }
 
-async function updateBreadcrumb() {
-  const container = document.getElementById("breadcrumb");
-  container.innerHTML = "";
-  breadcrumbStack.forEach((item, idx) => {
-    const link = document.createElement("a");
-    link.href = "#";
-    link.innerText = item.name;
-    link.onclick = async (e) => {
-      e.preventDefault();
-      breadcrumbStack = breadcrumbStack.slice(0, idx+1);
-      await item.callback();
-    };
-    container.appendChild(link);
-    if(idx < breadcrumbStack.length-1) container.appendChild(document.createTextNode(" / "));
-  });
-}
-
-async function addRow(name, url, size, updated_at, isDir=false, callback=null) {
-  const tbody = document.getElementById("tbody");
-  const row = document.createElement("tr");
-
-  const file_cell = document.createElement("td");
-  const link = document.createElement("a");
-  link.className = isDir ? "icon dir" : "icon file";
-  link.innerText = name;
-  link.href = "#";
-
-  link.onclick = async (e) => {
-    e.preventDefault();
-    if(isDir && callback){
-      breadcrumbStack.push({name, callback});
-      await updateBreadcrumb();
-      await callback();
-    }
-  };
-
-  file_cell.appendChild(link);
-  file_cell.dataset.value = name;
-  row.appendChild(file_cell);
-
-  const sizeCell = document.createElement("td");
-  sizeCell.className = "detailsColumn";
-  sizeCell.innerText = size;
-  sizeCell.dataset.value = size;
-  row.appendChild(sizeCell);
-
-  const dateCell = document.createElement("td");
-  dateCell.className = "detailsColumn";
-  const timestamp = new Date(updated_at).getTime();
-  dateCell.innerText = new Date(updated_at).toLocaleString();
-  dateCell.dataset.value = timestamp;
-  row.appendChild(dateCell);
-
-  tbody.appendChild(row);
-}
-
-function sortTable(column) {
-  const theader = document.getElementById("theader");
-  let oldOrder = theader.cells[column].dataset.order || '1';
-  oldOrder = parseInt(oldOrder);
-  const newOrder = -oldOrder;
-  theader.cells[column].dataset.order = newOrder;
-
-  const tbody = document.getElementById("tbody");
-  const rows = Array.from(tbody.rows);
-
-  rows.sort((a, b) => {
-    let valA = a.cells[column].dataset.value;
-    let valB = b.cells[column].dataset.value;
-    if(column===0) return valA>valB?newOrder:valA<valB?oldOrder:0;
-    valA = parseFloat(valA);
-    valB = parseFloat(valB);
-    return valA>valB?newOrder:valA<valB?oldOrder:0;
-  });
-  rows.forEach(r => tbody.appendChild(r));
-}
-
-function addHandlers(element, column) {
-  element.onclick = () => sortTable(column);
-  element.onkeydown = (e) => { if(e.key=='Enter'||e.key==' ') { sortTable(column); e.preventDefault(); } };
-}
-
-async function fetchContents(user, repo, path="") {
+async function updateInfo() {
   try {
-    const apiUrl = `https://api.github.com/repos/${user}/${repo}/contents/${path}`;
-    const res = await fetch(apiUrl);
-    const items = await res.json();
-    await clearTable();
-
-    for (let item of items) {
-      if(item.type==="dir"){
-        await addRow(item.name,"#","-",item.sha,true, async ()=>{
-          await fetchContents(user, repo, item.path);
-        });
-      } else if(item.type==="file"){
-        await addRow(item.name,item.download_url,"-",item.sha);
-      }
-    }
-  } catch(e){
-    console.error("Failed to fetch contents", e);
+    const res = await fetch('https://cvmapi.elijahr.dev/api/v2/vms/vm2/')
+    const data = await res.json()
+    let html = `<b>ID:</b> ${data.id}<br><br><b>Users:</b><br>`
+    data.users.forEach(u => {
+      const rankLabel = rankNames[u.rank] || `Unknown (${u.rank})`
+      const rankClass = rankClasses[u.rank] || ''
+      html += `<span class="user ${rankClass}">• ${u.username} (${rankLabel}${u.country ? `, ${u.country}` : ''})</span>`
+    })
+    infoBox.innerHTML = html
+  } catch {
+    infoBox.textContent = 'Failed to fetch VM info'
   }
 }
 
-async function onLoad() {
-  addHandlers(document.getElementById('nameColumnHeader'), 0);
-  addHandlers(document.getElementById('sizeColumnHeader'), 1);
-  addHandlers(document.getElementById('dateColumnHeader'), 2);
-
-  let params = new URLSearchParams(window.location.search);
-  let username = params.get('username') || "giggityfiles";
-
-  document.getElementById('header').innerText = `GitHub Repositories of ${username}`;
-
+async function updateScreenshot() {
   try {
-    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
-    let repos = await res.json();
-    if(!Array.isArray(repos)) throw "No repos";
-
-    breadcrumbStack = [];
-    await updateBreadcrumb();
-
-    for(let repo of repos){
-      if(repo.name.includes("github.io")){
-        await addRow(repo.name,"#","-",repo.updated_at,true, async ()=>{
-          breadcrumbStack.push({name:repo.name,callback:()=>fetchContents(username, repo.name)});
-          await updateBreadcrumb();
-          await fetchContents(username, repo.name);
-        });
-      } else {
-        await addRow(repo.name,repo.html_url,repo.size,repo.updated_at);
-      }
-    }
-  } catch(e){
-    if(username!=="giggityfiles"){
-      username="giggityfiles";
-      onLoad();
-    } else {
-      alert("Failed to fetch repositories.");
-    }
-  }
+    const img = new Image()
+    img.crossOrigin = 'anonymous'
+    img.src = 'https://cvmapi.elijahr.dev/api/v2/vms/vm2/screenshot?cacheBust=' + Date.now()
+    await img.decode()
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+  } catch {}
 }
 
-window.addEventListener('DOMContentLoaded', onLoad);
+setInterval(updateInfo, 250)
+setInterval(updateScreenshot, 250)
+updateInfo()
+updateScreenshot()
 </script>
 </body>
 </html>
