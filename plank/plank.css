@@ -9,7 +9,7 @@ body, button, input, select, textarea {
 body {
     font-weight: bolder;
     color: white;
-    background-image: url(/appealbg.jpg);
+    background-image: url(plank.jpg);
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     background-position: center;
