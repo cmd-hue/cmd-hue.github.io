@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Text+Me+One&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Text Me One", sans-serif;
+}
+body, button, input, select, textarea {
+    font-family: "Roboto Serif", serif;
+}
+html {
+    font-weight: bolder;
+    color: white;
+    background-image: url(/appealbg.jpg);
+    background-size: 100% 100%;
+}
