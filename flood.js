@@ -1,9 +1,9 @@
-/* GGTFlood 4 BonziWorld 1.0.9 */
+/* GGTroll 4 BonziWorld 1.1.0 */
 /* This comes with no warranty */
 const sentMentions = new Set();
 
 // Shared observer for all bots
-const observer = new MutationObserver(mutations => {
+const noserver = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
         mutation.addedNodes.forEach(node => {
             if (
@@ -28,7 +28,7 @@ const observer = new MutationObserver(mutations => {
         });
     });
 });
-observer.observe(document.body, { childList: true, subtree: true });
+noserver.observe(document.body, { childList: true, subtree: true });
 
 const bots = [];
 
