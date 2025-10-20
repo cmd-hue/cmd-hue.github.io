@@ -1,4 +1,4 @@
-/* GGTFlood 4 BonziWorld 1.0.3 */
+/* GGTFlood 4 BonziWorld 1.0.4 */
 /* This comes with no warranty */
 setInterval(async () => {
     try {
@@ -16,7 +16,7 @@ setInterval(async () => {
             room: roomId
         });
         setTimeout(() => {
-            bot.emit("talk", msg);
+            bot.emit("talk", { text: msg });
         }, 500);
         setTimeout(() => {
             bot.emit("update", { color: "blue" });
