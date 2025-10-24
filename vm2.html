@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CollabVM VM2 Live Viewer</title>
+<style>
+body {
+  font-family: sans-serif;
+  background: #111;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+#info {
+  margin-top: 10px;
+  background: #222;
+  padding: 10px;
+  border-radius: 8px;
+  width: 400px;
+  overflow-x: auto;
+}
+canvas {
+  border: 2px solid #444;
+  margin-top: 10px;
+  background: #000;
+}
+.user {
+  display: block;
+  margin: 2px 0;
+}
+.unregistered { color: gray; }
+.registered { color: #4aa3ff; }
+.admin { color: #ff4a4a; }
+.mod { color: #4aff74; }
+</style>
+<script src="https://youtomb-mobile.github.io/shark.js"></script>
+</head>
+<body>
+<h2>CollabVM VM2 Live Status</h2>
+<div id="info">Loading...</div>
+<canvas id="screen" width="640" height="480"></canvas>
+<script>
+const infoBox = document.getElementById('info')
+const canvas = document.getElementById('screen')
+const ctx = canvas.getContext('2d')
+
+const rankNames = {
+  0: 'Unregistered',
+  1: 'Registered',
+  2: 'Admin',
+  3: 'Mod'
+}
+const rankClasses = {
+  0: 'unregistered',
+  1: 'registered',
+  2: 'admin',
+  3: 'mod'
+}
+
+async function updateInfo() {
+  try {
+    const res = await fetch('https://cvmapi.elijahr.dev/api/v2/vms/vm2/')
+    const data = await res.json()
+    let html = `<b>ID:</b> ${data.id}<br><br><b>Users:</b><br>`
+    data.users.forEach(u => {
+      const rankLabel = rankNames[u.rank] || `Unknown (${u.rank})`
+      const rankClass = rankClasses[u.rank] || ''
+      html += `<span class="user ${rankClass}">• ${u.username} (${rankLabel}${u.country ? `, ${u.country}` : ''})</span>`
+    })
+    infoBox.innerHTML = html
+  } catch {
+    infoBox.textContent = 'Failed to fetch VM info'
+  }
+}
+
+async function updateScreenshot() {
+  try {
+    const img = new Image()
+    img.crossOrigin = 'anonymous'
+    img.src = 'https://cvmapi.elijahr.dev/api/v2/vms/vm2/screenshot?cacheBust=' + Date.now()
+    await img.decode()
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+  } catch {}
+}
+
+setInterval(updateInfo, 5000)
+setInterval(updateScreenshot, 3000)
+updateInfo()
+updateScreenshot()
+</script>
+</body>
+</html>

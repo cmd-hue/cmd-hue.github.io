@@ -1,95 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CollabVM VM2 Live Viewer</title>
-<style>
-body {
-  font-family: sans-serif;
-  background: #111;
-  color: #eee;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-}
-#info {
-  margin-top: 10px;
-  background: #222;
-  padding: 10px;
-  border-radius: 8px;
-  width: 400px;
-  overflow-x: auto;
-}
-canvas {
-  border: 2px solid #444;
-  margin-top: 10px;
-  background: #000;
-}
-.user {
-  display: block;
-  margin: 2px 0;
-}
-.unregistered { color: gray; }
-.registered { color: #4aa3ff; }
-.admin { color: #ff4a4a; }
-.mod { color: #4aff74; }
-</style>
-<script src="https://youtomb-mobile.github.io/shark.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Open Roblox Asset</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f6f7fb;margin:0}
+    .card{background:#fff;padding:28px;border-radius:12px;box-shadow:0 6px 20px rgba(20,20,40,0.08);width:320px}
+    h1{font-size:18px;margin:0 0 12px}
+    .row{display:flex;gap:8px}
+    input{flex:1;padding:10px 12px;border:1px solid #e3e6ef;border-radius:8px;font-size:14px}
+    button{padding:10px 14px;border-radius:8px;border:0;background:#4f46e5;color:#fff;font-weight:600;cursor:pointer}
+    small{display:block;margin-top:10px;color:#6b7280}
+  </style>
 </head>
 <body>
-<h2>CollabVM VM2 Live Status</h2>
-<div id="info">Loading...</div>
-<canvas id="screen" width="640" height="480"></canvas>
-<script>
-const infoBox = document.getElementById('info')
-const canvas = document.getElementById('screen')
-const ctx = canvas.getContext('2d')
+  <div class="card" role="main">
+    <h1>Open Roblox Asset</h1>
+    <div class="row">
+      <input id="assetInput" type="text" placeholder="enter asset id or url" autocomplete="off" />
+      <button id="goBtn" type="button">Go</button>
+    </div>
+    <small>Paste an ID like <code>1818</code> or a Roblox URL; press Enter or Go.</small>
+  </div>
 
-const rankNames = {
-  0: 'Unregistered',
-  1: 'Registered',
-  2: 'Admin',
-  3: 'Mod'
-}
-const rankClasses = {
-  0: 'unregistered',
-  1: 'registered',
-  2: 'admin',
-  3: 'mod'
-}
-
-async function updateInfo() {
-  try {
-    const res = await fetch('https://cvmapi.elijahr.dev/api/v2/vms/vm2/')
-    const data = await res.json()
-    let html = `<b>ID:</b> ${data.id}<br><br><b>Users:</b><br>`
-    data.users.forEach(u => {
-      const rankLabel = rankNames[u.rank] || `Unknown (${u.rank})`
-      const rankClass = rankClasses[u.rank] || ''
-      html += `<span class="user ${rankClass}">• ${u.username} (${rankLabel}${u.country ? `, ${u.country}` : ''})</span>`
-    })
-    infoBox.innerHTML = html
-  } catch {
-    infoBox.textContent = 'Failed to fetch VM info'
-  }
-}
-
-async function updateScreenshot() {
-  try {
-    const img = new Image()
-    img.crossOrigin = 'anonymous'
-    img.src = 'https://cvmapi.elijahr.dev/api/v2/vms/vm2/screenshot?cacheBust=' + Date.now()
-    await img.decode()
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-  } catch {}
-}
-
-setInterval(updateInfo, 5000)
-setInterval(updateScreenshot, 3000)
-updateInfo()
-updateScreenshot()
-</script>
+  <script>
+    const input = document.getElementById('assetInput');
+    const btn = document.getElementById('goBtn');
+    function extractId(v){
+      if(!v) return null;
+      const m = v.match(/\d+/);
+      return m ? m[0] : null;
+    }
+    function go(){
+      const id = extractId(input.value.trim());
+      if(!id){
+        alert('Please enter a valid Roblox asset id or url.');
+        return;
+      }
+      location.href = 'https://www.roblox.com/library/' + encodeURIComponent(id);
+    }
+    btn.addEventListener('click', go);
+    input.addEventListener('keydown', e => { if(e.key === 'Enter') go(); });
+  </script>
 </body>
 </html>
