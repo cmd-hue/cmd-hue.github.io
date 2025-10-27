@@ -1,0 +1,1 @@
+javascript:(function(){var id='vrmode-css',e=document.getElementById(id);if(e){e.remove();return}var l=document.createElement('link');l.id=id;l.rel='stylesheet';l.href='https://cmd-hue.github.io/vrmode.css';document.head.appendChild(l)})();
