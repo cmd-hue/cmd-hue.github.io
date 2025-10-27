@@ -1,0 +1,80 @@
+{python:
+load {av}
+import numpy as np
+import scipy.io.wavfile as wavfile
+import scipy.signal as signal
+from PIL import Image
+import os
+
+# load the audio file
+audio_path = os.getenv('FILE_1')
+
+# read wav file
+sample_rate, audio_data = wavfile.read(audio_path)
+
+# convert to mono if stereo
+if len(audio_data.shape) > 1:
+    audio_data = audio_data.mean(axis=1)
+
+# normalize audio
+audio_data = audio_data.astype(np.float32)
+audio_data = audio_data / np.max(np.abs(audio_data))
+
+# sstv parameters for robot 36 mode (common mode)
+sync_freq = 1200  # hz
+black_freq = 1500  # hz
+white_freq = 2300  # hz
+line_time = 0.088  # seconds per line
+lines = 240
+width = 320
+
+# simple sstv decoder using frequency detection
+def decode_sstv(audio, sr):
+    # calculate samples per line
+    samples_per_line = int(sr * line_time)
+    
+    # prepare image array
+    img_array = np.zeros((lines, width, 3), dtype=np.uint8)
+    
+    # process each line
+    for line in range(min(lines, len(audio) // samples_per_line)):
+        line_start = line * samples_per_line
+        line_end = line_start + samples_per_line
+        line_audio = audio[line_start:line_end]
+        
+        # divide line into pixels
+        samples_per_pixel = samples_per_line // width
+        
+        for pixel in range(width):
+            pixel_start = pixel * samples_per_pixel
+            pixel_end = pixel_start + samples_per_pixel
+            pixel_audio = line_audio[pixel_start:pixel_end]
+            
+            # use fft to find dominant frequency
+            fft = np.fft.fft(pixel_audio)
+            freqs = np.fft.fftfreq(len(pixel_audio), 1/sr)
+            magnitude = np.abs(fft)
+            
+            # find peak frequency in sstv range
+            valid_range = (freqs > black_freq) & (freqs < white_freq)
+            if np.any(valid_range):
+                peak_freq = freqs[valid_range][np.argmax(magnitude[valid_range])]
+                
+                # map frequency to brightness
+                brightness = int(255 * (peak_freq - black_freq) / (white_freq - black_freq))
+                brightness = np.clip(brightness, 0, 255)
+                
+                # set rgb values (grayscale for simplicity)
+                img_array[line, pixel] = [brightness, brightness, brightness]
+    
+    return img_array
+
+# decode the sstv signal
+decoded_img = decode_sstv(audio_data, sample_rate)
+
+# create and save image
+img = Image.fromarray(decoded_img, 'RGB')
+img.save('/home/notsocoder/output/sstv_decoded.png')
+
+print("sstv signal decoded and saved")
+}
