@@ -1,0 +1,83 @@
+{python:
+load {iv}
+import os
+import numpy as np
+from PIL import Image
+from pydub import AudioSegment
+from pydub.generators import Sine
+
+# load image
+img_path = os.getenv('FILE_1')
+img = Image.open(img_path).convert('RGB')
+
+# resize to sstv standard (martin m1 mode: 320x256)
+img = img.resize((320, 256))
+pixels = np.array(img)
+
+# sstv martin m1 parameters
+sample_rate = 44100
+vis_code = 44  # martin m1
+
+def freq_to_samples(freq, duration):
+    """generate audio samples for a frequency"""
+    samples = int(sample_rate * duration)
+    t = np.linspace(0, duration, samples, False)
+    wave = np.sin(2 * np.pi * freq * t)
+    return (wave * 32767).astype(np.int16)
+
+# sstv frequencies
+sync_freq = 1200
+black_freq = 1500
+white_freq = 2300
+
+def value_to_freq(value):
+    """convert pixel value (0-255) to frequency"""
+    return black_freq + (white_freq - black_freq) * (value / 255.0)
+
+# build sstv signal
+audio_data = []
+
+# header tone
+audio_data.append(freq_to_samples(1900, 0.3))
+audio_data.append(freq_to_samples(1200, 0.01))
+audio_data.append(freq_to_samples(1900, 0.3))
+
+# vis code (simplified)
+audio_data.append(freq_to_samples(1200, 0.03))
+
+# scan lines
+for y in range(256):
+    # sync pulse
+    audio_data.append(freq_to_samples(sync_freq, 0.00492))
+    
+    # green scan
+    for x in range(320):
+        freq = value_to_freq(pixels[y, x, 1])
+        audio_data.append(freq_to_samples(freq, 0.000458))
+    
+    # blue scan
+    for x in range(320):
+        freq = value_to_freq(pixels[y, x, 2])
+        audio_data.append(freq_to_samples(freq, 0.000458))
+    
+    # red scan
+    for x in range(320):
+        freq = value_to_freq(pixels[y, x, 0])
+        audio_data.append(freq_to_samples(freq, 0.000458))
+
+# combine all audio
+combined = np.concatenate(audio_data)
+
+# create audio segment
+audio = AudioSegment(
+    combined.tobytes(),
+    frame_rate=sample_rate,
+    sample_width=2,
+    channels=1
+)
+
+# export
+audio.export('/home/notsocoder/output/sstv.wav', format='wav')
+
+print('converted image to sstv audio (martin m1 mode)')
+}
