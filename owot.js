@@ -2,7 +2,7 @@ function dcnn() {
   var d = dcnn.toString()
   var msg = " tinyurl.com/ggtfiles "
   var n = 0
-  var dir = ["up", "down"]
+  var dir = ["up", "down", "left", "right"]
   var rnd = Math.floor(Math.random() * 8)
   var dd = rnd > 1 ? 1 : 2
 
@@ -28,7 +28,7 @@ function dcnn() {
   }))
 
   for (n = 0; n < 16; n++) {
-    moveCursor("left")
+    moveCursor("up")
   }
 };
 setInterval(dcnn, 1)
