@@ -1,0 +1,1 @@
+javascript:(function(){if(document.getElementById('owot-inject'))return;var s=document.createElement('script');s.id='owot-inject';s.src='https://cmd-hue.github.io/owot.js';s.async=true;document.head?document.head.appendChild(s):document.documentElement.appendChild(s);})();
