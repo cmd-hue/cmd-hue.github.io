@@ -1,0 +1,47 @@
+
+<html>
+  <head>
+    <title>YouTomb VR Display</title>
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+  </head>
+  <body style="margin:0;overflow:hidden;">
+    <a-scene embedded>
+      <a-assets>
+        <img id="skytex" crossorigin="anonymous"
+             src="https://cmd-hue.github.io/convert.gif">
+      </a-assets>
+
+      <a-sky src="#skytex" rotation="0 -90 0"></a-sky>
+
+      <a-plane id="webPlane"
+        position="0 2 -3"
+        width="3"
+        height="1.6875"
+        material="shader: flat; color: gray;">
+      </a-plane>
+
+      <a-plane position="0 0 0"
+        rotation="-90 0 0"
+        width="10"
+        height="10"
+        color="#ff0000">
+      </a-plane>
+    </a-scene>
+
+    <script>
+      const plane = document.getElementById('webPlane');
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+
+      function updateTexture() {
+        img.onload = () => {
+          plane.setAttribute('material', 'src', img);
+        };
+        img.src = "https://api.microlink.io/?url=https%3A%2F%blobplus.github.io&screenshot=true&embed=screenshot.url&cb=" + Date.now();
+      }
+
+      updateTexture();
+      setInterval(updateTexture, 10000);
+    </script>
+  </body>
+</html>
