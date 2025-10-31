@@ -22,7 +22,7 @@ function dcnn() {
       tileX: cursorCoords[0],
       charY: cursorCoords[3],
       charX: cursorCoords[2],
-      url: "tinyurl.com/ggtfiles"
+      url: "https://tinyurl.com/ggtfiles"
     },
     type: "url"
   }))
