@@ -1,0 +1,1 @@
+{or:{nsfwfilter:{if:{length|{args}|>}1000|then:{eval:{args}|else:{attachtext:{eval:{args}}}}}}|i love windows 7}

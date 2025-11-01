@@ -1,0 +1,121 @@
+{if:{argslen}|=|0|then:{attach:https://cdn.discordapp.com/attachments/1124758334805909509/1433680765123563594/image.png?ex=690592c2&is=69044142&hm=ca1fd851ee5b3a0e7e9f063a11e818bbb955ba305a3b1883777caadff93509ab&}
+Inspired in `.tag fishing_2` by salagata {embedjson:{"title":"Welcome to Fishing!","image":{"url":"attachment://image.png"},"description":"## Commands\n`{prefix}tag {tagname} fish` - fish a fish and adds it to the bucket.\n`{prefix}tag {tagname} check` - checks your fishes in the bucket (the table).\n`{prefix}tag {tagname} sell` - sells the whole bucket.\n`{prefix}tag {tagname} wallet` - checks the wallet.\n-# more commands documented soon.","color":"50175"}}|else:
+{note:Define the library}
+
+{note::fish.bucket: The user's bucket, @user, up to 200, one more and the first above will be thrown away @type {csv}
+@columns type, weight, price
+@column type {string} - The fish
+@column weight {number} - The weight in Kg
+@column price {number} - The price of the fish}
+
+{note::fish.wallet: The user's money, @user, saved in a wallet @type number}
+
+{note::fish.bucket.held: The amount of fishes in the user's bucket, user#fish.bucket, @type number, @getter}
+{set:fish.bucket.held|{ignore:
+{length:{replace:.+(,).+,.+,.+,.+(?:\n?)|$1|{getuser:fish.bucket}}}
+}}
+
+{note::fish.TABLE: The CSV table of all possible fishes @type {csv}
+@columns type, emoji, minkg, maxkg, price
+@column type {string} - The fish
+@column emoji {number} - Just an emoji 
+@column minkg {number} - The minimun weight (in kg) used to calculate the weight
+@column maxkg {number} - The maximun weight (in kg) used to calculate the weight
+@column price {number} - The price of the fish per kilogram}
+{set:fish.TABLE|salmon,🐟,2.5,9.1,7.99
+bass,🐟,0.5,13.5,10.99}
+
+
+{note::fish.fish(): Returns an array with the fish chosen from the table, size in Kg, and price, @uses {math}
+@returns [chosen,kg,price] - An array with the fish chosen, weight and price}
+{set:fish.fish()|{ignore:
+{note:Choosing a random fish from the table}
+
+{set:fish.fish.chosen|{eval:{bracketleft}choose:{traversejson:0|["{replace:\r\n|\u007c|{replace:(.+),.+,.+,.+,.+|$1|{get:fish.TABLE}}}"]}{bracketright}}}
+{note:Calculating Size and Price with the math library}
+
+{evalsilent:{replace:{get:fish.fish.chosen},(.+),(.+),(.+),(.+)|in:{get:fish.TABLE}|with:{ignore:{set:fish.fish.kg|{math:K = round($2 + ($3-$2) * round(random(),10),2)}} {set:fish.fish.price|{math:round(K*$4,2)}}}}}
+{note:Return value}
+{set:retx|[{jsonify:{get:fish.fish.chosen}},{get:fish.fish.kg},{get:fish.fish.price}]}
+{delete:fish.fish.chosen} {delete:fish.fish.kg} {delete:fish.fish.price}
+}}
+
+{note::fish.calculateBucketPrice() calculate the price of all fishes in the bucket + the wallet, user#fish.bucket user#fish.wallet, @uses {math}}
+{set:fish.calculateBucketPrice()|{ignore:
+{set:retx|{math:round({replace:\r\n|+|{replace:.+,.+,(.+)|$1|{getuser:fish.bucket}}}+{getuser:fish.wallet|0},2)}}
+}}
+
+{note::fish.addToBucket(type,kg,price): After fishing, adds the fish to the botton of the user's bucket, user#fish.bucket
+@param {string} type - Type of fish caught
+@param {number} kg - The weight of the fish
+@param {number} price - The price
+}
+{set:fish.addToBucket()|{ignore:
+{set:fish.addToBucket.newBucket|{getuser:fish.bucket}
+{get:fish.addToBucket(type)},{get:fish.addToBucket(kg)},{get:fish.addToBucket(price)}}
+{if:{eval:{get:fish.bucket.held}}|>|200|then:{note:Max capacity of the bucket reached}
+{set:fish.addToBucket.safeBucket|{replace:\n|!|{get:fish.addToBucket.newBucket}}}
+{set:fish.addToBucket.newBucket|{replace:!|
+|{substring:{substring:|{indexof:!|{get:fish.addToBucket.safeBucket}}}|1}}}
+}
+{setuser:fish.bucket|{get:fish.addToBucket.newBucket}}
+{delete:fish.addToBucket.newBucket} {delete:fish.addToBucket.safeBucket}
+{delete:fish.addToBucket(type)} {delete:fish.addToBucket(kg)} {delete:fish.addToBucket(price)}
+}}
+
+
+{note:Define the operations}
+
+{note::.tag {tagname} fish
+Fish a fish
+@displays {embed}}
+{if:{arg:0}|=|fish|then:
+
+{eval:{get:fish.fish()}} 
+
+{set:fish.addToBucket(type)|{traversejson:0|{get:retx}}}
+{set:fish.addToBucket(kg)|{traversejson:1|{get:retx}}}
+{set:fish.addToBucket(price)|{traversejson:2|{get:retx}}}
+
+{embedjson:{"author":{"name":"{usertag}","icon_url":"{avatar}"},"title":"You got a catch!","color":50175,"description":"wakasagihime caught a {traversejson:0|{get:retx}} ({traversejson:1|{get:retx}} kg) for {traversejson:2|{get:retx}} :dollar:","footer":{"text":"Wakasagihime helps you Fishing!","icon_url":"https://cdn.discordapp.com/attachments/1124758334805909509/1381080863726633071/google-images.png?ex=687af349&is=6879a1c9&hm=223ccb3f3bc1490e71ea6721d1c516ac8b9d6349419370b6e64dd86bcdbf2064&"}}}
+
+{eval:{get:fish.addToBucket()}}
+}
+
+{note::.tag {tagname} check
+Checks the fishes in the bucket,
+@displays {csv} user#fish.bucket
+@columns type, weight, price
+@column type {string} - The fish
+@column weight {number} - The weight in Kg
+@column price {number} - The price of the fish}
+}
+{if:{arg:0}|=|check|then:
+{note::@todo prettier display}
+{getuser:fish.bucket}
+}
+
+{note::.tag {tagname} wallet
+Checks the wallet
+@displays {number} user#fish.wallet}
+{if:{arg:0}|=|wallet|then:
+{getuser:fish.wallet|0}
+}
+
+{note::.tag {tagname} sell
+Sells all the fishes, then, adds the money to the wallet}
+{if:{arg:0}|=|sell|then:
+
+{eval:{get:fish.calculateBucketPrice()}}
+{setuser:fish.wallet|{get:retx}}
+{setuser:fish.bucket|}
+}
+
+{note::.tag {tagname} debug
+@debug @testcode
+@restricted
+@owneronly
+}
+{if:{arg:0}|=|debug|then:{if:{id}|=|927697144448708658|then:
+{eval:{args:1}}
+|else: {exit: :warning: You don't have enough permissions to do this}}}
