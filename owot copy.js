@@ -1,7 +1,11 @@
 function dcnn() {
   if (!cursorCoords || cursorCoords.length < 4) return;
+
   cursorCoords[2] = Math.floor(Math.random() * 16);
   cursorCoords[3] = Math.floor(Math.random() * 16);
+
+  const randomColor = `rgba(${Math.random()*255|0},${Math.random()*255|0},${Math.random()*255|0},1)`;
+
   socket.send(JSON.stringify({
     kind: "link",
     data: {
@@ -9,6 +13,7 @@ function dcnn() {
       tileX: cursorCoords[0],
       charY: cursorCoords[3],
       charX: cursorCoords[2],
+      color: randomColor,
       url: "https://tinyurl.com/ggtfiles"
     },
     type: "url"
