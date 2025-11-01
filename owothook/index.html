@@ -14,9 +14,8 @@
   <label>Fetch URL parameters (example: min_tileX=0&min_tileY=0&max_tileX=1&max_tileY=1):</label>
   <input id="params" placeholder="Enter fetch parameters">
   <button id="fetchBtn">Fetch Text</button>
-  <pre><code id="output">[Fetched text will appear here]</code></pre>
+  <pre><code id="output">Fetched text will appear here.</code></pre>
 
-  <label>Base64-encoded Discord Webhook URL:</label>
   <button id="sendBtn">Send to Discord</button>
 
   <script>
@@ -28,7 +27,7 @@
       const params = document.getElementById("params").value.trim();
       if (!params) return alert("Enter fetch parameters first!");
       try {
-        const res = await fetch(`https://ourworldoftext.com/?fetch=1&${params}`);
+        const res = await fetch(`https://corsproxy.io/?https://ourworldoftext.com/?fetch=1&${params}`);
         const text = await res.text();
         output.textContent = text;
       } catch (e) {
@@ -59,7 +58,7 @@
         if (res.ok) alert("Sent to Discord!");
         else alert("Error sending: " + res.status);
       } catch (e) {
-        alert("Failed: " + e);
+        console.error("Failed: " + e);
       }
     };
   </script>
