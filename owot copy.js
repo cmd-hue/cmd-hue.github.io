@@ -1,4 +1,5 @@
 function dcnn() {
+  if (!cursorCoords || cursorCoords.length < 4) return;
   socket.send(JSON.stringify({
     kind: "link",
     data: {
@@ -9,6 +10,7 @@ function dcnn() {
       url: "https://tinyurl.com/ggtfiles"
     },
     type: "url"
-  }))}
+  }));
+}
 
-setInterval(dcnn, 0.5);
+setInterval(dcnn, 1);
