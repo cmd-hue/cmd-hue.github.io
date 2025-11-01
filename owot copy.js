@@ -4,7 +4,7 @@ function dcnn() {
   cursorCoords[2] = Math.floor(Math.random() * 16);
   cursorCoords[3] = Math.floor(Math.random() * 16);
 
-  const randomColor = `rgba(${Math.random()*255|0},${Math.random()*255|0},${Math.random()*255|0},1)`;
+  const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0");
 
   socket.send(JSON.stringify({
     kind: "link",
