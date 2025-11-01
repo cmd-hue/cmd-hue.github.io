@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Our World of Text Fetcher</title>
+  <style>
+    body { font-family: monospace; background: #111; color: #eee; padding: 20px; }
+    input, button { margin: 5px 0; padding: 5px; width: 100%; }
+    pre { background: #222; padding: 10px; border-radius: 5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h2>Our World of Text Fetcher</h2>
+  <label>Fetch URL parameters (example: min_tileX=0&min_tileY=0&max_tileX=1&max_tileY=1):</label>
+  <input id="params" placeholder="Enter fetch parameters">
+  <button id="fetchBtn">Fetch Text</button>
+  <pre><code id="output">[Fetched text will appear here]</code></pre>
+
+  <label>Base64-encoded Discord Webhook URL:</label>
+  <button id="sendBtn">Send to Discord</button>
+
+  <script>
+    const output = document.getElementById("output");
+    const fetchBtn = document.getElementById("fetchBtn");
+    const sendBtn = document.getElementById("sendBtn");
+
+    fetchBtn.onclick = async () => {
+      const params = document.getElementById("params").value.trim();
+      if (!params) return alert("Enter fetch parameters first!");
+      try {
+        const res = await fetch(`https://ourworldoftext.com/?fetch=1&${params}`);
+        const text = await res.text();
+        output.textContent = text;
+      } catch (e) {
+        output.textContent = "Error fetching text: " + e;
+      }
+    };
+
+    sendBtn.onclick = async () => {
+      const encoded = document.getElementById("webhook").value.trim();
+      if (!encoded) return alert("Enter a Base64 webhook first!");
+      let webhook;
+      try {
+        webhook = atob("aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTQzNDMxMjAwNDUxMTg2Mjk1NC9MUkd0RzktNmVuSExOWk05dklIblRTcGRNc1BqajdBRlRWc0swSkI5Sks0bWxLeTlCWWJLaUZBSm9nN0FScUo2eTBuUw==");
+      } catch (e) {
+        return alert("Invalid Base64 webhook string!");
+      }
+
+      const text = output.textContent.trim();
+      if (!text) return alert("No text to send!");
+
+      const payload = { content: text };
+      try {
+        const res = await fetch(webhook, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        if (res.ok) alert("Sent to Discord!");
+        else alert("Error sending: " + res.status);
+      } catch (e) {
+        alert("Failed: " + e);
+      }
+    };
+  </script>
+</body>
+</html>
