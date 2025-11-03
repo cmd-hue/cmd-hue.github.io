@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WeakAssVM</title>
+    <meta http-equiv="Cache-control" content="public">
+    <meta http-equiv="Content-Type" value="application/xhtml+xml;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        #screen {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* canvas {
+            width: 100% !important;
+            height: 100% !important;
+        } */
+
+        #shutd {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            color: orange;
+            font-family: sans-serif;
+            user-select: none;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="screen"></div>
+    <div id="shutd">
+        <h1>It's now safe to turn off<br/>
+        your computer.</h1>
+    </div>
+    <script src="vnc.min.js"></script>
+    <script src="scr.js"></script>
+</body>
+
+</html>
