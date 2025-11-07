@@ -1,0 +1,725 @@
+<!DOCTYPE HTML>
+<html prefix="og: https://ogp.me/ns#" data-bs-theme="dark">
+  <head>
+    <title>CollabVM - fixtux // vm</title>
+    <link rel="stylesheet" href="https://corsproxy.io/?https://collab.woozy.eu.org/index.c3f66d16.css">
+    <script defer src="https://track.hausmer.com/script.js" data-website-id="439aa66b-db35-49c9-bd74-299afb592f8c"></script>
+    <script defer src="https://collab.woozy.eu.org/index.73d65182.js"></script>
+    <script src="https://rybbit.hausmer.com/api/script.js" data-site-id="1" data-session-replay="true" defer></script>
+    <script src="https://rybbit2.woozy.eu.org/api/script.js" data-site-id="1" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link href="https://corsproxy.io/?https://collab.woozy.eu.org/index.bd2f7f61.css" rel="stylesheet" type="text/css">
+    <link href="https://corsproxy.io/?https://collab.woozy.eu.org/index.a4985a73.css" rel="stylesheet" type="text/css">
+    <link rel="preload" href="https://corsproxy.io/?https://collab.woozy.eu.org/NotoColorEmoji.db8dcba9.ttf" as="font" type="font/tff" crossorigin>
+    <script src="https://collab.woozy.eu.org/index.c5344292.js" crossorigin></script>
+    <link rel="icon" href="https://corsproxy.io/?https://collab.woozy.eu.org/favicon.16bb9d0a.ico">
+    <meta name="description" content="A website that lets you take turns controlling online virtual machines with complete strangers!. Powered by fixtux // blog.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="fixtux // vm">
+    <meta property="og:url" content="https://collab.woozy.eu.org">
+    <meta property="og:description" content="A website that lets you take turns controlling online virtual machines with complete strangers!">
+    <meta property="og:site_name" content="fixtux // vm">
+    <meta property="og:image" content="https://computernewb.com/collab-vm/desktop.png">
+  </head>
+  <body>
+    <div class="fade modal" id="qemuMonitorModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="qemuModalHeader" class="modal-title"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <textarea id="qemuMonitorOutput" readonly class="form-control"></textarea>
+            <div class="input-group">
+              <input type="text" id="qemuMonitorInput" class="form-control" placeholder="Command">
+              <button class="btn btn-emoji btn-primary" type="button" id="qemuMonitorSendBtn"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fade modal" id="welcomeModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 id="welcomeModalHeader"></h1>
+          </div>
+          <div class="modal-body" id="welcomeModalBody"></div>
+          <div class="modal-footer">
+            <button type="button" id="welcomeModalDismiss" class="btn btn-primary" data-bs-dismiss="modal"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fade modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger alert-dismissible" id="badPasswordAlert" role="alert">
+              <span id="badPasswordAlertText"></span>
+              <button type="button" class="btn-close" aria-label="Close" id="incorrectPasswordDismissBtn"></button>
+            </div>
+            <div class="input-group">
+              <input type="hidden" name="username" id="adminInputVMID">
+              <span class="input-group-text" id="loginModalPasswordText"></span>
+              <input id="adminPassword" type="password" class="form-control" name="password">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="loginButton" class="btn btn-primary" data-rybbit-event="login">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fade modal" id="accountModal" tabindex="-1" aria-labelledby="accountModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="accountModalTitle"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger alert-dismissible" id="accountModalError" role="alert">
+              <span id="accountModalErrorText"></span>
+              <button type="button" class="btn-close" aria-label="Close" id="accountModalErrorDismiss"></button>
+            </div>
+            <div class="alert alert-dismissible alert-success" id="accountModalSuccess" role="alert">
+              <span id="accountModalSuccessText"></span>
+              <button type="button" class="btn-close" aria-label="Close" id="accountModalSuccessDismiss"></button>
+            </div>
+            <div id="accountLoginSection">
+              <form id="accountLoginForm">
+                <label for="accountLoginUsername" id="accountLoginUsernameLabel"></label>
+                <br>
+                <input id="accountLoginUsername" type="text" class="form-control" name="username" required>
+                <br>
+                <label for="accountLoginPassword" id="accountLoginPasswordLabel"></label>
+                <br>
+                <input id="accountLoginPassword" type="password" class="form-control" name="password" required>
+                <br>
+                <div id="accountLoginCaptchaContainer"></div>
+                <div id="accountLoginReCaptchaContainer"></div>
+                <div id="accountLoginTurnstileContainer"></div>
+                <button type="submit" class="btn btn-primary" id="accountModalLoginBtn"></button>
+                <button type="button" class="btn btn-secondary" id="accountForgotPasswordButton"></button>
+              </form>
+            </div>
+            <div id="accountRegisterSection">
+              <form id="accountRegisterForm">
+                <label for="accountRegisterEmail" id="accountRegisterEmailLabel"></label>
+                <br>
+                <input id="accountRegisterEmail" type="email" class="form-control" name="email" required>
+                <br>
+                <label for="accountRegisterUsername" id="accountRegisterUsernameLabel"></label>
+                <br>
+                <input id="accountRegisterUsername" type="text" class="form-control" name="username" required>
+                <br>
+                <label for="accountRegisterPassword" id="accountRegisterPasswordLabel"></label>
+                <br>
+                <input id="accountRegisterPassword" type="password" class="form-control" name="password" required>
+                <br>
+                <label for="accountRegisterConfirmPassword" id="accountRegisterConfirmPasswordLabel"></label>
+                <br>
+                <input id="accountRegisterConfirmPassword" type="password" class="form-control" name="confirmpassword" required>
+                <br>
+                <label for="accountRegisterDateOfBirth" id="accountRegisterDateOfBirthLabel"></label>
+                <br>
+                <input id="accountRegisterDateOfBirth" type="date" class="form-control" name="dateofbirth" required>
+                <br>
+                <div id="accountRegisterCaptchaContainer"></div>
+                <div id="accountRegisterReCaptchaContainer"></div>
+                <div id="accountRegisterTurnstileContainer"></div>
+                <button type="submit" class="btn btn-primary" id="accountModalRegisterBtn"></button>
+              </form>
+            </div>
+            <div id="accountVerifyEmailSection">
+              <center>
+                <i class="fa-envelope fa-solid" style="font-size:12rem"></i>
+                <p id="accountVerifyEmailText"></p>
+                <form id="accountVerifyEmailForm">
+                  <label for="accountVerifyEmailCode" id="accountVerifyEmailCodeLabel"></label>
+                  <br>
+                  <input id="accountVerifyEmailCode" type="text" class="form-control" name="code" required>
+                  <br>
+                  <label for="accountVerifyEmailPassword" id="accountVerifyEmailPasswordLabel"></label>
+                  <br>
+                  <input id="accountVerifyEmailPassword" type="password" class="form-control" name="password" required>
+                  <br>
+                  <button type="submit" class="btn btn-primary" id="accountModalVerifyEmailBtn"></button>
+                </form>
+              </center>
+            </div>
+            <div id="accountSettingsSection">
+              <form id="accountSettingsForm">
+                <label for="accountSettingsEmail" id="accountSettingsEmailLabel"></label>
+                <br>
+                <input id="accountSettingsEmail" type="email" class="form-control" name="email" required>
+                <br>
+                <label for="accountSettingsUsername" id="accountSettingsUsernameLabel"></label>
+                <br>
+                <input id="accountSettingsUsername" type="text" class="form-control" name="username" required>
+                <br>
+                <label for="accountSettingsNewPassword" id="accountSettingsNewPasswordLabel"></label>
+                <input id="accountSettingsNewPassword" type="password" class="form-control" name="password">
+                <br>
+                <label for="accountSettingsConfirmNewPassword" id="accountSettingsConfirmNewPasswordLabel"></label>
+                <input id="accountSettingsConfirmNewPassword" type="password" class="form-control" name="confirmpassword">
+                <br>
+                <label for="accountSettingsCurrentPassword" id="accountSettingsCurrentPasswordLabel"></label>
+                <input id="accountSettingsCurrentPassword" type="password" class="form-control" name="currentpassword" required>
+                <br>
+                <input type="checkbox" id="hideFlagCheckbox" class="form-check-input">
+                <label for="hideFlagCheckbox" id="hideFlagCheckboxLabel"></label>
+                <br>
+                <button type="submit" class="btn btn-primary" id="updateAccountSettingsBtn"></button>
+              </form>
+            </div>
+            <div id="accountResetPasswordSection">
+              <form id="accountResetPasswordForm">
+                <label for="accountResetPasswordEmail" id="accountResetPasswordEmailLabel"></label>
+                <br>
+                <input id="accountResetPasswordEmail" type="email" class="form-control" name="email" required>
+                <br>
+                <label for="accountResetPasswordUsername" id="accountResetPasswordUsernameLabel"></label>
+                <input id="accountResetPasswordUsername" type="text" class="form-control" name="username" required>
+                <br>
+                <div id="accountResetPasswordCaptchaContainer"></div>
+                <div id="accountResetPasswordReCaptchaContainer"></div>
+                <div id="accountResetPasswordTurnstileContainer"></div>
+                <button type="submit" class="btn btn-primary" id="accountResetPasswordBtn"></button>
+              </form>
+            </div>
+            <div id="accountResetPasswordVerifySection">
+              <center>
+                <i class="fa-envelope fa-solid" style="font-size:12rem"></i>
+                <p id="accountVerifyPasswordResetText"></p>
+                <form id="accountResetPasswordVerifyForm">
+                  <label for="accountResetPasswordCode" id="accountResetPasswordCodeLabel"></label>
+                  <br>
+                  <input id="accountResetPasswordCode" type="text" class="form-control" name="code" required>
+                  <br>
+                  <label for="accountResetPasswordNewPassword" id="accountResetPasswordNewPasswordLabel"></label>
+                  <br>
+                  <input id="accountResetPasswordNewPassword" type="password" class="form-control" name="password" required>
+                  <br>
+                  <label for="accountResetPasswordConfirmNewPassword" id="accountResetPasswordConfirmNewPasswordLabel"></label>
+                  <br>
+                  <input id="accountResetPasswordConfirmNewPassword" type="password" class="form-control" name="confirmpassword" required>
+                  <br>
+                  <button type="submit" class="btn btn-primary" id="accountResetPasswordVerifyBtn"></button>
+                </form>
+              </center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="https://corsproxy.io/?https://collab.woozy.eu.org/#">
+          <span id="siteNameText"></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="me-auto navbar-nav">
+            <li class="nav-item">
+              <a id="homeBtn" href="https://corsproxy.io/?https://collab.woozy.eu.org/#" class="active nav-link" aria-current="page">
+                <i class="fa-house fa-solid"></i>
+                <span id="homeBtnText"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="https://corsproxy.io/?https://collab.woozy.eu.org/https://computernewb.com/collab-vm/faq/" rel="nofollow" class="nav-link">
+                <i class="fa-circle-question fa-solid"></i>
+                <span id="faqBtnText"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a id="rulesBtn" href="https://corsproxy.io/?https://collab.woozy.eu.org/https://computernewb.com/collab-vm/rules" rel="nofollow" class="nav-link">
+                <i class="fa-clipboard-check fa-solid"></i>
+                <span id="rulesBtnText"></span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="https://corsproxy.io/?https://collab.woozy.eu.org/https://discord.gg/8HfVUCshb4" rel="nofollow" class="nav-link">
+                <i class="fa-brands fa-discord"></i> Discord </a>
+            </li>
+            <li class="nav-item">
+              <a id="toggleThemeBtn" href="https://corsproxy.io/?https://collab.woozy.eu.org/#" class="nav-link">
+                <i id="toggleThemeIcon" class="fa-solid fa-sun"></i>
+                <span id="toggleThemeBtnText"></span>
+              </a>
+            </li>
+            <li class="dropdown nav-item">
+              <a id="languageDropdownLink" class="dropdown-toggle nav-link" href="https://corsproxy.io/?https://collab.woozy.eu.org/#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-globe fa-solid"></i>
+                <span id="languageDropdownText"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdownLink">
+                <span id="languageDropdown"></span>
+                <a class="dropdown-item" href="https://github.com/computernewb/collab-vm-1.2-webapp/wiki/Contributing-a-Language" rel="nofollow" target="_blank">
+                  <i class="fa-plus fa-solid"></i> Add Yours </a>
+              </div>
+            </li>
+          </ul>
+          <div class="dropdown navbar-text">
+            <a class="dropdown-toggle nav-link" href="https://corsproxy.io/?https://collab.woozy.eu.org/#" id="accountDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-user"></i>
+              <span id="accountDropdownUsername"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdownMenuLink">
+              <a class="dropdown-item" href="https://collab.woozy.eu.org/#" id="accountLoginButton"></a>
+              <a class="dropdown-item" href="https://collab.woozy.eu.org/#" id="accountRegisterButton"></a>
+              <a class="dropdown-item" href="https://collab.woozy.eu.org/#" id="accountSettingsButton"></a>
+              <a class="dropdown-item" href="https://collab.woozy.eu.org/#" id="accountLogoutButton"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid" id="vmlist">
+      <div class="row"></div>
+    </div>
+    <div id="vmview">
+      <div id="vmDisplay"></div>
+      <p id="turnstatus"></p>
+      <div id="voteResetPanel" style="display:none">
+        <span id="voteResetHeaderText"></span>
+        <br>
+        <button class="btn btn-success" id="voteYesBtn">
+          <i class="fa-check fa-solid"></i>
+          <span id="voteYesBtnText"></span>
+          <span class="badge bg-secondary" id="voteYesLabel"></span>
+        </button>
+        <button class="btn btn-danger" id="voteNoBtn">
+          <i class="fa-ban fa-solid"></i>
+          <span id="voteNoBtnText"></span>
+          <span class="badge bg-secondary" id="voteNoLabel"></span>
+        </button>
+        <br>
+        <span id="voteTimeText"></span>
+        <div id="forceVotePanel">
+          <button class="btn btn-info" id="forceVoteYesBtn">
+            <i class="fa-check fa-solid"></i>
+            <span id="passVoteBtnText"></span>
+          </button>
+          <button class="btn btn-info" id="forceVoteNoBtn">
+            <i class="fa-ban fa-solid"></i>
+            <span id="cancelVoteBtnText"></span>
+          </button>
+        </div>
+      </div>
+      <div id="btns">
+        <button class="btn btn-secondary" id="takeTurnBtn">
+          <i class="fa-computer-mouse fa-solid"></i>
+          <span id="turnBtnText"></span>
+        </button>
+        <a href="https://corsproxy.io/?https://collab.woozy.eu.org/https://vmu.woozy.eu.org" target="_blank" class="btn btn-secondary" id="uploaddBtn">
+          <i class="fa-solid fa-upload"></i>
+          <span id="uploadText">Upload</span>
+        </a>
+        <button class="btn btn-secondary" id="oskBtn">
+          <i class="fa-keyboard fa-solid"></i>
+          <span id="oskBtnText"></span>
+        </button>
+        <button class="btn btn-secondary" id="changeUsernameBtn">
+          <i class="fa-signature fa-solid"></i>
+          <span id="changeUsernameBtnText"></span>
+        </button>
+        <button class="btn btn-secondary" id="voteResetButton">
+          <i class="fa-rotate-left fa-solid"></i>
+          <span id="voteForResetBtnText"></span>
+        </button>
+        <button class="btn btn-secondary" id="voteRebootButton">
+          <i class="fa-power-off fa-solid"></i>
+          <span id="voteForRebootBtnText"></span>
+        </button>
+        <button class="btn btn-secondary" id="screenshotButton">
+          <i class="fa-camera fa-solid"></i>
+          <span id="screenshotBtnText"></span>
+        </button>
+        <button class="btn btn-secondary" id="ctrlAltDelBtn">
+          <i class="fa-gear fa-solid"></i>
+          <span id="ctrlAltDelBtnText"></span>
+        </button>
+        <div id="staffbtns">
+          <button class="btn btn-secondary" id="restoreBtn">
+            <i class="fa-rotate-left fa-solid"></i>
+            <span id="restoreBtnText"></span>
+          </button>
+          <button class="btn btn-secondary" id="rebootBtn">
+            <i class="fa-power-off fa-solid"></i>
+            <span id="rebootBtnText"></span>
+          </button>
+          <button class="btn btn-secondary" id="clearQueueBtn">
+            <i class="fa-eraser fa-solid"></i>
+            <span id="clearQueueBtnText"></span>
+          </button>
+          <button class="btn btn-secondary" id="bypassTurnBtn">
+            <i class="fa-forward fa-solid"></i>
+            <span id="bypassTurnBtnText"></span>
+          </button>
+          <button class="btn btn-secondary" id="endTurnBtn">
+            <i class="fa-ban fa-solid"></i>
+            <span id="endTurnBtnText"></span>
+          </button>
+          <button class="btn btn-secondary" id="indefTurnBtn">
+            <i class="fa-infinity fa-solid"></i>
+            <span id="indefTurnBtnText"></span>
+          </button>
+          <button class="btn btn-secondary" id="ghostTurnBtn">
+            <i class="fa-ghost fa-solid"></i>
+            <span id="ghostTurnBtnText"></span>
+          </button>
+          <button class="btn btn-secondary" id="qemuMonitorBtn" data-bs-toggle="modal" data-bs-target="#qemuMonitorModal">
+            <i class="fa-solid fa-terminal"></i>
+            <span id="qemuMonitorBtnText"></span>
+          </button>
+        </div>
+      </div>
+      <div class="d-none osk-container" id="osk-container">
+        <div class="osk-main"></div>
+        <div class="controlArrows">
+          <div class="osk-control"></div>
+          <div class="osk-arrows"></div>
+        </div>
+        <div class="numPad">
+          <div class="osk-numpad"></div>
+          <div class="osk-numpadEnd"></div>
+        </div>
+      </div>
+      <div class="container-fluid row">
+        <div class="col-md-4">
+          <div class="chat-container" id="users-container">
+            <div class="chat-header">
+              <div class="chat-header-title">
+                <i class="fa-solid fa-user"></i>
+                <span id="usersOnlineText"></span>
+                <span id="onlineusercount"></span>
+              </div>
+            </div>
+            <div class="chat-content">
+              <div class="chat-table table-responsive username-table">
+                <table class="mb-0 table table-borderless table-hover">
+                  <tbody id="userlist"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-container col-md-8">
+          <div id="chat-container" class="chat-container">
+            <div class="chat-header" id="chatHeader">
+              <div class="chat-header-title">
+                <i class="fa-comments fa-solid"></i>
+                <span id="chatHeaderTitle">Chat</span>
+              </div>
+              <div class="chat-header-actions">
+                <button type="button" class="btn btn-outline-secondary btn-sm chat-header-btn" id="chatFloatToggle" aria-pressed="false">
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-sm chat-header-btn" id="chatCollapseToggle" aria-pressed="false">
+                  <i class="fa-minus fa-solid"></i>
+                </button>
+              </div>
+            </div>
+            <div class="chat-content">
+              <div class="chat-table table-responsive" id="chatListDiv">
+                <table class="table table-borderless table-hover">
+                  <tbody id="chatList"></tbody>
+                </table>
+              </div>
+              <div id="image-preview-container">
+                <img id="image-preview-img" src="#" style="border-radius:5px;width:100%">
+                <button id="remove-preview-btn" class="btn-close"></button>
+              </div>
+              <div class="input-group">
+                <span class="input-group-text username-unregistered" id="username"></span>
+                <input type="text" class="form-control" id="chat-input">
+                <button class="btn btn-outline-secondary" type="button" id="uploadImageBtn" title="Upload Image">
+                  <i class="fa-solid fa-upload"></i>
+                </button>
+                <div id="upload-tooltip" class="upload-tooltip">
+                  <span id="upload-tooltip-text"></span>
+                  <button id="upload-tooltip-close" class="btn-close"></button>
+                </div>
+                <input type="file" id="imageUploadInput" accept="image/*" style="display:none">
+                <button class="btn btn-outline-secondary" type="button" id="emojiBtn" title="Emoji">
+                  <i class="fa-face-smile fa-regular"></i>
+                </button>
+                <div id="emojiMenu" style="z-index:1000;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);background:#090b0cb2;border:1px solid #444;border-radius:8px;min-width:180px;padding:8px;display:none;position:absolute"></div>
+                <div class="input-group-text" id="xssCheckboxContainer">
+                  <input class="form-check-input" type="checkbox" id="xssCheckbox">
+                  <label class="form-check-label" for="xssCheckbox">XSS</label>
+                </div>
+                <button class="btn btn-primary" type="button" id="sendChatBtn">
+                  <i class="fa-paper-plane fa-solid"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="image-overlay">
+      <div id="image-overlay-content">
+        <span id="image-overlay-close">&times;</span>
+        <img id="image-overlay-img" src="#" alt="Full-size image">
+      </div>
+    </div>
+    <script type="module" src="index.f354fff0.js"></script>
+    <script>
+      const e = [{
+          name: "skull",
+          img: "/static/emoji/skull.png",
+          alt: "\uD83D\uDC80"
+        }, {
+          name: "skull-n-bones",
+          img: "/static/emoji/skull-n-bones.png",
+          alt: "☠️"
+        }, {
+          name: "bowling",
+          img: "/static/emoji/bowling.png",
+          alt: "\uD83C\uDFB3"
+        }, {
+          name: "nerd",
+          img: "/static/emoji/nerd.png",
+          alt: "\uD83E\uDD13"
+        }, {
+          name: "sob",
+          img: "/static/emoji/sob.png",
+          alt: "yes"
+        }, {
+          name: "omg",
+          img: "/static/emoji/omg.png",
+          alt: "omg"
+        }, {
+          name: "explode",
+          img: "/static/emoji/explode.png",
+          alt: "explode"
+        }, {
+          name: "like",
+          img: "/static/emoji/like.png"
+        }, {
+          name: "dislike",
+          img: "/static/emoji/dislike.png"
+        }, {
+          name: "mad",
+          img: "/static/emoji/mad.png"
+        }, {
+          name: "thinking",
+          img: "/static/emoji/thinking.png"
+        }, {
+          name: "ha",
+          img: "/static/emoji/ha.png"
+        }, {
+          name: "bruh",
+          img: "/static/emoji/bruh.png"
+        }, {
+          name: "vomit",
+          img: "/static/emoji/vomit.png"
+        }, {
+          name: "clown",
+          img: "/static/emoji/clown.png"
+        }, {
+          name: "what",
+          img: "/static/emoji/what.png"
+        }, {
+          name: "shit",
+          img: "/static/emoji/shit.png"
+        }, {
+          name: "pray",
+          img: "/static/emoji/pray.png"
+        }, {
+          name: "eyes",
+          img: "/static/emoji/eyes.png"
+        }, {
+          name: "heart",
+          img: "/static/emoji/heart.png"
+        }, {
+          name: "smile",
+          img: "/static/emoji/smile.png"
+        }, {
+          name: "wink-eye",
+          img: "/static/emoji/wink-eye.png"
+        }, {
+          name: "cool",
+          img: "/static/emoji/cool.png"
+        }, {
+          name: "cry",
+          img: "/static/emoji/cry.png"
+        }, {
+          name: "crazy",
+          img: "/static/emoji/crazy.png"
+        }, {
+          name: "fire",
+          img: "/static/emoji/fire.png"
+        }, {
+          name: "hot",
+          img: "/static/emoji/hot.png"
+        }, {
+          name: "grimacing",
+          img: "/static/emoji/grimacing.png"
+        }, {
+          name: "money-face",
+          img: "/static/emoji/money-face.png"
+        }, {
+          name: "tada",
+          img: "/static/emoji/tada.png"
+        }, {
+          name: "boom",
+          img: "/static/emoji/boom.png"
+        }, {
+          name: "brain",
+          img: "/static/emoji/brain.png"
+        }, {
+          name: "shush",
+          img: "/static/emoji/shush.png"
+        }, {
+          name: "saint",
+          img: "/static/emoji/saint.png"
+        }, {
+          name: "flushed",
+          img: "/static/emoji/flushed.png"
+        }, {
+          name: "party",
+          img: "/static/emoji/party.png"
+        }, {
+          name: "relaxed",
+          img: "/static/emoji/relaxed.png"
+        }, {
+          name: "ok",
+          img: "/static/emoji/ok.png"
+        }, {
+          name: "checkmark",
+          img: "/static/emoji/checkmark.png"
+        }, {
+          name: "wave",
+          img: "/static/emoji/wave.png"
+        }, {
+          name: "tm",
+          img: "/static/emoji/tm.png"
+        }, {
+          name: "troll",
+          img: "https://cdn.discordapp.com/emojis/1259254276056944745.webp?size=48",
+          alt: "\uD83E\uDD13"
+        }, {
+          name: "skull-rotate",
+          img: "https://cdn.discordapp.com/emojis/1259883002213830718.webp?size=48&animated=true",
+          alt: "\uD83D\uDC80"
+        }, {
+          name: "skull-rotate2",
+          img: "https://cdn.discordapp.com/emojis/1262726971008487476.webp?size=48&animated=true",
+          alt: "\uD83D\uDC80"
+        }, {
+          name: "skull-animated",
+          img: "https://cdn.discordapp.com/emojis/1349333069320163450.webp?size=48&animated=true",
+          alt: "\uD83D\uDC80"
+        }, {
+          name: "grief",
+          img: "https://cdn.discordapp.com/emojis/1204134314422575174.webp?size=48&animated=true",
+          alt: "\uD83D\uDC80"
+        }, {
+          name: "talking",
+          img: "https://cdn.discordapp.com/emojis/1099938781504745483.webp?size=48&animated=true",
+          alt: "\uD83D\uDC80"
+        }, {
+          name: "troll-4k",
+          img: "https://cdn.discordapp.com/emojis/851193563608907816.webp?size=48",
+          alt: "trl"
+        }, {
+          name: "trolley",
+          img: "https://cdn.discordapp.com/emojis/1178365884067217498.webp?size=48",
+          alt: "trolley"
+        }, {
+          name: "fall",
+          img: " https://cdn.discordapp.com/emojis/848992323001385000.webp?size=48&animated=true",
+          alt: "fall"
+        }, {
+          name: "catwtf",
+          img: " https://cdn.discordapp.com/emojis/821022181604720680.webp?size=48"
+        }, {
+          name: "troll-like",
+          img: "https://cdn.discordapp.com/emojis/1363942513265868840.webp?size=48"
+        }, {
+          name: "timcock",
+          img: "https://cdn.discordapp.com/emojis/1370524654669926520.webp?size=48"
+        }, {
+          name: "skull-explode",
+          img: "https://cdn.discordapp.com/emojis/1259882952897069168.webp?size=48&animated=true"
+        }, {
+          name: "spongebob",
+          img: "https://cdn.discordapp.com/emojis/834113415743144046.webp?size=48&animated=true"
+        }, {
+          name: "blob-heart",
+          img: "https://cdn.discordapp.com/emojis/828129006691287071.webp?size=48&animated=true"
+        }, {
+          name: "chillguy",
+          img: "/static/emoji/chillguy.png"
+        }, {
+          name: "tcockpray",
+          img: "/static/emoji/tcockpray.png"
+        }, {
+          name: "laugh2",
+          img: "https://cdn.discordapp.com/emojis/1054123848846557245.webp?size=48"
+        }, {
+          name: "timapple",
+          img: "https://cdn.discordapp.com/emojis/621044417511424010.webp?size=48"
+        }, {
+          name: "aphoncamerabutton",
+          img: "https://cdn.discordapp.com/emojis/1369053137712844820.webp?size=48&animated=true"
+        }, {
+          name: "boar",
+          img: "https://cdn.discordapp.com/emojis/1263563217817440338.webp?size=48"
+        }, {
+          name: "moniandroid",
+          img: "https://cdn.discordapp.com/emojis/1369052187992260788.webp?size=48&animated=true"
+        }, {
+          name: "skull-huawei",
+          img: "https://cdn.discordapp.com/emojis/1349332505743986719.webp?size=48",
+          alt: "\uD83D\uDC80"
+        }],
+        i = {};
+      window.parseEmojis = function(t) {
+        return t.replace(/:([a-zA-Z0-9_\-]+):/g, function(t, m) {
+          if (i[m]) return i[m];
+          let a = e.find(e => e.name === m),
+            n = a ? a.img : `/static/emoji/${m}.png`,
+            o = `
+																																																																																		<img src="${n}" alt=":${m}:" class="chat-emoji" onerror="this.onerror=null;this.replaceWith(document.createTextNode(':${m}:'))">`;
+          return i[m] = o, o
+        })
+      };
+      const t = document.getElementById("emojiBtn"),
+        m = document.getElementById("emojiMenu"),
+        a = document.getElementById("chat-input");
+      t.addEventListener("click", function(i) {
+        m.innerHTML = "", e.forEach(e => {
+          let i = document.createElement("button");
+          i.type = "button", i.className = "btn btn-link p-1 emoji-btn", i.title = e.name, i.innerHTML = `
+																																																																																			<img src="${e.img}" alt="${e.alt}" style="width:28px; height: 28px; vertical-align: middle;">`, i.onclick = function() {
+            (function(e, i) {
+              if (document.activeElement !== e && e.focus(), "number" == typeof e.selectionStart) {
+                let t = e.selectionStart,
+                  m = e.selectionEnd,
+                  a = e.value;
+                e.value = a.slice(0, t) + i + a.slice(m), e.selectionStart = e.selectionEnd = t + i.length
+              } else e.value += i
+            })(a, `:${e.name}:`), m.style.display = "none", a.focus()
+          }, m.appendChild(i)
+        }), "none" === m.style.display ? (m.style.left = "", m.style.right = "0", m.style.marginTop = "-370px", m.style.marginRight = "105px", m.style.top = "", m.style.display = "grid") : m.style.display = "none"
+      }), document.addEventListener("mousedown", function(e) {
+        m.contains(e.target) || e.target === t || (m.style.display = "none")
+      });
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"8058d649cf55436a855f06cb6c2bd06c","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+  </body>
+</html>
