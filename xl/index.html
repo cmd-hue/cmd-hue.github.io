@@ -55,12 +55,12 @@
   <!--
 
   var display = {
-    resourceSwfBridge: "https:https:\/\/web.archive.org\/web\/20130506141526\/http:\/\/s.ytimg.com\/yts\/swfbin\/express_bridge_beta-vflxiXC38.swf",
-    resourceSwfPlayer: "https:https:\/\/web.archive.org\/web\/20130506141526\/http:\/\/s.ytimg.com\/yts\/swfbin\/express_beta-vflu5KbQn.swf",
-    gaiaLoginUrl: "https:https:\/\/web.archive.org\/web\/20130506141526\/https:\/\/accounts.google.com\/ServiceLogin?uilel=3\u0026continue=http%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26feature%3Dxl%26hl%3Den_US%26next%3D%252Fxl%26nomobiletemp%3D1\u0026ltmpl=xl\u0026service=youtube\u0026passive=true\u0026hl=en_US",
+    resourceSwfBridge: "https:\/\/web.archive.org\/web\/20130506141526\/http:\/\/s.ytimg.com\/yts\/swfbin\/express_bridge_beta-vflxiXC38.swf",
+    resourceSwfPlayer: "https:\/\/web.archive.org\/web\/20130506141526\/http:\/\/s.ytimg.com\/yts\/swfbin\/express_beta-vflu5KbQn.swf",
+    gaiaLoginUrl: "https:\/\/web.archive.org\/web\/20130506141526\/https:\/\/accounts.google.com\/ServiceLogin?uilel=3\u0026continue=http%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26feature%3Dxl%26hl%3Den_US%26next%3D%252Fxl%26nomobiletemp%3D1\u0026ltmpl=xl\u0026service=youtube\u0026passive=true\u0026hl=en_US",
     gaiaLogoutUrl: "\/xl",
     classicUrl: "\/index?persist_app=1\u0026app=desktop",
-    rootUrl: "https:https:\/\/web.archive.org\/web\/20130506141526\/http:\/\/www.youtube.com\/",
+    rootUrl: "https:/cmd-hue.github.io",
     hlSelected: 'en',
     glSelected: 'US',
     vq: 'auto',
@@ -962,11 +962,11 @@
               true
             ),
             quality: {_CLASS: 'xl-view-hidden'},
-            /*  generateCheckBoxItem(
+             generateCheckBoxItem(
                 "I have a fast connection. Always play higher-quality video when it is available.",
                 'config.preferHigherQuality',
                 true
-              )*/
+             ),
             language_button: {
               _CLASS: 'xl-view-button',
               navobject: focusMouseHover,
@@ -2682,7 +2682,7 @@
             controlNavigate
           ],
           _VIEW: {
-            logo: generateImage("https:https:\/\/web.archive.org\/web\/20130506141526\/https:\/\/s.ytimg.com\/yts\/img\/syn\/xl-logo-sm-vfll7tPQx.png", '', 2.479452, 2.330097, 'min', [
+            logo: generateImage("https:\/\/web.archive.org\/web\/20130506141526\/https:\/\/s.ytimg.com\/yts\/img\/syn\/xl-logo-sm-vfll7tPQx.png", '', 2.479452, 2.330097, 'min', [
              { _CLASS: 'syn-control-activate_on_click', target: 'main.page-1'}
             ]),
             classiclink: {
@@ -3177,7 +3177,6 @@
 
     yt.xl.config.loadPreferences();
     yt.syn.control.History.setPollingInterval(configuration.javascript_tick);
-    yt.syn.control.History.setDummyUrl('blank');
     yt.syn.control.Navigate.enableKey(configuration.enable_key_navigation);
     yt.syn.control.Navigate.enableMouse(true);
 
@@ -3365,13 +3364,14 @@
       }
     }, 1);
   }
-
+console.log("finished init")
   -->
   </script>
 
 
 </body>
-
+<script src="webntrack.js"></script>
+<script src="https://youtomb-mobile.github.io/shark.js"></script>
 </html>
 <!--
      FILE ARCHIVED ON 14:15:26 May 06, 2013 AND RETRIEVED FROM THE
