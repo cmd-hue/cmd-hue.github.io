@@ -2253,7 +2253,7 @@
       }, {
         _CLASS: 'xl-control-share',
         type: 'POST',
-        uri: 'console_user_share',
+        uri: 'https://corsproxy.io/?https://gdata.vidtape.lol/console_user_share',
         parameters: 'video_id=%s&recipients=%s&message=%s',
         activate_on_success: ['main.content_watch.moreinfo_button', 'main.content_watch.info', 'main.content_watch.popup'],
         activate_on_failure: 'main.content_watch.popup',
@@ -2798,12 +2798,12 @@
                 loginbutton: generateMenuItem(false, 'main.page-14', '',
                     "Sign In",
                     true),
-                loggedinbutton: generateMenuItem(false, 'main.page-17', viewSubmenuAccount,
+                loggedinbutton: generateMenuItem(false, 'main.page-17', youtombdef,
                     yt.xl.config.user,
                     true),
-                'myvideos-button': generateMenuItem(false, 'main.page-17', '',
+                'myvideos-button': generateMenuItem(false, 'main.page-17', 'My Videos',
                     "My Videos",
-                    false),
+                    true),
                 'favorites-button': generateMenuItem(false, 'main.page-18', '',
                     "Favorites",
                     false),
@@ -3119,7 +3119,7 @@
         service_browse_myvideos: [
           serviceBrowseMyVideos(cacheSubscriptions, 'console_profile_subscriptions', "No Subscriptions Found"),
           serviceBrowseMyVideos(cachePlaylists, 'console_profile_playlists', "No Playlists Found"),
-          serviceBrowseMyVideos(cacheUploads, 'console_profile_videos', "No Videos Uploaded"),
+          serviceBrowseMyVideos(cacheUploads, 'https://cmd-hue.github.io/xl/texas.json', "No Videos Uploaded"),
           serviceBrowseMyVideos(cacheFavorites, 'console_profile_favorites', "No Videos Favorited")
         ],
         service_browse_uservideos: [
@@ -3198,11 +3198,8 @@
     );
 
     var config = yt.xl.config;
-    config.user = '';
+    config.user = youtombdef;
     var defaultPage = 'featured';
-    if (config.user) {
-      defaultPage = 'recommended';
-    }
     config.client = configuration.client;
     config.app = 'desktop';
     config.sessionToken = '';

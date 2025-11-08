@@ -7370,7 +7370,12 @@
                     c[J]()
                 });
                 S(a.sa("image"), function(c) {
-    var imgUrl = b.image_url.includes("load.gif") ? "load.gif" : "https://vidtape.lol/" + b.image_url;
+    var imgUrl = b.image_url;
+    if (imgUrl.includes("load.gif")) {
+        imgUrl = "load.gif";
+    } else if (imgUrl.includes("/uploads/thumbnails/")) {
+        imgUrl = "https://vidtape.lol/" + imgUrl;
+    }
     c[I]("image", imgUrl);
     c[J]();
     console.log(imgUrl);
