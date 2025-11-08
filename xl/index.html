@@ -219,6 +219,8 @@
 
   var textNoVideosFound = "No Videos Found";
 
+  var get = "HOW?!?!?"
+
 
   var viewSubmenuBrowse = [
     'main.browse_site.browse-buttons.menu-container',
@@ -3067,7 +3069,7 @@
           serviceBrowse(cacheMostViewedToday, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_views_today'),
           serviceBrowse(cacheMostViewedWeek, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_views_week'),
           { _CLASS: 'xl-view-hidden' },
-          serviceBrowse(cacheMostViewed, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_views'),
+          serviceBrowse(cacheMostViewed, 'texas.json', github, 'videos_views'),
 
           serviceBrowse(cacheTopRatedToday, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_top_rated_today'),
           serviceBrowse(cacheTopRatedWeek, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_top_rated_week'),
