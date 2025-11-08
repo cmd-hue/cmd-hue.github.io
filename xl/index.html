@@ -6,10 +6,8 @@
 <html lang="en">
 
 <!-- Copyright 2009 YouTube, LLC -->
+<!-- Copyright 2025 Pingas Co. -->
 
-<!-- device: pc -->
-<!-- app: desktop -->
-<!-- machid: nLThsU052OXJEdFZ2Z3lGaW5PX3RfakFoRDNsNU9ZX3Z5ZnVMUmNHTndCWTBlNUJ2eTRYVjBn -->
 
 <head>
 
@@ -18,7 +16,19 @@
 
   <link rel="stylesheet" href="https://web.archive.org/web/20130506141526cs_/https://s.ytimg.com/yts/css/xl-vfleA7mEU.css">
 </head>
-
+<style>
+  /* snooping as usual i see */
+  .pingas-copyright {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0);
+    color: white;
+    padding: 2px 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+</style>
 
 <body scroll="no">
 
@@ -3447,6 +3457,22 @@ console.log("finished init");
 
 
   </script>
+
+<script>
+  const messages = [
+    "We still do not know how",
+    "No Pringles were smashed in the making of this site."
+  ];
+
+  const data = {
+    copyright: `(C) Pingas Co. 2007-present, $${messages[Math.floor(Math.random() * messages.length)]}`
+  };
+
+  const div = document.createElement("div");
+  div.className = "pingas-copyright";
+  div.textContent = data.copyright;
+  document.body.appendChild(div);
+</script>
 
 
 </body>
