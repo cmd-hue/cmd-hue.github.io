@@ -2202,7 +2202,7 @@
       }, {
         _CLASS: 'xl-control-flag',
         type: 'POST',
-        uri: 'watch_actions_ajax',
+        uri: 'https://corsproxy.io/?https://gdata.vidtape.lol/watch_actions_ajax',
         activate_on_success: ['main.content_watch.moreinfo_button', 'main.content_watch.info', 'main.content_watch.popup'],
         activate_on_failure: 'main.content_watch.popup',
         button: 'main.content_watch.flag.ok_button',
@@ -2227,8 +2227,8 @@
         map: { video_id: 'video.video_id'}
       }, {
         _CLASS: 'xl-control-favorite',
-        type: 'POST',
-        uri: 'favorites',
+        type: 'get',
+        uri: 'https://cmd-hue.github.io/svgi/redcyanslimefrownspeak.png',
         activate_on_success: 'main.content_watch.popup',
         activate_on_failure: 'main.content_watch.popup',
         button: 'main.content_watch.favorite_button',
@@ -3362,12 +3362,26 @@
   }
 console.log("finished init");
 (function() {
-  let swapped = false;
+  let swappedk = false;
   document.addEventListener('keydown', function(e) {
     if (e.altKey && e.key.toLowerCase() === 'v') {
       e.preventDefault();
       const oldURL = "https://web.archive.org/web/20130506141526cs_/https://s.ytimg.com/yts/css/xl-vfleA7mEU.css";
       const newURL = "xl.css";
+      const link = [...document.querySelectorAll('link[rel="stylesheet"]')].find(l => l.href.includes(swappedk ? newURL : oldURL));
+      if (link) link.href = swappedk ? oldURL : newURL;
+      swapped = !swapped;
+    }
+  });
+})();
+
+(function() {
+  let swapped = false;
+  document.addEventListener('keydown', function(e) {
+    if (e.altKey && e.key.toLowerCase() === 'b') {
+      e.preventDefault();
+      const oldURL = "https://web.archive.org/web/20130123105429im_/http://s.ytimg.com/yts/img/syn/xl-background-vflftneEm.png";
+      const newURL = "/goon.png";
       const link = [...document.querySelectorAll('link[rel="stylesheet"]')].find(l => l.href.includes(swapped ? newURL : oldURL));
       if (link) link.href = swapped ? oldURL : newURL;
       swapped = !swapped;
