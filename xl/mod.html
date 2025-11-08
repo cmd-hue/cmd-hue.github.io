@@ -58,7 +58,7 @@
 
   <div id="root" style="width: 100%; height: 100%;">
 
-  <img src="https://api.microlink.io/?url=https://cmd-hue.github.io/xl/mod.html&screenshot=true&embed=screenshot.url" style="width: 100%; height: 100%;" id="microlink_img"/>
+  <img src="https://api.microlink.io/?url=https://cmd-hue.github.io/xl/mod.html&screenshot=true&embed=screenshot.url" style="width: 100%; height: 100%;"/>
   <div id="splashscreen" style="left: 5%; top: 5%; width: 90%; height: 20%">
     <img id="logo" src="fund.png" style="position: absolute; width: auto; height: 50%;" alt="YouTube"/>
     <img src="https://web.archive.org/web/20130506141526im_/https://s.ytimg.com/yts/img/syn/xl-paddlebg-vflqOJIu5.png" style="top: 60%; height: 10%;" alt=""/>
@@ -132,7 +132,7 @@
 
   <script>
   <!--
-
+  var smasnug = "Smasnug with " + Math.random;
   var cacheSpotlight = {
     itemsPerBlock: 15
   };
@@ -2818,13 +2818,13 @@
                 },
                 'toprated-videos': generateMenuItem(false, 'main.page-7', '',
                     "Top Rated",
-                    false),
+                    true),
                 'mostviewed-videos': generateMenuItem(false, 'main.page-3', '',
                     "Most Viewed",
-                    false),
+                    true),
                 'more-videos': generateMenuItem(false, 'main.page-28', '',
                     "More...",
-                    false),
+                    true),
                 'search-videos': generateMenuItem(true, 'main.page-11', '',
                     "Search",
                     true),
@@ -2839,10 +2839,10 @@
                     true),
                 'favorites-button': generateMenuItem(false, 'main.page-18', '',
                     "Favorites",
-                    false),
+                    true),
                 'playlists-button': generateMenuItem(false, 'main.page-16', '',
                     "Playlists",
-                    false),
+                    true),
                 'logout-button': generateMenuItem(false, 'main.service_logout', '',
                     "Sign Out",
                     false),
@@ -6589,21 +6589,7 @@ playback timings (ms):
       });
     }
 
-setInterval(() => {
-  const baseUrl = "https://api.microlink.io/?url=https://cmd-hue.github.io/xl/mod.html&screenshot=true&embed=screenshot.url";
-  const cacheBuster = "&_=" + Date.now();
-  const url = baseUrl + cacheBuster;
-  fetch(url)
-    .then(r => r.json())
-    .then(d => {
-      if (d.data && d.data.screenshot && d.data.screenshot.url) {
-        const img = document.getElementById("microlink_img") || document.createElement("img");
-        img.id = "microlink_img";
-        img.src = d.data.screenshot.url;
-        document.body.appendChild(img);
-      }
-    });
-}, 5000);
+
 
 
 
@@ -6614,7 +6600,7 @@ setInterval(() => {
     );
 
     var config = yt.xl.config;
-    config.user = youtombdef;
+    config.user = smasnug;
     var defaultPage = 'featured';
     config.client = configuration.client;
     config.app = 'desktop';
