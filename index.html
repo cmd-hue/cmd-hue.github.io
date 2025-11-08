@@ -1,48 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Open Roblox Asset</title>
-  <style>
-    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f6f7fb;margin:0}
-    .card{background:#fff;padding:28px;border-radius:12px;box-shadow:0 6px 20px rgba(20,20,40,0.08);width:320px}
-    h1{font-size:18px;margin:0 0 12px}
-    .row{display:flex;gap:8px}
-    input{flex:1;padding:10px 12px;border:1px solid #e3e6ef;border-radius:8px;font-size:14px}
-    button{padding:10px 14px;border-radius:8px;border:0;background:#4f46e5;color:#fff;font-weight:600;cursor:pointer}
-    small{display:block;margin-top:10px;color:#6b7280}
-  </style>
-</head>
-<body>
-  <div class="card" role="main">
-    <h1>Open Roblox Asset</h1>
-    <div class="row">
-      <input id="assetInput" type="text" placeholder="enter asset id or url" autocomplete="off" />
-      <button id="goBtn" type="button">Go</button>
-    </div>
-    <small>Paste an ID like <code>1818</code> or a Roblox URL; press Enter or Go.</small>
-  </div>
-
-  <script>
-    const input = document.getElementById('assetInput');
-    const btn = document.getElementById('goBtn');
-    function extractId(v){
-      if(!v) return null;
-      const m = v.match(/\d+/);
-      return m ? m[0] : null;
-    }
-    function go(){
-      const id = extractId(input.value.trim());
-      if(!id){
-        alert('Please enter a valid Roblox asset id or url.');
-        return;
-      }
-      location.href = 'https://www.roblox.com/library/' + encodeURIComponent(id);
-    }
-    btn.addEventListener('click', go);
-    input.addEventListener('keydown', e => { if(e.key === 'Enter') go(); });
-  </script>
-</body>
+<!DOCTYPE html>
+<html>
+<body><title>CMD HUE</title></body>
+<center>
+    <h1>CMD HUE LINKS</h1>
+    <hr>
+<a src="/xl/">YouTube XL Revival Attempt</a>
+<a src="/albuquerque.mp3">Albuquerque MP3 File</a>
+<small>More Coming Soon.</small>
+</center>
 </html>
