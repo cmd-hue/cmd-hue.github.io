@@ -3370,7 +3370,7 @@ console.log("finished init");
     if (e.altKey && e.key.toLowerCase() === 'v') {
       e.preventDefault();
       const oldURL = "https://web.archive.org/web/20130506141526cs_/https://s.ytimg.com/yts/css/xl-vfleA7mEU.css";
-      const newURL = "https://corsproxy.io/?https://www.vidtape.lol/xl/xl-base-vfl92884.css";
+      const newURL = "xl.css";
       const link = [...document.querySelectorAll('link[rel="stylesheet"]')].find(l => l.href.includes(swapped ? newURL : oldURL));
       if (link) link.href = swapped ? oldURL : newURL;
       swapped = !swapped;
