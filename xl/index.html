@@ -101,7 +101,23 @@
   <!-- SYN DNA -->
 
   <script>
-  <!--
+
+
+    var vidtapebrowse = 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse';
+
+fetch(vidtapebrowse)
+  .then(res => res.ok ? res.text() : Promise.reject('not ok'))
+  .then(data => {
+    console.log('Loaded main data');
+  })
+  .catch(() => {
+    fetch('vidtapearchive.json')
+      .then(res => res.text())
+      .then(data => {
+        console.log('Loaded backup data');
+      });
+  });
+
 
   var cacheSpotlight = {
     itemsPerBlock: 15
@@ -3066,58 +3082,58 @@
                      'main.browse_site'], 'main.browse_site.video-container.videos.videolist-1', true)
         ],
         service_browse_videos: [
-          serviceBrowse(cacheSpotlight, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_recently_featured'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_recently_added'),
+          serviceBrowse(cacheSpotlight, vidtapebrowse, textNoVideosFound, 'videos_recently_featured'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_recently_added'),
 
-          serviceBrowse(cacheMostViewedToday, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_views_today'),
-          serviceBrowse(cacheMostViewedWeek, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_views_week'),
+          serviceBrowse(cacheMostViewedToday, vidtapebrowse, textNoVideosFound, 'videos_views_today'),
+          serviceBrowse(cacheMostViewedWeek, vidtapebrowse, textNoVideosFound, 'videos_views_week'),
           { _CLASS: 'xl-view-hidden' },
           serviceBrowse(cacheMostViewed, 'texas.json', github, 'videos_views'),
 
           serviceBrowse(cacheTopRatedToday, 'texas.json', github, 'videos_top_rated_today'),
-          serviceBrowse(cacheTopRatedWeek, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_top_rated_week'),
+          serviceBrowse(cacheTopRatedWeek, vidtapebrowse, textNoVideosFound, 'videos_top_rated_week'),
           { _CLASS: 'xl-view-hidden' },
-          serviceBrowse(cacheTopRated, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_top_rated'),
+          serviceBrowse(cacheTopRated, vidtapebrowse, textNoVideosFound, 'videos_top_rated'),
 
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'buzz_browse_today'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'buzz_browse_week'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'buzz_browse_month'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'buzz_browse_today'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'buzz_browse_week'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'buzz_browse_month'),
 
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_most_popular_today'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_most_popular_week'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_most_popular_today'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_most_popular_week'),
           serviceBrowse(cacheMore, "", textNoVideosFound, 'videos_most_popular_month'),
 
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_comment_count_today'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_comment_count_week'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_comment_count'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_comment_count_today'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_comment_count_week'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_comment_count'),
 
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_most_responded_today'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_most_responded_week'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_most_responded'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_most_responded_today'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_most_responded_week'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_most_responded'),
 
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_most_added_to_favorites_today'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_most_added_to_favorites_week'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_most_added_to_favorites'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_most_added_to_favorites_today'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_most_added_to_favorites_week'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_most_added_to_favorites'),
 
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_music_today'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_music_week'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_music_month'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_music_today'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_music_week'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_music_month'),
 
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_indy_music_today'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_indy_music_week'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_indy_music_month'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_indy_music_today'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_indy_music_week'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_indy_music_month'),
 
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_major_music_today'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_major_music_week'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_major_music_month'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_major_music_today'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_major_music_week'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_major_music_month'),
 
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_unsigned_music_today'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_unsigned_music_week'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'mpt_top_unsigned_music_month'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_unsigned_music_today'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_unsigned_music_week'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'mpt_top_unsigned_music_month'),
 
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'edu_videos_views_week'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'edu_videos_views_month'),
-          serviceBrowse(cacheMore, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'edu_videos_views')
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'edu_videos_views_week'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'edu_videos_views_month'),
+          serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'edu_videos_views')
         ],
         service_browse_myvideos: [
           serviceBrowseMyVideos(cacheSubscriptions, 'console_profile_subscriptions', "No Subscriptions Found"),
@@ -3366,7 +3382,7 @@
 console.log("finished init");
 
 
-  -->
+
   </script>
 
 
