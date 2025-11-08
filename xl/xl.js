@@ -1,6 +1,6 @@
 (function() {
     function e(a) {
-        throw a;
+        console.log(a);
     }
     var h = true,
         j = null,
@@ -1458,7 +1458,7 @@
         e(l("EventHandler.handleEvent not implemented"))
     };
     var De = function(a, b, c, d) {
-            if (a && !b) e(l("Can't use invisible history without providing a blank page."));
+            if (a && !b) e();
             var f;
             if (c) f = c;
             else {
