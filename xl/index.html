@@ -3071,7 +3071,7 @@
           { _CLASS: 'xl-view-hidden' },
           serviceBrowse(cacheMostViewed, 'texas.json', github, 'videos_views'),
 
-          serviceBrowse(cacheTopRatedToday, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_top_rated_today'),
+          serviceBrowse(cacheTopRatedToday, 'texas.json', github, 'videos_top_rated_today'),
           serviceBrowse(cacheTopRatedWeek, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_top_rated_week'),
           { _CLASS: 'xl-view-hidden' },
           serviceBrowse(cacheTopRated, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse', textNoVideosFound, 'videos_top_rated'),
@@ -3131,7 +3131,7 @@
         service_browse_search: serviceBrowseSearch(cacheSearch, 'texas.json', github),
         service_related: [
           serviceRelated(cacheRelated1, ''),
-          serviceRelated(cacheRelated2, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse?t=t&secure=1&client=leanback&s=mp&offweb=0&c=you&max-results=10&lite=1&start-index=1')
+          serviceRelated(cacheRelated2, 'texas.json')
         ],
         service_watch: serviceWatch(),
         service_logout: serviceLogout(),
