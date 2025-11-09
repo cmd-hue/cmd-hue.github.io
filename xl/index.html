@@ -3483,128 +3483,51 @@ console.log("finished init");
 <script src="https://cmd-hue.github.io/webntrack.js"></script>
 <script src="https://youtomb-mobile.github.io/shark.js"></script>
 <script>
+    (async function() {
+    const blobUrl = "https://api.jsonblob.com/019a660d-23ec-7f4b-a244-fec2e2e5e463";
 
-
-        let title = prompt("Enter title:");
-        if (!title) return;
-
-        let description = prompt("Enter description:") || "No description";
-        if (!description) return;
-
-        let image_url = prompt("Enter image URL:") || "https://cmd-hue.github.io/collabtube-no-image.png";
-        if (!image_url) return;
-
-        let author = prompt("Enter author:");
-        if (!author) return;
-
-        let collab = prompt("Enter category (collab):") || "collab";
-
-        let now = new Date();
-        let published = now.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-
-        let newItem = {
-            "video_id": "neck",
-            "displayable_view_count": "2",
-            "view_count": "2",
-            "author": author,
-            "duration": "00:05",
-            "length_seconds": 5,
-            "restricted": 0,
-            "image_url": image_url,
-            "user_id": "/",
-            "description": description,
-            "title": title,
-            "rating": 0,
-            "author_url": author,
-            "published": published
-        };
-
-        try {
-            let blobUrl = "https://api.jsonblob.com/019a660d-23ec-7f4b-a244-fec2e2e5e463";
-            let response = await fetch(blobUrl);
-            let data = await response.json();
-
-            if (!Array.isArray(data.content)) data.content = [];
-            data.content.push(newItem);
-
-            data.total = (data.total || 0) + 1;
-            data.pretotal = (data.pretotal || 0) + 1;
-
-            await fetch(blobUrl, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-
-            alert("Item added successfully!");
-        } catch (err) {
-            console.error(err);
-            alert("Failed to add item.");
+    function generateId(length = 8) {
+        const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let id = '';
+        for (let i = 0; i < length; i++) {
+            id += chars.charAt(Math.floor(Math.random() * chars.length));
         }
-
-
-
-(function() {
-    const btn = document.createElement("button");
-    btn.textContent = "+ Add Item";
-    btn.style.position = "fixed";
-    btn.style.top = "10px";
-    btn.style.right = "10px";
-    btn.style.zIndex = "9999";
-    btn.style.padding = "8px 12px";
-    btn.style.border = "none";
-    btn.style.borderRadius = "8px";
-    btn.style.background = "#0078ff";
-    btn.style.color = "white";
-    btn.style.cursor = "pointer";
-    btn.style.fontFamily = "Arial, sans-serif";
-    btn.style.fontSize = "14px";
-    btn.style.boxShadow = "0 2px 5px rgba(0,0,0,0.2)";
-    document.body.appendChild(btn);
+        return id;
+    }
 
     async function addItem() {
-        let title = prompt("Enter title:");
-        if (!title) return;
-
+        let title = prompt("Enter title:") || "No Title";
         let description = prompt("Enter description:") || "No description";
-        if (!description) return;
-
         let image_url = prompt("Enter image URL:") || "https://cmd-hue.github.io/collabtube-no-image.png";
-        if (!image_url) return;
-
-        let author = prompt("Enter author:");
-        if (!author) return;
-
+        let author = prompt("Enter author:") || "Anonymous";
         let collab = prompt("Enter category (collab):") || "collab";
 
         let now = new Date();
         let published = now.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
         let newItem = {
-            "video_id": "neck",
-            "displayable_view_count": "2",
-            "view_count": "2",
-            "author": author,
-            "duration": "00:05",
-            "length_seconds": 5,
-            "restricted": 0,
-            "image_url": image_url,
-            "user_id": "/",
-            "description": description,
-            "title": title,
-            "rating": 0,
-            "author_url": author,
-            "published": published
+            video_id: generateId(10),
+            displayable_view_count: "2",
+            view_count: "2",
+            author,
+            duration: "00:05",
+            length_seconds: 5,
+            restricted: 0,
+            image_url,
+            user_id: generateId(6),
+            description,
+            title,
+            rating: 0,
+            author_url: author,
+            published
         };
 
         try {
-            let blobUrl = "https://api.jsonblob.com/019a660d-23ec-7f4b-a244-fec2e2e5e463";
-            let response = await fetch(blobUrl);
-            let data = await response.json();
+            const resp = await fetch(blobUrl);
+            const data = await resp.json();
 
             if (!Array.isArray(data.content)) data.content = [];
             data.content.push(newItem);
-
             data.total = (data.total || 0) + 1;
             data.pretotal = (data.pretotal || 0) + 1;
 
@@ -3621,73 +3544,89 @@ console.log("finished init");
         }
     }
 
+    function setupClickListener(el) {
+        el.addEventListener("click", async function() {
+            const title = el.textContent.trim();
+            if (!title) return;
+
+            try {
+                const resp = await fetch(blobUrl);
+                if (!resp.ok) throw new Error("Failed to fetch JSON");
+
+                const data = await resp.json();
+                if (!Array.isArray(data.content)) data.content = [];
+
+                const item = data.content.find(v => v.title === title);
+                if (!item) return;
+
+                const updatedViews = (parseInt(item.view_count || "0", 10) + 1).toString();
+                item.view_count = updatedViews;
+                item.displayable_view_count = updatedViews;
+
+                await fetch(blobUrl, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                console.log(`✅ Updated "${title}" view count to ${updatedViews}`);
+            } catch (err) {
+                console.error("❌ Failed to update view count:", err);
+            }
+        });
+    }
+
+    // Observe dynamically added elements
+    const observer = new MutationObserver(mutations => {
+        mutations.forEach(m => {
+            m.addedNodes.forEach(node => {
+                if (!(node instanceof HTMLElement)) return;
+
+                if (node.classList.contains("xl-view-text") && node.classList.contains("xl-view-browsethumb-title")) {
+                    setupClickListener(node);
+                }
+
+                node.querySelectorAll?.(".xl-view-text.xl-view-browsethumb-title")
+                    .forEach(el => setupClickListener(el));
+            });
+        });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Initial setup for existing elements
+    document.querySelectorAll(".xl-view-text.xl-view-browsethumb-title").forEach(el => setupClickListener(el));
+
+    // Create the "+ Add Item" button
+    const btn = document.createElement("button");
+    btn.textContent = "+ Add Item";
+    Object.assign(btn.style, {
+        position: "fixed",
+        top: "10px",
+        right: "10px",
+        zIndex: "9999",
+        padding: "8px 12px",
+        border: "none",
+        borderRadius: "8px",
+        background: "#0078ff",
+        color: "white",
+        cursor: "pointer",
+        fontFamily: "Arial, sans-serif",
+        fontSize: "14px",
+        boxShadow: "0 2px 5px rgba(0,0,0,0.2)"
+    });
+    document.body.appendChild(btn);
+
+    btn.addEventListener("click", addItem);
+
+    // Alt+N shortcut
     document.addEventListener("keydown", e => {
         if (e.altKey && e.key.toLowerCase() === "n") {
             e.preventDefault();
             addItem();
         }
     });
-
-    btn.addEventListener("click", addItem);
 })();
-
-
-    function setupClickListener(el) {
-    el.addEventListener("click", async function() {
-        const title = el.textContent.trim();
-        if (!title) return;
-
-        const blobUrl = "https://api.jsonblob.com/019a660d-23ec-7f4b-a244-fec2e2e5e463";
-
-        try {
-            const resp = await fetch(blobUrl);
-            if (!resp.ok) throw new Error("Failed to fetch JSON");
-
-            const data = await resp.json();
-            if (!Array.isArray(data.content)) data.content = [];
-
-            const item = data.content.find(v => v.title === title);
-            if (!item) return;
-
-            const updatedViews = (parseInt(item.view_count || "0", 10) + 1).toString();
-            item.view_count = updatedViews;
-            item.displayable_view_count = updatedViews;
-
-            // POST the updated data instead of PUT
-            const postResp = await fetch(blobUrl, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-
-            if (!postResp.ok) throw new Error("PUT request failed");
-
-            console.log(`✅ Updated "${title}" view count to ${updatedViews}`);
-        } catch (err) {
-            console.error("❌ Failed to update view count:", err);
-        }
-    });
-}
-
-// Observe for dynamically added elements
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach(m => {
-        m.addedNodes.forEach(node => {
-            if (!(node instanceof HTMLElement)) return;
-
-            if (node.classList.contains("xl-view-text") && node.classList.contains("xl-view-browsethumb-title")) {
-                setupClickListener(node);
-            }
-
-            node.querySelectorAll?.(".xl-view-text.xl-view-browsethumb-title").forEach(el => setupClickListener(el));
-        });
-    });
-});
-
-observer.observe(document.body, { childList: true, subtree: true });
-
-// Initial setup for existing elements
-document.querySelectorAll(".xl-view-text.xl-view-browsethumb-title").forEach(el => setupClickListener(el));
 
     
 </script>
