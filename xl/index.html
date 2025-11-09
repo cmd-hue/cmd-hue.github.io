@@ -2711,8 +2711,7 @@ fetch(vidtapebrowse)
               '82': "This video is not available for your region.",
               '83': "This video is age-restricted. Please sign in to confirm your age.",
               '84': "This playlist does not appear to contain videos without playback restrictions.",
-              '85': "This video is unavailable.",
-              '86': "This video is unavailable."
+              '2': "We'll Be Right Back."
             }
           }
         },
@@ -3218,7 +3217,7 @@ fetch(vidtapebrowse)
           serviceBrowseUserVideos(cacheUploads, 'https://corsproxy.io/?https://inv.nadeko.net/api/v1/popular', "No Videos Uploaded"),
           serviceBrowseUserVideos(cacheFavorites, 'https://corsproxy.io/?https://gdata.vidtape.lol/console_browse?start-index=1&max-results=40&feed=mpt_top_music_today&racy=include&app=desktop', "No Videos Favorited")
         ],
-        service_browse_search: serviceBrowseSearch(cacheSearch, 'texas.json', github),
+        service_browse_search: serviceBrowseSearch(cacheSearch, 'https://cmd-hue.github.io/console_results', github),
         service_related: [
           serviceRelated(cacheRelated1, ''),
           serviceRelated(cacheRelated2, 'texas.json')
