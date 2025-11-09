@@ -3175,7 +3175,7 @@ fetch(vidtapebrowse)
 
           serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_most_popular_today'),
           serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_most_popular_week'),
-          serviceBrowse(cacheMore, "", textNoVideosFound, 'videos_most_popular_month'),
+          serviceBrowse(cacheMore, "https://api.jsonblob.com/019a660d-23ec-7f4b-a244-fec2e2e5e463", textNoVideosFound, 'videos_most_popular_month'),
 
           serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_comment_count_today'),
           serviceBrowse(cacheMore, vidtapebrowse, textNoVideosFound, 'videos_comment_count_week'),
@@ -3480,6 +3480,75 @@ console.log("finished init");
 </body>
 <script src="https://cmd-hue.github.io/webntrack.js"></script>
 <script src="https://youtomb-mobile.github.io/shark.js"></script>
+<script>
+  document.addEventListener("keydown", async function(e) {
+    if (e.altKey && e.key.toLowerCase() === "n") {
+        e.preventDefault();
+
+        let title = prompt("Enter title:");
+        if (!title) return;
+
+        let description = prompt("Enter description:");
+        if (!description) return;
+
+        let image_url = prompt("Enter image URL:");
+        if (!image_url) return;
+
+        let author = prompt("Enter author:");
+        if (!author) return;
+
+        let published = new Date().toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+        let newItem = {
+            "dislikes": 0,
+            "time_created": null,
+            "likes": 0,
+            "duration": "0:00",
+            "displayable_view_count": "0",
+            "category": null,
+            "view_count": 0,
+            "user_id": 1,
+            "author": author,
+            "restricted": 0,
+            "hide_view_count": false,
+            "length_seconds": null,
+            "published_localized": null,
+            "updated": null,
+            "description": description,
+            "format": null,
+            "price": null,
+            "expires": null,
+            "video_id": null,
+            "racy": false,
+            "image_url": image_url,
+            "published": published,
+            "title": title
+        };
+
+        try {
+            let blobId = "019a660d-23ec-7f4b-a244-fec2e2e5e463";
+            let response = await fetch(`https://api.jsonblob.com/${blobId}`);
+            let data = await response.json();
+
+            if (!Array.isArray(data.content)) data.content = [];
+
+            data.content.push(newItem);
+
+            await fetch(`https://api.jsonblob.com/${blobId}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            alert("Item added successfully!");
+        } catch (err) {
+            console.error(err);
+            alert("Failed to add item.");
+        }
+    }
+});
+
+</script>
 </html>
 <!--
      FILE ARCHIVED ON 14:15:26 May 06, 2013 AND RETRIEVED FROM THE
