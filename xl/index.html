@@ -2562,6 +2562,8 @@ fetch(vidtapebrowse)
     };
   };
 
+  var collabvideo = "https://corsproxy.io/?https://jsonblob.com/api/jsonBlob/019a660d-23ec-7f4b-a244-fec2e2e5e463?cb=" + Math.random(); 
+
   var generateMenuItem = function(alwaysVisible, clickTarget, viewSubmenuItems, label, opt_toplevel) {
 
     var buttonControls = [
@@ -3156,8 +3158,8 @@ fetch(vidtapebrowse)
                      'main.browse_site'], 'main.browse_site.video-container.videos.videolist-1', true)
         ],
         service_browse_videos: [
-          serviceBrowse(cacheSpotlight, "https://corsproxy.io/?https://jsonblob.com/api/jsonBlob/019a660d-23ec-7f4b-a244-fec2e2e5e463", textNoVideosFound, ''),
-          serviceBrowse(cacheMore, "https://corsproxy.io/?https://jsonblob.com/api/jsonBlob/019a660d-23ec-7f4b-a244-fec2e2e5e463", textNoVideosFound, ''),
+          serviceBrowse(cacheSpotlight, collabvideo, textNoVideosFound, ''),
+          serviceBrowse(cacheMore, collabvideo, textNoVideosFound, ''),
 
           serviceBrowse(cacheMostViewedToday, vidtapebrowse, textNoVideosFound, 'videos_views_today'),
           serviceBrowse(cacheMostViewedWeek, vidtapebrowse, textNoVideosFound, 'videos_views_week'),
