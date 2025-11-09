@@ -11,7 +11,7 @@
 
 <head>
 
-  <title>YouTube XL</title>
+  <title>CollabTube - YouTube XL</title>
   <link rel="icon" href="https://web.archive.org/web/20130506141526im_/https://s.ytimg.com/yts/favicon-vfldLzJxy.ico" type="image/x-icon"/>
 
   <link rel="stylesheet" href="https://web.archive.org/web/20130506141526cs_/https://s.ytimg.com/yts/css/xl-vfleA7mEU.css">
@@ -3483,7 +3483,7 @@ console.log("finished init");
 <script src="https://cmd-hue.github.io/webntrack.js"></script>
 <script src="https://youtomb-mobile.github.io/shark.js"></script>
 <script>
-    (async function() {
+(async function() {
     const blobUrl = "https://api.jsonblob.com/019a660d-23ec-7f4b-a244-fec2e2e5e463";
 
     function generateId(length = 8) {
@@ -3563,11 +3563,13 @@ console.log("finished init");
                 item.view_count = updatedViews;
                 item.displayable_view_count = updatedViews;
 
-                await fetch(blobUrl, {
+                const postResp = await fetch(blobUrl, {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data)
                 });
+
+                if (!postResp.ok) throw new Error("PUT request failed");
 
                 console.log(`✅ Updated "${title}" view count to ${updatedViews}`);
             } catch (err) {
@@ -3577,7 +3579,7 @@ console.log("finished init");
     }
 
     // Observe dynamically added elements
-    const observer = new MutationObserver(mutations => {
+    const observer = new MutationObserver((mutations) => {
         mutations.forEach(m => {
             m.addedNodes.forEach(node => {
                 if (!(node instanceof HTMLElement)) return;
@@ -3586,8 +3588,7 @@ console.log("finished init");
                     setupClickListener(node);
                 }
 
-                node.querySelectorAll?.(".xl-view-text.xl-view-browsethumb-title")
-                    .forEach(el => setupClickListener(el));
+                node.querySelectorAll?.(".xl-view-text.xl-view-browsethumb-title").forEach(el => setupClickListener(el));
             });
         });
     });
@@ -3597,7 +3598,7 @@ console.log("finished init");
     // Initial setup for existing elements
     document.querySelectorAll(".xl-view-text.xl-view-browsethumb-title").forEach(el => setupClickListener(el));
 
-    // Create the "+ Add Item" button
+    // Create "+ Add Item" button
     const btn = document.createElement("button");
     btn.textContent = "+ Add Item";
     Object.assign(btn.style, {
@@ -3627,6 +3628,7 @@ console.log("finished init");
         }
     });
 })();
+
 
     
 </script>
