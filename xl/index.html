@@ -3548,9 +3548,7 @@ document.addEventListener("keydown", async function(e) {
 
 
 
-</script>
-<script>
-  (function() {
+(function() {
     const btn = document.createElement("button");
     btn.textContent = "+ Add Item";
     btn.style.position = "fixed";
@@ -3637,6 +3635,64 @@ document.addEventListener("keydown", async function(e) {
     btn.addEventListener("click", addItem);
 })();
 
+    function setupClickListener(el) {
+    el.addEventListener("click", async function() {
+        const title = el.textContent.trim();
+        if (!title) return;
+
+        const blobUrl = "https://api.jsonblob.com/019a660d-23ec-7f4b-a244-fec2e2e5e463";
+
+        try {
+            const resp = await fetch(blobUrl);
+            if (!resp.ok) throw new Error("Failed to fetch JSON");
+
+            const data = await resp.json();
+            if (!Array.isArray(data.content)) data.content = [];
+
+            const item = data.content.find(v => v.title === title);
+            if (!item) return;
+
+            const updatedViews = (parseInt(item.view_count || "0", 10) + 1).toString();
+            item.view_count = updatedViews;
+            item.displayable_view_count = updatedViews;
+
+            // POST the updated data instead of PUT
+            const postResp = await fetch(blobUrl, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            if (!postResp.ok) throw new Error("PUT request failed");
+
+            console.log(`✅ Updated "${title}" view count to ${updatedViews}`);
+        } catch (err) {
+            console.error("❌ Failed to update view count:", err);
+        }
+    });
+}
+
+// Observe for dynamically added elements
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach(m => {
+        m.addedNodes.forEach(node => {
+            if (!(node instanceof HTMLElement)) return;
+
+            if (node.classList.contains("xl-view-text") && node.classList.contains("xl-view-browsethumb-title")) {
+                setupClickListener(node);
+            }
+
+            node.querySelectorAll?.(".xl-view-text.xl-view-browsethumb-title").forEach(el => setupClickListener(el));
+        });
+    });
+});
+
+observer.observe(document.body, { childList: true, subtree: true });
+
+// Initial setup for existing elements
+document.querySelectorAll(".xl-view-text.xl-view-browsethumb-title").forEach(el => setupClickListener(el));
+
+    
 </script>
 </html>
 <!--
