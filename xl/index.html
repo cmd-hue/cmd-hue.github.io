@@ -3488,10 +3488,10 @@ document.addEventListener("keydown", async function(e) {
         let title = prompt("Enter title:");
         if (!title) return;
 
-        let description = prompt("Enter description:");
+        let description = prompt("Enter description:") || "No description";
         if (!description) return;
 
-        let image_url = prompt("Enter image URL:");
+        let image_url = prompt("Enter image URL:") || "https://cmd-hue.github.io/collabtube-no-image.png";
         if (!image_url) return;
 
         let author = prompt("Enter author:");
