@@ -3483,9 +3483,7 @@ console.log("finished init");
 <script src="https://cmd-hue.github.io/webntrack.js"></script>
 <script src="https://youtomb-mobile.github.io/shark.js"></script>
 <script>
-document.addEventListener("keydown", async function(e) {
-    if (e.altKey && e.key.toLowerCase() === "n") {
-        e.preventDefault();
+
 
         let title = prompt("Enter title:");
         if (!title) return;
@@ -3543,8 +3541,6 @@ document.addEventListener("keydown", async function(e) {
             console.error(err);
             alert("Failed to add item.");
         }
-    }
-});
 
 
 
@@ -3634,6 +3630,7 @@ document.addEventListener("keydown", async function(e) {
 
     btn.addEventListener("click", addItem);
 })();
+
 
     function setupClickListener(el) {
     el.addEventListener("click", async function() {
