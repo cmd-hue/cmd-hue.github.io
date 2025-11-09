@@ -7549,9 +7549,7 @@
     X("xl-control-subscribe", Zj);
     X("xl-control-player_flash", Nj);
     X("xl-control-player_html", Rj);
-})().catch(e);{
-console.log("error: ",e);
-};
+})();
 
 /*
      FILE ARCHIVED ON 10:54:27 Jan 23, 2013 AND RETRIEVED FROM THE
