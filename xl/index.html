@@ -3493,7 +3493,7 @@ console.log("finished init");
         let description = prompt("Enter description:") || "No description";
         let image_url = prompt("Enter image URL:") || "https://cmd-hue.github.io/collabtube-no-image.png";
         let author = prompt("Enter author:") || "Anonymous";
-        let collab = prompt("Enter category (collab):") || "collab";
+        let rating = prompt("Enter a number from 0 to 5:") || "4.5";
 
         let now = new Date();
         let published = now.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -3510,7 +3510,7 @@ console.log("finished init");
             user_id: generateId(6),
             description,
             title,
-            rating: 0,
+            rating,
             author_url: author,
             published
         };
