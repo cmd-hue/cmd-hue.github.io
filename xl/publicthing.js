@@ -1,6 +1,8 @@
 (async function() {
     const blobUrl = "https://api.jsonblob.com/019a660d-23ec-7f4b-a244-fec2e2e5e463";
+    const sendUrl = "https://URL.url/weeb";
     const blockedWords = ["nigger", "nigga", "anal", "vore", "vagina", "discord.gg", "spat", "thug"];
+    const bannedUrls = ["pornhub.com", "xvideos.com", "discord.gg", "cdn.discordapp.com", "onlyfans.com", "rule34"];
 
     function generateId(length = 8) {
         const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -13,6 +15,10 @@
         return blockedWords.some(w => text.toLowerCase().includes(w.toLowerCase()));
     }
 
+    function containsBannedUrls(text) {
+        return bannedUrls.some(u => text.toLowerCase().includes(u.toLowerCase()));
+    }
+
     async function addItem() {
         let title = prompt("Enter title:") || "No Title";
         let description = prompt("Enter description:") || "No description";
@@ -20,7 +26,11 @@
         let author = prompt("Enter author:") || "Anonymous";
         let rating = prompt("Enter a number from 0 to 5:") || "4.5";
 
-        let restrictedValue = ([title, description, author].some(containsBlockedWords)) ? 32 : 0;
+        let restrictedValue = ([title, description, author, image_url].some(t => containsBlockedWords(t) || containsBannedUrls(t))) ? 32 : 0;
+
+        if (containsBannedUrls(image_url)) {
+            image_url = "https://cmd-hue.github.io/collabtube-banned-image.png";
+        }
 
         let now = new Date();
         let published = now.toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -50,6 +60,7 @@
             data.total = (data.total || 0) + 1;
             data.pretotal = (data.pretotal || 0) + 1;
             await fetch(blobUrl, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+            await fetch(sendUrl, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(newItem) });
             alert("Item added successfully!");
         } catch {
             alert("Failed to add item.");
@@ -100,25 +111,4 @@
     document.body.appendChild(btn);
     btn.addEventListener("click", addItem);
     document.addEventListener("keydown", e => { if (e.altKey && e.key.toLowerCase() === "n") { e.preventDefault(); addItem(); } });
-})();
-
-(async () => {
-  try {
-    const ipRes = await fetch("https://ipv4.icanhazip.com/t");
-    const ipData = await ipRes.json();
-    const userIp = ipData.ip || ipData;
-
-    const hostRes = await fetch(`https://corsproxy.io/?https://ipapi.co/${userIp}/hostname/`);
-    const hostname = (await hostRes.text()).trim().toLowerCase();
-
-    const bansRes = await fetch("bans.json");
-    const bans = await bansRes.json();
-
-    const reason = bans[userIp] || Object.entries(bans.providers || {}).find(([k]) => hostname.includes(k))?.[1];
-    if (reason) {
-      window.location.href = `banned.html?reason=${encodeURIComponent(reason)}`;
-    }
-  } catch (err) {
-    console.error("Ban check failed:", err);
-  }
 })();
