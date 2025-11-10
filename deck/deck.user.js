@@ -9,7 +9,7 @@
 // @icon         https://s.ytimg.com/yts/img/testtube/testtube-intro-card-img-vflIwLdGn.png
 // @grant        none
 // @license      Banjo
-// @version 0.0.5
+// @version 0.0.6
 // @downloadURL https://cmd-hue.github.io/deck/deck.user.js
 // @updateURL https://cmd-hue.github.io/deck/deck.user.js
 // ==/UserScript==
