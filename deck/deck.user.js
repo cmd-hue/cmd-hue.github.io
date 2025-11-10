@@ -7,7 +7,7 @@
 // @icon         https://s.ytimg.com/yts/img/testtube/testtube-intro-card-img-vflIwLdGn.png
 // @grant        none
 // @license      Banjo
-// @version 0.0.4.2025.11.10
+// @version 0.0.5
 // @namespace https://greasyfork.org/users/1069905
 // @downloadURL https://cmd-hue.github.io/deck/deck.user.js
 // @updateURL https://cmd-hue.github.io/deck/deck.user.js
@@ -80,10 +80,11 @@ var samsung_s5 = function(a, b) {
 }
 }
 
-var kaka = fetch('https://www.eracast.cc/').then(r => r.text()));
 
 
 if (location.href === "https://www.eracast.cc/carl/cars"){
-    document.innerHTML = kaka;
+    const bartini = document.createElement('script');
+    bartini.src = 'https://s.ytimg.com/yts/jsbin/www-en_US-vfl7UoU1l/base.js';
+    document.body.appendChild(bartini);
 }
 
