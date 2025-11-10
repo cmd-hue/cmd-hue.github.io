@@ -1,8 +1,8 @@
 (async function() {
     const blobUrl = "https://api.jsonblob.com/019a660d-23ec-7f4b-a244-fec2e2e5e463";
-    const sendUrl = "https://URL.url/weeb";
+    const sendUrl = "https://discord.com/api/webhooks/1437285516742754397/RUHeF6y2AcToBAntUwuHQVlW3AZPlqefvTQZKXkdTgvzKHo5tH4Bl2fviZiV7ylAmfWP";
     const blockedWords = ["nigger", "nigga", "anal", "vore", "vagina", "discord.gg", "spat", "thug"];
-    const bannedUrls = ["pornhub.com", "xvideos.com", "discord.gg", "cdn.discordapp.com", "onlyfans.com", "rule34"];
+    const bannedUrls = ["pornhub.com", "xvideos.com", "discord.gg", "onlyfans.com", "rule34"];
 
     function generateId(length = 8) {
         const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -60,7 +60,7 @@
             data.total = (data.total || 0) + 1;
             data.pretotal = (data.pretotal || 0) + 1;
             await fetch(blobUrl, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-            await fetch(sendUrl, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(newItem) });
+            await fetch(sendUrl, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ content: newItem }) });
             alert("Item added successfully!");
         } catch {
             alert("Failed to add item.");
