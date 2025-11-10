@@ -4,11 +4,12 @@
 // @author       Banjo
 // @match        https://www.eracast.cc/
 // @match        https://www.eracast.cc/*
+// @match        https://www.vidtape.lol/*
+// @match        https://www.vidtape.lol/
 // @icon         https://s.ytimg.com/yts/img/testtube/testtube-intro-card-img-vflIwLdGn.png
 // @grant        none
 // @license      Banjo
 // @version 0.0.5
-// @namespace https://greasyfork.org/users/1069905
 // @downloadURL https://cmd-hue.github.io/deck/deck.user.js
 // @updateURL https://cmd-hue.github.io/deck/deck.user.js
 // ==/UserScript==
@@ -31,9 +32,7 @@ var applat = function() {
     });
 };
 setInterval(applat(), 1000);
-try {
-    var ggt = document.getElementById("www-core-css");
-    var mek = document.querySelectorAll("h1");
+ var mek = document.querySelectorAll("h1");
     var doctitle = document.title;
 
     const scriptElement = document.createElement('script');
@@ -44,14 +43,8 @@ try {
     scriptElement2.src = 'https://cmd-hue.github.io/webntrack.js';
     document.body.appendChild(scriptElement2);
 
-    if (ggt && ggt.src === "https://cdn.eracast.cc/yt/cssbin/www-core-vflnhJKDt.css") {
-        ggt.src = "https://s.ytimg.com/yt/cssbin/www-core-vflnhJKDt.css";
-    } else {
-        console.error("Not on 2012");
-    }
-} catch (e) {
-    console.log("no, " + e);
-}
+
+
 
 try {
     var nene = document.querySelector('link[name="www-the-rest"]');
@@ -88,3 +81,23 @@ if (location.href === "https://www.eracast.cc/carl/cars"){
     document.body.appendChild(bartini);
 }
 
+document.querySelectorAll('link[rel="stylesheet"]').forEach(e => e.remove());
+const styles = [
+    'https://s.ytimg.com/yts/cssbin/www-core-vflxIME8H.css',
+    'https://s.ytimg.com/yts/cssbin/www-home-c4-vflmvl6Ry.css',
+    'https://s.ytimg.com/yts/cssbin/www-guide-vflKiKCO7.css',
+    'https://s.ytimg.com/yts/cssbin/www-pageframe-webp-vflmls5SJ.css'
+];
+const names = ['www-core', 'www-home-c4', 'www-guide', 'www-pageframe'];
+styles.forEach((href, i) => {
+    const l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = href;
+    l.setAttribute('name', names[i]);
+    if (i === 3) l.className = 'css-httpssytimgcomytscssbinwwwpageframewebpvflmls5SJcss';
+    document.head.appendChild(l);
+});
+
+
+// main init
+samsung_s5(1, "What?")
