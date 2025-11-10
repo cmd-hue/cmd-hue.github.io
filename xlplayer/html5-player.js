@@ -55,11 +55,7 @@ function initCenter() {
 window.addEventListener("resize", initCenter, false)
 initCenter()
 
-// try autoplay
-try {
-    video.play()
-}
-catch(error) {}
+
 
 // video pause/play
 function videoToggle() {
