@@ -6,7 +6,7 @@
 // @icon         https://s.ytimg.com/yts/img/testtube/testtube-intro-card-img-vflIwLdGn.png
 // @grant        none
 // @license      Banjo
-// @version 0.0.2.2025.11.10
+// @version 0.0.3.2025.11.10
 // @namespace https://greasyfork.org/users/1069905
 // @downloadURL https://cmd-hue.github.io/deck/deck.user.js
 // @updateURL https://cmd-hue.github.io/deck/deck.user.js
@@ -24,4 +24,4 @@ var applat = function() {
         }
     });
 };
-setInterval(applat, 1000);
+setInterval(applat(), 1000);
