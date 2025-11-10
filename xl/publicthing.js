@@ -1,6 +1,6 @@
 (async function() {
     const blobUrl = "https://api.jsonblob.com/019a660d-23ec-7f4b-a244-fec2e2e5e463";
-    const blockedWords = ["nigger","nigga","anal","vore","vagina","discord.gg","spat"];
+    const blockedWords = ["nigger", "nigga", "anal", "vore", "vagina", "discord.gg", "spat", "thug"];
 
     function generateId(length = 8) {
         const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
