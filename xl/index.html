@@ -3482,3 +3482,21 @@ console.log("finished init");
 <!-- Kaboom? -->
 <!-- Yes Rico, Kaboom. -->
 <!-- *explosion* -->
+<script>
+setInterval(async function() {
+    const url = "https://us.api.iheart.com/api/v3/live-meta/stream/1701/currentTrackMeta?defaultMetadata=true";
+    const response = await fetch(url);
+    const data = await response.json();
+    const title = data?.track?.title || "";
+
+    if (title.toLowerCase().includes("feel good inc.")) {
+        const images = document.querySelectorAll("img");
+        if (images.length > 0) {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            images[randomIndex].src = "http://image.iheart.com/WMG4/Thumb_Content/Full_PC/WMG/Oct14/103114/0724387383852/resources/8dd837db7a1c6acf7acb20e26c0452c3.jpg";
+        }
+    }
+}, 1000);
+
+
+</script>
