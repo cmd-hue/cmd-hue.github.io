@@ -2,7 +2,6 @@
 
 
 
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -62,8 +61,7 @@
   </div> 
   <script>
   <!--
-var sassy = "CollabTube XL User";
-
+var sassy = "CollabTube User";
 
 
 
@@ -1032,7 +1030,6 @@ fetch(vidtapebrowse)
           _CLASS: 'syn-control-activate',
           target: [
             'main.browse_site.content_settings.allsettings.cont_playback',
-            'main.browse_site.content_settings.allsettings.racy',
             'main.browse_site.content_settings.allsettings.quality'
           ]
         }
@@ -1046,14 +1043,9 @@ fetch(vidtapebrowse)
               label: "Settings"
             },
             cont_playback: generateCheckBoxItem(
-              "Play next video when current video ends.",
-              'config.autoPlayNextOff',
+              "Pacifier mode (WIP) | WARNING: this is suitable for ages 8 to 80.",
+              'config.pacifiermode',
               false
-            ),
-            racy: generateCheckBoxItem(
-              "Filter videos that may not be suitable for minors.",
-              'config.filterRacyContent',
-              true
             ),
             quality: {_CLASS: 'xl-view-hidden'},
             language_button: {
@@ -1101,36 +1093,27 @@ fetch(vidtapebrowse)
           _VIEW: {
             aboutdescription: {
               _CLASS: 'xl-view-wrappingtext',
-              label: "YouTube XL is a version of YouTube optimized for watching YouTube videos on any large screen."
+              label: "CollabTube is a version of YouTube where anyone, including you, to put memes on an YouTube XL Archive, well, Almost every meme."
             },
             link1: {
               _CLASS: 'xl-view-wrappingtext',
               _CONTROL: [
                 controlActivateOnClick,
-                { _CLASS: 'syn-control-redirect', url: '/t/privacy?persist_app=1&app=desktop' }
+                { _CLASS: 'syn-control-redirect', url: 'https://blips.club/home?status=Check+this+cool+website+out+-+https%3A%2F%2Fcmd-hue.github.io%2Fxl%2F' }
               ],
               navobject: focusLinkOver,
-              label: "Privacy Policy"
+              label: "Share us on Blips!"
             },
             link2: {
               _CLASS: 'xl-view-wrappingtext',
               _CONTROL: [
                 controlActivateOnClick,
-                { _CLASS: 'syn-control-redirect', url: '/t/terms?persist_app=1&app=desktop' }
+                { _CLASS: 'syn-control-redirect', url: '/collabtubedisclaimer.html' }
               ],
               navobject: focusLinkOver,
-              label: "Terms of Service"
+              label: "Disclaimer"
             },
             link3: {
-              _CLASS: 'xl-view-wrappingtext',
-              _CONTROL: [
-                controlActivateOnClick,
-                { _CLASS: 'syn-control-redirect', url: '/t/dmca_policy?persist_app=1&app=desktop' }
-              ],
-              navobject: focusLinkOver,
-              label: "Copyright Notices"
-            },
-            link4: {
               _CLASS: 'xl-view-wrappingtext',
               _CONTROL: [
                 controlActivateOnClick,
@@ -1138,12 +1121,23 @@ fetch(vidtapebrowse)
               ],
               navobject: focusLinkOver,
               label: "Community Guidelines"
+            },
+            link4: {
+              _CLASS: 'xl-view-wrappingtext',
+              _CONTROL: [
+                controlActivateOnClick,
+                { _CLASS: 'syn-control-redirect', url: 'https://tinyurl.com/ggtfiles' }
+              ],
+              navobject: focusLinkOver,
+              label: "Giggity Files"
             }
           }
         }
       }
     };
   };
+
+
 
   var generateWatch = function()
   {
@@ -3483,3 +3477,21 @@ console.log("finished init");
 <!-- Kaboom? -->
 <!-- Yes Rico, Kaboom. -->
 <!-- *explosion* -->
+<script>
+setInterval(async function() {
+    const url = "https://us.api.iheart.com/api/v3/live-meta/stream/1701/currentTrackMeta?defaultMetadata=true";
+    const response = await fetch(url);
+    const data = await response.json();
+    const title = data?.track?.title || "";
+
+    if (title.toLowerCase().includes("feel good inc.")) {
+        const images = document.querySelectorAll("img");
+        if (images.length > 0) {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            images[randomIndex].src = "http://image.iheart.com/WMG4/Thumb_Content/Full_PC/WMG/Oct14/103114/0724387383852/resources/8dd837db7a1c6acf7acb20e26c0452c3.jpg";
+        }
+    }
+}, 1000);
+
+
+</script>
