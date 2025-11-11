@@ -81,23 +81,8 @@ if (location.href === "https://www.eracast.cc/carl/cars"){
     document.body.appendChild(bartini);
 }
 
-document.querySelectorAll('link[rel="stylesheet"]').forEach(e => e.remove());
-const styles = [
-    'https://s.ytimg.com/yts/cssbin/www-core-vflxIME8H.css',
-    'https://s.ytimg.com/yts/cssbin/www-home-c4-vflmvl6Ry.css',
-    'https://s.ytimg.com/yts/cssbin/www-guide-vflKiKCO7.css',
-    'https://s.ytimg.com/yts/cssbin/www-pageframe-webp-vflmls5SJ.css'
-];
-const names = ['www-core', 'www-home-c4', 'www-guide', 'www-pageframe'];
-styles.forEach((href, i) => {
-    const l = document.createElement('link');
-    l.rel = 'stylesheet';
-    l.href = href;
-    l.setAttribute('name', names[i]);
-    if (i === 3) l.className = 'css-httpssytimgcomytscssbinwwwpageframewebpvflmls5SJcss';
-    document.head.appendChild(l);
-});
 
+var martini = 
 
 // main init
 samsung_s5(1, "What?")
