@@ -4,18 +4,19 @@
 
 	<!-- COPMETITOR COMPARISON -->
 	<comparisons refreshRate="12" defaultLink="https://web.archive.org/web/20100227000000/compare">
-<claim vs="cable" image="https://web.archive.org/web/20100227000000/https://directv.com/images/assets/home/competition/compare_img_cable.png" title="DIRECTV stomps Comcast" text="DIRECTV has been ranked higher in customer satisfaction than Comcast 10 years in a row." ctaText="Learn More" ctaURL="https://web.archive.org/web/20100227000000/DTVAPP/content/competition/comcast/compare" /> 
-<claim vs="dogs" image="https://web.archive.org/web/20100227000000/https://directv.com/images/assets/home/competition/compare_img_cable.png" title="DIRECTV stomps Comcast" text="i hate ni-" ctaText="Learn More" ctaURL="https://web.archive.org/web/20100227000000/DTVAPP/content/competition/comcast/compare" /> 
+<claim vs="cable" image="https://cmd-hue.github.io/directv/comcast.png" title="DIRECTV stomps Comcast" text="DIRECTV has been ranked higher in customer satisfaction than Comcast 10 years in a row." ctaText="Learn More" /> 
+<claim vs="dogs" image="https://cmd-hue.github.io/dog.jpg" title="DIRECTV stomps Dogs" text="bro what the fuck" ctaText="Learn More"/> 
 
 	</comparisons>
 	
 	<!-- TESTIMONIALS -->
-	<testimonials refreshRate="6" defaultLink="http://www.directv.com/DTVAPP/content/business/referral">
-		<customer name="Winslow T. Oddfellow" location="" quote="Whatta ya, nuts?" linkURL="" />
+	<testimonials refreshRate="6">
+		<customer name="Winslow T. Oddfellow" location="Nearburg" quote="Whatta ya, nuts?" linkURL="" />
+		<customer name="Clifford 'Cliff' Maurice Feltbottom" location="Nearburg" quote="ok why am i here" linkURL="" />
 	</testimonials>
 	
 	<!-- CHANNEL LOGOS -->
-	<channels rootPath="http://cdn.directv.com/images/channel_call_sign/" prospectLink="https://web.archive.org/web/20100227000000/DTVAPP/new_customer/base_packages.jsp" customerLink="https://web.archive.org/web/20100227000000/DTVAPP/compare/compareChannels.jsp?packageType=ENGLISH">
+	<channels>
 
 
 <channel>https://cmd-hue.github.io/pingas.png</channel>
