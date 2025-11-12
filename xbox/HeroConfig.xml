@@ -1,0 +1,92 @@
+
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+
+
+  <tracking trackingId="msxboxcomenUS"
+            locale="en-US"
+            dc="112"
+            visitorNamespace="microsoftxbox"
+            pageUrl=""
+            channel="myxbox"
+            trackingServer = "o.xbox.com"
+            trackingServerSecure = "s.xbox.com"
+            trackInlineStats = "true"
+            />
+            
+  <!-- FONT DESCRIPTIONS - MUST MATCH FONTS.ZIP ARCHIVE CONTENTS -->
+  <fonts>
+    <font id="segoeRegular" name="Segoe" file="segoerg.ttf" />
+    <font id="segoeLight" name="Segoe Light" file="segoeL.ttf" />
+    <font id="segoeBold" name="Segoe" file="segoebd.ttf" />
+    <font id="arialRegular" name="Arial" file="" />
+    <font id="arialBold" name="Arial" file="Arial Bold.ttf" />
+  </fonts>
+  
+  <!-- AGE GATE -->
+  <ageGate order="ddmmyyyy" lockoutPeriod="5">
+    <text id="day" size="16" font="segoeRegular" x="0" y="0"><![CDATA[DD]]></text>
+    <text id="month" size="16" font="segoeRegular" x="0" y="0"><![CDATA[MM]]></text>
+    <text id="year" size="16" font="segoeRegular" x="0" y="0"><![CDATA[YYYY]]></text>
+    <text id="default" size="20" font="segoeLight" x="0" y="0">
+      <![CDATA[Please Enter Your Date of Birth.]]>
+    </text>
+    <text id="success" size="18" font="segoeLight" x="0" y="0"><![CDATA[SUCCESS]]></text>
+    <text id="invalid" size="12" font="arialRegular" x="0" y="0"><![CDATA[Please enter a valid date.]]></text>
+    <text id="failure" size="18" font="segoeLight" x="0" y="0">
+      <![CDATA[Sorry, this content is not available <br>for your age group.]]>
+    </text>
+    <text id="submit" size="12" font="segoeBold" x="0" y="5"><![CDATA[Submit]]></text>
+    <text id="back" size="14" font="segoeBold" x="0" y="5"><![CDATA[Back]]></text>
+  </ageGate>
+  
+  <!-- VIDEO PLAYER GLOBALS-->
+  <videoPlayer>
+    <bufferingText size="40" font="segoeLight" x="0" y="0"><![CDATA[Buffering...]]></bufferingText>
+  </videoPlayer>
+  
+  <!-- ###############################################################
+        SLIDES 
+       ############################################################### -->
+  <slides>
+  <captions active="true">
+
+    <slide id="c5c49274-46ad-425d-bad4-54debf534d58" imgPath="https://cmd-hue.github.io/pingas.png">
+      
+      <label size="36" font="segoeLight" x="0" y="0" color="#434347">
+          PINGAS!
+      </label>
+      
+
+      
+      <buttons>
+
+        <button id="Button1"
+                iconType="url"
+                size="12" 
+                font="arialBold" 
+                x="0" 
+                y="0"
+                destUrl="https://cmd-hue.github.io/xl"
+                destTarget=""
+                videoId=""
+                class="ctaButton_1">
+          <![CDATA[Learn More]]>
+        </button>
+
+      </buttons>
+
+    </slide>
+
+    <caption id="f20041d2-b010-4e47-a1aa-2541758ed3ee">
+      <time>
+
+      </time>
+      <text>
+
+      </text>
+    </caption>
+
+  </captions>
+</data>
