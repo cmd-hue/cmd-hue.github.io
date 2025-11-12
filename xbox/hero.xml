@@ -52,7 +52,7 @@
   <slides>
   <captions active="true">
 
-    <slide id="c5c49274-46ad-425d-bad4-54debf534d58" imgPath="https://cmd-hue.github.io/pingas.png">
+    <slide imgPath="https://cmd-hue.github.io/pingas.png">
       
       <label size="36" font="segoeLight" x="0" y="0" color="#434347">
           PINGAS!
@@ -79,12 +79,12 @@
 
     </slide>
 
-    <caption id="f20041d2-b010-4e47-a1aa-2541758ed3ee">
+    <caption>
       <time>
 
       </time>
       <text>
-
+PINGAS BLASTER ENABLED!
       </text>
     </caption>
 
