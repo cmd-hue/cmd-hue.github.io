@@ -1,20 +1,17 @@
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/banner-styles.css?v=1B2M2Y8A" />
-<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/iconochive.css?v=1B2M2Y8A" />
-<!-- End Wayback Rewrite JS Include -->
 <!--
 v 11.1.0043.0
 s 00-85-00-59-38-70-70-3F-92-F6-98-7F-1B-5A-AC-9C
 r 93-21-8A-5E-5D-3B-08-4D-98-12-00-A3-25-F1-31-0A
 -->
     <script type="text/javascript" src="https://cdnsrc.asp.net/ajax/jquery/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="https://web.archive.org/web/20110207185216js_/http://www.xbox.com/Shell/js/shiny.js"></script>
+    <script type="text/javascript" src="shiny.js"></script>
     <script type="text/javascript" src="general.js"></script>
     <script type="text/javascript">try{var utcOffsetMinutes = new Date().getTimezoneOffset() * -1;setCookie("UtcOffsetMinutes", utcOffsetMinutes, 30);} catch (e){}</script>
     <link rel="Stylesheet" type="text/css" href="https://web.archive.org/web/20110207185216cs_/http://www.xbox.com/Shell/css/GridLayout.css"/><link rel="Stylesheet" type="text/css" href="https://web.archive.org/web/20110207185216cs_/http://www.xbox.com/Shell/css/XboxV3.css"/><link rel="Stylesheet" type="text/css" href="https://web.archive.org/web/20110207185216cs_/http://www.xbox.com/Shell/css/ShellStyles.css"/><link rel="Stylesheet" type="text/css" href="https://web.archive.org/web/20110207185216cs_/http://www.xbox.com/Shell/css/jquery-ui-theme.css"/><link rel="shortcut icon" href="https://web.archive.org/web/20110207185216im_/http://www.xbox.com/Shell/images/favicon.ico"/>
@@ -43,7 +40,7 @@ r 93-21-8A-5E-5D-3B-08-4D-98-12-00-A3-25-F1-31-0A
     <div id="ShellLinkArea">
         <div class="SearchArea">
             <select id="SearchContext">
-                <option value="http://live.xbox.com:80/en-US/SiteSearch/Search?q={0}" selected="">Search Site</option><option value="http://marketplace.xbox.com:80/en-US/Search?query={0}">Search Games + Marketplace</option><option value="http://support.xbox.com:80/en-US/pages/results.aspx?k={0}">Search Support</option>
+                <option value="http://live.xbox.com:80/en-US/SiteSearch/Search?q={0}" selected="">Search Site</option><option value="http://marketplace.xbox.com:80/en-US/Search?query={0}">Search Games + Marketplace</option>
             </select>
             <input id="SearchTextBox" type="text" name="q" class="TextBox" value="" url="http://live.xbox.com:80/en-US/SiteSearch/Search?q={0}" maxlength="200"/>
             <input id="SearchButton" type="button" class="SubmitButton" value="" title="Search Site"/>
@@ -69,7 +66,7 @@ r 93-21-8A-5E-5D-3B-08-4D-98-12-00-A3-25-F1-31-0A
                     <div class="LinkArea">
                         <a href="http://www.xbox.com:80/en-US/live/joinlive" id="ctl00_ctl00_ctl00_MainContent__headerControl_JoinNowLink" name="JoinNowLink">Join Now</a>
                         <span class="spread">
-                            <a href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=11&amp;ct=1297104550&amp;rver=6.0.5286.0&amp;wp=MBI&amp;wreply=https:%2F%2Flive.xbox.com:443%2Fxweb%2Flive%2Fpassport%2FsetCookies.ashx%3Frru%3Dhttp%253a%252f%252fwww.xbox.com%252fen-US%252f&amp;lc=1033&amp;cb=reason%3D0%26returnUrl%3Dhttp%253a%252f%252fwww.xbox.com%252fen-US%252f&amp;id=66262" id="ctl00_ctl00_ctl00_MainContent__headerControl_RpsSignInLink" name="RpsSignInLink">Sign In</a>
+                            <a href="#" id="ctl00_ctl00_ctl00_MainContent__headerControl_RpsSignInLink" name="RpsSignInLink" onclick="alert('Sign In cannot be used right now as it is a work in progress. we apologize for the inconvenience')">Sign In</a>
                         </span>
                     </div>
                 </div>
@@ -212,7 +209,7 @@ r 93-21-8A-5E-5D-3B-08-4D-98-12-00-A3-25-F1-31-0A
     </script>
 
     <script src="xbox.carousel.js" type="text/javascript"></script>
-    <script src="https://web.archive.org/web/20110207185216js_/http://www.xbox.com/Shell/Hero/Script/tracking_omniture.js" type="text/javascript"></script>
+    <script src="tracking_omniture.js" type="text/javascript"></script>
 
 
 
@@ -403,7 +400,7 @@ r 93-21-8A-5E-5D-3B-08-4D-98-12-00-A3-25-F1-31-0A
 <script type="text/javascript">//<![CDATA[
 var s_account="msxboxcomenUS";t_account="msxboxcomv2enusdev"
 //]]></script>
-<script type="text/javascript" src="https://web.archive.org/web/20140207185216js_/http://www.xbox.com/Shell/js/s_code.js"></script>
+<script type="text/javascript" src="soda.js"></script>
 <script type="text/javascript">//<![CDATA[
 s.pageName='www\x2f';s.events='event1';s.prop2='en-us';s.eVar1='en-us';
  var extendedReferrer = s.getQueryParam('xr').toLowerCase();
