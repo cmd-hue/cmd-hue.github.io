@@ -77,11 +77,86 @@
 
       </buttons>
 
+    </slide><slide imgPath="https://cmd-hue.github.io/pingas.png">
+      
+      <label size="36" font="segoeLight" x="0" y="0" color="#434347">
+          PINGAS!
+      </label>
+      
+
+      
+      <buttons>
+
+        <button id="Button1"
+                iconType="url"
+                size="12" 
+                font="arialBold" 
+                x="0" 
+                y="0"
+                destUrl="https://cmd-hue.github.io/xl"
+                destTarget=""
+                videoId=""
+                class="ctaButton_1">
+          <![CDATA[Learn More]]>
+        </button>
+
+      </buttons>
+
+    </slide><slide imgPath="https://cmd-hue.github.io/pingas.png">
+      
+      <label size="36" font="segoeLight" x="0" y="0" color="#434347">
+          PINGAS!
+      </label>
+      
+
+      
+      <buttons>
+
+        <button id="Button1"
+                iconType="url"
+                size="12" 
+                font="arialBold" 
+                x="0" 
+                y="0"
+                destUrl="https://cmd-hue.github.io/xl"
+                destTarget=""
+                videoId=""
+                class="ctaButton_1">
+          <![CDATA[Learn More]]>
+        </button>
+
+      </buttons>
+
+    </slide><slide imgPath="https://cmd-hue.github.io/pingas.png">
+      
+      <label size="36" font="segoeLight" x="0" y="0" color="#434347">
+          PINGAS!
+      </label>
+      
+
+      
+      <buttons>
+
+        <button id="Button1"
+                iconType="url"
+                size="12" 
+                font="arialBold" 
+                x="0" 
+                y="0"
+                destUrl="https://cmd-hue.github.io/xl"
+                destTarget=""
+                videoId=""
+                class="ctaButton_1">
+          <![CDATA[Learn More]]>
+        </button>
+
+      </buttons>
+
     </slide>
 
     <caption>
       <time>
-
+August 12 2036
       </time>
       <text>
       PINGAS BLASTER ENABLED!
