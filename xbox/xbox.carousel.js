@@ -121,7 +121,7 @@
                 });
             },
             error: function() {
-                $('#landingCarousel').css('background-image', 'url(/Shell/Hero/images/xbox_carousel_default.jpg)');
+                $('#landingCarousel').css('background-image', 'url(xbox_carousel_default.jpg)');
             }
         }); // END Fetch Carousel Data
 
