@@ -10,17 +10,19 @@
 <!-- Copyright 2009 YouTube, LLC -->
 <!-- Copyright 2025 Pingas Co. -->
 
-
-<head>
 <script>
-  // Outage object template
 const outage = {
   active: false,      
   reason: "placeholder"          
 };
+if (outage && outage.active === true) {
+  location.href = "https://cmd-hue.github.io/outage.html?reason=" + encodeURIComponent(outage.reason);
+}
 
+</script>
 
-  </script>
+<head>
+
   <title>CollabTube - YouTube XL</title>
   <link rel="icon" href="https://web.archive.org/web/20130506141526im_/https://s.ytimg.com/yts/favicon-vfldLzJxy.ico" type="image/x-icon"/>
 
@@ -1096,61 +1098,62 @@ fetch(vidtapebrowse)
     };
   };
 
-  var generateAboutContent = async function() {
-  const response = await fetch("https://cmd-hue.github.io/collabtubenews.txt");
-  const text = await response.text();
-  return {
-    _CLASS: 'xl-view-default',
-    _CONTROL: [controlSetVisible, controlNavigate],
-    _VIEW: {
-      aboutcontent: {
-        _CLASS: 'xl-view-default',
-        _VIEW: {
-          aboutdescription: {
-            _CLASS: 'xl-view-wrappingtext',
-            label: text
-          },
-          link1: {
-            _CLASS: 'xl-view-wrappingtext',
-            _CONTROL: [
-              controlActivateOnClick,
-              { _CLASS: 'syn-control-redirect', url: '/t/privacy?persist_app=1&app=desktop' }
-            ],
-            navobject: focusLinkOver,
-            label: "Privacy Policy"
-          },
-          link2: {
-            _CLASS: 'xl-view-wrappingtext',
-            _CONTROL: [
-              controlActivateOnClick,
-              { _CLASS: 'syn-control-redirect', url: '/t/terms?persist_app=1&app=desktop' }
-            ],
-            navobject: focusLinkOver,
-            label: "Terms of Service"
-          },
-          link3: {
-            _CLASS: 'xl-view-wrappingtext',
-            _CONTROL: [
-              controlActivateOnClick,
-              { _CLASS: 'syn-control-redirect', url: '/t/dmca_policy?persist_app=1&app=desktop' }
-            ],
-            navobject: focusLinkOver,
-            label: "Copyright Notices"
-          },
-          link4: {
-            _CLASS: 'xl-view-wrappingtext',
-            _CONTROL: [
-              controlActivateOnClick,
-              { _CLASS: 'syn-control-redirect', url: '/t/community_guidelines?persist_app=1&app=desktop' }
-            ],
-            navobject: focusLinkOver,
-            label: "Community Guidelines"
+  var generateAboutContent = function(){
+    return {
+      _CLASS: 'xl-view-default',
+      _CONTROL: [
+        controlSetVisible,
+        controlNavigate
+      ],
+      _VIEW: {
+        aboutcontent: {
+          _CLASS: 'xl-view-default',
+          _VIEW: {
+            aboutdescription: {
+              _CLASS: 'xl-view-wrappingtext',
+              label: "YouTube XL is a version of YouTube optimized for watching YouTube videos on any large screen."
+            },
+            link1: {
+              _CLASS: 'xl-view-wrappingtext',
+              _CONTROL: [
+                controlActivateOnClick,
+                { _CLASS: 'syn-control-redirect', url: '/t/privacy?persist_app=1&app=desktop' }
+              ],
+              navobject: focusLinkOver,
+              label: "Privacy Policy"
+            },
+            link2: {
+              _CLASS: 'xl-view-wrappingtext',
+              _CONTROL: [
+                controlActivateOnClick,
+                { _CLASS: 'syn-control-redirect', url: '/t/terms?persist_app=1&app=desktop' }
+              ],
+              navobject: focusLinkOver,
+              label: "Terms of Service"
+            },
+            link3: {
+              _CLASS: 'xl-view-wrappingtext',
+              _CONTROL: [
+                controlActivateOnClick,
+                { _CLASS: 'syn-control-redirect', url: '/t/dmca_policy?persist_app=1&app=desktop' }
+              ],
+              navobject: focusLinkOver,
+              label: "Copyright Notices"
+            },
+            link4: {
+              _CLASS: 'xl-view-wrappingtext',
+              _CONTROL: [
+                controlActivateOnClick,
+                { _CLASS: 'syn-control-redirect', url: '/t/community_guidelines?persist_app=1&app=desktop' }
+              ],
+              navobject: focusLinkOver,
+              label: "Community Guidelines"
+            }
           }
         }
       }
-    }
+    };
   };
-};
 
   var generateWatch = function()
   {
@@ -3309,10 +3312,6 @@ fetch(vidtapebrowse)
     if (configuration.safe_search == 'always') {
       config.filterRacyContent = true;
     }
-if (outage && outage.active === true) {
-  location.href = "https://cmd-hue.github.io/outage.html?reason=" + encodeURIComponent(outage.reason);
-}
-
 
     yt.syn.logger.setLevel(Math.min(display.debug, 9));
 
