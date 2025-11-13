@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fetch Anything</title>
+<style>
+body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:24px;background:#f6f7fb;color:#111}
+.container{max-width:920px;margin:0 auto;background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(16,24,40,0.08)}
+label{display:block;margin-top:12px;font-weight:600}
+input[type=text],textarea,select{width:100%;padding:10px;border:1px solid #dfe3ea;border-radius:8px;font:inherit}
+textarea{min-height:160px;resize:vertical}
+.row{display:flex;gap:12px}
+.row > *{flex:1}
+button{margin-top:12px;padding:10px 14px;border-radius:10px;border:0;background:#0b76ff;color:#fff;font-weight:700;cursor:pointer}
+pre{background:#0b1220;color:#e6eef8;padding:12px;border-radius:8px;overflow:auto;max-height:320px}
+.small{font-size:13px;color:#475569}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Fetch Anything</h1>
+<label for="url">Endpoint URL</label>
+<input id="url" type="text" placeholder="https://example.com/endpoint" value="https://httpbin.org/anything">
+<div class="row">
+<div>
+<label for="method">HTTP Method</label>
+<select id="method">
+<option value="GET">GET</option>
+<option value="POST" selected>POST</option>
+<option value="PUT">PUT</option>
+<option value="DELETE">DELETE</option>
+<option value="PATCH">PATCH</option>
+<option value="HEAD">HEAD</option>
+<option value="OPTIONS">OPTIONS</option>
+</select>
+</div>
+<div>
+<label for="ctype">Content-Type</label>
+<select id="ctype">
+<option value="application/json">application/json</option>
+<option value="text/plain">text/plain</option>
+<option value="application/x-www-form-urlencoded">application/x-www-form-urlencoded</option>
+<option value="multipart/form-data">multipart/form-data</option>
+</select>
+</div>
+<div>
+<label for="mode">Mode</label>
+<select id="mode">
+<option value="cors">cors</option>
+<option value="no-cors">no-cors</option>
+<option value="same-origin">same-origin</option>
+</select>
+</div>
+</div>
+<label for="payload">Payload (for multipart use one key=value per line)</label>
+<textarea id="payload">{"hello":"world"}</textarea>
+<label for="headers">Custom Headers (optional, one per line: Name: value)</label>
+<textarea id="headers" class="small" placeholder="X-Api-Key: 12345\nX-Test: yes"></textarea>
+<button id="send">Send Request</button>
+<div style="margin-top:12px">
+<label>Response</label>
+<pre id="response">No request yet.</pre>
+</div>
+</div>
+<script>
+const elUrl=document.getElementById('url');
+const elMethod=document.getElementById('method');
+const elCtype=document.getElementById('ctype');
+const elPayload=document.getElementById('payload');
+const elHeaders=document.getElementById('headers');
+const elSend=document.getElementById('send');
+const elResp=document.getElementById('response');
+const elMode=document.getElementById('mode');
+function parseHeaders(text){
+ const h=new Headers();
+ if(!text) return h;
+ text.split(/\r?\n/).map(s=>s.trim()).filter(Boolean).forEach(line=>{
+ const i=line.indexOf(':');
+ if(i>0){
+ const name=line.slice(0,i).trim();
+ const value=line.slice(i+1).trim();
+ h.append(name,value);
+ }
+ });
+ return h;
+}
+elSend.addEventListener('click',async()=>{
+ elResp.textContent='Sending...';
+ const url=elUrl.value.trim();
+ if(!url){ elResp.textContent='Enter a URL'; return }
+ const method=elMethod.value;
+ const ctype=elCtype.value;
+ const mode=elMode.value;
+ const raw=elPayload.value;
+ const custom=parseHeaders(elHeaders.value);
+ try{
+ let opts={method:method,mode:mode,headers:custom};
+ if(method!=='GET'&&method!=='HEAD'){
+  if(ctype==='multipart/form-data'){
+   const fd=new FormData();
+   raw.split(/\r?\n/).map(l=>l.trim()).filter(Boolean).forEach(line=>{
+    const idx=line.indexOf('=');
+    if(idx>0){
+     const k=line.slice(0,idx);
+     const v=line.slice(idx+1);
+     fd.append(k,v);
+    } else {
+     fd.append(line,'');
+    }
+   });
+   opts.body=fd;
+  } else if(ctype==='application/x-www-form-urlencoded'){
+   opts.headers.set('Content-Type','application/x-www-form-urlencoded');
+   opts.body=raw;
+  } else if(ctype==='application/json'){
+   opts.headers.set('Content-Type','application/json');
+   try{JSON.parse(raw);opts.body=raw;}catch(e){opts.body=raw;}
+  } else {
+   opts.headers.set('Content-Type',ctype);
+   opts.body=raw;
+  }
+ }
+ const r=await fetch(url,opts);
+ const statusLine=`HTTP ${r.status} ${r.statusText}`;
+ let bodyText='';
+ try{ bodyText=await r.text(); }catch(e){ bodyText='(no readable body)' }
+ elResp.textContent=statusLine+"\n\n"+bodyText;
+ }catch(err){
+ elResp.textContent='Error: '+err.message;
+ }
+});
+</script>
+</body>
+</html>
