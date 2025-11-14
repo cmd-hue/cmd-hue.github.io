@@ -1,8 +1,14 @@
 #EXTM3U
-#EXTIMG:https://cmd-hue.github.io/logo.png
+#EXTIMG:special://skin/media/DefaultChannel.png
 #EXTINF:-1,102.7 WEBN
 https://cloud-proxy-hls.revma.ihrhls.com/zc1701/26_1rpizz5mo0eha02/playlist.m3u8?streamid=1701&zip=&aw_0_1st.playerid=iHeartRadioWebPlayer&aw_0_1st.skey=11554381129&clientType=web&companionAds=false&deviceName=web-mobile&dist=iheart&host=webapp.US&listenerId=&playedFrom=157&pname=live_profile&profileId=11554381129&stationid=1701&terminalId=159&rj-org=n1ab-e2
 #EXTINF:-1,crossroads song by ai
 https://cmd-hue.github.io/crossroads.mp3
 #EXTINF:-1,question mark bass!
 https://cmd-hue.github.io/questionmarkbass.mov
+#EXTINF:-1,AWWW LOOK AT THE DUCKS!
+https://outbound-production.explore.org/stream-production-214/.m3u8
+#EXTINF:-1,New Orleans Bourbon Street - Nov 13 2025 9:17 PM EST
+https://videos-3.earthcam.com/fecnetwork/4280.flv/playlist.m3u8?t=Z8SpBH92uYu3pHPoOMZ%2B9zmlj1I9el%2F0SgTs%2BxGjkmsrtO14riZbRNG3ABYKX8aD&td=202511132056
+#EXTINF:-1,New Orleans Bourbon Street - Nov 13 2025 6:00 AM EST
+https://videos-3.earthcam.com/fecnetwork/4280.flv/playlist.m3u8?t=Z8SpBH92uYu3pHPoOMZ%2B9zmlj1I9el%2F0SgTs%2BxGjkmsrtO14riZbRNG3ABYKX8aD&td=202511130600
