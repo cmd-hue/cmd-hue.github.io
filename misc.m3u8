@@ -22,4 +22,4 @@ https://rbmn-live.akamaized.net/hls/live/717209/geoBlockPadelPremierPadelP12025R
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logoaudio.png" group-title="CMD HUE MISC AUDIO PLAYLIST",102.7 WEBN
 https://stream.revma.ihrhls.com/zc1701/hls.m3u8?streamid=1701&zip=&aw_0_1st.playerid=iHeartRadioWebPlayer&aw_0_1st.skey=11554381129&clientType=web&companionAds=false&deviceName=web-mobile&dist=iheart&host=webapp.US&listenerId=&playedFrom=157&pname=live_profile&profileId=11554381129&stationid=1701&terminalId=159&territory=US
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logoaudio.png" group-title="CMD HUE MISC AUDIO PLAYLIST",Warm98.5
-https://playerservices.streamtheworld.com/pls/WRRMFMAAC.pls
+https://stream.revma.ihrhls.com/zc1701/hls.m3u8?streamid=5579&zip=&aw_0_1st.playerid=iHeartRadioWebPlayer&aw_0_1st.skey=11554381129&clientType=web&companionAds=false&deviceName=web-mobile&dist=iheart&host=webapp.US&listenerId=&playedFrom=157&pname=live_profile&profileId=11554381129&stationid=1701&terminalId=159&territory=US
