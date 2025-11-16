@@ -19,3 +19,5 @@ https://eun13.playlist.ttvnw.net/v1/playlist/CuwEn6nnQeIjLeCrHuY44y_iTOA8RP2_0sf
 https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",geoBlockPadelPremierPadelP12025RotterdamFinalsMainCourtPriM
 https://rbmn-live.akamaized.net/hls/live/717209/geoBlockPadelPremierPadelP12025RotterdamFinalsMainCourtPriM/master_20251005_3000.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logoaudio.png" group-title="CMD HUE MISC AUDIO PLAYLIST",102.7 WEBN
+https://stream.revma.ihrhls.com/zc1701/hls.m3u8?streamid=1701&zip=&aw_0_1st.playerid=iHeartRadioWebPlayer&aw_0_1st.skey=11554381129&clientType=web&companionAds=false&deviceName=web-mobile&dist=iheart&host=webapp.US&listenerId=&playedFrom=157&pname=live_profile&profileId=11554381129&stationid=1701&terminalId=159&territory=US
