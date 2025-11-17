@@ -22,4 +22,8 @@ https://rbmn-live.akamaized.net/hls/live/717209/geoBlockPadelPremierPadelP12025R
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logoaudio.png" group-title="CMD HUE MISC AUDIO PLAYLIST",102.7 WEBN
 https://stream.revma.ihrhls.com/zc1701/hls.m3u8?streamid=1701&zip=&aw_0_1st.playerid=iHeartRadioWebPlayer&aw_0_1st.skey=11554381129&clientType=web&companionAds=false&deviceName=web-mobile&dist=iheart&host=webapp.US&listenerId=&playedFrom=157&pname=live_profile&profileId=11554381129&stationid=1701&terminalId=159&territory=US
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logoaudio.png" group-title="CMD HUE MISC AUDIO PLAYLIST",Warm98.5
-https://stream.revma.ihrhls.com/zc1701/hls.m3u8?streamid=5579&zip=&aw_0_1st.playerid=iHeartRadioWebPlayer&aw_0_1st.skey=11554381129&clientType=web&companionAds=false&deviceName=web-mobile&dist=iheart&host=webapp.US&listenerId=&playedFrom=157&pname=live_profile&profileId=11554381129&stationid=5579&terminalId=159&territory=US
+https://22203.live.streamtheworld.com/WRRMFMAAC.aac?pname=StandardPlayerV4&pversion=4.19.2-044&csegid=1&dist=triton-web&tdsdk=js-2.9&swm=false&banners=none&burst-time=15&sbmid=2003dd92-a1a5-4f20-d43a-4332b5ceca70
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logoaudio.png" group-title="CMD HUE MISC AUDIO PLAYLIST",Cincinnati Area NOAA Weather Radio
+https://broadcastify.cdnstream1.com/39960
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logoaudio.png" group-title="CMD HUE MISC AUDIO PLAYLIST",Cincinnati Fire Radio
+https://broadcastify.cdnstream1.com/5184
