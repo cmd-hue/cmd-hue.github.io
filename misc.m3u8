@@ -15,14 +15,6 @@ https://broadcastify.cdnstream1.com/39960
 https://broadcastify.cdnstream1.com/5184
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logoaudio.png" group-title="CMD HUE MISC AUDIO PLAYLIST",New Mexico Fire Radio
 https://broadcastify.cdnstream1.com/39959
-#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",WLWT 5
-https://dai.google.com/linear/hls/pa/event/o9z9MP3tRyGd-qHZNMarqA/stream/f6abdf0a-a939-4e1b-9e5a-d8bcf9940713:CHS/master.m3u8
-#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Star 64
-https://vinson-newson-vsms.triple-it.nl/WSTR_1763694620_4b343f58a0d15d0da32072b4a23260d39b94d7c9b01e071dfb678f1a54100020.m3u8?a=b
-#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",ABC9 WCPO
-https://dai.google.com/linear/hls/pa/event/eug56AddRZesSiD7Vt6sBA/stream/e33600b7-0d0e-43b1-8401-f77cbb68c797:DLS/master.m3u8
-#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",WFTV 9 Orlando
-https://dai.google.com/linear/hls/pa/event/qo_7qL04ShCal1sLEbk0IA/stream/4a59562d-3ff0-4b7b-a07d-84fd24905786:CHS/master.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Boomerang
 https://e1.thetvapp.to/hls/Boomerang/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Cartoon Network / Adult Swim
