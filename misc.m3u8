@@ -23,3 +23,12 @@ https://fl61.moveonjoy.com/CARTOON_NETWORK/playlist.m3u8
 https://abcnews-streams.akamaized.net/hls/live/2023569/abcnewshudson10/master_4000.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",ESPN
 https://e1.thetvapp.to/hls/ESPN/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/toongoggles.png" group-title="CMD HUE MISC PLAYLIST",Toon Goggles
+https://stream.ads.ottera.tv/cl/251124d4ic8ipk1535vkpq0rl0/1280x720_3071200_0_f.m3u8?i=475_37
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Charge!
+https://fast-channels.sinclairstoryline.com/CHARGE/index_5_0.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Angry Birds Channel
+https://stream.ads.ottera.tv/cl/251124d4idmt70cfctapdbp3hg/1280x720_2300000_0_f.m3u8?i=475_547
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Duck Dynasty
+https://amg00276-amg00276c2-rakuten-uk-3449.playouts.now.amagi.tv/playlist1080p.m3u8
+
