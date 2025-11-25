@@ -31,4 +31,13 @@ https://fast-channels.sinclairstoryline.com/CHARGE/index_5_0.m3u8
 https://stream.ads.ottera.tv/cl/251124d4idmt70cfctapdbp3hg/1280x720_2300000_0_f.m3u8?i=475_547
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Duck Dynasty
 https://amg00276-amg00276c2-rakuten-uk-3449.playouts.now.amagi.tv/playlist1080p.m3u8
-
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Popstar TV (Not 24/7)
+https://bd0c70d8954d416d819afb3e1c940ee6.mediatailor.us-west-2.amazonaws.com/v1/manifest/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-10-POPSTAR-PLEX/a8b68952-4d59-4fb9-b4ab-8c36b6c70c61/5.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",WeatherNation
+https://twcprod-live.twc-tv.com/v1/manifest/b4d4d63a49309cc5140171fb2e92485c31be1e9e/DSP_6228e4760505741a116f1ba2_twcprod-live/6bf09ce5-366b-463c-b67e-c4b799f73c3f/4.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",NickToons (720p, USA)
+http://143.244.60.30/NICKTOONS/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",WFTV 9 Orlando
+https://amg00327-coxmediagroup-wftvbreaking-ono-hec7b.amagi.tv/playlist/amg00327-coxmediagroup-wftvbreaking-ono/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",88 Stereo (720p) [Not 24/7]
+http://k3.usastreams.com/CableLatino/88stereo/playlist.m3u8
