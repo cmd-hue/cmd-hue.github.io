@@ -41,3 +41,5 @@ http://143.244.60.30/NICKTOONS/tracks-v1a1/mono.m3u8
 https://amg00327-coxmediagroup-wftvbreaking-ono-hec7b.amagi.tv/playlist/amg00327-coxmediagroup-wftvbreaking-ono/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",88 Stereo (720p) [Not 24/7]
 http://k3.usastreams.com/CableLatino/88stereo/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logoaudio.png" group-title="CMD HUE MISC AUDIO PLAYLIST",WJON IP EAS Radio
+https://radio.wjonip.org/wjonip
