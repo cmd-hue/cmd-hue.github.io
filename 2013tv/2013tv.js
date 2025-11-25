@@ -12286,7 +12286,7 @@ if (!self.__WB_pmw) {
             this.cancelPolling();
             this.http_.post("/o/oauth2/device/code", l, {
                 client_id: "861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com",
-                scope: "https://web.archive.org/web/20130427132343/http://gdata.youtube.com"
+                scope: "http://gdata.youtube.com"
             }, C(function(c) {
                 this.pairingCodeSuccessHandler_(c, a, b)
             }, this))
@@ -12302,7 +12302,7 @@ if (!self.__WB_pmw) {
                 client_id: "861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com",
                 client_secret: this.secret_,
                 code: a,
-                grant_type: "https://web.archive.org/web/20130427132343/http://oauth.net/grant_type/device/1.0"
+                grant_type: "https://oauth.net/grant_type/device/1.0"
             }
               , f = C(function(e) {
                 this.refreshTokenFetchHandler_(e, a, b, c)
@@ -13433,12 +13433,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.reloadToHttp_ = function() {
-            this.navigateTo_("https://web.archive.org/web/20130427132343/http://www.youtube.com/tv");
+            this.navigateTo_("https://www.youtube.com/tv");
             return k
         }
         ;
         q.loadKeyCodePage_ = function() {
-            this.navigateTo_("https://web.archive.org/web/20130427132343/https://kcdsfrdvcs.appspot.com");
+            this.navigateTo_("https://kcdsfrdvcs.appspot.com");
             return k
         }
         ;
@@ -13614,7 +13614,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         gh.prototype.getGDataSchema_ = function() {
-            return '<?xml version="1.0" encoding="UTF-8"?> <entry xmlns="http://www.w3.org/2005/Atom" xmlns:yt="https://web.archive.org/web/20130427132343/http://gdata.youtube.com/schemas/2007">{body}</entry>'
+            return '<?xml version="1.0" encoding="UTF-8"?> <entry xmlns="http://www.w3.org/2005/Atom" xmlns:yt="https://gdata.youtube.com/schemas/2007">{body}</entry>'
         }
         ;
         var hh = function(a, b, c) {
@@ -19323,7 +19323,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 title: this.videoData_.title,
                 content_info: {
                     thumbnail_url: this.videoData_.thumbnail_url,
-                    watch_link: "https://web.archive.org/web/20130427132343/http://www.youtube.com/watch?v=" + b + "&feature=ramp"
+                    watch_link: "https://www.youtube.com/watch?v=" + b + "&feature=ramp"
                 }
             }
         }
@@ -19621,11 +19621,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
               , c = this.createElement("entry")
               , e = this.createElement("id");
             this.domHelper_.append(e, b);
-            var f = this.createElement("batch:id", "https://web.archive.org/web/20130427132343/http://schemas.google.com/gdata/batch");
+            var f = this.createElement("batch:id", "https://schemas.google.com/gdata/batch");
             this.domHelper_.append(f, a);
             a = this.createElement("link");
             Kj(a, {
-                rel: "https://web.archive.org/web/20130427132343/http://schemas.google.com/g/2005#batch",
+                rel: "https://schemas.google.com/g/2005#batch",
                 type: "application/atom+xml",
                 href: b
             });
@@ -19640,7 +19640,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             od(c);
             var e = this.createElement("id");
             this.domHelper_.append(e, a);
-            var f = this.createElement("batch:operation", "https://web.archive.org/web/20130427132343/http://schemas.google.com/gdata/batch");
+            var f = this.createElement("batch:operation", "https://schemas.google.com/gdata/batch");
             Kj(f, {
                 type: "query"
             });
@@ -20527,7 +20527,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         Zj.prototype.getHandler_ = function(a, b) {
             var c = this.remoteService_.getConnectedScreenID()
               , e = '<?xml version="1.0" encoding="UTF-8"?><service xmlns="urn:dial-multiscreen-org:schemas:dial"><name>YouTube</name><options allowStop="false" /><state>' + (c == l && !this.isRunning ? "stopped" : "running") + "</state>";
-            c != l && (e += '<additionalData xmlns="https://web.archive.org/web/20130427132343/http://www.youtube.com/dial"><screenId>' + c + "</screenId></additionalData>");
+            c != l && (e += '<additionalData xmlns="https://www.youtube.com/dial"><screenId>' + c + "</screenId></additionalData>");
             b.mimeType = 'text/xml; charset="utf-8"';
             b.responseCode = 200;
             b.body = e + "</service>";
@@ -24124,7 +24124,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             this.pairingCodeRefetcher_ = this.timeout_(C(this.fetchPairingCode_, this), 3E5, m);
             this.remoteService_.getPairingCode(C(function(a) {
                 this.displayPairingCode = this.formatPairingCode_(a);
-                this.qrCodeImageUrl = "https://web.archive.org/web/20130427132343/http://chart.apis.google.com/chart?cht=qr&chs=350x350&chl=http%3A%2F%2Fm.youtube.com%2Fpair%3FpairingCode%3D" + a;
+                this.qrCodeImageUrl = "https://chart.apis.google.com/chart?cht=qr&chs=350x350&chl=http%3A%2F%2Fm.youtube.com%2Fpair%3FpairingCode%3D" + a;
                 this.environment_.isWiiU || (this.qrCodeElement_.src = this.qrCodeImageUrl);
                 this.renderDialog_()
             }, this))
@@ -26063,7 +26063,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 name: "subscribeService",
                 httpMethod: "post",
                 path: "/users/default/subscriptions",
-                template: '<category scheme="https://web.archive.org/web/20130427132343/http://gdata.youtube.com/schemas/2007/subscriptiontypes.cat" term="channel"/><yt:username>{channelName}</yt:username>'
+                template: '<category scheme="https://gdata.youtube.com/schemas/2007/subscriptiontypes.cat" term="channel"/><yt:username>{channelName}</yt:username>'
             }, {
                 name: "unsubscribeService",
                 httpMethod: "delete",
