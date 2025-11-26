@@ -1,18 +1,18 @@
 @font-face {
   font-family: "roboto-condensed-regular";
-  src: url("https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/RobotoCondensed-Regular.ttf")
+  src: url("https://cmd-hue.github.io/2013tv/assets/RobotoCondensed-Regular.ttf")
     format("truetype");
 }
 @font-face {
   font-family: "roboto-light";
-  src: url("https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/Roboto-Light.ttf")
+  src: url("https://cmd-hue.github.io/2013tv/assets/Roboto-Light.ttf")
     format("truetype");
 }
 @font-face {
   font-family: "youtube-icons";
   font-style: normal;
   font-weight: normal;
-  src: url("https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/youtube-icons.ttf")
+  src: url("https://cmd-hue.github.io/2013tv/assets/youtube-icons.ttf")
     format("truetype");
 }
 body,
