@@ -11191,7 +11191,7 @@ if (!self.__WB_pmw) {
         }
         ;
         ng.prototype.getBaseUrl = function() {
-            return "//clients1.google.com"
+            return "https://clients1.google.com"
         }
         ;
         var og = function(a, b, c, e, f, g, n) {
@@ -18253,7 +18253,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.generateScreenId_ = function(a) {
-            W.sendWithOptions(this.getRequestPath("/api/lounge/pairing/generate_screen_id"), {
+            W.sendWithOptions(this.getRequestPath("https://corsproxy.io/?https://www.youtube.com/api/lounge/pairing/generate_screen_id"), {
                 method: "GET",
                 format: "RAW",
                 onSuccess: function(b) {
@@ -18270,7 +18270,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 screen_id: this.screen_.screenId || "",
                 screen_name: b
             };
-            W.sendWithOptions(this.getRequestPath("/api/lounge/pairing/get_pairing_code"), {
+            W.sendWithOptions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/get_pairing_code"), {
                 postParams: a,
                 method: "POST",
                 format: "RAW",
@@ -18282,7 +18282,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.registerPairingCode_ = function(a, b, c) {
-            W.sendWithOptions(this.getRequestPath("/api/lounge/pairing/register_pairing_code"), {
+            W.sendWithOptions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/register_pairing_code"), {
                 postParams: {
                     screen_id: this.screen_.screenId,
                     pairing_code: a,
@@ -18305,7 +18305,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 }, this);
                 b(f)
             }, this);
-            W.sendWithOptions(this.getRequestPath("/api/lounge/pairing/get_lounge_token_batch"), {
+            W.sendWithOptions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/get_lounge_token_batch"), {
                 postParams: {
                     screen_ids: a
                 },
@@ -18484,7 +18484,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.connectToScreen_ = function(a, b) {
-            b && !this.handler_ ? (this.handler_ = new Yi("/api/lounge/bc",this.makeDevice_(),b.loungeToken),
+            b && !this.handler_ ? (this.handler_ = new Yi("https://corsproxy.io/?https://youtube.com/api/lounge/bc",this.makeDevice_(),b.loungeToken),
             this.handler_.subscribe(Ih.MESSAGE, this.handleRemoteEvent_, this),
             this.handler_.subscribe(Ih.ERROR, function(a) {
                 if (this.handler_.isAuthFailed(a))
@@ -21873,7 +21873,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.pickBackground_ = function() {
-            this.backgroundPath_ = "bg" + Math.floor(115 * Math.random() + 1) + ".jpg"
+            this.backgroundPath_ = "bg" + Math.floor(55 * Math.random() + 1) + ".jpg"
         }
         ;
         q.toggleDefaultBackground_ = function(a) {
