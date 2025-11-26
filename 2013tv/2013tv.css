@@ -887,7 +887,7 @@ ul {
   background-image: url(https://youtomb.github.io/assets/icon-search-tile.png);
 }
 .action-tile .clear-search-icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-search-tile-clear.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-search-tile-clear.png);
 }
 .action-tile .search-tile-subtitle {
   font-size: 1.4em;
@@ -1166,13 +1166,13 @@ ul {
   background-size: 80%;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-globe.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-globe.png);
 }
 #search-keyboard .delete-icon {
   background-size: 80%;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-delete.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-delete.png);
 }
 .letter-suggest {
   opacity: 0;
@@ -2099,7 +2099,7 @@ ul {
   width: 2.7em;
 }
 #kenko .warning {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-warning.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-warning.png);
 }
 .paid-channel-info {
   font-size: 1.4em;
@@ -2250,17 +2250,17 @@ ul {
   display: inline-block;
 }
 .desktop .legend .more .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-desktop-dpad-down.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-desktop-dpad-down.png);
 }
 .desktop .legend .back .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-desktop-esc.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-desktop-esc.png);
 }
 .desktop .legend .search .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-desktop-s.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-desktop-s.png);
 }
 .desktop .legend .home .icon,
 .desktop .legend .delete .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-desktop-g.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-desktop-g.png);
 }
 .browse-state .more,
 .browse-state.no-mode #legend .back,
@@ -2300,20 +2300,20 @@ ul {
   text-transform: none;
 }
 .ps3 .legend .more .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-ps3-dpad-down.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/dpad-ps3.png);
 }
 .ps3 .legend .back .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-ps3-circle.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/pla-circle.png);
 }
 .ps3 .legend .reversed-back .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-ps3-x.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/pla-x.png);
 }
 .ps3 .legend .search .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-ps3-triangle.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/pla-tri.png);
 }
 .ps3 .legend .home .icon,
 .ps3 .legend .delete .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-ps3-square.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/pla-square.png);
 }
 .ps3 #dialog .logout-authenticated-info {
   padding-top: 0;
@@ -2341,17 +2341,17 @@ ul {
   font-size: 1em;
 }
 .wiiu .legend .more .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-ps3-dpad-down.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/dpad-ps3.png);
 }
 .wiiu .legend .back .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-wiiu-b.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/wiiu-b.png);
 }
 .wiiu .legend .search .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-wiiu-y.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/wiiu-y.png);
 }
 .wiiu .legend .home .icon,
 .wiiu .legend .delete .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-wiiu-x.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/wiiu-x.png);
 }
 .wiiu .qr-code-wrapper {
   display: none;
@@ -2374,25 +2374,25 @@ ul {
   display: none;
 }
 .tv .legend .more .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-tv-dpad-down.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/tv-dpad-down.png);
 }
 .lg .legend .back {
   cursor: pointer;
 }
 .tv .legend .back .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-tv-back.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/tv-back.png);
 }
 .lg .legend .more .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-lgtv-dpad-more.png) !important;
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-lgtv-dpad-more.png) !important;
 }
 .lg .legend .more:hover .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-lgtv-dpad-more-hover.png) !important;
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-lgtv-dpad-more-hover.png) !important;
 }
 .lg .legend .back .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-lgtv-back-default.png) !important;
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-lgtv-back-default.png) !important;
 }
 .lg .legend .back:hover .icon {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-lgtv-back-hover.png) !important;
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-lgtv-back-hover.png) !important;
 }
 body.samsung {
   background-color: transparent !important;
@@ -2463,7 +2463,7 @@ body.lg {
   background-color: #f1f1f1;
 }
 .limited-graphics .hide-background.video-tile .video-thumb {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-playbutton.png) !important;
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-playbutton.png) !important;
   background-repeat: no-repeat;
 }
 .limited-graphics .action-tile.active {
@@ -2552,7 +2552,7 @@ body.lg {
 }
 #eureka-player-controls {
   background: transparent
-    url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/icon-play-pause-eureka.png)
+    url(https://cmd-hue.github.io/2013tv/assets/icon-play-pause-eureka.png)
     no-repeat;
   background-size: cover;
   height: 10em;
