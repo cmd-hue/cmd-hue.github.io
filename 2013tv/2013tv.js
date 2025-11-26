@@ -13522,7 +13522,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         E(eh, mg);
         q = eh.prototype;
         q.getBaseUrl = function() {
-            return this.environment.useStageGdata ? "//web.archive.org/web/20130427132343/https://stage.gdata.youtube.com/feeds/api" : "//web.archive.org/web/20130427132343/https://gdata.youtube.com/feeds/api"
+            return this.environment.useStageGdata ? "https://stage.gdata.youtube.com/feeds/api" : "https://gdata.youtube.com/feeds/api"
         }
         ;
         q.getDefaultTransportMethod = function() {
