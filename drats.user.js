@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         Drats
 // @namespace    none
-// @version      1.0
-// @description  Drats 1.0 by Banjo. 
+// @version      1.1
+// @description  Drats 1.1 by Banjo. 
 // @author       Banjo
 // @match        http://ourworldoftext.com/*
-// @grant        http://ourworldoftext.com/
+// @match        http://ourworldoftext.com/
+// @match        https://ourworldoftext.com/*
+// @match        https://ourworldoftext.com/
 // @downloadURL https://cmd-hue.github.io/drats.user.js
 // @updateURL https://cmd-hue.github.io/drats.user.js
 // ==/UserScript==
