@@ -13522,7 +13522,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         E(eh, mg);
         q = eh.prototype;
         q.getBaseUrl = function() {
-            return this.environment.useStageGdata ? "https://stage.gdata.betacast.org/feeds/api" : "https://cmd-hue.github.io/gdata/"
+            return this.environment.useStageGdata ? "https://stage.gdata.betacast.org/feeds/api" : "https://www.youtube.com/youtubei/v1/"
         }
         ;
         q.getDefaultTransportMethod = function() {
@@ -13591,7 +13591,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             this.template_ = f
         };
         gh.prototype.send = function(a, b, c) {
-            var e = "//web.archive.org/web/20130427132343/https://gdata.youtube.com/feeds/api" + this.path_
+            var e = "https://www.youtube.com/feeds/api" + this.path_
               , f = "";
             if (this.template_ && a)
                 var g = Pd(this.template_, a)
