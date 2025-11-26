@@ -1,1 +1,159 @@
-{"version":"1.0","encoding":"UTF-8","feed":{"xmlns":"http://www.w3.org/2005/Atom","xmlns$media":"https://web.archive.org/web/20140111071643/http://search.yahoo.com/mrss/","xmlns$openSearch":"https://web.archive.org/web/20140111071643/http://a9.com/-/spec/opensearch/1.1/","xmlns$gd":"https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2005","xmlns$yt":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/schemas/2007","gd$etag":"W/\"DkEEQnw5cSp7I2A9Wh5aFE8.\"","id":{"$t":"tag:youtube.com,2008:channels"},"updated":{"$t":"2014-01-11T07:16:43.229Z"},"category":[{"scheme":"https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2005#kind","term":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/schemas/2007#channel"}],"title":{"$t":"Channels matching: crocsinc"},"logo":{"$t":"https://web.archive.org/web/20140111071643/http://www.gstatic.com/youtube/img/logo.png"},"link":[{"rel":"https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2006#spellcorrection","type":"application/atom+xml","href":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels?alt=json-in-script&q=crocs+inc&start-index=1&max-results=1&oi=spell&spell=1&v=2","title":"crocs inc"},{"rel":"https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2005#feed","type":"application/atom+xml","href":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels?v=2"},{"rel":"https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2005#batch","type":"application/atom+xml","href":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels/batch?v=2"},{"rel":"self","type":"application/atom+xml","href":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels?alt=json-in-script&q=crocsinc&start-index=1&max-results=1&v=2"},{"rel":"service","type":"application/atomsvc+xml","href":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels?alt=atom-service&v=2"},{"rel":"next","type":"application/atom+xml","href":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels?alt=json-in-script&q=crocsinc&start-index=2&max-results=1&v=2"}],"author":[{"name":{"$t":"YouTube"},"uri":{"$t":"https://web.archive.org/web/20140111071643/http://www.youtube.com/"}}],"generator":{"$t":"YouTube data API","version":"2.1","uri":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com"},"openSearch$totalResults":{"$t":9},"openSearch$startIndex":{"$t":1},"openSearch$itemsPerPage":{"$t":1},"entry":[{"gd$etag":"W/\"A0QERn47eCp7I2A9WhNQEUw.\"","id":{"$t":"tag:youtube.com,2008:channel:mWErPz2aavF-Gsvg_pxHgA"},"updated":{"$t":"2012-11-17T02:28:27.000Z"},"category":[{"scheme":"https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2005#kind","term":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/schemas/2007#channel"}],"title":{"$t":"samihippies"},"summary":{"$t":""},"link":[{"rel":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/schemas/2007#featured-video","type":"application/atom+xml","href":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/videos/F7-65YEHsEY?v=2"},{"rel":"alternate","type":"text/html","href":"https://web.archive.org/web/20140111071643/http://www.youtube.com/channel/UCmWErPz2aavF-Gsvg_pxHgA"},{"rel":"self","type":"application/atom+xml","href":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels/mWErPz2aavF-Gsvg_pxHgA?v=2"}],"author":[{"name":{"$t":"samihippies"},"uri":{"$t":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/users/samihippies"},"yt$userId":{"$t":"mWErPz2aavF-Gsvg_pxHgA"}}],"yt$channelId":{"$t":"UCmWErPz2aavF-Gsvg_pxHgA"},"yt$channelStatistics":{"subscriberCount":"0","viewCount":"1272"},"gd$feedLink":[{"rel":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/schemas/2007#channel.content","href":"https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/users/samihippies/uploads?v=2","countHint":2}],"media$thumbnail":[{"url":"https://web.archive.org/web/20140111071643/http://s.ytimg.com/yt/img/no_videos_140.png"}]}]}}
+{
+  "version": "1.0",
+  "encoding": "UTF-8",
+  "feed": {
+    "xmlns": "http://www.w3.org/2005/Atom",
+    "xmlns$media": "https://web.archive.org/web/20140111071643/http://search.yahoo.com/mrss/",
+    "xmlns$openSearch": "https://web.archive.org/web/20140111071643/http://a9.com/-/spec/opensearch/1.1/",
+    "xmlns$gd": "https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2005",
+    "xmlns$yt": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/schemas/2007",
+    "gd$etag": "W/\"DkEEQnw5cSp7I2A9Wh5aFE8.\"",
+    "id": {
+      "$t": "tag:youtube.com,2008:channels"
+    },
+    "updated": {
+      "$t": "2014-01-11T07:16:43.229Z"
+    },
+    "category": [
+      {
+        "scheme": "https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2005#kind",
+        "term": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/schemas/2007#channel"
+      }
+    ],
+    "title": {
+      "$t": "Channels matching: crocsinc"
+    },
+    "logo": {
+      "$t": "https://web.archive.org/web/20140111071643/http://www.gstatic.com/youtube/img/logo.png"
+    },
+    "link": [
+      {
+        "rel": "https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2006#spellcorrection",
+        "type": "application/atom+xml",
+        "href": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels?alt=json-in-script&q=crocs+inc&start-index=1&max-results=1&oi=spell&spell=1&v=2",
+        "title": "crocs inc"
+      },
+      {
+        "rel": "https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2005#feed",
+        "type": "application/atom+xml",
+        "href": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels?v=2"
+      },
+      {
+        "rel": "https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2005#batch",
+        "type": "application/atom+xml",
+        "href": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels/batch?v=2"
+      },
+      {
+        "rel": "self",
+        "type": "application/atom+xml",
+        "href": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels?alt=json-in-script&q=crocsinc&start-index=1&max-results=1&v=2"
+      },
+      {
+        "rel": "service",
+        "type": "application/atomsvc+xml",
+        "href": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels?alt=atom-service&v=2"
+      },
+      {
+        "rel": "next",
+        "type": "application/atom+xml",
+        "href": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels?alt=json-in-script&q=crocsinc&start-index=2&max-results=1&v=2"
+      }
+    ],
+    "author": [
+      {
+        "name": {
+          "$t": "YouTube"
+        },
+        "uri": {
+          "$t": "https://web.archive.org/web/20140111071643/http://www.youtube.com/"
+        }
+      }
+    ],
+    "generator": {
+      "$t": "YouTube data API",
+      "version": "2.1",
+      "uri": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com"
+    },
+    "openSearch$totalResults": {
+      "$t": 9
+    },
+    "openSearch$startIndex": {
+      "$t": 1
+    },
+    "openSearch$itemsPerPage": {
+      "$t": 1
+    },
+    "entry": [
+      {
+        "gd$etag": "W/\"A0QERn47eCp7I2A9WhNQEUw.\"",
+        "id": {
+          "$t": "tag:youtube.com,2008:channel:mWErPz2aavF-Gsvg_pxHgA"
+        },
+        "updated": {
+          "$t": "2012-11-17T02:28:27.000Z"
+        },
+        "category": [
+          {
+            "scheme": "https://web.archive.org/web/20140111071643/http://schemas.google.com/g/2005#kind",
+            "term": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/schemas/2007#channel"
+          }
+        ],
+        "title": {
+          "$t": "samihippies"
+        },
+        "summary": {
+          "$t": ""
+        },
+        "link": [
+          {
+            "rel": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/schemas/2007#featured-video",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/videos/F7-65YEHsEY?v=2"
+          },
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140111071643/http://www.youtube.com/channel/UCmWErPz2aavF-Gsvg_pxHgA"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/channels/mWErPz2aavF-Gsvg_pxHgA?v=2"
+          }
+        ],
+        "author": [
+          {
+            "name": {
+              "$t": "samihippies"
+            },
+            "uri": {
+              "$t": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/users/samihippies"
+            },
+            "yt$userId": {
+              "$t": "mWErPz2aavF-Gsvg_pxHgA"
+            }
+          }
+        ],
+        "yt$channelId": {
+          "$t": "UCmWErPz2aavF-Gsvg_pxHgA"
+        },
+        "yt$channelStatistics": {
+          "subscriberCount": "0",
+          "viewCount": "1272"
+        },
+        "gd$feedLink": [
+          {
+            "rel": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/schemas/2007#channel.content",
+            "href": "https://web.archive.org/web/20140111071643/http://gdata.youtube.com/feeds/api/users/samihippies/uploads?v=2",
+            "countHint": 2
+          }
+        ],
+        "media$thumbnail": [
+          {
+            "url": "https://web.archive.org/web/20140111071643/http://s.ytimg.com/yt/img/no_videos_140.png"
+          }
+        ]
+      }
+    ]
+  }
+}
