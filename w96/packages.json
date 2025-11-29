@@ -1,0 +1,20 @@
+[
+  {
+    "name": "package-name",
+    "friendlyName": "Package Friendly Name",
+    "description": "Description of the package.",
+    "author": "Glenn Quagmire (https://example.com)",
+    "category": "other",
+    "version": 1.0,
+    "feature_requirements": [],
+    "installedSize": 0,
+    "downloadSize": 0,
+    "min_os_version": 300000,
+    "depends": [],
+    "readmeFile": null,
+    "iconFiles": {
+      "32x32": "$REPO_PATH$/dist/x/package-name/icon32.png"
+    },
+    "packageRoot": "$REPO_PATH$/dist/x/package-name"
+  }
+]
