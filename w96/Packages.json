@@ -1,20 +1,19 @@
 [
-  {
-    "name": "package-name",
-    "friendlyName": "Package Friendly Name",
-    "description": "Description of the package.",
-    "author": "Glenn Quagmire (https://example.com)",
-    "category": "other",
-    "version": 1.0,
-    "feature_requirements": [],
-    "installedSize": 0,
-    "downloadSize": 0,
-    "min_os_version": 300000,
-    "depends": [],
-    "readmeFile": null,
-    "iconFiles": {
-      "32x32": "$REPO_PATH$/dist/x/package-name/icon32.png"
-    },
-    "packageRoot": "$REPO_PATH$/dist/x/package-name"
-  }
+  	{
+        "name": "fortiti",
+        "friendlyName": "Fortiti",
+        "description": "Install Giggity96 - an windows 96 mod that adds extra features and improvements to the operating system like aero.",
+        "author": "CMD HUE",
+        "category": "other",
+        "version": 1.0,
+        "feature_requirements": [],
+        "min_os_version": 300000,
+        "depends": [],
+		"downloadSize": 214,
+		"installedSize": 60,
+        "packageRoot": "https://cmd-hue.github.io/w96/fortiti/",
+		"iconFiles": {
+            "32x32": "https://cmd-hue.github.io/logo.png"
+		}
+	}
 ]
