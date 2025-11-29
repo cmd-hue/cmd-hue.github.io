@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fdroid>
+    <repo
+        name="My F-Droid Repo"
+        icon="https://cmd-hue.github.io/logo.png"
+        url="https://cmd-hue.github.io/fdroid"
+        timestamp="1700000000" />
+
+    <application>
+        <id>com.giggityfiles.yourtomb</id>
+        <added>1700000000</added>
+        <lastupdated>1700000000</lastupdated>
+        <name>YouTomb</name>
+        <summary>A sample app in an F-Droid repo.</summary>
+        <description>
+            test app
+        </description>
+        <license>Public Domain</license>
+        <categories>
+            <category>Apps</category>
+        </categories>
+
+        <package>
+            <version>1.0</version>
+            <versioncode>1</versioncode>
+            <apkname>https://youtomb.github.io/app.apk</apkname>
+            <hash type="sha256">7d5cfa791793d0ca14697f9624996673259f1d48a93cc6795c1cb714a1a49f6d</hash>
+            <size>512000</size>
+            <added>1700000000</added>
+        </package>
+
+    </application>
+</fdroid>
