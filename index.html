@@ -1,8 +1,78 @@
 <!DOCTYPE html>
 <html>
-<body><title>CMD HUE</title></body>
+<body><title>CMD HUE</title><link rel="stylesheet" href="https://unpkg.com/7.css">
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  function makeDraggable(el) {
+    const titleBar = el.querySelector(".title-bar");
+    let offsetX = 0, offsetY = 0, isDown = false;
+
+    titleBar.addEventListener("mousedown", (e) => {
+      isDown = true;
+      offsetX = e.clientX - el.offsetLeft;
+      offsetY = e.clientY - el.offsetTop;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      el.style.left = (e.clientX - offsetX) + "px";
+      el.style.top = (e.clientY - offsetY) + "px";
+      el.style.position = "absolute";
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDown = false;
+    });
+  }
+
+  makeDraggable(document.querySelector(".window"));
+});
+</script>
+
+<style>
+body {
+  background-image: url("https://cmd-hue.github.io/perch.jpg");
+  background-size: 100% 100%;
+}
+</style>
+</body>
+<iframe src="https://john.citrons.xyz/embed?ref=cmd-hue.github.io" style="margin-left:auto;display:block;margin-right:auto;max-width:732px;width:100%;height:94px;border:none;"></iframe>
 <center>
-        <h1>CMD HUE LINKS</h1>
+<div class="window active" style="margin: 32px; width: 250px">
+  <div class="title-bar">
+    <div class="title-bar-text">
+      CMD HUE LINKS
+    </div>
+  </div>
+  <div class="window-body has-space">
+    <center>
+        <a href="/xl/">YouTube XL Revival Attempt</a>
+<hr>
+<a href="/albuquerque.mp3">Albuquerque MP3 File</a>
+<hr>
+<a href="/deck/deck.user.js">Deck</a>
+<hr>
+<a href="/userscriptmods/CarTomb.user.js">CarTomb</a>
+<hr>
+<a href="/xbox">Xbox 2011 Page Revival</a>
+<hr>
+<a href="/directv">DirecTV July 2010 Revival</a>
+<hr>
+<a href="/firefoxstartgoogle/">Google Firefox Start Page Revival (2009)</a>
+<hr>
+<a href="/lab/">Banjo's Lab</a>
+<hr>
+<a href="/2013tv/">YouTube TV 2013</a>
+<hr>
+<a href="/drats.user.js">Drats - OWOT Hacking</a>
+<hr>
+<small>More Coming Soon.</small>
+    </center>
+  </div>
+</div>
+        <!--
+<h1>CMD HUE LINKS</h1>
     <hr>
 <a href="/xl/">YouTube XL Revival Attempt</a>
 <hr>
@@ -24,8 +94,9 @@
 <hr>
 <a href="/drats.user.js">Drats - OWOT Hacking</a>
 <hr>
-
 <small>More Coming Soon.</small>
+        -->
+
+
 </center>
-<iframe src="https://john.citrons.xyz/embed?ref=cmd-hue.github.io" style="margin-left:auto;display:block;margin-right:auto;max-width:732px;width:100%;height:94px;border:none;"></iframe>
 </html>
