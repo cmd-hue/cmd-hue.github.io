@@ -1,13 +1,10 @@
-{set:randomtext|{choose:domer|bee co.}}
-if tag not in bannedtags:
-   print('approved')
-else:
-   print('banned')}} {if:{get:bannedtagalias}|=|banned|then:{js:console.error(`This alias is banned for using.`)}|else:{if:{argslen}|=|0|then:# BanjoFX v2.0.3
+{set:randomtext|{choose:domer|bee co.|google|banjofx|fxbanjo|banjo effects|banjo fx|banjo audio fx|banjo video fx|banjo filters|banjo media fx|banjo media effects|banjo special fx|banjo special effects}}
+# BanjoFX v2.0.3
 
 -# Last updated on 7/15/2025
 {py:import json
 icon = '{avatar},'
-icon2 = 'https://slimetube.github.io/src/seizures.jpeg,'
+icon2 = 'https://cmd-hue.github.io/banjofx/icon.png,'
 authname = '{usertag}'
 
 embeds = []
@@ -15,7 +12,7 @@ embeds.append({
 'color': 0xff6100, 
 'author': {'name': authname,'icon_url': icon},
 'footer': {'text':"BanjoFX",'icon_url':icon2},
-'fields': [ {"name":"**Basic Usage**","value":"```.t {tagname} <effect> <effect-args> <subcommand> <subcommand-args>```"},{"name":"**Subcommand List**","value":"- `raw <medianame> <oldpitch?>` - Shows the MediaScript raw code for the effect.\n\n- `ihtx <powers> <snip> <notrim?> <oldpitch?>` - Does an IHTX with an effect for a set amount of powers.\n\n- `multiplier <powers> <oldpitch?>` - Does an effect on a source for a set amount of powers.\n\n- `ihtxbuggy <powers> <snip> <notrim?> <oldpitch?>` - The same as `ihtx` but buggy.\n\n- `ihtxreverse <powers> <snip> <notrim?> <oldpitch?>` - Does an IHTX with an effect for a set amount of powers but reversed.\n\n- `oldpitch` - Adds the old pitch system without having to use ihtx commands.\n\n- `imagine` - Generate an Image based off a prompt"} ],
+'fields': [ {"name":"**Basic Usage**","value":"```.t {tagname} <effect> <effect-args> <subcommand> <subcommand-args>```"},{"name":"**Subcommand List**","value":"- `raw <medianame> <oldpitch?>` - Shows the MediaScript raw code for the effect.\n\n- `ihtx <powers> <snip> <notrim?> <oldpitch?>` - Does an IHTX with an effect for a set amount of powers.\n\n- `multiplier <powers> <oldpitch?>` - Does an effect on a source for a set amount of powers.\n\n- `ihtxbuggy <powers> <snip> <notrim?> <oldpitch?>` - The same as `ihtx` but buggy.\n\n- `ihtxreverse <powers> <snip> <notrim?> <oldpitch?>` - Does an IHTX with an effect for a set amount of powers but reversed.\n\n- `oldpitch` - Adds the old pitch system without having to use ihtx commands.\n\n- `edit` - Edit an Image based off a prompt"} ],
 })
 result = {'embeds': embeds}
 print(json.dumps(result))
@@ -32,8 +29,8 @@ fit sprout #w #h
 contain sprout sproutw/2 sprouth/2
 overlay # sprout 0 #h/2
 copy # #p
-audiopitch # 1.122
-audiopitch #p 0.891
+audiopitch # 0.45
+audiopitch #p 1.344
 audioputmix # #p
 volume #}}
 {if:{arg:0}|=|40gb|then:{set:code|explode #
@@ -1849,14 +1846,14 @@ convert #$ audio/wav}," ")
 b = a.replace({jsonify:repeatduration #$ #d
 audioputreplace # #$}," ")
 c = b.replace("#$","#")
-print(c)}} {if:{arg:0}|=|imagine|then:-# The imagine command may break at any given time. {newline}{get:randomtext}{imagine:{arg:1}}|else:{if:{arg:0}|=|list|then:{eval:{iferror:{py:import json as js
+print(c)}} {if:{arg:0}|=|imagine|then:-# The edit command may break at any given time. {newline}{get:randomtext}{edit:{arg:1}|{iv}}|else:{if:{arg:0}|=|list|then:{eval:{iferror:{py:import json as js
 import fnmatch
 pages = []
 searchval = {jsonify:*{arg:1}*}
 effects = fnmatch.filter({get:effects},searchval)
 icon = "{avatar}"
 auth = "{usertag}"
-icon2 = "https://slimetube.github.io/src/seizures.jpeg"
+icon2 = "https://cmd-hue.github.io/banjofx/icon.png"
 effnum = len(effects)
 content = ""
 modulocount = []
@@ -1882,7 +1879,7 @@ pages.append({"embed":{"color":0x00ff00,"title":f"{if:{arg:1}|=||then:**The Effe
 pages.pop(0)
 print(js.dumps({"pages": pages}))}|{ignore:{js:console.error(`No effects found.`)}}}} |else:{if:{get:res}|=|false|then:{js:console.error(`Unknown effect: {arg:0}\nuse .t {tagname} list to see all available effects or contact slimetube to add an effect.`)}|else:-# Note: BanjoFX is in BETA!{newline}{get:randomtext} {set:powers|{or:{arg:{math:{get:offset}+1}}|10}} {set:time|{or:{arg:{math:{get:offset}+2}}|0.5}} {if:{arg:{get:offset}}|=|raw|then:{py:import json
 icon = '{image:{avatar}}'
-icon2 = 'https://slimetube.github.io/src/seizures.jpeg,'
+icon2 = 'https://cmd-hue.github.io/banjofx/icon.png,'
 authname = '{usertag}'
 content = {jsonify:{code:{replace:#|{or:{arg:{math:{get:offset}+1}}|#}|{if:{arg:{math:{get:offset}+2}}|=|true|then:{get:old}|else:{get:code}}}}}
 embeds = []
