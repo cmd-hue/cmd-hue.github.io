@@ -1883,14 +1883,14 @@ pageidx = 0
 
 for i, v in enumerate(effects):
     if i % 20 == 0:
-        pages.append({"embed":{"color":0x00ff00,"title":f"{if:{arg:1}|=||then:**The Effects List**|else:**Showing effects matching '{arg:1}'**}","description":content,"footer":{"text":f"Page {pageidx} of {mcount} ({effnum} Total Effects)","icon_url":icon2}, "author": {"name":auth, "icon_url":icon}}})
+        pages.append({"embed":{"color":0xff6100,"title":f"{if:{arg:1}|=||then:**The Effects List**|else:**Showing effects matching '{arg:1}'**}","description":content,"footer":{"text":f"Page {pageidx} of {mcount} ({effnum} Total Effects)","icon_url":icon2}, "author": {"name":auth, "icon_url":icon}}})
         pageidx += 1
         content = ""
         content += f"- {v} \n"
     else:
         content += f"- {v} \n"
 
-pages.append({"embed":{"color":0x00ff00,"title":f"{if:{arg:1}|=||then:**The Effects List**|else:**Showing effects matching '{arg:1}'**}","description":content,"footer":{"text":f"Page {pageidx} of {mcount} ({effnum} Total Effects)","icon_url":icon2}, "author": {"name":auth, "icon_url":icon}}})
+pages.append({"embed":{"color":0xff6100,"title":f"{if:{arg:1}|=||then:**The Effects List**|else:**Showing effects matching '{arg:1}'**}","description":content,"footer":{"text":f"Page {pageidx} of {mcount} ({effnum} Total Effects)","icon_url":icon2}, "author": {"name":auth, "icon_url":icon}}})
 pages.pop(0)
 print(js.dumps({"pages": pages}))}|{ignore:{js:console.error(`No effects found.`)}}}} |else:{if:{get:res}|=|false|then:{js:console.error(`Unknown effect: {arg:0}\nuse .t {tagname} list to see all available effects or contact slimetube to add an effect.`)}|else:-# Note: BanjoFX is in BETA!{newline}{get:randomtext} {set:powers|{or:{arg:{math:{get:offset}+1}}|10}} {set:time|{or:{arg:{math:{get:offset}+2}}|0.5}} {if:{arg:{get:offset}}|=|raw|then:{py:import json
 icon = '{image:{avatar}}'
@@ -1899,7 +1899,7 @@ authname = '{usertag}'
 content = {jsonify:{code:{replace:#|{or:{arg:{math:{get:offset}+1}}|#}|{if:{arg:{math:{get:offset}+2}}|=|true|then:{get:old}|else:{get:code}}}}}
 embeds = []
 embeds.append({
-'color': 0x00ff00, 
+'color': 0xff6100, 
 'title': "**Code**", 
 'description': content,
 'author': {'name': authname,'icon_url': icon},
