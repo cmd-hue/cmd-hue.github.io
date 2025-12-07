@@ -1892,7 +1892,7 @@ for i, v in enumerate(effects):
 
 pages.append({"embed":{"color":0xff6100,"title":f"{if:{arg:1}|=||then:**The Effects List**|else:**Showing effects matching '{arg:1}'**}","description":content,"footer":{"text":f"Page {pageidx} of {mcount} ({effnum} Total Effects)","icon_url":icon2}, "author": {"name":auth, "icon_url":icon}}})
 pages.pop(0)
-print(js.dumps({"pages": pages}))}|{ignore:{js:console.error(`No effects found.`)}}}} |else:{if:{get:res}|=|false|then:{js:console.error(`Unknown effect: {arg:0}\nuse .t {tagname} list to see all available effects or contact slimetube to add an effect.`)}|else:-# Note: BanjoFX is in BETA!{newline}{get:randomtext} {set:powers|{or:{arg:{math:{get:offset}+1}}|10}} {set:time|{or:{arg:{math:{get:offset}+2}}|0.5}} {if:{arg:{get:offset}}|=|raw|then:{py:import json
+print(js.dumps({"pages": pages}))}|{ignore:{js:console.error(`No effects found.`)}}}} |else:{if:{get:res}|=|false|then:{js:console.error(`Unknown effect: {arg:0}\nuse .t {tagname} list to see all available effects or contact banjo to add an effect.`)}|else:-# Note: BanjoFX is in BETA!{newline}{get:randomtext} {set:powers|{or:{arg:{math:{get:offset}+1}}|10}} {set:time|{or:{arg:{math:{get:offset}+2}}|0.5}} {if:{arg:{get:offset}}|=|raw|then:{py:import json
 icon = '{image:{avatar}}'
 icon2 = 'https://cmd-hue.github.io/banjofx/icon.png,'
 authname = '{usertag}'
