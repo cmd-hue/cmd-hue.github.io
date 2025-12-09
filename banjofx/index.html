@@ -1936,7 +1936,7 @@ convert #$ audio/wav}," ")
 b = a.replace({jsonify:repeatduration #$ #d
 audioputreplace # #$}," ")
 c = b.replace("#$","#")
-print(c)}} {if:{arg:0}|=|slimetalk|then:{if:{arg:0}|=|slimetalk|then:{text:https://text.pollinations.ai/{url:{get:slimeperson}, you are responding to: {arg:1}}}}|else:{if:{arg:0}|=|list|then:{eval:{iferror:{py:import json as js
+print(c)}} {if:{arg:0}|=|slimetalk|then:{if:{arg:0}|=|slimetalk|then:{text:https://text.pollinations.ai/{url:{get:slimeperson}, you need to have the slime's personality, you are responding to: {arg:1}}}}|else:{if:{arg:0}|=|list|then:{eval:{iferror:{py:import json as js
 import fnmatch
 pages = []
 searchval = {jsonify:*{arg:1}*}
