@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Droid Sans TV';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Droid Sans TV'), local('DroidSansTV'), url('Jbq3YPwzagUGcF8OGkpJLSXcl4nSJdsn8QOlJHNtLzU.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Droid Sans TV';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Droid Sans TV Bold'), local('DroidSansTV-Bold'), url('4OOoR_zjNP4T-zdQ8Yh_5UDSgbE7mQYsZh5sxQr8MH4.ttf') format('truetype');
+}
