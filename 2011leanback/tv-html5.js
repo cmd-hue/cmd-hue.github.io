@@ -15233,7 +15233,7 @@ if (!self.__WB_pmw) {
               , a = ne() + oe(this.tf.action);
             Me(a, {
                 format: "JSON",
-                method: "POST",
+                method: "GET",
                 GF: Xd(this.tf),
                 oc: function() {
                     this.Cp = j;
@@ -15787,7 +15787,7 @@ if (!self.__WB_pmw) {
         function ou() {
             Me("/html5", {
                 Cw: j,
-                method: "POST",
+                method: "GET",
                 bi: {
                     prefer_html5: j,
                     session_token: Qe.html5_ajax
@@ -20047,7 +20047,7 @@ if (!self.__WB_pmw) {
             c.PF && (a.station_id = c.PF);
             Me("/watch_actions_ajax", {
                 format: "XML",
-                method: "POST",
+                method: "GET",
                 Vg: d,
                 bi: a,
                 oc: c.oc,
@@ -25393,7 +25393,7 @@ if (!self.__WB_pmw) {
             Me("/addto_ajax", {
                 Cw: j,
                 format: "XML",
-                method: "POST",
+                method: "GET",
                 Vg: d,
                 bi: c,
                 vd: this,
@@ -30743,7 +30743,7 @@ if (!self.__WB_pmw) {
                     lounge_token: this.Hb.Od,
                     access_type: a ? "permanent" : "temporary"
                 },
-                method: "POST",
+                method: "GET",
                 format: "RAW",
                 oc: function(a) {
                     b(a.responseText)
@@ -30759,7 +30759,7 @@ if (!self.__WB_pmw) {
                     pairing_code: a,
                     access_type: b ? "permanent" : "temporary"
                 },
-                method: "POST",
+                method: "GET",
                 format: "RAW",
                 oc: u(c, this, j),
                 Kd: u(c, this, l)
@@ -30781,7 +30781,7 @@ if (!self.__WB_pmw) {
                 bi: {
                     screen_ids: b
                 },
-                method: "POST",
+                method: "GET",
                 oc: d,
                 Kd: ra(c, l)
             })
