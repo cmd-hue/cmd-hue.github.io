@@ -10,7 +10,7 @@
     <title>YouTube -   Leanback
 </title>
       <link href="droidsanstv.css" rel="stylesheet" type="text/css">
-      
+      <link rel="stylesheet" href="tv-html5.css" type="text/css" media="screen" charset="utf-8">
   <style>
 #loader-bg {
         background-color: #0b0c0d;
@@ -34,9 +34,7 @@
       <div id="video-player" class="html5-video-player" style="display: none;" tabindex="-1">
     <style class="html5-viewport-sheet" disabled="true">
       @-o-viewport { width: device-width; }
-      @-moz-viewport { width: device-width; }
       @-ms-viewport { width: device-width; }
-      @-webkit-viewport { width: device-width; }
       @viewport { width: device-width; }
     </style>
 
@@ -491,7 +489,7 @@ Turn off converted 3D
 
 </div>
 
-        <script src="loader.js"></script>
+        <script src="tv-html5.js"></script>
   <script>
   yt.pubsub.subscribe('init', function() {
       yt.setMsg({
