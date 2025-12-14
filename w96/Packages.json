@@ -14,6 +14,23 @@
         "packageRoot": "https://cmd-hue.github.io/w96/fortiti/",
 		"iconFiles": {
             "32x32": "https://cmd-hue.github.io/logo.png"
-		}
+		},{
+    "name": "mount-local-directory",
+    "friendlyName": "Mount Local Directory",
+    "description": "Mount a local directory as a filesystem in Windows 96. Read-only for now. Only works in some browsers (such as Chrome)",
+    "author": "Sgeo",
+    "category": "utilities",
+    "version": 1.0,
+    "feature_requirements": [],
+    "min_os_version": 2.2776,
+    "max_os_version": 9999,
+    "depends": [],
+    "iconFiles": {
+      "32x32": "https://windows96.net/system/resource/themes/default/icons/hdd.png",
+      "16x16": "https://windows96.net/system/resource/themes/default/icons/small/hdd.png"
+    },
+    "packageRoot": "https://sgeo.github.io/win96-repos/apps/dist/mount-local-directory/"
+  }
+        
 	}
 ]
