@@ -58,13 +58,17 @@ https://discord.com/api/webhooks/..."></textarea>
   </div>
 
   <script>
+var raw2 = "DefaultSponsor";
+var name = "DefaultName";
+
 setTimeout(() => {
-  var raw2 = document.getElementById("sponsor")?.value.trim() || "DefaultSponsor";
+  raw2 = document.getElementById("sponsor")?.value.trim() || raw2;
 }, 1);
 
 setTimeout(() => {
-  var name = document.getElementById("name")?.value.trim() || "DefaultName"; 
+  name = document.getElementById("name")?.value.trim() || name;
 }, 1);
+
 
 
     // 🔒 HARD-CODED SETTINGS
