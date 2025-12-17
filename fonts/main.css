@@ -75,12 +75,12 @@
 
 @font-face {
     font-family: 'Eagle Black';
-    src: url('https://cmd-hue.github.io/fonts/Eagle%20Black%20Regular.ttf') format('truetype');
+    src: url('https://cmd-hue.github.io/fonts/Eagle%20Black.otf') format('truetype');
 }
 
 @font-face {
     font-family: 'Eagle Bold';
-    src: url('https://cmd-hue.github.io/fonts/Eagle%20Bold%20Regular.ttf') format('truetype');
+    src: url('https://cmd-hue.github.io/fonts/Eagle-Bold.otf') format('truetype');
 }
 
 @font-face {
