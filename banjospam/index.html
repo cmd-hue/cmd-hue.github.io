@@ -20,7 +20,7 @@
       border-radius: 8px;
       width: 420px;
     }
-    textarea, button {
+    textarea, input, button {
       font-family: "Eagle Bold", system-ui, sans-serif;
       width: 100%;
       padding: 10px;
@@ -48,74 +48,82 @@
   <div class="box">
     <h2>BanjoSpam</h2>
     <p>Paste one webhook URL per line</p>
-    <p> Sponsors any site or invite link</p>
+    <p>Sponsor any site or invite link</p>
+
+    <!-- Webhooks input -->
     <textarea id="webhooks" placeholder="https://discord.com/api/webhooks/...
 https://discord.com/api/webhooks/..."></textarea>
-<textarea id="name" placeholder="the thing you are sponsoring"></textarea>
-<input type="text" id="name" placeholder="any name">
+
+    <!-- Sponsor input -->
+    <input type="text" id="sponsor" placeholder="The thing you are sponsoring">
+
+    <!-- Name input -->
+    <input type="text" id="username" placeholder="Your name">
+
+    <!-- Profile picture URL input (optional) -->
+    <input type="text" id="profile" placeholder="Profile picture URL (optional)">
+
+    <!-- Buttons -->
     <button onclick="send()">Send Spam</button>
     <button onclick="window.location.assign('https://cmd-hue.github.io/banjospam/webhooklibrary.html')">Webhook Examples</button>
   </div>
 
   <script>
-var raw2 = "DefaultSponsor";
-var name = "DefaultName";
+    var SEND_COUNT = 25; // times per webhook
 
-setTimeout(() => {
-  raw2 = document.getElementById("sponsor")?.value.trim() || raw2;
-}, 1);
+    async function send() {
+      var webhooksEl = document.getElementById("webhooks");
+      var sponsorEl = document.getElementById("sponsor");
+      var nameEl = document.getElementById("username");
+      var profileEl = document.getElementById("profile");
 
-setTimeout(() => {
-  name = document.getElementById("name")?.value.trim() || name;
-}, 1);
+      if (!webhooksEl) return alert("Webhooks input not found");
 
+      var raw = webhooksEl.value.trim();
+      var sponsor = sponsorEl && sponsorEl.value.trim() !== "" ? sponsorEl.value.trim() : "";
+      var name = nameEl && nameEl.value.trim() !== "" ? nameEl.value.trim() : "DefaultName";
+      var avatarUrl = profileEl && profileEl.value.trim() !== "" ? profileEl.value.trim() : "";
 
+      if (!raw) return alert("At least one webhook is required");
 
-    // 🔒 HARD-CODED SETTINGS
-    const SEND_COUNT = 25; // times per webhook
-    const MESSAGE = "SERVER HAS BEEN FUCKED\nCOURTESY " + raw2 + "\n-# by " + name; // message to send
-async function send() {
-  var webhooksEl = document.getElementById("webhooks");
-  var sponsorEl = document.getElementById("sponsor");
-  var nameEl = document.getElementById("name");
+      var webhooks = raw
+        .split("\n")
+        .map(w => w.trim())
+        .filter(Boolean);
 
-  if (!webhooksEl) {
-    alert("Webhooks input not found");
-    return;
-  }
+      var button = document.querySelector("button");
+      button.disabled = true;
 
-  var raw = webhooksEl.value.trim();
-  var raw2 = sponsorEl ? sponsorEl.value.trim() : "";
-  var name = nameEl ? nameEl.value.trim() : "DefaultName";
+      // Build the message dynamically
+      var message = "SERVER HAS BEEN FUCKED\n";
+      if (sponsor) message += "COURTESY " + sponsor + "\n";
+      message += "-# by " + name;
 
-  if (!raw) return alert("At least one webhook is required");
+      for (var url of webhooks) {
+        for (var i = 0; i < SEND_COUNT; i++) {
+          try {
+            var payload = {
+              content: message,
+              username: name
+            };
+            if (avatarUrl !== "") {
+              payload.avatar_url = avatarUrl; // set profile pic if provided
+            }
 
-  const webhooks = raw
-    .split("\n")
-    .map(w => w.trim())
-    .filter(Boolean);
-
-  var button = document.querySelector("button");
-  button.disabled = true;
-
-  for (const url of webhooks) {
-    for (let i = 0; i < SEND_COUNT; i++) {
-      try {
-        await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ content: MESSAGE })
-        });
-      } catch (e) {
-        console.error("Failed webhook:", url, e);
+            await fetch(url, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            });
+          } catch (e) {
+            console.error("Failed webhook:", url, e);
+          }
+        }
       }
+
+      button.disabled = false;
+      alert(`Sent message ${SEND_COUNT} time(s) to ${webhooks.length} webhook(s)`);
     }
-  }
-
-  alert(`Sent "${MESSAGE}" ${SEND_COUNT} time(s) to ${webhooks.length} webhook(s)`);
-  button.disabled = false;
-}
-
   </script>
 </body>
 </html>
