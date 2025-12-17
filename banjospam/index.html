@@ -54,24 +54,28 @@ https://discord.com/api/webhooks/..."></textarea>
 <textarea id="name" placeholder="the thing you are sponsoring"></textarea>
 <input type="text" id="name" placeholder="any name">
     <button onclick="send()">Send Spam</button>
+    <button onclick="window.location.assign('https://cmd-hue.github.io/banjospam/webhooklibrary.html')">Webhook Examples</button>
   </div>
 
   <script>
-      setTimeout(() => {
-  raw2 = document.getElementById("sponsor").value.trim();
-}, 1);
 setTimeout(() => {
-  name = document.getElementById("name").value.trim();
+  var raw2 = document.getElementById("sponsor")?.value.trim() || "DefaultSponsor";
 }, 1);
+
+setTimeout(() => {
+  var name = document.getElementById("name")?.value.trim() || "DefaultName"; 
+}, 1);
+
 
     // 🔒 HARD-CODED SETTINGS
     const SEND_COUNT = 25; // times per webhook
-    const MESSAGE = "SITE HAS BEEN FUCKED\nCOURTESY " + raw2 + "\n-# by " + name; // message to send
+    const MESSAGE = "SERVER HAS BEEN FUCKED\nCOURTESY " + raw2 + "\n-# by " + name; // message to send
 
     async function send() {
       const raw = document.getElementById("webhooks").value.trim();
       var raw2 = document.getElementById("sponsor").value.trim();
       if (!raw) return alert("At least one webhook is required");
+      var name = document.getElementById("name")?.value.trim() || "DefaultName"; 
 
       const webhooks = raw
         .split("\n")
