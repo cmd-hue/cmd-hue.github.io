@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BANJOSPAM</title>
+  <style>
+    @import url('https://cmd-hue.github.io/fonts/main.css');
+    body {
+      font-family: "franklingothicheavy", system-ui, sans-serif;
+      background: #111;
+      color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: #1c1c1c;
+      padding: 20px;
+      border-radius: 8px;
+      width: 420px;
+    }
+    textarea, button {
+      font-family: "Eagle Bold", system-ui, sans-serif;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+      resize: vertical;
+    }
+    textarea {
+      min-height: 120px;
+    }
+    button {
+      background: #5865F2;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>BanjoSpam</h2>
+    <p>Paste one webhook URL per line</p>
+    <p> Sponsors any site or invite link</p>
+    <textarea id="webhooks" placeholder="https://discord.com/api/webhooks/...
+https://discord.com/api/webhooks/..."></textarea>
+<textarea id="sponsor" placeholder="the thing you are sponsoring"></textarea>
+
+    <button onclick="send()">Send Spam</button>
+  </div>
+
+  <script>
+    var raw2 = document.getElementById("sponsor").value.trim()
+      setTimeout(() => {
+  raw2 = document.getElementById("sponsor").value.trim();
+}, 1);
+
+    // 🔒 HARD-CODED SETTINGS
+    const SEND_COUNT = 50; // times per webhook
+    const MESSAGE = "SITE HAS BEEN FUCKED\nCOURTESY " + raw2;
+
+    async function send() {
+      const raw = document.getElementById("webhooks").value.trim();
+      var raw2 = document.getElementById("sponsor").value.trim();
+      if (!raw) return alert("At least one webhook is required");
+
+      const webhooks = raw
+        .split("\n")
+        .map(w => w.trim())
+        .filter(Boolean);
+
+      const button = document.querySelector("button");
+      button.disabled = true;
+
+      for (const url of webhooks) {
+        for (let i = 0; i < SEND_COUNT; i++) {
+          try {
+            await fetch(url, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ content: MESSAGE })
+            });
+          } catch (e) {
+            console.error("Failed webhook:", url, e);
+          }
+        }
+      }
+
+      alert(`Sent "${MESSAGE}" ${SEND_COUNT} time(s) to ${webhooks.length} webhook(s)`);
+      console.log(`Sent "${MESSAGE}" ${SEND_COUNT} time(s) to ${webhooks.length} webhook(s)`);
+      button.disabled = false;
+    }
+  </script>
+</body>
+</html>
