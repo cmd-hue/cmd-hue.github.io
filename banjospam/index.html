@@ -51,8 +51,8 @@
     <p> Sponsors any site or invite link</p>
     <textarea id="webhooks" placeholder="https://discord.com/api/webhooks/...
 https://discord.com/api/webhooks/..."></textarea>
-<textarea id="sponsor" placeholder="the thing you are sponsoring"></textarea>
-
+<textarea id="name" placeholder="the thing you are sponsoring"></textarea>
+<input type="text" id="name" placeholder="any name">
     <button onclick="send()">Send Spam</button>
   </div>
 
@@ -61,10 +61,13 @@ https://discord.com/api/webhooks/..."></textarea>
       setTimeout(() => {
   raw2 = document.getElementById("sponsor").value.trim();
 }, 1);
+setTimeout(() => {
+  name = document.getElementById("name").value.trim();
+}, 1);
 
     // 🔒 HARD-CODED SETTINGS
-    const SEND_COUNT = 50; // times per webhook
-    const MESSAGE = "SITE HAS BEEN FUCKED\nCOURTESY " + raw2;
+    const SEND_COUNT = 25; // times per webhook
+    const MESSAGE = "SITE HAS BEEN FUCKED\nCOURTESY " + raw2 + "\n-# by " + name; // message to send
 
     async function send() {
       const raw = document.getElementById("webhooks").value.trim();
