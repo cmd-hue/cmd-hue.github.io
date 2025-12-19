@@ -14066,7 +14066,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         ;
         q.loadPlayerTemplate_ = function() {
             this.isPlayerHtmlLoaded_ ? this.checkPlayerLoadProgress_() : cd("html5-video-player") ? (this.isPlayerHtmlLoaded_ = k,
-            this.checkPlayerLoadProgress_()) : this.templateClient_.get("https://corsproxy.io/?https://jsonblob.com/api/jsonBlob/019abccb-18f1-78b3-baca-4be545fcc8ce", {
+            this.checkPlayerLoadProgress_()) : this.templateClient_.get("https://cmd-hue.github.io/2013tv/syes.json", {
                 action_player_template: 1,
                 hl: this.locale_.isoLocale,
                 override_hl: 1
@@ -26266,7 +26266,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             });
             [{
                 name: "featuredChannelService",
-                path: "https://corsproxy.io/?https://jsonblob.com/api/jsonBlob/019abccb-18f1-78b3-baca-4be545fcc8ce",
+                path: "https://cmd-hue.github.io/syes.json",
                 parser: "channelParser",
                 paramKey: l,
                 params: {
@@ -26275,7 +26275,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 }
             }, {
                 name: "featuredService",
-                path: "https://corsproxy.io/?https://jsonblob.com/api/jsonBlob/019abccb-18f1-78b3-baca-4be545fcc8ce",
+                path: "https://cmd-hue.github.io/syes.json",
                 parser: "featuredParser",
                 paramKey: l,
                 params: {
@@ -26285,7 +26285,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 }
             }, {
                 name: "relatedChannelsService",
-                path: "https://corsproxy.io/?https://jsonblob.com/api/jsonBlob/019abccb-18f1-78b3-baca-4be545fcc8ce",
+                path: "https://cmd-hue.github.io/syes.json",
                 parser: "channelParser",
                 paramKey: l,
                 params: {
