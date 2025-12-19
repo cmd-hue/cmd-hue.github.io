@@ -26266,7 +26266,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             });
             [{
                 name: "featuredChannelService",
-                path: "https://cmd-hue.github.io/syes.json",
+                path: "https://cmd-hue.github.io/2013tv/syes.json",
                 parser: "channelParser",
                 paramKey: l,
                 params: {
@@ -26275,7 +26275,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 }
             }, {
                 name: "featuredService",
-                path: "https://cmd-hue.github.io/syes.json",
+                path: "https://cmd-hue.github.io/2013tv/syes.json",
                 parser: "featuredParser",
                 paramKey: l,
                 params: {
@@ -26285,7 +26285,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 }
             }, {
                 name: "relatedChannelsService",
-                path: "https://cmd-hue.github.io/syes.json",
+                path: "https://cmd-hue.github.io/2013tv/syes.json",
                 parser: "channelParser",
                 paramKey: l,
                 params: {
