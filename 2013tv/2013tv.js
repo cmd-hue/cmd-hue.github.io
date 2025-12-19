@@ -13522,7 +13522,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         E(eh, mg);
         q = eh.prototype;
         q.getBaseUrl = function() {
-            return this.environment.useStageGdata ? "https://stage.gdata.betacast.org/feeds/api" : "https://corsproxy.io/?https://gdata.vidtape.lol/" // vidtape api
+            return this.environment.useStageGdata ? "https://stage.gdata.betacast.org/feeds/api" : "https://corsproxy.io/?http://gdata.vidtape.lol/feeds/api/videos" // vidtape api
         }
         ;
         q.getDefaultTransportMethod = function() {
@@ -17367,7 +17367,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 var b = l;
                 this.handler_ && (b = this.handler_.getNetworkTestImageUri(this));
                 var c = C(this.testGoogleComCallback_, this);
-                b || (b = new rh("//web.archive.org/web/20130427132343/https://www.google.com/images/cleardot.gif"),
+                b || (b = new rh("https://www.google.com/images/cleardot.gif"),
                 b.makeUnique());
                 Di(b.toString(), 1E4, c)
             } else
@@ -19493,7 +19493,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.getBaseUrl = function() {
-            return "//gdata.youtube.com/feeds/api"
+            return "https://corsproxy.io/?http://gdata.vidtape.lol/feeds/api" // vidtape feed
         }
         ;
         q.loadFromGdata_ = function(a, b, c, e, f) {
