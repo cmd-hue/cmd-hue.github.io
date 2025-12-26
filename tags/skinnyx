@@ -1,0 +1,37 @@
+{bash:
+load {video}
+load {iscripturl:load {video} i
+invert i
+distort i resize 640 360}
+load {mediascripturl:create mask 640 360 128 128 128
+render mask}
+
+# Inputs:
+# FILE_1 = original AV (unscaled)
+# FILE_2 = scaled 640x360 version (from mediascript contain)
+# FILE_3 = gray mask 640x360
+
+w=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of default=nw=1:nk=1 "$FILE_1")
+h=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of default=nw=1:nk=1 "$FILE_1")
+
+ffmpeg -y -i "$FILE_2" -vf "hue=s=0,negate,lutrgb=r=val/1.25:g=val/1.25:b=val/1.25,negate,lutrgb=r=val/2.25:g=val/2.25:b=val/2.25,boxblur=36" a.mp4
+
+ffmpeg -y -i "$FILE_1" -i a.mp4 -i "$FILE_3" -filter_complex "[0]format=gbrp[00];[1]scale=$w:$h,format=gbrp[x];[2]scale=$w:$h,format=gbrp[y];[00][x][y]displace=edge=wrap,scale=640:360,format=yuv420p,hflip[v]" -map "[v]" -map 0:a -c:a copy 1.mp4
+
+ffmpeg -y -i 1.mp4 -vf "hue=s=0,negate,lutrgb=r=val/1.25:g=val/1.25:b=val/1.25,negate,lutrgb=r=val/2.25:g=val/2.25:b=val/2.25,boxblur=36" h.mp4
+
+ffmpeg -y -i 1.mp4 -i h.mp4 -i "$FILE_3" -filter_complex "[0]format=gbrp[00];[1]scale=$w:$h,format=gbrp[x];[2]scale=$w:$h,format=gbrp[y];[00][x][y]displace=edge=wrap,scale=640:360,format=yuv420p,hflip,transpose=1,scale=640:360,setsar=1:1[v]" -map "[v]" -map 0:a -c:a copy 2.mp4
+
+ffmpeg -y -i 2.mp4 -vf "hue=s=0,negate,lutrgb=r=val/1.25:g=val/1.25:b=val/1.25,negate,lutrgb=r=val/2.25:g=val/2.25:b=val/2.25,boxblur=36" h2.mp4
+
+ffmpeg -y -i 2.mp4 -i h2.mp4 -i "$FILE_3" -filter_complex "[0]format=gbrp[00];[1]scale=$w:$h,format=gbrp[x];[2]scale=$w:$h,format=gbrp[y];[00][x][y]displace=edge=wrap,scale=640:360,format=yuv420p,hflip,setsar=1:1[v]" -map "[v]" -map 0:a -c:a copy 3.mp4
+
+ffmpeg -y -i 3.mp4 -vf "hue=s=0,negate,lutrgb=r=val/1.25:g=val/1.25:b=val/1.25,negate,lutrgb=r=val/2.25:g=val/2.25:b=val/2.25,boxblur=36" h3.mp4
+
+ffmpeg -y -i 3.mp4 -i h3.mp4 -i "$FILE_3" -filter_complex "[0]format=gbrp[00];[1]scale=640:360,format=gbrp[x];[2]scale=640:360,format=gbrp[y];[00][x][y]displace=edge=wrap,scale=640:360,format=yuv420p,hflip,transpose=2,scale=$w:$h,setsar=1:1[v]" -map "[v]" -map 0:a -c:a copy /home/notsocoder/output/e.mp4}
+
+{iscript:
+load {iv} d
+load FILE_1 i
+invert i
+resize i dw dh}

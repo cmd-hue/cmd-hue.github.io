@@ -1,21 +1,3 @@
-var _____WB$wombat$assign$function_____ = function(name) {
-    return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name];
-};
-if (!self.__WB_pmw) {
-    self.__WB_pmw = function(obj) {
-        this.__WB_source = obj;
-        return this;
-    }
-}
-{
-    let window = _____WB$wombat$assign$function_____("window");
-    let self = _____WB$wombat$assign$function_____("self");
-    let document = _____WB$wombat$assign$function_____("document");
-    let location = _____WB$wombat$assign$function_____("location");
-    let top = _____WB$wombat$assign$function_____("top");
-    let parent = _____WB$wombat$assign$function_____("parent");
-    let frames = _____WB$wombat$assign$function_____("frames");
-    let opens = _____WB$wombat$assign$function_____("opens");
     /*
  AngularJS v1.0.6
  (c) 2010-2012 Google, Inc. http://angularjs.org
@@ -13522,7 +13504,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         E(eh, mg);
         q = eh.prototype;
         q.getBaseUrl = function() {
-            return this.environment.useStageGdata ? "https://stage.gdata.betacast.org/feeds/api" : "https://corsproxy.io/?http://gdata.vidtape.lol/feeds/api/videos" // vidtape api
+            return this.environment.useStageGdata ? "https://corsproxy.io/?https://gdata.vidtape.lol/feeds/api" : "https://corsproxy.io/?http://gdata.vidtape.lol/feeds/api/videos" // vidtape api
         }
         ;
         q.getDefaultTransportMethod = function() {
@@ -26782,7 +26764,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     }
     )();
 
-}
 /*
      FILE ARCHIVED ON 13:23:43 Apr 27, 2013 AND RETRIEVED FROM THE
      INTERNET ARCHIVE ON 20:43:00 Nov 25, 2025.
