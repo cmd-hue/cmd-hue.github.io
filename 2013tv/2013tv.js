@@ -12240,7 +12240,7 @@
         }
         ;
         q.fetchNewAccessToken_ = function(a, b) {
-            this.http_.post("/o/oauth2/token", l, {
+            this.http_.get("/o/oauth2/token", l, {
                 client_id: "861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com",
                 client_secret: this.secret_,
                 refresh_token: a,
@@ -12266,7 +12266,7 @@
         ;
         q.getPairingCode = function(a, b) {
             this.cancelPolling();
-            this.http_.post("/o/oauth2/device/code", l, {
+            this.http_.get("/o/oauth2/device/code", l, {
                 client_id: "861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com",
                 scope: "http://gdata.youtube.com"
             }, C(function(c) {
@@ -12289,7 +12289,7 @@
               , f = C(function(e) {
                 this.refreshTokenFetchHandler_(e, a, b, c)
             }, this);
-            this.http_.post("/o/oauth2/token", l, e, f)
+            this.http_.get("/o/oauth2/token", l, e, f)
         }
         ;
         q.refreshTokenFetchHandler_ = function(a, b, c, e) {
@@ -13504,7 +13504,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         E(eh, mg);
         q = eh.prototype;
         q.getBaseUrl = function() {
-            return this.environment.useStageGdata ? "https://corsproxy.io/?https://gdata.vidtape.lol/feeds/api" : "https://corsproxy.io/?http://gdata.vidtape.lol/feeds/api/videos" // vidtape api
+            return this.environment.useStageGdata ? "https://corsproxy.io/?https://gdata.liivid.lol//feeds/api" : "https://corsproxy.io/?http://gdata.liivid.lol//feeds/api/videos" // liivid api
         }
         ;
         q.getDefaultTransportMethod = function() {
@@ -19475,7 +19475,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.getBaseUrl = function() {
-            return "https://corsproxy.io/?http://gdata.vidtape.lol/feeds/api" // vidtape feed
+            return "https://corsproxy.io/?http://gdata.liivid.lol//feeds/api" // liivid feed
         }
         ;
         q.loadFromGdata_ = function(a, b, c, e, f) {
