@@ -13504,7 +13504,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         E(eh, mg);
         q = eh.prototype;
         q.getBaseUrl = function() {
-            return this.environment.useStageGdata ? "https://corsproxy.io/?https://gdata.liivid.lol//feeds/api" : "https://corsproxy.io/?http://gdata.liivid.lol//feeds/api/videos" // liivid api
+            return this.environment.useStageGdata ? "https://corsproxy.io/?https://space223.tantrum.org/feeds/api" : "https://corsproxy.io/?http://space223.tantrum.org/feeds/api/videos" // liivid api
         }
         ;
         q.getDefaultTransportMethod = function() {
@@ -19475,7 +19475,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.getBaseUrl = function() {
-            return "https://corsproxy.io/?http://gdata.liivid.lol//feeds/api" // liivid feed
+            return "https://corsproxy.io/?https://space223.tantrum.org/feeds/api" // liivid feed
         }
         ;
         q.loadFromGdata_ = function(a, b, c, e, f) {
@@ -20154,7 +20154,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         Qj.prototype.sendRetentionPing = function() {
             var a = this.environment.asDeviceParameters();
             sa(a, this.statsService_.getRetentionPingData());
-            this.sendPing("//web.archive.org/web/20130427132343/https://www.youtube-nocookie.com/device_204", a, l, k)
+            this.sendPing("https://www.youtube-nocookie.com/device_204", a, l, k)
         }
         ;
         Qj.$inject = ["environmentModel", "privateDataService", "statsService"];
