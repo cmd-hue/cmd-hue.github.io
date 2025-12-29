@@ -13504,7 +13504,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         E(eh, mg);
         q = eh.prototype;
         q.getBaseUrl = function() {
-            return this.environment.useStageGdata ? "https://corsproxy.io/?https://space223.tantrum.org/feeds/api" : "https://corsproxy.io/?http://space223.tantrum.org/feeds/api/videos" // liivid api
+            return this.environment.useStageGdata ? "https://corsproxy.io/?https://space223.tantrum.org/feeds/api" : "https://corsproxy.io/?http://space223.tantrum.org/feeds/api/videos"
         }
         ;
         q.getDefaultTransportMethod = function() {
@@ -26121,7 +26121,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 altConstructor: Vj,
                 listType: "SR",
                 name: "searchService",
-                path: "https://cmd-hue.github.io/2013tv/feedtemplate.json", // originally "/videos"
+                path: "/videos",
                 paramKey: "q",
                 params: {
                     fields: "title,logo,entry[$default-filter](title,yt:statistics,yt:hd,yt:claimed,yt:paidContent,yt:rating,media:group(yt:videoid,yt:duration,yt:uploaded,yt:uploaderId,media:credit,media:description)),openSearch:totalResults",
