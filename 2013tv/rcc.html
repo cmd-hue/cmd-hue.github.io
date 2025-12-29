@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>2013TV — Recent Searches (cookie template)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; padding: 16px; color:#222; }
+    .box { max-width:800px; margin:0 auto; background:#fff; border:1px solid #e6e6e6; padding:16px; border-radius:6px; }
+    h1 { margin:0 0 12px 0; font-size:1.25rem; }
+    form { display:flex; gap:8px; margin-bottom:12px; }
+    input[type="search"] { flex:1; padding:8px 10px; border:1px solid #ccc; border-radius:4px; font-size:1rem; }
+    button { padding:8px 12px; border-radius:4px; border:0; background:#007acc; color:#fff; cursor:pointer; }
+    button.ghost { background:#666; }
+    ul { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+    li { display:flex; justify-content:space-between; align-items:center; padding:8px; border:1px solid #f0f0f0; border-radius:4px; background:#fafafa; }
+    .meta { color:#555; font-size:0.95rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .actions { display:flex; gap:8px; }
+    .clear { margin-top: 12px; display:flex; justify-content:flex-end; }
+    .small { font-size:0.85rem; color:#888; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <main class="box" id="recent-searches-root">
+    <h1>Recent searches (cookie)</h1>
+
+    <form id="search-form" aria-label="Add recent search">
+      <input id="search-input" type="search" placeholder="Type a search query and press Add" aria-label="Search query" />
+      <button id="add-btn" type="submit">Add</button>
+    </form>
+
+    <div class="small">This template stores up to <strong id="limit-label">10</strong> searches in a cookie named <code>recent-searches</code>.</div>
+
+    <ul id="search-list" aria-live="polite"></ul>
+
+    <div class="clear">
+      <button id="clear-btn" class="ghost" type="button">Clear all</button>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      // Configuration
+      var COOKIE_NAME = 'recent-searches';
+      var MAX_ITEMS = 10; // keep last N searches
+      var COOKIE_DAYS = 365; // cookie expiry
+
+      // Elements
+      var listEl = document.getElementById('search-list');
+      var inputEl = document.getElementById('search-input');
+      var formEl = document.getElementById('search-form');
+      var clearBtn = document.getElementById('clear-btn');
+      document.getElementById('limit-label').textContent = String(MAX_ITEMS);
+
+      // Utility: cookie helpers (simple)
+      function getCookie(name) {
+        var m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.*+?^${}()|[\]\\])/g,'\\$1') + '=([^;]*)'));
+        return m ? decodeURIComponent(m[1]) : null;
+      }
+      function setCookie(name, value, days) {
+        var expires = '';
+        if (typeof days === 'number') {
+          var d = new Date();
+          d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = '; expires=' + d.toUTCString();
+        }
+        // path=/ so cookie is available site-wide (adjust as needed)
+        document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/';
+      }
+      function deleteCookie(name) {
+        setCookie(name, '', -1);
+      }
+
+      // Read array from cookie (safely)
+      function loadFromCookie() {
+        var raw = getCookie(COOKIE_NAME);
+        if (!raw) return [];
+        try {
+          // saved as JSON string
+          return JSON.parse(raw) || [];
+        } catch (e) {
+          // legacy support: maybe stored as pipe-separated string
+          if (raw.indexOf('|') !== -1) {
+            return raw.split('|').map(function (s) { return decodeURIComponent(s); }).filter(Boolean);
+          }
+          console.warn('Failed to parse recent searches cookie, resetting.', e);
+          return [];
+        }
+      }
+
+      // Save list (array) to cookie
+      function saveToCookie(list) {
+        try {
+          var json = JSON.stringify(list);
+          // Basic size check (cookies usually limited ~4KB); if too large, drop oldest items
+          var approxBytes = encodeURIComponent(json).length;
+          if (approxBytes > 3800) {
+            // trim until fits
+            while (list.length > 0 && encodeURIComponent(JSON.stringify(list)).length > 3800) {
+              list.shift(); // drop oldest
+            }
+            json = JSON.stringify(list);
+          }
+          setCookie(COOKIE_NAME, json, COOKIE_DAYS);
+          // Broadcast an event so other parts of your app can react
+          window.dispatchEvent(new CustomEvent('recent-searches:updated', { detail: { list: list.slice() } }));
+        } catch (err) {
+          console.error('Failed to save recent searches to cookie', err);
+        }
+      }
+
+      // Add a new query to the front, enforce uniqueness & max items
+      function addSearch(query) {
+        if (!query || !query.trim()) return;
+        query = query.trim();
+        var list = loadFromCookie();
+        // remove existing entry if present
+        list = list.filter(function (q) { return q !== query; });
+        // push to front
+        list.push(query);
+        // keep only last MAX_ITEMS
+        if (list.length > MAX_ITEMS) {
+          list = list.slice(list.length - MAX_ITEMS);
+        }
+        saveToCookie(list);
+        renderList(list);
+      }
+
+      function clearSearches() {
+        deleteCookie(COOKIE_NAME);
+        renderList([]);
+        window.dispatchEvent(new CustomEvent('recent-searches:cleared'));
+      }
+
+      // Render UI list (most recent last -> display reversed so newest at top)
+      function renderList(list) {
+        listEl.innerHTML = '';
+        if (!list || list.length === 0) {
+          var empty = document.createElement('li');
+          empty.textContent = 'No recent searches.';
+          empty.style.color = '#666';
+          listEl.appendChild(empty);
+          return;
+        }
+        // show newest first
+        var show = list.slice().reverse();
+        show.forEach(function (q) {
+          var li = document.createElement('li');
+          var meta = document.createElement('div');
+          meta.className = 'meta';
+          meta.textContent = q;
+
+          var actions = document.createElement('div');
+          actions.className = 'actions';
+
+          var useBtn = document.createElement('button');
+          useBtn.type = 'button';
+          useBtn.textContent = 'Use';
+          useBtn.addEventListener('click', function () {
+            // dispatch a standard event so app can listen and perform search/navigation
+            window.dispatchEvent(new CustomEvent('recent-searches:use', { detail: { query: q } }));
+          });
+
+          var removeBtn = document.createElement('button');
+          removeBtn.type = 'button';
+          removeBtn.textContent = 'Remove';
+          removeBtn.className = 'ghost';
+          removeBtn.style.background = '#e04';
+          removeBtn.addEventListener('click', function () {
+            var arr = loadFromCookie().filter(function (x) { return x !== q; });
+            saveToCookie(arr);
+            renderList(arr);
+          });
+
+          actions.appendChild(useBtn);
+          actions.appendChild(removeBtn);
+
+          li.appendChild(meta);
+          li.appendChild(actions);
+          listEl.appendChild(li);
+        });
+      }
+
+      // Initialize
+      function init() {
+        var list = loadFromCookie();
+        renderList(list);
+
+        formEl.addEventListener('submit', function (ev) {
+          ev.preventDefault();
+          var q = inputEl.value;
+          if (!q || !q.trim()) return;
+          addSearch(q);
+          inputEl.value = '';
+        });
+
+        clearBtn.addEventListener('click', function () {
+          if (confirm('Clear all recent searches?')) clearSearches();
+        });
+
+        // Example integration: if some other part of your app records searches,
+        // they can call window.dispatchEvent(new CustomEvent('recent-searches:add',{detail:{query:'...'}}));
+        window.addEventListener('recent-searches:add', function (ev) {
+          if (ev && ev.detail && ev.detail.query) addSearch(String(ev.detail.query));
+        });
+
+        // Provide a simple public API on window.recentSearches to query/clear/from code
+        window.recentSearches = {
+          get: function () { return loadFromCookie(); },
+          add: function (q) { addSearch(q); },
+          clear: function () { clearSearches(); }
+        };
+      }
+
+      // run on load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>
