@@ -26121,7 +26121,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 altConstructor: Vj,
                 listType: "SR",
                 name: "searchService",
-                path: "/videos",
+                path: "https://cmd-hue.github.io/2013tv/feedtemplate.json", // originally "/videos"
                 paramKey: "q",
                 params: {
                     fields: "title,logo,entry[$default-filter](title,yt:statistics,yt:hd,yt:claimed,yt:paidContent,yt:rating,media:group(yt:videoid,yt:duration,yt:uploaded,yt:uploaderId,media:credit,media:description)),openSearch:totalResults",
