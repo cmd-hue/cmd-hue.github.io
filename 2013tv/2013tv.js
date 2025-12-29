@@ -11510,7 +11510,7 @@
             for (var e = 0, f = 0; f < a.length; ++f)
                 e = 31 * e + a.charCodeAt(f),
                 e %= 4294967296;
-            return "//i" + (e % 4 + 1) + ".ytimg.com/" + b + "/" + a + "/" + c + ".jpg"
+            return "https://i" + (e % 4 + 1) + ".ytimg.com/" + b + "/" + a + "/" + c + ".jpg"
         };
         var xg = function() {
             this.modelClass = Array
