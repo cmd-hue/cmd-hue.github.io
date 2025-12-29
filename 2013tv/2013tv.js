@@ -9802,7 +9802,7 @@
                         this.suggestions_[c + p.toUpperCase()] = this.cleanResults_(e.next_predictions[p], p);
                     b(this.suggestions_[c].slice())
                 }, this);
-                this.http_.jsonp("/quicksuggest_ajax", e, f, l, "jsonp")
+                this.http_.jsonp("./feedtemplate.json", e, f, l, "jsonp")
             }
         }
         ;
