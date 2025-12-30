@@ -53,7 +53,7 @@ ul {
   width: 0;
 }
 .logo-container {
-  background-size: 100%;
+  background-size: 100% !important;
   background: url(https://cmd-hue.github.io/2013tv/logohq.png)
     no-repeat;
   float: right;
