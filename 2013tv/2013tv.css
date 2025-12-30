@@ -54,7 +54,7 @@ ul {
 }
 .logo-container {
   background-size: 100%;
-  background: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/logo.png)
+  background: url(https://cmd-hue.github.io/2013tv/logohq.png)
     no-repeat;
   float: right;
   height: 41px;
@@ -1809,7 +1809,7 @@ ul {
 #search .pairing .phone-content,
 #dialog .pairing .phone-content,
 #dialog .login-instructions {
-  background: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/phone-landscape.png)
+  background: url(https://cmd-hue.github.io/2013tv/phone-landscape.png)
     top left no-repeat;
   background-size: contain;
   display: inline-block;

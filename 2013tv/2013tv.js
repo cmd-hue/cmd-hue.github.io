@@ -12240,7 +12240,7 @@
         }
         ;
         q.fetchNewAccessToken_ = function(a, b) {
-            this.http_.post("https://oauth2.googleapis.com/token", l, {
+            this.http_.post("./token", l, {
                 client_id: "861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com",
                 client_secret: this.secret_,
                 refresh_token: a,
@@ -12289,7 +12289,7 @@
               , f = C(function(e) {
                 this.refreshTokenFetchHandler_(e, a, b, c)
             }, this);
-            this.http_.post("https://oauth2.googleapis.com/token", l, e, f)
+            this.http_.post("./token", l, e, f)
         }
         ;
         q.refreshTokenFetchHandler_ = function(a, b, c, e) {
