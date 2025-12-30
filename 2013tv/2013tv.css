@@ -1847,9 +1847,9 @@ ul {
   font-size: 0.8em;
 }
 #dialog .login-instructions .pairing-code {
-  font-size: 1.3em;
-  letter-spacing: 0.1em;
-  line-height: 1.3em;
+    font-size: 54px;
+    letter-spacing: 0.1em;
+    line-height: 1.3em;
 }
 #dialog .qr-code-wrapper {
   display: inline;

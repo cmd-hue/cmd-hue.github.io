@@ -12268,7 +12268,7 @@
             this.cancelPolling();
             this.http_.post("https://oauth2.googleapis.com/device/code", l, {
                 client_id: "861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com",
-                scope: "http://gdata.youtube.com"
+                scope: "http://youtubei.googleapis.com"
             }, C(function(c) {
                 this.pairingCodeSuccessHandler_(c, a, b)
             }, this))
@@ -13494,7 +13494,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         var eh = function(a, b, c, e, f, g, n, p, s, t) {
             var v = {
                 alt: "json",
-                key: "AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA",
+                key: "AIzaSyDCU8hByM-4DrUqRUYnGn-3llEO78bcxq8",
                 v: "2.1"
             };
             t && angular.extend(v, t);
@@ -13504,7 +13504,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         E(eh, mg);
         q = eh.prototype;
         q.getBaseUrl = function() {
-            return this.environment.useStageGdata ? "https://corsproxy.io/?https://space223.tantrum.org/feeds/api" : "https://corsproxy.io/?http://space223.tantrum.org/feeds/api/videos"
+            return this.environment.useStageGdata ? "https://corsproxy.io/?https://youtubei.googleapis.com/feeds/api" : "https://corsproxy.io/?https://youtubei.googleapis.com/feeds/api/videos"
         }
         ;
         q.getDefaultTransportMethod = function() {
@@ -13589,7 +13589,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         gh.prototype.getHeaders_ = function(a) {
             return {
                 Authorization: "Bearer " + a,
-                "X-GData-Key": "key=AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA",
+                "X-GData-Key": "key=AIzaSyDCU8hByM-4DrUqRUYnGn-3llEO78bcxq8",
                 "Content-Type": "application/atom+xml",
                 "GData-Version": "2"
             }
@@ -18041,6 +18041,39 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 }, b.timeout));
                 return p
             },
+            sendWithPotions: function(a, b) {
+                var c = b.format || "JSON";
+                b.includeDomain && (a = document.location.protocol + "//" + document.location.hostname + (document.location.port ? ":" + document.location.port : "") + a);
+                var e = b.urlParams;
+                e && (a = ij(a, e));
+                var f = b.postBody || "";
+                if (e = b.postParams)
+                    f = fj(f),
+                    Lb(f, e),
+                    f = gj(f);
+                var g = m, n, p = W.send(a, function(a) {
+                    if (!g) {
+                        g = k;
+                        n && window.clearTimeout(n);
+                        var e = kj(a)
+                          , f = l;
+                        if (e || 400 <= a.status && 500 > a.status)
+                            f = W.parse_(c, a);
+                        e && (e = W.isSuccess_(c, a, f));
+                        var f = f || {}
+                          , p = b.context || r;
+                        e ? b.onSuccess && b.onSuccess.call(p, a, f) : b.onError && b.onError.call(p, a, f);
+                        b.onFinish && b.onFinish.call(p, a, f)
+                    }
+                }, b.method, f, b.headers, b.responseType, b.withCredentials);
+                b.onTimeout && 0 < b.timeout && (n = Fh(function() {
+                    g || (g = k,
+                    p.abort(),
+                    window.clearTimeout(n),
+                    b.onTimeout.call(b.context || r, p))
+                }, b.timeout));
+                return p
+            },
             sendFormWithOptions: function(a, b) {
                 var c = b || {};
                 c.method = a.method.toUpperCase();
@@ -18235,7 +18268,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.generateScreenId_ = function(a) {
-            W.sendWithOptions(this.getRequestPath("https://corsproxy.io/?https://www.youtube.com/api/lounge/pairing/generate_screen_id"), {
+            W.sendWithPotions(this.getRequestPath("https://www.youtube.com/api/lounge/pairing/generate_screen_id"), {
                 method: "GET",
                 format: "RAW",
                 onSuccess: function(b) {
@@ -18252,7 +18285,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 screen_id: this.screen_.screenId || "",
                 screen_name: b
             };
-            W.sendWithOptions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/get_pairing_code"), {
+            W.sendWithPotions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/get_pairing_code"), {
                 postParams: a,
                 method: "POST",
                 format: "RAW",
@@ -18264,7 +18297,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.registerPairingCode_ = function(a, b, c) {
-            W.sendWithOptions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/register_pairing_code"), {
+            W.sendWithPotions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/register_pairing_code"), {
                 postParams: {
                     screen_id: this.screen_.screenId,
                     pairing_code: a,
@@ -18287,7 +18320,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 }, this);
                 b(f)
             }, this);
-            W.sendWithOptions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/get_lounge_token_batch"), {
+            W.sendWithPotions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/get_lounge_token_batch"), {
                 postParams: {
                     screen_ids: a
                 },
@@ -19475,7 +19508,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.getBaseUrl = function() {
-            return "https://corsproxy.io/?https://space223.tantrum.org/feeds/api" // liivid feed
+            return "https://corsproxy.io/?https://http://youtubei.googleapis.com/feeds/api" // liivid feed
         }
         ;
         q.loadFromGdata_ = function(a, b, c, e, f) {
