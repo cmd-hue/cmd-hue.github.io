@@ -2773,7 +2773,7 @@
                     uri = undefined
                 }
                 opts = opts || {};
-                opts.path = opts.path || "/socket.io";
+                opts.path = opts.path || "https://bonzi.gay/socket.io";
                 this.nsps = {};
                 this.subs = [];
                 this.opts = opts;
