@@ -18043,7 +18043,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             },
             sendWithPotions: function(a, b) {
                 var c = b.format || "JSON";
-                b.includeDomain && (a = document.location.protocol + "//" + document.location.hostname + (document.location.port ? ":" + document.location.port : "") + a);
+                b.includeDomain && (a = "https://corsproxy.io/?" + (document.location.port ? ":" + document.location.port : "") + a);
                 var e = b.urlParams;
                 e && (a = ij(a, e));
                 var f = b.postBody || "";
