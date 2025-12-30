@@ -12268,7 +12268,7 @@
             this.cancelPolling();
             this.http_.post("https://oauth2.googleapis.com/device/code", l, {
                 client_id: "861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com",
-                scope: "http://youtubei.googleapis.com"
+                scope: "http://gdata.youtube.com"
             }, C(function(c) {
                 this.pairingCodeSuccessHandler_(c, a, b)
             }, this))
