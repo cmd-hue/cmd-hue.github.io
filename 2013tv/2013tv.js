@@ -11224,7 +11224,6 @@
         }
         ;
         q.isEmpty = function() {
-            console.log(this.query);
             return !this.query
         }
         ;
@@ -13495,7 +13494,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         var eh = function(a, b, c, e, f, g, n, p, s, t) {
             var v = {
                 alt: "json",
-                key: "AIzaSyDCU8hByM-4DrUqRUYnGn-3llEO78bcxq8",
+                key: "AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA",
                 v: "2.1"
             };
             t && angular.extend(v, t);
@@ -13505,7 +13504,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         E(eh, mg);
         q = eh.prototype;
         q.getBaseUrl = function() {
-            return this.environment.useStageGdata ? "https://corsproxy.io/?https://youtubei.googleapis.com/feeds/api" : "https://corsproxy.io/?https://youtubei.googleapis.com/feeds/api/videos"
+            return this.environment.useStageGdata ? "https://corsproxy.io/?https://space223.tantrum.org/feeds/api" : "https://corsproxy.io/?http://space223.tantrum.org/feeds/api/videos"
         }
         ;
         q.getDefaultTransportMethod = function() {
@@ -13590,7 +13589,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         gh.prototype.getHeaders_ = function(a) {
             return {
                 Authorization: "Bearer " + a,
-                "X-GData-Key": "key=AIzaSyDCU8hByM-4DrUqRUYnGn-3llEO78bcxq8",
+                "X-GData-Key": "key=AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA",
                 "Content-Type": "application/atom+xml",
                 "GData-Version": "2"
             }
@@ -18044,7 +18043,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             },
             sendWithPotions: function(a, b) {
                 var c = b.format || "JSON";
-                b.includeDomain && (a = "https://corsproxy.io/?" + (document.location.port ? ":" + document.location.port : "") + a);
+                b.includeDomain && (a = document.location.protocol + "//" + document.location.hostname + (document.location.port ? ":" + document.location.port : "") + a);
                 var e = b.urlParams;
                 e && (a = ij(a, e));
                 var f = b.postBody || "";
@@ -19509,7 +19508,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.getBaseUrl = function() {
-            return "https://corsproxy.io/?https://http://youtubei.googleapis.com/feeds/api" // liivid feed
+            return "https://corsproxy.io/?https://space223.tantrum.org/feeds/api" // liivid feed
         }
         ;
         q.loadFromGdata_ = function(a, b, c, e, f) {
@@ -26675,7 +26674,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             a.value("xhrBackend", Hi);
             a.value("jsonpBackend", Nl)
         };
-u("yt.tv.initializer", function(a) {
+        u("yt.tv.initializer", function(a) {
             var b = "start_browse";
             window.location.href.match(/[?&]v=[\w\+\/\-_=]+/) ? b = "start_watch" : window.location.href.match(/[?&]pairingCode=/) && (b = "start_dial");
             window.jstiming.load.name = b;
@@ -26799,7 +26798,7 @@ u("yt.tv.initializer", function(a) {
     )();
 
 /*
-     FILE ARCHIVED ON 13:23:43 Feb 27, 2013 AND RETRIEVED FROM THE
+     FILE ARCHIVED ON 13:23:43 Apr 27, 2013 AND RETRIEVED FROM THE
      INTERNET ARCHIVE ON 20:43:00 Nov 25, 2025.
      JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
 
