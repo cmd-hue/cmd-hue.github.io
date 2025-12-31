@@ -11224,6 +11224,7 @@
         }
         ;
         q.isEmpty = function() {
+            console.log(this.query);
             return !this.query
         }
         ;
@@ -26798,7 +26799,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     )();
 
 /*
-     FILE ARCHIVED ON 13:23:43 Apr 27, 2013 AND RETRIEVED FROM THE
+     FILE ARCHIVED ON 13:23:43 Feb 27, 2013 AND RETRIEVED FROM THE
      INTERNET ARCHIVE ON 20:43:00 Nov 25, 2025.
      JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
 
