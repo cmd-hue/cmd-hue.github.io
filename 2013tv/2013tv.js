@@ -26675,9 +26675,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             a.value("xhrBackend", Hi);
             a.value("jsonpBackend", Nl)
         };
-        u("yt.tv.initializer", function(a) {
+u("yt.tv.initializer", function(a) {
             var b = "start_browse";
             window.location.href.match(/[?&]v=[\w\+\/\-_=]+/) ? b = "start_watch" : window.location.href.match(/[?&]pairingCode=/) && (b = "start_dial");
+            window.jstiming.load.name = b;
             if (b = Jc("stickyLabel"))
                 if (0 <= window.location.href.indexOf("stick=0&"))
                     Kc("stickyLabel");
