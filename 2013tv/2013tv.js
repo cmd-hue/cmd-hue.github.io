@@ -18262,13 +18262,27 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             return "https://" + (c && decodeURIComponent(c)) + b + a
         }
         ;
+        q.daway = function (a) {
+    if (/^https?:\/\//i.test(a)) {
+        return a;
+    }
+
+    var b = Number(lf(document.location.href)[4] || l) || l || "";
+    if (b) b = ":" + b;
+
+    var c = lf(document.location.href)[3] || l;
+
+    return "https://" + (c && decodeURIComponent(c)) + b + a;
+};
+
+        ;
         q.startClearLoungeTokenTimer_ = function() {
             this.screen_ && (this.screen_.loungeToken = "");
             Fh(C(this.startClearLoungeTokenTimer_, this), 864E5)
         }
         ;
         q.generateScreenId_ = function(a) {
-            W.sendWithPotions(this.getRequestPath("https://www.youtube.com/api/lounge/pairing/generate_screen_id"), {
+            W.sendWithPotions(this.daway("https://www.youtube.com/api/lounge/pairing/generate_screen_id"), {
                 method: "GET",
                 format: "RAW",
                 onSuccess: function(b) {
@@ -18285,7 +18299,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 screen_id: this.screen_.screenId || "",
                 screen_name: b
             };
-            W.sendWithPotions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/get_pairing_code"), {
+            W.sendWithPotions(this.daway("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/get_pairing_code"), {
                 postParams: a,
                 method: "POST",
                 format: "RAW",
@@ -18297,7 +18311,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.registerPairingCode_ = function(a, b, c) {
-            W.sendWithPotions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/register_pairing_code"), {
+            W.sendWithPotions(this.daway("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/register_pairing_code"), {
                 postParams: {
                     screen_id: this.screen_.screenId,
                     pairing_code: a,
@@ -18320,7 +18334,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 }, this);
                 b(f)
             }, this);
-            W.sendWithPotions(this.getRequestPath("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/get_lounge_token_batch"), {
+            W.sendWithPotions(this.daway("https://corsproxy.io/?https://youtube.com/api/lounge/pairing/get_lounge_token_batch"), {
                 postParams: {
                     screen_ids: a
                 },
