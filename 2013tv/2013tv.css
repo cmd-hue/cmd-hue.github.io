@@ -143,7 +143,7 @@ ul {
   -o-animation: rotateThis linear 2s 0s infinite normal none;
   -webkit-animation: rotateThis linear 2s 0s infinite normal none;
   animation: rotateThis linear 2s 0s infinite normal none;
-  background: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/carousel-loading-indicator.png)
+  background: url(https://cmd-hue.github.io/2013tv/assets/carousel-loading-indicator.png)
     no-repeat center center;
   height: 200px;
   width: 200px;
@@ -811,7 +811,7 @@ ul {
   width: 7em;
 }
 .action-tile .sign-in-user-icon {
-  background-image: url(http://youtomb.github.io/assets/icon-default-avatar.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/icon-default-avatar.png);
 }
 .action-tile .sign-out-username {
   font-size: 1.7em;
@@ -836,14 +836,14 @@ ul {
   font-size: 1.5em;
 }
 .action-tile .remote-pair-icon {
-  background: url(http://youtomb.github.io/assets/phone-icons.png)
+  background: url(https://cmd-hue.github.io/2013tv/assets/phone-icons.png)
     no-repeat center;
   background-size: contain;
   height: 11em;
   margin-top: 3.5em;
 }
 .action-tile .remote-reset-phone {
-  background: url(http://youtomb.github.io/assets/phone-icons.png)
+  background: url(https://cmd-hue.github.io/2013tv/assets/phone-icons.png)
     no-repeat center;
   background-size: contain;
   height: 14em;
@@ -999,13 +999,13 @@ ul {
   background-size: 1em;
   background-position: left center;
   background-repeat: no-repeat;
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/phone_icon.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/phone_icon.png);
   overflow: hidden;
   text-overflow: ellipsis;
   width: 11.5em;
 }
 .remote-reset-dialog ul.devices li.connected {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/phone_icon_connected.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/phone_icon_connected.png);
   color: #f1f1f1;
 }
 #search .pairing {
@@ -1098,7 +1098,7 @@ ul {
 }
 #search-text-box .suggestion-trigger {
   background: transparent
-    url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/suggestion_trigger_hover.png)
+    url(https://cmd-hue.github.io/2013tv/assets/suggestion_trigger_hover.png)
     no-repeat;
   background-size: contain;
   cursor: pointer;
@@ -1113,7 +1113,7 @@ ul {
 #search-text-box.active .suggestion-trigger,
 #search-text-box .suggestion-trigger:hover {
   background: transparent
-    url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/suggestion_trigger.png)
+    url(https://cmd-hue.github.io/2013tv/assets/suggestion_trigger.png)
     no-repeat;
   background-size: contain;
 }
@@ -1367,7 +1367,7 @@ ul {
 .advertisement-callout {
   background-size: cover;
   background: transparent
-    url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/advertisement-bg.png)
+    url(https://cmd-hue.github.io/2013tv/assets/advertisement-bg.png)
     0 0 repeat;
   color: #cfc323;
   font-size: 1.1em;
@@ -1534,7 +1534,7 @@ ul {
 }
 #progress-bar > div {
   background: transparent
-    url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/player-controls.png)
+    url(https://cmd-hue.github.io/2013tv/assets/player-controls.png)
     no-repeat;
 }
 #progress-bar .player-seek-active {
@@ -1703,17 +1703,17 @@ ul {
   width: 1.2em;
 }
 #toast .remote-connect .toast-msg {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/phone_icon.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/phone_icon.png);
   background-position: center left;
   background-repeat: no-repeat;
   background-size: 1.1em 1.1em;
   padding-left: 1.4em;
 }
 #toast .remote-connected {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/remote_connect.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/remote_connect.png);
 }
 #toast .remote-disconnected {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/remote_disconnect.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/remote_disconnect.png);
 }
 #toast .toast-progress {
   border: 1px solid #aaa;
@@ -1724,16 +1724,16 @@ ul {
   height: 1em;
 }
 #toast .volume-muted {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/volume_mute_pressed.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/volume_mute_pressed.png);
 }
 #toast .volume-low {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/volume_0_pressed.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/volume_0_pressed.png);
 }
 #toast .volume-mid {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/volume_1_pressed.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/volume_1_pressed.png);
 }
 #toast .volume-high {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/volume_2_pressed.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/volume_2_pressed.png);
 }
 #toast .volume-toast .toast-msg {
   text-align: right;
@@ -1981,7 +1981,7 @@ ul {
   padding-top: 0.5em;
 }
 .flag-example {
-  background: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/flag.png)
+  background: url(https://cmd-hue.github.io/2013tv/assets/flag.png)
     no-repeat 0 0;
   background-size: contain;
   display: inline-block;
@@ -2083,7 +2083,7 @@ ul {
 #shiyojo .playstation-logo,
 #shiyojo .ps3-logo,
 #kenko .warning {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/logo-playstation.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/logo-playstation.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -2095,7 +2095,7 @@ ul {
   margin-bottom: 0.8em;
 }
 #shiyojo .ps3-logo {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/logo-ps3.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/logo-ps3.png);
   width: 2.7em;
 }
 #kenko .warning {
@@ -2112,7 +2112,7 @@ ul {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .status-dialog .icon {
-  background: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/pairing-promo-combo.png)
+  background: url(https://cmd-hue.github.io/2013tv/assets/pairing-promo-combo.png)
     center center no-repeat;
   background-size: contain;
   display: inline-block;
@@ -2358,7 +2358,7 @@ ul {
 }
 .wiiu .player-controls-widget {
   background: transparent
-    url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/player-background.png)
+    url(https://cmd-hue.github.io/2013tv/assets/player-background.png)
     0 0 repeat-x;
   background-size: cover;
   border: none;
@@ -2607,36 +2607,36 @@ body.lg {
   display: block;
 }
 .lg #up-arrow {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/motion-control-up-button-default.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/motion-control-up-button-default.png);
   top: 5%;
   left: 45%;
 }
 .lg #up-arrow:hover {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/motion-control-up-button-hover.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/motion-control-up-button-hover.png);
 }
 .lg #down-arrow {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/motion-control-down-button-default.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/motion-control-down-button-default.png);
   bottom: 5%;
   left: 45%;
 }
 .lg #down-arrow:hover {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/motion-control-down-button-hover.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/motion-control-down-button-hover.png);
 }
 .lg #left-arrow {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/motion-control-left-button-default.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/motion-control-left-button-default.png);
   top: 50%;
   left: 5%;
 }
 .lg #left-arrow:hover {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/motion-control-left-button-hover.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/motion-control-left-button-hover.png);
 }
 .lg #right-arrow {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/motion-control-right-button-default.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/motion-control-right-button-default.png);
   top: 50%;
   right: 5%;
 }
 .lg #right-arrow:hover {
-  background-image: url(https://corsproxy.io/?https://web.archive.org/web/20130427132343im_/https://www.youtube.com/s/tv/html5/6940619b/img/motion-control-right-button-hover.png);
+  background-image: url(https://cmd-hue.github.io/2013tv/assets/motion-control-right-button-hover.png);
 }
 .lg .search-mode #up-arrow,
 .lg .search-mode #down-arrow {
