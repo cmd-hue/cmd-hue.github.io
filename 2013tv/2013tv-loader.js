@@ -12,14 +12,8 @@ window.labels = {
     'aj': 'a0000009'
 };
 
-fetch("https://youtomb.github.io/egg.txt")
-  .then(response => response.text())
-  .then(text => {
-    if (text.trim() === "true") {
-      window.location.href = "https://youtomb.github.io/outage.html";
-    }
-  })
-  .catch(err => console.error("Error fetching egg.txt:", err));
+document.title = "Please Wait..."
+
 
 (function() {
     var a = window.labels;
@@ -74,9 +68,13 @@ fetch("https://youtomb.github.io/egg.txt")
         }
 
         if (window.yt && yt.tv && yt.tv.initializer) {
+            document.title = "2013TV"
             yt.tv.initializer(d);
+            archiveit(location.href);
         } else {
+            document.title = "2013TV - Site Load Error"
             alert("The Site cannot load, That is all we know.");
+            archiveit(location.href);
         }
     };
 
