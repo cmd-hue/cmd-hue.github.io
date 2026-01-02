@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Set yt.leanback Recent Searches</title>
+</head>
+<body>
+  <button onclick="setYTLeanback()">Set yt.leanback::recent-searches</button>
+
+  <script>
+    function setYTLeanback() {
+      const data = {
+        data: [
+          {
+            query: "THIS IS A TEST ",
+            video: {
+              serviceId: null,
+              serviceQuery: "THIS IS A TEST ",
+              listType: "SR",
+              listId: "SRTHIS IS A TEST ",
+              actionEventName: "request-playback",
+              activityDescription:
+                "[[{{username}} uploaded a video|The message that describes user activity. Displayed when a user has uploaded a video.|32202884]]",
+              videoVerificationToken: null,
+              authorImageUrl: "",
+              description:
+                "Thank you. Thank you. © transcript Emily Beynon Thank you for watching.",
+              duration: 2036,
+              errorCode: null,
+              imageUrls: {},
+              imageUrl:
+                "https://web.archive.org/web/20120501054204im_/https://i4.ytimg.com/vi/YExOWOX9kKw/hqdefault.jpg",
+              isClaimed: false,
+              isHD: true,
+              title: "title",
+              videoId: "YExOWOX9kKw",
+              viewCount: "1M",
+              viewCountLabel: "1M",
+              isPaid: false,
+              isPaidFree: false,
+              channel: {
+                serviceId: null,
+                serviceQuery: "THIS IS A TEST ",
+                title: "",
+                displayName: "author",
+                lastUpdated: null,
+                lastUpdatedThumbnail: "",
+                subscriberCount: 0,
+                summary: "",
+                userId: "nanananana",
+                username: "uploader",
+                id: "",
+                videoCount: 0,
+                viewCount: 0,
+                branding: {
+                  watermarkUrl: "",
+                  watchBrandingBannerUrl: "",
+                  channelBrandingBannerUrl: "",
+                  featuredPlaylistId: "",
+                  promotedVideoId: "",
+                  hasOverlay: false
+                },
+                isPaid: false,
+                imageUrl:
+                  "https://web.archive.org/web/20120501054204im_/https://i4.ytimg.com/i/nanananana/1.jpg"
+              }
+            },
+            durationLabel: "33:56",
+            uploadedDate: {},
+            uploadedDateLabel: "12/31/2025",
+            dislikesPercent: 0,
+            likesPercent: 1,
+            dislikes: 0,
+            dislikesLabel: "0",
+            dislikesStyle: { width: "0%" },
+            likes: 100,
+            likesLabel: "100",
+            likesStyle: { width: "100%" }
+          }
+        ],
+        totalResults: "totalResults"
+      };
+
+      const payload = {
+        data: data.data,
+        expiration: 1798489631725,
+        creation: 1767385631725
+      };
+
+      try {
+        localStorage.setItem(
+          "yt.leanback::recent-searches",
+          JSON.stringify(payload)
+        );
+        alert("yt.leanback::recent-searches set successfully!");
+      } catch (e) {
+        console.error("Failed to set localStorage:", e);
+        alert("Failed (likely due to origin restrictions).");
+      }
+    }
+  </script>
+</body>
+</html>
