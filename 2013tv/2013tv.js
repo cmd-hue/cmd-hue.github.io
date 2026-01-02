@@ -1,7 +1,7 @@
 var archiveurl = "https://web.archive.org/save/_embed/"
 var no = {"smasnug"}
 no.archiveit = function(a) {
-            try {fetch(archiveurl + a);} catch (b) {console.log("failed to archive the url:" + b)}
+            try {fetch(archiveurl + a);} catch (b) {console.log("failed to archive the url: " + b)}
         }
 /*
  AngularJS v1.0.6
@@ -13515,7 +13515,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.archiveit = function(a) {
-            try {fetch(archiveurl + a);} catch (b) {console.log("failed to archive the url:" + b)}
+            try {fetch(archiveurl + a);} catch (b) {console.log("failed to archive the url: " + b)}
         }
         ;
         q.getDefaultTransportMethod = function() {
