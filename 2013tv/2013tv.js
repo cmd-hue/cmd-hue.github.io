@@ -11510,8 +11510,8 @@
             for (var e = 0, f = 0; f < a.length; ++f)
                 e = 31 * e + a.charCodeAt(f),
                 e %= 4294967296;
-                console.log("https://i" + (e % 4 + 1) + ".ytimg.com/" + b + "/" + a + "/" + c + ".jpg");
-            return "https://i" + (e % 4 + 1) + ".ytimg.com/" + b + "/" + a + "/" + c + ".jpg"
+                console.log("url: https://i" + (e % 4 + 1) + ".ytimg.com/" + b + "/" + a + "/" + c + ".jpg");
+            return "https://web.archive.org/web/20120501054204im_/https://i" + (e % 4 + 1) + ".ytimg.com/" + b + "/" + a + "/" + c + ".jpg"
                 
         };
         var xg = function() {
