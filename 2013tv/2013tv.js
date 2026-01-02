@@ -13504,7 +13504,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         E(eh, mg);
         q = eh.prototype;
         q.getBaseUrl = function() {
-            return this.environment.useStageGdata ? "https://corsproxy.io/?https://space223.tantrum.org/feeds/api" : "https://corsproxy.io/?http://space223.tantrum.org/feeds/api/videos"
+            return this.environment.useStageGdata ? "https://cmd-hue.github.io/2013tvfeeds/" : "https://cmd-hue.github.io/2013tvfeeds/videos"
         }
         ;
         q.getDefaultTransportMethod = function() {
