@@ -12,8 +12,6 @@ window.labels = {
     'aj': 'a0000009'
 };
 
-document.title = "Please Wait..."
-
 
 (function() {
     var a = window.labels;
