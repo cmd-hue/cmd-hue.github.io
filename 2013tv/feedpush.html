@@ -1,0 +1,121 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Upload to 2013tvfeeds (Pull Request)</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;padding:24px;background:#0f172a;color:#e6eef8}
+.container{max-width:720px;margin:0 auto;background:#0b1220;padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,.6)}
+h1{font-size:22px;margin-bottom:12px}
+#dropZone{border:2px dashed #2563eb;border-radius:12px;padding:20px;text-align:center;margin-top:12px;cursor:pointer;color:#7dd3fc}
+#dropZone.hover{background:#1e2a50}
+button{margin-top:14px;padding:10px 14px;border-radius:10px;border:0;background:#2563eb;color:white;font-weight:600;cursor:pointer;width:100%}
+pre{background:#081226;padding:12px;border-radius:8px;overflow:auto;margin-top:12px;color:#cfe8ff;white-space:pre-wrap;word-break:break-word}
+label{display:block;margin-top:12px}
+input[type="text"]{width:100%;padding:8px;border-radius:8px;border:1px solid #21324d;background:#071026;color:#e6eef8}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Upload to <span style="color:#7dd3fc">giggityfiles/_eg</span> (Pull Request)</h1>
+<p>Drag & drop a file or click to select. The uploader will handle authorization automatically.</p>
+<label>Path in repo (optional)
+<input id="path" type="text" placeholder="Leave empty to use filename" />
+</label>
+<div id="dropZone">Drop file here or click to select</div>
+<button id="upload">Upload and Create PR</button>
+<pre id="out">Ready.</pre>
+</div>
+<script>
+const owner='cmd-hue'
+const repo='2013tvfeeds'
+const tokenUrl='https://giggityfiles.github.io/assets/token.txt'
+const dropZone=document.getElementById('dropZone')
+const out=document.getElementById('out')
+let selectedFile=null
+
+function arrayBufferToBase64(buffer){
+  let binary=''
+  const bytes=new Uint8Array(buffer)
+  const chunkSize=0x8000
+  for(let i=0;i<bytes.length;i+=chunkSize){
+    const subarray=bytes.subarray(i,i+chunkSize)
+    binary+=String.fromCharCode.apply(null,subarray)
+  }
+  return btoa(binary)
+}
+
+// Internal double Base64 decoding (hidden from user)
+function base64DecodeSafe(str){
+  str = str.replace(/\s+/g,'').replace(/-/g,'+').replace(/_/g,'/');
+  try { return atob(str); } catch(e) { throw new Error('Invalid token'); }
+}
+
+dropZone.addEventListener('click',()=>{const f=document.createElement('input');f.type='file';f.onchange=e=>{selectedFile=e.target.files[0];dropZone.textContent='Selected: '+selectedFile.name};f.click()})
+dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('hover')})
+dropZone.addEventListener('dragleave',e=>{e.preventDefault();dropZone.classList.remove('hover')})
+dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('hover');selectedFile=e.dataTransfer.files[0];dropZone.textContent='Selected: '+selectedFile.name})
+
+document.getElementById('upload').addEventListener('click',async()=>{
+if(!selectedFile){out.textContent='No file selected.';return}
+out.textContent='Preparing upload...'
+let tokenRes
+try{tokenRes=await fetch(tokenUrl)}catch(e){out.textContent='Failed to fetch token: '+e;return}
+if(!tokenRes.ok){out.textContent='Failed to fetch token: '+tokenRes.status;return}
+let tokenText=await tokenRes.text()
+let token
+try{
+  token = base64DecodeSafe(base64DecodeSafe(tokenText))  // decode twice internally
+}catch(e){out.textContent='Failed to authorize: '+e;return}
+
+async function api(url,opts={}){opts.headers=opts.headers||{};opts.headers.Authorization='token '+token;opts.headers.Accept='application/vnd.github.v3+json';return fetch(url,opts)}
+
+const reader=new FileReader()
+reader.onload=async()=>{
+try{
+out.textContent='Encoding file...'
+const contentB64=arrayBufferToBase64(reader.result)
+let targetPath=document.getElementById('path').value.trim()||selectedFile.name
+if(targetPath.startsWith('/'))targetPath=targetPath.slice(1)
+
+out.textContent='Fetching main branch...'
+let refRes=await api(`https://api.github.com/repos/${owner}/${repo}/git/refs/heads/main`)
+if(!refRes.ok){out.textContent='Failed to get main branch';return}
+let mainSha=(await refRes.json()).object.sha
+
+let branchName='upload-'+Date.now()
+out.textContent='Creating branch...'
+let createRefRes=await api(`https://api.github.com/repos/${owner}/${repo}/git/refs`,{
+method:'POST',
+body:JSON.stringify({ref:'refs/heads/'+branchName,sha:mainSha})
+})
+if(!createRefRes.ok){out.textContent='Failed to create branch';return}
+
+out.textContent='Uploading file...'
+const getFileRes=await api(`https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(targetPath)}?ref=${branchName}`)
+let sha=null
+if(getFileRes.ok){sha=(await getFileRes.json()).sha}
+
+const putRes=await api(`https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(targetPath)}`,{
+method:'PUT',
+body:JSON.stringify({message:`Upload ${selectedFile.name} via PR`,content:contentB64,branch:branchName,sha})
+})
+if(!putRes.ok){out.textContent='Failed to upload: '+JSON.stringify(await putRes.json(),null,2);return}
+
+out.textContent='Creating pull request...'
+const prRes=await api(`https://api.github.com/repos/${owner}/${repo}/pulls`,{
+method:'POST',
+body:JSON.stringify({title:`Upload ${selectedFile.name}`,head:branchName,base:'main',body:'uploaded via https://cmd-hue.github.io/2013tv/feedpush.html'})
+})
+const prJson=await prRes.json()
+if(prRes.ok){out.textContent='✅ PR created!\n'+prJson.html_url}else{out.textContent='❌ PR creation failed:\n'+JSON.stringify(prJson,null,2)}
+
+}catch(err){out.textContent='Error: '+err}
+}
+reader.readAsArrayBuffer(selectedFile)
+})
+</script>
+</body>
+</html>
