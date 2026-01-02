@@ -1,3 +1,4 @@
+
 /*
  AngularJS v1.0.6
  (c) 2010-2012 Google, Inc. http://angularjs.org
@@ -13509,10 +13510,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             return this.environment.useStageGdata ? "https://cmd-hue.github.io/2013tvfeeds/" : "https://cmd-hue.github.io/2013tvfeeds/"
         }
         ;
-        q.archiveit = function(a) {
-            try {fetch(archiveurl + a);} catch (b) {console.log("failed to archive the url: " + b)}
-        }
-        ;
+
         q.getDefaultTransportMethod = function() {
             return this.environment.supportsCors ? "GET" : "JSONP"
         }
@@ -13521,6 +13519,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             var e;
             a && (e = a.query,
             delete a.query);
+            archiveit(a);
             return this.loadWithQuery(e, b, a, c)
         }
         ;
@@ -13530,7 +13529,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             this.mixinFieldsFilter_(c, this.defaultParams);
             b = this.doLoad_(c, b, e, f);
             f || (b.serviceQuery = a);
-            q.archiveit(b);
             return b
         }
         ;
