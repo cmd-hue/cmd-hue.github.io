@@ -25837,7 +25837,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         ;
         Nl.prototype.send = function(a, b, c, e) {
             a = a || l;
-            e = e || "_" + (Ol++).toString(36) + D().toString(36);
+            e = e || "_smash"
             r._callbacks_ || (r._callbacks_ = {});
             var f = this.uri_.clone();
             if (a)
