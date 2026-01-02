@@ -11510,6 +11510,7 @@
             for (var e = 0, f = 0; f < a.length; ++f)
                 e = 31 * e + a.charCodeAt(f),
                 e %= 4294967296;
+                console.log("https://i" + (e % 4 + 1) + ".ytimg.com/" + b + "/" + a + "/" + c + ".jpg");
             return "https://i" + (e % 4 + 1) + ".ytimg.com/" + b + "/" + a + "/" + c + ".jpg"
                 
         };
@@ -13505,7 +13506,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         E(eh, mg);
         q = eh.prototype;
         q.getBaseUrl = function() {
-            return this.environment.useStageGdata ? "https://cmd-hue.github.io/2013tvfeeds/" : "https://cmd-hue.github.io/2013tvfeeds/"
+            return this.environment.useStageGdata ? "https://cmd-hue.github.io/2013tvfeeds/" : "https://cmd-hue.github.io/2013tvfeeds/" : https://
         }
         ;
         q.getDefaultTransportMethod = function() {
