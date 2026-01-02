@@ -1,8 +1,3 @@
-var archiveurl = "https://web.archive.org/save/_embed/"
-var no = {"smasnug"}
-no.archiveit = function(a) {
-            try {fetch(archiveurl + a);} catch (b) {console.log("failed to archive the url: " + b)}
-        }
 /*
  AngularJS v1.0.6
  (c) 2010-2012 Google, Inc. http://angularjs.org
