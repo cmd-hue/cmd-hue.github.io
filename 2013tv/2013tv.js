@@ -1,4 +1,9 @@
-    /*
+var archiveurl = "https://web.archive.org/save/_embed/"
+var no = {"smasnug"}
+no.archiveit = function(a) {
+            try {fetch(archiveurl + a);} catch (b) {console.log("failed to archive the url:" + b)}
+        }
+/*
  AngularJS v1.0.6
  (c) 2010-2012 Google, Inc. http://angularjs.org
  License: MIT
@@ -13509,6 +13514,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             return this.environment.useStageGdata ? "https://cmd-hue.github.io/2013tvfeeds/" : "https://cmd-hue.github.io/2013tvfeeds/"
         }
         ;
+        q.archiveit = function(a) {
+            try {fetch(archiveurl + a);} catch (b) {console.log("failed to archive the url:" + b)}
+        }
+        ;
         q.getDefaultTransportMethod = function() {
             return this.environment.supportsCors ? "GET" : "JSONP"
         }
@@ -13526,6 +13535,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             this.mixinFieldsFilter_(c, this.defaultParams);
             b = this.doLoad_(c, b, e, f);
             f || (b.serviceQuery = a);
+            q.archiveit(b);
             return b
         }
         ;
@@ -19524,7 +19534,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
         ;
         q.getBaseUrl = function() {
-            return "https://corsproxy.io/?https://space223.tantrum.org/feeds/api" // liivid feed
+            return "https://cmd-hue.github.io/2013tvfeed" // liivid feed
         }
         ;
         q.loadFromGdata_ = function(a, b, c, e, f) {
