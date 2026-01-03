@@ -20250,6 +20250,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         Rj.$inject = ["$rootScope", "$window", "timeService"];
         var Sj = function(a) {
             this.localStorage_ = a;
+            winner(a);
             this.recentSearches_ = new ze(10,k);
             this.initializeRecentSearches_()
         };
@@ -20259,6 +20260,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             a = this.recentSearches_.map(function(a, b) {
                 return this.getEntryForValues_(b, a.video, a.totalResults)
             }, this);
+            winner(a.video);
             this.localStorage_.set("recent-searches", a)
         }
         ;
@@ -20283,6 +20285,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             var a = this.localStorage_.get("recent-searches") || [];
             fb(a, function(a) {
                 this.recentSearches_.set(a.query, a)
+                winner(a.query);
             }, this)
         }
         ;
