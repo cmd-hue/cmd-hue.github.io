@@ -35353,25 +35353,6 @@
         }
         ;
     
-    );
-
-/*
-     FILE ARCHIVED ON 14:27:22 Jun 12, 2012 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 18:05:01 Dec 06, 2025.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  captures_list: 0.527
-  exclusion.robots: 0.052
-  exclusion.robots.policy: 0.043
-  esindex: 0.009
-  cdx.remote: 5.337
-  LoadShardBlock: 103.081 (3)
-  PetaboxLoader3.datanode: 189.276 (4)
-  load_resource: 154.106
-  PetaboxLoader3.resolve: 52.567
-*/
+        
+   
+        
