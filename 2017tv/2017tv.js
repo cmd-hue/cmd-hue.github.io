@@ -90,7 +90,7 @@ if (!self.__WB_pmw) {
                 try {
                     qa.__proto__ = pa;
                     oa = qa.NN;
-                    break a
+                                        break a
                 } catch (a) {}
                 oa = !1
             }
@@ -30044,7 +30044,7 @@ if (!self.__WB_pmw) {
                 client_id: this.lr(),
                 scope: this.A.GI
             };
-            f = new Yf("POST","https://oauth2.googleapis.com/o/oauth2/device/code",null,f);
+            f = new Yf("POST","/o/oauth2/device/code",null,f);
             var g = this.G();
             g.Jc(z(this.VN, this, a, function(a) {
                 b(!!a);
@@ -30070,7 +30070,7 @@ if (!self.__WB_pmw) {
                 client_id: this.lr(),
                 client_secret: this.AA(),
                 code: a,
-                grant_type: "https://oauth.net/grant_type/device/1.0"
+                grant_type: "https://web.archive.org/web/20171228175936/http://oauth.net/grant_type/device/1.0"
             };
             e = new Yf("POST","/o/oauth2/token",null,e);
             var f = this.G();
@@ -36097,9 +36097,9 @@ if (!self.__WB_pmw) {
                 bedrockWatchNextResponseParser: this.f.qc("watchNextResponseParser")
             })));
             this.f.ra({
-                backgroundPath: this.w + "./default_bg.png",
+                backgroundPath: this.w + "/default_bg.png",
                 continuerThresholdDistance: 4,
-                failDialogBackground: this.w + "./kiwi.png",
+                failDialogBackground: this.w + "/kiwi.png",
                 homeFeedBrowseId: "default",
                 myVideosFeedBrowseId: "FEmy_videos",
                 shelfCount: 4
@@ -66362,7 +66362,7 @@ if (!self.__WB_pmw) {
                 name: "guideService",
                 za: {
                     id: "guideService",
-                    path: "guide.json"
+                    path: "/guide"
                 }
             }, {
                 B: Wh,

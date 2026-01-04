@@ -13,7 +13,6 @@ window.labels = {
 };
 
 
-
 (function() {
     var a = window.labels;
     if (window.jstiming && window.jstiming.load) {
@@ -66,8 +65,8 @@ window.labels = {
             window.jstiming.load.tick("js_r");
         }
 
-        if (window.yt && yt.tv && yt.tv.initializer) {
-            yt.tv.initializer(d);
+        if (window.yt && yt.tv && yt.tv.initialize) {
+            yt.tv.initialize();
         } else {
             alert("The Site cannot load, That is all we know.");
         }
@@ -102,7 +101,7 @@ window.labels = {
         }
     } else if (c) {
         window.CLOSURE_NO_DEPS = true;
-        q("../assets/appv2.css");
+        q("../assets/2017tv.css");
         n("/app-concat-bundle.js");
     } else {
         q("https://cmd-hue.github.io/2017tv/2017tv.css");
@@ -135,8 +134,6 @@ window.labels = {
         n(c || b ? l + "/modules/media-diagnostics-debug.js" : l + "/modules/media-diagnostics.js");
     }
 
-    if (!b) {
-        p("initializeOrRedirect('" + l + "');");
-    }
+    // nope
 })();
 

@@ -2,6 +2,8 @@
 <html xmlns:yt="http://youtube.com">
     <head>
         <script>
+
+
             var ytcsi = {
                 gt: function(n) {
                     n = (n || '') + 'data_';
@@ -195,7 +197,7 @@
                     "watch_list_sw": 100,
                     "fragment_sw": 100,
                     "post_play_sw": 100,
-                    "cast_kids_promo": true,
+                    "cast_kids_promo": false,
                     "kill_kids_promo_sw": false,
                     "network_retry": true,
                     "performance_logging_sw": 3,
@@ -352,7 +354,6 @@
                 "language": null,
                 "allow_pegasus": false
             };
-            window['loader'] = "live";
             window['devjs'] = false;
             window['loadParams'] = {
                 "csp_nonce": "",
@@ -361,8 +362,6 @@
                 "label_requested": "",
                 "use_reset_logic": false,
                 "debugjs": false,
-                "load_player": false,
-                "load_steel_api": false,
                 "scs_path": "\/s\/tv\/html5\/",
                 "is_cobalt": false,
                 "devjs": false,
