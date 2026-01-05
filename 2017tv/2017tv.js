@@ -29738,7 +29738,7 @@ if (!self.__WB_pmw) {
         }
         ew.l = ["buildAuthTokenRecord", "getAccountOfflineCacheKey", "tokenManagerService"];
         function fw(a, b) {
-            b && (b = new Yf("POST","/o/oauth2/revoke",null,{
+            b && (b = new Yf("POST","https://oauth2.googleapis.com/revoke",null,{
                 token: b
             }),
             a().Lb(b))
@@ -29963,7 +29963,7 @@ if (!self.__WB_pmw) {
         ;
         d.NI = function(a, b, c) {
             var e = this.R[a.Rb];
-            a = new Yf("POST","/o/oauth2/token",null,{
+            a = new Yf("POST","https://oauth2.googleapis.com/token",null,{
                 client_id: e.clientId,
                 client_secret: e.Zl,
                 refresh_token: a.Ma,
@@ -30044,7 +30044,7 @@ if (!self.__WB_pmw) {
                 client_id: this.lr(),
                 scope: this.A.GI
             };
-            f = new Yf("POST","/o/oauth2/device/code",null,f);
+            f = new Yf("POST","https://oauth2.googleapis.com/device/code",null,f);
             var g = this.G();
             g.Jc(z(this.VN, this, a, function(a) {
                 b(!!a);
@@ -30072,7 +30072,7 @@ if (!self.__WB_pmw) {
                 code: a,
                 grant_type: "http://oauth.net/grant_type/device/1.0"
             };
-            e = new Yf("POST","/o/oauth2/token",null,e);
+            e = new Yf("POST","https://oauth2.googleapis.com/token",null,e);
             var f = this.G();
             f.Jc(z(this.tda, this, a, b, c));
             f.Lb(e)
@@ -33395,7 +33395,7 @@ if (!self.__WB_pmw) {
                 try {
                     var b = this.j[a];
                     b ? this.i(b) : (b = this.A({
-                        path: this.o + "/sound/" + a + (this.u.$v ? ".mp3" : ".wav")
+                        path: "https://youtomb2016.github.io/assets/" + a + (this.u.$v ? ".mp3" : ".wav")
                     }),
                     this.j[a] = b,
                     b.i(this.f, z(this.i, this, b)))
