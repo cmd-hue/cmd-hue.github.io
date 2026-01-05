@@ -36525,7 +36525,7 @@ if (!self.__WB_pmw) {
                 weight: "bold"
             }]) : a.concat([{
                 name: "roboto-regular",
-                file: "Roboto-Regular-20140804.ttf",
+                file: "https://cmd-hue.github.io/2017tv/Roboto-Regular-20140804.ttf",
                 format: "truetype",
                 Tk: !0,
                 $k: ["html", "body", ".button span", ".toggle-button span"],
@@ -36540,7 +36540,7 @@ if (!self.__WB_pmw) {
             }]);
             a.push({
                 name: "youtube-icons",
-                file: "2017tvicons.ttf",
+                file: "https://cmd-hue.github.io/2017tv/2017tvicons.ttf",
                 format: "truetype",
                 Tk: !1,
                 $k: []
