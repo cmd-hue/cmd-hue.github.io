@@ -8594,7 +8594,7 @@ if (!self.__WB_pmw) {
         ;
         d.sm = function() {
             var a = Yh[this.g.Gs];
-            return void 0 != a ? a : "ppg" == this.g.Gs ? "https://" + this.g.Vca : "https://corsproxy.io/?https://www.youtube.com/youtubei/v1"
+            return void 0 != a ? a : "ppg" == this.g.Gs ? "https://" + this.g.Vca : "https://corsproxy.io/https://www.youtube.com/youtubei/v1"
         }
         ;
         d.Bm = function(a) {
