@@ -22012,7 +22012,7 @@ if (!self.__WB_pmw) {
                   , h = c
                   , k = e[f];
                 k.Tk ? (h = Lb("url('https://cmd-hue.github.io/2017tv/') format(null)", b, k.file, k.format),
-                k.local && (h = Lb("local('%s'), %s", k.local, h))) : h = Lb("url('%s/img/%s') format('%s')", h, k.file, k.format);
+                k.local && (h = Lb("local('%s'), %s", k.local, h))) : h = k.file, k.format;
                 h = mt(k, h);
                 g.add("@font-face", h);
                 h = {
