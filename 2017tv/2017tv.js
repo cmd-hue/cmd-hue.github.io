@@ -8717,7 +8717,7 @@ if (!self.__WB_pmw) {
         Zh.ppg = "",
         Zh)
           , $h = {}
-          , Yh = ($h.test = "//web.archive.org/web/20171228175936/https://web-dev.youtube.com/youtubei/vi",
+          , Yh = ($h.test = "https://web-dev.youtube.com/youtubei/vi",
         $h.green = "https://web-green-qa.youtube.com/youtubei/v1",
         $h.experimental = "https://www.youtube.com/youtubei/v1",
         $h["web-release"] = "https://web-release-qa.youtube.com/youtubei/v1",
@@ -11176,7 +11176,7 @@ if (!self.__WB_pmw) {
             var a = window.location.protocol
               , b = Ok.getEntriesByType("resource");
             b = Wa(b, function(b) {
-                return 0 == b.name.indexOf(a + "//web.archive.org/web/20171228175936/https://fonts.gstatic.com/s/")
+                return 0 == b.name.indexOf(a + "https://fonts.gstatic.com/s/")
             });
             (b = Ya(b, function(a, b) {
                 return b.duration > a.duration ? b : a
@@ -13712,7 +13712,7 @@ if (!self.__WB_pmw) {
         }
         ;
         d.uF = function(a, b, c) {
-            return this.f + "//web.archive.org/web/20171228175936/https://i1.ytimg.com/" + b + "/" + a + "/" + c + ".jpg"
+            return this.f + "https://i1.ytimg.com/" + b + "/" + a + "/" + c + ".jpg"
         }
         ;
         d.Aha = function(a) {
@@ -16729,7 +16729,7 @@ if (!self.__WB_pmw) {
         m(Mo, Qa);
         Mo.prototype.name = "BiscottiMissingError";
         function No() {
-            return tc(window, "settings", "experiments", "flags", "html5_serverside_pagead_id_sets_cookie") || S("EXP_HTML5_SERVERSIDE_PAGEAD_ID_SETS_COOKIE", !1) || Ei("html5_serverside_pagead_id_sets_cookie") ? "//web.archive.org/web/20171228175936/https://googleads.g.doubleclick.net/pagead/id?exp=nomnom" : "//web.archive.org/web/20171228175936/https://googleads.g.doubleclick.net/pagead/id"
+            return tc(window, "settings", "experiments", "flags", "html5_serverside_pagead_id_sets_cookie") || S("EXP_HTML5_SERVERSIDE_PAGEAD_ID_SETS_COOKIE", !1) || Ei("html5_serverside_pagead_id_sets_cookie") ? "https://googleads.g.doubleclick.net/pagead/id?exp=nomnom" : "https://googleads.g.doubleclick.net/pagead/id"
         }
         var Oo = {
             format: "RAW",
@@ -17085,7 +17085,7 @@ if (!self.__WB_pmw) {
                             void 0 !== b && (e.bid = b);
                             void 0 !== a && (e.mutsuid = a);
                             e.bsq = lp++;
-                            Dj("//web.archive.org/web/20171228175936/https://www.youtube.com/ad_data_204", {
+                            Dj("https://www.youtube.com/ad_data_204", {
                                 i_: !1,
                                 Mc: e
                             })
@@ -22235,7 +22235,7 @@ if (!self.__WB_pmw) {
         Ht.l = ["sendReport", "injector"];
         function It(a, b) {
             b = Object.assign({}, b.SW());
-            a("//web.archive.org/web/20171228175936/https://www.youtube-nocookie.com/device_204", b)
+            a("https://www.youtube-nocookie.com/device_204", b)
         }
         It.l = ["sendReportWithDeviceParameters", "statsService"];
         function Jt(a, b, c) {
@@ -25261,7 +25261,7 @@ if (!self.__WB_pmw) {
                 var b = null;
                 this.ub && (b = this.ub.fW(this));
                 var c = z(this.jha, this);
-                b || (b = new Sn("//web.archive.org/web/20171228175936/https://www.google.com/images/cleardot.gif"),
+                b || (b = new Sn("https://www.google.com/images/cleardot.gif"),
                 b.Sh());
                 Tu(b.toString(), 1E4, c)
             } else
@@ -29199,7 +29199,7 @@ if (!self.__WB_pmw) {
         m(Sv, D);
         d = Sv.prototype;
         d.BU = function() {
-            return this.o.Gw ? "//web.archive.org/web/20171228175936/https://staging-www.sandbox.googleapis.com" : "//web.archive.org/web/20171228175936/https://www.googleapis.com"
+            return this.o.Gw ? "https://staging-www.sandbox.googleapis.com" : "https://www.googleapis.com"
         }
         ;
         d.J9 = function(a) {
@@ -58760,7 +58760,7 @@ if (!self.__WB_pmw) {
             a.xJ(15);
             a = a.TQ({}, {});
             a.payload.app = "youtubetv";
-            return nj("//web.archive.org/web/20171228175936/https://inputtools.google.com" + a.url, a.payload || {}, !0)
+            return nj("https://inputtools.google.com" + a.url, a.payload || {}, !0)
         }
         ;
         rM.prototype.f = function(a, b, c) {
@@ -66430,7 +66430,7 @@ if (!self.__WB_pmw) {
                 path: "/complete/search",
                 client: b,
                 dataSource: "yt",
-                baseUrl: "//web.archive.org/web/20171228175936/https://clients1.google.com"
+                baseUrl: "https://clients1.google.com"
             })));
             this.f.add("searchboxStatsModel", new Q(new P(VL,{
                 clientName: b
