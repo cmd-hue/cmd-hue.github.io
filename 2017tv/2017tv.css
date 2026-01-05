@@ -3212,7 +3212,7 @@ body.limited-animation #search>.new-horizontal-list>.content {
 .fresh-transport-controls .button span,.fresh-transport-controls .toggle-button span {
     color: rgba(255,255,255,1);
     display: block;
-    font-family: 'roboto-regular';
+    font-family: 'Roboto, sans-serif';
     font-size: .7em;
     height: 120%;
     margin: .5em 0 0 -1.8em;
@@ -3614,7 +3614,7 @@ body.limited-animation #search>.new-horizontal-list>.content {
 }
 
 .player-controls #button-list .button span,.player-controls #button-list .toggle-button span {
-    font-family: 'roboto-regular';
+    font-family: 'Roboto, sans-serif';
     font-size: .7em;
     left: -10%;
     margin: .5em 0 0;
@@ -4667,7 +4667,7 @@ body.limited-animation #search>.new-horizontal-list>.content {
 .storyboard-current-playback-time {
     text-shadow: 0px 0px 16px rgba(0,0,0,0.75);
     color: rgba(255,255,255,1);
-    font-family: 'roboto-regular';
+    font-family: 'Roboto, sans-serif';
     font-size: 1.33em;
     left: -50%;
     margin-bottom: 0.42em;
@@ -4835,7 +4835,7 @@ body.limited-animation #search>.new-horizontal-list>.content {
 }
 
 #youthere-overlay .youthere-button,#youthere-overlay .youthere-prompt {
-    font-family: 'roboto-regular';
+    font-family: 'Roboto, sans-serif';
     position: absolute
 }
 
@@ -11795,7 +11795,7 @@ body.limited-animation #sign-in-shelf .sign-in-button {
     border: #000 solid;
     border-width: 0.5em 1em 0.5em 1em;
     color: #e1e1e1;
-    font-family: roboto-regular;
+    font-family: Roboto, sans-serif;
     font-size: 1.5em;
     height: auto;
     line-height: 2.5em;
@@ -12587,7 +12587,7 @@ limited-animation .shelves.focused .shelf.selected .new-list .tile.selected .cha
 }
 
 .creator-endscreen-indicator div {
-    font-family: 'roboto-regular',Arial,Helvetica,sans-serif;
+    font-family: 'Roboto, sans-serif',Arial,Helvetica,sans-serif;
     font-size: 1.25em
 }
 
@@ -12698,7 +12698,7 @@ limited-animation .shelves.focused .shelf.selected .new-list .tile.selected .cha
 .creator-endscreen-cell-flyout .title span {
     color: #fafafa;
     display: inline-block;
-    font-family: 'roboto-regular',Arial,Helvetica,sans-serif;
+    font-family: 'Roboto, sans-serif',Arial,Helvetica,sans-serif;
     font-size: 1.5em;
     height: 100%;
     vertical-align: top
@@ -12734,7 +12734,7 @@ limited-animation .shelves.focused .shelf.selected .new-list .tile.selected .cha
 
 .creator-endscreen-cell-title {
     color: #fff;
-    font-family: 'roboto-regular',Arial,Helvetica,sans-serif;
+    font-family: 'Roboto, sans-serif',Arial,Helvetica,sans-serif;
     font-size: 1.25em;
     line-height: 1.3em;
     padding: .5em;
@@ -12870,7 +12870,7 @@ limited-animation .shelves.focused .shelf.selected .new-list .tile.selected .cha
 }
 
 .sanity-check.weight-normal {
-    font-family: Roboto,"roboto-regular",sans-serif;
+    font-family: Roboto,"Roboto, sans-serif",sans-serif;
     font-weight: normal
 }
 
@@ -13132,7 +13132,7 @@ body:not(.cast-receiver) .watch-state .player.pivot-focused .ytp-caption-window-
 }
 
 .exp-enable-trailblazer #transport-controls .player-time,.exp-enable-trailblazer #transport-controls .player-time #player-time-elapsed,.exp-enable-trailblazer #transport-controls .player-time .player-time-separator,.exp-enable-trailblazer #transport-controls .player-time .player-time-total,.exp-enable-trailblazer #transport-controls .live-indicator,.new-pivot-video-tile .tile-overlay .label,.exp-enable-trailblazer .watch-title-tray .player-video-details,.sign-in-topic-onboarding .wrapper .note,.topic-onboarding .note,#transport-controls .new-skip-forward-button .next-video-details .by,.new-pivot-playlist-tile .watchable-tile-bottom-channel,.new-pivot-video-tile .watchable-tile-bottom-channel,.new-pivot-playlist-tile .watchable-tile-bottom-inline-detail,.new-pivot-video-tile .watchable-tile-bottom-inline-detail,.new-pivot-channel-tile .channel-tile-subscribers,.new-pivot-playlist-tile .airstream-playlist-tile-video-count,.exp-enable-trailblazer #transport-controls .button span,.exp-enable-trailblazer #transport-controls .toggle-button span,.sign-in-topic-onboarding .wrapper .header,.topic-onboarding .header,.exp-enable-trailblazer #pivot-post-play .post-play-left .next-video-metadata .next-video-channel {
-    font-family: Roboto,'roboto-regular',sans-serif;
+    font-family: Roboto,'Roboto, sans-serif',sans-serif;
     font-weight: normal
 }
 
