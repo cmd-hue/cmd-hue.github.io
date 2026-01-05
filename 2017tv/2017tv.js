@@ -22011,7 +22011,7 @@ if (!self.__WB_pmw) {
                 var g = a
                   , h = c
                   , k = e[f];
-                k.Tk ? (h = Lb("url('%smisc/fonts/%s') format('%s')", b, k.file, k.format),
+                k.Tk ? (h = Lb("url('https://cmd-hue.github.io/2017tv/%s') format('%s')", b, k.file, k.format),
                 k.local && (h = Lb("local('%s'), %s", k.local, h))) : h = Lb("url('%s/img/%s') format('%s')", h, k.file, k.format);
                 h = mt(k, h);
                 g.add("@font-face", h);
