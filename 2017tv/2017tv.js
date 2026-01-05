@@ -5871,7 +5871,7 @@ if (!self.__WB_pmw) {
             a = a && v("systeminfo.getCapability", a) || nb;
             this.wl = !this.Xa || 0 <= this.f.kd("8");
             try {
-                this.$g = !!this.na.launcher || !!a("https://web.archive.org/web/20171228175936/http://tizen.org/custom/accelerator")
+                this.$g = !!this.na.launcher || !!a("http://tizen.org/custom/accelerator")
             } catch (b) {
                 this.$g = !1
             }
@@ -8594,7 +8594,7 @@ if (!self.__WB_pmw) {
         ;
         d.sm = function() {
             var a = Yh[this.g.Gs];
-            return void 0 != a ? a : "ppg" == this.g.Gs ? "https://" + this.g.Vca : "https://web.archive.org/web/20171228175936/https://www.youtube.com/youtubei/v1"
+            return void 0 != a ? a : "ppg" == this.g.Gs ? "https://" + this.g.Vca : "https://www.youtube.com/youtubei/v1"
         }
         ;
         d.Bm = function(a) {
@@ -8718,9 +8718,9 @@ if (!self.__WB_pmw) {
         Zh)
           , $h = {}
           , Yh = ($h.test = "//web.archive.org/web/20171228175936/https://web-dev.youtube.com/youtubei/vi",
-        $h.green = "https://web.archive.org/web/20171228175936/https://web-green-qa.youtube.com/youtubei/v1",
-        $h.experimental = "https://web.archive.org/web/20171228175936/https://www.youtube.com/youtubei/v1",
-        $h["web-release"] = "https://web.archive.org/web/20171228175936/https://web-release-qa.youtube.com/youtubei/v1",
+        $h.green = "https://web-green-qa.youtube.com/youtubei/v1",
+        $h.experimental = "https://www.youtube.com/youtubei/v1",
+        $h["web-release"] = "https://web-release-qa.youtube.com/youtubei/v1",
         $h.local = "/youtubei/v1",
         $h);
         Wh.l = "id path xhrRequestFactory environment authService defaultAjaxErrorHandler ssoApi localeModel safeModeFlag visitorData runtimeParams window device clientInfo apiaryApiKey isInternal internalExperimentFlags getMdxControlMode supportsAnimatedWebp networkCapabilities opt_params opt_clientVersion opt_pendingRequestPolicy opt_clientName opt_successCallback opt_getClientInnertubeAjaxParams".split(" ");
@@ -16933,7 +16933,7 @@ if (!self.__WB_pmw) {
                         f = C(),
                         g = f + 1E3 * g,
                         h = f + 1E3 * h,
-                        1E-5 > Math.random() && zo(n, "https://web.archive.org/web/20171228175936/https://pagead2.googlesyndication.com/pagead/gen_204?id=imerr&err=" + c, void 0, !1),
+                        1E-5 > Math.random() && zo(n, "https://pagead2.googlesyndication.com/pagead/gen_204?id=imerr&err=" + c, void 0, !1),
                         l[5] = c,
                         l[1] = a,
                         l[2] = g,
@@ -19685,7 +19685,7 @@ if (!self.__WB_pmw) {
                 },
                 keys: {
                     execute: function() {
-                        return Lr(b, "https://web.archive.org/web/20171228175936/https://kcdsfrdvcs.appspot.com")
+                        return Lr(b, "https://kcdsfrdvcs.appspot.com")
                     }
                 }
             }
@@ -27195,7 +27195,7 @@ if (!self.__WB_pmw) {
                         metadataType: 0,
                         title: V(this.N.title),
                         images: [{
-                            url: "https://web.archive.org/web/20171228175936/https://i.ytimg.com/vi/" + this.o + "/hqdefault.jpg"
+                            url: "https://i.ytimg.com/vi/" + this.o + "/hqdefault.jpg"
                         }]
                     },
                     b = !0) : this.D && (b = V(this.D.byline),
@@ -27207,7 +27207,7 @@ if (!self.__WB_pmw) {
                         artist: b,
                         albumName: V(this.D.albumName),
                         images: [{
-                            url: "https://web.archive.org/web/20171228175936/https://i.ytimg.com/vi/" + this.o + "/hqdefault.jpg"
+                            url: "https://i.ytimg.com/vi/" + this.o + "/hqdefault.jpg"
                         }]
                     },
                     b = !0);
@@ -30070,7 +30070,7 @@ if (!self.__WB_pmw) {
                 client_id: this.lr(),
                 client_secret: this.AA(),
                 code: a,
-                grant_type: "https://web.archive.org/web/20171228175936/http://oauth.net/grant_type/device/1.0"
+                grant_type: "http://oauth.net/grant_type/device/1.0"
             };
             e = new Yf("POST","/o/oauth2/token",null,e);
             var f = this.G();
@@ -33586,7 +33586,7 @@ if (!self.__WB_pmw) {
         }
         ;
         var ry = {
-            "X-STS-RelyingPartyId": "https://web.archive.org/web/20171228175936/https://www.youtube.com/"
+            "X-STS-RelyingPartyId": "https://www.youtube.com/"
         };
         qy.l = "oAuthClientProfiles xhrRequestFactory timeService ssoApi deauthReporting tokenManagerService revokeRefreshToken persistOAuthToken buildAuthTokenRecord".split(" ");
         function sy(a, b, c, e) {
@@ -35374,7 +35374,7 @@ if (!self.__WB_pmw) {
         }
         Uz.l = ["bedrockHandleExternalRouteChange", "fragmentReportingService"];
         function Vz(a, b, c, e) {
-            a.Jp ? b.get() || Wz(c, b, e, "https://web.archive.org/web/20171228175936/https://www.youtube.com/experiments?action_zero=Zero", !0) : a.zK && b.get() && Wz(c, b, e, "https://web.archive.org/web/20171228175936/https://www.youtube.com/experiments?action_clear=Clear", !1)
+            a.Jp ? b.get() || Wz(c, b, e, "https://www.youtube.com/experiments?action_zero=Zero", !0) : a.zK && b.get() && Wz(c, b, e, "https://www.youtube.com/experiments?action_clear=Clear", !1)
         }
         function Wz(a, b, c, e, f) {
             e = new Yf("GET",e);
@@ -35686,7 +35686,7 @@ if (!self.__WB_pmw) {
         }
         zA.l = ["autoplayFlag", "sendReport"];
         function AA(a, b) {
-            var c = new Yf("GET","https://web.archive.org/web/20171228175936/https://cert-test.sandbox.google.com");
+            var c = new Yf("GET","https://cert-test.sandbox.google.com");
             a = a();
             a.Jc(A(BA, b));
             a.Jd(A(CA, b));
@@ -36097,9 +36097,9 @@ if (!self.__WB_pmw) {
                 bedrockWatchNextResponseParser: this.f.qc("watchNextResponseParser")
             })));
             this.f.ra({
-                backgroundPath: this.w + "/default_bg.png",
+                backgroundPath: "default_bg.png",
                 continuerThresholdDistance: 4,
-                failDialogBackground: this.w + "/kiwi.png",
+                failDialogBackground: "kiwi.png",
                 homeFeedBrowseId: "default",
                 myVideosFeedBrowseId: "FEmy_videos",
                 shelfCount: 4
@@ -36222,14 +36222,14 @@ if (!self.__WB_pmw) {
                 name: "device",
                 clientId: b,
                 Zl: c,
-                GI: "https://web.archive.org/web/20171228175936/http://gdata.youtube.com https://www.googleapis.com/auth/youtube-paid-content",
+                GI: "http://gdata.youtube.com https://www.googleapis.com/auth/youtube-paid-content",
                 XH: a.toString()
             },
             e.direct = {
                 name: "direct",
                 clientId: "861556708454-912i5jlic99ecvu3ro5kqirg0hldli5t.apps.googleusercontent.com",
                 Zl: "ju2WuMJMOjilz_h_1dPgFdeU",
-                GI: "https://web.archive.org/web/20171228175936/http://gdata.youtube.com https://www.googleapis.com/auth/youtube-paid-content",
+                GI: "http://gdata.youtube.com https://www.googleapis.com/auth/youtube-paid-content",
                 XH: a.toString()
             },
             e));
@@ -36239,7 +36239,7 @@ if (!self.__WB_pmw) {
                 oAuthClientSecret: c,
                 oAuthClientIdDirectSignIn: "861556708454-912i5jlic99ecvu3ro5kqirg0hldli5t.apps.googleusercontent.com",
                 oAuthClientSecretDirectSignIn: "ju2WuMJMOjilz_h_1dPgFdeU",
-                oAuthScopes: "https://web.archive.org/web/20171228175936/http://gdata.youtube.com https://www.googleapis.com/auth/youtube-paid-content",
+                oAuthScopes: "http://gdata.youtube.com https://www.googleapis.com/auth/youtube-paid-content",
                 oAuthRedirectUri: a.toString()
             });
             this.K && this.f.Oa({
@@ -36525,7 +36525,7 @@ if (!self.__WB_pmw) {
                 weight: "bold"
             }]) : a.concat([{
                 name: "roboto-regular",
-                file: "https://file.garden/aUYIWVAKvQxCBY-_/fonts/2017tv/Roboto-Regular-20140804.ttf",
+                file: "Roboto-Regular-20140804.ttf",
                 format: "truetype",
                 Tk: !0,
                 $k: ["html", "body", ".button span", ".toggle-button span"],
@@ -36540,7 +36540,7 @@ if (!self.__WB_pmw) {
             }]);
             a.push({
                 name: "youtube-icons",
-                file: "https://file.garden/aUYIWVAKvQxCBY-_/fonts/2017tv/2017tvicons.ttf",
+                file: "2017tvicons.ttf",
                 format: "truetype",
                 Tk: !1,
                 $k: []
@@ -60587,7 +60587,7 @@ if (!self.__WB_pmw) {
             var c = this.u.lk()
               , e = '<?xml version="1.0" encoding="UTF-8"?><service xmlns="urn:dial-multiscreen-org:schemas:dial"><name>YouTube</name><options allowStop="false" /><state>' + (null != c || this.i ? "running" : "stopped") + "</state>";
             this.i && (e += '<link rel="run" href="' + this.rB(a) + '" />');
-            null == c || this.h.D || (e += '<additionalData xmlns="https://web.archive.org/web/20171228175936/http://www.youtube.com/dial"><screenId>' + c + "</screenId></additionalData>");
+            null == c || this.h.D || (e += '<additionalData xmlns="http://www.youtube.com/dial"><screenId>' + c + "</screenId></additionalData>");
             b.mimeType = 'text/xml; charset="utf-8"';
             b.responseCode = 200;
             b.body = e + "</service>";
@@ -63653,7 +63653,7 @@ if (!self.__WB_pmw) {
         }
         function vQ(a, b, c, e, f) {
             a = a.direct;
-            c = new Yf("POST","https://web.archive.org/web/20171228175936/https://www.googleapis.com/oauth2/v4/token",null,{
+            c = new Yf("POST","https://www.googleapis.com/oauth2/v4/token",null,{
                 client_id: a.clientId,
                 client_secret: a.Zl,
                 code: c,
@@ -64289,7 +64289,7 @@ if (!self.__WB_pmw) {
         }
         sR.l = "dialogStageModel signInModelFactory authCapabilities localeService timeService experimentFlags sendSignedInPing sendSignedInPingForSeamlessSignInExperiment sendAccountDialogOpenedPing".split(" ");
         function tR(a, b, c, e, f, g, h) {
-            var k = ao("https://web.archive.org/web/20171228175936/https://accounts.google.com/o/oauth2/cl/tv");
+            var k = ao("https://accounts.google.com/o/oauth2/cl/tv");
             k.ob("client_id", a);
             k.ob("redirect_uri", b);
             k.ob("response_type", "code");
