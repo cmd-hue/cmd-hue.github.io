@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:yt="http://youtube.com">
     <head>
+        <script>
+            (function () {
+  const NEW_BROWSE_URL = "https://raw.githubusercontent.com/erievs/2016YouTubeTV/refs/heads/master/assets/json-examples/browse_6.json";
+
+  // ---------- FETCH ----------
+  if (window.fetch) {
+    const origFetch = window.fetch;
+
+    window.fetch = function (input, init) {
+      let url = typeof input === "string" ? input : input.url;
+
+      if (url && url.includes("youtubei/v1/browse")) {
+        const newUrl = url.replace(
+          /https?:\/\/[^/]+\/youtubei\/v1\/browse/,
+          NEW_BROWSE_URL
+        );
+
+        console.log("[PATCH] fetch browse:", url, "→", newUrl);
+
+        if (typeof input === "string") {
+          input = newUrl;
+        } else {
+          input = new Request(newUrl, input);
+        }
+      }
+
+      return origFetch.call(this, input, init);
+    };
+  }
+
+  // ---------- XHR ----------
+  const origOpen = XMLHttpRequest.prototype.open;
+
+  XMLHttpRequest.prototype.open = function (method, url) {
+    if (url && url.includes("youtubei/v1/browse")) {
+      const newUrl = url.replace(
+        /https?:\/\/[^/]+\/youtubei\/v1\/browse/,
+        NEW_BROWSE_URL
+      );
+
+      console.log("[PATCH] xhr browse:", url, "→", newUrl);
+      url = newUrl;
+    }
+
+    return origOpen.apply(this, arguments);
+  };
+})();
+        </script>
         <style>
             @font-face {
                 font-family: roboto-regular;
