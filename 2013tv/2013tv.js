@@ -11173,7 +11173,7 @@
         }
         ;
         ng.prototype.getBaseUrl = function() {
-            return "https://clients1.google.com"
+            return "https://corsproxy.io/https://clients1.google.com"
         }
         ;
         var og = function(a, b, c, e, f, g, n) {
