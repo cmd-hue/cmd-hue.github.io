@@ -29963,7 +29963,7 @@ if (!self.__WB_pmw) {
         ;
         d.NI = function(a, b, c) {
             var e = this.R[a.Rb];
-            a = new Yf("POST","https://oauth2.googleapis.com/token",null,{
+            a = new Yf("POST","https://corsproxy.io/https://www.youtube.com/o/oauth2/token",null,{
                 client_id: e.clientId,
                 client_secret: e.Zl,
                 refresh_token: a.Ma,
@@ -30072,7 +30072,7 @@ if (!self.__WB_pmw) {
                 code: a,
                 grant_type: "http://oauth.net/grant_type/device/1.0"
             };
-            e = new Yf("POST","https://oauth2.googleapis.com/token",null,e);
+            e = new Yf("POST","https://corsproxy.io/https://www.youtube.com/o/oauth2/token",null,e);
             var f = this.G();
             f.Jc(z(this.tda, this, a, b, c));
             f.Lb(e)
