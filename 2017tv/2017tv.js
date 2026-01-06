@@ -23509,7 +23509,7 @@ if (!self.__WB_pmw) {
         function ou(a) {
             this.h = "https";
             this.port = this.domain = "";
-            this.f = "/api/lounge";
+            this.f = "https://corsproxy.io/https://www.youtube.com/api/lounge";
             this.g = !0;
             a = a || document.location.href;
             var b = Number(a.match(yh)[4] || null) || "";
@@ -28121,7 +28121,7 @@ if (!self.__WB_pmw) {
         d.dP = function() {
             function a(a) {
                 var b = new ou;
-                "DEV" == a.mdxEnvironment ? b.f = "/api/loungedev" : "STAGING" == a.mdxEnvironment ? b.f = "/api/loungestaging" : "SANDBOX" == a.mdxEnvironment && (b.f = "/api/loungesandbox");
+                "DEV" == a.mdxEnvironment ? b.f = "https://corsproxy.io/https://www.youtube.com/api/loungedev" : "STAGING" == a.mdxEnvironment ? b.f = "https://corsproxy.io/https://www.youtube.com/api/loungestaging" : "SANDBOX" == a.mdxEnvironment && (b.f = "https://corsproxy.io/https://www.youtube.com/api/loungesandbox");
                 return b
             }
             a.l = ["environment"];
