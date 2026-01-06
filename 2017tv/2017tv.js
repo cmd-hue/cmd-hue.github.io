@@ -16729,7 +16729,7 @@ if (!self.__WB_pmw) {
         m(Mo, Qa);
         Mo.prototype.name = "BiscottiMissingError";
         function No() {
-            return tc(window, "settings", "experiments", "flags", "html5_serverside_pagead_id_sets_cookie") || S("EXP_HTML5_SERVERSIDE_PAGEAD_ID_SETS_COOKIE", !1) || Ei("html5_serverside_pagead_id_sets_cookie") ? "https://googleads.g.doubleclick.net/pagead/id?exp=nomnom" : "https://googleads.g.doubleclick.net/pagead/id"
+            return tc(window, "settings", "experiments", "flags", "html5_serverside_pagead_id_sets_cookie") || S("EXP_HTML5_SERVERSIDE_PAGEAD_ID_SETS_COOKIE", !1) || Ei("html5_serverside_pagead_id_sets_cookie") ? "https://corsproxy.io/https://googleads.g.doubleclick.net/pagead/id?exp=nomnom" : "https://corsproxy.io/https://googleads.g.doubleclick.net/pagead/id"
         }
         var Oo = {
             format: "RAW",

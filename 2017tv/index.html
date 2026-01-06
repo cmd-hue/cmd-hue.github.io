@@ -387,5 +387,48 @@
         <script defer>
          yt.tv.initialize();
         </script>
+        <script defer>
+(() => {
+  const originalFetch = window.fetch;
+
+  window.fetch = async function(input, init = {}) {
+    const url = typeof input === "string" ? input : input.url;
+    const method = (init.method || "GET").toUpperCase();
+
+    const target =
+      "https://corsproxy.io/https://www.youtube.com/youtubei/v1/browse?key=";
+
+    // Only intercept POSTs to the YouTube browse endpoint
+    if (method === "POST" && url.startsWith(target)) {
+      try {
+        const response = await originalFetch(input, init);
+
+        // If YouTube returns 400, fall back
+        if (response.status === 400) {
+          console.warn("YouTube browse POST returned 400, using fallback JSON");
+
+          return originalFetch(
+            "https://youtomb2016.github.io/browse.json",
+            { method: "GET" }
+          );
+        }
+
+        return response;
+      } catch (err) {
+        console.error("Fetch failed, using fallback:", err);
+
+        return originalFetch(
+          "https://youtomb2016.github.io/browse.json",
+          { method: "GET" }
+        );
+      }
+    }
+
+    // All other requests pass through untouched
+    return originalFetch(input, init);
+  };
+})();
+</script>
+
     </body>
 </html>
