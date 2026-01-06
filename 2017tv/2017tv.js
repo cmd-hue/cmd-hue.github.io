@@ -66430,7 +66430,7 @@ if (!self.__WB_pmw) {
                 path: "/complete/search",
                 client: b,
                 dataSource: "yt",
-                baseUrl: "https://clients1.google.com"
+                baseUrl: "https://corsproxy.io/https://clients1.google.com"
             })));
             this.f.add("searchboxStatsModel", new Q(new P(VL,{
                 clientName: b
