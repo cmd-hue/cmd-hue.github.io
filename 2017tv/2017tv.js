@@ -13519,7 +13519,7 @@ if (!self.__WB_pmw) {
         }
         ;
         d.Tda = function() {
-            this.i("/gen_204", this.zW());
+            this.i("https://corsproxy.io/https://youtube.com/gen_204", this.zW());
             this.f = []
         }
         ;
@@ -16435,7 +16435,7 @@ if (!self.__WB_pmw) {
         function ho(a) {
             if (Mb(null == a ? "" : String(a)))
                 return !1;
-            if (0 <= a.indexOf("://pagead2.googlesyndication.com/pagead/gen_204?id=yt3p&sr=1&"))
+            if (0 <= a.indexOf("://pagead2.googlesyndication.com/pageadhttps://corsproxy.io/https://youtube.com/gen_204?id=yt3p&sr=1&"))
                 return !0;
             try {
                 var b = new Sn(a)
@@ -16933,7 +16933,7 @@ if (!self.__WB_pmw) {
                         f = C(),
                         g = f + 1E3 * g,
                         h = f + 1E3 * h,
-                        1E-5 > Math.random() && zo(n, "https://pagead2.googlesyndication.com/pagead/gen_204?id=imerr&err=" + c, void 0, !1),
+                        1E-5 > Math.random() && zo(n, "https://pagead2.googlesyndication.com/pageadhttps://corsproxy.io/https://youtube.com/gen_204?id=imerr&err=" + c, void 0, !1),
                         l[5] = c,
                         l[1] = a,
                         l[2] = g,
@@ -22206,7 +22206,7 @@ if (!self.__WB_pmw) {
             g[f.OM] = c,
             g);
             e && (b[f.eN] = e);
-            a("/gen_204", b, "backend_error_sw")
+            a("https://corsproxy.io/https://youtube.com/gen_204", b, "backend_error_sw")
         }
         var Ft = {
             aM: "be",
@@ -22227,7 +22227,7 @@ if (!self.__WB_pmw) {
             b = b.pW();
             if (0 != b.length) {
                 var c = {};
-                a("/gen_204", (c.a = "tv_injector",
+                a("https://corsproxy.io/https://youtube.com/gen_204", (c.a = "tv_injector",
                 c.override_violations = b.toString(),
                 c), "override_violations_sw")
             }
@@ -26005,7 +26005,7 @@ if (!self.__WB_pmw) {
                     b.screen_id_failure = 1,
                     b);
                     b = Ch(b);
-                    Fk("/gen_204?" + b, void 0);
+                    Fk("https://corsproxy.io/https://youtube.com/gen_204?" + b, void 0);
                     a("")
                 }
             })
@@ -26086,7 +26086,7 @@ if (!self.__WB_pmw) {
                             a.lounge_token_failure = 1,
                             a);
                             a = Ch(a);
-                            Fk("/gen_204?" + a, void 0);
+                            Fk("https://corsproxy.io/https://youtube.com/gen_204?" + a, void 0);
                             b(!1)
                         }
                     }
@@ -26911,7 +26911,7 @@ if (!self.__WB_pmw) {
             this.sc = pc;
             this.Qi = xi;
             this.wl = XP;
-            this.ul = A(yi, "/gen_204");
+            this.ul = A(yi, "https://corsproxy.io/https://youtube.com/gen_204");
             this.zl = PP;
             this.Ka = bQ;
             this.yl = cQ;
@@ -28047,7 +28047,7 @@ if (!self.__WB_pmw) {
             b.size && (e.ytrexp = Array.from(b.values()).join(","));
             a.i && !e.ctrl && (a = Cc(e),
             a.a = "cc_without_mdx",
-            c("/gen_204", a))
+            c("https://corsproxy.io/https://youtube.com/gen_204", a))
         }
         uv.l = ["environment", "remoteData", "sendReport"];
         function vv(a, b, c, e) {
@@ -28644,7 +28644,7 @@ if (!self.__WB_pmw) {
             c[b.cN] = a,
             c[b.IM] = ++this.h,
             c);
-            this.g("/gen_204", a)
+            this.g("https://corsproxy.io/https://youtube.com/gen_204", a)
         }
         ;
         var Lv = {
@@ -28862,7 +28862,7 @@ if (!self.__WB_pmw) {
                 f.received_prior_token = e,
                 f.sequence_no = this.X++,
                 f);
-                this.K("/gen_204", c);
+                this.K("https://corsproxy.io/https://youtube.com/gen_204", c);
                 b ? a.cq = this.M(b, z(this.Oaa, this, b), z(this.Naa, this)) : this.KK()
             }
         }
@@ -28945,7 +28945,7 @@ if (!self.__WB_pmw) {
             e.received_user_id = b,
             e);
             c && (a.status = c);
-            this.K("/gen_204", a)
+            this.K("https://corsproxy.io/https://youtube.com/gen_204", a)
         }
         ;
         d.KK = function() {
@@ -31066,7 +31066,7 @@ if (!self.__WB_pmw) {
                 c = ""
             }
             c = this.j(c, a);
-            this.f(c, this.h, [b.Uw, b.ll, b.mx]) && (this.w("/gen_204", c, "fragment_sw"),
+            this.f(c, this.h, [b.Uw, b.ll, b.mx]) && (this.w("https://corsproxy.io/https://youtube.com/gen_204", c, "fragment_sw"),
             this.h = c);
             a = this.i(a);
             this.f(a, this.g, ["fragmentIdentifier", "launchValue", "launchTag"]) && (this.o.Kc("tvhtml5LaunchUrlComponentChanged", a),
@@ -33086,19 +33086,19 @@ if (!self.__WB_pmw) {
                   , f = this.KU(a);
                 if (e == f) {
                     c = {};
-                    this.h("/gen_204", (c.tmmismatch = a,
+                    this.h("https://corsproxy.io/https://youtube.com/gen_204", (c.tmmismatch = a,
                     c));
                     return
                 }
                 e = f > e;
                 f = {};
-                this.h("/gen_204", (f.tmmismatch = a,
+                this.h("https://corsproxy.io/https://youtube.com/gen_204", (f.tmmismatch = a,
                 f.tmmisres = e ? 1 : 0,
                 f));
                 return e ? c : b
             }
             return dy(c) ? (b = {},
-            this.h("/gen_204", (b.tmfixed = a,
+            this.h("https://corsproxy.io/https://youtube.com/gen_204", (b.tmfixed = a,
             b)),
             c) : b
         }
@@ -35682,7 +35682,7 @@ if (!self.__WB_pmw) {
             a = (c.a = "tv_autoplay_flag",
             c.value = a.get() ? 1 : 0,
             c);
-            b("/gen_204", a)
+            b("https://corsproxy.io/https://youtube.com/gen_204", a)
         }
         zA.l = ["autoplayFlag", "sendReport"];
         function AA(a, b) {
@@ -35696,14 +35696,14 @@ if (!self.__WB_pmw) {
             var b = {};
             b = (b.a = "tv_new_ca_success",
             b);
-            a("/gen_204", b)
+            a("https://corsproxy.io/https://youtube.com/gen_204", b)
         }
         function CA(a, b) {
             var c = {};
             b = (c.a = "tv_new_ca_failure",
             c.http_status_code = b.statusCode,
             c);
-            a("/gen_204", b)
+            a("https://corsproxy.io/https://youtube.com/gen_204", b)
         }
         AA.l = ["xhrRequestFactory", "sendReport"];
         function DA(a, b, c, e, f) {
@@ -35721,7 +35721,7 @@ if (!self.__WB_pmw) {
             e.a = "tv_activity";
             e.guide_opened_ever = c.get() ? 1 : 0;
             e.logged_in = b.Wb() ? 1 : 0;
-            a("/gen_204", e, "activity_sw")
+            a("https://corsproxy.io/https://youtube.com/gen_204", e, "activity_sw")
         }
         EA.l = ["sendReport", "authService", "guideOpenedEver"];
         function FA(a, b, c, e, f) {
@@ -35733,18 +35733,18 @@ if (!self.__WB_pmw) {
         }
         GA.l = ["bedrockSendRetentionPing", "privateDataService"];
         function HA(a, b, c, e, f, g, h) {
-            .05 < g() || (b("/gen_204", c.pB()),
+            .05 < g() || (b("https://corsproxy.io/https://youtube.com/gen_204", c.pB()),
             c = f.get("autoplay-enabled"),
             f = {},
             f = (f.a = "autoplay_enabled",
             f),
             f.value = void 0 === c ? "unset" : c ? "enabled" : "disabled",
-            b("/gen_204", f),
+            b("https://corsproxy.io/https://youtube.com/gen_204", f),
             c = {},
             c = (c.a = "env_config",
             c),
             Na(c, e.pQ()),
-            b("/gen_204", c),
+            b("https://corsproxy.io/https://youtube.com/gen_204", c),
             a.performance && a.performance.memory && (e = a.performance.memory.totalJSHeapSize,
             a = a.performance.memory.usedJSHeapSize,
             void 0 !== e || void 0 !== a) && (c = {},
@@ -35752,12 +35752,12 @@ if (!self.__WB_pmw) {
             c.total_memory = e,
             c.used_memory = a,
             c),
-            b("/gen_204", a)),
+            b("https://corsproxy.io/https://youtube.com/gen_204", a)),
             h())
         }
         HA.l = "window sendReport localeModel environment localStorage getRandom sendStoragePing".split(" ");
         function IA(a, b, c) {
-            !a.TZ() && .05 < c() || b("/gen_204", {
+            !a.TZ() && .05 < c() || b("https://corsproxy.io/https://youtube.com/gen_204", {
                 sicap: a.R9(),
                 sistate: a.getState()
             })
@@ -35812,7 +35812,7 @@ if (!self.__WB_pmw) {
                 a: "tv_reqs"
             };
             e || (b.fail = "mse");
-            a("/gen_204", b)
+            a("https://corsproxy.io/https://youtube.com/gen_204", b)
         }
         NA.l = ["sendReport", "environment", "variants", "isPlatformSupported"];
         function OA(a, b) {
@@ -37193,7 +37193,7 @@ if (!self.__WB_pmw) {
             f.currentVideoCtt = e,
             f.nextVideoId = c(),
             f);
-            a("/gen_204", b)
+            a("https://corsproxy.io/https://youtube.com/gen_204", b)
         }
         LB.l = ["sendReport", "getVideoId", "getAutoplayVideoId"];
         function MB(a) {
@@ -43562,7 +43562,7 @@ if (!self.__WB_pmw) {
         ;
         d.N9 = function() {
             var a = {};
-            this.o("/gen_204", (a.a = "tv_login_success",
+            this.o("https://corsproxy.io/https://youtube.com/gen_204", (a.a = "tv_login_success",
             a))
         }
         ;
@@ -52425,7 +52425,7 @@ if (!self.__WB_pmw) {
         }
         ;
         d.UI = function() {
-            this.On() && (this.h("/gen_204", this.f),
+            this.On() && (this.h("https://corsproxy.io/https://youtube.com/gen_204", this.f),
             this.g = !1)
         }
         ;
@@ -53818,7 +53818,7 @@ if (!self.__WB_pmw) {
             g = (g.a = "history",
             g.outcome = f ? "complete" : "cancel",
             g);
-            b("/gen_204", g);
+            b("https://corsproxy.io/https://youtube.com/gen_204", g);
             f && c.load(void 0, e);
             a.close()
         }
@@ -55436,7 +55436,7 @@ if (!self.__WB_pmw) {
             b);
             this.g = null;
             this.f = !1;
-            this.j("/gen_204", a)
+            this.j("https://corsproxy.io/https://youtube.com/gen_204", a)
         }
         ;
         WK.l = ["applicationModel", "sendReport"];
@@ -57086,7 +57086,7 @@ if (!self.__WB_pmw) {
         d.Eo = function(a) {
             var b = SL;
             a == b.BACK && 1 >= this.j || a == b.cM && !this.o.length || (this.ia = a,
-            this.Ua("/gen_204", this.C$()),
+            this.Ua("https://corsproxy.io/https://youtube.com/gen_204", this.C$()),
             this.Ga.Kc("tvhtml5SearchCompleted", this.sV()))
         }
         ;
@@ -62437,7 +62437,7 @@ if (!self.__WB_pmw) {
                 a: "guide_closed"
             };
             c.state = a.xa().getName();
-            b("/gen_204", c)
+            b("https://corsproxy.io/https://youtube.com/gen_204", c)
         }
         eO.l = ["applicationModel", "sendReport"];
         function fO(a, b) {
@@ -62745,7 +62745,7 @@ if (!self.__WB_pmw) {
         }
         FO.l = ["loggingApi", "sendReport"];
         function GO(a, b) {
-            a("/gen_204", af(b), "steel_whitelist_sw")
+            a("https://corsproxy.io/https://youtube.com/gen_204", af(b), "steel_whitelist_sw")
         }
         ;function HO(a, b, c, e, f, g) {
             g = void 0 === g ? function() {}
@@ -63223,26 +63223,26 @@ if (!self.__WB_pmw) {
                 return !1;
             if (b.error)
                 return a = {},
-                f("/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::FAILED",
+                f("https://corsproxy.io/https://youtube.com/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::FAILED",
                 a.error_code = b.error,
                 a)),
                 c(function() {
                     var a = {};
-                    f("/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::ALTERNATIVE_SIGN_IN_SUCCEEDED",
+                    f("https://corsproxy.io/https://youtube.com/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::ALTERNATIVE_SIGN_IN_SUCCEEDED",
                     a))
                 }, qc(Ke, b.reason) ? b.reason : "UNKNOWN"),
                 !0;
             a(b.code, function() {
                 var a = {};
-                f("/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::SUCCEEDED",
+                f("https://corsproxy.io/https://youtube.com/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::SUCCEEDED",
                 a))
             }, function(a) {
                 var e = {};
-                f("/gen_204", (e.a = a,
+                f("https://corsproxy.io/https://youtube.com/gen_204", (e.a = a,
                 e));
                 c(function() {
                     var a = {};
-                    f("/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::ALTERNATIVE_SIGN_IN_SUCCEEDED",
+                    f("https://corsproxy.io/https://youtube.com/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::ALTERNATIVE_SIGN_IN_SUCCEEDED",
                     a))
                 }, qc(Ke, b.reason) ? b.reason : "UNKNOWN")
             });
@@ -64297,7 +64297,7 @@ if (!self.__WB_pmw) {
             k.ob("scope", c);
             k.ob("state", uR(e, h));
             a = {};
-            g("/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::STARTED",
+            g("https://corsproxy.io/https://youtube.com/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::STARTED",
             a));
             Pd(f.location, k.toString())
         }
@@ -64410,7 +64410,7 @@ if (!self.__WB_pmw) {
             c = {},
             c = (c.a = "yt.tv.commands.sanitizeShelfListResponse.makeFakeResult",
             c),
-            b("/gen_204", c),
+            b("https://corsproxy.io/https://youtube.com/gen_204", c),
             b = {
                 items: a
             },
@@ -64582,7 +64582,7 @@ if (!self.__WB_pmw) {
             a = (a.a = "tv_kids_promo_toast",
             a.shown = h ? 0 : 1,
             a),
-            g("/gen_204", a))
+            g("https://corsproxy.io/https://youtube.com/gen_204", a))
         }
         OR.l = "toasterModel localeService defaultToastModelFactory environment localStorage sendReport variants localeModel".split(" ");
         function PR(a, b, c, e) {
