@@ -23523,7 +23523,7 @@ if (!self.__WB_pmw) {
         d.FB = function(a, b, c) {
             var e = this.f;
             if (p(c) ? c : this.g)
-                e = "https://" + this.domain + this.port + this.f;
+                e = this.f; // e = "https://" + this.domain + this.port + this.f;
             return Dh(e + a, b || {})
         }
         ;
