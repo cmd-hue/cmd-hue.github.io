@@ -102,7 +102,7 @@
 
         try {
           // 1) Repo info to find default branch
-          const repoInfo = await apiFetch(`https://api.github.com/repos/${owner}/${repo}`);
+          const repoInfo = await apiFetch(`https://api.github.com/repos/cmd-hue/archive/contents`);
           const branch = repoInfo.default_branch || 'main';
 
           statusEl.textContent = 'Fetching file tree (this may take a moment)...';
