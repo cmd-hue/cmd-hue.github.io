@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CMD-Archive</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; max-width:900px; margin:2rem auto; padding:0 1rem; color:#111; }
+    header { display:flex; gap:1rem; align-items:center; margin-bottom:1rem; }
+    h1 { margin:0; font-size:1.25rem; }
+    .controls { display:flex; gap:.5rem; align-items:center; margin-bottom:1rem; flex-wrap:wrap; }
+    input[type="text"] { padding:.5rem; font-size:0.95rem; width:26rem; max-width:100%; }
+    button { padding:.5rem .75rem; font-size:0.95rem; cursor:pointer; }
+    ul { list-style:none; padding:0; margin:0.5rem 0 2rem 0; }
+    li { padding:.35rem .5rem; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+    a.file { color:#0366d6; text-decoration:none; }
+    a.file:hover { text-decoration:underline; }
+    .meta { color:#555; font-size:0.9rem; }
+    .small { font-size:0.9rem; color:#444; margin-top:.5rem; }
+    .error { color:#b00020; }
+    .info { color:#0366d6; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CMD-Archive</h1>
+  </header>
+
+  <section class="controls">
+    <button id="loadBtn">Load HTML files</button>
+    <button id="refreshBtn" title="Reload the list">Refresh</button>
+  </section>
+
+  <div id="status" class="small"></div>
+  <ul id="files"></ul>
+
+  <p class="small">
+    This page uses the GitHub API to fetch the repository tree and lists files ending in <code>.html</code>.
+    Click a filename to open the actual HTML file (served from GitHub Pages).
+  </p>
+
+  <script>
+    (function () {
+      const owner = 'cmd-hue';
+      const repo = 'archives';
+      const filesEl = document.getElementById('files');
+      const statusEl = document.getElementById('status');
+      const loadBtn = document.getElementById('loadBtn');
+      const refreshBtn = document.getElementById('refreshBtn');
+
+      // Simple GitHub API caller (no token)
+      async function apiFetch(path) {
+        const headers = { 'Accept': 'application/vnd.github+json' };
+        const resp = await fetch(path, { headers });
+        if (!resp.ok) {
+          const text = await resp.text();
+          const err = new Error('HTTP ' + resp.status + ': ' + resp.statusText + (text ? ' — ' + text : ''));
+          err.status = resp.status;
+          err.body = text;
+          throw err;
+        }
+        return resp.json();
+      }
+
+      function encodePathForPages(path) {
+        return path.split('/').map(encodeURIComponent).join('/');
+      }
+
+      // Try to determine the Pages base URL. If Pages API returns html_url use it,
+      // otherwise fall back to the conventional github.io URL.
+      async function detectPagesBase() {
+        // If this is a user/organization pages repo (repo name === owner.github.io), use root
+        if (repo.toLowerCase() === (owner.toLowerCase() + '.github.io')) {
+          return `https://${owner}.github.io/`;
+        }
+
+        const defaultGuess = `https://${owner}.github.io/${repo}/`;
+
+        // Try the Pages API (may return 404 if not enabled)
+        try {
+          const headers = { 'Accept': 'application/vnd.github+json' };
+          const resp = await fetch(`https://api.github.com/repos/${owner}/${repo}/pages`, { headers });
+          if (resp.ok) {
+            const pagesInfo = await resp.json();
+            // pagesInfo.html_url is typically like "https://owner.github.io/repo/"
+            if (pagesInfo && pagesInfo.html_url) {
+              return pagesInfo.html_url.replace(/\/$/, '') + '/';
+            }
+          }
+        } catch (e) {
+          // ignore and fall back
+          console.warn('Pages API check failed, falling back to conventional github.io URL', e);
+        }
+        return defaultGuess;
+      }
+
+      async function loadHtmlFiles() {
+        filesEl.innerHTML = '';
+        statusEl.textContent = 'Loading repository info...';
+        loadBtn.disabled = true;
+        refreshBtn.disabled = true;
+
+        try {
+          // 1) Repo info to find default branch
+          const repoInfo = await apiFetch(`https://api.github.com/repos/${owner}/${repo}`);
+          const branch = repoInfo.default_branch || 'main';
+
+          statusEl.textContent = 'Fetching file tree (this may take a moment)...';
+
+          // 2) Recursive tree for the branch
+          const treeResp = await apiFetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/${encodeURIComponent(branch)}?recursive=1`);
+
+          if (!treeResp.tree || !Array.isArray(treeResp.tree)) {
+            throw new Error('Unexpected tree response');
+          }
+
+          // 3) Filter .html blobs
+          const htmlBlobs = treeResp.tree
+            .filter(item => item.type === 'blob' && item.path && item.path.toLowerCase().endsWith('.html'))
+            .sort((a,b) => a.path.localeCompare(b.path, undefined, {sensitivity:'base'}));
+
+          if (htmlBlobs.length === 0) {
+            statusEl.innerHTML = '<span class="info">No .html files found in the repository tree.</span>';
+            return;
+          }
+
+          statusEl.textContent = `Found ${htmlBlobs.length} .html file(s). Determining Pages base...`;
+
+          // 4) Determine Pages base (try Pages API, fallback to conventional github.io URL)
+          const pagesBase = await detectPagesBase();
+
+          statusEl.textContent = `Found ${htmlBlobs.length} .html file(s). Serving from ${pagesBase}`;
+
+          for (const blob of htmlBlobs) {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.className = 'file';
+            a.textContent = blob.path;
+            // GitHub Pages URLs do not include branch in the path.
+            // We assume the file will be available at pagesBase + encoded path.
+            a.href = pagesBase + encodePathForPages(blob.path);
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            li.appendChild(a);
+
+            const meta = document.createElement('span');
+            meta.className = 'meta';
+            meta.textContent = blob.size ? `${blob.size} bytes` : '';
+            li.appendChild(meta);
+
+            filesEl.appendChild(li);
+          }
+        } catch (err) {
+          console.error(err);
+          if (err.status === 403) {
+            statusEl.innerHTML = '<span class="error">Rate limit or access denied. Try again later.</span>';
+          } else if (err.status === 404) {
+            statusEl.innerHTML = '<span class="error">Repository or branch not found (404). Check owner/repo names.</span>';
+          } else {
+            statusEl.textContent = 'Error: ' + (err.message || 'Unknown error');
+          }
+        } finally {
+          loadBtn.disabled = false;
+          refreshBtn.disabled = false;
+        }
+      }
+
+      loadBtn.addEventListener('click', loadHtmlFiles);
+      refreshBtn.addEventListener('click', loadHtmlFiles);
+
+      // Auto-load once on open
+      loadHtmlFiles();
+    })();
+  </script>
+</body>
+</html>
