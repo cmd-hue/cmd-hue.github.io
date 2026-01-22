@@ -12286,7 +12286,7 @@
                 client_id: "861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com",
                 client_secret: this.secret_,
                 code: a,
-                grant_type: "https://oauth.net/grant_type/device/2.0"
+                grant_type: "http://oauth.net/grant_type/device/2.0"
             }
               , f = C(function(e) {
                 this.refreshTokenFetchHandler_(e, a, b, c)
