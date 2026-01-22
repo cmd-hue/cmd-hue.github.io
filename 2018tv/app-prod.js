@@ -67359,7 +67359,7 @@ Dual licensed under the MIT and GPL licenses.
             try {
                 var c = this.xja[a];
                 c ? this.play(c) : (c = this.zXa({
-                    path: this.ly + "/sound/" + a + (this.environment.m_ ? ".mp3" : ".wav")
+                    path: "https://youtomb2016.github.io/assets/" + a + (this.environment.m_ ? ".mp3" : ".wav")
                 }),
                 this.xja[a] = c,
                 c.download(this.eq, function() {
