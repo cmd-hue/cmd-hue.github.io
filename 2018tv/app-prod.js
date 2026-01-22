@@ -8329,9 +8329,8 @@
     }
     ;var ui = {
         Authorization: "AUTHORIZATION",
-        "X-Goog-Visitor-Id": "SANDBOXED_VISITOR_ID",
-        "X-YouTube-Client-Name": "INNERTUBE_CONTEXT_CLIENT_NAME",
-        "X-YouTube-Client-Version": "INNERTUBE_CONTEXT_CLIENT_VERSION",
+        "X-YouTube-Client-Name": 7,
+        "X-YouTube-Client-Version": "7.20240110",
         "X-Youtube-Identity-Token": "ID_TOKEN",
         "X-YouTube-Page-CL": "PAGE_CL",
         "X-YouTube-Page-Label": "PAGE_BUILD_LABEL",
