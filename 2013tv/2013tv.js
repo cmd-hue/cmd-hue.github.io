@@ -11511,7 +11511,7 @@
                 e = 31 * e + a.charCodeAt(f),
                 e %= 4294967296;
                 console.log("url: https://i" + (e % 4 + 1) + ".ytimg.com/" + b + "/" + a + "/" + c + ".jpg");
-            return "https://web.archive.org/web/20120501054204im_/https://i" + (e % 4 + 1) + ".ytimg.com/" + b + "/" + a + "/" + c + ".jpg"
+            return "https://i" + (e % 4 + 1) + ".ytimg.com/" + b + "/" + a + "/" + c + ".jpg"
                 
         };
         var xg = function() {
