@@ -21340,7 +21340,7 @@
         if (this.QE)
             return this.QE.baseUrl;
         var a = ws[this.kJ.NH];
-        return void 0 !== a ? a : "ppg" === this.kJ.NH ? "https://" + this.kJ.CPa : "https://www.corsproxy.io/https://www.youtube.com/youtubei/v1"
+        return void 0 !== a ? a : "ppg" === this.kJ.NH ? "https://" + this.kJ.CPa : "https://cors-anywhere.com/https://www.youtube.com/youtubei/v1"
     }
     ;
     d.Xn = function(a, b) {
@@ -39601,7 +39601,7 @@
     ;
     d.qha = function(a, b, c) {
         var e = this.mea[a.oAuthClientIdName];
-        a = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/token",null,{
+        a = new gq("POST","https://cors-anywhere.com/https://youtube.com/o/oauth2/token",null,{
             client_id: e.clientId,
             client_secret: e.Vt,
             refresh_token: a.refreshToken,
@@ -39673,7 +39673,7 @@
         m.Wd(function() {
             h.DN(c)
         });
-        k = new gq("POST","https://corsproxy.io/https://oauth2.googleapis.com/device/code",null,k);
+        k = new gq("POST","https://cors-anywhere.com/https://oauth2.googleapis.com/device/code",null,k);
         m.send(k);
         return function() {
             h.DN(f)
@@ -39698,7 +39698,7 @@
             code: a,
             grant_type: "http://oauth.net/grant_type/device/1.0"
         };
-        g = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/token",null,g);
+        g = new gq("POST","https://cors-anywhere.com/https://youtube.com/o/oauth2/token",null,g);
         var h = this.Wi();
         h.md(function(g) {
             f.BQa(a, b, c, g, e)
@@ -44908,7 +44908,7 @@
         return new Rj(function(g, h) {
             var k = c[f.oAuthClientIdName];
             if (k) {
-                k = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/token",null,{
+                k = new gq("POST","https://cors-anywhere.com/https://youtube.com/o/oauth2/token",null,{
                     client_id: k.clientId,
                     client_secret: k.Vt,
                     refresh_token: f.refreshToken,
@@ -44927,7 +44927,7 @@
     }
     E(KF, ["buildAuthorizedAccessCredential", "xhrRequestFactory", "oAuthClientProfiles"]);
     function LF(a, b) {
-        b && (b = new gq("POST","https://corsproxy.io/https://oauth2.googleapis.com/revoke",null,{
+        b && (b = new gq("POST","https://cors-anywhere.com/https://oauth2.googleapis.com/revoke",null,{
             token: b
         }),
         a().send(b))
@@ -45122,7 +45122,7 @@
         var f = a();
         f.md(c);
         f.Wd(e);
-        a = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/token",null,b);
+        a = new gq("POST","https://cors-anywhere.com/https://youtube.com/o/oauth2/token",null,b);
         f.send(a);
         return function() {
             f.abort()
@@ -45144,7 +45144,7 @@
             e.Wd(function(a) {
                 b(a)
             });
-            var f = new gq("POST","https://corsproxy.io/https://oauth2.googleapis.com/device/code",null,c);
+            var f = new gq("POST","https://cors-anywhere.com/https://oauth2.googleapis.com/device/code",null,c);
             e.send(f)
         }
         )).Pg(function(a) {
@@ -66459,7 +66459,7 @@ Dual licensed under the MIT and GPL licenses.
     }
     E(iS, ["dialogStageModel", "signInModelFactory", "sendAccountDialogOpenedPing"]);
     function jS(a, b, c, e, f, g, h) {
-        var k = bn("https://accounts.google.comhttps://corsproxy.io/https://oauth2.googleapis.com/cl/tv");
+        var k = bn("https://accounts.google.comhttps://cors-anywhere.com/https://oauth2.googleapis.com/cl/tv");
         k.yc("client_id", a);
         k.yc("redirect_uri", b);
         k.yc("response_type", "code");
