@@ -109,7 +109,7 @@ window.labels = {
         n("/app-concat-bundle.js");
     } else {
         q("2013tv.css");
-        n("2013tv.js");
+        n("app-yt2009.js");
     }
 
     window.checkBrokenLabel = function() {
