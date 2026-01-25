@@ -39698,7 +39698,7 @@
             code: a,
             grant_type: "http://oauth.net/grant_type/device/1.0"
         };
-        g = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/token",null,g);
+        g = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/device/token",null,g);
         var h = this.Wi();
         h.md(function(g) {
             f.BQa(a, b, c, g, e)
@@ -44908,7 +44908,7 @@
         return new Rj(function(g, h) {
             var k = c[f.oAuthClientIdName];
             if (k) {
-                k = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/token",null,{
+                k = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/device/token",null,{
                     client_id: k.clientId,
                     client_secret: k.Vt,
                     refresh_token: f.refreshToken,
@@ -45122,7 +45122,7 @@
         var f = a();
         f.md(c);
         f.Wd(e);
-        a = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/token",null,b);
+        a = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/device/token",null,b);
         f.send(a);
         return function() {
             f.abort()
