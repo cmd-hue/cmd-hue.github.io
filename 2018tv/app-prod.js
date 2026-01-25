@@ -39601,7 +39601,7 @@
     ;
     d.qha = function(a, b, c) {
         var e = this.mea[a.oAuthClientIdName];
-        a = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/token",null,{
+        a = new gq("POST","https://corsproxy.io/https://youtube.com/o/oauth2/device/token",null,{
             client_id: e.clientId,
             client_secret: e.Vt,
             refresh_token: a.refreshToken,
