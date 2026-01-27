@@ -11050,7 +11050,7 @@ angular.element(document).find("head").append('<style type="text/css">@charset "
     }
     ;
     d.Hs = function(a, b, c) {
-        return this.g + "https://i1.ytimg.com/" + b + "/" + a + "/" + c + ".jpg"
+        return "https://i1.ytimg.com/" + b + "/" + a + "/" + c + ".jpg"
     }
     ;
     d.hJ = function(a) {
