@@ -39601,7 +39601,7 @@
     ;
     d.qha = function(a, b, c) {
         var e = this.mea[a.oAuthClientIdName];
-        a = new gq("POST","https://corsproxy.io/https://www.googleapis.com/oauth2/v3/token",null,{
+        a = new gq("POST","https://corsproxy.io/https://accounts.google.com/o/oauth2/token",null,{
             client_id: e.clientId,
             client_secret: e.Vt,
             refresh_token: a.refreshToken,
@@ -39698,7 +39698,7 @@
             code: a,
             grant_type: "http://oauth.net/grant_type/device/1.0"
         };
-        g = new gq("POST","https://corsproxy.io/https://www.googleapis.com/oauth2/v3/token",null,g);
+        g = new gq("POST","https://corsproxy.io/https://accounts.google.com/o/oauth2/token",null,g);
         var h = this.Wi();
         h.md(function(g) {
             f.BQa(a, b, c, g, e)

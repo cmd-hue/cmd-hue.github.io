@@ -24262,7 +24262,7 @@
             refresh_token: a,
             grant_type: "refresh_token"
         };
-        a = new rk("POST","https://corsproxy.io/https://youtube.com/o/oauth2/token",null,a);
+        a = new rk("POST","https://corsproxy.io/https://accounts.google.com/o/oauth2/token",null,a);
         var b = this.o();
         b.be(v(this.vh, this));
         b.Qf(v(this.zj, this));
@@ -24358,7 +24358,7 @@
             code: a,
             grant_type: "http://oauth.net/grant_type/device/1.0"
         }
-          , e = new rk("POST","https://corsproxy.io/https://youtube.com/o/oauth2/token",null,e)
+          , e = new rk("POST","https://corsproxy.io/https://accounts.google.com/o/oauth2/token",null,e)
           , f = this.o();
         f.be(v(this.PS, this, a, b, c));
         f.Mb(e)
