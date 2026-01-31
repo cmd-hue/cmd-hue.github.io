@@ -1,3 +1,4 @@
+
 (function() {
     var d;
     function aa(a) {
@@ -21340,7 +21341,7 @@
         if (this.QE)
             return this.QE.baseUrl;
         var a = ws[this.kJ.NH];
-        return void 0 !== a ? a : "ppg" === this.kJ.NH ? "https://" + this.kJ.CPa : "https://corsproxy.io/?uhttps://www.youtube.com/youtubei/v1"
+        return void 0 !== a ? a : "ppg" === this.kJ.NH ? "https://" + this.kJ.CPa : "https://proxy.corsfix.com/?https://www.youtube.com/youtubei/v1"
     }
     ;
     d.Xn = function(a, b) {
@@ -39601,7 +39602,7 @@
     ;
     d.qha = function(a, b, c) {
         var e = this.mea[a.oAuthClientIdName];
-        a = new gq("POST","https://corsproxy.io/?url=https://accounts.google.com/o/oauth2/token",null,{
+        a = new gq("POST","https://oauth2.googleapis.com/token",null,{
             client_id: e.clientId,
             client_secret: e.Vt,
             refresh_token: a.refreshToken,
@@ -39673,7 +39674,7 @@
         m.Wd(function() {
             h.DN(c)
         });
-        k = new gq("POST","https://corsproxy.io/https://oauth2.googleapis.com/device/code",null,k);
+        k = new gq("POST","https://oauth2.googleapis.com/device/code",null,k);
         m.send(k);
         return function() {
             h.DN(f)
@@ -39698,7 +39699,7 @@
             code: a,
             grant_type: "http://oauth.net/grant_type/device/1.0"
         };
-        g = new gq("POST","https://corsproxy.io/https://accounts.google.com/o/oauth2/token",null,g);
+        g = new gq("POST","https://oauth2.googleapis.com/token",null,g);
         var h = this.Wi();
         h.md(function(g) {
             f.BQa(a, b, c, g, e)
@@ -44908,7 +44909,7 @@
         return new Rj(function(g, h) {
             var k = c[f.oAuthClientIdName];
             if (k) {
-                k = new gq("POST","https://corsproxy.io/https://www.googleapis.com/oauth2/v3/token",null,{
+                k = new gq("POST","https://oauth2.googleapis.com/token",null,{
                     client_id: k.clientId,
                     client_secret: k.Vt,
                     refresh_token: f.refreshToken,
@@ -44927,7 +44928,7 @@
     }
     E(KF, ["buildAuthorizedAccessCredential", "xhrRequestFactory", "oAuthClientProfiles"]);
     function LF(a, b) {
-        b && (b = new gq("POST","https://corsproxy.io/https://oauth2.googleapis.com/revoke",null,{
+        b && (b = new gq("POST","https://oauth2.googleapis.com/revoke",null,{
             token: b
         }),
         a().send(b))
@@ -45122,7 +45123,7 @@
         var f = a();
         f.md(c);
         f.Wd(e);
-        a = new gq("POST","https://corsproxy.io/https://www.googleapis.com/oauth2/v3/token",null,b);
+        a = new gq("POST","https://oauth2.googleapis.com/token",null,b);
         f.send(a);
         return function() {
             f.abort()
@@ -45144,7 +45145,7 @@
             e.Wd(function(a) {
                 b(a)
             });
-            var f = new gq("POST","https://corsproxy.io/https://oauth2.googleapis.com/device/code",null,c);
+            var f = new gq("POST","https://oauth2.googleapis.com/device/code",null,c);
             e.send(f)
         }
         )).Pg(function(a) {
@@ -62812,4 +62813,30275 @@ Dual licensed under the MIT and GPL licenses.
     function BO(a, b, c) {
         c = c.icon && c.icon.iconType;
         return a({
-     
+            label: "",
+            iconClass: c ? Do[c] : "",
+            clickAction: function() {
+                b()
+            }
+        })
+    }
+    function CO(a, b, c, e) {
+        return a({
+            source: c,
+            service: e,
+            clickAction: function() {
+                c.endpoint && b(c.endpoint)
+            }
+        })
+    }
+    function DO(a, b, c, e, f, g, h, k) {
+        xO && xO.dispose();
+        var m, p = zO(h, 0);
+        (p = p && p[0] && p[0].tabRenderer) && (m = BO(e, f, p));
+        var u;
+        (e = (e = zO(h, 3)) && e[0] && e[0].tabRenderer) && (u = CO(c, g, e, k));
+        g = AO(a, zO(h, 1), c, k);
+        a = AO(a, zO(h, 2), c, k);
+        return xO = b = b({
+            trackingParams: h.trackingParams || "",
+            actionButton: m,
+            topicCollection: g,
+            myStuffCollection: a,
+            accountButton: u
+        })
+    }
+    function EO() {
+        return xO
+    }
+    E(DO, "makeCollection topNavModelFactory makeTopNavTabModel buttonModelFactory gotoSearch navigateToEndpoint source service".split(" "));
+    function FO(a, b, c, e, f, g, h, k, m) {
+        AN.call(this, a, b, h, k, m);
+        this.title = b;
+        this.question = c;
+        this.imageUrl = e;
+        this.videoTitle = f;
+        this.channelName = g;
+        a = this.collection.aa();
+        this.VP = X(h[a].kj())
+    }
+    l(FO, AN);
+    FO.prototype.Ax = function() {
+        this.VP = X(this.collection.$a().kj());
+        return this.collection.aa()
+    }
+    ;
+    function GO(a, b, c, e, f) {
+        var g = X(f.question)
+          , h = X(f.videoMetadata.videoTitle)
+          , k = X(f.videoMetadata.channelName);
+        e = e.bb(f.videoMetadata.videoThumbnail);
+        for (var m = X(f.title), p = f.list && f.list.horizontalListRenderer && f.list.horizontalListRenderer.items || [], u = [], v = 0, w = p.length; v < w; v++) {
+            var x = p[v].gridButtonRenderer;
+            x && u.push(HO(b, c, x))
+        }
+        p = null;
+        (v = f.dismissalButton && f.dismissalButton.buttonRenderer) && (p = IO(b, c, v));
+        b = JO(c, f.impressionEndpoints || []);
+        return new FO(a,m,g,e,h,k,u,p,b)
+    }
+    function HO(a, b, c) {
+        function e() {}
+        c.serviceEndpoint && (e = function() {
+            b(c.serviceEndpoint)
+        }
+        );
+        var f = X(c.subtitle);
+        return a({
+            iconClass: Do.STAR_BORDER,
+            accessibleLabel: f || "",
+            label: f || "",
+            "class": "rating-button",
+            clickAction: e,
+            componentRenderer: "airstream-icon-button"
+        })
+    }
+    function IO(a, b, c) {
+        function e() {}
+        c.serviceEndpoint && (e = function() {
+            b(c.serviceEndpoint)
+        }
+        );
+        return a({
+            label: "",
+            clickAction: e,
+            iconClass: Do.DISMISS,
+            "class": "dismiss-button",
+            accessibleLabel: X(c.text),
+            componentRenderer: "airstream-icon-button"
+        })
+    }
+    function JO(a, b) {
+        return function() {
+            for (var c = 0, e = b.length; c < e; c++)
+                a(b[c])
+        }
+    }
+    E(GO, ["makeCollection", "buttonModelFactory", "handleServiceEndpoint", "thumbnailParser", "source"]);
+    var KO = {
+        "4K": 0,
+        CC: 2
+    };
+    function LO(a, b, c, e) {
+        e = void 0 === e ? [] : e;
+        S.call(this);
+        this.details = a;
+        this.title = b;
+        this.channelName = c;
+        this.badges = e
+    }
+    l(LO, S);
+    LO.prototype.lf = function() {
+        var a = [this.title];
+        this.channelName && a.push(this.channelName);
+        for (var b = 0, c = this.details.length; b < c; ++b) {
+            var e = this.details[b];
+            "watchable-tile-bottom-inline-detail" !== e.qb && "watchable-tile-bottom-multiline-detail" !== e.qb || !e.text || "\u2022" === e.text || a.push(e.text)
+        }
+        return a.join(". ")
+    }
+    ;
+    function MO(a, b, c, e) {
+        e = void 0 === e ? 21 : e;
+        var f = X(a.title)
+          , g = []
+          , h = X(a.shortBylineText)
+          , k = X(a.bylineText);
+        NO(g, k);
+        k = t("topStandaloneBadge.standaloneCollectionBadgeRenderer.iconText", a);
+        NO(g, k);
+        if (k)
+            b = X(t("topStandaloneBadge.standaloneCollectionBadgeRenderer.label", a)),
+            NO(g, b);
+        else {
+            k = X(a.shortViewCountText) || X(a.viewCountText);
+            NO(g, k);
+            k = X(a.publishedTimeText);
+            var m = t("upcomingEventData.startTime", a)
+              , p = "";
+            if (m) {
+                p = new Date(1E3 * Number(m));
+                m = b.zG(p);
+                var u = p.toLocaleTimeString([], {
+                    hour: "numeric",
+                    minute: "2-digit"
+                });
+                p = b.C("[[Starts {{liveStartDate}} at {{liveStartTime}}|Label indicating upcoming date and time event]]");
+                p = p.replace("{{liveStartDate}}", m);
+                p = p.replace("{{liveStartTime}}", u)
+            }
+            NO(g, k || p)
+        }
+        h && 2 > g.length && (g.unshift({
+            text: h,
+            qb: "watchable-tile-bottom-inline-detail"
+        }),
+        h = "");
+        b = [];
+        if (t("badges", a)) {
+            a: {
+                if (a.badges) {
+                    var v = 0;
+                    for (k = a.badges.length; v < k; ++v)
+                        if ((p = a.badges[v].metadataBadgeRenderer) && p.style && "BADGE_STYLE_TYPE_YPC" === p.style) {
+                            v = p.label;
+                            break a
+                        }
+                }
+                v = void 0
+            }
+            NO(b, v, OO("green"))
+        }
+        !v && (k = t("standaloneBadge.standaloneYpcBadgeRenderer", a)) && (v = X(k.label),
+        NO(b, v, OO("green")));
+        if (!v) {
+            var w = t("bottomStandaloneBadge.standaloneRedBadgeRenderer.iconText", a);
+            NO(b, w, OO("red"));
+            var x = a.badges;
+            a = "";
+            if (x)
+                for (k = 0,
+                p = x.length; k < p; ++k)
+                    m = X(t("textBadge.label", x[k])),
+                    m in KO && (!a || KO[m] < KO[a]) && (a = m);
+            x = a;
+            NO(b, x, "watchable-tile-bottom-badge")
+        }
+        a = 0;
+        v && (a += 1.75);
+        w && (a += 4.75);
+        x && (a += 2.25);
+        w = a;
+        v = [];
+        g.length || v.length ? (x = b.length,
+        g = c(b.concat(v, g), x, e, 0, w)) : g = b;
+        return new LO(g,f,h)
+    }
+    function PO(a) {
+        var b = X(a.primaryText)
+          , c = X(a.secondaryText);
+        a = X(a.tertiaryText);
+        var e = [];
+        NO(e, a, "watchable-tile-bottom-multiline-detail");
+        return new LO(e,b,c)
+    }
+    function QO(a, b) {
+        var c = []
+          , e = RO(a)
+          , f = e.title
+          , g = e.metadata;
+        e = e.badges;
+        b = b.enable_avod_hero_tile ? X(a.descriptionSnippet) : "";
+        (a = SO(a.badges && a.badges.map(function(a) {
+            return a.textBadge
+        }))) && NO(c, a, "watchable-tile-bottom-badge");
+        g && NO(c, g);
+        return new LO(c,f,b,e)
+    }
+    function TO(a) {
+        var b = []
+          , c = RO(a)
+          , e = c.title
+          , f = c.metadata;
+        c = c.badges;
+        a = X(a.subtitle);
+        f && NO(b, f);
+        return new LO(b,e,a,c)
+    }
+    function RO(a) {
+        var b = X(a.title)
+          , c = JK(a.badges && a.badges.map(function(a) {
+            return a.metadataBadgeRenderer
+        }))
+          , e = null;
+        a && a.topMetadataItems && a.topMetadataItems[0] && (e = X(a.topMetadataItems[0]));
+        return {
+            title: b,
+            metadata: e,
+            badges: c
+        }
+    }
+    function SO(a) {
+        if (!a)
+            return "";
+        for (var b = 0, c = a.length; b < c; ++b)
+            if (a[b])
+                return X(a[b].label);
+        return ""
+    }
+    function UO(a) {
+        var b = X(a.title)
+          , c = X(a.shortBylineText);
+        a = X(a.longBylineText);
+        var e = [];
+        NO(e, a, "watchable-tile-bottom-multiline-detail");
+        return new LO(e,b,c)
+    }
+    function NO(a, b, c) {
+        b && a.push({
+            text: b,
+            qb: void 0 === c ? "watchable-tile-bottom-inline-detail" : c
+        })
+    }
+    function OO(a) {
+        a = void 0 === a ? "" : a;
+        return "watchable-tile-bottom-badge " + (a ? "watchable-tile-bottom-badge-" + a : "")
+    }
+    E(MO, ["source", "localeService", "handleWatchableTileDetails", "opt_tileSize"]);
+    E(PO, ["source"]);
+    E(QO, ["source", "experimentFlags"]);
+    E(UO, ["source"]);
+    E(TO, ["source"]);
+    function VO(a, b) {
+        C.call(this);
+        this.grid = a;
+        this.G = b;
+        this.grid.on("grid-full-visibility-changed", this.wW.bind(this));
+        this.grid.on("row-full-visiblity-changed", this.mB.bind(this))
+    }
+    l(VO, C);
+    VO.prototype.wW = function() {
+        if (this.grid.Ec())
+            for (var a = this.grid.ii(), b = 0, c = a.length; b < c; ++b) {
+                var e = qc(a[b]);
+                e && e.trackingParams && this.G.Ca(e.trackingParams)
+            }
+    }
+    ;
+    VO.prototype.mB = function(a) {
+        var b = ja(a.detail);
+        a = b.next().value;
+        if (b.next().value) {
+            b = 0;
+            for (var c = a.length; b < c; ++b) {
+                var e = qc(a[b].item);
+                e && e.trackingParams && this.G.Ca(e.trackingParams)
+            }
+        }
+    }
+    ;
+    E(VO, ["grid", "screenManager"]);
+    var WO = ["default", "FEtopics", "FEsubscriptions", "FEmy_youtube"];
+    function XO(a, b, c, e, f, g) {
+        C.call(this);
+        var h = this;
+        this.surface = a;
+        this.vy = b;
+        this.FPa = c;
+        this.experimentFlags = e;
+        this.bufferSize = f;
+        this.isLoading = {};
+        (b = g.browseEndpoint && g.browseEndpoint.browseId) && WO.includes(b) && this.H(a.on("content:changed", function() {
+            h.dqa()
+        }))
+    }
+    l(XO, C);
+    XO.prototype.dqa = function() {
+        if (this.surface.Hb) {
+            var a = this.surface.Hb.je();
+            var b = this.surface.Hb.aa();
+            var c = this.surface.Hb.ki()
+        } else if (this.surface.zc)
+            a = this.surface.zc.H9(),
+            b = this.surface.zc.aa(),
+            c = this.surface.zc.ki();
+        else
+            return;
+        this.Uua(a, b, b > c ? 1 : -1)
+    }
+    ;
+    XO.prototype.Uua = function(a, b, c) {
+        for (var e = this, f = {}, g = 1; g <= this.bufferSize; f = {
+            Wp: f.Wp
+        },
+        ++g) {
+            var h = b + c * g;
+            if (h > a.ha() - 1 || 0 > h)
+                break;
+            (h = a.xa(h).hh()) && (h = h.OBa()) && h.continuation && (f.Wp = h.continuation,
+            this.vy.get(f.Wp) || this.isLoading[f.Wp] || (this.isLoading[f.Wp] = !0,
+            this.FPa.Nv(h, function(a) {
+                return function(b) {
+                    delete e.isLoading[a.Wp];
+                    e.vy.add(a.Wp, b, 1E3 * e.experimentFlags.tvhtml5_max_age_seconds)
+                }
+            }(f))))
+        }
+    }
+    ;
+    E(XO, "surface browseResponseCache prefetchBrowseService experimentFlags bufferSize endpoint".split(" "));
+    function YO(a, b) {
+        C.call(this);
+        this.H(b.on("inactive-account-removed", function() {
+            return a.reload()
+        }))
+    }
+    l(YO, C);
+    E(YO, ["surface", "authService"]);
+    function ZO(a, b) {
+        C.call(this);
+        this.H(b.on("signed-in", function() {
+            return a.reload()
+        }))
+    }
+    l(ZO, C);
+    E(ZO, ["surface", "authService"]);
+    function $O(a, b) {
+        C.call(this);
+        b.start("surface");
+        var c = a.on("loadState:changed", function(a) {
+            if ("loaded" == a || "error" == a)
+                b.finish("surface"),
+                c()
+        });
+        this.H(c)
+    }
+    l($O, C);
+    E($O, ["surface", "startupMonitor"]);
+    function aP(a, b, c, e) {
+        C.call(this);
+        this.H(b.on("watch-history-cleared", function() {
+            return a.reload()
+        }));
+        this.H(c.on("pause-resume-watch-history", function() {
+            return a.reload(!0)
+        }));
+        this.H(e.on("pause-resume-watch-history", function() {
+            return a.reload(!0)
+        }))
+    }
+    l(aP, C);
+    E(aP, ["surface", "clearWatchHistoryService", "pauseWatchHistoryService", "resumeWatchHistoryService"]);
+    function bP(a, b) {
+        C.call(this);
+        this.grid = a;
+        this.G = b;
+        this.grid.on("grid-full-visibility-changed", this.wW.bind(this));
+        this.grid.on("row-full-visiblity-changed", this.mB.bind(this))
+    }
+    l(bP, C);
+    bP.prototype.wW = function() {
+        if (this.grid.Ec())
+            for (var a = this.grid.ii(), b = 0, c = a.length; b < c; ++b) {
+                var e = a[b];
+                e && e.trackingParams && this.G.Ca(e.trackingParams)
+            }
+    }
+    ;
+    bP.prototype.mB = function(a) {
+        var b = ja(a.detail);
+        a = b.next().value;
+        if (b.next().value) {
+            b = 0;
+            for (var c = a.length; b < c; ++b) {
+                var e = a[b].item;
+                e && e.trackingParams && this.G.Ca(e.trackingParams)
+            }
+        }
+    }
+    ;
+    E(bP, ["grid", "screenManager"]);
+    function cP(a, b, c) {
+        S.call(this);
+        var e = this;
+        this.document = a;
+        this.$la = b;
+        this.implementation = c;
+        this.HQ = !1;
+        this.Ica = 0;
+        this.implementation && (this.document.addEventListener("visibilitychange", function() {
+            e.aOa()
+        }),
+        this.isHidden() || (this.HQ = !0,
+        this.onFirstVisible()))
+    }
+    l(cP, S);
+    cP.prototype.isHidden = function() {
+        var a = this.implementation;
+        return a ? this.document[a] : !1
+    }
+    ;
+    cP.prototype.onFirstVisible = function() {
+        this.HQ = !0;
+        var a = this.$la.BS();
+        this.w("first-visible", a)
+    }
+    ;
+    cP.prototype.aOa = function() {
+        if (!this.HQ && !this.isHidden())
+            this.onFirstVisible();
+        var a = this.$la.BS();
+        this.w("visibility-changed", !this.isHidden(), a - this.Ica);
+        this.Ica = a
+    }
+    ;
+    E(cP, ["document", "uptimeService", "visibilityApiImplementation"]);
+    function dP(a, b, c, e) {
+        C.call(this);
+        var f = this;
+        this.surface = a;
+        this.endpoint = b;
+        this.j = c;
+        this.Kpa = e;
+        this.bN = function() {}
+        ;
+        this.CF = -1;
+        this.VHa() && (this.H(a.on("content:changed", function() {
+            return f.W_a()
+        })),
+        this.H(a.on("activated", function() {
+            return f.SNa()
+        })),
+        this.H(a.on("deactivated", function() {
+            return f.bN()
+        })))
+    }
+    l(dP, C);
+    d = dP.prototype;
+    d.W_a = function() {
+        var a = this.surface.vAa();
+        this.CF = -1 !== a ? this.j.za() + 1E3 * a : -1
+    }
+    ;
+    d.VHa = function() {
+        var a = this.endpoint.browseEndpoint && this.endpoint.browseEndpoint.browseId;
+        return "default" === a || "FEtopics" === a
+    }
+    ;
+    d.iba = function() {
+        return -1 !== this.CF && this.j.za() > this.CF
+    }
+    ;
+    d.SNa = function() {
+        this.iba() && this.reloadContent();
+        this.npa()
+    }
+    ;
+    d.reloadContent = function() {
+        this.CF = -1;
+        this.surface.reload()
+    }
+    ;
+    d.npa = function() {
+        var a = this;
+        this.bN();
+        this.bN = this.Kpa.on("visibility-changed", function(b) {
+            b && a.iba() && (a.surface.px.start(),
+            a.reloadContent())
+        })
+    }
+    ;
+    d.B = function() {
+        this.bN();
+        C.prototype.B.call(this)
+    }
+    ;
+    E(dP, ["surface", "endpoint", "timeService", "appVisibilityService"]);
+    function eP(a, b, c) {
+        c = void 0 === c ? 0 : c;
+        S.call(this);
+        this.SZa = a;
+        this.j = b;
+        this.Gda = c;
+        this.Jy = [];
+        this.zA = !1;
+        this.ra = -1;
+        this.Cqa = this.tx.bind(this)
+    }
+    l(eP, S);
+    d = eP.prototype;
+    d.animate = function() {
+        this.zA || (this.zA = !0,
+        0 < this.Gda && (this.ra = this.j.setTimeout(this.Cqa, this.Gda)))
+    }
+    ;
+    d.cancel = function() {
+        -1 != this.ra && (this.j.clearTimeout(this.ra),
+        this.ra = -1);
+        this.zA && (this.zA = !1,
+        this.w("anim-unblocked"))
+    }
+    ;
+    d.bm = function() {
+        return this.zA
+    }
+    ;
+    d.add = function(a) {
+        var b = a.on(this.SZa, this.cancel.bind(this));
+        this.Jy.push({
+            F: a,
+            removeListener: b
+        })
+    }
+    ;
+    d.remove = function(a) {
+        for (var b = this.Jy.length - 1; 0 <= b; --b)
+            a == this.Jy[b].F && (this.Jy[b].removeListener(),
+            this.Jy.splice(b, 1))
+    }
+    ;
+    d.tx = function() {
+        this.ra = -1;
+        this.cancel()
+    }
+    ;
+    E(eP, ["transitionEndEvent", "timeService", "opt_maxAnimDurationMs"]);
+    function fP(a, b, c, e) {
+        var f, g;
+        b.on("anim-unblocked", function() {
+            if (g) {
+                var b = f
+                  , c = g;
+                g = f = null;
+                a.requestAnimationFrame(function() {
+                    b.dispatchEvent(c)
+                })
+            }
+        });
+        return function(a) {
+            if (!e || e.apply(this, arguments))
+                if (b.bm()) {
+                    T(a);
+                    var h = a.target;
+                    h && (f = h,
+                    g = gn(a))
+                } else
+                    c.apply(this, arguments)
+        }
+    }
+    E(fP, ["animationFrameService", "animWatcher", "handler", "opt_filterFunction"]);
+    function gP(a, b) {
+        this.environment = a;
+        this.animation = b;
+        this.isVertical = !1
+    }
+    gP.prototype.animate = function(a, b) {
+        for (var c = !1, e = 0, f = b.length; e < f; ++e)
+            c = this.Jha(a, b[e], e, !0) || c;
+        return c
+    }
+    ;
+    gP.prototype.XB = function(a, b) {
+        for (var c = 0, e = b.length; c < e; ++c)
+            this.Jha(a, b[c], c, !1)
+    }
+    ;
+    gP.prototype.Jha = function(a, b, c, e) {
+        c = a.Sz(c);
+        a = e && this.lWa(a, c, b.Lv);
+        b.h.style.cssText = this.animation.Iu(c, a, this.isVertical);
+        b.Lv = c;
+        return a
+    }
+    ;
+    gP.prototype.lWa = function(a, b, c) {
+        return !this.environment.Dd && null !== c && a.bja(b, c)
+    }
+    ;
+    E(gP, ["environment", "slidingAnimation"]);
+    function hP(a) {
+        this.animation = a;
+        this.isVertical = !1
+    }
+    hP.prototype.animate = function(a, b, c) {
+        for (var e = !1, f = 0, g = b.length; f < g; ++f) {
+            var h = b[f]
+              , k = a.Sz(f)
+              , m = void 0 !== k && k + c == h.Lv;
+            this.D2(h, k, m);
+            e = e || m
+        }
+        return e
+    }
+    ;
+    hP.prototype.XB = function(a, b) {
+        for (var c = 0, e = b.length; c < e; ++c)
+            this.D2(b[c], a.Sz(c), !1)
+    }
+    ;
+    hP.prototype.D2 = function(a, b, c) {
+        a.h.style.cssText += this.animation.Iu(b, c);
+        a.Lv = b
+    }
+    ;
+    E(hP, ["shelfAnimation"]);
+    function iP(a, b, c, e, f) {
+        e = void 0 === e ? 200 : e;
+        this.NMa = "-2em";
+        f && (f = f / 100 * 24);
+        this.oZa = f || 0;
+        this.KMa = c;
+        a = this.xR(a);
+        this.Ct = this.sda(b(a, e + "ms"));
+        this.iX = this.sda(b(a))
+    }
+    iP.prototype.sda = function(a) {
+        for (var b = [], c = 0, e = this.KMa; c < e; ++c) {
+            var f = zr(0 == c ? -2 : 0, 1)
+              , g = 0 == c ? "0" : "1"
+              , h = 0 == c ? "0.75" : "1";
+            b[c] = a.replace("%xposition", f).replace("%scale", h).replace("%opacity", g).replace("%zindex", c.toString())
+        }
+        return b
+    }
+    ;
+    iP.prototype.xR = function(a) {
+        var b = {
+            translateX: "%xposition",
+            translateY: "%yposition",
+            scale: "%scale",
+            opacity: "%opacity",
+            "z-index": "%zindex"
+        };
+        a && (b.translateZ = "0");
+        return b
+    }
+    ;
+    iP.prototype.Iu = function(a) {
+        var b = a.ls;
+        b = b >= this.Ct.length - 1 ? this.Ct.length - 1 : 0 > b ? 0 : b + 1;
+        b = (a.animate ? this.Ct : this.iX)[b];
+        a = this.Ssa(a);
+        return b.replace("%yposition", a)
+    }
+    ;
+    iP.prototype.Ssa = function(a) {
+        return 0 > a.ls ? this.NMa : a.ima + this.oZa * a.ls + "em"
+    }
+    ;
+    E(iP, ["environment", "buildAnimationCss", "shelfCount", "opt_animDuration", "opt_tileSpacing"]);
+    function jP(a) {
+        this.animation = a;
+        this.isVertical = !1
+    }
+    jP.prototype.XB = function(a, b) {
+        a = this.g5(a, b);
+        this.q2(a)
+    }
+    ;
+    jP.prototype.animate = function(a, b, c) {
+        a = this.g5(a, b, c);
+        return this.q2(a)
+    }
+    ;
+    jP.prototype.g5 = function(a, b, c) {
+        for (var e = [], f = 0, g = b.length; f < g; ++f) {
+            var h = b[f]
+              , k = 24;
+            h.Vz && (k = h.Vz());
+            var m = a.Sz(f)
+              , p = !1;
+            c && (p = void 0 !== m && m + c == h.Lv);
+            e.push({
+                animate: p,
+                height: k,
+                ls: m,
+                shelf: h
+            })
+        }
+        return e
+    }
+    ;
+    jP.prototype.q2 = function(a) {
+        a.sort(function(a, b) {
+            return a.ls - b.ls
+        });
+        for (var b = !1, c = 0, e = 0, f = a.length; e < f; e++) {
+            var g = a[e];
+            0 <= g.ls ? (g.ima = c,
+            c += g.height) : g.ima = -1;
+            g.shelf.h.style.cssText += this.animation.Iu(g);
+            g.shelf.Lv = g.ls;
+            b = b || g.animate
+        }
+        return b
+    }
+    ;
+    E(jP, ["dynamicShelfAnimation"]);
+    function kP() {}
+    d = kP.prototype;
+    d.animate = function() {}
+    ;
+    d.cancel = function() {}
+    ;
+    d.bm = function() {
+        return !1
+    }
+    ;
+    d.add = function() {}
+    ;
+    d.remove = function() {}
+    ;
+    d.on = function() {}
+    ;
+    function lP(a, b, c, e, f, g, h, k) {
+        f = void 0 === f ? 200 : f;
+        g = void 0 === g ? 0 : g;
+        h = void 0 === h ? mP : h;
+        k = void 0 === k ? nP : k;
+        a = k(a, e);
+        f += "ms";
+        c = c(g);
+        this.Ct = h(b(a, f), c, e);
+        this.iX = h(b(a), c, e)
+    }
+    lP.prototype.Iu = function(a, b) {
+        var c = this.Ct.length - 1;
+        ++a;
+        a > c ? a = c : 0 > a && (a = 0);
+        return (b ? this.Ct : this.iX)[a]
+    }
+    ;
+    E(lP, "supportsTranslateZ buildAnimationCss getPositions experimentFlags opt_animDuration opt_tileSpacing".split(" "));
+    function mP(a, b) {
+        for (var c = [], e = 0, f = b.length; e < f; ++e) {
+            var g = zr(b[e], 1);
+            c[e] = a.replace("%yposition", g)
+        }
+        return c
+    }
+    function nP(a) {
+        var b = {
+            translateY: "%yposition"
+        };
+        a && (b.translateZ = "0");
+        return b
+    }
+    ;function oP(a, b, c, e, f, g, h) {
+        e = void 0 === e ? 200 : e;
+        this.qM = void 0 === f ? 0 : f;
+        this.Z2 = 0;
+        a = this.xR(a, g);
+        this.Apa = b(a, e + "ms");
+        this.APa = b(a);
+        h && (this.Z2 = h * c.innerHeight)
+    }
+    oP.prototype.xR = function(a, b) {
+        var c = {
+            "translate%variable": "%position",
+            opacity: ""
+        };
+        a && (c.translateZ = "0");
+        c["animation-timing-function"] = void 0 === b ? "cubic-bezier(0.4, 0.0, 0.2, 1)" : b;
+        return c
+    }
+    ;
+    oP.prototype.Iu = function(a, b, c) {
+        b = b ? this.Apa : this.APa;
+        a = zr(a * (100 + this.qM - this.Z2), 1);
+        c = c ? "Y" : "X";
+        return b.replace("%position", a).replace("%variable", c)
+    }
+    ;
+    E(oP, "supportsTranslateZ buildAnimationCss window opt_animDuration opt_tileSpacing opt_ease opt_borderAdjustmentFactor".split(" "));
+    function pP(a, b, c) {
+        this.imageUrl = a;
+        this.active = void 0 === b ? !1 : b;
+        this.rU = void 0 === c ? !1 : c;
+        this.L = "overlay-partials-avatar";
+        this.badgeIcon = "material-icon-check-circle"
+    }
+    pP.prototype.Lxa = function() {
+        return this.active ? "" : "hidden"
+    }
+    ;
+    pP.prototype.ABa = function() {
+        return this.rU ? "avatar-border" : "hidden"
+    }
+    ;
+    function qP(a, b, c, e, f, g, h, k, m, p, u) {
+        k = void 0 === k ? function() {}
+        : k;
+        m = void 0 === m ? function() {}
+        : m;
+        p = void 0 === p ? !0 : p;
+        u = void 0 === u ? "UNKNOWN" : u;
+        for (var v = {
+            reason: u
+        }, w = 0, x = [], B = {}, G = 0; G < h.length; B = {
+            fl: B.fl
+        },
+        G++)
+            B.fl = h[G],
+            B.fl.active && (w = G),
+            x.push(new bM(B.fl.name,function(b) {
+                return function() {
+                    e.close();
+                    a.Rk(b.fl.token, v);
+                    k()
+                }
+            }(B),new pP(B.fl.avatar,B.fl.active,B.fl.rU),B.fl.email));
+        if (p) {
+            if (h = !a.Tn())
+                w = x.length;
+            x.push(new bM(b.C("[[Guest|A button for selecting the guest account on a device]]"),function() {
+                e.close();
+                a.Rk(null, v);
+                k()
+            }
+            ,new pP("../img/avatar-guest_48.png",h)))
+        }
+        x.push(new bM(b.C("[[Add Account|Label telling the user that clicking on this button will let them add another account to YouTube]]"),function() {
+            e.close();
+            f(u, k, m)
+        }
+        ,new aM("material-icon-add")));
+        b = c();
+        b.oa(x, w);
+        return new YL(new TL(g,b),new XL(m))
+    }
+    E(qP, ["authService", "localeService", "makeCollection", "overlayStage", "requestDefaultLogin"]);
+    function rP(a, b, c, e, f, g, h, k, m) {
+        f = void 0 === f ? function() {}
+        : f;
+        g = void 0 === g ? function() {}
+        : g;
+        h = void 0 === h ? !0 : h;
+        k = void 0 === k ? "UNKNOWN" : k;
+        m = void 0 === m ? function() {}
+        : m;
+        b(function(b) {
+            1 > b.length ? m() : (b = a(e, b, f, g, h, k),
+            c.open(b))
+        })
+    }
+    E(rP, ["createAccountSelectorOverlay", "loadDeviceAccounts", "overlayStage"]);
+    function sP(a, b, c, e, f, g) {
+        f = void 0 === f ? "" : f;
+        mA.call(this, c, e, g);
+        this.message = a;
+        this.Ia = b;
+        this.lG = f;
+        this.L = "iconSimpleDialog"
+    }
+    l(sP, mA);
+    E(sP, "message iconClass opt_completeHandler opt_cancelHandler opt_extraInfo opt_enableDialogSounds".split(" "));
+    function tP(a, b, c, e, f) {
+        b.HG("disable_dogfood_checks") || a.load({
+            action_check_df: !0
+        }, function(a) {
+            a && Na(a) && a.dogfood_changed && (a = e.C("[[An app reload is required to continue.|Body text of a dialog shown to the user when an app reload is required.]]"),
+            a = new sP(a,"icon-settings-term",f,f),
+            a.title = e.C("[[App reload required|Title of dialog shown to the user when their app needs to be reloaded.]]"),
+            a.Re = "[[Continue|A button for continuing a process that startedin the current dialog.]]",
+            a.nq = "",
+            a.ek = "dialog-ok-button",
+            a.Cd = !0,
+            a.hm = !0,
+            a.Rc = !0,
+            c.open(a))
+        })
+    }
+    E(tP, ["leanbackAjaxService", "variants", "dialogStageModel", "localeService", "reloadPage"]);
+    function uP(a, b, c, e) {
+        a.Zz(function(f) {
+            var g = [];
+            f.length ? b(f).then(function(b) {
+                for (var h = a.Tn(), m = 0; m < f.length; m++) {
+                    var p = t("contents.0.accountSectionListRenderer.contents." + m + ".accountItemSectionRenderer.contents.0.accountItem", b);
+                    if (p) {
+                        var u = f[m]
+                          , v = !(!h || h.refreshToken !== u.refreshToken);
+                        g.push({
+                            avatar: c.Ji(p.accountPhoto),
+                            email: X(p.accountByline),
+                            name: X(p.accountName),
+                            rU: !!p.unlimitedStatus,
+                            active: v,
+                            token: u
+                        })
+                    }
+                }
+                e(g)
+            }) : e(g)
+        })
+    }
+    E(uP, ["authService", "loadAccountsList", "thumbnailParser"]);
+    function vP(a, b) {
+        return new Rj(function(c, e) {
+            var f = new gq("POST","/api/xbox/refresh",null,{
+                token: b.refresh_token
+            },Object.assign({}, ss, {
+                "X-Cobalt-Xbl-Prompt": "true"
+            }))
+              , g = a();
+            g.md(c);
+            g.Wd(e);
+            g.send(f)
+        }
+        )
+    }
+    E(vP, ["xhrRequestFactory"]);
+    function wP(a, b, c) {
+        return new Rj(function(e, f) {
+            var g = new gq("POST","/api/xbox/refresh",null,{
+                style: "json"
+            },Object.assign({}, ss, {
+                "X-Cobalt-Xbl-Prompt": "false"
+            }))
+              , h = b()
+              , k = {
+                gaiaId: c.gaiaId,
+                ownerGaiaId: c.gaiaId,
+                delegateRelationship: 0
+            };
+            h.md(function(b) {
+                e(a(k, c, b))
+            });
+            h.Wd(f);
+            h.send(g)
+        }
+        )
+    }
+    E(wP, ["buildAuthorizedAccessCredential", "xhrRequestFactory"]);
+    function xP() {
+        Ur.apply(this, arguments);
+        this.model = null
+    }
+    l(xP, Ur);
+    xP.prototype.D = function(a) {
+        Ur.prototype.D.call(this, a);
+        this.model && (this.imageUrl = this.model.url)
+    }
+    ;
+    xP.prototype.T = function() {
+        var a = Ur.prototype.T.call(this);
+        this.model && this.model.kr && a.push(this.model.kr);
+        return a
+    }
+    ;
+    E(xP, Ur[ab]);
+    function yP(a, b) {
+        this.url = a;
+        this.kr = b;
+        this.L = "overlay-partials-image"
+    }
+    ;function zP(a, b, c, e, f, g) {
+        var h = new ZL;
+        h.title = b.C("[[Sign in|Title of dialog prompting to sign in]]");
+        h.image = new yP("sign-in-octo.png","sign-in-img");
+        h.subtitle = b.C(AP(g));
+        b = new bM(b.C("[[Sign in|Title of dialog prompting to sign in]]"),function() {
+            a.close();
+            c.setTimeout(function() {
+                return f(g)
+            }, 200)
+        }
+        );
+        e = e();
+        e.oa([b], 0);
+        h = new YL(new TL(h,e));
+        a.open(h)
+    }
+    function AP(a) {
+        switch (a) {
+        case "ADD_TO_WATCH_LATER":
+            return "[[Saving video requires using an account|Subtitle dialog prompting to choose account to add a video to a playlist]]";
+        case "LIKE_DISLIKE":
+            return "[[Likes and dislikes require sign in|Subtitle of dialog prompting to sign in to like or dislike video]]";
+        case "SUBSCRIBE":
+            return "[[Subscribing to a channel requires sign in|Subtitle of dialog prompting to sign in to subscribe to channel]]";
+        case "PLAYER":
+            return "[[This video requires age verification|Subtitle of dialog prompting sign in to watch age gated video]]";
+        default:
+            return ""
+        }
+    }
+    E(zP, ["overlayStage", "localeService", "timeService", "makeCollection", "requestDefaultLogin"]);
+    function BP(a) {
+        a.initialize();
+        return a.execute()
+    }
+    E(BP, ["whosWatchingOverlayAlertRequest"]);
+    function CP(a, b, c, e, f, g, h, k) {
+        this.ota = a;
+        this.ec = b;
+        this.environment = c;
+        this.RJa = e;
+        this.M = f;
+        this.nc = g;
+        this.G = h;
+        this.qa = k;
+        this.tw = null
+    }
+    CP.prototype.initialize = function() {
+        var a = this;
+        this.tw || (this.tw = new Rj(function(b) {
+            a.environment.Os && a.pFa() ? (a.qa.Lg("ww_rqs", ["ww_rqf"], !0),
+            a.RJa(function(c) {
+                a.qa.La("ww_rqf", "ww_rqs");
+                b(c)
+            })) : b([])
+        }
+        ))
+    }
+    ;
+    CP.prototype.execute = function() {
+        var a = this;
+        return this.tw ? this.tw.then(function(b) {
+            return Vj(a.Es(b))
+        }) : Vj(!1)
+    }
+    ;
+    CP.prototype.Es = function(a) {
+        var b = this;
+        if (2 > a.length)
+            return !1;
+        var c = this.G.ye(20593)
+          , e = this.G.ye(56705);
+        a = this.ota(new ZL(this.M.C("[[Who's watching YouTube?|Header for account selection dialog shown on start up.]]")), a, function() {
+            b.G.Sc(e)
+        }, function() {
+            b.G.Sc(c)
+        }, !0, "SIGN_IN_PROMO");
+        this.nc.open(a);
+        this.G.attachChild(e);
+        this.G.attachChild(c, e);
+        this.G.Ca(e);
+        this.G.Ca(c);
+        return !0
+    }
+    ;
+    CP.prototype.pFa = function() {
+        var a = this.ec.Fu();
+        return 2 <= Object.keys(a).length
+    }
+    ;
+    E(CP, "createAccountSelectorOverlay credentialManager environment loadDeviceAccounts localeService overlayStage screenManager performanceService".split(" "));
+    function DP(a, b, c, e, f, g) {
+        e = void 0 === e ? function() {}
+        : e;
+        f = void 0 === f ? function() {}
+        : f;
+        g = void 0 === g ? function() {}
+        : g;
+        SM.call(this, b, [c], !0);
+        this.Sv = a;
+        this.header = b;
+        this.uW = e;
+        this.gB = f;
+        this.onError = g;
+        this.L = "overlay-mobile-assisted-sign-in"
+    }
+    l(DP, SM);
+    function EP(a, b, c, e, f, g, h) {
+        f = void 0 === f ? function() {}
+        : f;
+        g = void 0 === g ? function() {}
+        : g;
+        h = void 0 === h ? function() {}
+        : h;
+        var k = new ZL;
+        k.title = a.C("[[Sign in using the YouTube mobile app|Instructs user to begin the TV sign-in flow using the YouTube mobile app.]]");
+        k.subtitle = a.C("[[Tap your account. Make sure your mobile device is on the same Wi-Fi as this TV.|Instructs user to tap on the account icon on his/her mobile device, and instructs user to ensure that the mobile device and TV are connected to the same Wi-Fi network.]]");
+        k.image = new yP("sign_in_tap_account_2.png","sign_in_tap_account_2");
+        a = new bM(a.C("[[Try another way|Label for button which allows user to try another way of signing in.]]"));
+        k = new DP(e,k,a,f,g,h);
+        var m = new XL(g)
+          , p = new YL(k,m,null,0);
+        a.ob = function() {
+            m.push(p);
+            c(e, f, g, h, m)
+        }
+        ;
+        b.open(p)
+    }
+    E(EP, ["localeService", "overlayStage", "showUrlSignInOverlay"]);
+    function FP(a, b, c) {
+        var e = new ZL;
+        e.title = b.C("[[Something went wrong|Sign-in dialog title when there is an authentication server error.]]");
+        e.subtitle = b.C("[[Sign-in failed|Error message displayed when the TV fails to fetch an auth code.]]");
+        b = new bM(b.C("[[Try again|Overlay menu item to retry sign-in.]]"),c);
+        e = new YL(new SM(e,[b]));
+        a.open(e)
+    }
+    E(FP, ["overlayStage", "localeService"]);
+    function GP(a, b, c, e, f) {
+        b = void 0 === b ? new ZL : b;
+        this.Sv = a;
+        this.header = b;
+        this.uW = void 0 === c ? function() {}
+        : c;
+        this.gB = void 0 === e ? function() {}
+        : e;
+        this.onError = void 0 === f ? function() {}
+        : f;
+        this.L = "overlay-url-sign-in"
+    }
+    ;function HP(a, b, c, e, f, g, h) {
+        e = void 0 === e ? function() {}
+        : e;
+        f = void 0 === f ? function() {}
+        : f;
+        g = void 0 === g ? function() {}
+        : g;
+        h = void 0 === h ? new XL(f) : h;
+        var k = new ZL;
+        k.image = new yP("browser-youtube.png","browser-youtube");
+        k.title = a.C("[[Sign in using a web browser|Instructs user to begin the sign-in flow using a web browser on a phone or computer.]]");
+        a = new YL(new GP(c,k,e,f,g),h);
+        b.open(a)
+    }
+    E(HP, ["localeService", "overlayStage"]);
+    function IP(a, b) {
+        var c = new ZL;
+        c.title = a.C("[[Sign in error|Dialog title that tells the user that he is no longer signed into YouTube account on TV due to error]]");
+        c.subtitle = a.C("[[Your account couldn't be accessed. Please sign in again or use a different account.|Error dialog that is shown when sign in credentials are no longer valid and user is automatically signed out]]");
+        a = new YL(new SM(c,[]));
+        b.open(a)
+    }
+    E(IP, ["localeService", "overlayStage"]);
+    function JP(a, b, c, e, f, g) {
+        pN.call(this, a, 6827, c, e, f, g);
+        this.Fj = b;
+        this.OU = null;
+        this.og = [];
+        this.KM = y
+    }
+    l(JP, pN);
+    JP.prototype.start = function() {
+        pN.prototype.start.call(this);
+        this.OU && this.G.attachChild(this.OU);
+        for (var a = 0, b = this.og.length; a < b; ++a) {
+            var c = this.og[a];
+            this.G.attachChild(c.nF, c.zJ)
+        }
+        this.KM();
+        this.KM = this.Fj.on("browse-loaded", this.rxa.bind(this))
+    }
+    ;
+    JP.prototype.rxa = function(a) {
+        a = a.detail[0].trackingParams;
+        this.G.attachChild(a);
+        this.OU = a;
+        this.og = []
+    }
+    ;
+    JP.prototype.aK = function(a) {
+        this.og.push(a)
+    }
+    ;
+    JP.prototype.stop = function() {
+        pN.prototype.stop.call(this);
+        this.KM();
+        this.KM = y
+    }
+    ;
+    E(JP, "screenManager rootDispatcher legendModel experimentFlags guideModel opt_triggerVe".split(" "));
+    function KP(a, b) {
+        b && Vk(a.body, "apple")
+    }
+    E(KP, ["document", "supportsAppleTvUx"]);
+    function LP(a, b, c, e, f, g, h, k, m, p) {
+        if (m.fI)
+            h(m);
+        else {
+            var u = !b.rd()
+              , v = p ? c : e;
+            b = function() {
+                function b() {
+                    a.w("subscription-change", m.userId, p)
+                }
+                v.load({
+                    channelIds: [m.userId],
+                    context: {
+                        clientScreenNonce: k.fc()
+                    }
+                }, b, function(a) {
+                    u && a && 400 === a.statusCode ? b() : g()
+                })
+            }
+            ;
+            u ? f(b, "SUBSCRIBE") : b()
+        }
+    }
+    E(LP, "rootDispatcher authService subscribeService unsubscribeService ensureLoggedIn showSubscriptionErrorDialog showPaidChannelSubscriptionErrorDialog screenManager".split(" "));
+    function MP(a) {
+        a.channelId = null;
+        a.params = null
+    }
+    E(MP, ["mostRecentlyLoadedBrowseParams"]);
+    function NP(a, b, c, e, f, g, h, k, m, p, u) {
+        aD.call(this, p, m, u);
+        this.accountManager = a;
+        this.sendReport = b;
+        this.B1 = c;
+        this.$ta = e;
+        this.SWa = f;
+        this.fxa = g;
+        this.experimentFlags = h;
+        this.OP = k;
+        this.bv = !1;
+        this.Hc = null;
+        this.WU = this.ZM = this.GZa = 0
+    }
+    l(NP, aD);
+    d = NP.prototype;
+    d.B = function() {
+        this.Dy();
+        this.Hc && (this.Hc.HO(),
+        this.Hc = null);
+        this.gF();
+        aD.prototype.B.call(this)
+    }
+    ;
+    d.Gw = function(a) {
+        var b = this.Me;
+        this.ei(function(c) {
+            a(!!c, b)
+        })
+    }
+    ;
+    d.rd = function() {
+        return this.Me
+    }
+    ;
+    d.ei = function(a, b) {
+        var c = this;
+        b = void 0 === b ? !1 : b;
+        var e, f = !1;
+        this.OP.P2(function() {
+            f || (b && c.Nl(),
+            c.bv ? a(c.Jw()) : (e = function(b) {
+                a(b)
+            }
+            ,
+            c.Hc ? c.Hc.xl.push(e) : (c.Hc = c.IF("getAuthToken"),
+            c.Hc.xl.push(e),
+            c.accountManager.getAuthToken(c.qE.bind(c, c.Hc, !0, void 0)))))
+        });
+        return this.bv ? function() {
+            f = !0
+        }
+        : function() {
+            f = !0;
+            e && c.fF(e)
+        }
+    }
+    ;
+    d.kf = function(a, b, c) {
+        function e() {
+            var c = {
+                reason: a,
+                WC: "ACCOUNT_STATUS_CHANGE_TYPE_LOG_OUT"
+            };
+            f.k6();
+            f.gF();
+            f.Me = !1;
+            f.NE("signed-out", c);
+            f.Vi("signed-out", b, a)
+        }
+        var f = this;
+        this.Dy();
+        this.$ta.DY(a);
+        if (c) {
+            this.accountManager.invalidateAuthToken(c.accessToken);
+            c = this.ec.jR(c);
+            var g = this.ec.Rq();
+            if (c) {
+                var h = this.ec.MG(c);
+                h && (this.ec.TB(h),
+                g && g.gaiaId === c.gaiaId && e())
+            }
+        } else
+            (c = this.ec.Ez()) ? (this.Pc && this.accountManager.invalidateAuthToken(this.Pc.accessToken),
+            this.ec.TB(c),
+            e()) : this.gF()
+    }
+    ;
+    d.bRa = function(a, b) {
+        this.kf("pr");
+        this.Hc = this.IF("requestPairing");
+        a && this.Hc.xl.push(a);
+        this.accountManager.requestPairing(this.qE.bind(this, this.Hc, !1, b))
+    }
+    ;
+    d.WX = function(a, b) {
+        this.gF();
+        this.Hc = this.IF("requestUnpairing");
+        a && this.Hc.xl.push(a);
+        this.accountManager.requestUnpairing(this.qE.bind(this, this.Hc, !1, b))
+    }
+    ;
+    d.k6 = function() {
+        this.Pc = null;
+        this.bv = !1
+    }
+    ;
+    d.qE = function(a, b, c, e, f) {
+        var g = this;
+        if (a === this.Hc) {
+            var h = this.g3(e, f);
+            e = !!h;
+            f = !!this.B1.get();
+            this.B1.set(e);
+            var k = {};
+            e = (k.a = "tv_access_token",
+            k.request_type = a.type,
+            k.received_token = e,
+            k.received_prior_token = f,
+            k.sequence_no = this.GZa++,
+            k);
+            this.sendReport("/gen_204", e);
+            if (h) {
+                var m = this.fxa(h.accessToken).then(function(a) {
+                    return g.Ywa(h, b, c, a)
+                }, function(a) {
+                    return g.Xwa(a)
+                });
+                a.HO = function() {
+                    m.cancel()
+                }
+            } else
+                this.Pka("so")
+        }
+    }
+    ;
+    d.Nl = function() {
+        this.bv = !1;
+        aD.prototype.Nl.call(this)
+    }
+    ;
+    d.MW = function() {
+        this.Mj = -1;
+        this.k6();
+        this.w("oauth-expired")
+    }
+    ;
+    d.Ywa = function(a, b, c, e) {
+        this.xha(!0, !0);
+        this.ZM = 0;
+        var f = this.j.getCurrentTime().getTime();
+        a && f >= a.ue ? this.accountManager.getAuthToken(this.qE.bind(this, this.Hc, b, c)) : ((f = this.ec.Rq()) && f.gaiaId !== e ? (f = this.Hc,
+        this.Hc = this.IF(),
+        this.Nl(),
+        this.Me = !1,
+        this.Vi("signed-out", !1, "so"),
+        this.v3(f)) : this.Nl(),
+        f = {
+            delegateRelationship: 0,
+            ownerGaiaId: e,
+            gaiaId: e
+        },
+        e = {
+            refreshToken: a.refreshToken,
+            oAuthClientIdName: a.kg,
+            gaiaId: e
+        },
+        this.ec.Xx(e),
+        this.Rk(a, c, b) || (this.Pc = {
+            accessToken: a.accessToken,
+            ue: a.ue,
+            C1: f,
+            Id: e
+        },
+        this.UC(),
+        this.Vi("token-refresh", !1)),
+        this.bv = !0,
+        f = this.Hc,
+        this.Hc = null,
+        this.v3(f))
+    }
+    ;
+    d.Bz = function() {
+        return y
+    }
+    ;
+    d.Xwa = function(a) {
+        this.xha(!1, !1, a && a.statusCode);
+        ++this.ZM;
+        a = this.WU;
+        this.WU = this.j.getCurrentTime().getTime();
+        a && 45E3 >= this.WU - a && 2 <= this.ZM && (this.ZM = 0,
+        this.SWa());
+        this.Pka("gre")
+    }
+    ;
+    d.xha = function(a, b, c) {
+        var e = {};
+        a = (e.a = "tv_user_id_request",
+        e.request_succeeded = a,
+        e.received_user_id = b,
+        e);
+        c && (a.status = c);
+        this.sendReport("/gen_204", a)
+    }
+    ;
+    d.Pka = function(a) {
+        this.Nl();
+        this.kf(a, "so" !== a);
+        this.bv = !0
+    }
+    ;
+    d.v3 = function(a) {
+        for (var b = 0, c = a.xl.length; b < c; ++b)
+            a.xl[b](this.Jw())
+    }
+    ;
+    d.IF = function(a) {
+        return {
+            xl: [],
+            HO: y,
+            type: void 0 === a ? "getAuthToken" : a
+        }
+    }
+    ;
+    d.gF = function() {
+        if (this.Hc) {
+            this.Hc.HO();
+            for (var a = this.Hc.xl; 0 < a.length; )
+                a.shift()(this.Jw());
+            this.Hc = null
+        }
+    }
+    ;
+    d.fF = function(a) {
+        this.Hc && (a = this.Hc.xl.indexOf(a),
+        0 <= a && this.Hc.xl.splice(a, 1))
+    }
+    ;
+    d.g3 = function(a, b) {
+        if (!a)
+            return null;
+        var c = this.j.getCurrentTime().getTime();
+        return {
+            accessToken: a,
+            ue: c + 900 * b,
+            refreshToken: "DEFAULT_SSO_AM_TOKEN",
+            kg: "device"
+        }
+    }
+    ;
+    d.Zz = function(a) {
+        var b = this;
+        this.accountManager.getAuthToken(function(c, e) {
+            c = b.g3(c, e);
+            a(c ? [c] : [])
+        })
+    }
+    ;
+    E(NP, "accountManager sendReport accessTokenReceivedFlag deauthReporting showPs4SignInErrorToast getAccountGaiaId experimentFlags credentialManagerMigrator timeService credentialManager refreshOAuthCredentials".split(" "));
+    function OP(a, b, c, e, f, g, h, k, m, p, u, v, w) {
+        e instanceof NP ? e.rd() ? e.WX(function() {
+            return g.Mi()
+        }) : g.Mi() : (PP(e, w),
+        g.Mi());
+        u();
+        a.isSupported() && a.clear();
+        $g.clear();
+        b.eP(f);
+        c.eP(f, !0);
+        h.load({
+            action_clear: 1
+        }, xd(p), function() {});
+        k.clear();
+        m.clear();
+        v.clear()
+    }
+    function PP(a, b) {
+        a.kf("cls");
+        b = b.Fu();
+        b = tc(b);
+        for (var c = 0; c < b.length; c++) {
+            var e = b[c];
+            a.kf("cls", !1, {
+                accessToken: "INVALID_AUTH_TOKEN",
+                ue: -1,
+                kg: e.oAuthClientIdName,
+                refreshToken: e.refreshToken
+            })
+        }
+    }
+    E(OP, "cookiesApi sharedStorage localStorage authService allStorageKeys remoteService leanbackAjaxService searchHistoryService searchQueryModel reloadRuntimeParameters resetSettings history credentialManager environment".split(" "));
+    function QP(a, b) {
+        b && a.filter(RP)
+    }
+    function RP(a) {
+        return "watch" == a.getName()
+    }
+    E(QP, ["history"]);
+    function SP(a, b, c) {
+        switch (c) {
+        case "ABOUT_APP_VERSION":
+            return a;
+        case "CLEAR_COOKIES":
+            return b
+        }
+    }
+    E(SP, ["showAppVersionDialog", "showClearStorageDialog"]);
+    function TP(a, b, c, e, f, g, h) {
+        switch (h) {
+        case "ENABLE_SOUND":
+            return a;
+        case "AUTONAV":
+            return b;
+        case "RETAIN_TRACKING_DATA":
+            return g.W8();
+        case "SAFETY_MODE":
+            return c;
+        case "ENABLE_HIGH_CONTRAST_MODE":
+            return e;
+        case "ENABLE_MUSIC_PREVIEWS":
+            return f
+        }
+    }
+    E(TP, "soundEnabledFlag autoplayFlag safeModeFlag highContrastFlag inlinePlaybackFlag privateDataService".split(" "));
+    function UP(a, b, c, e, f, g, h, k) {
+        function m(a, b) {
+            if (h) {
+                var e = {
+                    serializedTransactionFlowLoggingParams: h
+                };
+                b && (e.errorType = b);
+                c.send(a, e);
+                c.flush()
+            }
+        }
+        var p = g.integratorData
+          , u = g.error;
+        -1 === u ? m("transactionFlowCancelled") : b(new Rj(function(b, c) {
+            function g(a) {
+                m("transactionFlowFailed", a);
+                c(a)
+            }
+            if (null == p || "" === p || u)
+                g("TRANSACTION_ERROR_TYPE_YPC_BUYFLOW_COMPLETE_FAILURE");
+            else {
+                var h = {
+                    paymentsPayload: Vf(If(p)),
+                    offerParams: f,
+                    context: {
+                        clickTracking: {
+                            clickTrackingParams: k
+                        },
+                        clientScreenNonce: e.fc()
+                    }
+                };
+                a.load(h, function(a) {
+                    m("transactionFlowSucceeded");
+                    a.trackingParams && e.attachChild(a.trackingParams);
+                    a.postTransaction && a.postTransaction.livingRoomPostTransactionRenderer ? b(a.postTransaction.livingRoomPostTransactionRenderer) : c("No living room renderer")
+                }, function() {
+                    g("TRANSACTION_ERROR_TYPE_YPC_COMPLETE_TRANSACTION_RPC_FAILURE")
+                })
+            }
+        }
+        ))
+    }
+    E(UP, ["ypcCompleteTransactionService", "showPostTransactionDialog", "gelService", "screenManager"]);
+    function VP(a, b, c, e, f, g, h, k, m, p, u) {
+        function v() {
+            var b = {};
+            b = {
+                context: {
+                    clientScreenNonce: f.fc()
+                },
+                playlistId: k,
+                actions: [(b.action = m,
+                b[WP[m]] = p,
+                b)]
+            };
+            c.load(b, function(b) {
+                a.w("edit-playlist");
+                u ? u(b, m) : g()
+            });
+            h("/gen_204", {
+                action: m
+            })
+        }
+        b.rd() ? v() : e(v, "ADD_TO_WATCH_LATER")
+    }
+    var XP = {}
+      , WP = (XP.ACTION_ADD_VIDEO = "addedVideoId",
+    XP.ACTION_REMOVE_VIDEO_BY_VIDEO_ID = "removedVideoId",
+    XP);
+    E(VP, "rootDispatcher authService editPlaylistService ensureLoggedIn screenManager showAddedToWatchLaterToast sendReport".split(" "));
+    function YP(a) {
+        a.embed()
+    }
+    E(YP, ["playerService"]);
+    function ZP(a, b) {
+        a.isSupported() && a.registerErrorCallback(function(a) {
+            b("/gen_204", tl(a), "steel_whitelist_sw")
+        })
+    }
+    E(ZP, ["loggingApi", "sendReport"]);
+    function $P(a, b, c, e, f, g, h, k, m, p, u) {
+        var v = {};
+        return v.browseEndpoint = a,
+        v.clientActionEndpoint = k,
+        v.confirmDialogEndpoint = m,
+        v.ypcGetCartEndpoint = b,
+        v.ypcOffersEndpoint = u,
+        v.remoteTransactionDialogEndpoint = p,
+        v.searchEndpoint = c,
+        v.applicationSettingsEndpoint = e,
+        v.signalNavigationEndpoint = f,
+        v.signInEndpoint = g,
+        v.signOutEndpoint = h,
+        v
+    }
+    E($P, "navigateToBrowse navigateToGetCart navigateToSearch navigateToSettings navigateToSignalNavigation navigateToSignIn navigateToSignOut clientAction showConfirmDialog showRemoteTransactionDialog showOfferSelectionDialog".split(" "));
+    function aQ(a, b, c, e, f, g, h) {
+        var k = {};
+        return k.browseEndpoint = a,
+        k.clientActionEndpoint = g,
+        k.remoteTransactionDialogEndpoint = h,
+        k.searchEndpoint = b,
+        k.applicationSettingsEndpoint = c,
+        k.signOutEndpoint = e,
+        k.signalNavigationEndpoint = f,
+        k
+    }
+    E(aQ, "navigateToBrowse navigateToSearch navigateToSettings navigateToSignOut navigateToSignalNavigation clientAction showRemoteTransactionDialog".split(" "));
+    function bQ(a, b, c, e) {
+        if ((b = c.browseEndpoint) && b.browseId) {
+            if (b.params)
+                var f = b.params;
+            if (c.clickTrackingParams)
+                var g = c.clickTrackingParams;
+            "FEhistory" === b.browseId && (b.browseId = "FEmy_youtube");
+            a(b.browseId, !1, f, e instanceof V ? e.getName() : e, g)
+        }
+    }
+    E(bQ, ["gotoBrowse", "experimentFlags"]);
+    function cQ(a, b, c, e, f, g, h, k, m) {
+        if (m.ypcGetCartEndpoint && m.ypcGetCartEndpoint.offerParams) {
+            var p = m.ypcGetCartEndpoint.offerParams;
+            m = {
+                offerParams: p,
+                context: {
+                    clickTracking: {
+                        clickTrackingParams: m.clickTrackingParams
+                    },
+                    clientScreenNonce: k.fc()
+                }
+            };
+            a.load(m, function(a) {
+                if (a.encryptedPurchaseParams) {
+                    a.trackingParams && k.attachChild(a.trackingParams);
+                    dQ(c, "transactionFlowStarted", a.serializedTransactionFlowLoggingParams);
+                    var f = a.encryptedPurchaseParams.replace(/-/g, "+").replace(/_/g, "/")
+                      , m = h.wb;
+                    h.pause();
+                    b.openDialog(f, function(b) {
+                        g(p, b, a.serializedTransactionFlowLoggingParams, a.trackingParams)
+                    }, function() {
+                        dQ(c, "transactionFlowSecondaryDeviceStarted", a.serializedTransactionFlowLoggingParams);
+                        e(p)
+                    }, function() {
+                        m && h.play()
+                    }, function() {}, function() {})
+                }
+            }, f)
+        }
+    }
+    function dQ(a, b, c) {
+        c && (a.send(b, {
+            serializedTransactionFlowLoggingParams: c
+        }),
+        a.flush())
+    }
+    E(cQ, "ypcGetCartService paymentsOrchestrationService gelService showRemoteTransactionDialog showNavigateToGetCartErrorToast completePurchase playerService screenManager".split(" "));
+    function eQ(a, b, c) {
+        a(b.searchEndpoint.query, void 0, void 0, c instanceof V ? c.getName() : c, b.clickTrackingParams)
+    }
+    E(eQ, ["gotoSearch"]);
+    function fQ(a, b) {
+        a(!1, b.clickTrackingParams)
+    }
+    E(fQ, ["gotoSettings"]);
+    function gQ(a) {
+        a()
+    }
+    E(gQ, ["requestLogout"]);
+    function hQ(a, b, c, e) {
+        a.Sc(c.clickTrackingParams);
+        if (e instanceof V)
+            switch (c.clientActionEndpoint.action.actionType) {
+            case "BACK_TO_TOP":
+                e.dc("BACK_TO_TOP");
+                break;
+            case "OPEN_SIGN_IN_PROMPT":
+                b("SIGN_IN_PROMO")
+            }
+    }
+    E(hQ, ["screenManager", "requestLogin"]);
+    function iQ(a, b, c, e, f, g, h, k, m, p, u, v, w) {
+        function x() {
+            b.rd() ? p(!0) : v()
+        }
+        v = void 0 === v ? function() {}
+        : v;
+        w = void 0 === w ? "" : w;
+        b.ei(function(b) {
+            if (b)
+                p(!1);
+            else {
+                if (c.wb) {
+                    c.pause();
+                    var f = z(c.play, c);
+                    b = function() {
+                        v();
+                        f()
+                    }
+                    ;
+                    var B = function() {
+                        x();
+                        f()
+                    }
+                } else
+                    b = v,
+                    B = x;
+                "ADD_TO_WATCH_LATER" === u && k.enable_add_to_watch_later ? m(B, b) : g && !e.Zu() ? h(u, B, b) : a(u, B, b, w)
+            }
+        })
+    }
+    E(iQ, "requestLogin authService playerService credentialManager environment supportsDirectSignIn showEnsureLoggedInDialog experimentFlags showSignInWatchLaterDialog".split(" "));
+    function jQ(a) {
+        a.Rk(null, {
+            reason: "so"
+        })
+    }
+    E(jQ, ["authService"]);
+    function kQ(a) {
+        var b = a.Sa("state");
+        var c = bn("/?" + String(b));
+        b = c.Uc("reason");
+        c = c.Uc("application_state");
+        var e = a.Sa("code");
+        a = a.Sa("error");
+        return {
+            code: e ? String(e) : void 0,
+            error: a ? String(a) : void 0,
+            Cha: c,
+            reason: b
+        }
+    }
+    E(kQ, ["initialUrlQuery"]);
+    function lQ(a, b) {
+        var c = b.getName();
+        "channel" === c ? mQ(a, "channel", 5) : "detail-surface" === c ? mQ(a, "detail-surface", 4) : a.filter(function(a) {
+            return a.getName() === c
+        })
+    }
+    function mQ(a, b, c) {
+        a.limit(c - 1, function(a) {
+            return a.getName() === b
+        })
+    }
+    E(lQ, ["history"]);
+    function nQ(a, b, c) {
+        var e, f;
+        return function() {
+            var g = {
+                isDocked: !!c.matchMedia && c.matchMedia("(max-resolution: 200dpi)").matches
+            }
+              , h = {
+                previousValue: e,
+                currentValue: g
+            }
+              , k = b.za();
+            f && (h.timeSinceLastSnapshotSecs = Math.floor((k - f) / 1E3));
+            e = g;
+            f = k;
+            a.send("appSettingsCaptured", h)
+        }
+    }
+    E(nQ, ["gelService", "timeService", "window"]);
+    function oQ(a, b, c, e, f, g, h, k, m) {
+        c = [pQ(c)];
+        a.enable_whos_watching_prompt && c.push(m);
+        5 <= b() && c.push(pQ(g));
+        a.enable_promo_premium ? c.push(pQ(f)) : a.enable_promo_coupon ? c.push(pQ(e)) : c.push(pQ(k));
+        c.push(pQ(h));
+        return Vj(c)
+    }
+    function pQ(a) {
+        return function() {
+            return Vj(a())
+        }
+    }
+    E(oQ, "experimentFlags getAirstreamSessions showLanguageChangedToast showPromoCouponOverlay showPromoPremiumOverlay showRateAtvToast showSharedDeviceToast showSignInOnboardingDialog showWhosWatchingOverlay".split(" "));
+    function qQ(a, b) {
+        var c = {}, e;
+        for (e in b)
+            if (b.hasOwnProperty(e)) {
+                var f = a.get(e);
+                -1 < rQ.indexOf(e) && f && 5 < f.length && (f = "XXXX-" + f.substr(f.length - 5));
+                c[e] = f
+            }
+        return JSON.stringify(c, null, " ")
+    }
+    var rQ = ["tv-refresh-token"];
+    function sQ(a, b, c, e, f, g, h, k, m, p, u, v) {
+        var w = c.label;
+        b.r2 && (w = b.r2 + "/" + w);
+        w = [{
+            key: "Version",
+            value: w
+        }, {
+            key: "Device",
+            value: b.toString()
+        }, {
+            key: "Language",
+            value: f.Yb
+        }, {
+            key: "Region",
+            value: f.region
+        }];
+        a.qba() && w.push.apply(w, [{
+            key: "User Agent",
+            value: b.userAgent
+        }, {
+            key: "Client",
+            value: c.name + ", " + c.version
+        }, {
+            key: "Loader",
+            value: c.loader
+        }, {
+            key: "Href",
+            value: e.href
+        }, {
+            key: "Visitor Id",
+            value: u.get()
+        }, {
+            key: "Locale Report",
+            value: Nn(f.k9())
+        }, {
+            key: "Server User Agent",
+            value: g.server_ua
+        }]);
+        a.cI() && w.push.apply(w, [{
+            key: "Shared Storage",
+            value: qQ(h, p)
+        }, {
+            key: "Sandboxed Storage",
+            value: qQ(k, m)
+        }, {
+            key: "Cookie Storage",
+            value: qQ(v, p) + qQ(v, m)
+        }]);
+        return w
+    }
+    E(sQ, "debugService device clientInfo location localeModel runtimeParams sharedStorage localStorage topLevelStorageKeys sharedStorageKeys visitorData cookieStorage".split(" "));
+    function tQ(a, b, c, e) {
+        if (c)
+            c = e ? Math.min(150 + 50 * b, 600) : Math.min(120 + 20 * b, 600);
+        else
+            return c = Math.min(50 + 50 * b, 600),
+            a / b * c;
+        return (.47 * Math.pow(a / b, 2) + a / b * .5) * c
+    }
+    ;function uQ(a, b, c) {
+        var e = [];
+        a = (b = a.model.mi(b)) ? a.Em(b) : null;
+        if (!a)
+            return e;
+        if (b = a.h.querySelector(".guide-button-title")) {
+            var f = a.h;
+            var g = f.querySelector(".guide-button-icon")
+        }
+        f && (e.push(vQ(f, "guideanimation", c, 150)),
+        b && e.push(vQ(b, "guideanimation", c, 150)),
+        g && e.push(vQ(g, "guideanimation", c, 150)));
+        return e
+    }
+    function vQ(a, b, c, e) {
+        return {
+            element: a,
+            JF: "animation-delay: " + Math.floor(c) + "ms; " + ("animation-duration: " + e + "ms; animation-name: " + b + ";"),
+            delay: c,
+            duration: e
+        }
+    }
+    ;function wQ(a, b, c, e) {
+        var f = [];
+        b = (b = a.model.mi(b)) ? a.Em(b) : null;
+        if (!b)
+            return f;
+        var g = a.isVertical() ? ".selected " : "";
+        a = b.h.querySelector(g + ".shadow-container");
+        var h = b.h.querySelector(g + ".mask")
+          , k = b.h.querySelector(g + ".tile-top")
+          , m = b.h.querySelector(g + ".channel-top");
+        b = b.h.querySelector(g + ".action-tile .content");
+        k && f.push(xQ(k, "growshrink", c, e));
+        m && f.push(xQ(m, "growshrink", c, e));
+        b && f.push(xQ(b, "growshrink", c, e));
+        a && f.push(xQ(a, "addremoveboxshadow", c, e));
+        h && f.push(xQ(h, "changetransparency", c, e));
+        return f
+    }
+    function xQ(a, b, c, e) {
+        return {
+            element: a,
+            JF: "animation-delay: " + Math.floor(c) + "ms; " + ("animation-duration: " + e + "ms; animation-name: " + b + ";"),
+            delay: c,
+            duration: e
+        }
+    }
+    ;function yQ(a, b, c, e) {
+        var f = null;
+        b = [];
+        for (var g = c.isVertical() ? "translateY" : "translateX", h = 0, k = a.ha(); h < k; ++h) {
+            var m = a.mi(h)
+              , p = m.getState();
+            if (p)
+                b[h] = p.alignment.size;
+            else {
+                p = c;
+                for (var u = m.cssText, v = [["position", "absolute"], [g, qp(e.Ce())]], w = 0, x = v.length; w < x; w++)
+                    u.setProperty(v[w][0], v[w][1]);
+                w = u.gi();
+                x = 0;
+                for (var B = v.length; x < B; x++)
+                    u.vsa(v[x][0]);
+                u = p.Em(m);
+                v = u.h;
+                p.Zb(u);
+                v.style.cssText = w;
+                p.container.appendChild(v);
+                m = c.getItem(m);
+                f || (f = c,
+                f = e.Ce() / zQ(g, f.h));
+                b[h] = zQ(g, m.h) * f
+            }
+        }
+        return b
+    }
+    function zQ(a, b) {
+        var c = b.getBoundingClientRect();
+        b = c.height;
+        c = c.width;
+        return "translateX" === a ? c : b
+    }
+    ;function AQ(a) {
+        return function(b, c) {
+            return c ? 26.5 : a
+        }
+    }
+    ;function BQ(a, b, c, e, f) {
+        for (var g = [], h = 0, k = e.ha(); h < k; ++h) {
+            var m = h;
+            var p = a;
+            var u = b
+              , v = f === h
+              , w = c
+              , x = e.xa(h);
+            if (!x || Ja(x))
+                p = u;
+            else {
+                var B = pc(x);
+                void 0 === B ? p = u : (x = qc(x),
+                p = p[B] ? p[B](x, v, w) : u)
+            }
+            g[m] = p
+        }
+        return g
+    }
+    E(BQ, ["rendererItemSizes", "defaultSize", "experimentFlags"]);
+    function CQ(a) {
+        var b = a.get("mdx-impacted-sessions-server-events");
+        return b && 0 < b.length ? (b = {
+            mdxImpactedSessionsServerEvents: b
+        },
+        a.remove("mdx-impacted-sessions-server-events"),
+        a.flush(),
+        b) : {}
+    }
+    E(CQ, ["localStorage"]);
+    function DQ(a, b) {
+        a = a.model.TG();
+        b = b < a.length ? b : a.length - 1;
+        return (b = a[b] && a[b].getState().alignment) ? b.position + b.size : 0
+    }
+    ;function EQ(a, b, c, e, f, g, h) {
+        g = void 0 === g ? !1 : g;
+        h = void 0 === h ? "back" : h;
+        0 < b.ha() ? b.pop(function(b) {
+            "init" === b.getName() ? c(!1, h) : a.$N({
+                Z: b,
+                gd: !1
+            }, h)
+        }) : g && f() ? e() : c(!1, h)
+    }
+    E(EQ, ["applicationModel", "history", "goHome", "exit", "isAtHome"]);
+    function FQ(a, b, c, e) {
+        c(!1, e);
+        b.isInline() || (b.Ja && b.sendAbandonmentPing(),
+        b.stop(),
+        a.clearVideo())
+    }
+    E(FQ, ["remoteService", "playerService", "goBack"]);
+    function GQ(a) {
+        a(!0)
+    }
+    E(GQ, ["exit"]);
+    function HQ(a, b) {
+        if ("" === Ar(b.Od())) {
+            var c = b.Pd().get("c", "");
+            if (c)
+                return b = b.Pd().get("params", ""),
+                a(c, !1, b),
+                !0
+        }
+        return !1
+    }
+    E(HQ, ["gotoBrowse"]);
+    function IQ(a, b, c, e) {
+        a(b, c, void 0, e)
+    }
+    E(IQ, ["gotoBrowse", "homeFeedBrowseId"]);
+    function JQ(a, b, c, e, f, g, h, k, m, p, u, v, w, x) {
+        x = void 0 === x ? !1 : x;
+        if ("search" !== h.Ea().getName() || p || k) {
+            e.Lg("search", ["ol"]);
+            a.pause();
+            if (!k)
+                f.clear();
+            else if (k && !p) {
+                var B;
+                v && "string" === typeof v && (B = v);
+                f.qc(k, m, B, w)
+            }
+            a = {
+                Z: c({
+                    triggerVe: v
+                })
+            };
+            x || (a.gd = !1);
+            b(a, u);
+            k && p && f.Aia(k, p, m, !0, w)
+        }
+    }
+    E(JQ, "playerService navigateForward searchModelFactory performanceService searchQueryModel experimentFlags applicationModel".split(" "));
+    function KQ(a, b, c, e) {
+        var f = Ar(e.Od());
+        if ("" === f || "search" === f)
+            if (f = e.Pd().get("q"),
+            void 0 !== f)
+                return e = "voice" === e.Pd().get("launch") ? "voice-deeplink" : "keyboard-deeplink",
+                f && b.enable_voice_assistant && "voice-deeplink" === e ? c(String(f), void 0, e) : a(String(f), e, void 0, "deeplink"),
+                !0;
+        return !1
+    }
+    E(KQ, ["gotoSearch", "experimentFlags", "loadAssistantRequest"]);
+    function LQ(a, b, c, e, f) {
+        e = void 0 === e ? !1 : e;
+        c.Lg("settings", ["ol"]);
+        b = {
+            Z: b({
+                opt_triggerVe: f
+            })
+        };
+        e || (b.gd = !1);
+        a(b)
+    }
+    E(LQ, ["navigateForward", "settingsModelFactory", "performanceService"]);
+    function MQ(a, b, c, e, f, g, h, k, m, p, u, v, w) {
+        w = void 0 === w ? !1 : w;
+        v.clear();
+        p.clear();
+        u.clear();
+        b();
+        c.clear();
+        f.set(!1);
+        g.qc("");
+        h();
+        k(!0);
+        w && a();
+        m();
+        e.Ila()
+    }
+    E(MQ, "showAuthErrorOverlay clearMostRecentlyLoadedBrowseParams history pausedHistoryStateService isUnlimited searchQueryModel showSignInToast goHome checkDogfoodStatus surfaceContentCache browseResponseCache stateCache".split(" "));
+    function NQ(a, b, c) {
+        c && (b = OQ.bind(null, b),
+        a(c, b))
+    }
+    function OQ(a, b) {
+        b && b.endpoint && a(b.endpoint)
+    }
+    E(NQ, ["resolveUrl", "navigateToEndpoint"]);
+    function PQ(a, b, c, e, f, g, h) {
+        h = bn(h);
+        var k = h.Ql()
+          , m = h.Od().substr(1).replace(/\+/g, " ");
+        k && m && ("watch" === k ? e(c({
+            videoId: m
+        })) : "search" === k && (g.remove(),
+        a = a.Jh && b.onScreenKeyboard.hide(),
+        a instanceof Promise ? a.then(function() {
+            f(m, "keyboard-deeplink", void 0, "deeplink")
+        }) : f(m, "keyboard-deeplink", void 0, "deeplink")))
+    }
+    E(PQ, "inputCapabilities window makeWatchEndpoint requestPlayback gotoSearch loader".split(" "));
+    function QQ(a, b, c) {
+        c && (-1 == c.indexOf("?") && (c = "?" + c),
+        a(new Tm(c), new Tm(b.hash)))
+    }
+    E(QQ, ["handleExternalRouteChange", "location"]);
+    function RQ(a, b, c, e, f, g) {
+        var h = "rco"
+          , k = "[[I wish to proceed|Button which a user selects if they wish to view racy content.]]";
+        "2" === f && (h = "cco",
+        k = "[[Confirm|A text label for a confirm button on a confirm dialog.]]");
+        e.La("pb_rq_ctt_cfm");
+        a(g, k, function() {
+            return b(h)
+        }, c)
+    }
+    E(RQ, ["showConfirmContentOverlay", "handleConsentToViewEdgyContent", "goBack", "performanceService"]);
+    function SQ(a, b) {
+        b = new mA(b,b);
+        b.title = "[[Sorry, but we cannot display the item you requested to view.|This message is displayed to the user when another program opened YouTube, and that other program is trying to play some specific video, playlist, or channel. However, we can't understand what the other program wanted to do, because it passed in an invalid parameter when it started YouTube.]]";
+        b.Re = "";
+        b.Ub.push("text-dialog");
+        a.open(b)
+    }
+    E(SQ, ["dialogStageModel"]);
+    function TQ(a, b) {
+        b.get() ? Vk(a.body, "high-contrast") : Xk(a.body, "high-contrast")
+    }
+    E(TQ, ["document", "highContrastFlag"]);
+    function UQ(a, b) {
+        return a.dO ? b.Ija(a.dO) : !1
+    }
+    E(UQ, ["environment", "automation"]);
+    function VQ(a, b) {
+        return a.LH ? (b(a.LH, !0, a.Daa),
+        !0) : !1
+    }
+    E(VQ, ["environment", "gotoBrowse"]);
+    function WQ(a, b) {
+        a.isSupported() && a.initialDeepLink && b(a.initialDeepLink);
+        return !0
+    }
+    E(WQ, ["runtimeApi", "handleCobaltDeeplink"]);
+    function XQ(a, b, c, e, f, g, h) {
+        b.Cha && (e.hash = Lb(b.Cha));
+        if (!b.error && !b.code)
+            return !1;
+        if (b.error) {
+            a = {};
+            f("/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::FAILED",
+            a.error_code = b.error,
+            a));
+            var k = b.reason && sc(Ri, b.reason) ? b.reason : "UNKNOWN";
+            "abandoned" === b.error ? g(k) : h.setTimeout(function() {
+                c(function() {
+                    var a = {};
+                    f("/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::ALTERNATIVE_SIGN_IN_SUCCEEDED",
+                    a))
+                }, k)
+            }, 0);
+            return !0
+        }
+        a(b.code, function() {
+            var a = {};
+            f("/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::SUCCEEDED",
+            a))
+        }, function(a) {
+            var e = sc(Ri, b.reason) ? b.reason : "UNKNOWN"
+              , g = {};
+            f("/gen_204", (g.a = a,
+            g));
+            c(function() {
+                var a = {};
+                f("/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::ALTERNATIVE_SIGN_IN_SUCCEEDED",
+                a))
+            }, e)
+        });
+        return !0
+    }
+    E(XQ, "loginWithGaiaCode gaiaAuthParameters showSignInErrorDialog location sendReport requestDeviceLogin timeService".split(" "));
+    function YQ(a, b, c, e) {
+        var f = a.Haa;
+        return a.T$ || f ? (f = decodeURIComponent(f),
+        a = "voice" === a.Iv ? "voice-deeplink" : "keyboard-deeplink",
+        f && c.enable_voice_assistant && "voice-deeplink" === a ? e(f, void 0, a) : b(f, a, void 0, "deeplink", void 0, void 0, !0),
+        !0) : !1
+    }
+    E(YQ, ["environment", "gotoSearch", "experimentFlags", "loadAssistantRequest"]);
+    function ZQ(a, b) {
+        return "settings" === a.Gaa ? (b(!0),
+        !0) : !1
+    }
+    E(ZQ, ["environment", "gotoSettings"]);
+    function $Q(a, b, c, e, f, g) {
+        g = void 0 === g ? aR : g;
+        return f() || e() || c ? Vj(!1) : b().then(function(b) {
+            g(a, "surface", function() {
+                return bR(b)
+            })
+        })
+    }
+    function bR(a) {
+        return a.reduce(function(a, c) {
+            return a.then(function(a) {
+                return a ? !0 : c()
+            })
+        }, Vj(!1))
+    }
+    function aR(a, b, c) {
+        if (a.Ea().getName() === b)
+            c();
+        else
+            var e = a.on("substate:set", function() {
+                a.Ea().getName() === b && (e(),
+                c())
+            })
+    }
+    E($Q, ["applicationModel", "getAlertCandidates", "shouldDisableStartupDialog", "showAppSupportDiscontinuedDialog", "showUpdateRequiredDialog"]);
+    function cR(a, b, c, e) {
+        if (a.Ti) {
+            a = function() {
+                c(!0)
+            }
+            ;
+            var f = "[[Exit YouTube|Text on button that exits the app.|1644612304]]"
+        } else
+            a = function() {
+                b.reload(!0)
+            }
+            ,
+            f = "[[Try again|After an error, asking the user to try loading the application again.]]";
+        e(f, a)
+    }
+    E(cR, ["environment", "location", "exit", "showServerUnavailableDialog"]);
+    function dR() {}
+    E(dR, ["authService", "navigateToSignIn"]);
+    function eR(a, b, c, e) {
+        a.clear();
+        b(e);
+        c()
+    }
+    E(eR, ["stateCache", "clearWatchStatesFromHistory", "clearMostRecentlyLoadedBrowseParams"]);
+    function fR(a, b, c, e, f, g, h, k) {
+        170 != k.keyCode && 83 != k.keyCode || "search" == b.Ea().getName() && !c.isOpen() || (c.close(),
+        a(void 0, void 0, void 0, "legend", e.Kd),
+        h.isSupported() && "voice" == g.get() && h.start())
+    }
+    E(fR, "gotoSearch applicationModel guideModel legendModel experimentFlags defaultSearchMode voiceSearchModel".split(" "));
+    function gR(a, b, c, e, f, g, h, k, m) {
+        var p = {};
+        m.clickTrackingParams && (p.clickTracking = {
+            clickTrackingParams: m.clickTrackingParams
+        });
+        m.feedbackEndpoint ? a.load({
+            context: p,
+            feedbackTokens: [m.feedbackEndpoint.feedbackToken]
+        }) : m.setClientSettingEndpoint ? (f = m.setClientSettingEndpoint.settingDatas) && f[0] && (f = f[0].clientSettingEnum) && f.item && (e = e ? e(f.item) : void 0) && e() : m.setSettingEndpoint ? (e = m.setSettingEndpoint,
+        e.settingItemIdForClient && (e = f ? f(e.settingItemIdForClient) : void 0) && e()) : m.pauseWatchHistoryEndpoint ? (b.load(void 0, h),
+        k.LOa()) : m.resumeWatchHistoryEndpoint ? (c.load(),
+        k.C_a()) : m.signalServiceEndpoint && g(m.signalServiceEndpoint)
+    }
+    E(gR, "feedbackService pauseWatchHistoryService resumeWatchHistoryService clientSettingEnumToAction settingIdToAction handleSignalServiceEndpoint showPauseWatchHistoryToast pausedHistoryStateService".split(" "));
+    function hR(a, b, c, e, f, g, h, k, m) {
+        m.clear();
+        k.clear();
+        g.clear();
+        a();
+        b();
+        e && c.complete();
+        f();
+        h.Ila()
+    }
+    E(hR, "clearMostRecentlyLoadedBrowseParams showSignInToast dialogStageModel supportsDirectSignIn checkDogfoodStatus surfaceContentCache pausedHistoryStateService browseResponseCache stateCache".split(" "));
+    function iR(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B) {
+        x = void 0 === x ? !1 : x;
+        w.clear();
+        v.clear();
+        u.clear();
+        e();
+        f.clear();
+        g.set(!1);
+        h.qc("");
+        a = a.Ea().getName();
+        "settings" === a || "oke" === B && "search" !== a && "surface" !== a || b(!0);
+        x && c();
+        "ar" !== B && (k() || m());
+        p()
+    }
+    E(iR, "applicationModel goHome showAuthErrorOverlay clearMostRecentlyLoadedBrowseParams history isUnlimited searchQueryModel showSharedDeviceToast showSignOutToast checkDogfoodStatus surfaceContentCache browseResponseCache stateCache".split(" "));
+    function jR(a, b, c) {
+        switch (c.signal) {
+        case "CLIENT_SIGNAL":
+            if (c = c.actions)
+                for (var e = 0; e < c.length; ++e) {
+                    var f = a
+                      , g = b
+                      , h = c[e].signalAction;
+                    if (h)
+                        switch (h.signal) {
+                        case "PLAY_PLAYER":
+                            f.play();
+                            break;
+                        case "PAUSE_PLAYER":
+                            f.pause();
+                            break;
+                        case "STOP_PLAYER":
+                            f.stop();
+                            g();
+                            break;
+                        case "VOLUME_UP":
+                            f.setVolume(Math.min(100, f.getVolume() + 10));
+                            break;
+                        case "VOLUME_DOWN":
+                            f.setVolume(Math.max(0, f.getVolume() - 10));
+                            break;
+                        case "MUTE":
+                            f.mute();
+                            break;
+                        case "UNMUTE":
+                            f.unMute()
+                        }
+                }
+        }
+    }
+    E(jR, ["playerService", "goBack"]);
+    function kR(a, b, c, e) {
+        if (e) {
+            var f = lR(e);
+            f ? a(new Tm(f), new Tm(b.hash)) : (a = e.indexOf("cobalt-dial:?"),
+            (e = -1 == a ? null : e.substring(a + 13 - 1)) && c(new Tm(e)))
+        }
+    }
+    function lR(a) {
+        a = a.slice(a.indexOf("://") + 1);
+        a = /^(\/*[^?\/]*)\/?(\?.*)?$/.exec(a);
+        if (!a)
+            return null;
+        if (a[1] && Cb(a[1], "//"))
+            var b = a[1].substr(2);
+        else
+            return "";
+        var c = {};
+        a[2] && (c = mR(a[2].substr(1)) || {});
+        switch (b) {
+        case "default":
+            return "";
+        case "media-help":
+            return "?dialog=help";
+        case "media-settings":
+            return "settings";
+        case "media-search":
+            return c.applicationspecificdata ? "?q=" + c.applicationspecificdata : c.deeplinkinfo ? "?q=" + c.deeplinkinfo : "?q=";
+        case "media-details":
+            return "pause?v=" + (c.contentid || "");
+        case "media-playback":
+            var e = c;
+            a = "";
+            b = {};
+            c = {};
+            if (e) {
+                e.deeplinkinfo && (c = decodeURIComponent(e.deeplinkinfo),
+                c = mR(c));
+                var f = e.contentid || "";
+                if ("playlist" == c.type)
+                    b.list = f,
+                    delete c.type;
+                else if ("channel" == c.type)
+                    b.c = f,
+                    delete c.type;
+                else if (a = e.playstate && "paused" == e.playstate.toLowerCase() ? "pause" : "play",
+                b.v = f,
+                e.time) {
+                    a: {
+                        var g = e.time.split(":");
+                        if (3 == g.length && (e = parseInt(g[0], 10),
+                        f = parseInt(g[1], 10),
+                        g = parseInt(g[2], 10),
+                        !(isNaN(e) || isNaN(f) || isNaN(g)))) {
+                            e = 3600 * e + 60 * f + g;
+                            break a
+                        }
+                        e = null
+                    }
+                    null != e && (b.t = e)
+                }
+            }
+            for (var h in c)
+                b[h] = c[h];
+            return ul(a, b, !0);
+        default:
+            return ""
+        }
+    }
+    function mR(a) {
+        var b = {};
+        a = a.split("&");
+        for (var c = 0, e = a.length; c < e; c++) {
+            var f = a[c].split("=");
+            b[f[0].toLowerCase()] = 1 < f.length ? f[1] : ""
+        }
+        return b
+    }
+    E(kR, ["handleExternalRouteChange", "location", "reversePairFromDeeplink"]);
+    function nR(a) {
+        a.isSupported() && a.hideSplashScreen()
+    }
+    E(nR, ["systemApi"]);
+    function oR(a) {
+        a = a.Ea();
+        return "surface" === a.getName() && a instanceof EM ? "homeOrTopic" === a.JG() : !1
+    }
+    E(oR, ["applicationModel", "homeFeedBrowseId"]);
+    function pR(a, b, c) {
+        var e = a.on("substate:set", function() {
+            c && a.Ea().getName() == c || (e(),
+            b.lHa())
+        });
+        b.on("toast-remove", e)
+    }
+    E(pR, ["applicationModel"]);
+    function qR(a, b, c, e, f) {
+        if (a.isSupported() && (a.onDeepLink.addListener(c),
+        f.s_)) {
+            var g = !1;
+            e.on("substate:set", function() {
+                g = !1
+            });
+            a.onPause.addListener(function() {
+                "watch" == e.Ea().getName() && 2 != b.state && 0 != b.state && (b.pause(),
+                g = !0)
+            });
+            a.onResume.addListener(function() {
+                g && (b.play(),
+                g = !1)
+            })
+        }
+    }
+    E(qR, ["runtimeApi", "playerService", "handleCobaltDeeplink", "applicationModel", "environment"]);
+    function rR(a, b, c, e, f, g, h, k, m, p, u, v) {
+        v = void 0 === v ? "speech" : v;
+        if (!p)
+            return u && u(),
+            function() {}
+            ;
+        "voice-deeplink" === v && b.Lg("voice_assistant", ["voz_cx", "voz_err", "voz_rqf"], !0);
+        b.La("voz_rqs", "voice_assistant");
+        m = {
+            query: p,
+            screenContext: m()
+        };
+        var w = k.get();
+        w && (m.opaqueConversationToken = w);
+        return a.load(m, function(a) {
+            u && u();
+            var m;
+            a.serviceActions && a.serviceActions.length ? m = "service" : a.navigationAction ? a.navigationAction.watchEndpoint || a.navigationAction.watchPlaylistEndpoint ? m = "watch" : a.navigationAction.browseEndpoint ? m = "browse" : a.navigationAction.searchEndpoint && (m = "search") : m = "error";
+            if (m) {
+                var w = {};
+                m = (w.voz_type = m,
+                w);
+                b.hn(m, "voice_assistant")
+            }
+            b.La("voz_rqf", "voice_assistant");
+            m = v;
+            k.set(a.opaqueConversationToken || "");
+            a.ttsAudio && a.ttsAudio.audio && c.bPa(a.ttsAudio.audio);
+            e.attachChild(a.trackingParams || null);
+            if (a.serviceActions) {
+                w = 0;
+                for (var x = a.serviceActions.length; w < x; w++)
+                    f(a.serviceActions[w])
+            }
+            a.navigationAction ? (w = a.navigationAction,
+            w.searchEndpoint ? h(w.searchEndpoint.query, m, a.prefetchedSearchResponse, void 0, w.clickTrackingParams, p) : g(w, "voz")) : e.Sc(a.trackingParams)
+        })
+    }
+    E(rR, "assistantService performanceService soundService screenManager handleServiceEndpoint navigateToEndpoint gotoSearch voiceAssistantOpaqueConversationToken makeScreenContext".split(" "));
+    function sR(a, b, c, e, f, g, h, k, m) {
+        tR(e, c, h, function(c) {
+            var e = c.refresh_token;
+            uR(f, c.access_token, function(f) {
+                f ? (g(e),
+                m("Tvhtml5GaiaSignInError::USER_HAS_BRAND_ACCOUNTS")) : b(e, "direct", c, function(b) {
+                    b = {
+                        accessToken: b.accessToken,
+                        ue: b.ue,
+                        refreshToken: b.Id.refreshToken,
+                        kg: b.Id.oAuthClientIdName
+                    };
+                    a.Rk(b);
+                    k(b)
+                }, function() {
+                    return m("Tvhtml5GaiaSignInError::COULD_NOT_PERSIST_OAUTH_TOKENS")
+                })
+            }, function() {
+                return m("Tvhtml5GaiaSignInError::GET_USER_ACCOUNTS_LIST_API_ERROR")
+            })
+        }, function() {
+            return m("Tvhtml5GaiaSignInError::FETCH_OAUTH_TOKENS_ERROR")
+        })
+    }
+    function tR(a, b, c, e, f) {
+        a = a.direct;
+        c = new gq("POST","https://www.googleapis.com/oauth2/v4/token",null,{
+            client_id: a.clientId,
+            client_secret: a.Vt,
+            code: c,
+            redirect_uri: a.$fa,
+            grant_type: "authorization_code"
+        });
+        b = b();
+        b.md(e);
+        b.Wd(f);
+        b.send(c)
+    }
+    function uR(a, b, c, e) {
+        a.TA({
+            account_read_mask: {
+                return_owner: !0,
+                return_brand_accounts: !0
+            }
+        }, function(a) {
+            a = 1 < t("contents.0.accountSectionListRenderer.contents.0.accountItemSectionRenderer.contents", a).length;
+            c(a)
+        }, e, b)
+    }
+    E(sR, "authService persistOAuthToken xhrRequestFactory oAuthClientProfiles accountsListService revokeRefreshToken".split(" "));
+    function vR(a, b, c, e, f, g, h, k, m, p, u) {
+        var v = k ? k : Infinity;
+        k = m.model.aa();
+        var w = m.model.ki();
+        a = Math.abs(k - w);
+        var x = []
+          , B = 0
+          , G = 0;
+        if (0 <= w && 2 <= a && a <= v) {
+            if (m.isVertical()) {
+                v = Math.max(w, k);
+                for (var K = Math.min(w, k) + 1; K < v; ++K)
+                    f(m, K, w)
+            }
+            m.isEnabled() && (x = wR(c, e, m, b, k, w, p.zr(), p.mU()));
+            x.length && (b = x[x.length - 1],
+            B = b.delay + b.duration,
+            G = c(a, a, p.zr(), p.mU()))
+        }
+        return {
+            apply: function() {
+                var a = m.getItem(p.Yc);
+                if (!a)
+                    return null;
+                if (x && x.length) {
+                    h.setTimeout(function() {
+                        var b = m.model.ki();
+                        if (b = (b = m.model.mi(b)) ? m.getItem(b) : null)
+                            b.Fd(!1),
+                            b.render();
+                        a.Fd(!0);
+                        a.render()
+                    }, G);
+                    for (var b = {}, c = 0, e = x.length; c < e; b = {
+                        ht: b.ht,
+                        kE: b.kE
+                    },
+                    ++c) {
+                        var f = x[c];
+                        b.ht = f.element;
+                        b.kE = function(a) {
+                            return function() {
+                                a.ht.removeEventListener(g, a.kE);
+                                a.ht.style.cssText = ""
+                            }
+                        }(b);
+                        b.ht.addEventListener(g, b.kE);
+                        b.ht.style.cssText = f.JF
+                    }
+                    return x[x.length - 1].element
+                }
+                b = a.h;
+                a.Fd(!0);
+                a.render();
+                return b
+            },
+            priority: u,
+            duration: B,
+            type: "select"
+        }
+    }
+    function wR(a, b, c, e, f, g, h, k) {
+        e = Math.abs(f - g);
+        var m = Math.min(200 + 25 * e, 400)
+          , p = [];
+        if (f > g)
+            for (var u = g + 1; u < f; u++) {
+                var v = a(u - g, e, h, k);
+                p = p.concat(b(c, u, v, m))
+            }
+        else
+            for (u = g - 1; u > f; u--)
+                v = a(g - u, e, h, k),
+                p = p.concat(b(c, u, v, m));
+        return p
+    }
+    E(vR, "axis duration getIntermediateAnimationDelay getIntermediateSelectAnimations matchShelfColumns animationEndEvent timeService opt_maxSwipeNumOfItems".split(" "));
+    function xR(a, b, c, e, f) {
+        return {
+            auto: {
+                execute: function(b) {
+                    1 > b.length ? b = !1 : (b = {
+                        ab: "airstreamBrowseRoutine",
+                        abw: "airstreamBrowseWatchRoutine",
+                        cbtw: "cobaltBrowseToWatchRoutine",
+                        cs: "cobaltStartupRoutine",
+                        cbh: "cobaltBrowseHorizontalRoutine",
+                        cbv: "cobaltBrowseVerticalRoutine",
+                        vs: "voiceSearchRoutine",
+                        ws: "watchStoryboardRoutine",
+                        dcr: "deviceCertRoutine",
+                        ctr: "cookieTestRoutine",
+                        wr: "watchRoutine"
+                    }[b[0]],
+                    b = !(!b || !a.Ija(b)));
+                    return b
+                }
+            },
+            enableairstream: {
+                execute: function() {
+                    return yR(c, {
+                        enable_airstream: "1"
+                    })
+                },
+                Xg: !0
+            },
+            enabledsi: {
+                execute: function() {
+                    f.set("enable-direct-sign-in", !0);
+                    return yR(c, {})
+                },
+                Xg: !0
+            },
+            disableairstream: {
+                execute: function() {
+                    return yR(c, {
+                        disable_airstream: "1"
+                    })
+                },
+                Xg: !0
+            },
+            enabledogfood: {
+                execute: function() {
+                    return yR(c, {
+                        dogfood_opt_in: "1"
+                    })
+                },
+                Xg: !0
+            },
+            disabledogfood: {
+                execute: function() {
+                    return yR(c, {
+                        dogfood_opt_out: "1"
+                    })
+                },
+                Xg: !0
+            },
+            disabledsi: {
+                execute: function() {
+                    f.remove("enable-direct-sign-in");
+                    return yR(c, {})
+                },
+                Xg: !0
+            },
+            mdxdev: {
+                execute: function() {
+                    return yR(c, {
+                        env_mdxEnvironment: "STAGING"
+                    })
+                }
+            },
+            mdxsandbox: {
+                execute: function() {
+                    return yR(c, {
+                        env_mdxEnvironment: "SANDBOX"
+                    })
+                }
+            },
+            neko: {
+                execute: function(a) {
+                    return 1 === a.length ? b.Fja(a[0]) : !1
+                }
+            },
+            ytvdf: {
+                execute: function() {
+                    a: {
+                        var a = {
+                            via_redir: "1"
+                        };
+                        e && (a.additionalDataUrl = e);
+                        a = ul("/tv/upg", a);
+                        try {
+                            c.assign(a)
+                        } catch (h) {
+                            a = !1;
+                            break a
+                        }
+                        a = !0
+                    }
+                    return a
+                },
+                Xg: !0
+            }
+        }
+    }
+    function yR(a, b) {
+        b = ul("/tv", b);
+        try {
+            a.assign(b)
+        } catch (c) {
+            return !1
+        }
+        return !0
+    }
+    E(xR, ["automation", "manekiService", "location", "additionalDataUrl", "localStorage"]);
+    function zR(a, b, c, e, f, g) {
+        b = b({
+            trackingParams: a.trackingParams
+        });
+        var h = a.items || []
+          , k = e(a, "reload")
+          , m = null;
+        h.length ? (k && delete a.items,
+        m = e(a, "next")) : m = k;
+        b.oa(h, function(a) {
+            return g({
+                collection: a,
+                continuationData: m,
+                continuationThreshold: 9,
+                parseContinuation: f,
+                service: c
+            })
+        });
+        return b
+    }
+    E(zR, "source gridModelFactory service getContinuationData parseGridContinuation makeContinuer".split(" "));
+    function AR(a) {
+        var b = {};
+        a = a.querySelector(".application").F;
+        var c = a.model.Ea().getName();
+        (a = a.Nb(c)) && a.E6 && a.E6(b);
+        return b
+    }
+    E(AR, ["document"]);
+    var BR = new WeakMap;
+    function CR(a, b, c, e, f) {
+        V.call(this);
+        this.zMa = a;
+        this.qa = b;
+        this.G = c;
+        this.experimentFlags = e;
+        this.Sy = f;
+        this.model = this.Mg = null;
+        this.ub = !0
+    }
+    l(CR, V);
+    d = CR.prototype;
+    d.ready = function() {
+        V.prototype.ready.call(this);
+        var a = this.N(".highlighter");
+        this.list = this.N(".new-list");
+        this.list.eUa(a);
+        this.I(this.list, "selected-index-changed", this.w.bind(this, "selected-index-changed"));
+        this.I(this.list, "interaction", this.xW.bind(this));
+        this.I(this.list, "animation-started", this.TMa.bind(this));
+        this.I(this.list, "list-full-visiblity-changed", this.zW.bind(this));
+        this.I(this.list, "item-full-visiblity-changed", this.AW.bind(this))
+    }
+    ;
+    d.Gc = function(a) {
+        this.list.Gc(a)
+    }
+    ;
+    d.AW = function(a) {
+        a = a.detail;
+        a[1] && (a = a[0],
+        (a = qc(a && a.item)) && a.trackingParams && this.G.Ca(a.trackingParams))
+    }
+    ;
+    d.zW = function() {
+        if (this.list.Ec())
+            for (var a = this.list.ii(), b = 0, c = a.length; b < c; ++b) {
+                var e = qc(a[b]);
+                e && e.trackingParams && this.G.Ca(e.trackingParams)
+            }
+    }
+    ;
+    d.oh = function(a, b) {
+        this.list.disable();
+        var c = BR.get(a);
+        c ? (this.model = c,
+        this.list.model = this.model.je()) : (this.model = this.zMa({
+            continuationThreshold: this.Sy
+        }),
+        this.list.model = this.model.je(),
+        this.model.LC(a, b),
+        b = this.list.model.getItems(),
+        b.length && b.every(this.hasSquareThumbnail) && this.list.Xw(1.195),
+        a && BR.set(a, this.model));
+        this.list.enable()
+    }
+    ;
+    d.hasSquareThumbnail = function(a) {
+        return (a = qc(a)) && !(!a.thumbnailRenderer || !a.thumbnailRenderer.playlistCustomThumbnailRenderer)
+    }
+    ;
+    d.rb = function() {
+        return this.list
+    }
+    ;
+    d.od = function(a) {
+        this.model && this.model.od(a)
+    }
+    ;
+    d.aa = function() {
+        return this.model ? this.model.aa() : -1
+    }
+    ;
+    d.ha = function() {
+        return this.model && this.model.ha() || 0
+    }
+    ;
+    d.Kz = function() {
+        return this.list
+    }
+    ;
+    d.xW = function() {
+        this.Mg || (this.Mg = this.qa.VXa())
+    }
+    ;
+    d.TMa = function() {
+        this.Mg && (this.Mg(),
+        this.Mg = null)
+    }
+    ;
+    d.reset = function() {
+        this.model && this.model.bra();
+        this.list.reset();
+        V.prototype.reset.call(this)
+    }
+    ;
+    E(CR, ["newHorizontalListModelFactory", "performanceService", "screenManager", "experimentFlags", "continuationThreshold"]);
+    function DR(a, b, c, e, f) {
+        S.call(this);
+        this.Lsa = a;
+        this.vSa = b;
+        this.ZPa = c;
+        this.WW = e;
+        this.G = f;
+        this.Li = this.source = null
+    }
+    l(DR, S);
+    d = DR.prototype;
+    d.cVa = function(a) {
+        a = void 0 === a ? null : a;
+        if (this.Li != a) {
+            var b = this.Li;
+            this.Li = a;
+            this.w("projection-changed", b, this.Li)
+        }
+    }
+    ;
+    d.lc = function() {
+        return this.source ? this.source.trackingParams : null
+    }
+    ;
+    d.Ru = function() {
+        return this.Li
+    }
+    ;
+    d.LC = function(a, b) {
+        if (this.source != a) {
+            this.source = a;
+            var c = a["@listModel"];
+            c || (c = this.dLa(a, b),
+            a["@listModel"] = c);
+            this.cVa(c)
+        }
+    }
+    ;
+    d.dLa = function(a, b) {
+        var c = this.getItems(a)
+          , e = a.selectedIndex
+          , f = this.vSa();
+        f.oa(c);
+        Ea(e) && f.ba(e);
+        c = this.ZPa({
+            baseCollection: f
+        });
+        (a = Ez(a)) && this.Lsa({
+            projection: c,
+            continuationData: a,
+            interpretRawResponse: this.VW.bind(this),
+            service: b
+        });
+        return c
+    }
+    ;
+    d.VW = function(a) {
+        this.G.attachChild(a.trackingParams, this.source.trackingParams);
+        this.w("continuation-received", a.trackingParams, this.source.trackingParams);
+        return this.WW(a)
+    }
+    ;
+    d.getItems = function(a) {
+        return kb(a.items || a.contents || a.results || [], function(a) {
+            return !xc(a)
+        })
+    }
+    ;
+    E(DR, ["collectionContinuerFactory", "selectableCollectionFactory", "projectionFactory", "parseHorizontalListContinuation", "screenManager"]);
+    function ER(a) {
+        vy.call(this, a)
+    }
+    l(ER, vy);
+    ER.prototype.qw = function(a) {
+        var b = this.getLength()
+          , c = this.ZG()
+          , e = Math.floor(c / b) * b;
+        a += e;
+        a - Math.floor(a / b) * b < c - e && (a += b);
+        return a
+    }
+    ;
+    ER.prototype.M4 = function(a) {
+        var b = this.getLength()
+          , c = this.ZG()
+          , e = Math.floor(c / b) * b;
+        a - Math.floor(a / b) * b < c - e && (a -= b);
+        return a - e
+    }
+    ;
+    ER.prototype.bja = function(a, b) {
+        return a !== b && 2 > Math.abs(a - b)
+    }
+    ;
+    function FR(a, b, c) {
+        b = void 0 === b ? 4 : b;
+        c = void 0 === c ? 4 : c;
+        vy.call(this, a);
+        this.kea = c;
+        this.Fy = this.tm = 0;
+        this.Qia(b)
+    }
+    l(FR, ER);
+    d = FR.prototype;
+    d.Xlb = function() {
+        return this.kea
+    }
+    ;
+    d.amb = function() {
+        return this.tm
+    }
+    ;
+    d.Ajb = function() {
+        return this.Fy
+    }
+    ;
+    d.Qia = function(a, b) {
+        b = void 0 === b ? .5 * a : b;
+        if (a !== this.tm || b !== this.Fy)
+            this.tm = a,
+            this.Fy = b,
+            this.t0(Math.max(Math.ceil(this.tm), 2) + this.kea)
+    }
+    ;
+    d.t0 = function(a) {
+        a = void 0 === a ? this.getLength() : a;
+        var b = this.Xe()
+          , c = b.aa() - (this.Fy - .5);
+        c = Math.floor(c - .5 * (a - this.tm));
+        c = Math.min(c, b.getLength() - a);
+        c = Math.max(c, 0);
+        this.oZ(c, a)
+    }
+    ;
+    d.iO = function() {
+        this.t0();
+        ER.prototype.iO.call(this)
+    }
+    ;
+    d.qy = function(a) {
+        var b = this.KB(a.Fk);
+        this.t0();
+        var c = this.KB(a.Hi);
+        c !== b && this.w("selected-index-changed", {
+            Hi: c,
+            Fk: b,
+            selected: a.selected,
+            En: a.En
+        })
+    }
+    ;
+    d.Sz = function(a) {
+        var b = this.Xe()
+          , c = b.getLength();
+        if (c <= this.tm)
+            return this.qw(a);
+        b = b.aa();
+        var e = this.Fy - .5;
+        if (b <= e)
+            return this.qw(a);
+        e + (c - b) < this.tm && (e = this.tm - (c - b));
+        return e + (this.qw(a) - b)
+    }
+    ;
+    d.bja = function(a, b) {
+        return a !== b && Math.abs(a - b) < this.tm
+    }
+    ;
+    E(FR, ["baseCollection", "opt_numVisibleTiles", "opt_numBufferTiles"]);
+    function GR(a, b, c, e) {
+        V.call(this);
+        this.Db = a;
+        this.M = b;
+        this.Ab = c;
+        this.wL = e;
+        this.Ts = null;
+        this.enabled = !0;
+        this.Au = this.yz = null
+    }
+    l(GR, V);
+    d = GR.prototype;
+    d.Eb = function() {
+        V.prototype.Eb.call(this);
+        this.yz = this.Db.we("tile-focus-target");
+        this.yz.ub = !0;
+        this.Zb(this.yz);
+        this.h.insertBefore(this.yz.h, this.h.firstChild);
+        this.Au = this.h.querySelector(".tile-focus-target")
+    }
+    ;
+    d.ready = function() {
+        var a = this;
+        V.prototype.ready.call(this);
+        this.on("keyup", function(b) {
+            a.xb(b)
+        });
+        this.wa("tile");
+        this.Au.setAttribute("role", "gridcell");
+        if (this.wL) {
+            var b = this.h.querySelector(".tilt-container, .tiltable")
+              , c = this.h.querySelector(".sheen");
+            this.Ts = this.wL({
+                focusComponent: this,
+                tiltElement: b,
+                sheenElement: c
+            })
+        }
+    }
+    ;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.Ga(!this.model);
+        this.Au.setAttribute("aria-label", this.lf())
+    }
+    ;
+    d.lf = function() {
+        return this.enabled && this.model ? this.getTitle() : ""
+    }
+    ;
+    d.rb = function() {
+        return this.yz
+    }
+    ;
+    d.xb = function(a) {
+        this.enabled && 13 === a.keyCode && (T(a),
+        this.SOa())
+    }
+    ;
+    d.SOa = function() {
+        this.model && this.model.action && this.model.action(this);
+        this.Ab("enter")
+    }
+    ;
+    d.getTitle = function() {
+        return this.model.getTitle ? this.model.getTitle() : this.model.title
+    }
+    ;
+    d.T = function() {
+        var a = V.prototype.T.call(this);
+        this.enabled || a.push("disabled");
+        return a
+    }
+    ;
+    gp(GR, Mc(GR, {
+        enabled: "enabled"
+    }));
+    E(GR, ["componentBuilder", "localeService", "playSoundFromDescriptor", "opt_sheenTiltInteractorFactory"]);
+    function HR(a, b, c, e, f) {
+        GR.call(this, a, b, e, f);
+        this.model = null;
+        this.cQ = c ? "" : "hidden"
+    }
+    l(HR, GR);
+    E(HR, ["componentBuilder", "localeService", "showChannelBadge", "playSoundFromDescriptor", "opt_tiltInteractorFactory"]);
+    function IR(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G) {
+        p = void 0 === p ? 0 : p;
+        u = void 0 === u ? "sliding-highlighter" : u;
+        v = void 0 === v ? !1 : v;
+        w = void 0 === w ? !1 : w;
+        x = void 0 === x ? 0 : x;
+        B = void 0 === B ? 0 : B;
+        G = void 0 === G ? 0 : G;
+        V.call(this);
+        var K = this;
+        this.Db = a;
+        this.environment = b;
+        this.window = c;
+        this.uJa = g;
+        this.DRa = h;
+        this.qf = k;
+        this.Je = m;
+        this.qM = p;
+        this.wXa = u;
+        this.R6 = v;
+        this.UHa = w;
+        this.Hka = x;
+        this.mJa = B;
+        this.SRa = G;
+        this.mdb = 0;
+        this.Qf = null;
+        this.ts = y;
+        this.model = f;
+        this.Bb("projection-changed", function(a, b) {
+            K.ANa(a, b)
+        });
+        this.kW = e.C("[[No videos are available|The message shown when a row has no videos to show.]]");
+        this.ub = !0
+    }
+    l(IR, V);
+    d = IR.prototype;
+    d.rO = function() {
+        V.prototype.rO.call(this);
+        this.environment.Dd || this.R6 || this.Je || (this.Qf = this.gLa(),
+        this.Zb(this.Qf));
+        this.list = this.uJa({
+            forceList: this.R6
+        });
+        this.list.Bm = 5;
+        this.Zb(this.list)
+    }
+    ;
+    d.gLa = function() {
+        return this.Db.we(this.wXa, void 0, void 0, {
+            tileSpacing: this.qM
+        })
+    }
+    ;
+    d.Eb = function() {
+        V.prototype.Eb.call(this);
+        var a = this.h.querySelector(".content");
+        this.I(this.DRa, "resize-complete", this.u3.bind(this));
+        this.on("keyup", this.xb.bind(this));
+        a.appendChild(this.list.h);
+        this.Qf && (this.UHa ? a.appendChild(this.Qf.h) : a.insertBefore(this.Qf.h, this.list.h))
+    }
+    ;
+    d.T = function() {
+        var a = V.prototype.T.call(this)
+          , b = this.model.Ru();
+        b && 0 !== b.Xe().getLength() || a.push("no-content");
+        return a
+    }
+    ;
+    d.xb = function(a) {
+        switch (a.keyCode) {
+        case 176:
+        case 177:
+            this.od(176 === a.keyCode ? 1 : -1),
+            T(a)
+        }
+    }
+    ;
+    d.u3 = function() {
+        var a = this.model.Ru();
+        if (a && a instanceof FR) {
+            if (0 === this.Hka)
+                throw Error("tileWidthOverWindowHeight needs to be set for SlidingSelectionProjection");
+            var b = 0
+              , c = 0
+              , e = this.window.innerHeight;
+            if (1 <= e) {
+                c = this.window.innerWidth / e;
+                e = this.mJa;
+                b = this.Hka;
+                var f = b * this.qM * .01
+                  , g = b + f;
+                b = (c - e - (this.SRa - f)) / g;
+                1 < b ? (c = (.5 * c - e + .5 * f) / g,
+                c = Math.min(Math.max(c, .5), b - .5)) : (c = .5 * b,
+                b = Math.max(b, 0))
+            }
+            a.Qia(b, c)
+        }
+    }
+    ;
+    d.oh = function(a, b, c) {
+        this.f0a(b);
+        var e = a.selectedIndex || 0;
+        c && (a.selectedIndex = e + c);
+        this.model.LC(a, b)
+    }
+    ;
+    d.f0a = function(a) {
+        var b = this.list.Oza();
+        b && b[JR] === this.qf && b[KR] === a || (this.list.model = null,
+        b = this.qf.fv.bind(this.qf, a),
+        b[JR] = this.qf,
+        b[KR] = a,
+        this.list.eia(b, !0))
+    }
+    ;
+    d.ANa = function(a, b) {
+        this.u3();
+        this.list.Oga();
+        this.list.model = b;
+        this.Qf && (this.Qf.model = b);
+        this.J() && this.list.focus();
+        this.ts();
+        this.list ? (this.ts = this.I(this.list, "selection-change", this.pC.bind(this)),
+        this.pC()) : this.ts = y;
+        a || this.render()
+    }
+    ;
+    d.pC = function() {
+        this.Bd()instanceof HR ? this.wo("channel-selected") || this.wa("channel-selected") : this.wo("channel-selected") && this.lb("channel-selected");
+        this.render()
+    }
+    ;
+    d.aa = function() {
+        var a = this.model.Ru();
+        return a ? a.Xe().aa() : -1
+    }
+    ;
+    d.Bd = function() {
+        return this.list ? this.list.Bd() : null
+    }
+    ;
+    d.$a = function() {
+        var a = this.model.Ru();
+        return a ? a.$a() : null
+    }
+    ;
+    d.od = function(a, b) {
+        var c = this.model.Ru();
+        return c ? c.od(a, b) : !1
+    }
+    ;
+    d.Xe = function() {
+        var a = this.model.Ru();
+        return a ? a.Xe() : null
+    }
+    ;
+    d.lc = function() {
+        return this.model.lc()
+    }
+    ;
+    da();
+    var JR = Symbol();
+    da();
+    var KR = Symbol();
+    E(IR, "componentBuilder environment window localeService horizontalListModel listFactory resizeService inflater supportsAppleTvUx opt_tileSpacing opt_slidingHighlighterName opt_forceList opt_isHighlighterFront opt_tileWidthOverWindowHeight opt_leftMarginOverWindowHeight opt_rightMarginOverWindowHeight".split(" "));
+    function LR(a, b, c) {
+        V.call(this);
+        this.G = a;
+        this.Y0a = b;
+        this.qf = c;
+        this.NQ = this.titleAnnotation = this.title = "";
+        this.MQ = this.content = this.Zt = null
+    }
+    l(LR, V);
+    d = LR.prototype;
+    d.ready = function() {
+        V.prototype.ready.call(this);
+        this.Zt = this.h.querySelector(".content-container");
+        jh(this.h, {
+            height: this.Vz() + "em"
+        })
+    }
+    ;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.Ga(!this.model)
+    }
+    ;
+    d.oh = function(a, b) {
+        this.model !== a && (this.model = a,
+        this.title = X(a.title),
+        this.titleAnnotation = X(a.titleAnnotation),
+        this.NQ = X(t("badges.0.shelfFeaturedTextBadgeRenderer.label", a)),
+        this.ET(a, b))
+    }
+    ;
+    d.Gc = function(a) {
+        this.content && this.content instanceof CR && this.content.Gc(a)
+    }
+    ;
+    d.ET = function(a, b) {
+        b = (a = a.content) && this.qf.fv(b, a, this.content);
+        b !== this.content && (this.content && (this.Zt.removeChild(this.content.h),
+        this.removeChild(this.content)),
+        b && (this.Zb(b),
+        this.Zt.appendChild(b.h)),
+        this.content = b || null)
+    }
+    ;
+    d.Vz = function() {
+        return 24
+    }
+    ;
+    d.Ca = function() {
+        this.G.Ca(this.model.trackingParams);
+        if (this.content instanceof CR) {
+            var a = this.content;
+            a.model && this.G.Ca(a.model.lc());
+            a.Gc(!0)
+        } else if (this.content instanceof IR) {
+            a = this.content;
+            this.G.Ca(a.model.lc());
+            var b = a.Xe();
+            b && this.G.xLa(b, a.aa(), this.Y0a)
+        }
+    }
+    ;
+    d.Eb = function() {
+        V.prototype.Eb.call(this);
+        this.MQ = this.h.querySelector(".featured")
+    }
+    ;
+    d.render = function(a) {
+        V.prototype.render.call(this, a);
+        this.MQ && this.fb(this.MQ, !!this.NQ)
+    }
+    ;
+    d.reset = function() {
+        V.prototype.reset.call(this);
+        this.content && this.content.reset()
+    }
+    ;
+    d.hh = function() {
+        return this.content
+    }
+    ;
+    E(LR, ["screenManager", "visibilityConfig", "inflater"]);
+    function MR(a, b, c, e) {
+        if (b && (e = NR(b, e),
+        (b = NR(b, c)) && e && (c = e.hh(),
+        b = b.hh(),
+        c instanceof CR && b instanceof CR))) {
+            b = b.Kz();
+            var f = c.Kz();
+            c = b && b.model;
+            var g = f && f.model;
+            if (c && g) {
+                e = c.TG();
+                var h = e.length;
+                if (0 != h) {
+                    var k = g.CDa();
+                    f = a(f, k);
+                    g = (g = (g = (g = g.mi(g.aa())) && g.getState()) && g.alignment) ? (g.size + g.spacing) / 2 : 0;
+                    k = h - 1;
+                    for (var m = 0; m < h; ++m) {
+                        var p = a(b, m)
+                          , u = f - p;
+                        if (f <= p || u <= g) {
+                            k = m;
+                            break
+                        }
+                    }
+                    a = e[k];
+                    c.ba(a.currentIndex, !0);
+                    if (e = b && b.getItem(a))
+                        e.Fd(!0),
+                        e.render(),
+                        (e = a.getState()) && a.update(e.alignment, a.currentIndex);
+                    if (c = c.mi(c.ki()))
+                        if (b = b && b.getItem(c))
+                            b.Fd(!1),
+                            b.render(),
+                            (b = c.getState()) && c.update(b.alignment, a.currentIndex)
+                }
+            }
+        }
+    }
+    function NR(a, b) {
+        var c = a.xa(b);
+        c || (b = a && a.model && a.model.mi(b)) && (c = a.getItem(b));
+        return c instanceof LR ? c : null
+    }
+    E(MR, ["getVisibilityBoundedWidth"]);
+    function OR(a, b, c, e) {
+        a.$N(b, c, e)
+    }
+    E(OR, ["applicationModel"]);
+    var PR = ["horizontalList", "itemSection", "playlistVideoList", "sectionList", "pivotHorizontalList"];
+    function QR(a) {
+        for (var b = 0, c = PR.length; b < c; ++b) {
+            var e = PR[b]
+              , f = t("continuationContents." + e + "Continuation", a);
+            if (f) {
+                a = f.items || f.contents || [];
+                if ("sectionList" === e) {
+                    e = a;
+                    a = [];
+                    b = 0;
+                    for (c = e.length; b < c; ++b)
+                        if (e[b].itemSectionRenderer) {
+                            var g = t("itemSectionRenderer.contents", e[b]);
+                            a = a.concat(g)
+                        } else
+                            a.push(e[b]);
+                    e = a
+                } else
+                    e = a;
+                return {
+                    contents: e,
+                    nextContinuationData: Ez(f)
+                }
+            }
+        }
+        return {
+            contents: [],
+            nextContinuationData: null
+        }
+    }
+    ;function RR(a, b, c, e, f, g) {
+        var h = f.continuationContents && f.continuationContents.tvSurfaceContentContinuation;
+        h = h && h.content && h.content.sectionListRenderer;
+        f = f.continuationContents && f.continuationContents.sectionListContinuation || h;
+        if (!f)
+            return {
+                contents: [],
+                nextContinuationData: null
+            };
+        a = a(f, e);
+        e = [];
+        for (h = 0; h < a.length; h++)
+            e.push(c(a[h], g));
+        return {
+            contents: e,
+            nextContinuationData: b(f)
+        }
+    }
+    E(RR, ["sanitizeShelfListResponse", "getContinuationData", "newShelfListItemFactory"]);
+    function SR() {
+        this.fI = !1;
+        this.userId = ""
+    }
+    ;function TR() {
+        SR.apply(this, arguments);
+        this.L = "channelTile";
+        this.dfa = this.efa = this.id = this.username = this.Xja = this.displayName = this.videoId = this.title = this.imageUrl = "";
+        this.action = y
+    }
+    l(TR, SR);
+    function UR(a) {
+        var b = new TR;
+        a = a.items;
+        if (!a || !a.length)
+            return b;
+        a = a[0];
+        var c = a.snippet;
+        b.id = a.id;
+        b.username = b.displayName = c.title;
+        b.imageUrl = t("thumbnails.high.url", c) || t("thumbnails.default.url", c);
+        b.title = c.description;
+        return b
+    }
+    ;function VR(a, b, c) {
+        b.get() && a(c)
+    }
+    E(VR, ["bedrockPlaySound", "soundEnabledFlag"]);
+    function WR(a, b, c) {
+        (b = b[c]) && a(b)
+    }
+    E(WR, ["playSound", "soundDescriptorToSoundIdMap"]);
+    function XR(a, b, c) {
+        b instanceof EM && c instanceof EM && (b = c.Tq().browseEndpoint) && b.browseId && (c = {},
+        a.hn((c.prev_browse_id = b.browseId,
+        c)))
+    }
+    E(XR, ["performanceService"]);
+    function YR(a, b, c, e, f, g, h, k, m, p, u, v, w) {
+        a.Cm("surface", new ZR(v));
+        a.Cm("surface", new ZR(f));
+        e || (a.Cm("surface", new ZR(g)),
+        b.enable_whos_watching_prompt && a.Cm("surface", w),
+        b.enable_promo_premium ? a.Cm("surface", new ZR(k), b.show_promo_premium_full_screen) : b.enable_promo_coupon ? a.Cm("surface", new ZR(h), b.show_promo_coupon_image) : a.Cm("surface", new ZR(u), !0),
+        5 <= c() && a.Cm("surface", new ZR(m)),
+        a.Cm("surface", new ZR(p)));
+        a.initialize()
+    }
+    function ZR(a) {
+        this.command = a
+    }
+    ZR.prototype.initialize = function() {}
+    ;
+    ZR.prototype.execute = function() {
+        return Vj(this.command())
+    }
+    ;
+    E(YR, "alertService experimentFlags getAirstreamSessions shouldDisableStartupDialog showAppSupportDiscontinuedDialog showLanguageChangedToast showPromoCouponOverlay showPromoPremiumOverlay showRateAtvToast showSharedDeviceToast showSignInOnboardingDialog showUpdateRequiredDialog whosWatchingOverlayAlertRequest".split(" "));
+    function $R(a, b, c, e, f, g, h) {
+        g = void 0 === g ? function() {}
+        : g;
+        f = Ta(aS, void 0 === f ? function() {}
+        : f, g);
+        b = b.bRa.bind(b, f, {
+            reason: e
+        });
+        (h = bS(e, h)) ? (c(1, e),
+        cS(a, b, g, h)) : b()
+    }
+    function cS(a, b, c, e) {
+        b = yd(b, a.close.bind(a));
+        c = new sP(e,"icon-settings-term",b,c);
+        c.Cd = !0;
+        c.Rc = !0;
+        c.title = Co.STANDARD;
+        c.Re = "[[Sign In|Text on button for user to confirm that they wish to sign into the application.]]";
+        c.ek = "dialog-ok-button";
+        a.open(c)
+    }
+    function bS(a, b) {
+        if ("PLAYER" === a && b)
+            return b;
+        if (["LIKE_DISLIKE", "SUBSCRIBE", "PLAYER"].includes(a))
+            return Co[a]
+    }
+    function aS(a, b, c) {
+        c ? a() : b()
+    }
+    E($R, ["dialogStageModel", "authService", "sendAccountDialogOpenedPing"]);
+    function dS(a, b) {
+        this.text = void 0 === a ? "" : a;
+        this.icon = void 0 === b ? null : b;
+        this.L = "overlay-partials-status-indicator"
+    }
+    ;function eS(a, b, c, e, f, g, h) {
+        f = void 0 === f ? function() {}
+        : f;
+        g = void 0 === g ? function() {}
+        : g;
+        a = fS(a, e);
+        b(a, f, g, !1, e, function() {
+            c(e, f, g, h)
+        })
+    }
+    function fS(a, b) {
+        b = gS[void 0 === b ? "UNKNOWN" : b];
+        b = new ZL(a.C("[[Choose an account|Title of dialog prompting to choose account]]"),a.C(b));
+        b.status = new dS(a.C("[[You are in guest mode|Status indicator text notifying user that they are currently using the guest account.]]"),new aM("material-icon-account-circle"));
+        return b
+    }
+    var hS = {}
+      , gS = (hS.ADD_TO_WATCH_LATER = "[[Saving video requires using an account|Subtitle dialog prompting to choose account to add a video to a playlist]]",
+    hS.LIKE_DISLIKE = "[[Likes and dislikes require using an account|Subtitle of dialog prompting to choose account to like or dislike video]]",
+    hS.SUBSCRIBE = "[[Subscribing to a channel requires using an account|Subtitle of dialog prompting to choose account to subscribe to channel]]",
+    hS.PLAYER = "[[This video requires age verification|Subtitle of dialog prompting sign in to watch age gated video]]",
+    hS);
+    E(eS, ["localeService", "showAccountSelectorOverlay", "requestDefaultLogin"]);
+    function iS(a, b, c, e, f, g, h, k) {
+        k = void 0 === k ? 1 : k;
+        b = b();
+        h = Co[e] || Co.STANDARD;
+        b.L = "signInDialog";
+        f && (b.Ld = f);
+        g && (b.yl = g);
+        b.FUa(h);
+        b.yUa({
+            reason: e,
+            WC: "ACCOUNT_STATUS_CHANGE_TYPE_LOG_IN"
+        });
+        c(k, e);
+        a.open(b)
+    }
+    E(iS, ["dialogStageModel", "signInModelFactory", "sendAccountDialogOpenedPing"]);
+    function jS(a, b, c, e, f, g, h) {
+        var k = bn("https://accounts.google.comhttps://oauth2.googleapis.com/cl/tv");
+        k.yc("client_id", a);
+        k.yc("redirect_uri", b);
+        k.yc("response_type", "code");
+        k.yc("access_type", "offline");
+        k.yc("scope", c);
+        k.yc("state", kS(e, h));
+        a = {};
+        g("/gen_204", (a.a = "Tvhtml5GaiaSignInEvent::STARTED",
+        a));
+        je(f.location, k.toString())
+    }
+    function kS(a, b) {
+        a = a.Ea().Nd();
+        var c = a.args
+          , e = new Tm;
+        e.As(a.path);
+        mc(c, function(a, b) {
+            e.yc(b, a)
+        });
+        a = {};
+        return ql((a.application_state = e.toString(),
+        a.reason = Hb(b),
+        a))
+    }
+    E(jS, "oAuthClientIdDirectSignIn oAuthRedirectUri oAuthScopes applicationModel window sendReport".split(" "));
+    function lS(a, b, c, e, f, g, h) {
+        function k() {}
+        var m = g.signInEndpoint.nextEndpoint;
+        m && (k = function() {
+            return a(m, h)
+        }
+        );
+        c("STANDARD", k)
+    }
+    E(lS, ["navigateToNonSignInEndpoint", "localStorage", "requestLogin", "experimentFlags", "sendReport"]);
+    function mS(a, b, c, e, f) {
+        c instanceof NP ? f.nRa ? nS(e, a, function() {
+            c.WX()
+        }) : c.WX() : nS(e, a)
+    }
+    function nS(a, b, c) {
+        a.get(function(a) {
+            b(a, void 0, c)
+        })
+    }
+    E(mS, ["showLogoutDialog", "environment", "authService", "userProfileCache", "authCapabilities"]);
+    function oS(a, b, c, e, f, g, h, k, m, p) {
+        function u() {
+            e(function() {
+                return oS(a, b, c, e, f, g, h, k, m, p)
+            })
+        }
+        p = void 0 === p ? 1 : p;
+        var v = {
+            reason: g,
+            WC: "ACCOUNT_STATUS_CHANGE_TYPE_LOG_IN"
+        };
+        a(p, g);
+        f ? b(v, h, k, u) : c(v, h, k, u)
+    }
+    E(oS, ["sendAccountDialogOpenedPing", "showMobileAssistedSignInOverlay", "showUrlSignInOverlay", "showSignInErrorOverlay", "supportsDialSeamlessFeatures"]);
+    function pS(a, b, c, e, f, g, h) {
+        a.reset();
+        b.reset();
+        c.reset();
+        e.reset();
+        f.reset();
+        g.reset();
+        h.W8().reset()
+    }
+    E(pS, "soundEnabledFlag autoplayFlag safeModeFlag showVideoInfoFlag highContrastFlag inlinePlaybackFlag privateDataService".split(" "));
+    function qS(a, b, c) {
+        if (c && c.contents) {
+            var e = b()
+              , f = c.contents;
+            if (f) {
+                var g = [];
+                b = [];
+                for (var h = 0; h < f.length; ++h) {
+                    var k = f[h];
+                    if (k.shelfRenderer || k.playlistVideoListRenderer || k.surveyShelfRenderer || k.videoSurveyShelfRenderer || k.sentimentSurveyShelfRenderer || k.watchHistoryShelfRenderer || k.pivotFooterRenderer || k.pivotShelfRenderer) {
+                        if (e) {
+                            var m = k.shelfRenderer && k.shelfRenderer.content;
+                            if (m) {
+                                var p = m.horizontalListRenderer;
+                                p && (delete m.horizontalListRenderer,
+                                m.heroHorizontalListRenderer = p)
+                            }
+                        }
+                        g.push(k)
+                    } else
+                        (k = (k = k.itemSectionRenderer) && k.contents) && (k[0] && k[0].shelfRenderer ? g.push(k[0]) : b.push.apply(b, ka(k)))
+                }
+                e = g;
+                f = [];
+                for (g = 0; g < e.length; ++g)
+                    h = e[g],
+                    h = h.shelfRenderer || h.pivotShelfRenderer || h.watchHistoryShelfRenderer,
+                    (k = !h) || ((k = h.content) ? (k = k.gridRenderer || k.horizontalListRenderer || k.heroHorizontalListRenderer || k.pivotHorizontalListRenderer || k.fakeSubsListRenderer,
+                    k = !!(k && k.items && k.items.length)) : k = !1),
+                    k || (h = h.content,
+                    k = !(!h || !h.messageRenderer)),
+                    k && f.push(e[g]);
+                g = f;
+                !g.length && b.length ? (e = c.continuations,
+                delete c.continuations,
+                c = {},
+                c = (c.a = "yt.tv.commands.sanitizeShelfListResponse.makeFakeResult",
+                c),
+                a("/gen_204", c),
+                a = [{
+                    shelfRenderer: {
+                        title: {
+                            runs: [{
+                                text: ""
+                            }]
+                        },
+                        content: {
+                            horizontalListRenderer: {
+                                items: b,
+                                continuations: e
+                            }
+                        }
+                    }
+                }]) : a = g
+            } else
+                a = []
+        } else
+            a = [];
+        return a
+    }
+    E(qS, ["sendReport", "supportsHeroShelf"]);
+    function rS(a) {
+        var b = a && a.signInEndpoint && a.signInEndpoint.nextEndpoint;
+        b && (b.clickTrackingParams = void 0);
+        return a
+    }
+    ;function sS(a, b, c) {
+        var e = {};
+        a = (e.state = "guide:opened",
+        e.origin = a.Ea().getName(),
+        e);
+        c && (a.guide_source = c);
+        b(a)
+    }
+    E(sS, ["applicationModel", "sendActivityReport"]);
+    function tS(a, b, c, e) {
+        !a.GFa() && .05 < e() || (e = {
+            storageCapabilities: a.getCapabilities(),
+            storageState: a.getState()
+        },
+        c.send("tvhtml5DeviceStorageStatus", e),
+        b("/gen_204", {
+            sicap: a.Xza(),
+            sistate: a.Yza()
+        }))
+    }
+    E(tS, ["deviceStorageStatus", "sendReport", "gelService", "getRandom"]);
+    function uS(a, b, c) {
+        var e = b.r9("launch");
+        if ("preload" !== e) {
+            b = b.r9("launch_tag");
+            var f = 0;
+            e && (f = No[e.toUpperCase()] || No.INVALID);
+            b || (b = "undefined");
+            c = {
+                clientScreenNonce: c.fc(),
+                launchUrlComponentType: 1,
+                launchValue: f,
+                launchTag: b
+            };
+            a.send("tvhtml5LaunchUrlComponentChanged", c)
+        }
+    }
+    E(uS, ["gelService", "initialUrlQuery", "screenManager"]);
+    function vS(a) {
+        wS("airstream", {
+            airstream_all: !0,
+            airstream_cached_home: !0
+        }, a)
+    }
+    function wS(a, b, c) {
+        mc(b, function(b, f) {
+            b && c.setString("experiment." + a, f)
+        })
+    }
+    E(vS, ["shellCrashLogApi"]);
+    function xS(a, b) {
+        b = b.responseContext && b.responseContext.serviceTrackingParams || [];
+        a.KQ = null;
+        a.N_ = null;
+        for (var c, e = 0, f = b.length; e < f; ++e)
+            if ("SUGGEST" === b[e].service) {
+                c = b[e];
+                break
+            }
+        if (c && c.params)
+            for (b = 0,
+            e = c.params.length; b < e; ++b)
+                f = c.params[b],
+                "sugexp" === f.key ? a.KQ = f.value : "suggest_token" === f.key && (a.N_ = f.value)
+    }
+    E(xS, ["suggestionServiceParams"]);
+    function yS(a, b, c) {
+        switch (c) {
+        case "PRIVACY_CLEAR_WATCH_HISTORY":
+            return a;
+        case "PRIVACY_CLEAR_SEARCH_HISTORY":
+            return b
+        }
+    }
+    E(yS, ["showClearWatchHistoryDialog", "showClearSearchHistoryDialog"]);
+    function zS(a, b) {
+        a.enable_avod_hero_tile ? a = !0 : (a = b.$a(),
+        a = vc(a, "compactMovieRenderer"),
+        a = !(!a || !a.useVerticalPoster));
+        return a
+    }
+    E(zS, ["experimentFlags"]);
+    function AS(a, b, c, e) {
+        var f = b.C("[[Account removed|Toast message indicating that the user has successfully removed an account.]]");
+        b = b.C("[[{username} has been removed from this device.| Tells the user that the YouTube account specified by the username has been removed from this TV.|1945533598]]");
+        b = b.replace("{username}", e.displayName);
+        c = c({
+            id: "accountRemovedToastId",
+            componentRenderer: "accountRemovedToast",
+            displayTimeout: 5E3,
+            message: f,
+            subMessage: b,
+            opt_hasDisplayAnim: !0,
+            opt_userAvatarUri: e.imageUrl
+        });
+        a.Nc(c)
+    }
+    E(AS, ["toasterModel", "localeService", "defaultToastModelFactory"]);
+    function BS(a, b, c) {
+        b = c({
+            id: "accountRemovedToastId",
+            componentRenderer: "accountRemovedToast",
+            displayTimeout: 5E3,
+            message: b.C("[[Account removed|Toast message indicating that the user has successfully removed an account.]]"),
+            subMessage: b.C("[[You're now using YouTube signed out. Sign in to personalize recommendations.|Tells the user that they are not signed in to YouTube and advises them to sign in to get personalized recommendations]]"),
+            opt_userAvatarUri: "../img/avatar-guest_216.png",
+            opt_hasDisplayAnim: !0
+        });
+        a.Nc(b)
+    }
+    E(BS, ["toasterModel", "localeService", "defaultToastModelFactory"]);
+    function CS(a, b, c, e) {
+        b = b({
+            id: "adPersonalizationConfirmationId",
+            componentRenderer: "adPersonalizationConfirmationToast",
+            displayTimeout: 3E3,
+            message: e,
+            subMessage: "",
+            opt_hasDisplayAnim: !0
+        });
+        c(b, "watch");
+        a.Nc(b)
+    }
+    E(CS, ["toasterModel", "defaultToastModelFactory", "limitToastToApplicationState"]);
+    function DS(a, b, c) {
+        b = c({
+            id: "addedToWatchLaterToastId",
+            componentRenderer: "addedToWatchLaterToast",
+            displayTimeout: 5E3,
+            message: b.C('[[Video saved to your "Watch later" list|Toast message indicating that the user has added a video to watch later.]]'),
+            subMessage: "",
+            opt_iconClass: "icon-folder",
+            hasDisplayAnim: !0
+        });
+        a.Nc(b)
+    }
+    E(DS, ["toasterModel", "localeService", "defaultToastModelFactory"]);
+    function ES(a, b, c) {
+        b = c({
+            id: "clearWatchHistoryToastId",
+            componentRenderer: "clearWatchHistoryToast",
+            displayTimeout: 5E3,
+            message: b.C("[[All watch history has been cleared|Toast for clear watch history.]]"),
+            subMessage: "",
+            opt_iconClass: "icon-trash",
+            opt_hasDisplayAnim: !0
+        });
+        a.Nc(b)
+    }
+    E(ES, ["toasterModel", "localeService", "defaultToastModelFactory"]);
+    function FS(a, b) {
+        b = b.getDebugString();
+        a.push(b);
+        console.info("[DeviceStorage] " + b)
+    }
+    E(FS, ["debugWatermarkModel", "deviceStorageStatus"]);
+    function GS(a, b, c, e) {
+        if (!e.get())
+            return !1;
+        e.set(!1);
+        b = c({
+            id: "languageChangedId",
+            componentRenderer: "i18nToast",
+            displayTimeout: 5E3,
+            message: b.C("[[Your language has been changed|Content of toast after a language change]]"),
+            subMessage: "",
+            iconClass: "material-icon-translate",
+            hasDisplayAnim: !0
+        });
+        a.Nc(b);
+        return !0
+    }
+    E(GS, ["toasterModel", "localeService", "defaultToastModelFactory", "shouldDisplayLanguageChangedToast"]);
+    function HS(a, b, c, e) {
+        b = b.C("[[Your location has been updated to {{location}}|Content of toast after a location change]]").replace("{{location}}", e);
+        c = c({
+            id: "locationChangedId",
+            componentRenderer: "i18nToast",
+            displayTimeout: 5E3,
+            message: b,
+            subMessage: "",
+            iconClass: "material-icon-language",
+            hasDisplayAnim: !0,
+            displayDelay: 100
+        });
+        a.Nc(c);
+        return !0
+    }
+    E(HS, ["toasterModel", "localeService", "defaultToastModelFactory"]);
+    function IS(a, b, c) {
+        b = b({
+            id: "getCartErrorId",
+            componentRenderer: "errorToast",
+            displayTimeout: 5E3,
+            hasDisplayAnim: !0,
+            message: "[[Unable to purchase item|Toast for get cart error state.]]"
+        });
+        c(b, "watch");
+        a.Nc(b);
+        return !0
+    }
+    E(IS, ["toasterModel", "errorToastModelFactory", "limitToastToApplicationState"]);
+    function JS(a, b, c, e) {
+        b = c({
+            id: "notSignedInToastId",
+            componentRenderer: "notSignedInToast",
+            displayTimeout: 5E3,
+            message: b.C("[[You're not signed in to YouTube yet|Headline for dialog which encourages a user to login.]]"),
+            subMessage: b.C("[[Don't miss your personalized recommendations!|Highlights the personalization benefits to logging in to YouTube.]]"),
+            opt_userAvatarUri: "../img/avatar-guest_216.png",
+            opt_hasDisplayAnim: !0
+        });
+        e(b, "surface");
+        a.Nc(b)
+    }
+    E(JS, ["toasterModel", "localeService", "defaultToastModelFactory", "limitToastToApplicationState"]);
+    function KS(a, b, c) {
+        b = c({
+            id: "pauseWatchHistoryToastId",
+            componentRenderer: "pauseWatchHistoryToast",
+            displayTimeout: 5E3,
+            message: b.C("[[Your watch history has been paused on all devices|Toast for pause watch history.]]"),
+            subMessage: "",
+            opt_hasDisplayAnim: !0
+        });
+        a.Nc(b)
+    }
+    E(KS, ["toasterModel", "localeService", "defaultToastModelFactory"]);
+    function LS(a, b, c, e, f, g) {
+        b = b.rd();
+        if (c.get("shared-device-toast-shown") || b)
+            return !1;
+        e = f({
+            id: "sharedDeviceToastId",
+            componentRenderer: "sharedDeviceToast",
+            displayTimeout: 15E3,
+            message: e.C("[[You're signed out|Toast message indicating the user is signed out and the device is a shared device]]"),
+            subMessage: e.C("[[All users of this device influence what videos appear here. Sign in for a personalized experience. More info: youtube.com/tvrecs.|Message shown to users of a shared YouTube device informing them that this is a shared experience, and they need to sign in for a personalized experience.|1123303022]]"),
+            opt_iconClass: null,
+            opt_hasDisplayAnim: !0
+        });
+        g(e, "surface");
+        a.Nc(e);
+        c.set("shared-device-toast-shown", !0);
+        return !0
+    }
+    E(LS, "toasterModel authService localStorage localeService defaultToastModelFactory limitToastToApplicationState".split(" "));
+    function MS(a, b, c, e) {
+        c.get(function(c) {
+            if (c) {
+                var f = b.C("[[Welcome!|Header for sign in toast welcoming a user after successful login or after an app start with credentials]]")
+                  , h = b.C("[[You're signed in to YouTube as {{username}}|Main text for sign in toast indicating the user currently signed in to YouTube]]");
+                h = h.replace("{{username}}", c.displayName);
+                c = e({
+                    id: "signInToastId",
+                    componentRenderer: "signInToast",
+                    displayTimeout: 5E3,
+                    message: f,
+                    subMessage: h,
+                    opt_iconClass: null,
+                    opt_hasDisplayAnim: !0,
+                    opt_userAvatarUri: c.imageUrl
+                });
+                a.Nc(c)
+            }
+        })
+    }
+    E(MS, ["toasterModel", "localeService", "userProfileCache", "defaultToastModelFactory"]);
+    function NS(a, b, c) {
+        b = c({
+            id: "signOutToastId",
+            componentRenderer: "signOutToast",
+            displayTimeout: 5E3,
+            message: b.C("[[You're signed out|Toast message indicating the user is signed out and the device is a shared device]]"),
+            subMessage: b.C("[[Sign in for a personalized experience|Message presented after the user signs out.]]"),
+            opt_hasDisplayAnim: !0
+        });
+        a.Nc(b)
+    }
+    E(NS, ["toasterModel", "localeService", "defaultToastModelFactory"]);
+    function OS(a, b, c, e, f, g) {
+        var h = X(g.title)
+          , k = X(g.bodyText)
+          , m = a.Ji(g.foregroundImage);
+        a = a.Ji(g.backgroundImage);
+        if (h && k && m && a) {
+            c = c({
+                data: {
+                    titleText: h,
+                    bodyText: k,
+                    aR: m,
+                    backgroundImageUrl: a
+                }
+            });
+            b.Nc(c);
+            if (b = g.impressionEndpoints)
+                for (c = 0; c < b.length; c++)
+                    e(b[c]);
+            g.trackingParams && f.Ca(g.trackingParams)
+        }
+    }
+    E(OS, ["thumbnailParser", "toasterModel", "unlimitedWelcomeToastModelFactory", "handleServiceEndpoint", "screenManager"]);
+    function PS(a, b, c) {
+        b = c({
+            id: "videoSurveySubmitToastId",
+            componentRenderer: "videoSurveySubmitToast",
+            displayTimeout: 5E3,
+            message: b.C("[[Thanks!|Title toast message when user submits a post-watch survey.]]"),
+            subMessage: b.C("[[Your input helps millions of people find better content on YouTube.|Sub toast messge explains how user feedback will be used.]]"),
+            opt_hasDisplayAnim: !0
+        });
+        a.Nc(b)
+    }
+    E(PS, ["toasterModel", "localeService", "defaultToastModelFactory"]);
+    function QS(a, b, c, e, f, g) {
+        b = e({
+            id: "voiceSearchErrorId",
+            componentRenderer: "voiceSearchErrorToast",
+            displayTimeout: 3E3,
+            message: b.C(g),
+            subMessage: "",
+            opt_iconClass: "icon-settings-term",
+            opt_hasDisplayAnim: !0
+        });
+        a.Nc(b);
+        f(b, "search");
+        return !0
+    }
+    E(QS, ["toasterModel", "localeService", "applicationModel", "defaultToastModelFactory", "limitToastToApplicationState"]);
+    function RS(a, b, c, e) {
+        b = b({
+            id: "whyThisAdErrorId",
+            componentRenderer: "errorToast",
+            displayTimeout: 3E3,
+            hasDisplayAnim: !0,
+            message: void 0 === e ? "[[Heads up, setting not saved. Please try again.|A toast message to display to the user when an unknown error has occured while trying to change the ad personalization settings]]" : e,
+            helpUrl: ""
+        });
+        c(b, "watch");
+        a.Nc(b)
+    }
+    E(RS, ["toasterModel", "errorToastModelFactory", "limitToastToApplicationState"]);
+    function SS(a, b) {
+        return b.full_bleed || b.inline_hero_tile ? (a = a.Ea()) && "surface" === a.getName() && a instanceof EM ? (a = (a = a.zc && a.zc.sS()) && a.endpoint,
+        !!a && !!a.browseEndpoint && "-gIFbXVzaWM%3D" === a.browseEndpoint.params) : !1 : !1
+    }
+    E(SS, ["applicationModel", "experimentFlags"]);
+    function TS(a) {
+        a.w("pause-resume-watch-history")
+    }
+    ;function US(a) {
+        a.w("watch-history-cleared")
+    }
+    ;function VS(a) {
+        S.call(this);
+        var b = this;
+        this.Oc = a;
+        a.on("suspend", function() {
+            b.w("value-changed", !0, !1)
+        });
+        a.on("resume", function() {
+            b.w("value-changed", !1, !0)
+        })
+    }
+    l(VS, S);
+    VS.prototype.get = function() {
+        return this.Oc.gd()
+    }
+    ;
+    E(VS, ["applicationModel"]);
+    function WS() {
+        this.Q5 = !1
+    }
+    WS.prototype.va = function(a, b) {
+        for (var c = 1; c < arguments.length; ++c)
+            ;
+        return !1
+    }
+    ;
+    WS.prototype.dispose = function() {
+        this.Q5 = !0
+    }
+    ;
+    WS.prototype.isDisposed = function() {
+        return this.Q5
+    }
+    ;
+    function XS(a, b) {
+        return a ? a.dataset ? a.dataset[YS(b)] : a.getAttribute("data-" + b) : null
+    }
+    var ZS = {};
+    function YS(a) {
+        return ZS[a] || (ZS[a] = String(a).replace(/\-([a-z])/g, function(a, c) {
+            return c.toUpperCase()
+        }))
+    }
+    ;var $S = /\.vflset|-vfl[a-zA-Z0-9_+=-]+/
+      , aT = /-[a-zA-Z]{2,3}_[a-zA-Z]{2,3}(?=(\/|$))/;
+    function bT(a, b, c) {
+        c = void 0 === c ? null : c;
+        if (window.spf) {
+            c = "";
+            if (a) {
+                var e = a.indexOf("jsbin/")
+                  , f = a.lastIndexOf(".js")
+                  , g = e + 6;
+                -1 < e && -1 < f && f > g && (c = a.substring(g, f),
+                c = c.replace($S, ""),
+                c = c.replace(aT, ""),
+                c = c.replace("debug-", ""),
+                c = c.replace("tracing-", ""))
+            }
+            spf.script.load(a, c, b);
+            return null
+        }
+        return cT(a, b, c)
+    }
+    function cT(a, b, c) {
+        c = void 0 === c ? null : c;
+        var e = dT(a)
+          , f = document.getElementById(e)
+          , g = f && XS(f, "loaded")
+          , h = f && !g;
+        if (g)
+            return b && b(),
+            f;
+        b && (Gt(e, b),
+        Oa(b));
+        return h ? f : f = eT(a, e, function() {
+            if (!XS(f, "loaded")) {
+                var a = f;
+                a && (a.dataset ? a.dataset[YS("loaded")] = "true" : a.setAttribute("data-loaded", "true"));
+                It(e);
+                a = Ta(Jt, e);
+                Xh(a, 0)
+            }
+        }, c)
+    }
+    function eT(a, b, c, e) {
+        e = void 0 === e ? null : e;
+        var f = He(document, "SCRIPT");
+        f.id = b;
+        f.onload = function() {
+            c && setTimeout(c, 0)
+        }
+        ;
+        f.onreadystatechange = function() {
+            switch (f.readyState) {
+            case "loaded":
+            case "complete":
+                f.onload()
+            }
+        }
+        ;
+        e && f.setAttribute("nonce", e);
+        ie(f, df(a));
+        a = document.getElementsByTagName("head")[0] || document.body;
+        a.insertBefore(f, a.firstChild);
+        return f
+    }
+    function dT(a) {
+        var b = document.createElement("a");
+        a = a instanceof Od ? a : Ud(a);
+        b.href = Qd(a);
+        b = b.href.replace(/^[a-zA-Z]+:\/\//, "//");
+        for (var c = a = 0; c < b.length; ++c)
+            a = 31 * a + b.charCodeAt(c) >>> 0;
+        return "js-" + a
+    }
+    ;function fT() {
+        this.rV = !1;
+        this.QD = null
+    }
+    d = fT.prototype;
+    d.initialize = function(a, b, c, e, f) {
+        var g = this;
+        b ? (this.rV = !0,
+        bT(b, function() {
+            g.rV = !1;
+            if (window.botguard)
+                g.H6(c, e);
+            else {
+                var a = dT(b)
+                  , f = document.getElementById(a);
+                f && (Jt(a),
+                f.parentNode.removeChild(f));
+                Mh(Error("Unable to load Botguard from " + b), "WARNING", void 0, void 0, void 0)
+            }
+        }, f)) : a && (eval(a),
+        window.botguard ? this.H6(c, e) : Mh(Error("Unable to load Botguard from JS"), "WARNING", void 0, void 0, void 0))
+    }
+    ;
+    d.aIa = function() {
+        return !!this.QD
+    }
+    ;
+    d.H6 = function(a, b) {
+        try {
+            this.QD = new botguard.bg(a)
+        } catch (c) {
+            Mh(c, "WARNING", void 0, void 0, void 0)
+        }
+        b && b(a)
+    }
+    ;
+    d.invoke = function(a) {
+        a = void 0 === a ? {} : a;
+        return this.QD ? this.QD.invoke(void 0, void 0, a) : null
+    }
+    ;
+    d.dispose = function() {
+        this.QD = null
+    }
+    ;
+    var gT = new fT
+      , hT = !1
+      , iT = 0
+      , jT = "";
+    function kT(a) {
+        Oh("botguard_periodic_refresh") ? iT = Hh() : Oh("botguard_always_refresh") && (jT = a)
+    }
+    function lT(a) {
+        if (a) {
+            if (gT.rV)
+                return !1;
+            if (Oh("botguard_periodic_refresh"))
+                return 72E5 < Hh() - iT;
+            if (Oh("botguard_always_refresh"))
+                return jT != a
+        } else
+            return !1;
+        return !hT
+    }
+    function mT() {
+        return gT.aIa()
+    }
+    function nT(a) {
+        a = void 0 === a ? {} : a;
+        return gT.invoke(a)
+    }
+    ;function oT(a, b) {
+        return (a = a.Oxa()) ? (a.program && Jh("BG_P", a.program),
+        a.interpreterUrl && Jh("BG_IU", a.interpreterUrl),
+        a.interpreterScript && Jh("BG_I", a.interpreterScript),
+        r("yt.abuse.player.botguardInitialized", mT, void 0),
+        r("yt.abuse.player.invokeBotguard", nT, void 0),
+        a = R("BG_P", void 0),
+        lT(a) && (R("BG_I") || R("BG_IU")) ? (hT = !0,
+        gT.initialize(R("BG_I", null), R("BG_IU", null), a, kT, b),
+        b = !0) : b = !1,
+        b) : !1
+    }
+    E(oT, ["playerService", "cspNonce"]);
+    function pT(a, b, c) {
+        for (var e = 0, f = a.length; e < f; ++e)
+            if (a[e](b, c))
+                return !0;
+        return !1
+    }
+    E(pT, ["externalRouteChangeChildHandlers"]);
+    function qT(a, b) {
+        b = b.map(function(b) {
+            return rT(a, b)
+        });
+        return Zj(b).then(sT)
+    }
+    E(qT, ["accountsListService"]);
+    function rT(a, b) {
+        return new Rj(function(c, e) {
+            a.TA(null, c, e, b.accessToken)
+        }
+        )
+    }
+    function sT(a) {
+        var b = a.map(function(a) {
+            return t("contents.0.accountSectionListRenderer.contents.0", a)
+        });
+        a = Object.assign({}, a[0]);
+        var c = t("contents.0.accountSectionListRenderer", a);
+        c && (c.contents = b);
+        return a
+    }
+    ;function tT(a, b) {
+        a = void 0 === a ? [] : a;
+        b = void 0 === b ? {} : b;
+        this.XO = a;
+        this.Ef = b
+    }
+    E(tT, ["opt_childSelectors", "opt_stateMap"]);
+    function uT(a, b, c) {
+        var e = "unknown";
+        c && (e = "" + a[c]);
+        return {
+            s: c ? c : "no",
+            is_p: "" + !!b.match(/\blaunch=preload\b/),
+            vs: "undefined" !== typeof a.visibilityState ? a.visibilityState : "no",
+            is_h: e
+        }
+    }
+    E(uT, ["document", "initialUrlSearch", "visibilityApiImplementation"]);
+    function vT(a) {
+        a.VMa()
+    }
+    E(vT, ["firstLaunchTracker"]);
+    function wT(a, b, c) {
+        var e = {};
+        a("/gen_204", Object.assign((e.a = "tv_vapi",
+        e.firstVisible = "" + c,
+        e), b()), "visibility_api_survey_sw")
+    }
+    E(wT, ["sendReport", "makeVisibilityApiSupportPayload"]);
+    function xT(a, b) {
+        var c = {};
+        a("/gen_204", Object.assign((c.a = "tv_vapi",
+        c), b()), "visibility_api_survey_sw")
+    }
+    E(xT, ["sendReport", "makeVisibilityApiSupportPayload"]);
+    function yT(a, b) {
+        this.localStorage = a;
+        this.j = b;
+        this.key = "is-first-launch";
+        (this.xv = this.localStorage.get(this.key)) && this.XY(!1)
+    }
+    yT.prototype.VMa = function() {
+        void 0 === this.xv && (this.XY(!0),
+        this.Hva = this.j.za() + 86400)
+    }
+    ;
+    yT.prototype.isFirstLaunch = function() {
+        if (void 0 === this.xv)
+            return !0;
+        this.xv && this.j.za() > this.Hva && this.XY(!1);
+        return !!this.xv
+    }
+    ;
+    yT.prototype.XY = function(a) {
+        this.localStorage.set(this.key, a, 31536E4);
+        this.xv = a
+    }
+    ;
+    E(yT, ["localStorage", "timeService"]);
+    function zT(a, b, c) {
+        C.call(this);
+        this.H(a.on("visibility-changed", function(a) {
+            a ? c() : b()
+        }))
+    }
+    l(zT, C);
+    zT.prototype.va = function() {
+        return !1
+    }
+    ;
+    E(zT, ["appVisibilityService", "suspendApp", "resumeApp"]);
+    function AT(a, b, c) {
+        c = Ar(c.Od());
+        return "suspend" === c ? (a(),
+        !0) : "resume" === c ? (b(),
+        !0) : !1
+    }
+    E(AT, ["suspendApp", "resumeApp"]);
+    function BT(a) {
+        this.j = a;
+        this.Gpa = a.za()
+    }
+    BT.prototype.BS = function() {
+        return Math.floor((this.j.za() - this.Gpa) / 1E3)
+    }
+    ;
+    BT.prototype.Gcb = function(a, b) {
+        var c = this
+          , e = this.j.setTimeout(a, Math.max(0, 1E3 * (b - this.BS())));
+        return function() {
+            c.j.clearTimeout(e)
+        }
+    }
+    ;
+    E(BT, ["timeService"]);
+    var DT = {
+        apply: function(a, b) {
+            a.Za({
+                appVisibilityService: cP,
+                firstLaunchTracker: yT,
+                isSuspended: VS,
+                uptimeService: BT
+            });
+            a.V({
+                makeVisibilityApiSupportPayload: uT,
+                sendFirstVisibleReport: wT
+            });
+            a.$({
+                suspendHandlerPluginCtor: zT
+            });
+            kr(a, "suspendHandlerPluginCtor");
+            a.add("bedrockApplicationScopeConfigs", new sf(gr,{
+                first: a.Be("bedrockApplicationScopeConfigs"),
+                second: [CT]
+            }));
+            b.vl("gestureService", "userinput", vT);
+            b.pe("uptimeService");
+            b.pe("appVisibilityService");
+            b.execute(xT)
+        },
+        R: [oD]
+    };
+    E(DT.apply, ["injector", "bootstrapper"]);
+    var CT = {
+        apply: function(a, b) {
+            b.Lb("router", "external-route-change", AT)
+        }
+    };
+    E(CT.apply, ["injector", "bootstrapper"]);
+    function ET(a, b, c) {
+        b.get() || a.ifa(c)
+    }
+    E(ET, ["soundService", "isVideoPlaying"]);
+    function FT(a, b, c) {
+        (b = b[c]) && a(b)
+    }
+    E(FT, ["playSound", "soundDescriptorToSoundIdMap"]);
+    function GT(a, b) {
+        this.Wi = a;
+        this.path = b;
+        this.buffer = null
+    }
+    GT.prototype.download = function(a, b) {
+        var c = this
+          , e = this.Wi();
+        e.md(function(e) {
+            try {
+                a.decodeAudioData(e, function(a) {
+                    c.buffer = a;
+                    b()
+                }, function(a) {
+                    console.error("Error in loading sound:", a)
+                })
+            } catch (g) {
+                console.error("Error in decoding audio data:", g)
+            }
+        });
+        e.rZ("arraybuffer");
+        e.send(new gq("GET",this.path))
+    }
+    ;
+    E(GT, ["xhrRequestFactory", "path"]);
+    function HT() {}
+    HT.prototype.ifa = function() {}
+    ;
+    function IT(a, b, c, e) {
+        this.ly = a;
+        this.environment = b;
+        this.zXa = c;
+        this.eq = e;
+        this.xja = {};
+        if (!this.eq)
+            throw Error("Sound Service was created, but the platform has no audio context!");
+    }
+    IT.prototype.ifa = function(a) {
+        var b = this;
+        if (this.eq)
+            try {
+                var c = this.xja[a];
+                c ? this.play(c) : (c = this.zXa({
+                    path: "https://youtomb2016.github.io/assets/" + a + (this.environment.m_ ? ".mp3" : ".wav")
+                }),
+                this.xja[a] = c,
+                c.download(this.eq, function() {
+                    b.play(c)
+                }))
+            } catch (e) {}
+    }
+    ;
+    IT.prototype.play = function(a) {
+        a.buffer && this.gfa(a.buffer)
+    }
+    ;
+    IT.prototype.gfa = function(a) {
+        var b = this.eq.createBufferSource();
+        b.buffer = a;
+        b.connect(this.eq.destination);
+        b.start(0)
+    }
+    ;
+    IT.prototype.bPa = function(a) {
+        var b = this;
+        this.eq && (a = $f(a).buffer,
+        this.eq.decodeAudioData(a, function(a) {
+            b.gfa(a)
+        }, function(a) {
+            console.error("Error with decoding audio data:", a)
+        }))
+    }
+    ;
+    function JT(a) {
+        return a.AudioContext ? new a.AudioContext : a.webkitAudioContext ? new a.webkitAudioContext : null
+    }
+    E(IT, ["applicationPath", "environment", "soundFactory", "audioContextFactory"]);
+    E(JT, ["window"]);
+    var KT = {
+        apply: function(a, b, c) {
+            a.zb({
+                soundFactory: GT
+            });
+            a.Za({
+                soundService: b.jM ? IT : HT
+            });
+            a.Jd({
+                audioContextFactory: JT
+            });
+            a.V({
+                playSound: ET,
+                playSoundFromDescriptor: FT
+            });
+            a.$({
+                soundDescriptorToSoundIdMap: {}
+            });
+            c.pe("soundService")
+        },
+        R: [uy]
+    };
+    E(KT.apply, ["injector", "environment", "bootstrapper"]);
+    function LT(a) {
+        V.call(this);
+        this.h1a = a;
+        this.model = null;
+        this.ub = !0
+    }
+    l(LT, V);
+    LT.prototype.ready = function() {
+        V.prototype.ready.call(this);
+        this.controller = this.h1a({
+            component: this
+        });
+        this.Ba(this.controller)
+    }
+    ;
+    LT.prototype.rb = function() {
+        return null
+    }
+    ;
+    LT.prototype.Rr = function() {
+        this.controller.Tc(this.model.C9())
+    }
+    ;
+    LT.prototype.D = function(a) {
+        var b = this;
+        V.prototype.D.call(this, a);
+        this.model ? (this.I(this.model, "did-change", function() {
+            b.Rr()
+        }),
+        this.Rr()) : this.controller.Tc("")
+    }
+    ;
+    E(LT, ["watchControllerFactory"]);
+    function MT(a, b, c) {
+        this.KT = a;
+        this.j = b;
+        this.continuation = c
+    }
+    d = MT.prototype;
+    d.Dp = function(a, b, c) {
+        this.HB(a, b, c)
+    }
+    ;
+    d.Ls = function() {
+        this.ra && (this.j.clearTimeout(this.ra),
+        delete this.ra)
+    }
+    ;
+    d.MNa = function(a, b) {
+        b && b("The Polling Service was canceled by the server", a)
+    }
+    ;
+    d.nB = function(a, b) {
+        b && b("The Polling Service received an invalid response from the server", a)
+    }
+    ;
+    d.onSuccess = function(a, b, c, e) {
+        var f = this;
+        c && c(a);
+        var g = b(a);
+        g ? (this.continuation = g,
+        this.continuation.timeoutMs ? this.ra = this.j.setTimeout(function() {
+            f.HB(b, c, e)
+        }, this.continuation.timeoutMs) : this.nB(a, e)) : this.nB(a, e)
+    }
+    ;
+    d.HB = function(a, b, c) {
+        var e = this;
+        this.KT.Nv(this.continuation, function(f) {
+            e.onSuccess(f, a, b, c)
+        }, function(a) {
+            e.nB(a, c)
+        }, function(a) {
+            e.MNa(a, c)
+        })
+    }
+    ;
+    E(MT, ["innertubeService", "timeService", "continuation"]);
+    var NT = 16 / 9
+      , OT = {}
+      , PT = (OT.CHANNEL = {
+        dQ: 1,
+        Wt: "creator-endscreen-cell-channel"
+    },
+    OT.PLAYLIST = {
+        dQ: 16 / 9,
+        Wt: "creator-endscreen-cell-playlist"
+    },
+    OT.VIDEO = {
+        dQ: 16 / 9,
+        Wt: "creator-endscreen-cell-video"
+    },
+    OT);
+    function QT(a, b, c, e) {
+        var f = Math.abs(b.jF - a.jF);
+        a = Math.abs(b.kF - a.kF) / e;
+        switch (c) {
+        case "up":
+        case "down":
+            return a + 3 * f;
+        case "left":
+        case "right":
+            return f + 3 * a
+        }
+        return Infinity
+    }
+    ;function RT(a, b, c) {
+        return b.jF >= ("right" === c ? a.TRa : 0) && b.kF >= ("down" === c ? a.uy : 0) && b.jF <= ("left" === c ? a.Gr : 1) && b.kF <= ("up" === c ? a.sD : 1)
+    }
+    ;function ST(a, b, c, e, f, g, h, k, m, p) {
+        S.call(this);
+        this.trackingParams = a;
+        this.cells = b;
+        this.left = c;
+        this.top = e;
+        this.width = f;
+        this.height = g;
+        this.videoAspectRatio = h;
+        this.kQa = k;
+        this.Tua = m;
+        this.Y = p;
+        this.selectedIndex = -1;
+        this.N3 = !1;
+        a = ja(b);
+        for (b = a.next(); !b.done; b = a.next())
+            this.Ba(b.value);
+        this.H(this.Y.on("currentTime:changed", this.Cn.bind(this)))
+    }
+    l(ST, S);
+    d = ST.prototype;
+    d.KE = function() {
+        return ob(this.cells, function(a) {
+            return a.isActive()
+        })
+    }
+    ;
+    d.activate = function() {
+        this.tSa()
+    }
+    ;
+    d.qg = function() {
+        -1 < this.selectedIndex && (this.selectedIndex = -1,
+        this.w("selectedCell:changed"))
+    }
+    ;
+    d.aa = function() {
+        return this.selectedIndex
+    }
+    ;
+    d.ba = function(a) {
+        if (this.selectedIndex !== a) {
+            var b = this.dH();
+            b && b.iQ();
+            this.selectedIndex = a;
+            (b = this.dH()) && b.select();
+            this.w("selectedCell:changed")
+        }
+    }
+    ;
+    d.dH = function() {
+        return this.cells[this.selectedIndex] || null
+    }
+    ;
+    d.rMa = function(a) {
+        var b = this.dH()
+          , c = null
+          , e = -1
+          , f = Infinity;
+        if (b)
+            for (var g = 0; g < this.cells.length; g++) {
+                var h = this.cells[g];
+                if (b !== h && h.isActive() && this.kQa(b, h, a)) {
+                    var k = this.Tua(b, h, a, this.videoAspectRatio);
+                    if (!c || k < f || k === f && (h.Gr < c.Gr || h.Gr === h.sD && h.sD < c.sD))
+                        c = h,
+                        e = g,
+                        f = k
+                }
+            }
+        c && this.ba(e);
+        return !!c
+    }
+    ;
+    d.gr = function() {
+        var a = this.dH();
+        return a ? a.gr() : !1
+    }
+    ;
+    d.tSa = function() {
+        for (var a = null, b = -1, c = 0; c < this.cells.length; c++) {
+            var e = this.cells[c];
+            e.isActive() && (!a || e.uy > a.uy || e.uy === a.uy && e.Gr < a.Gr) && (a = e,
+            b = c)
+        }
+        this.ba(b)
+    }
+    ;
+    d.Cn = function() {
+        var a = this.KE();
+        a !== this.N3 && (this.w("visibility:changed"),
+        this.N3 = a)
+    }
+    ;
+    function TT(a, b, c, e, f, g) {
+        var h = a.trackingParams || ""
+          , k = c.height ? c.width / c.height : NT
+          , m = [];
+        if (a.elements)
+            for (var p = 0, u = a.elements.length; p < u; ++p) {
+                var v = a.elements[p].endscreenElementRenderer;
+                v && v.endpoint && v.style && PT[v.style] && m.push(b({
+                    source: v,
+                    videoAspectRatio: k
+                }))
+            }
+        return new ST(h,m,c.left,c.top,c.width,c.height,k,e,f,g)
+    }
+    E(TT, "source creatorEndscreenCellModelFactory videoContentRect reachabilityBetween distanceBetween progressModel".split(" "));
+    function UT(a, b) {
+        V.call(this);
+        this.Db = a;
+        this.environment = b;
+        this.model = null;
+        this.cells = []
+    }
+    l(UT, V);
+    d = UT.prototype;
+    d.D = function(a) {
+        var b = this;
+        V.prototype.D.call(this, a);
+        this.jp();
+        this.cells.length = 0;
+        if (this.model) {
+            a = 0;
+            for (var c = this.model.cells.length; a < c; ++a) {
+                var e = this.model.cells[a]
+                  , f = this.Db.we(e.L);
+                f.model = e;
+                this.cells.push(f);
+                this.Zb(f);
+                this.h.appendChild(f.h)
+            }
+            this.O6();
+            this.Bb("selectedCell:changed", function() {
+                b.O6()
+            });
+            this.Bb("visibility:changed", function() {
+                b.render()
+            });
+            this.EV(this.h.querySelector(".inactive.creator-endscreen-indicator"), this.environment.sd)
+        }
+        this.render(!0)
+    }
+    ;
+    d.Ylb = function() {
+        return this.cells.length
+    }
+    ;
+    d.yjb = function(a) {
+        return this.cells[a]
+    }
+    ;
+    d.T = function() {
+        var a = V.prototype.T.call(this);
+        this.model && this.model.KE() && a.push("visible");
+        return a
+    }
+    ;
+    d.O6 = function() {
+        if (this.model) {
+            var a = this.model.aa();
+            -1 < a && this.cells[a].focus()
+        }
+    }
+    ;
+    E(UT, ["componentBuilder", "environment"]);
+    function VT(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G, K) {
+        S.call(this);
+        this.Gr = a;
+        this.sD = b;
+        this.v1a = c;
+        this.NFa = e;
+        this.title = f;
+        this.startMs = g;
+        this.endMs = h;
+        this.endpoint = k;
+        this.videoDuration = m;
+        this.playlistLength = p;
+        this.imageUrl = u;
+        this.style = v;
+        this.trackingParams = w;
+        this.clickTrackingParams = x;
+        this.Y = B;
+        this.qm = G;
+        this.G = K;
+        this.yA = !1;
+        this.TRa = a + c;
+        this.uy = b + e;
+        this.jF = a + c / 2;
+        this.kF = b + e / 2;
+        this.L = PT[v].Wt;
+        this.H(this.Y.on("currentTime:changed", this.Cn.bind(this)))
+    }
+    l(VT, S);
+    d = VT.prototype;
+    d.isActive = function() {
+        return this.yA
+    }
+    ;
+    d.gr = function() {
+        this.G.Sc(this.clickTrackingParams);
+        this.qm(this.endpoint);
+        return !0
+    }
+    ;
+    d.select = function() {}
+    ;
+    d.iQ = function() {}
+    ;
+    d.Cn = function() {
+        var a = 1E3 * this.Y.currentTime;
+        a = a >= this.startMs && a < this.endMs;
+        if (this.yA !== a) {
+            if (this.yA = a)
+                this.G.attachChild(this.trackingParams),
+                this.G.Ca(this.trackingParams);
+            this.w("isActive:changed", this.yA)
+        }
+    }
+    ;
+    E(VT, "leftPct topPct widthPct heightPct title startMs endMs endpoint videoDuration playlistLength imageUrl style trackingParams clickTrackingParams progressModel navigateToEndpoint screenManager".split(" "));
+    function WT(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G, K, L, Q, fa, ta, wa, hb, xb, nb) {
+        VT.call(this, a, b, c, e, f, h, k, m, "", "", p, u, v, w, B, wa, nb);
+        this.channel = g;
+        this.e_ = x;
+        this.isSubscribe = G;
+        this.subscribed = K;
+        this.lYa = L;
+        this.subscribedText = Q;
+        this.callToAction = fa;
+        this.qYa = ta;
+        this.Gy = xb;
+        this.buttonText = "";
+        this.lwa = .5 < a ? "left" : "right";
+        this.H(hb.on("subscription-change", this.rYa.bind(this)));
+        this.Iha()
+    }
+    l(WT, VT);
+    WT.prototype.select = function() {
+        this.isSubscribe && (this.G.attachChild(this.e_),
+        this.G.Ca(this.e_));
+        VT.prototype.select.call(this)
+    }
+    ;
+    WT.prototype.gr = function() {
+        return this.isSubscribe ? (this.G.Sc(this.e_),
+        this.Gy(this.channel, !this.subscribed),
+        !0) : VT.prototype.gr.call(this)
+    }
+    ;
+    WT.prototype.Iha = function() {
+        var a = this.buttonText;
+        this.buttonText = this.isSubscribe ? this.subscribed ? this.subscribedText : this.lYa + " " + this.qYa : this.callToAction;
+        this.buttonText !== a && this.w("buttonText:changed")
+    }
+    ;
+    WT.prototype.rYa = function(a) {
+        var b = a.detail[0];
+        a = a.detail[1];
+        this.channel && b === this.channel.userId && (this.subscribed = a,
+        this.Iha())
+    }
+    ;
+    E(WT, "leftPct topPct widthPct heightPct title channel startMs endMs endpoint imageUrl style trackingParams clickTrackingParams subscribeButtonTrackingParams progressModel isSubscribe subscribed subscribeText subscribedText callToAction subscriberCountShort navigateToEndpoint rootDispatcher changeSubscription screenManager".split(" "));
+    function XT() {
+        V.call(this);
+        this.model = null;
+        this.mh = this.ub = !0
+    }
+    l(XT, V);
+    d = XT.prototype;
+    d.D = function(a) {
+        var b = this;
+        V.prototype.D.call(this, a);
+        this.model && (this.Ga(!this.model.isActive()),
+        this.Bb("isActive:changed", function(a) {
+            return b.Ga(!a)
+        }),
+        this.Bb("buttonText:changed", function() {
+            return b.render()
+        }),
+        this.on("keyup", function(a) {
+            13 === a.keyCode && (b.model.gr(),
+            T(a))
+        }));
+        this.render()
+    }
+    ;
+    d.T = function() {
+        var a = V.prototype.T.call(this);
+        this.model && "CHANNEL" === this.model.style && a.push(this.model.lwa);
+        return a
+    }
+    ;
+    d.Wza = function() {
+        return 100 * (this.model ? this.model.Gr : 0) + "%"
+    }
+    ;
+    d.aDa = function() {
+        return 100 * (this.model ? this.model.sD : 0) + "%"
+    }
+    ;
+    d.FDa = function() {
+        return 100 * (this.model ? this.model.v1a : 0) + "%"
+    }
+    ;
+    d.tza = function() {
+        return 100 * (this.model ? this.model.NFa : 0) + "%"
+    }
+    ;
+    function ZT(a, b, c, e, f) {
+        var g = c.left || 0
+          , h = c.top || 0
+          , k = c.width || 0
+          , m = X(c.title)
+          , p = Math.floor(Number(c.startMs)) || 0
+          , u = Math.floor(Number(c.endMs)) || 0
+          , v = c.endpoint
+          , w = X(c.videoDuration)
+          , x = X(c.playlistLength);
+        e = e.bb(c.image);
+        var B = c.style;
+        f = k * f / (c.aspectRatio ? c.aspectRatio : PT[B].dQ);
+        var G = c.trackingParams || ""
+          , K = c.endpoint && c.endpoint.clickTrackingParams || "";
+        if ("CHANNEL" === c.style) {
+            a = !!c.isSubscribe;
+            w = null;
+            x = !1;
+            var L = ""
+              , Q = ""
+              , fa = ""
+              , ta = "";
+            if (a) {
+                w = new SR;
+                var wa = c.hovercardButton && c.hovercardButton.subscribeButtonRenderer;
+                wa && (w.userId = wa.channelId || "",
+                w.fI = "PAID" === wa.type,
+                x = !!wa.subscribed,
+                L = X(wa.unsubscribedButtonText),
+                Q = X(wa.subscribedButtonText),
+                fa = X(wa.shortSubscriberCountText),
+                ta = wa.trackingParams || "")
+            }
+            c = X(c.callToAction);
+            return b({
+                callToAction: c,
+                channel: w,
+                clickTrackingParams: K,
+                endMs: u,
+                endpoint: v,
+                heightPct: f,
+                imageUrl: e,
+                isSubscribe: a,
+                leftPct: g,
+                startMs: p,
+                style: B,
+                subscribed: x,
+                subscribedText: Q,
+                subscriberCountShort: fa,
+                subscribeText: L,
+                subscribeButtonTrackingParams: ta,
+                title: m,
+                topPct: h,
+                trackingParams: G,
+                widthPct: k
+            })
+        }
+        return a({
+            clickTrackingParams: K,
+            endMs: u,
+            endpoint: v,
+            heightPct: f,
+            imageUrl: e,
+            leftPct: g,
+            playlistLength: x,
+            startMs: p,
+            style: B,
+            title: m,
+            topPct: h,
+            trackingParams: G,
+            videoDuration: w,
+            widthPct: k
+        })
+    }
+    E(ZT, ["creatorEndscreenCellFactory", "creatorEndscreenChannelCellFactory", "source", "creatorEndscreenCellThumbnailParser", "videoAspectRatio"]);
+    var $T = {
+        apply: function(a) {
+            a.P([{
+                name: "creator-endscreen",
+                A: UT,
+                template: "creator_endscreen.html"
+            }, {
+                name: "creator-endscreen-cell-channel",
+                A: XT,
+                template: "creator_endscreen_cell_channel.html"
+            }, {
+                name: "creator-endscreen-cell-playlist",
+                A: XT,
+                template: "creator_endscreen_cell_playlist.html"
+            }, {
+                name: "creator-endscreen-cell-video",
+                A: XT,
+                template: "creator_endscreen_cell_video.html"
+            }]);
+            a.Tb({
+                creatorEndscreenCellModelFactory: ZT,
+                creatorEndscreenModelFactory: TT
+            });
+            a.zb({
+                creatorEndscreenCellFactory: VT,
+                creatorEndscreenChannelCellFactory: WT
+            });
+            a.add("creatorEndscreenCellThumbnailParser", new J(new I(qx,{
+                opt_thumbnailQuality: 480
+            })));
+            a.$({
+                reachabilityBetween: RT,
+                distanceBetween: QT
+            })
+        },
+        R: [uy]
+    };
+    E($T.apply, ["injector"]);
+    function aU(a, b, c) {
+        c = void 0 === c ? function() {}
+        : c;
+        b.nj && (a.lb(b.nj),
+        a.h && Xk(a.h, b.nj));
+        b.Ln && (a.wa(b.Ln),
+        a.h && Vk(a.h, b.Ln));
+        c();
+        return function() {}
+    }
+    ;function bU(a, b, c, e, f) {
+        function g() {}
+        f = void 0 === f ? function() {}
+        : f;
+        cU(c, e.nj);
+        var h = a.setTimeout(function() {
+            c.h ? (g = b(function() {
+                dU(c, e.Yk);
+                f()
+            }, c.h, e.duration),
+            dU(c, e.nj),
+            cU(c, e.Yk),
+            cU(c, e.Ln)) : (dU(c, e.nj),
+            cU(c, e.Ln),
+            f())
+        }, 10);
+        return function() {
+            a.clearTimeout(h);
+            g();
+            dU(c, e.Yk);
+            dU(c, e.nj);
+            dU(c, e.Ln)
+        }
+    }
+    function cU(a, b) {
+        b && (a.wa(b),
+        a.h && Vk(a.h, b))
+    }
+    function dU(a, b) {
+        b && (a.lb(b),
+        a.h && Xk(a.h, b))
+    }
+    E(bU, ["timeService", "waitForTransitionEndEvent"]);
+    var eU = {
+        apply: function(a, b) {
+            a.V({
+                overlayTransitionRunner: b.Dd || b.sf ? aU : bU
+            })
+        },
+        R: [uy]
+    };
+    E(eU.apply, ["injector", "environment"]);
+    function fU() {
+        S.apply(this, arguments);
+        this.overlay = null
+    }
+    l(fU, S);
+    d = fU.prototype;
+    d.isOpen = function() {
+        return null !== this.overlay
+    }
+    ;
+    d.eBa = function() {
+        return this.overlay
+    }
+    ;
+    d.open = function(a) {
+        this.kZ(a)
+    }
+    ;
+    d.close = function() {
+        this.kZ(null)
+    }
+    ;
+    d.kZ = function(a) {
+        if (this.overlay !== a) {
+            var b = this.overlay;
+            this.overlay = a;
+            b && this.w("close-overlay", b, a);
+            a && this.w("open-overlay", a, b)
+        }
+    }
+    ;
+    d.B = function() {
+        this.kZ(null);
+        S.prototype.B.call(this)
+    }
+    ;
+    function gU() {
+        VL.apply(this, arguments);
+        this.L = "overlay-scrim-panel"
+    }
+    l(gU, VL);
+    function hU(a, b) {
+        V.call(this);
+        this.Db = a;
+        this.RK = null;
+        this.mh = !0;
+        this.model = b
+    }
+    l(hU, V);
+    d = hU.prototype;
+    d.ready = function() {
+        var a = this;
+        V.prototype.ready.call(this);
+        this.model.on("open-overlay", function(b, e) {
+            a.open(b, e)
+        });
+        this.model.on("close-overlay", function(b, e) {
+            a.close(b, e)
+        });
+        this.RK = this.P1(new gU);
+        this.RK.hide();
+        var b = this.model.eBa();
+        b && this.open(b, null);
+        this.on("keydown", T);
+        this.on("keyup", T)
+    }
+    ;
+    d.cb = function(a) {
+        return this.model.isOpen() && V.prototype.cb.call(this, a)
+    }
+    ;
+    d.B = function() {
+        this.jp();
+        V.prototype.B.call(this)
+    }
+    ;
+    d.open = function(a, b) {
+        var c = this;
+        a.onOpen();
+        this.P1(a);
+        this.isHidden() && this.show();
+        this.render(!0);
+        this.SI();
+        this.model.w("opened", a, b);
+        a.N9().tH("show", function() {
+            c.CD()
+        });
+        a.HZ && this.RK.show()
+    }
+    ;
+    d.close = function(a, b) {
+        var c = this;
+        b || this.model.w("closed", a);
+        b && b.HZ || this.RK.hide();
+        a.N9().tH(b ? "replace" : "hide", function() {
+            c.NQa(a);
+            1 < c.ak() ? c.render() : c.hide();
+            a.onClose()
+        })
+    }
+    ;
+    d.P1 = function(a) {
+        if (!a.L)
+            return null;
+        var b = this.Db.we(a.L);
+        if (!b)
+            return null;
+        b.model = a;
+        this.Zb(b);
+        this.h.appendChild(b.h);
+        return b
+    }
+    ;
+    d.NQa = function(a) {
+        for (var b = this.ak(), c = 0; c < b; c++) {
+            var e = this.Sq(c);
+            e && e.model === a && this.Nk(c)
+        }
+    }
+    ;
+    E(hU, ["componentBuilder", "overlayStage"]);
+    var iU = {
+        apply: function(a) {
+            a.Za({
+                overlayStage: fU
+            });
+            a.P([{
+                name: "overlay-stage",
+                A: hU
+            }, {
+                name: "overlay-scrim-panel",
+                A: V
+            }])
+        },
+        R: [uy, eU]
+    };
+    E(iU.apply, ["injector"]);
+    function jU(a, b, c) {
+        b.get() && a.push("FORCED OFF ALL EXPERIMENTS");
+        if (0 < c.experimentFlags.length) {
+            b = [];
+            for (var e = 0; e < c.experimentFlags.length; e++) {
+                var f = c.experimentFlags[e];
+                b.push(f.key + ":" + f.value)
+            }
+            a.push("EXPERIMENT FLAGS: " + b.join(" "))
+        }
+    }
+    E(jU, ["debugWatermarkModel", "noExperimentsFlag", "internalParams"]);
+    function kU(a, b, c, e, f) {
+        var g = e.Od();
+        b = b.translateDeepLink(e.toString());
+        var h = !1;
+        e = e.Pd().get("v");
+        void 0 != e && (h = !!e.match(/^[a-zA-Z0-9_\-=]{11}$/));
+        return void 0 != e && !h || null === b && !sc(Ti, g) && !sc(Ao, g) ? (a.JD(f),
+        c(),
+        !0) : !1
+    }
+    E(kU, ["router", "systemApi", "handleDeeplinkError"]);
+    function lU(a, b, c) {
+        var e = a.Fu(), f;
+        for (f in e)
+            if (e.hasOwnProperty(f)) {
+                var g = e[f];
+                "DEFAULT_SSO_AM_TOKEN" !== g.refreshToken && (a.TB(g),
+                b(g.refreshToken))
+            }
+        a.XL(null);
+        c.remove("recent-searches")
+    }
+    E(lU, ["credentialManager", "revokeRefreshToken", "searchHistoryStorage"]);
+    function mU(a, b) {
+        switch (b) {
+        case "limited-memory":
+            b = "TV_APP_QUALITY_LIMITED_MEMORY";
+            break;
+        case "limited-animation":
+            b = "TV_APP_QUALITY_LIMITED_ANIMATION";
+            break;
+        case "full-animation":
+            b = "TV_APP_QUALITY_FULL_ANIMATION";
+            break;
+        default:
+            b = "TV_APP_QUALITY_UNKNOWN"
+        }
+        b = {
+            appQuality: b
+        };
+        a.isFirstLaunch() && (b.isFirstLaunch = !0);
+        return {
+            context: {
+                client: {
+                    tvAppInfo: b
+                }
+            }
+        }
+    }
+    E(mU, ["firstLaunchTracker", "appQuality"]);
+    function nU(a, b, c) {
+        a(void 0, c)
+    }
+    E(nU, ["goHome"]);
+    function oU(a, b, c) {
+        a.clearVideo();
+        b(!1, c)
+    }
+    E(oU, ["remoteService", "goHome"]);
+    function pU(a, b, c, e) {
+        c = void 0 === c ? !1 : c;
+        b = {
+            Z: b()
+        };
+        c || (b.gd = !1);
+        a(b, e)
+    }
+    E(pU, ["navigateForward", "callToCastModelFactory"]);
+    function qU(a, b) {
+        a.gP();
+        a.KX(void 0, b)
+    }
+    E(qU, ["playerService"]);
+    function rU(a, b) {
+        a("2" == b ? "cco" : "rco")
+    }
+    E(rU, ["handleConsentToViewEdgyContent"]);
+    function sU(a) {
+        a && a()
+    }
+    ;function tU(a, b, c, e) {
+        a = a(c, e);
+        b.CY(c);
+        return a
+    }
+    E(tU, ["bedrockHandleExternalRouteChange", "fragmentReportingService"]);
+    function uU(a, b, c, e) {
+        a.V6 ? b.get() || vU(c, b, e, "https://www.youtube.com/experiments?action_zero=Zero", !0) : a.Uga && b.get() && vU(c, b, e, "https://www.youtube.com/experiments?action_clear=Clear", !1)
+    }
+    function vU(a, b, c, e, f) {
+        e = new gq("GET",e);
+        a = a();
+        a.md(function() {
+            b.set(f);
+            c.reload()
+        });
+        a.send(e)
+    }
+    E(uU, ["environment", "noExperimentsFlag", "xhrRequestFactory", "location"]);
+    function wU(a) {
+        for (var b = 0, c = a.length; b < c && !a[b](); ++b)
+            ;
+    }
+    E(wU, ["initParamHandlers"]);
+    function xU(a, b, c) {
+        if (a.tGa)
+            return b(),
+            !0;
+        c = c.Ea();
+        return "watch" != c.getName() || c.uc() || a.HT || a.GT ? !1 : (b(),
+        !0)
+    }
+    E(xU, ["environment", "handleVideoRetrievalError", "applicationModel"]);
+    function yU(a, b, c, e, f, g, h) {
+        1 === h && (a.UX(),
+        e.Zu() && f.isOpen() ? b.pause() : ("search" === c.Ea().getName() || g || b.$x("first-progress", .01, function() {
+            f.close()
+        }, 2),
+        g && f.isOpen() && b.pause()))
+    }
+    E(yU, "networkStatus playerService applicationModel credentialManager dialogStageModel supportsDirectSignIn".split(" "));
+    function zU(a) {
+        return "call-to-cast" == a.Ea().getName()
+    }
+    E(zU, ["applicationModel"]);
+    function AU(a, b, c) {
+        var e = [];
+        c.serviceEndpoints && e.push.apply(e, lb(c.serviceEndpoints, function(a) {
+            return function() {
+                return b(a)
+            }
+        }));
+        c.navigationEndpoint ? e.push(a({
+            endpoint: c.navigationEndpoint
+        })) : c.nextEndpoint && e.push(a({
+            endpoint: c.nextEndpoint
+        }));
+        return 1 == e.length ? e[0] : e.length ? yd.apply(yd, e) : function() {}
+    }
+    E(AU, ["makeEndpointNavigator", "handleServiceEndpoint"]);
+    function BU(a, b, c, e) {
+        var f = Ar(e.Od());
+        if ("play" !== f && "pause" !== f)
+            return !1;
+        a.resume();
+        "watch" === a.Ea().getName() && ("play" === f ? b.play() : b.pause(),
+        e.Pd().bj("t") && b.Vc() && b.seekTo(Br(e), !0));
+        c();
+        return !0
+    }
+    E(BU, ["applicationModel", "playerService", "updateRouteFromApplicationModel"]);
+    function CU(a, b, c, e) {
+        a = a.sd || a.Ze;
+        if (e.kabuki_old_players_force_exit_on_error && a)
+            c();
+        else if (e.reload_on_player_error && !a)
+            try {
+                b(!0)
+            } catch (f) {}
+    }
+    E(CU, ["environment", "reloadPage", "tryWindowClose", "experimentFlags"]);
+    function DU(a, b, c, e) {
+        if (!a.sd || 0 < c.Dz().getLength())
+            a = a.Fb ? 5E3 : 0,
+            e.setTimeout(b.remove.bind(b), a)
+    }
+    E(DU, ["environment", "loader", "remoteService", "timeService"]);
+    function EU(a, b, c, e, f, g, h, k, m, p) {
+        var u = b.applicationLoaded;
+        u && u();
+        if (f) {
+            if (c.La("pl_rn_s"),
+            FU(a, b, "player", p),
+            c.La("app_rn_s"),
+            a = FU(a, b, "application", p))
+                c.La("app_added"),
+                a.model = e,
+                g.start(),
+                h(),
+                k(),
+                e.va("app-start"),
+                e.activate(),
+                m()
+        } else if (c = FU(a, b, "systemError", "loader"))
+            c.model = GU
+    }
+    var GU = {
+        title: "[[YouTube on TV is not supported on this device.|Error message informing the user that their device does not support the YouTube on TV application.]]",
+        url: "www.youtube.com/devicepartners"
+    };
+    function FU(a, b, c, e) {
+        b = b.document.getElementById(e);
+        return a.we(c, void 0, b)
+    }
+    E(EU, "componentBuilder window performanceService applicationModel isPlatformSupported router updateRouteFromApplicationModel handleInitParams removeLoadingScreen appContainerId experimentFlags".split(" "));
+    function HU(a, b) {
+        var c = {};
+        a = (c.a = "tv_autoplay_flag",
+        c.value = a.get() ? 1 : 0,
+        c);
+        b("/gen_204", a)
+    }
+    E(HU, ["autoplayFlag", "sendReport"]);
+    function IU(a, b, c, e, f) {
+        var g = f.Pd();
+        f = g.get("reversePairingCode") || g.get("pairingCode");
+        g = g.get("theme");
+        f && f != b.hv && (b.vg || g && g != e.theme ? (b = "" + (a.search || "") + "&" + (a.hash || "").replace(/#[^?]*\??/, ""),
+        b = tl(b),
+        b = ul("/tv", b),
+        a.assign(b)) : c.vP(f));
+        return !1
+    }
+    E(IU, ["location", "environment", "remoteService", "clientInfo"]);
+    function JU(a, b) {
+        if ("seek" !== Ar(b.Od()))
+            return !1;
+        var c = Number(b.Pd().get("to"));
+        b = Number(b.Pd().get("by"));
+        return c ? (a.seekTo(c),
+        !0) : b ? (a.Kg(b),
+        !0) : !1
+    }
+    E(JU, ["playerService"]);
+    function KU(a, b, c, e) {
+        e && (e.a = "tv_activity",
+        e.guide_opened_ever = c.get() ? 1 : 0,
+        e.logged_in = b.rd() ? 1 : 0,
+        a("/gen_204", e, "activity_sw"))
+    }
+    E(KU, ["sendReport", "authService", "guideOpenedEver"]);
+    function LU(a, b, c, e, f) {
+        b.iS() && a(c, e, f)
+    }
+    E(LU, ["sendReportWithDeviceParameters", "privateDataService"]);
+    function MU(a, b) {
+        b.iS() && a()
+    }
+    E(MU, ["bedrockSendRetentionPing", "privateDataService"]);
+    function NU(a, b, c, e, f, g, h, k) {
+        .05 < h() || (b("/gen_204", c.k9()),
+        c = g.get("autoplay-enabled"),
+        g = {},
+        g = (g.a = "autoplay_enabled",
+        g),
+        g.value = void 0 === c ? "unset" : c ? "enabled" : "disabled",
+        b("/gen_204", g),
+        c = {},
+        c = (c.a = "env_config",
+        c),
+        Ua(c, e.Zpa()),
+        b("/gen_204", c),
+        a.performance && a.performance.memory && (e = a.performance.memory.totalJSHeapSize,
+        a = a.performance.memory.usedJSHeapSize,
+        void 0 !== e || void 0 !== a) && (c = {},
+        a = (c.a = "tv_memory",
+        c.total_memory = e,
+        c.used_memory = a,
+        c),
+        b("/gen_204", a)),
+        f = f.Fu(),
+        f = Object.keys(f).length,
+        a = {},
+        f = (a.a = "tv_num_accounts",
+        a.num_accounts = f,
+        a),
+        b("/gen_204", f),
+        k())
+    }
+    E(NU, "window sendReport localeModel environment credentialManager localStorage getRandom sendStoragePing".split(" "));
+    function OU(a, b) {
+        a.localStorage && b.send("tvhtml5LocalStorage", PU(a.localStorage))
+    }
+    var QU = /^yt[-.]/;
+    function PU(a) {
+        for (var b = 0, c = 0, e = 0, f = [], g = [], h = 0, k = a.length; h < k; ++h) {
+            var m = a.key(h) || ""
+              , p = a.getItem(m) || "";
+            p = 2 * (m.length + p.length);
+            b += p;
+            if (1E4 < p) {
+                var u = {};
+                f.push((u.key = m,
+                u))
+            }
+            QU.test(m) ? (c++,
+            e += p) : (p = {},
+            g.push((p.key = m,
+            p)))
+        }
+        h = {};
+        h.totalMemoryUsage = b;
+        h.totalKeyCount = a.length;
+        h.ytMemoryUsage = e;
+        h.ytKeyCount = c;
+        f.length && (h.bigItems = f);
+        g.length && (h.nonYtItems = g);
+        return h
+    }
+    E(OU, ["window", "gelService"]);
+    function RU(a, b, c, e) {
+        b = {
+            mse_dw: b.VV,
+            mse_m: b.n_,
+            mse_pp: c.HG("prevent_progressive"),
+            mse_w: b.FE,
+            a: "tv_reqs"
+        };
+        e || (b.fail = "mse");
+        a("/gen_204", b)
+    }
+    E(RU, ["sendReport", "environment", "variants", "isPlatformSupported"]);
+    function SU(a, b) {
+        b.server_event && a.send("tvhtml5TriggeredEvent", {
+            triggered: !0
+        })
+    }
+    E(SU, ["gelService", "runtimeParams"]);
+    function TU(a, b) {
+        if (a = a.getElementById("app-markup"))
+            (b = b && b.model) ? b instanceof PN ? UU(a, "", b.backgroundColor) : UU(a, b.waa) : UU(a)
+    }
+    E(TU, ["document"]);
+    function UU(a, b, c) {
+        b = void 0 === b ? "" : b;
+        c = void 0 === c ? "" : c;
+        a.style.backgroundImage = c ? "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8))" : b ? "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('" + b + "')" : "";
+        a.style.backgroundColor = c
+    }
+    ;function VU(a, b) {
+        "watch" === a.Ea().getName() && b.Cia()
+    }
+    E(VU, ["applicationModel", "remoteService"]);
+    function WU(a, b, c, e, f, g) {
+        b = b({
+            id: g.id,
+            device: g,
+            displayTimeout: 5E3
+        });
+        if (g.avatar && g.username) {
+            c = g.connected ? g.name ? "[[{{username}}'s {{device}} successfully linked to this device|Toast message indicating that a user has joined a session via a second device.|823743593]]" : "[[{{username}} joined|Toast message indicating that a user has joined a session]]" : "[[{{username}} left|Toast message indicating that a user has left a session]]";
+            b.userAvatarUri = g.avatar;
+            var h = {
+                "{{username}}": g.username,
+                "{{device}}": g.name
+            };
+            b.wf = e.C(c).replace(/{{username}}|{{device}}/gi, function(a) {
+                return h[a]
+            })
+        }
+        a.Nc(b)
+    }
+    E(WU, ["toasterModel", "deviceToastModelFactory", "remoteService", "localeService", "experimentFlags"]);
+    function XU(a, b, c, e, f) {
+        var g = f.videoIds && f.videoIds[0] || f.videoId;
+        g ? c.get(g, YU.bind(null, f, a, b, e), y) : "PLAYLIST_CLEARED" == f.eventType && YU(f, a, b, e)
+    }
+    function YU(a, b, c, e, f) {
+        a = c({
+            eventDetails: a,
+            displayTimeout: 5E3,
+            opt_videoModel: f
+        });
+        a.wf = e.C(a.wf).replace("{{username}}", a.user);
+        b.Nc(a)
+    }
+    E(XU, ["toasterModel", "updatePlaylistToastModelFactory", "apiaryVideos", "localeService"]);
+    function ZU(a, b) {
+        "play" === Ar(b.Od()) && b.Pd().get("v") && a.Lg("play_deeplink", vo);
+        return !1
+    }
+    E(ZU, ["performanceService"]);
+    function $U(a, b) {
+        try {
+            var c = b.tizen;
+            a.Ze && a.oI && c ? c.application.getCurrentApplication().exit() : a.Ze && b.curWidget ? b.curWidget.setPreference("return", "true") : b.close()
+        } catch (e) {}
+    }
+    E($U, ["environment", "window"]);
+    function aV() {
+        this.badgeStyle = this.subtitle2 = this.subtitle = this.title = "";
+        this.L = "badge"
+    }
+    ;function bV() {
+        V.apply(this, arguments);
+        this.Zja = this.Tm = this.ux = this.model = null
+    }
+    l(bV, V);
+    bV.prototype.Eb = function() {
+        V.prototype.Eb.call(this);
+        this.ux = this.h.querySelector(".badge-title");
+        this.Tm = this.h.querySelector(".badge-subtitle");
+        this.Zja = this.h.querySelector(".badge-subtitle2")
+    }
+    ;
+    bV.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.render()
+    }
+    ;
+    bV.prototype.render = function(a) {
+        this.Ga(!this.model);
+        V.prototype.render.call(this, a);
+        this.model && (this.fb(this.ux, !!this.model.title),
+        this.fb(this.Tm, !!this.model.subtitle),
+        this.fb(this.Zja, !!this.model.subtitle2))
+    }
+    ;
+    bV.prototype.T = function() {
+        var a = V.prototype.T.call(this);
+        this.model && this.model.badgeStyle && a.push(this.model.badgeStyle);
+        return a
+    }
+    ;
+    function cV(a, b, c, e) {
+        V.call(this);
+        var f = this;
+        this.f = a;
+        this.Y = b;
+        this.M = c;
+        this.X = e;
+        this.advertiser = this.title = this.m2 = this.gga = "";
+        this.i1 = this.D_ = null;
+        this.mh = !0;
+        this.Eka = this.sE = null;
+        this.I(this.f, "isPlayingAd:changed", function(a) {
+            return f.kl(a)
+        });
+        this.I(this.X, "skipState:changed", function(a) {
+            return f.Qm(a)
+        });
+        this.I(this.X, "metadata:changed", function(a) {
+            return f.Uda(a)
+        })
+    }
+    l(cV, V);
+    d = cV.prototype;
+    d.ready = function() {
+        V.prototype.ready.call(this);
+        this.sE = this.N(".watch-ad-badge");
+        this.Eka = this.N(".watch-third-party-ad-badge");
+        this.JKa();
+        this.X.metadata && this.Uda(this.X.metadata)
+    }
+    ;
+    d.render = function(a) {
+        this.fb(this.i1, !!this.title);
+        this.fb(this.D_, !this.title);
+        V.prototype.render.call(this, a)
+    }
+    ;
+    d.JKa = function() {
+        for (var a = [this.sE, this.Eka], b = 0, c = a.length; b < c; b++) {
+            var e = a[b]
+              , f = new aV;
+            f.badgeStyle = "watch-ad";
+            f.title = this.M.C("[[Ad|Badge indicating that this is an advertisement, capitalized.]]");
+            e.model = f
+        }
+    }
+    ;
+    d.lxa = function() {
+        return this.title
+    }
+    ;
+    d.pxa = function() {
+        return this.advertiser
+    }
+    ;
+    d.oxa = function() {
+        return this.m2
+    }
+    ;
+    d.Eb = function() {
+        var a = this.h;
+        this.i1 = a.querySelector(".youtube-hosted");
+        this.D_ = a.querySelector(".third-party");
+        V.prototype.Eb.call(this)
+    }
+    ;
+    d.Uda = function(a) {
+        this.advertiser = a ? a.channelTitle : "";
+        this.m2 = a ? a.channelThumbnailUrl : "";
+        this.title = a ? a.videoTitle : "";
+        this.f.Ja && this.show();
+        this.render(!0)
+    }
+    ;
+    d.kl = function(a) {
+        a ? (this.I(this.Y, "timeLeft:changed", this.Ika.bind(this)),
+        this.Ika(this.Y.tM)) : (this.Rg(this.Y, "timeLeft:changed"),
+        this.hide())
+    }
+    ;
+    d.Qm = function(a) {
+        4 === a && (this.Rg(this.Y, "timeLeft:changed"),
+        this.hide(),
+        this.render())
+    }
+    ;
+    d.Ika = function(a) {
+        !this.f.Ja || 0 >= a || (this.gga = this.M.di(a),
+        this.isHidden() ? this.show() : this.render())
+    }
+    ;
+    d.B = function() {
+        this.D_ = this.i1 = null;
+        V.prototype.B.call(this)
+    }
+    ;
+    E(cV, ["playerService", "progressModel", "localeService", "adModel"]);
+    function dV(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G) {
+        V.call(this);
+        var K = this;
+        this.Db = a;
+        this.window = b;
+        this.qa = c;
+        this.f = e;
+        this.Ab = f;
+        this.fca = g;
+        this.wc = h;
+        this.Fa = k;
+        this.pI = m;
+        this.Le = p;
+        this.environment = u;
+        this.vaa = v;
+        this.sYa = w;
+        this.experimentFlags = x;
+        this.nc = B;
+        this.Zq = G;
+        this.Tk = this.player = this.vk = this.model = null;
+        this.Sr = [{
+            name: "voice-search",
+            model: this.Le
+        }, {
+            name: "overlay-stage",
+            model: this.nc
+        }, {
+            name: "dialog-stage",
+            model: this.Fa
+        }, {
+            name: "guide",
+            model: this.wc
+        }];
+        this.lF = {};
+        Object.assign(this.lF, w);
+        a = 0;
+        for (b = this.Sr.length; a < b; ++a)
+            this.lF[this.Sr[a].name] = this.Sr[a].name;
+        this.H(e.on("isPlaying:changed", function() {
+            K.qNa()
+        }))
+    }
+    l(dV, V);
+    d = dV.prototype;
+    d.qNa = function() {
+        this.Df("player-is-playing", this.f.wb);
+        this.render()
+    }
+    ;
+    d.Cz = function(a, b) {
+        b = void 0 === b ? !1 : b;
+        if (!this.lF[a])
+            return null;
+        var c = this.Nb(a);
+        !c && b && (c = this.FF(this.lF[a], "#" + a));
+        return c
+    }
+    ;
+    d.THa = function(a) {
+        a = this.O8(a);
+        for (var b = 0; b < a; ++b)
+            if (this.Sr[b].model.isOpen())
+                return !0;
+        return !1
+    }
+    ;
+    d.O8 = function(a) {
+        return this.Sr.findIndex(function(b) {
+            return a === b.name
+        })
+    }
+    ;
+    d.PC = function(a) {
+        var b = this.Cz(a, !0);
+        return this.THa(a) || !b || b.J() ? !1 : (b.focus(),
+        this.render(),
+        b.focus(),
+        !0)
+    }
+    ;
+    d.sJ = function(a) {
+        this.NWa(a) || this.mja()
+    }
+    ;
+    d.NWa = function(a) {
+        var b = this.Cz(a);
+        if (b && b.J())
+            for (a = this.O8(a) + 1,
+            b = this.Sr.length; a < b; ++a) {
+                var c = this.Sr[a];
+                if (c.model.isOpen() && this.PC(c.name))
+                    return !0
+            }
+        return !1
+    }
+    ;
+    d.Eb = function() {
+        function a() {
+            b.render()
+        }
+        var b = this;
+        this.on("keydown", this.ua.bind(this));
+        this.on("keyup", this.xb.bind(this));
+        this.I(this.wc, "opened", this.PC.bind(this, "guide"));
+        this.I(this.wc, "closed", this.sJ.bind(this, "guide"));
+        this.I(this.nc, "opened", this.PC.bind(this, "overlay-stage"));
+        this.I(this.nc, "closed", this.sJ.bind(this, "overlay-stage"));
+        this.I(this.Fa, "opened", this.PC.bind(this, "dialog-stage"));
+        this.I(this.Fa, "closed", this.sJ.bind(this, "dialog-stage"));
+        this.I(this.Le, "opened", this.PC.bind(this, "voice-search"));
+        this.I(this.Le, "closed", this.sJ.bind(this, "voice-search"));
+        this.I(this.fca, "value-changed", a);
+        this.I(this.pI, "value-changed", a);
+        this.I(this.vaa, "value-changed", a);
+        this.I(this.Fa, "opened", function() {
+            b.nc.close()
+        });
+        this.I(this.nc, "opened", function() {
+            b.Fa.close()
+        })
+    }
+    ;
+    d.ready = function() {
+        this.qa.La("app_i");
+        this.vk = this.Nb("guide");
+        this.qa.La("app_r");
+        this.environment.rja && this.FF("font-demo", ".font-demo-placeholder");
+        this.environment.qja && this.FF("fps", ".fps-placeholder");
+        this.environment.uja && this.FF("ui-stats", ".ui-stats-placeholder")
+    }
+    ;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.model ? (this.$da(),
+        this.Bb("substate:set", this.$da.bind(this))) : this.Tk && (this.Tk = this.Tk.model = null)
+    }
+    ;
+    d.$da = function() {
+        this.Pv(this.eMa.bind(this))
+    }
+    ;
+    d.eMa = function() {
+        var a = this.model.Ea()
+          , b = a.getName()
+          , c = this.Cz(b, !0);
+        this.Tk && this.Tk !== c && (this.Tk.model = null);
+        if (this.Tk = c)
+            this.Tk.model = a;
+        this.nc.close();
+        this.Fa.close();
+        this.Le.cancel();
+        this.vk && (a = this.wc.Ev(a),
+        this.vk.Ga(!a),
+        this.wc.isOpen() && !a && this.wc.close());
+        this.mja();
+        "watch" !== b && "surface" !== b && this.f.wb && this.f.pause();
+        this.render()
+    }
+    ;
+    d.FF = function(a, b) {
+        a = this.Db.we(a);
+        b = this.h.querySelector(b);
+        if (!a || !b)
+            return null;
+        !a.h.id && b.id && (a.h.id = b.id);
+        this.Zb(a);
+        this.h.replaceChild(a.h, b);
+        return a
+    }
+    ;
+    d.T = function() {
+        var a = V.prototype.T.call(this)
+          , b = this.Wn()
+          , c = (this.model && this.model.Ea().getName() || "no") + "-state";
+        b = (b ? b.getId() : "no") + "-focused";
+        var e = this.fca.get() ? "" : "blurred"
+          , f = this.pI.get() ? "unlimited" : ""
+          , g = this.vaa.get() ? "high-contrast" : "";
+        return a.concat([c, b, e, f, g, 1080 < this.window.innerHeight ? "super-hd" : ""])
+    }
+    ;
+    d.ua = function(a) {
+        switch (a.keyCode) {
+        case 37:
+            this.lJa();
+            break;
+        case 39:
+            this.RRa()
+        }
+    }
+    ;
+    d.qpa = function() {
+        this.model && (this.wc.Ev(this.model.Ea()) ? this.wc.open("escape_or_back_key") : this.Zq())
+    }
+    ;
+    d.lJa = function() {
+        this.model && this.wc.Ev(this.model.Ea()) && this.wc.open("left_key")
+    }
+    ;
+    d.RRa = function() {
+        this.model && this.wc.Ev(this.model.Ea()) && this.wc.close()
+    }
+    ;
+    d.eqa = function(a) {
+        this.vk && this.vk.h && this.vk.J() && !Qe(this.vk.h, a.target) && this.wc.close()
+    }
+    ;
+    d.xb = function(a) {
+        switch (a.keyCode) {
+        case 8:
+        case 27:
+            this.Ab("escape");
+            this.qpa();
+            break;
+        case 13:
+            this.eqa(a)
+        }
+    }
+    ;
+    d.mja = function() {
+        if (this.model) {
+            var a = this.model.Ea().getName();
+            this.FWa(a);
+            for (var b in this.sYa)
+                if (b !== a) {
+                    var c = this.Cz(b);
+                    c && c.hide()
+                }
+        }
+    }
+    ;
+    d.FWa = function(a) {
+        if (a = this.Cz(a, !0))
+            a.show(),
+            a = this.vk && this.wc.isOpen() || !a.cb() ? this.vk : a,
+            a !== this.vk || this.wc.isOpen() || this.wc.open(),
+            a && (a.focus(),
+            this.render(),
+            a.focus())
+    }
+    ;
+    d.Gk = function(a) {
+        V.prototype.Gk.call(this, a);
+        a === this.Tk && this.wc.close()
+    }
+    ;
+    E(dV, "componentBuilder window performanceService playerService playSoundFromDescriptor isWindowFocused guideModel dialogStageModel isUnlimited voiceSearchModel environment highContrastFlag substateNameToComponentName experimentFlags overlayStage goBack".split(" "));
+    function eV(a, b) {
+        V.call(this);
+        this.M = a;
+        this.iy = b;
+        this.model = ""
+    }
+    l(eV, V);
+    eV.prototype.ready = function() {
+        var a = this;
+        this.I(this.iy, "value-changed", function(b) {
+            a.ULa(b)
+        })
+    }
+    ;
+    eV.prototype.ULa = function(a) {
+        this.model = this.M.C(a);
+        this.render()
+    }
+    ;
+    E(eV, ["localeService", "appMessage"]);
+    function fV(a) {
+        this.displayString = a.wM();
+        this.Eua = a.connected ? "connected" : "disconnected"
+    }
+    ;function gV() {
+        kB.call(this);
+        this.model = null;
+        this.XFa = this.Qqa()
+    }
+    l(gV, kB);
+    gV.prototype.nk = function() {
+        var a = this.model
+          , b = a.device;
+        if (a.userAvatarUri)
+            return "avatar";
+        a = b.app.match(/^[^-]+-[^-]+/);
+        return (a = this.XFa[a ? a[0] : ""]) ? a[String(b.connected)] : b.connected ? "remote-connected" : "remote-disconnected"
+    }
+    ;
+    gV.prototype.Rl = function() {
+        var a = this.model;
+        return a.userAvatarUri ? a.wf : (new fV(a.device)).displayString
+    }
+    ;
+    gV.prototype.Qqa = function() {
+        var a = {}
+          , b = {}
+          , c = {}
+          , e = {}
+          , f = {}
+          , g = {};
+        return g["android-phone"] = (a["true"] = "android-phone-connected",
+        a["false"] = "android-phone-disconnected",
+        a),
+        g["android-tablet"] = (b["true"] = "android-tablet-connected",
+        b["false"] = "android-tablet-disconnected",
+        b),
+        g["youtube-desktop"] = (c["true"] = "laptop-connected",
+        c["false"] = "laptop-disconnected",
+        c),
+        g["ytios-phone"] = (e["true"] = "ios-phone-connected",
+        e["false"] = "ios-phone-disconnected",
+        e),
+        g["ytios-tablet"] = (f["true"] = "ios-tablet-connected",
+        f["false"] = "ios-tablet-disconnected",
+        f),
+        g
+    }
+    ;
+    function hV() {
+        V.call(this);
+        this.jC = this.hz = null;
+        this.yI = {
+            chinese_simplified: "\u89c6\u9891",
+            chinese_traditional: "\u9910\u98f2",
+            korean: "\ube68\uac04",
+            japanese: "\u3059\u308b",
+            vietnamese: "N\u01b0\u1edbc",
+            thai: "\u0e08\u0e21\u0e39\u0e01",
+            hindi: "\u0915\u094d\u092f\u093e",
+            english: "Hello",
+            greek: "\u03b2\u03af\u03bd\u03c4\u03b5\u03bf",
+            russian: "\u0432\u0438\u0434\u0435\u043e"
+        }
+    }
+    l(hV, V);
+    d = hV.prototype;
+    d.ready = function() {
+        this.hz = this.h.querySelector(".device-support-test");
+        this.jC = this.h.querySelector(".sanity-check");
+        this.Voa();
+        this.Yoa();
+        V.prototype.ready.call(this)
+    }
+    ;
+    d.Voa = function() {
+        this.Noa();
+        this.gpa()
+    }
+    ;
+    d.Noa = function() {
+        if (this.hz) {
+            var a = this.wE(this.hz, "font-weights-row")
+              , b = this.e5("font weight");
+            a.appendChild(b);
+            this.Q1(a)
+        }
+    }
+    ;
+    d.gpa = function() {
+        if (this.jC) {
+            var a = this.wE(this.jC, "font-weights-row");
+            this.c2(a)
+        }
+    }
+    ;
+    d.Yoa = function() {
+        for (var a in this.yI)
+            this.yI.hasOwnProperty(a) && (this.Ooa(a),
+            this.hpa(a))
+    }
+    ;
+    d.Ooa = function(a) {
+        if (this.hz) {
+            var b = this.wE(this.hz, "language-row")
+              , c = this.e5(a);
+            b.appendChild(c);
+            this.Q1(b, this.yI[a])
+        }
+    }
+    ;
+    d.hpa = function(a) {
+        if (this.jC) {
+            a = this.yI[a];
+            var b = this.wE(this.jC, "language-row");
+            this.c2(b, a)
+        }
+    }
+    ;
+    d.Q1 = function(a, b) {
+        b = void 0 === b ? "" : b;
+        for (var c = 100; 900 >= c; c += 100) {
+            var e = c.toString();
+            e = b ? this.bu(e, b) : this.bu(e, e);
+            a.appendChild(e)
+        }
+    }
+    ;
+    d.c2 = function(a, b) {
+        b = void 0 === b ? "" : b;
+        if (b) {
+            var c = this.bu("normal", b);
+            b = this.bu("bold", b)
+        } else
+            c = this.bu("normal", "normal"),
+            b = this.bu("bold", "bold");
+        a.appendChild(c);
+        a.appendChild(b)
+    }
+    ;
+    d.wE = function(a, b) {
+        var c = He(document, "div");
+        Vk(c, b);
+        a.appendChild(c);
+        return c
+    }
+    ;
+    d.e5 = function(a) {
+        var b = He(document, "div");
+        Vk(b, "title-col");
+        Te(b, a);
+        return b
+    }
+    ;
+    d.bu = function(a, b) {
+        var c = He(document, "div");
+        Te(c, b);
+        Wk(c, ["weight-" + a, "content-col"]);
+        return c
+    }
+    ;
+    function iV(a, b, c, e, f) {
+        f = void 0 === f ? 100 : f;
+        V.call(this);
+        this.window = a;
+        this.Pe = b;
+        this.j = c;
+        this.gf = e;
+        this.Rda = f;
+        this.I_ = [];
+        this.DI = this.nD = 0;
+        this.requestId = -1;
+        this.XH = !!this.gf.isSupported()
+    }
+    l(iV, V);
+    d = iV.prototype;
+    d.ready = function() {
+        var a = this;
+        this.XH ? this.j.setInterval(function() {
+            a.T_a()
+        }, 1E3) : this.enable()
+    }
+    ;
+    d.T_a = function() {
+        var a = Number(this.gf.getValue("Renderer.Rasterize.AnimationsInterval.Avg"))
+          , b = Number(this.gf.getValue("Renderer.Rasterize.AnimationsInterval.Pct.50th"))
+          , c = Number(this.gf.getValue("Renderer.Rasterize.AnimationsInterval.Pct.95th"))
+          , e = Number(this.gf.getValue("Renderer.Rasterize.AnimationsInterval.Std")) / 1E3
+          , f = this.gf.getValue("Renderer.Rasterize.AnimationsInterval.EntryList")
+          , g = []
+          , h = [];
+        f && (f = f.substring(1, f.length - 1),
+        h = f.split(",").map(function(a) {
+            return Math.round(Number(a) / 1E3)
+        }),
+        g = f.split(",").map(function(a) {
+            return Math.round(1E6 / Number(a))
+        }));
+        if (!a || 0 >= a)
+            a = Number(this.gf.getValue("Renderer.Rasterize.Duration.Avg")),
+            e = Number(this.gf.getValue("Renderer.Rasterize.Duration.Std")) / 1E3;
+        a && 0 < a && (a = this.BP(a),
+        b = this.BP(b),
+        c = this.BP(c),
+        this.h.textContent = "avg: " + a + "fps\n50th: " + (b + "fps\n95th: " + c + "fps\n") + ("std: " + e.toFixed(1) + "ms\n") + ("EntryList: " + String(h) + "ms\n") + ("EntryListFps: " + String(g) + "fps"))
+    }
+    ;
+    d.BP = function(a) {
+        return !a || 0 >= a ? "N/A" : Math.round(1E6 / a).toFixed(0)
+    }
+    ;
+    d.enable = function() {
+        function a(c) {
+            c = void 0 === c ? 0 : c;
+            b.DI ? b.update(c) : b.DI = c;
+            b.requestId = b.Pe.requestAnimationFrame(a)
+        }
+        var b = this;
+        this.requestId = this.Pe.requestAnimationFrame(a)
+    }
+    ;
+    d.update = function(a) {
+        var b = a - this.DI;
+        this.I_.push(b);
+        this.nD += b;
+        b = this.I_.length;
+        b === this.Rda + 1 && (b = this.Rda,
+        this.nD -= this.I_.shift() || 0);
+        b = (1E3 * b / this.nD).toFixed(0);
+        this.h.textContent = "~" + b + " fps";
+        this.DI = a
+    }
+    ;
+    d.B = function() {
+        -1 !== this.requestId && (this.Pe.cancelAnimationFrame(this.requestId),
+        this.requestId = -1);
+        V.prototype.B.call(this)
+    }
+    ;
+    E(iV, ["window", "animationFrameService", "timeService", "cValApi", "opt_meanCount"]);
+    var jV = {
+        E2a: "postplay_autoplay_started",
+        C2a: "postplay_autoplay_completed",
+        B2a: "postplay_autoplay_cancelled",
+        L$a: "postplay_replay_focused",
+        M$a: "postplay_replay_selected",
+        g$a: "postplay_nav_back",
+        i$a: "postplay_autoplay_next_video_played",
+        h$a: "postplay_nav_home",
+        j$a: "postplay_search",
+        J$a: "postplay_related_focused",
+        K$a: "postplay_related_selected",
+        OPEN: "postplay_open"
+    };
+    function kV(a, b) {
+        V.call(this);
+        this.G = a;
+        this.f = b;
+        this.xo = !1;
+        this.model = null
+    }
+    l(kV, V);
+    d = kV.prototype;
+    d.ready = function() {
+        this.I(this.f, "state:changed", this.NJ.bind(this))
+    }
+    ;
+    d.NJ = function() {
+        var a = this.f.isLive()
+          , b = this.f.Ja
+          , c = !this.xo && this.f.wb && !b;
+        this.f.wb && !b && (this.xo = !0);
+        a && c && this.w("live-stream-started")
+    }
+    ;
+    d.Sh = function() {
+        this.Ca();
+        V.prototype.Sh.call(this)
+    }
+    ;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.render()
+    }
+    ;
+    d.Ca = function() {
+        var a = this.model && this.model.trackingParams;
+        if (a) {
+            for (var b = 0, c = a.length; b < c; b++)
+                this.G.Ca(a[b]);
+            this.model.trackingParams = []
+        }
+    }
+    ;
+    d.o0a = function(a) {
+        if (a.actions && this.model)
+            for (var b = 0; b < a.actions.length; b++) {
+                var c = a.actions[b];
+                c.updateViewershipAction && (this.model.viewCount = X(t("viewership.videoViewCountRenderer.viewCount", c.updateViewershipAction)),
+                this.render())
+            }
+    }
+    ;
+    d.clear = function() {
+        this.model && this.model.clear();
+        this.render()
+    }
+    ;
+    E(kV, ["screenManager", "playerService"]);
+    function lV(a) {
+        V.call(this);
+        this.f = a;
+        this.rA = this.qA = null;
+        this.CB = "";
+        this.MFa = this.rda("watch-hdr", "HDR")
+    }
+    l(lV, V);
+    d = lV.prototype;
+    d.initialize = function() {
+        this.I(this.f, "videoPlaybackQuality:changed", this.dPa.bind(this));
+        this.I(this.f, "videoData:changed", this.T0a.bind(this));
+        this.hide()
+    }
+    ;
+    d.dPa = function(a) {
+        a = Yp[a];
+        a >= Yp[Wp.mt] ? this.CB = "4K" : a >= Yp[Wp.vN] ? this.CB = "HD" : (this.CB = "",
+        this.qA.model = null);
+        "" != this.CB && (this.qA.model = this.rda("watch-hd", this.CB));
+        this.Yla()
+    }
+    ;
+    d.T0a = function() {
+        this.f.RHa() ? this.rA.model = this.MFa : this.rA.model = null;
+        this.Yla()
+    }
+    ;
+    d.Yla = function() {
+        this.Ga(this.rA.isHidden() && this.qA.isHidden())
+    }
+    ;
+    d.rda = function(a, b) {
+        var c = new aV;
+        c.badgeStyle = a;
+        c.title = b;
+        return c
+    }
+    ;
+    d.ready = function() {
+        V.prototype.ready.call(this);
+        this.qA = this.N(".watch-hd-badge");
+        this.rA = this.N(".watch-hdr-badge");
+        this.qA.hide();
+        this.rA.hide()
+    }
+    ;
+    E(lV, ["playerService"]);
+    function mV(a, b, c, e, f, g, h, k) {
+        W.call(this, b);
+        this.M = a;
+        this.f = c;
+        this.Y = e;
+        this.X = f;
+        this.Ne = g;
+        this.environment = h;
+        this.ica = !1;
+        this.mh = !0;
+        this.model = k({
+            label: ""
+        });
+        this.sM = function() {}
+        ;
+        this.I(this.f, "isPlayingAd:changed", this.kl.bind(this));
+        this.I(this.X, "timeUntilSkippable:changed", this.Jka.bind(this));
+        this.I(this.X, "skipState:changed", this.Qm.bind(this))
+    }
+    l(mV, W);
+    d = mV.prototype;
+    d.Eb = function() {
+        var a = this;
+        this.on("button-enter", function() {
+            a.Ne.skipAd()
+        });
+        W.prototype.Eb.call(this)
+    }
+    ;
+    d.initialize = function() {
+        W.prototype.initialize.call(this);
+        this.f.Ja && this.kl(this.f.Ja)
+    }
+    ;
+    d.kl = function(a) {
+        a && (this.X.isSkippable || this.X.isBumper) ? this.uL() : this.raa()
+    }
+    ;
+    d.uL = function() {
+        this.Qm(this.X.Xd);
+        this.Jka(this.X.Hp);
+        this.I(this.Y, "currentTime:changed", this.Cn.bind(this));
+        this.Cn()
+    }
+    ;
+    d.raa = function() {
+        this.Rg(this.Y, "currentTime:changed");
+        this.hide();
+        this.render()
+    }
+    ;
+    d.Qm = function(a) {
+        if (this.model) {
+            switch (a) {
+            case 3:
+                this.model.Lm(this.M.C("[[Skip Ad|Label indicating action that the user can take to skip thead.]]"));
+                this.model.enabled = !0;
+                this.wa("canskip");
+                break;
+            case 4:
+                this.model.enabled = !1;
+                this.hide();
+                break;
+            default:
+                this.model.enabled = this.ica,
+                this.lb("canskip")
+            }
+            this.render()
+        }
+    }
+    ;
+    d.$xb = function() {
+        this.f.Ja && this.X.skipButton ? this.f_() : (this.ED(),
+        this.hide(),
+        this.render())
+    }
+    ;
+    d.f_ = function() {
+        this.sM();
+        this.sM = this.I(this.Y, "currentTime:changed", this.zoa.bind(this))
+    }
+    ;
+    d.ED = function() {
+        this.sM();
+        this.sM = function() {}
+    }
+    ;
+    d.zoa = function(a) {
+        a = Math.ceil(this.kxa() / 1E3 - a);
+        0 >= a ? (this.ED(),
+        this.X.Xd = 3) : (this.X.Xd = 2,
+        this.model.Lm(this.M.C("[[You can skip ad in {{n}}s|Label indicating the number ofseconds until an ad can be skipped.]]").replace("{{n}}", String(Math.ceil(a)))),
+        this.show(),
+        this.render())
+    }
+    ;
+    d.kxa = function() {
+        var a = this.X.skipButton.renderer;
+        return (a && a.preskipRenderer && a.preskipRenderer.adPreviewRenderer || {}).durationMilliseconds || 5E3
+    }
+    ;
+    d.Cn = function() {
+        0 < this.Y.currentTime && (this.show(),
+        this.Rg(this.Y, "currentTime:changed"))
+    }
+    ;
+    d.Jka = function(a) {
+        2 === this.X.Xd && (this.model.Lm(this.M.C(this.X.isBumper ? "[[Your video will begin in {{n}}s|Label indicating the number of seconds until an ad can be skipped.]]" : "[[You can skip ad in {{n}}s|Label indicating the number ofseconds until an ad can be skipped.]]").replace("{{n}}", String(a))),
+        this.render())
+    }
+    ;
+    E(mV, "localeService eventFilterFactory playerService progressModel adModel adService environment buttonModelFactory".split(" "));
+    function nV(a, b, c, e, f, g, h, k, m) {
+        mV.call(this, a, b, e, f, g, h, k, m);
+        this.gt = c;
+        this.HA = !1;
+        this.thumbnail = null;
+        this.thumbnailUrl = "";
+        this.SLa = 200
+    }
+    l(nV, mV);
+    d = nV.prototype;
+    d.ready = function() {
+        mV.prototype.ready.call(this);
+        this.thumbnail = this.N(".thumbnail");
+        this.tT()
+    }
+    ;
+    d.render = function() {
+        mV.prototype.render.call(this);
+        this.thumbnail && this.thumbnail.render()
+    }
+    ;
+    d.cXa = function() {
+        this.wa("with-thumbnail");
+        this.thumbnail && this.thumbnail.lb("hidden");
+        this.HA = !0;
+        this.render()
+    }
+    ;
+    d.tT = function() {
+        this.thumbnail && this.thumbnail.wa("hidden");
+        this.lb("with-thumbnail");
+        this.HA = !1;
+        this.render()
+    }
+    ;
+    d.Qm = function(a) {
+        this.model && (mV.prototype.Qm.call(this, a),
+        1 == a && (this.model.Lm(this.M.C("[[Video will play after ad|Label indicating that user video is going to be played after an ad.]]")),
+        this.model.enabled = !0,
+        this.render()),
+        (a = 1 == a || 2 == a) && !this.HA ? this.cXa() : !a && this.HA && this.tT())
+    }
+    ;
+    d.uL = function() {
+        this.thumbnailUrl = this.gt.f7(this.f.uc(), this.SLa);
+        mV.prototype.uL.call(this)
+    }
+    ;
+    d.kl = function(a) {
+        a ? this.uL() : (this.raa(),
+        this.HA && this.tT())
+    }
+    ;
+    E(nV, "localeService eventFilterFactory ytThumbnails playerService progressModel adModel adService environment buttonModelFactory".split(" "));
+    function oV(a) {
+        V.call(this);
+        this.bXa = a;
+        this.model = null
+    }
+    l(oV, V);
+    oV.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.model && this.bXa(this.model)
+    }
+    ;
+    E(oV, ["showSystemErrorDialog"]);
+    function pV(a, b, c) {
+        c = void 0 === c ? !1 : c;
+        if (0 === a.length || 0 > b || 1 < b)
+            return NaN;
+        a = kb(a, isFinite);
+        if (0 === a.length)
+            return NaN;
+        c || (a = a.sort(function(a, b) {
+            return a - b
+        }));
+        c = b * (a.length - 1);
+        b = c % 1;
+        if (0 === b)
+            return a[c];
+        c = Math.floor(c);
+        var e = a[c];
+        return e + b * (a[c + 1] - e)
+    }
+    ;function qV(a, b, c, e, f) {
+        V.call(this);
+        this.performance = b;
+        this.gf = c;
+        this.document = e;
+        this.localStorage = f;
+        b = {};
+        this.dR = (b.BEDROCK_REPETITIVE_ACTION_TYPE_ROW_TO_ROW = [],
+        b.BEDROCK_REPETITIVE_ACTION_TYPE_TILE_TO_TILE = [],
+        b);
+        this.OH = [];
+        b = {};
+        this.hfa = (b["Browse to Ad"] = [],
+        b["Ad to Watch"] = [],
+        b["Browse to Watch"] = [],
+        b);
+        b = {};
+        this.eventCount = (b["Browse to Ad"] = 0,
+        b["Ad to Watch"] = 0,
+        b["Browse to Watch"] = 0,
+        b.BEDROCK_REPETITIVE_ACTION_TYPE_ROW_TO_ROW = 0,
+        b.BEDROCK_REPETITIVE_ACTION_TYPE_TILE_TO_TILE = 0,
+        b);
+        this.Do = NaN;
+        this.dW = {};
+        this.videos = [];
+        this.GMa = 1;
+        this.GN = 0;
+        this.K6 = 1;
+        this.QU = 0;
+        this.Wba = /[?&]ui_stealth_mode=(1|true)/.test(a.location.href);
+        this.XH = !!this.gf.isSupported()
+    }
+    l(qV, V);
+    d = qV.prototype;
+    d.ready = function() {
+        this.XH ? this.cva() : this.h.textContent = "No Cobalt, no env_showUIStats!";
+        this.Wba && (this.wa("invisible"),
+        this.render());
+        this.ava()
+    }
+    ;
+    d.ava = function() {
+        this.hHa()
+    }
+    ;
+    d.cva = function() {
+        this.performance.on("uiActionTiming", this.update.bind(this));
+        this.performance.qwa();
+        this.h && (this.h.textContent = "UI stats enabled")
+    }
+    ;
+    d.mpa = function(a) {
+        var b = this;
+        if (this.XH) {
+            var c = function() {
+                var a = Number(b.gf.getValue("Event.Duration.MainWebModule.DOM.VideoStartDelay")) / 1E3;
+                if (250 < a) {
+                    var c = b.tBa();
+                    b.eventCount[c]++;
+                    var g = b.hfa[c];
+                    1 === b.K6 ? b.K6 = 0 : g.push(a);
+                    a = c + ": " + a.toFixed(0) + " ms" + ("; N=" + g.length.toFixed(0) + "; ") + b.getStats(g);
+                    b.h.textContent = a
+                }
+                b.sfa()
+            };
+            a.element.addEventListener("playing", c);
+            a.cT.playing = c
+        }
+    }
+    ;
+    d.sfa = function() {
+        if (this.Wba) {
+            var a = "";
+            a = this.eventCount["Browse to Watch"] ? "Sample Size: " + this.eventCount["Browse to Watch"] + "; " + (this.getStats(this.hfa["Browse to Watch"]) + "\n") : "Warning: Cobalt version before 11.144377 not supported or not enough data.\n";
+            a = "Final Testing Result\n\n" + ("Browse to watch(ms):\n" + a + "Row to Row(fps):\n") + ("Sample Size: " + this.eventCount.BEDROCK_REPETITIVE_ACTION_TYPE_ROW_TO_ROW + "; ") + (this.getStats(this.dR.BEDROCK_REPETITIVE_ACTION_TYPE_ROW_TO_ROW.sort(function(a, c) {
+                return c - a
+            }), !0) + "\n") + "Tile to Tile(fps):\n" + ("Sample Size: " + this.eventCount.BEDROCK_REPETITIVE_ACTION_TYPE_TILE_TO_TILE + "; ") + (this.getStats(this.dR.BEDROCK_REPETITIVE_ACTION_TYPE_TILE_TO_TILE.sort(function(a, c) {
+                return c - a
+            }), !0) + "\n") + "Input Latency(ms):\n" + ("Sample Size: " + this.OH.length + "; ") + (this.getStats(this.OH.sort(function(a, c) {
+                return c - a
+            }), !0) + "\n");
+            this.localStorage.set("ui-stats-test-data", a)
+        }
+    }
+    ;
+    d.hHa = function() {
+        var a = this;
+        isNaN(this.Do) && (this.Pea("HTMLVideoElement.prototype.pause", function() {
+            var b = a.videos[0] ? a.videos[0].element.currentTime : 0;
+            a.h && (a.h.textContent = "VideoTag: pause() " + b)
+        }),
+        this.Pea("HTMLVideoElement.prototype.play", function() {
+            a.aga();
+            var b = a.videos[0] ? a.videos[0].element.currentTime : 0;
+            a.h && (a.h.textContent = "VideoTag: play() " + b)
+        }),
+        this.aga())
+    }
+    ;
+    d.KOa = function(a, b) {
+        if (this.dW[a])
+            throw Error('Cannot double-patch "' + a + '".');
+        for (var c = a.split("."), e = c.length - 1, f = window, g = 0; g < e; ++g)
+            if (f = f[c[g]],
+            !f) {
+                console.warn('Unable to patch "' + a + '" because ' + c[g] + " was falsy.");
+                return
+            }
+        c = c[e];
+        this.dW[a] = f[c];
+        f[c] = b
+    }
+    ;
+    d.Pea = function(a, b) {
+        var c = this;
+        this.KOa(a, function() {
+            b.apply(this, arguments);
+            return c.dW[a].apply(this, arguments)
+        })
+    }
+    ;
+    d.clearVideo = function(a) {
+        uc(a.cT).forEach(function(b) {
+            a.element.removeEventListener(b, a.cT[b])
+        })
+    }
+    ;
+    d.PYa = function() {
+        for (var a = 0; a < this.videos.length; ) {
+            var b = this.videos[a];
+            b.NV ? (b.NV = !1,
+            ++a) : (this.clearVideo(b),
+            this.videos.splice(a, 1))
+        }
+    }
+    ;
+    d.aga = function() {
+        var a = this
+          , b = this.document.body.getElementsByTagName("video");
+        ib(b, function(b) {
+            if (!ob(a.videos, function(a) {
+                return a.element === b ? a.NV = !0 : !1
+            })) {
+                var c = {
+                    element: b,
+                    cT: {},
+                    id: a.GMa++,
+                    properties: {},
+                    NV: !0
+                };
+                a.mpa(c);
+                a.videos.push(c)
+            }
+        });
+        this.PYa()
+    }
+    ;
+    d.update = function(a) {
+        if (a = a.actionType) {
+            var b = this.dR[a];
+            this.eventCount[a]++;
+            var c = this.gf.getValue("Renderer.Rasterize.AnimationsInterval.EntryList")
+              , e = "N/A"
+              , f = "N/A";
+            if (null != c) {
+                c = c.substring(1, c.length - 1);
+                c = c.split(",").map(function(a) {
+                    return Math.round(1E6 / Number(a))
+                });
+                e = pV(c, .5).toFixed(0);
+                for (var g = 1; g < c.length; g++)
+                    b.push(c[g])
+            }
+            c = Number(this.gf.getValue("Event.Time.MainWebModule.KeyDown.Start")) / 1E3;
+            g = Number(this.gf.getValue("Time.Renderer.Rasterize.Animations.Start")) / 1E3;
+            if (c && g) {
+                if (this.QU) {
+                    var h = g - c;
+                    0 > h && (h = g - this.QU);
+                    0 < h && (this.OH.push(h),
+                    f = h.toFixed(0) + "; " + this.getStats(this.OH))
+                }
+                this.QU = c
+            }
+            a = this.jxa(a) + ": \nfps=" + e + "; frames=" + b.length + "; " + ("" + this.getStats(b.sort(function(a, b) {
+                return b - a
+            }), !0)) + ("\nInputLatency=" + f);
+            this.h.textContent = a;
+            this.sfa()
+        }
+    }
+    ;
+    d.getStats = function(a, b) {
+        b = void 0 === b ? !1 : b;
+        return 0 === a.length ? "" : "95th=" + pV(a, .95, b).toFixed(0) + "; " + ("50th=" + pV(a, .5, b).toFixed(0) + "; ")
+    }
+    ;
+    d.jxa = function(a) {
+        return "BEDROCK_REPETITIVE_ACTION_TYPE_ROW_TO_ROW" === a ? "Row to Row" : "BEDROCK_REPETITIVE_ACTION_TYPE_TILE_TO_TILE" === a ? "Tile to Tile" : "UnknownAction"
+    }
+    ;
+    d.tBa = function() {
+        return this.document.querySelector(".ad-showing") ? (this.GN = 1,
+        "Browse to Ad") : 1 === this.GN ? (this.GN = 0,
+        "Ad to Watch") : "Browse to Watch"
+    }
+    ;
+    d.B = function() {
+        this.performance.pwa();
+        V.prototype.B.call(this)
+    }
+    ;
+    E(qV, ["window", "performanceService", "cValApi", "document", "localStorage"]);
+    function rV() {
+        kB.apply(this, arguments);
+        this.model = null
+    }
+    l(rV, kB);
+    rV.prototype.nk = function() {
+        var a = this.model;
+        return a && a.userAvatarUri ? "avatar" : "no-user-avatar"
+    }
+    ;
+    rV.prototype.Rl = function() {
+        var a = this.model;
+        return a ? a.wf : ""
+    }
+    ;
+    function sV(a, b) {
+        C.call(this);
+        var c = this;
+        this.F = a;
+        this.f = b;
+        this.Aaa = !1;
+        this.Cu = a.N(".fresca-slate");
+        this.Cu.hide();
+        this.H(b.on("frescaState:changed", function() {
+            c.fR()
+        }));
+        this.H(b.on("video:changed", function() {
+            c.S0a()
+        }));
+        this.fR()
+    }
+    l(sV, C);
+    sV.prototype.Tc = function() {}
+    ;
+    sV.prototype.fR = function() {
+        var a = this.Cu.model && this.Cu.model.messageText;
+        a !== this.Aaa && (this.Aaa = a,
+        this.Cu.Ga(!a),
+        this.F.Df("message", a),
+        this.F.render())
+    }
+    ;
+    sV.prototype.S0a = function() {
+        this.Cu.model && (this.Cu.model.Fla(),
+        this.fR())
+    }
+    ;
+    E(sV, ["component", "playerService"]);
+    function tV(a, b) {
+        mA.call(this, a, b);
+        this.L = "qrDialog";
+        this.Ia = this.bQa = this.baseUrl = ""
+    }
+    l(tV, mA);
+    E(tV, ["opt_completeHandler", "opt_cancelHandler", "opt_enableDialogSounds"]);
+    function uV(a, b, c, e, f) {
+        var g = new tV;
+        g.L = "system-error";
+        b.Ti ? g.yl = function() {
+            return e(!0)
+        }
+        : g.hm = !0;
+        g.title = f.title;
+        g.baseUrl = f.url;
+        g.Ub.push("qr-dialog", "system-error");
+        g.Ia = "icon-settings-pair";
+        g.backgroundImage = c;
+        a.open(g)
+    }
+    E(uV, ["dialogStageModel", "environment", "failDialogBackground", "exit"]);
+    function vV(a, b, c, e, f, g, h) {
+        pA.call(this, a, b, c, e, f, h);
+        this.Fc = g;
+        this.Ab = h;
+        this.sb = function() {}
+        ;
+        this.sK = function() {}
+        ;
+        this.wa("browse-sets")
+    }
+    l(vV, pA);
+    d = vV.prototype;
+    d.onFocus = function() {
+        pA.prototype.onFocus.call(this);
+        this.HK();
+        this.mRa()
+    }
+    ;
+    d.onBlur = function() {
+        this.fga();
+        pA.prototype.onBlur.call(this)
+    }
+    ;
+    d.HK = function() {
+        this.hm() || this.Rc() || this.Cd() || (this.sb(),
+        this.sb = this.Fc.$X(U.BACK))
+    }
+    ;
+    d.mRa = function() {
+        var a = this.model.getDialog();
+        a && a.L && (this.sK(),
+        this.sK = this.Fc.Iga("legend-for-dialog-" + a.L))
+    }
+    ;
+    d.fga = function() {
+        this.sb();
+        this.sb = function() {}
+        ;
+        this.sK();
+        this.sK = function() {}
+    }
+    ;
+    d.pW = function() {
+        var a = this.model.getDialog();
+        a && a.zQ && this.Ab("enter");
+        pA.prototype.pW.call(this)
+    }
+    ;
+    d.FO = function() {
+        var a = this.model.getDialog();
+        a && a.zQ && this.Ab("escape");
+        pA.prototype.FO.call(this)
+    }
+    ;
+    d.B = function() {
+        this.fga();
+        pA.prototype.B.call(this)
+    }
+    ;
+    E(vV, "componentBuilder dialogStageModel localeService getRandom buttonModelFactory legendModel playSoundFromDescriptor".split(" "));
+    function Z(a, b, c) {
+        this.Oa = a;
+        this.fKa = b;
+        this.XA = c
+    }
+    Z.prototype.upgrade = function() {}
+    ;
+    Z.prototype.tc = function(a) {
+        return this.fKa({
+            storageNamespace: this.XA({
+                opt_sandbox: a
+            })
+        })
+    }
+    ;
+    function wV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(wV, Z);
+    wV.prototype.upgrade = function() {
+        var a = this.Oa.get("private_data");
+        a && a["crash-data"] && (delete a["crash-data"],
+        this.Oa.set("private_data", a))
+    }
+    ;
+    function xV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(xV, Z);
+    xV.prototype.upgrade = function() {
+        var a = this.Oa.get("recent-searches");
+        if (a) {
+            for (var b = 0, c = a.length; b < c; ++b) {
+                var e = a[b];
+                e.videoId = e.video ? e.video.videoId : null;
+                delete e.video
+            }
+            this.Oa.set("recent-searches", a)
+        }
+    }
+    ;
+    function yV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(yV, Z);
+    yV.prototype.upgrade = function() {
+        this.Oa.set("needs_rental_auth_dialog", !0);
+        var a = this.Oa.get("sound-enabled", void 0, !0);
+        a && this.Oa.set("sound-enabled", "false" !== a);
+        a = ["captions-settings", "migrated-mdx-paired-devices", "private_data", "device-retention-permission", "recent-searches"];
+        for (var b = 0, c = a.length; b < c; ++b)
+            this.Oa.get(a[b], void 0);
+        a = [["mdx-device-id", void 0], ["tv-refresh-token", 15768E3]];
+        b = 0;
+        for (c = a.length; b < c; ++b) {
+            var e = this.Oa.get(a[b][0], void 0, !0);
+            e && this.Oa.set(a[b][0], e, a[b][1])
+        }
+    }
+    ;
+    function zV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(zV, Z);
+    zV.prototype.upgrade = function() {
+        this.Oa.remove("captions-settings")
+    }
+    ;
+    function AV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(AV, Z);
+    AV.prototype.upgrade = function() {
+        this.Oa.set("needs_rental_auth_dialog", !0)
+    }
+    ;
+    function BV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(BV, Z);
+    BV.prototype.upgrade = function() {
+        this.Oa.set("needs-sets-onboarding", !0)
+    }
+    ;
+    function CV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(CV, Z);
+    CV.prototype.upgrade = function() {
+        var a = this.Oa.get("private_data");
+        a && (this.Oa.remove("private_data"),
+        a["device-stats"] && this.Oa.set("device-stats", a["device-stats"], 31536E3))
+    }
+    ;
+    function DV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(DV, Z);
+    DV.prototype.upgrade = function() {
+        this.Oa.remove("needs-sets-onboarding");
+        this.Oa.remove("has-been-onboarded")
+    }
+    ;
+    function EV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(EV, Z);
+    EV.prototype.upgrade = function() {
+        for (var a = this.tc("default"), b = "access-token-received guide-opened-ever has-guide-auto-opened last-guide-opened-tine mdx-device-id needs_rental_auth_dialog migrated-mdx-paired-devices recent-searches tv-refresh-token safe-mode-enabled sound-enabled uploads-toast-shown".split(" "), c = 0, e = b.length; c < e; ++c) {
+            var f = this.Oa.get(b[c]);
+            f && a.set(b[c], f);
+            this.Oa.remove(b[c])
+        }
+    }
+    ;
+    function FV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(FV, Z);
+    FV.prototype.upgrade = function() {
+        this.tc("default").remove("needs_rental_auth_dialog")
+    }
+    ;
+    function GV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(GV, Z);
+    GV.prototype.upgrade = function() {
+        var a = this.tc("default");
+        a.set("needs-inline-sign-in", !0);
+        a.set("inline-sign-in-count", 0)
+    }
+    ;
+    function HV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(HV, Z);
+    HV.prototype.upgrade = function() {
+        var a = this.tc("default");
+        a.set("has-authenticated", !1);
+        a.set("signing-after-n-count", 0);
+        a.set("signin-after-n-last-shown", 0)
+    }
+    ;
+    function IV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(IV, Z);
+    IV.prototype.upgrade = function() {
+        var a = this.tc("default");
+        a.remove("inline-sign-in-count");
+        a.remove("needs-inline-sign-in")
+    }
+    ;
+    function JV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(JV, Z);
+    JV.prototype.upgrade = function() {
+        var a = this.Oa.get("device-statistics");
+        a && (a = JSON.parse(a),
+        this.Oa.set("device-statistics", a, 31536E3))
+    }
+    ;
+    function KV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(KV, Z);
+    KV.prototype.upgrade = function() {
+        var a = this.Oa.get("device-statistics");
+        a && (this.Oa.set("device-statistics", Nn(a), 31536E3),
+        this.Oa.set("device-stats", a, 31536E3))
+    }
+    ;
+    function LV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(LV, Z);
+    LV.prototype.upgrade = function() {
+        this.Oa.remove("sticky-label");
+        this.Oa.remove("sticky-loader");
+        this.Oa.remove("sticky-force-full-animation")
+    }
+    ;
+    function MV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(MV, Z);
+    MV.prototype.upgrade = function() {
+        this.tc("default").set("tv-token-list", {}, 15768E3)
+    }
+    ;
+    function NV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(NV, Z);
+    NV.prototype.upgrade = function() {
+        this.tc("default").set("kids-promo-toast", !1)
+    }
+    ;
+    function OV(a, b, c, e) {
+        e = void 0 === e ? window.localStorage : e;
+        Z.call(this, a, b, c);
+        this.dv = e
+    }
+    l(OV, Z);
+    OV.prototype.upgrade = function() {
+        for (var a = [this.XA({
+            opt_sandbox: "default"
+        }), this.XA({
+            opt_sandbox: "k"
+        }), this.XA({
+            opt_sandbox: "g"
+        }), this.XA({
+            opt_sandbox: "u"
+        }), "yt.leanback"], b = a.length, c = this.qxa(a, [Ml, oF, pF, qF]), e = [], f = 0, g = this.dv.length; f < g; ++f) {
+            var h = this.dv.key(f);
+            if (!(h in c))
+                for (var k = 0; k < b; ++k)
+                    if (0 === h.indexOf(a[k])) {
+                        e.push(h);
+                        break
+                    }
+        }
+        a = 0;
+        for (b = e.length; a < b; ++a)
+            this.dv.removeItem(e[a])
+    }
+    ;
+    OV.prototype.qxa = function(a, b) {
+        for (var c = this, e = {}, f = b.length, g = {
+            Kx: 0
+        }, h = a.length; g.Kx < h; g = {
+            Kx: g.Kx
+        },
+        ++g.Kx)
+            for (var k = 0; k < f; ++k) {
+                var m = nc(b[k], function(b) {
+                    return function(e) {
+                        return c.hta(a[b.Kx], e)
+                    }
+                }(g));
+                m = Fc(m);
+                Ua(e, m)
+            }
+        return e
+    }
+    ;
+    OV.prototype.hta = function(a, b) {
+        return a + "::" + b
+    }
+    ;
+    function PV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(PV, Z);
+    PV.prototype.upgrade = function() {
+        var a = this.tc("default");
+        (this.gaa("device-stats") || this.gaa("device-retention-permission")) && a.set("is-first-launch", !1)
+    }
+    ;
+    PV.prototype.gaa = function(a) {
+        return void 0 !== this.Oa.get(a)
+    }
+    ;
+    function QV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(QV, Z);
+    QV.prototype.upgrade = function() {
+        this.tc("default").remove("high-contrast-enabled")
+    }
+    ;
+    function RV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(RV, Z);
+    RV.prototype.upgrade = function() {
+        var a = this.tc("default")
+          , b = a.get("mdx-paired-devices") || [];
+        10 < b.length && b.splice(10);
+        a.set("migrated-mdx-paired-devices", b, 31536E3)
+    }
+    ;
+    function SV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(SV, Z);
+    SV.prototype.upgrade = function() {
+        this.tc("default").set("sign-in-onboarding-dialog-shown", !1, 15768E3)
+    }
+    ;
+    function TV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(TV, Z);
+    TV.prototype.upgrade = function() {
+        this.tc("default").set("sign-in-promo-guide-toast-shown", !1, 15768E3)
+    }
+    ;
+    function UV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(UV, Z);
+    UV.prototype.upgrade = function() {
+        this.Oa.remove("topics-toast-shown")
+    }
+    ;
+    function VV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(VV, Z);
+    VV.prototype.upgrade = function() {
+        this.Oa.set("sign-in-shelf-history", {})
+    }
+    ;
+    function WV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(WV, Z);
+    WV.prototype.upgrade = function() {
+        this.Oa.remove("sign-in-shelf-history")
+    }
+    ;
+    function XV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(XV, Z);
+    XV.prototype.upgrade = function() {
+        this.tc("default").set("airstream-bento-training-count", 0)
+    }
+    ;
+    function YV(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(YV, Z);
+    YV.prototype.upgrade = function() {
+        this.Oa.remove("persistent-local");
+        this.Oa.remove("persistent-cookie")
+    }
+    ;
+    function ZV(a, b, c, e) {
+        e = void 0 === e ? window.localStorage : e;
+        Z.call(this, a, b, c);
+        this.dv = e
+    }
+    l(ZV, Z);
+    ZV.prototype.upgrade = function() {
+        var a = this.dv.getItem("appletv-migrated-refresh-token");
+        if (a) {
+            var b = this.tc("default");
+            b.get("tv-refresh-token") || b.set("tv-refresh-token", a);
+            this.dv.removeItem("appletv-migrated-refresh-token")
+        }
+    }
+    ;
+    function $V(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l($V, Z);
+    $V.prototype.upgrade = function() {
+        this.tc("default").set("topic-onboarding-topics", [])
+    }
+    ;
+    function aW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(aW, Z);
+    aW.prototype.upgrade = function() {
+        this.tc("default").set("airstream-session-history", {
+            sessions: 0,
+            "last-session-time": 0
+        })
+    }
+    ;
+    function bW(a) {
+        Z.apply(this, arguments)
+    }
+    l(bW, Z);
+    bW.prototype.upgrade = function() {
+        this.tc("default").set("rate-atv-toast-shown", !1)
+    }
+    ;
+    function cW(a) {
+        Z.apply(this, arguments)
+    }
+    l(cW, Z);
+    cW.prototype.upgrade = function() {
+        this.tc("default").set("num-voice-search-education-toasts-shown", 0)
+    }
+    ;
+    function dW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(dW, Z);
+    dW.prototype.upgrade = function() {
+        for (var a = ["crash-count", "device-stats", "activity-path", "spinner_log"], b = {}, c = a.length, e = 0; e < c; e++)
+            b[a[e]] = this.Oa.get(a[e]);
+        this.Oa.set("private_data", b)
+    }
+    ;
+    function eW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(eW, Z);
+    eW.prototype.upgrade = function() {
+        this.tc("default").remove("kids-promo-toast")
+    }
+    ;
+    function fW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(fW, Z);
+    fW.prototype.upgrade = function() {
+        var a = this.tc("default")
+          , b = !!a.get("sign-in-onboarding-dialog-shown")
+          , c = a.wR("sign-in-onboarding-dialog-shown");
+        b && Ea(c) && a.set("sign-in-onboarding-dialog-shown-timestamp", c);
+        a.remove("sign-in-onboarding-dialog-shown")
+    }
+    ;
+    function gW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(gW, Z);
+    gW.prototype.upgrade = function() {
+        this.tc("default").set("num-times-ime-telex-toast-shown", 0, 15768E3)
+    }
+    ;
+    function hW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(hW, Z);
+    hW.prototype.upgrade = function() {
+        this.tc("default").set("display-language-changed-toast", !1)
+    }
+    ;
+    function iW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(iW, Z);
+    iW.prototype.upgrade = function() {
+        var a = this.tc("default");
+        a.set("last-home-browse-request-payload", {});
+        a.set("last-home-browse-request-url", "")
+    }
+    ;
+    function jW(a, b, c, e) {
+        e = void 0 === e ? window.environment : e;
+        Z.call(this, a, b, c);
+        this.Kw = e
+    }
+    l(jW, Z);
+    jW.prototype.upgrade = function() {
+        var a = this.Kw && this.Kw.browser ? this.Kw.browser.toLowerCase() : ""
+          , b = this.Kw && this.Kw.brand ? this.Kw.brand.toLowerCase() : "";
+        if ("cobalt" !== a && "sony" === b) {
+            a = ["account-credentials", "accounts-map", "active-account", "tv-refresh-token", "tv-token-list"];
+            b = this.tc("default");
+            for (var c = 0, e = a.length; c < e; ++c) {
+                var f = a[c]
+                  , g = $g.get("yt-dev." + f, void 0);
+                if (g) {
+                    try {
+                        g = JSON.parse(unescape(g))
+                    } catch (h) {}
+                    b.set(f, g, 15768E3)
+                }
+            }
+            kW(Ml);
+            kW(rF);
+            kW(oF);
+            kW(pF);
+            kW(qF)
+        }
+    }
+    ;
+    function kW(a) {
+        for (var b in a)
+            a.hasOwnProperty(b) && fo(a[b])
+    }
+    ;function lW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(lW, Z);
+    lW.prototype.upgrade = function() {
+        var a = this.tc("default");
+        Ea(a.get("promo-coupon-shown-times")) || a.set("promo-coupon-shown-times", 0);
+        Ea(a.get("promo-coupon-shown-timestamp")) || a.set("promo-coupon-shown-timestamp", 0)
+    }
+    ;
+    function mW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(mW, Z);
+    mW.prototype.upgrade = function() {
+        var a = this.tc("default");
+        a.set("last-home-browse-request-payload", {});
+        a.set("last-home-browse-request-url", "")
+    }
+    ;
+    function nW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(nW, Z);
+    nW.prototype.upgrade = function() {
+        var a = this.tc("default");
+        a.remove("samsung-signin-error-toast-shown");
+        a.remove("sign-in-promo-guide-toast-shown");
+        a.remove("topic-onboarding-topics")
+    }
+    ;
+    function oW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(oW, Z);
+    oW.prototype.upgrade = function() {
+        var a = this.tc("default");
+        a.set("promo-premium-shown-times", 0);
+        a.set("promo-premium-shown-timestamp", 0)
+    }
+    ;
+    function pW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(pW, Z);
+    pW.prototype.upgrade = function() {
+        var a = this.Oa.get("private_data");
+        if (a && a["crash-count"]) {
+            var b = {};
+            b = (b.startup = 0,
+            b["crash-count"] = a["crash-count"],
+            b);
+            a["crash-data"] = b;
+            delete a["crash-count"];
+            this.Oa.set("private_data", a)
+        }
+    }
+    ;
+    function qW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(qW, Z);
+    qW.prototype.upgrade = function() {
+        var a = this.Oa.get("leanback_oauth_renew");
+        a && (this.Oa.get("tv-refresh-token") || this.Oa.set("tv-refresh-token", a, 15768E3),
+        this.Oa.remove("leanback_oauth_renew"))
+    }
+    ;
+    function rW(a, b, c) {
+        Z.call(this, a, b, c)
+    }
+    l(rW, Z);
+    rW.prototype.upgrade = function() {
+        for (var a = ["tv-access-token", "activity-path", "saved-searches", "spinner_log"], b = this.Oa.get("private_data"), c = 0, e = a.length; c < e; ++c) {
+            var f = a[c];
+            this.Oa.remove(f);
+            b && delete b[f]
+        }
+        b && this.Oa.set("private_data", b)
+    }
+    ;
+    function sW(a, b) {
+        return b()
+    }
+    E(sW, ["upgradeStorage", "localStorageFactory"]);
+    function tW(a, b) {
+        for (var c = a({
+            storageNamespace: "=sharedNamespace"
+        }), e, f = c.get("schema-version", 31536E4) || 0; 60 > f; )
+            e = uW[f],
+            e = new e(c,a,b),
+            e.upgrade(),
+            f++;
+        c.set("schema-version", 60, 31536E4);
+        return !0
+    }
+    E(tW, ["localStorageFactory", "makeSandboxNamespace"]);
+    var uW = {
+        0: Z,
+        1: Z,
+        2: Z,
+        3: Z,
+        4: dW,
+        5: Z,
+        6: pW,
+        7: Z,
+        8: qW,
+        9: rW,
+        10: wV,
+        11: Z,
+        12: xV,
+        13: yV,
+        14: zV,
+        15: Z,
+        16: AV,
+        17: BV,
+        18: Z,
+        19: Z,
+        20: Z,
+        21: Z,
+        22: CV,
+        23: DV,
+        24: EV,
+        25: FV,
+        26: GV,
+        27: HV,
+        28: IV,
+        29: JV,
+        30: KV,
+        31: LV,
+        32: MV,
+        33: NV,
+        34: OV,
+        35: PV,
+        36: QV,
+        37: RV,
+        38: SV,
+        39: TV,
+        40: UV,
+        41: VV,
+        42: WV,
+        43: XV,
+        44: YV,
+        45: ZV,
+        46: $V,
+        47: aW,
+        48: bW,
+        49: cW,
+        50: eW,
+        51: fW,
+        52: gW,
+        53: hW,
+        54: iW,
+        55: jW,
+        56: lW,
+        57: mW,
+        58: nW,
+        59: oW
+    };
+    function vW(a) {
+        return "yt.leanback." + (void 0 === a ? "default" : a)
+    }
+    E(vW, ["opt_sandbox"]);
+    function wW(a, b, c) {
+        var e = "default";
+        if (a.is_sandboxed)
+            switch (b.theme) {
+            case "g":
+                e = "g";
+                break;
+            case "k":
+                e = "k";
+                break;
+            default:
+                e = "u"
+            }
+        return c({
+            opt_sandbox: e
+        })
+    }
+    E(wW, ["runtimeParams", "clientInfo", "makeSandboxNamespace"]);
+    var xW = {
+        apply: function(a) {
+            var b = Object.assign({}, Fc(Ml), Fc(Nl))
+              , c = Object.assign(Fc(oF), b)
+              , e = Fc(qF);
+            b = Object.assign(Fc(pF), b);
+            var f = Object.assign(Fc(rF), c, b, e);
+            a.$({
+                allStorageKeys: f,
+                privateStorageKeys: e,
+                sharedNamespace: "yt.leanback",
+                sharedStorageKeys: b,
+                topLevelStorageKeys: c
+            });
+            a.Tb({
+                makeSandboxNamespace: vW
+            });
+            a.Jd({
+                sandboxNamespace: wW,
+                upgradeStorage: tW
+            });
+            a.add("localStorage", new J(new sf(sW,{
+                storageNamespace: "=sandboxNamespace",
+                validKeySet: "=allStorageKeys"
+            })));
+            a.add("localStorageFactory", new H(new I(io,{
+                validKeySet: "=allStorageKeys"
+            })));
+            c = Object.assign({}, b, e);
+            a.add("sharedStorage", new J(new sf(sW,{
+                storageNamespace: "=sharedNamespace",
+                validKeySet: c
+            })));
+            a.add("cookieStorage", new J(new sf(sW,{
+                storageNamespace: "yt.tv.cookies",
+                opt_useCookies: !0
+            })))
+        },
+        R: [uy]
+    };
+    E(xW.apply, ["injector"]);
+    function yW(a) {
+        return !!a.Sa("env_disableStartupDialog", !1)
+    }
+    E(yW, ["initialUrlQuery"]);
+    function zW(a) {
+        return 1 === a.userOnExitStrategy
+    }
+    E(zW, ["shellSystemApi"]);
+    function AW(a, b, c) {
+        return a.uv() || "cox" === a.brand || "shaw" === a.brand || "rogers" === a.brand || "videotron" === a.brand || a.FU() || c || !!b.Sa("env_suppressLegend")
+    }
+    E(AW, ["device", "initialUrlQuery", "supportsAppleTvUx"]);
+    function BW(a, b, c, e) {
+        a = e && !a.uv() && !b.lm;
+        return !!c.Sa("env_supportsAuthTokenReplication", a)
+    }
+    E(BW, ["device", "environment", "initialUrlQuery", "supportsReadingCookies"]);
+    function CW(a, b) {
+        return "direct" === a.direct_signin_type || !!b.get("enable-direct-sign-in")
+    }
+    E(CW, ["experimentFlags", "localStorage"]);
+    function DW(a, b, c, e) {
+        return e.Sa("env_supportsSearchSuggestion", !a.BA && !a.lm && !b)
+    }
+    E(DW, ["environment", "supportsAppleTvUx", "localeModel", "initialUrlQuery"]);
+    function EW(a, b) {
+        return a.enable_smart_remote && !b.Rf()
+    }
+    E(EW, ["experimentFlags", "device"]);
+    var FW = {
+        apply: function(a) {
+            a.Jd({
+                shouldDisableStartupDialog: yW,
+                shouldExitWithoutConfirmation: zW,
+                shouldSuppressLegend: AW,
+                supportsAuthTokenReplication: BW,
+                supportsDirectSignIn: CW,
+                supportsSearchSuggestions: DW,
+                supportsSmartRemoteToast: EW
+            });
+            a.$({
+                opt_clientDebugKeys: ["env_disableStartupDialog", "env_supportsAuthTokenReplication", "env_suppressLegend"]
+            })
+        },
+        R: [eq, xW]
+    };
+    E(FW.apply, ["injector"]);
+    function GW(a, b, c, e, f) {
+        f({
+            newWatchNextResponse: a,
+            response: b
+        });
+        f = b.contents && b.contents.singleColumnWatchNextResults;
+        if (!f)
+            return a;
+        e() || (a.playlistPanelRenderer = f.playlist && f.playlist.playlist);
+        a.singleVideoReportingOptionRenderer = b.videoReporting && b.videoReporting.singleVideoReportingOptionRenderer;
+        a.liveChatRenderer = f.conversationBar && f.conversationBar.liveChatRenderer;
+        b = t("results.results.contents", f) || [];
+        for (var g = 0, h = b.length; g < h; ++g) {
+            var k = b[g].itemSectionRenderer;
+            k && k.contents && k.contents[0] && (k.contents[0].videoMetadataRenderer ? a.videoMetadataRenderer = k.contents[0].videoMetadataRenderer : k.contents[0].videoOwnerRenderer ? a.videoOwnerRenderer = k.contents[0].videoOwnerRenderer : k.contents[0].musicWatchMetadataRenderer ? a.musicWatchMetadataRenderer = k.contents[0].musicWatchMetadataRenderer : k.contents[0].offerButtonListRenderer && (a.offerButtonListRenderer = k.contents[0].offerButtonListRenderer))
+        }
+        c.sd || e() || (a.pivotShelfListRenderer = f.pivot && f.pivot.pivot);
+        return a
+    }
+    E(GW, ["newWatchNextResponse", "response", "environment", "isVideoNavigationDisabledForKidsThemedChromeless", "bedrockWatchNextResponseParser"]);
+    function HW() {
+        ox.apply(this, arguments);
+        this.pivotShelfListRenderer = this.Wcb = null
+    }
+    l(HW, ox);
+    function IW(a, b, c, e) {
+        C.call(this);
+        this.environment = a;
+        this.apiKey = c;
+        this.Ta = e;
+        this.isCancelled = !1;
+        this.ct = b();
+        this.Dc = y;
+        this.Ba(this.ct)
+    }
+    l(IW, C);
+    d = IW.prototype;
+    d.Mxa = function() {
+        return this.environment.C0 ? "//staging-www.sandbox.googleapis.com" : "//www.googleapis.com"
+    }
+    ;
+    d.yia = function(a) {
+        this.ct.yia(a)
+    }
+    ;
+    d.md = function(a) {
+        this.ct.md(a)
+    }
+    ;
+    d.Wd = function(a) {
+        this.Dc = a
+    }
+    ;
+    d.send = function(a, b) {
+        var c = this;
+        b ? this.C$(a, b) : this.Ta.ei(function(b) {
+            return c.C$(a, b)
+        });
+        return function() {
+            return c.yra()
+        }
+    }
+    ;
+    d.C$ = function(a, b) {
+        var c = this;
+        this.isCancelled || (this.fMa(a, b),
+        this.ct.Wd(function(a, b) {
+            return c.S1a(a, b)
+        }),
+        this.ct.send(a))
+    }
+    ;
+    d.fMa = function(a, b) {
+        if (-1 == a.uri.indexOf("//")) {
+            a.uri = this.Mxa() + a.uri;
+            var c = -1 == a.uri.indexOf("?") ? "?" : "&";
+            a.uri += c + "key=" + this.apiKey
+        }
+        b && (a.headers = a.headers || {},
+        a.headers.Authorization = "Bearer " + b)
+    }
+    ;
+    d.yra = function() {
+        this.isCancelled || (this.isCancelled = !0,
+        this.ct.abort())
+    }
+    ;
+    d.abort = function() {
+        this.ct.abort();
+        D(this)
+    }
+    ;
+    d.S1a = function(a, b) {
+        this.Dc(new hL(b))
+    }
+    ;
+    E(IW, ["environment", "vanillaXhrRequestFactory", "apiaryApiKey", "authService"]);
+    function JW(a, b) {
+        var c = {};
+        b((c.state = "exit",
+        c));
+        (a = a.onScreenKeyboard) && a.hide()
+    }
+    E(JW, ["window", "sendActivityReport"]);
+    function KW(a, b, c, e, f, g, h, k, m, p, u) {
+        Y.call(this, a);
+        this.qo = f;
+        this.Fj = h;
+        this.j = m;
+        this.Jr = p;
+        this.Xh = -1;
+        this.au = b.countDownSecs || 0;
+        a = u.aca() ? '[[To cancel, say "Ok Google, stop"|Instructions  to cancel autoplay by speaking to Google Assistant]]' : "[[To cancel, press Stop on your mobile device|Instructions to cancel autoplay]]";
+        this.vra = k.C(a);
+        this.Qp = g({
+            renderer: c
+        });
+        this.setMessageHandler("go-back", function(a) {
+            e(!1, a);
+            return !0
+        });
+        this.setMessageHandler("go-home", function(a) {
+            f(!1, a);
+            return !0
+        })
+    }
+    l(KW, Y);
+    d = KW.prototype;
+    d.Cb = function() {
+        var a = this;
+        Y.prototype.Cb.call(this);
+        if (0 < this.au) {
+            this.hx();
+            var b = function() {
+                return a.bYa()
+            };
+            this.Oe(b);
+            this.Oe(this.Fj.on("playback-requested", b))
+        } else
+            this.d_a();
+        this.Oe(this.Fj.on("dismissAutoplay", function() {
+            return a.qo()
+        }));
+        this.Oe(this.Jr.on("value-changed", this.PLa.bind(this)))
+    }
+    ;
+    d.d_a = function() {
+        var a = this
+          , b = this.j.setTimeout(function() {
+            return a.triggerAction()
+        }, 0);
+        this.Oe(function() {
+            return a.j.clearTimeout(b)
+        })
+    }
+    ;
+    d.hx = function() {
+        this.Xh = this.j.setInterval(this.mta.bind(this), 1E3);
+        this.Fj.w("autoplayCountdownStarted", this.Qp.videoId, this.au)
+    }
+    ;
+    d.bYa = function() {
+        -1 !== this.Xh && (this.j.clearInterval(this.Xh),
+        this.Xh = -1,
+        0 < this.au && this.Fj.w("autoplayDismissed"))
+    }
+    ;
+    d.mta = function() {
+        --this.au;
+        this.w("countdown:changed");
+        0 === this.au && (this.j.clearInterval(this.Xh),
+        this.Xh = -1,
+        this.triggerAction())
+    }
+    ;
+    d.PLa = function() {
+        this.Jr.get() || this.qo()
+    }
+    ;
+    d.triggerAction = function() {
+        this.w("trigger-video-action", this.Qp.action)
+    }
+    ;
+    E(KW, "name autoplayRenderer mdxAutoplayVideoRenderer goBack goHome mdxAutoplayVideo rootDispatcher localeService timeService mdxAutoplayEnabled remoteData".split(" "));
+    function LW() {
+        V.apply(this, arguments);
+        this.model = null
+    }
+    l(LW, V);
+    LW.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.model && (this.I(this.model, "countdown:changed", this.render.bind(this)),
+        this.I(this.model, "trigger-video-action", this.l_a.bind(this)),
+        this.render(!0))
+    }
+    ;
+    LW.prototype.l_a = function(a) {
+        a(this, !0)
+    }
+    ;
+    function MW() {
+        this.action = function() {}
+        ;
+        this.$m = this.title = this.viewCountLabel = this.channelName = this.videoId = "";
+        this.channelThumbnailUrl = this.thumbnailUrl = "/no_thumbnail.jpg"
+    }
+    function NW(a, b, c) {
+        var e = new MW;
+        e.videoId = c.videoId || "";
+        e.thumbnailUrl = a.bb(c);
+        e.title = X(c.title);
+        e.$m = X(c.publishedTimeText);
+        e.viewCountLabel = X(c.shortViewCountText);
+        c.channelThumbnail && c.channelThumbnail.thumbnails && c.channelThumbnail.thumbnails[0] && (e.channelThumbnailUrl = c.channelThumbnail.thumbnails[0].url || "/no_thumbnail.jpg");
+        e.channelName = X(c.shortBylineText);
+        e.action = b(c);
+        return e
+    }
+    E(NW, ["mdxAutoplayThumbnailParser", "makeTileAction", "renderer"]);
+    var OW = {
+        apply: function(a) {
+            a.P([{
+                name: "mdx-autoplay-interstitial",
+                A: LW,
+                template: "mdx_autoplay_interstitial.html"
+            }]);
+            a.add("mdxAutoplayThumbnailParser", new J(new I(qx,{
+                opt_thumbnailQuality: 1920
+            })));
+            a.Tb({
+                mdxAutoplayVideo: NW
+            })
+        },
+        R: [uy]
+    };
+    E(OW.apply, ["injector"]);
+    function PW(a) {
+        return !Cn(a) && !a.Rf()
+    }
+    E(PW, ["device"]);
+    var QW = {
+        apply: function(a, b, c) {
+            a.$({
+                mdxTheme: c.Xv || b.theme
+            });
+            a.Jd({
+                supportsInAppDialVerticalLaunch: PW
+            });
+            a.add("showVerticalRejectionToast", new J(new nf(eD,{
+                id: "verticalRejectionToastId",
+                componentRenderer: "verticalRejectionToast",
+                timeoutMs: 7500
+            })))
+        },
+        R: [NC, OW]
+    };
+    E(QW.apply, ["injector", "clientInfo", "clientData"]);
+    function RW(a, b, c, e, f, g, h, k) {
+        this.state = this.capabilities = "TV_DEVICE_STORAGE_STATE_NONE";
+        a = h && (g.isSupported() || a.navigator && a.navigator.cookieEnabled);
+        b = c.hIa();
+        this.initialize(c, f, b, a, k)
+    }
+    d = RW.prototype;
+    d.initialize = function(a, b, c, e, f) {
+        var g = !1
+          , h = !1;
+        e && (this.capabilities = "TV_DEVICE_STORAGE_STATE_COOKIE",
+        h = !0 === b.get("storage-integrity"));
+        if (c) {
+            this.capabilities = "TV_DEVICE_STORAGE_STATE_LOCALSTORAGE";
+            try {
+                g = !0 === a.get("storage-integrity")
+            } catch (k) {
+                g = !1,
+                ik(k)
+            }
+        }
+        e && c && (this.capabilities = "TV_DEVICE_STORAGE_STATE_ALL");
+        h && g ? this.state = "TV_DEVICE_STORAGE_STATE_ALL" : h ? this.state = "TV_DEVICE_STORAGE_STATE_COOKIE" : g && (this.state = "TV_DEVICE_STORAGE_STATE_LOCALSTORAGE");
+        "TV_DEVICE_STORAGE_STATE_NONE" !== this.state || f.isFirstLaunch() || (this.state = this.capabilities);
+        if (c)
+            try {
+                a.set("storage-integrity", !0)
+            } catch (k) {
+                ik(k)
+            }
+        e && b.set("storage-integrity", !0)
+    }
+    ;
+    d.getCapabilities = function() {
+        return this.capabilities
+    }
+    ;
+    d.getState = function() {
+        return this.state
+    }
+    ;
+    d.GFa = function() {
+        return this.capabilities !== this.state
+    }
+    ;
+    d.Xza = function() {
+        return this.w8(this.getCapabilities())
+    }
+    ;
+    d.Yza = function() {
+        return this.w8(this.getState())
+    }
+    ;
+    d.w8 = function(a) {
+        switch (a) {
+        case "TV_DEVICE_STORAGE_STATE_ALL":
+            return 1;
+        case "TV_DEVICE_STORAGE_STATE_COOKIE":
+            return 2;
+        case "TV_DEVICE_STORAGE_STATE_LOCALSTORAGE":
+            return 3;
+        default:
+            return 0
+        }
+    }
+    ;
+    d.getDebugString = function() {
+        var a = "BAD"
+          , b = "BAD";
+        switch (this.state) {
+        case "TV_DEVICE_STORAGE_STATE_ALL":
+            b = a = "OK";
+            break;
+        case "TV_DEVICE_STORAGE_STATE_LOCALSTORAGE":
+            "TV_DEVICE_STORAGE_STATE_COOKIE" !== this.capabilities && (b = "OK");
+            "TV_DEVICE_STORAGE_STATE_LOCALSTORAGE" === this.capabilities && (a = "N/A");
+            break;
+        case "TV_DEVICE_STORAGE_STATE_COOKIE":
+            "TV_DEVICE_STORAGE_STATE_LOCALSTORAGE" !== this.capabilities && (a = "OK");
+            "TV_DEVICE_STORAGE_STATE_COOKIE" === this.capabilities && (b = "N/A");
+            break;
+        case "TV_DEVICE_STORAGE_STATE_NONE":
+            a = "TV_DEVICE_STORAGE_STATE_LOCALSTORAGE" !== this.capabilities ? "NEW" : "N/A",
+            b = "TV_DEVICE_STORAGE_STATE_COOKIE" !== this.capabilities ? "NEW" : "N/A"
+        }
+        return " Cookie storage: " + a + "  Local storage: " + b
+    }
+    ;
+    E(RW, "window ytStorageFactory localStorage storageApi cookieStorage cookiesApi supportsReadingCookies firstLaunchTracker makeSandboxNamespace".split(" "));
+    function SW(a) {
+        Qu.apply(this, arguments)
+    }
+    l(SW, Qu);
+    SW.prototype.isOpen = function() {
+        return !1
+    }
+    ;
+    function TW(a) {
+        SW.apply(this, arguments)
+    }
+    l(TW, SW);
+    TW.prototype.open = function() {}
+    ;
+    TW.prototype.close = function() {}
+    ;
+    TW.prototype.GS = function() {
+        return null
+    }
+    ;
+    TW.prototype.Ev = function() {
+        return !1
+    }
+    ;
+    function UW(a) {
+        SW.apply(this, arguments)
+    }
+    l(UW, SW);
+    UW.prototype.isSupported = function() {
+        return !1
+    }
+    ;
+    UW.prototype.start = function() {}
+    ;
+    UW.prototype.cancel = function() {}
+    ;
+    function VW(a) {
+        Y.call(this, a)
+    }
+    l(VW, Y);
+    E(VW, ["name"]);
+    function WW(a) {
+        return a()
+    }
+    E(WW, ["callToCastModelFactory"]);
+    function XW(a) {
+        sF.call(this, a)
+    }
+    l(XW, sF);
+    XW.prototype.add = function(a, b, c) {
+        c = void 0 === c ? 3E5 : c;
+        b.Wg();
+        sF.prototype.add.call(this, a, b, c)
+    }
+    ;
+    XW.prototype.remove = function(a) {
+        (a = sF.prototype.remove.call(this, a)) && a.Ue();
+        return a
+    }
+    ;
+    E(XW, ["timeService"]);
+    function YW(a, b, c, e, f, g, h, k, m, p) {
+        p = void 0 === p ? "" : p;
+        es.call(this, a, b, c, e, k, m);
+        this.message = f;
+        this.iYa = g;
+        this.userAvatarUri = p;
+        this.qaa = this.Ia = "";
+        h ? this.Ia = h : this.qaa = "hide-icon"
+    }
+    l(YW, es);
+    E(YW, "timeService id componentRenderer displayTimeout message subMessage opt_iconClass opt_hasDisplayAnim opt_displayDelay opt_userAvatarUri".split(" "));
+    function ZW(a, b, c, e) {
+        es.call(this, a, b, "deviceToast", e);
+        this.device = c;
+        this.wf = this.userAvatarUri = ""
+    }
+    l(ZW, es);
+    E(ZW, ["timeService", "id", "device", "displayTimeout"]);
+    function $W(a, b, c, e, f, g, h, k) {
+        es.call(this, a, b, c, e, k);
+        this.helpUrl = g;
+        this.message = h.C(f)
+    }
+    l($W, es);
+    E($W, "timeService id componentRenderer displayTimeout message helpUrl localeService opt_hasDisplayAnim".split(" "));
+    function aX(a, b, c, e) {
+        es.call(this, a, "updatePlaylistToastId", "updatePlaylistToast", c);
+        this.wf = "";
+        this.user = b.user;
+        this.userAvatarUri = b.userAvatarUri;
+        this.videoImageUri = e ? e.imageUrl : "";
+        this.videoTitle = e ? e.title : "";
+        this.videoCount = b.videoIds ? b.videoIds.length : 0;
+        this.QFa = "PLAYLIST_ADDED" === b.eventType ? "" : "hidden";
+        this.SFa = "PLAYLIST_CLEARED" === b.eventType ? "hidden" : "";
+        if (this.userAvatarUri && this.user)
+            switch (b.eventType) {
+            case "VIDEO_ADDED":
+                this.wf = "[[{{username}} added video|Toast message indicating that a signed-in user has added a video to the TV Queue.]]";
+                break;
+            case "VIDEO_REMOVED":
+                this.wf = "[[{{username}} removed video|Toast message indicating that a signed-in user has removed a video from the TV Queue.]]";
+                break;
+            case "PLAYLIST_ADDED":
+                this.wf = "[[{{username}} added playlist|Displayed when a signed-in user added a playlist to the TV queue]]";
+                break;
+            case "PLAYLIST_CLEARED":
+                this.wf = "[[{{username}} cleared the queue|Displayed when a signed-in user cleared the TV queue]]"
+            }
+        else
+            switch (b.eventType) {
+            case "VIDEO_ADDED":
+                this.wf = "[[Video was added|Toast message indicating that a signed-out user has added a video to the TV Queue.]]";
+                break;
+            case "VIDEO_REMOVED":
+                this.wf = "[[Video was removed|Toast message indicating that a signed-out user has removed a video from the TV Queue.]]";
+                break;
+            case "PLAYLIST_ADDED":
+                this.wf = "[[Playlist was added|Displayed when a signed-out user added a playlist to the TV queue]]";
+                break;
+            case "PLAYLIST_CLEARED":
+                this.wf = "[[Queue was cleared|Displayed when a signed-out user cleared the TV queue]]"
+            }
+    }
+    l(aX, es);
+    E(aX, ["timeService", "eventDetails", "displayTimeout", "opt_videoModel"]);
+    function bX(a, b) {
+        b = b.Gz();
+        b = kb(b, function(a) {
+            return -1 !== iL.indexOf(a)
+        });
+        if (0 < b.length) {
+            var c = {};
+            a = Object.assign({}, a, (c.e = b.join(","),
+            c))
+        }
+        return a
+    }
+    E(bX, ["bedrockDefaultPerformanceParameters", "environment"]);
+    var cX = {
+        apply: function(a) {
+            a.add("defaultPerformanceParameters", new J(new sf(bX,{
+                bedrockDefaultPerformanceParameters: a.Be("defaultPerformanceParameters")
+            })))
+        },
+        R: [yw]
+    };
+    E(cX.apply, ["injector"]);
+    function dX() {}
+    dX.prototype.Ie = function(a) {
+        var b = {
+            kind: "youtube#video",
+            snippet: {
+                title: a.title,
+                categoryId: a.categoryId,
+                description: a.description,
+                tags: a.tags
+            },
+            status: {
+                privacyStatus: a.privacyStatus
+            }
+        };
+        a.videoId && (b.id = a.videoId);
+        return Nn(b)
+    }
+    ;
+    function eX(a, b, c) {
+        this.XN = a;
+        this.Epa = b;
+        this.mLa = c
+    }
+    d = eX.prototype;
+    d.get = function(a, b, c) {
+        a = new gq("GET","/youtube/v3/videos",{
+            id: a,
+            part: "snippet,status"
+        });
+        return this.dL(a, this.vS.bind(this, b), c)
+    }
+    ;
+    d.vS = function(a, b) {
+        a(this.mLa(b))
+    }
+    ;
+    d.put = function(a, b, c) {
+        a = this.Epa.Ie(a);
+        a = new gq("PUT","/youtube/v3/videos",{
+            part: "snippet,status"
+        },a,{
+            "Content-Type": "application/json"
+        });
+        return this.dL(a, b, c)
+    }
+    ;
+    d.destroy = function(a, b, c) {
+        a = new gq("DELETE","/youtube/v3/videos",{
+            id: a
+        });
+        return this.dL(a, b, c)
+    }
+    ;
+    d.dL = function(a, b, c) {
+        var e = this.XN();
+        e.md(b);
+        e.Wd(c);
+        e.send(a);
+        return e.abort.bind(e)
+    }
+    ;
+    E(eX, ["apiaryRequestFactory", "apiaryVideoSerializer", "makeVideoFromApiaryResponse"]);
+    function fX(a, b, c) {
+        this.sendReport = a;
+        this.Kc = b;
+        this.G = c;
+        this.sca = {};
+        this.qca = {}
+    }
+    fX.prototype.nza = function(a, b) {
+        var c = {
+            a: "tv_fragment"
+        };
+        a && (c.cmd = a);
+        b.Uc("launch") && (c.la = b.Uc("launch"));
+        b.Uc("v") && (c.v = b.Uc("v"));
+        b.Uc("c") && (c.channel = b.Uc("c"));
+        b.Uc("list") && (c.l = b.Uc("list"));
+        b.Uc("q") && (c.q = b.Uc("q"));
+        b.Uc("t") && (c.t = b.Uc("t"));
+        b.Uc("row") && (c.r = b.Uc("row"));
+        b.Uc("pairingCode") && (c.pc = 1);
+        b.Uc("reversePairingCode") && (c.rpc = 1);
+        b.Uc("promo") && (c.promo = b.Uc("promo"),
+        c.la || (c.la = "promo"));
+        return c
+    }
+    ;
+    fX.prototype.PR = function(a) {
+        var b = {
+            launchUrlComponentType: 2
+        };
+        b.clientScreenNonce = this.G.fc();
+        a.Od() && (b.fragmentIdentifier = Oo[a.Od().toUpperCase()] || Oo.INVALID);
+        a.Uc("launch") && (b.launchValue = No[a.Uc("launch").toUpperCase()] || No.INVALID);
+        a.Uc("launch_tag") && (b.launchTag = a.Uc("launch_tag"));
+        return b
+    }
+    ;
+    fX.prototype.CY = function(a) {
+        var b = a.Od();
+        switch (b) {
+        case "start":
+            b = "st";
+            break;
+        case "suspend":
+            b = "su";
+            break;
+        case "resume":
+            b = "re";
+            break;
+        case "play":
+            b = "pl";
+            break;
+        default:
+            b = ""
+        }
+        b = this.nza(b, a);
+        this.fba(b, this.sca, ["cmd", "la", "r"]) && (this.sendReport("/gen_204", b, "fragment_sw"),
+        this.sca = b);
+        a = this.PR(a);
+        this.fba(a, this.qca, ["fragmentIdentifier", "launchValue", "launchTag"]) && (this.Kc.send("tvhtml5LaunchUrlComponentChanged", a),
+        this.qca = a)
+    }
+    ;
+    fX.prototype.fba = function(a, b, c) {
+        for (var e = 0, f = c.length; e < f; ++e) {
+            var g = c[e];
+            if (a[g] !== b[g])
+                return !0
+        }
+        return !1
+    }
+    ;
+    E(fX, ["sendReport", "gelService", "screenManager"]);
+    function gX(a) {
+        a = void 0 === a ? "" : a;
+        S.call(this);
+        this.listType = a;
+        this.action = y;
+        this.channel = this.Xyb = null;
+        this.durationLabel = this.description = this.categoryId = this.category = "";
+        this.errorCode = null;
+        this.imageUrl = "/no_thumbnail.jpg";
+        this.viewCountLabel = this.videoId = this.title = this.$m = this.GE = "";
+        this.liveBadge = null;
+        this.zJa = "";
+        this.Xs = null;
+        this.L = "videoTile";
+        this.tags = this.YPa = this.privacyStatus = null;
+        this.user = "";
+        this.countDownSecs = 0;
+        this.yH = !1;
+        this.Yo = this.overlayText = "";
+        this.Jx = this.Rh = this.gE = null;
+        this.isWatched = !1;
+        this.progress = "";
+        this.textBadge = null;
+        this.fZa = "";
+        this.listId = this.listType
+    }
+    l(gX, S);
+    function hX(a) {
+        var b = new gX("UU");
+        a = a[0];
+        b.videoId = a.id;
+        b.title = t("snippet.title", a);
+        b.categoryId = t("snippet.categoryId", a);
+        b.description = t("snippet.description", a);
+        b.privacyStatus = t("status.privacyStatus", a);
+        b.YPa = t("status.processingStatus", a);
+        b.tags = t("snippet.tags", a);
+        b.imageUrl = t("snippet.thumbnails.high.url", a) || t("snippet.thumbnails.medium.url", a) || t("snippet.thumbnails.default.url", a) || b.imageUrl;
+        b.channel = new TR;
+        b.channel.displayName = t("snippet.channelTitle", a);
+        b.channel.id = t("snippet.channelId", a);
+        return b
+    }
+    E(hX, ["items"]);
+    function iX(a, b, c) {
+        this.Oa = a;
+        this.j = b;
+        this.tX = c;
+        this.bP = [];
+        this.YW = 0;
+        this.ex = (a = this.Oa.get("device-retention-permission", 31536E4)) ? a.enabled : !0;
+        this.Vea = new jX(this)
+    }
+    d = iX.prototype;
+    d.iS = function() {
+        return this.ex
+    }
+    ;
+    d.W8 = function() {
+        return this.Vea
+    }
+    ;
+    d.wia = function(a) {
+        var b = this.ex !== a;
+        this.ex = a;
+        this.Oa.set("device-retention-permission", {
+            enabled: a
+        }, 31536E4);
+        this.usa();
+        this.YW && this.j.clearTimeout(this.YW);
+        this.YW = this.j.setTimeout(z(this.Oa.flush, this.Oa), 1E3);
+        b && this.Vea.w("value-changed", this.ex, !this.ex)
+    }
+    ;
+    d.O1 = function(a) {
+        this.bP.push(a)
+    }
+    ;
+    d.usa = function() {
+        this.Oa.eP(this.tX);
+        for (var a = 0, b = this.bP.length; a < b; ++a)
+            this.bP[a]()
+    }
+    ;
+    d.cSa = function(a, b) {
+        a in this.tX && this.ex && this.Oa.set(a, b, 31536E3)
+    }
+    ;
+    d.Xga = function(a) {
+        this.cSa("device-stats", a)
+    }
+    ;
+    d.hza = function(a) {
+        return a in this.tX ? this.Oa.get(a) : null
+    }
+    ;
+    d.dda = function() {
+        return this.hza("device-stats") || null
+    }
+    ;
+    function jX(a) {
+        S.call(this);
+        this.owner = a
+    }
+    l(jX, S);
+    jX.prototype.get = function() {
+        return this.owner.iS()
+    }
+    ;
+    jX.prototype.set = function(a) {
+        this.owner.wia(!!a)
+    }
+    ;
+    jX.prototype.reset = function() {
+        this.owner.wia(!0)
+    }
+    ;
+    E(iX, ["sharedStorage", "timeService", "privateStorageKeys"]);
+    function kX(a, b, c, e) {
+        var f = this;
+        this.qa = b;
+        this.OL = c;
+        if (this.isEnabled = e.iC("spinner_activity_logging_sw"))
+            a.on("value-changed", function(a) {
+                a ? f.$I() : f.ZA()
+            }),
+            c.on("visibility-changed", function() {
+                f.OL.isVisible() ? f.$I() : f.ZA()
+            })
+    }
+    kX.prototype.$I = function() {
+        this.isEnabled && this.qa.La("spnr_s")
+    }
+    ;
+    kX.prototype.ZA = function() {
+        this.isEnabled && this.qa.La("spnr_f")
+    }
+    ;
+    E(kX, ["isLoading", "performanceService", "spinnerStateMachine", "variants"]);
+    function lX(a, b, c, e, f) {
+        var g = this;
+        this.zSa = a;
+        this.Oc = b;
+        this.j = c;
+        this.VL = e;
+        this.Qa = f;
+        this.sG = !0;
+        this.timestamp = this.j.getCurrentTime();
+        this.Oc.on("will-change", function(a, b, c) {
+            return g.Ipa(a, b, c)
+        })
+    }
+    lX.prototype.Ipa = function(a, b, c) {
+        var e = this
+          , f = this.j.getCurrentTime()
+          , g = ((f - Number(this.timestamp)) / 1E3).toFixed(1);
+        if (this.sG || 0 !== Number(g)) {
+            this.timestamp = f;
+            var h = Dc(b);
+            h.trigger = a;
+            h.t = g;
+            this.Oc.bp(h);
+            c(function(a) {
+                return e.Hpa(h, a)
+            })
+        }
+    }
+    ;
+    lX.prototype.Hpa = function(a, b) {
+        this.Oc.mw(a);
+        Ua(a, b);
+        "watch:video:seek" === a.origin && Ua(a, this.Qa.Dca);
+        this.sG && this.Boa(a);
+        this.zSa(a);
+        this.sG = !1
+    }
+    ;
+    lX.prototype.Boa = function(a) {
+        this.sG && (a.first_active = this.VL.Zya(),
+        a.prev_active = this.VL.BBa())
+    }
+    ;
+    E(lX, ["sendActivityReport", "applicationModel", "timeService", "statsService", "transportControlsReporting"]);
+    function mX(a, b, c, e, f, g, h, k) {
+        var m = this;
+        this.Oc = a;
+        this.environment = b;
+        this.location = c;
+        this.device = e;
+        this.f = f;
+        this.Ta = g;
+        this.HSa = k;
+        this.K0 = !1;
+        this.$E = y;
+        a.on("suspend", this.OYa.bind(this));
+        a.on("resume", this.bY.bind(this));
+        h.on("value-changed", function(a) {
+            return m.y1a(a)
+        })
+    }
+    d = mX.prototype;
+    d.OYa = function(a) {
+        this.environment.oba() ? this.location.assign("/tv") : this.NYa(a)
+    }
+    ;
+    d.NYa = function(a) {
+        var b = this;
+        if (this.f.Ja || this.f.Vc()) {
+            var c = this.f.getCurrentTime(1);
+            this.f.stop();
+            if (-1 < a.path.indexOf("watch"))
+                var e = this.Oc.on("resume", function(f) {
+                    e();
+                    var g = -1 < f.path.indexOf("watch");
+                    f = f.args.v;
+                    var h = a.args.v;
+                    g && f === h && b.f.KX(c)
+                })
+        }
+        this.environment.Si && (this.$E(),
+        this.$E = y)
+    }
+    ;
+    d.bY = function() {
+        var a = this;
+        this.environment.Si && (this.$E = this.Ta.ei(function() {
+            return a.goa()
+        }, !0));
+        this.HSa()
+    }
+    ;
+    d.goa = function() {
+        this.$E = y
+    }
+    ;
+    d.y1a = function(a) {
+        a ? this.K0 && (this.f.play(),
+        this.K0 = !1) : (this.environment.r_ && (this.K0 = this.f.wb || 3 === this.f.state,
+        this.f.pause()),
+        this.environment.oba() && this.location.assign("/tv"))
+    }
+    ;
+    E(mX, "applicationModel environment location device playerService authService isWindowFocused sendServerEvent".split(" "));
+    function nX(a, b, c, e) {
+        this.j = a;
+        this.f = b;
+        this.GSa = e;
+        this.timeline = [];
+        this.tma = function() {}
+        ;
+        this.Dca = {};
+        c.on("substate:set", this.Ppa.bind(this))
+    }
+    d = nX.prototype;
+    d.Ppa = function(a, b) {
+        var c = this;
+        "watch" === b.getName() && this.report();
+        "watch" === a.getName() && (this.Wja(a),
+        a.on("substate:set", function() {
+            c.report();
+            c.Wja(a)
+        }))
+    }
+    ;
+    d.Wja = function(a) {
+        var b = this;
+        a = a.Ea();
+        if ("video" === a.getName() || "ads" === a.getName())
+            this.tma(),
+            this.tma = a.on("substate:set", function() {
+                return b.report()
+            })
+    }
+    ;
+    d.HFa = function(a) {
+        return 100 <= this.j.za() - a.timestamp
+    }
+    ;
+    d.lra = function(a, b) {
+        if (0 === this.timeline.length || "fw" !== a && "rw" !== a)
+            return !0;
+        var c = fb(this.timeline);
+        a = c.action === a;
+        b = c.source === b;
+        return this.HFa(c) || !a || !b
+    }
+    ;
+    d.Yi = function(a, b) {
+        this.lra(a, b) && this.timeline.push({
+            timestamp: this.j.za(),
+            action: a,
+            source: b,
+            progress: this.f.getCurrentTime()
+        })
+    }
+    ;
+    d.Hf = function(a) {
+        this.Yi(a, "transport-controls")
+    }
+    ;
+    d.Xj = function(a) {
+        this.Yi(a, "key-event")
+    }
+    ;
+    d.Dcb = function(a) {
+        this.Yi(a, "storyboard")
+    }
+    ;
+    d.kpa = function(a) {
+        this.Yi(a, "super-pivot")
+    }
+    ;
+    d.f2 = function(a) {
+        this.Yi(a, "touch")
+    }
+    ;
+    d.i2 = function(a) {
+        this.Yi(a, "touchpad")
+    }
+    ;
+    d.$n = function() {
+        var a = {};
+        0 < this.timeline.length && (a = this.mCa());
+        for (var b = 0; b < this.timeline.length; b++) {
+            var c = this.timeline[b];
+            c = c.source + "::" + c.action;
+            a[c] = a[c] ? a[c] : 0;
+            a[c] += 1
+        }
+        a.a = "tv_transport";
+        a.duration = this.f.tg();
+        return a
+    }
+    ;
+    d.mCa = function() {
+        for (var a = [0, 0, 0, 0], b = -1, c = 1, e = null, f = 0; f < this.timeline.length; f++) {
+            var g = this.timeline[f];
+            if ("fw" === g.action || "rw" === g.action)
+                -1 === b && (b = g.progress),
+                null === e ? e = g.action : e !== g.action && (c++,
+                e = g.action),
+                a[0]++,
+                a[c]++
+        }
+        c = {};
+        a = (c.seek0 = a[0],
+        c.seek1 = a[1],
+        c.seek2 = a[2],
+        c.seek3 = a[3],
+        c.start_p = b,
+        c);
+        this.Dca = Object.assign({}, a);
+        return a
+    }
+    ;
+    d.report = function() {
+        var a = this.$n();
+        this.GSa("/gen_204", a);
+        this.timeline = []
+    }
+    ;
+    E(nX, ["timeService", "playerService", "applicationModel", "sendReportWithDeviceParameters"]);
+    function oX(a) {
+        return function(b) {
+            var c = a.translateDeepLink(b.toString());
+            return null !== c ? new Tm(c) : b
+        }
+    }
+    E(oX, ["systemApi"]);
+    function pX(a, b, c, e) {
+        S.call(this);
+        var f = this;
+        this.f = a;
+        this.j = b;
+        this.M = e;
+        this.overlayText = "";
+        this.durationMs = 0;
+        this.JZ = "";
+        this.uJ = !1;
+        this.ra = -1;
+        this.messageType = 0;
+        this.H(a.on("isPlaying:changed", function() {
+            return f.p$()
+        }));
+        this.H(a.on("isPlayingAd:changed", function() {
+            return f.p$()
+        }));
+        this.H(a.on("videoData:changed", function() {
+            return f.$S()
+        }));
+        this.H(c.on("substate:set", function() {
+            return f.$Da()
+        }))
+    }
+    l(pX, S);
+    d = pX.prototype;
+    d.p$ = function() {
+        this.f.wb && !this.f.Ja && this.yWa() && 2 !== this.messageType && (this.JZ = this.f.uc(),
+        this.uJ = !0,
+        this.w("show_overlay"),
+        this.j.clearTimeout(this.ra),
+        this.ra = this.j.setTimeout(z(this.sA, this), this.durationMs))
+    }
+    ;
+    d.sA = function() {
+        this.messageType = 0;
+        this.uJ = !1;
+        this.w("hide_overlay")
+    }
+    ;
+    d.$S = function() {
+        5 === this.f.getPlayerType() ? (this.overlayText = this.M.C("[[Video will begin shortly|Label shown during preroll video which plays before the main content video.]]"),
+        this.messageType = 2,
+        this.uJ = !0,
+        this.w("show_overlay")) : 2 === this.messageType ? this.sA() : (this.overlayText = this.f.jBa(),
+        this.durationMs = 0,
+        this.overlayText && (this.messageType = 1,
+        this.durationMs = this.f.iBa()));
+        this.uJ && !this.jma() && this.sA()
+    }
+    ;
+    d.$Da = function() {
+        this.JZ = ""
+    }
+    ;
+    d.jma = function() {
+        return 1 === this.messageType && 0 < this.durationMs || 2 === this.messageType
+    }
+    ;
+    d.yWa = function() {
+        return this.jma() && this.JZ !== this.f.uc()
+    }
+    ;
+    E(pX, ["playerService", "timeService", "applicationModel", "localeService"]);
+    function qX() {
+        this.Wy = {};
+        this.Naa(this.Wy)
+    }
+    qX.prototype.ri = function(a) {
+        this.Wy[a] += 1
+    }
+    ;
+    qX.prototype.Naa = function(a) {
+        for (var b in jV)
+            a[jV[b]] = 0
+    }
+    ;
+    qX.prototype.$n = function() {
+        var a = {};
+        Ua(a, this.Wy);
+        this.Naa(this.Wy);
+        return a
+    }
+    ;
+    var rX = {
+        apply: function(a, b, c, e, f, g, h, k, m, p, u, v) {
+            a.$({
+                clientExceptionLoggingSamplingVariant: "h5_exceptions_sw",
+                appContainerId: "leanback",
+                shouldPlaySeekToLiveHead: !0,
+                navigationMap: {}
+            });
+            a.Za({
+                apiaryVideos: eX,
+                apiaryVideoSerializer: dX,
+                deviceStorageStatus: RW,
+                fragmentReportingService: fX,
+                guideModel: TW,
+                isSuspended: VS,
+                postPlayActivityService: qX,
+                spinnerActivity: kX,
+                stateActivityReporter: lX,
+                stateCache: XW,
+                suspension: mX,
+                transportControlsReporting: nX,
+                voiceSearchModel: UW
+            });
+            a.Jd({
+                applicationSubstateFactory: aF
+            });
+            a.V({
+                changeSubscription: function() {},
+                editPlaylist: function() {},
+                ensureLoggedIn: function() {},
+                filterHistory: function() {},
+                getClientInnertubeAjaxParams: mU,
+                goBack: nU,
+                goBackFromWatch: oU,
+                goHome: pU,
+                handleConsentToViewEdgyContent: qU,
+                handleContentConfirmation: rU,
+                handleDeeplinkError: sU,
+                handleInitParams: p(wU),
+                handleInitVideoError: xU,
+                handleServiceEndpoint: function() {},
+                handleVideoRetrievalError: pU,
+                isAtHome: zU,
+                loadAccountsList: qT,
+                loadBotguard: oT,
+                makeCallToCastModelFromDescriptor: WW,
+                makeTileAction: AU,
+                removeLoadingScreen: DU,
+                renderApplication: EU,
+                reportAutoplaySetting: HU,
+                reversePairFromDeeplink: IU,
+                sendActivityReport: KU,
+                sendServerEvent: SU,
+                sendStoragePing: OU,
+                setAppBackground: TU,
+                showSystemErrorDialog: uV,
+                tryWindowClose: $U
+            });
+            a.add("handleExternalRouteChange", new J(new nf(tU,{
+                bedrockHandleExternalRouteChange: new nf(pT)
+            })));
+            f.l_ ? a.V({
+                checkBrokenDeeplink: kU
+            }) : a.$({
+                checkBrokenDeeplink: vd
+            });
+            a.add("commonHandleExternalRouteChange", new J(new nf(pT,{
+                externalRouteChangeChildHandlers: new np(["reversePairFromDeeplink", new nf(ZU), "loadPlaylistFromDeeplink", "loadVideoFromDeeplink", new nf(BU), new nf(JU), "updateApplicationModelFromRoute"])
+            })));
+            a.add("externalRouteChangeChildHandlers", new J(new np(["checkBrokenDeeplink", "commonHandleExternalRouteChange"])));
+            a.add("initParamHandlers", new np(["handleInitVideoError"]));
+            a.Za({
+                privateDataService: iX
+            });
+            a.ll("deviceStatsStore", "privateDataService");
+            a.zb({
+                apiaryRequestFactory: IW,
+                defaultToastModelFactory: YW,
+                deviceToastModelFactory: ZW,
+                errorToastModelFactory: $W,
+                stateModelFactory: Y,
+                updatePlaylistToastModelFactory: aX,
+                watchControllerFactory: ps
+            });
+            a.add("commonSendReport", new nf(LU,{
+                xhrRequestFactory: "=vanillaXhrRequestFactory"
+            }));
+            a.ll("sendReport", "commonSendReport");
+            a.add("callToCastModelFactory", new H(new I(VW,{
+                name: "call-to-cast"
+            })));
+            a.add("watchModelFactory", new H(new I(Y,{
+                name: "watch"
+            })));
+            a.Tb({
+                defaultApplicationSubstateFactory: bF,
+                makeVideoFromApiaryResponse: hX
+            });
+            a.add("watchNextResponseParser", new H(new sf(GW,{
+                bedrockWatchNextResponseParser: a.Be("watchNextResponseParser")
+            })));
+            a.add("timedContinuationPollingServiceFactory", new H(new I(MT)));
+            a.add("updatedMetadataService", new J(new I(us,{
+                id: "updatedMetadataService",
+                path: "/updated_metadata"
+            })));
+            a.$({
+                continuerThresholdDistance: 4,
+                failDialogBackground: h + "/kiwi.png",
+                homeFeedBrowseId: "default",
+                myVideosFeedBrowseId: "FEmy_videos",
+                shelfCount: 4
+            });
+            a.$d({
+                newWatchNextResponse: HW,
+                videoMessageOverlayModel: pX,
+                viewControllerConfig: tT
+            });
+            a.zb({
+                playerControllerFactory: sV
+            });
+            a.$({
+                apiaryApiKey: "AIzaSyDCU8hByM-4DrUqRUYnGn-3llEO78bcxq8"
+            });
+            (function() {
+                var b = {};
+                a.P([{
+                    name: "application",
+                    A: dV,
+                    template: k.guide_to_top_nav ? "airstream_tn2_app.html" : "airstream_app.html",
+                    Mb: {
+                        substateNameToComponentName: (b.surface = "surface",
+                        b["detail-surface"] = "surface",
+                        b.channel = "channel",
+                        b["call-to-cast"] = "call-to-cast",
+                        b.search = "search",
+                        b.watch = "watch",
+                        b)
+                    }
+                }])
+            }
+            )();
+            a.P([{
+                name: "advertisement-info",
+                A: cV,
+                template: "watch/advertisement_info.html"
+            }, {
+                name: "applicationMessage",
+                A: eV,
+                template: "application_message.html"
+            }, {
+                name: "auto-rendering-component",
+                A: uL
+            }, {
+                name: "badge",
+                A: bV,
+                template: "badge.html"
+            }, {
+                name: "dialog-stage",
+                A: vV,
+                template: "dialog_stage.html"
+            }, {
+                name: "ui-stats",
+                A: qV,
+                template: "empty.html"
+            }, {
+                name: "fps",
+                A: iV,
+                template: "empty.html"
+            }, {
+                name: "font-demo",
+                A: hV,
+                template: "font_demo.html"
+            }, {
+                name: "quality-status",
+                A: lV,
+                template: "quality_status.html"
+            }, {
+                name: "systemError",
+                A: oV,
+                template: "system_error.html"
+            }, {
+                name: "watch",
+                A: LT,
+                template: "watch/watch.html"
+            }, {
+                name: "deviceToast",
+                A: gV,
+                template: "toasts/device_toast.html"
+            }, {
+                name: "errorToast",
+                A: kB,
+                template: "toasts/error_toast.html"
+            }, {
+                name: "updatePlaylistToast",
+                A: rV,
+                template: "toasts/update_playlist_toast.html"
+            }, {
+                name: "verticalRejectionToast",
+                A: kB,
+                template: "toasts/vertical_rejection_toast.html"
+            }, {
+                name: "video-message-overlay",
+                A: V,
+                template: "video_message_overlay.html"
+            }, {
+                name: "watch-title-tray",
+                A: kV,
+                template: "new_watch_title_tray.html"
+            }, {
+                name: "next-video-countdown",
+                A: null
+            }]);
+            k.skip_ad_button_with_thumbnail ? a.P([{
+                name: "skip-ad-button",
+                A: nV,
+                template: "skip_ad_button_with_thumbnail.html"
+            }]) : a.P([{
+                name: "skip-ad-button",
+                A: mV,
+                template: "skip_ad_button.html"
+            }]);
+            a.add("badgeDelegateFactory", new H(new I(gA,{
+                componentName: "badge"
+            })));
+            f.l_ && a.Jd({
+                translateExternalRoute: oX
+            });
+            (function() {
+                a.add("sendRetentionPing", new nf(MU,{
+                    bedrockSendRetentionPing: a.Be("sendRetentionPing"),
+                    getHeaders: function() {
+                        return null
+                    }
+                }))
+            }
+            )();
+            a.Za({
+                authService: jk
+            });
+            (function() {
+                a.add("accessTokenReceivedFlag", new J(new I(Hl,{
+                    storageKey: "access-token-received",
+                    "default": !1
+                })));
+                a.add("shouldDisplayLanguageChangedToast", new J(new I(Hl,{
+                    storageKey: "display-language-changed-toast",
+                    "default": !1
+                })));
+                a.add("guideOpenedEver", new J(new I(Hl,{
+                    storageKey: "guide-opened-ever",
+                    "default": !1
+                })));
+                a.add("noExperimentsFlag", new J(new I(Hl,{
+                    storageKey: "no-experiments",
+                    "default": !1
+                })));
+                a.add("appMessage", new J(new I(Il,{
+                    initial: ""
+                })));
+                a.add("isWebpSupported", new J(new I(Il,{
+                    initial: !1
+                })));
+                a.add("isUnlimited", new J(new I(Il,{
+                    initial: !1
+                })));
+                var c = b.cm();
+                a.add("defaultSearchMode", new J(new I(Ru,{
+                    value: c ? "voice" : "keyboard"
+                })));
+                a.add("safeModeFlag", new J(new I(Hl,{
+                    storageKey: "safe-mode-enabled",
+                    "default": !1
+                })));
+                a.add("soundEnabledFlag", new J(new I(Hl,{
+                    storageKey: "sound-enabled",
+                    "default": !0
+                })));
+                a.add("autoplayFlag", new J(new I(Hl,{
+                    storageKey: "autoplay-enabled",
+                    "default": !0
+                })));
+                a.add("highContrastFlag", new J(new I(Hl,{
+                    storageKey: "high-contrast-enabled",
+                    "default": m.isSupported() && m.highContrastText
+                })));
+                a.add("inlinePlaybackFlag", new J(new I(Hl,{
+                    storageKey: "inline-playback-enabled",
+                    "default": !0
+                })));
+                f.rf && (a.add("forceVisitorDataRefreshOnStartup", new rf(!0)),
+                e.has_touch_support && a.add("suspendHandlerPluginCtor", new rf(WS)))
+            }
+            )();
+            (function() {
+                f.Si && f.FA ? a.add("showPs4SignInErrorToast", new J(new nf(eD,{
+                    id: "ps4SignInErrorToastId",
+                    componentRenderer: "errorToast",
+                    timeoutMs: 6E4,
+                    toastModelFactory: "=errorToastModelFactory",
+                    message: "[[Sign in issue? See:|Error message indicating that the current device is experiencing a sign in issue. A url will be provided after colon for user to get more details.]]",
+                    helpUrl: "youtube.com/ps4_error"
+                }))) : a.$({
+                    showPs4SignInErrorToast: function() {}
+                })
+            }
+            )();
+            (function() {
+                var b = [];
+                k.enable_yt_sans && (b = b.concat([{
+                    name: "YTSans-Bold",
+                    file: "YTSans-Bold.ttf",
+                    format: "truetype",
+                    Sm: !0,
+                    Vm: []
+                }, {
+                    name: "YTSans-Light",
+                    file: "YTSans-Light.ttf",
+                    format: "truetype",
+                    Sm: !0,
+                    Vm: []
+                }, {
+                    name: "YTSans-Medium",
+                    file: "YTSans-Medium.ttf",
+                    format: "truetype",
+                    Sm: !0,
+                    Vm: []
+                }]));
+                b = f.cma ? b.concat([{
+                    name: "roboto-regular",
+                    file: "Roboto-Regular-Expanded.ttf",
+                    format: "truetype",
+                    local: "Roboto-Regular",
+                    Sm: !0,
+                    Vm: ["html", "body", ".button span", ".toggle-button span"],
+                    weight: "normal"
+                }, {
+                    name: "roboto-bold",
+                    file: "Roboto-Bold-Expanded.ttf",
+                    format: "truetype",
+                    local: "Roboto-Bold",
+                    Sm: !0,
+                    Vm: [],
+                    weight: "bold"
+                }]) : b.concat([{
+                    name: "roboto-regular",
+                    file: "Roboto-Regular-20140804.ttf",
+                    format: "truetype",
+                    Sm: !0,
+                    Vm: ["html", "body", ".button span", ".toggle-button span"],
+                    weight: "normal"
+                }, {
+                    name: "roboto-bold",
+                    file: "Roboto-Bold.ttf",
+                    format: "truetype",
+                    Sm: !0,
+                    Vm: [],
+                    weight: "bold"
+                }]);
+                b.push({
+                    name: "Material Icons Extended",
+                    file: "kabuki-material-icons.ttf",
+                    format: "truetype",
+                    Sm: !1,
+                    Vm: []
+                });
+                b.push({
+                    name: "youtube-icons",
+                    file: "icons.ttf",
+                    format: "truetype",
+                    Sm: !1,
+                    Vm: []
+                });
+                a.$({
+                    clientFontConfig: b
+                })
+            }
+            )();
+            (function() {
+                if (k.guide_to_top_nav)
+                    a.$({
+                        substatesWithGuide: []
+                    });
+                else {
+                    var c = ["surface"];
+                    v || zn(b) || c.push("search");
+                    a.$({
+                        substatesWithGuide: c
+                    })
+                }
+            }
+            )();
+            c.execute(RU);
+            c.execute(SU);
+            g && (c.execute(uU),
+            c.execute(jU),
+            c.pe("fragmentReportingService"),
+            c.pe("isWindowFocused"),
+            c.pe("playerService"),
+            c.pe("suspension"),
+            c.pe("stateActivityReporter"),
+            c.pe("spinnerActivity"),
+            c.Lb("router", "external-route-change", "handleExternalRouteChange"),
+            c.Lb("playerService", "state:changed", yU),
+            c.Lb("remoteService", "remote:connected", WU),
+            c.Lb("remoteService", "remote:disconnected", WU),
+            c.Lb("remoteService", "playlist:updated", XU),
+            c.vl("startupMonitor", "startup-finished", NU),
+            c.Lb("applicationModel", "substate:set", VU),
+            c.Lb("shutdownService", "shutdown", JW),
+            f.sd && c.Lb("remoteService", "pairing:changed", DU),
+            f.Yg && c.execute(lU),
+            c.Lb("playerService", "reloadRequired", CU))
+        },
+        R: [uy, sA, FW, $z, QW, xW, KT, DT, eG, cX, iU, $T]
+    };
+    E(rX.apply, "injector device bootstrapper runtimeParams environment isPlatformSupported imagePath experimentFlags accessibilityApi makeOnceExecuter location supportsAppleTvUx initialUrlQuery".split(" "));
+    function sX(a, b, c, e, f, g) {
+        yy.call(this, a, b, g);
+        this.WN = c;
+        this.Bt = e;
+        this.Pe = f;
+        this.model = null;
+        this.UN = !1
+    }
+    l(sX, yy);
+    d = sX.prototype;
+    d.ot = function(a, b) {
+        yy.prototype.ot.call(this, a, b);
+        this.Bt.add(a);
+        return this
+    }
+    ;
+    d.Nk = function(a) {
+        var b = this.children[a];
+        b && this.Bt.remove(b);
+        return yy.prototype.Nk.call(this, a)
+    }
+    ;
+    d.D = function(a) {
+        yy.prototype.D.call(this, a);
+        (a = a.detail[1]) && this.Rg(a.Xe());
+        this.model && (this.I(this.model.Xe(), "selected-index-changed", this.wSa.bind(this)),
+        this.Bb("items-changed", this.XIa.bind(this)),
+        this.Bb("projectionWindow:changed", this.wX.bind(this)),
+        this.oua(0))
+    }
+    ;
+    d.Oga = function() {
+        for (var a = 0, b = this.children.length; a < b; ++a)
+            this.children[a].h.style.cssText = ""
+    }
+    ;
+    d.wSa = function(a) {
+        this.TM(-1 === a.Fk ? 0 : a.Hi - a.Fk)
+    }
+    ;
+    d.XIa = function(a) {
+        a || this.TM(this.UN ? 1 : 0)
+    }
+    ;
+    d.wX = function(a, b, c, e) {
+        b !== e && this.TM(0)
+    }
+    ;
+    d.Sq = function(a) {
+        return this.children[a % this.model.getLength()]
+    }
+    ;
+    d.a8 = function() {
+        return this.model && this.model.getLength() || 0
+    }
+    ;
+    d.oua = function(a) {
+        this.Pe.requestAnimationFrame(this.TM.bind(this, a))
+    }
+    ;
+    d.TM = function(a) {
+        this.WN.isVertical = this.isVertical;
+        1 === Math.abs(a) ? this.WN.animate(this.model, this.children, a) ? this.Bt.animate() : this.Bt.cancel() : (this.WN.XB(this.model, this.children),
+        this.Bt.cancel())
+    }
+    ;
+    d.kdb = function() {
+        this.Bt.cancel()
+    }
+    ;
+    d.pga = function(a, b) {
+        b && (this.UN = !0);
+        yy.prototype.pga.call(this, a, b);
+        b && (this.UN = !1)
+    }
+    ;
+    E(sX, "listSelectionManagerFactory componentFactory carouselAnimator animWatcher animationFrameService opt_modelChangeRendersRecursively".split(" "));
+    function tX(a, b, c, e) {
+        Ur.call(this, a, b, c, e);
+        this.YH = !1
+    }
+    l(tX, Ur);
+    d = tX.prototype;
+    d.isCollapsed = function() {
+        return this.YH
+    }
+    ;
+    d.LY = function(a, b) {
+        return this.YH != a ? (this.YH = a,
+        (void 0 === b ? 0 : b) || this.render(),
+        !0) : !1
+    }
+    ;
+    d.PTa = function() {
+        return !1
+    }
+    ;
+    d.dia = function() {}
+    ;
+    d.owa = function() {}
+    ;
+    d.SX = function() {}
+    ;
+    d.Okb = function() {
+        return ""
+    }
+    ;
+    d.osb = function() {
+        return !0
+    }
+    ;
+    d.Gib = function() {
+        return !1
+    }
+    ;
+    d.T = function() {
+        var a = Ur.prototype.T.call(this);
+        this.YH && a.push("collapsed");
+        return a
+    }
+    ;
+    d.Ntb = function() {}
+    ;
+    E(tX, ["imagePath", "imageCacheService", "startupMonitor", "environment"]);
+    function uX(a, b, c, e, f, g, h, k, m, p, u, v, w) {
+        tX.call(this, a, b, g, p);
+        var x = this;
+        this.$i = c;
+        this.se = f;
+        this.Gy = h;
+        this.qm = k;
+        this.G = m;
+        this.Na = u;
+        this.yZa = v;
+        this.Ab = w;
+        this.T2 = this.title = "";
+        this.bI = !0;
+        this.qq = null;
+        this.isBannerCollapsible = !1;
+        this.I(e, "subscription-change", function(a) {
+            x.g_(a)
+        });
+        this.LY(!this.J(), !0);
+        this.ub = !0
+    }
+    l(uX, tX);
+    d = uX.prototype;
+    d.ready = function() {
+        var a = this;
+        tX.prototype.ready.call(this);
+        this.on("keydown", this.ua.bind(this));
+        this.trailerButton = this.N(".channel-header-trailer");
+        this.I(this.trailerButton, "button-enter", function() {
+            a.p1a()
+        });
+        this.subscribeButton = this.N(".channel-header-subscribe");
+        this.I(this.subscribeButton, "button-enter", function() {
+            a.BZa();
+            a.Ab("enter")
+        });
+        this.Zqa = this.N(".channel-header-button-bar")
+    }
+    ;
+    d.PTa = function(a) {
+        return this.LY(-1 !== a)
+    }
+    ;
+    d.cb = function() {
+        return this.bI && tX.prototype.cb.call(this)
+    }
+    ;
+    d.dia = function(a) {
+        this.bI = a;
+        this.SX();
+        a || this.LY(!0)
+    }
+    ;
+    d.owa = function() {
+        this.trailerButton && !this.trailerButton.isHidden() && this.trailerButton.focus()
+    }
+    ;
+    d.ua = function(a) {
+        var b = !1;
+        switch (a.keyCode) {
+        case 37:
+        case 39:
+            var c = 37 === a.keyCode ? this.trailerButton : this.subscribeButton;
+            c.J() || (c.focus(),
+            b = c.J());
+            break;
+        default:
+            return
+        }
+        b && (this.$i.T1(),
+        T(a))
+    }
+    ;
+    d.oh = function(a) {
+        this.qq = a;
+        this.G.Ca(a.trackingParams);
+        this.title = X(a.title);
+        this.T2 = a.avatar.thumbnails[0].url || "";
+        this.imageUrl = this.se.uOa(a) || "";
+        this.dia(!(!a.trailerEndpoint && !t("subscribeButton.subscribeButtonRenderer.enabled", a)));
+        this.pGa(a);
+        this.oGa(a);
+        this.Zqa.Ga(this.trailerButton.isHidden() && this.subscribeButton.isHidden());
+        this.SX();
+        this.isBannerCollapsible = !!a.isBannerCollapsible;
+        this.render(!0)
+    }
+    ;
+    d.T = function() {
+        var a = tX.prototype.T.call(this)
+          , b = this.trailerButton && !this.trailerButton.isHidden()
+          , c = this.subscribeButton && !this.subscribeButton.isHidden();
+        b && c ? a.push("two-buttons") : (b || c) && a.push("one-button");
+        this.isBannerCollapsible && a.push("collapsible-banner");
+        return a
+    }
+    ;
+    d.SX = function() {
+        this.$i.bUa(this.bI && !this.trailerButton.isHidden());
+        this.$i.aUa(this.bI && !this.subscribeButton.isHidden())
+    }
+    ;
+    d.p1a = function() {
+        var a = this.qq && this.qq.trailerButton && this.qq.trailerButton.buttonRenderer;
+        a && this.G.Sc(a.trackingParams);
+        this.$i.yE("trailer");
+        this.qm(this.trailerButton.model.payload, this)
+    }
+    ;
+    d.BZa = function() {
+        var a = this.qq && this.qq.subscribeButton && this.qq.subscribeButton.subscribeButtonRenderer;
+        a && this.G.Sc(a.trackingParams);
+        if (a = this.subscribeButton.model) {
+            var b = a.isSelected();
+            b || this.$i.yE("subscribe");
+            this.Gy(a.payload, !b)
+        }
+    }
+    ;
+    d.pGa = function(a) {
+        var b = null;
+        (a = a.trailerButton && a.trailerButton.buttonRenderer) && a.navigationEndpoint && (b = X(a.text),
+        b = this.Na({
+            label: b,
+            opt_payload: a.navigationEndpoint,
+            opt_voiceCommand: b
+        }),
+        this.G.Ca(a.trackingParams));
+        this.trailerButton.model = b;
+        this.trailerButton.Ga(!b)
+    }
+    ;
+    d.oGa = function(a) {
+        var b = null;
+        if (a = a.subscribeButton && a.subscribeButton.subscribeButtonRenderer) {
+            b = X(a.subscribedButtonText);
+            var c = X(a.unsubscribedButtonText)
+              , e = X(a.unsubscribeButtonText)
+              , f = new TR;
+            f.userId = a.channelId || "";
+            f.fI = "PAID" === a.type;
+            b = this.yZa({
+                autoToggle: !1,
+                opt_selectedLabel: b,
+                opt_deselectedLabel: c,
+                opt_payload: f,
+                opt_selected: !!a.subscribed,
+                opt_selectedVoiceCommand: e,
+                opt_deselectedVoiceCommand: c
+            });
+            b.enabled = this.environment.Yg ? !1 : !!a.enabled;
+            this.G.Ca(a.trackingParams)
+        }
+        this.subscribeButton.model = b;
+        this.subscribeButton.Ga(!b)
+    }
+    ;
+    d.g_ = function(a) {
+        var b = a.detail[0];
+        a = a.detail[1];
+        var c = this.subscribeButton.model;
+        c && c.payload && c.payload.userId === b && c.Fd(a)
+    }
+    ;
+    E(uX, "imagePath imageCacheService browseSetsActivity rootDispatcher channelHeaderThumbnailParser startupMonitor changeSubscription navigateToEndpoint screenManager environment buttonModelFactory toggleButtonModelFactory playSoundFromDescriptor".split(" "));
+    function vX(a, b, c, e) {
+        e = void 0 === e ? [] : e;
+        this.title = void 0 === a ? "" : a;
+        this.IU = void 0 === b ? "" : b;
+        this.JU = void 0 === c ? "" : c;
+        this.GU = e
+    }
+    vX.prototype.mUa = function(a) {
+        if (a && a instanceof NN)
+            return this.c0a(a),
+            !0;
+        this.s4();
+        return !1
+    }
+    ;
+    vX.prototype.c0a = function(a) {
+        a = a.bt;
+        this.IU = a.title;
+        this.JU = a.channelName;
+        this.GU = a.details
+    }
+    ;
+    vX.prototype.s4 = function() {
+        this.JU = this.IU = "";
+        this.GU = []
+    }
+    ;
+    function wX(a, b, c, e) {
+        GM.call(this, a, b, c);
+        this.gL = e;
+        this.NM = function() {}
+        ;
+        this.d0 = function() {}
+    }
+    l(wX, GM);
+    d = wX.prototype;
+    d.ready = function() {
+        GM.prototype.ready.call(this);
+        this.wa("shelves");
+        this.Qf = this.N(".browse-highlighter");
+        this.list = this.N("#inner-shelf-list");
+        this.ax = this.N(".shelf-list-header");
+        this.ax.model = new vX
+    }
+    ;
+    d.D = function(a) {
+        GM.prototype.D.call(this, a);
+        this.w0()
+    }
+    ;
+    d.FW = function(a, b, c, e, f) {
+        var g = this;
+        GM.prototype.FW.call(this, a, b, c, e, f);
+        this.w0();
+        if (a = this.t9())
+            this.d0(),
+            this.d0 = this.I(a, "model:changed", function() {
+                g.w0()
+            })
+    }
+    ;
+    d.w0 = function() {
+        var a = this;
+        this.NM();
+        var b = this.t9();
+        this.ax.model.title = b ? b.title : "";
+        var c = this.Qza(b);
+        c ? (this.Hla(c),
+        this.NM = this.I(c, "selected-index-changed", function() {
+            a.Hla(c)
+        })) : (this.ax.model.s4(),
+        this.NM = function() {}
+        ,
+        this.ax.render())
+    }
+    ;
+    d.t9 = function() {
+        if (!this.list.model)
+            return null;
+        var a = this.list.model.aa();
+        return (a = this.list.xa(a)) && a instanceof LR ? a : null
+    }
+    ;
+    d.Qza = function(a) {
+        return (a = a && a.hh()) && a instanceof CR ? a.Kz() : null
+    }
+    ;
+    d.Hla = function(a) {
+        a = a && a.Bd();
+        this.ax.model.mUa(a && a.model || null) && a instanceof xL ? (this.gL(a),
+        this.Qf.show()) : this.Qf.hide();
+        this.ax.render(!0)
+    }
+    ;
+    d.B = function() {
+        GM.prototype.B.call(this);
+        this.gL();
+        this.NM();
+        this.d0()
+    }
+    ;
+    E(wX, ["performanceService", "screenManager", "matchShelfColumns", "setAppBackground"]);
+    function xX(a, b, c, e) {
+        V.call(this);
+        this.bka = a;
+        this.Zka = b;
+        this.G = e;
+        this.nG = this.UK = null;
+        this.model = this.bka;
+        this.un = c.fD
+    }
+    l(xX, V);
+    d = xX.prototype;
+    d.Eb = function() {
+        var a = this;
+        V.prototype.Eb.call(this);
+        this.on("button-enter", function(b) {
+            a.ySa(b)
+        })
+    }
+    ;
+    d.bga = function() {
+        var a = this;
+        this.model instanceof S && this.I(this.model, "suggestions-changed", function() {
+            a.w("suggestions-changed")
+        })
+    }
+    ;
+    d.D_a = function() {
+        this.model instanceof S && this.Rg(this.model, "suggestions-changed")
+    }
+    ;
+    d.Zfa = function(a) {
+        this.D_a();
+        this.model = a;
+        this.bga();
+        this.render(!0)
+    }
+    ;
+    d.ready = function() {
+        V.prototype.ready.call(this);
+        this.bga()
+    }
+    ;
+    d.update = function(a, b) {
+        "" == a ? (this.wa("zero-state"),
+        this.Zfa(this.bka)) : (this.Zka.dU || this.Zfa(this.Zka),
+        this.lb("zero-state"));
+        this.model.update(a, b);
+        this.zRa();
+        0 < this.model.suggestions.ha() && (a = this.N7(),
+        this.G.attachChild(a),
+        this.G.Ca(a))
+    }
+    ;
+    d.ySa = function(a) {
+        if (0 <= this.G9() && (T(a),
+        this.Sc(),
+        a = this.wS())) {
+            a = a.payload;
+            var b = this.model.select(a.Vu());
+            this.model.xU ? (this.model.qc(b, "suggestions"),
+            this.model.hX(),
+            this.model.YI(a)) : this.model.qc(b, "transliterations")
+        }
+    }
+    ;
+    d.Sc = function() {
+        this.G.Sc(this.N7())
+    }
+    ;
+    d.N7 = function() {
+        if (this.model.getQuery())
+            return this.UK || (this.UK = this.G.ye(12453)),
+            this.UK;
+        this.nG || (this.nG = this.G.ye(8547));
+        return this.nG
+    }
+    ;
+    d.qRa = function() {
+        this.nG = this.UK = null
+    }
+    ;
+    d.zRa = function() {
+        this.model.suggestions.ba(0)
+    }
+    ;
+    d.G9 = function() {
+        return this.model.suggestions.aa()
+    }
+    ;
+    d.wS = function() {
+        return this.model.suggestions.$a()
+    }
+    ;
+    E(xX, ["suggestionsModel", "transliterationsModel", "environment", "screenManager"]);
+    function yX(a, b, c, e) {
+        xX.call(this, a, b, c, e);
+        this.tA = null
+    }
+    l(yX, xX);
+    yX.prototype.ready = function() {
+        xX.prototype.ready.call(this);
+        this.tA = this.Nb("horizontal-suggestions-list")
+    }
+    ;
+    yX.prototype.rb = function() {
+        return this.tA && this.tA.model && this.tA.model.ha() ? this.tA : null
+    }
+    ;
+    E(yX, ["suggestionsModel", "transliterationsModel", "environment", "screenManager"]);
+    function zX(a, b, c, e, f, g, h, k, m, p, u) {
+        xE.call(this, a, b, c, e, f, g, k, m, p, u);
+        this.ia = h;
+        this.ia.on("input:changed", this.wEa.bind(this))
+    }
+    l(zX, xE);
+    d = zX.prototype;
+    d.pn = function(a) {
+        this.Xu(a)
+    }
+    ;
+    d.onFocus = function() {
+        this.render();
+        xE.prototype.onFocus.call(this)
+    }
+    ;
+    d.Sw = function(a) {
+        a && this.CA(a.kj()) || xE.prototype.Sw.call(this, a)
+    }
+    ;
+    d.wEa = function(a, b) {
+        var c = a.slice(-1);
+        if (this.CA(c)) {
+            var e = a.length;
+            (c = Ho[c][a[e - 2]]) && b("" + a.substring(0, e - 2) + c)
+        } else
+            b(a)
+    }
+    ;
+    d.CA = function(a) {
+        return Go.includes(a)
+    }
+    ;
+    E(zX, "environment eventFilterFactory searchKeyboardModel isKeyboardFocused screenManager keyboardKeyModelFactory searchQueryModel localeService keyboardSettings timeService experimentFlags".split(" "));
+    function AX(a, b, c, e, f, g, h, k, m, p, u) {
+        wE.call(this, a, c, e, f, g, h, m, p, u);
+        var v = this;
+        this.ia = k;
+        this.oma = !1;
+        this.KU = Fc(ZD);
+        this.lang = b.Yb;
+        this.ia.on("query:changed", function() {
+            v.oma = v.ia.EU()
+        });
+        if ("ja_JP" === this.lang)
+            this.ia.on("input:changed", function(a, b) {
+                b(v.YIa(a))
+            });
+        else if ("ko_KR" === this.lang)
+            this.ia.on("input:changed", function(a, b) {
+                b(v.UG(a))
+            })
+    }
+    l(AX, wE);
+    d = AX.prototype;
+    d.cC = function() {
+        this.ia.getQuery().trim().length ? this.ba(0, "ja_JP" === this.lang ? 12 : 8) : wE.prototype.cC.call(this)
+    }
+    ;
+    d.Xu = function(a) {
+        var b = a.detail;
+        return wE.prototype.Xu.call(this, a) && b.ff.includes("numbers-toggle-tile") ? (a = this.Mu().xa(1),
+        this.ba(1, a.getLength() - 2),
+        !0) : !1
+    }
+    ;
+    d.pn = function(a) {
+        "ko_KR" === this.lang ? (this.nh(),
+        this.Xu(a)) : wE.prototype.pn.call(this, a);
+        "clear-query-tile" === a.detail.ff && (this.oma ? this.XQ() : this.YK())
+    }
+    ;
+    d.UG = function(a) {
+        var b = this;
+        a = a.split("").map(function(a) {
+            return ZD[a] || a
+        }).join("");
+        return sE(a.replace("\u001d", "").replace(hE, nE)).replace(iE, qE).split("").map(function(a) {
+            return b.KU[a] || a
+        }).join("")
+    }
+    ;
+    d.Sw = function(a) {
+        a && this.CA(a.kj()) || wE.prototype.Sw.call(this, a)
+    }
+    ;
+    d.YIa = function(a) {
+        var b = a.slice(-1);
+        if (this.CA(b)) {
+            var c = a.length;
+            return (b = Ho[b][a[c - 2]]) ? a.substring(0, c - 2) + b : a.substring(0, c - 1)
+        }
+        return a
+    }
+    ;
+    d.CA = function(a) {
+        return Go.includes(a)
+    }
+    ;
+    E(AX, "environment localeModel eventFilterFactory keyboardModel isKeyboardFocused screenManager keyboardKeyModelFactory searchQueryModel keyboardSettings timeService experimentFlags".split(" "));
+    function BX(a, b) {
+        V.call(this);
+        this.model = a;
+        this.Pe = b;
+        this.At = 0;
+        this.cN = this.model.S9();
+        this.cN.sort(zb);
+        this.AE = this.model.h7();
+        this.AE.sort(zb)
+    }
+    l(BX, V);
+    d = BX.prototype;
+    d.B = function() {
+        0 !== this.At && (this.Pe.cancelAnimationFrame(this.At),
+        this.At = 0);
+        V.prototype.B.call(this)
+    }
+    ;
+    d.ready = function() {
+        var a = this;
+        V.prototype.ready.call(this);
+        this.eg();
+        this.I(this.model, "keyVisibility:changed", function() {
+            return a.$V()
+        });
+        this.I(this.model, "additionalClass:added", function() {
+            return a.$V()
+        });
+        this.I(this.model, "additionalClass:removed", function() {
+            return a.$V()
+        })
+    }
+    ;
+    d.$V = function() {
+        var a = this;
+        0 === this.At && (this.At = this.Pe.requestAnimationFrame(function() {
+            return a.zpa()
+        }))
+    }
+    ;
+    d.zpa = function() {
+        this.At = 0;
+        this.eg()
+    }
+    ;
+    d.eg = function() {
+        var a = this.model.S9();
+        a.sort(zb);
+        var b = this.G2(a, this.cN)
+          , c = this.model.h7();
+        c.sort(zb);
+        if (b || this.G2(c, this.AE))
+            this.cN = a,
+            this.AE = c,
+            this.render()
+    }
+    ;
+    d.G2 = function(a, b) {
+        if (a.length !== b.length)
+            return !0;
+        for (var c = 0; c < a.length; ++c)
+            if (a[c] !== b[c])
+                return !0;
+        return !1
+    }
+    ;
+    d.T = function() {
+        return V.prototype.T.call(this).concat(this.cN).concat(this.AE)
+    }
+    ;
+    E(BX, ["legendModel", "animationFrameService"]);
+    function CX(a, b, c) {
+        V.call(this);
+        this.cxa = a;
+        this.M = b;
+        this.environment = c;
+        this.dG = !1;
+        this.label = "";
+        this.$U = U.BACK;
+        this.Ia = ""
+    }
+    l(CX, V);
+    d = CX.prototype;
+    d.Eb = function() {
+        V.prototype.Eb.call(this);
+        this.on("keydown", this.ua.bind(this));
+        this.on("keyup", this.xb.bind(this))
+    }
+    ;
+    d.ready = function() {
+        V.prototype.ready.call(this);
+        var a = Mo[this.$U];
+        a && (this.label = this.M.C(a.label));
+        this.render()
+    }
+    ;
+    d.ua = function(a) {
+        this.dG || 13 !== a.keyCode || T(a, !1, !0)
+    }
+    ;
+    d.xb = function(a) {
+        this.dG || 13 !== a.keyCode || (this.dG = !0,
+        this.cxa.cG(this.Sza()),
+        T(a, !1, !0),
+        this.dG = !1)
+    }
+    ;
+    d.Sza = function() {
+        var a = Mo[this.$U];
+        a = a ? a.keyCode : 27;
+        27 === a && this.environment.Ze && (a = 8);
+        return a
+    }
+    ;
+    E(CX, ["gestureService", "localeService", "environment"]);
+    function DX(a) {
+        V.apply(this, arguments)
+    }
+    l(DX, V);
+    DX.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.render()
+    }
+    ;
+    DX.prototype.cb = function() {
+        return !1
+    }
+    ;
+    E(DX, []);
+    function EX(a) {
+        V.call(this);
+        this.G = a;
+        this.playlistIndexText = this.Ia = this.title = "";
+        this.ts = function() {}
+    }
+    l(EX, V);
+    d = EX.prototype;
+    d.ready = function() {
+        this.content = this.N(".pivot-horizontal-list")
+    }
+    ;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.Ga(!this.model)
+    }
+    ;
+    d.pC = function() {
+        this.playlistIndexText = "";
+        if (this.content && this.content.model) {
+            var a = this.content.model.$a();
+            a && a.pivotVideoRenderer && this.a0a(a.pivotVideoRenderer)
+        }
+        this.render()
+    }
+    ;
+    d.a0a = function(a) {
+        a.playlistIndexText && (this.playlistIndexText = "(" + X(a.playlistIndexText) + ")")
+    }
+    ;
+    d.oh = function(a, b) {
+        var c = this
+          , e = a.content;
+        if (this.model !== a && e) {
+            this.model = a;
+            this.title = X(a.title);
+            this.content.oh(e.pivotHorizontalListRenderer, b);
+            a = t("icon.iconType", a);
+            switch (a) {
+            case "PLAYLISTS":
+            case "MIX":
+                this.Ia = Do[a];
+                break;
+            default:
+                this.Ia = ""
+            }
+            this.ts();
+            this.content ? (this.ts = this.I(this.content, "selected-index-changed", function() {
+                c.pC()
+            }),
+            this.pC()) : this.ts = function() {}
+        }
+    }
+    ;
+    d.Gc = function(a) {
+        this.content && this.content.Gc(a)
+    }
+    ;
+    d.Ca = function() {
+        this.G.Ca(this.model.trackingParams)
+    }
+    ;
+    d.od = function(a) {
+        this.content && this.content.od(a)
+    }
+    ;
+    d.aa = function() {
+        return this.content ? this.content.aa() : -1
+    }
+    ;
+    d.reset = function() {
+        V.prototype.reset.call(this);
+        this.content && this.content.reset()
+    }
+    ;
+    E(EX, ["screenManager"]);
+    function FX(a, b, c, e, f) {
+        GM.call(this, a, b, function() {});
+        this.Fc = c;
+        this.GV = e;
+        this.f = f;
+        this.sb = function() {}
+        ;
+        this.VN = !1;
+        this.Gb = function() {}
+    }
+    l(FX, GM);
+    d = FX.prototype;
+    d.oh = function(a, b) {
+        this.model = this.GV({
+            source: a,
+            service: b
+        })
+    }
+    ;
+    d.ready = function() {
+        GM.prototype.ready.call(this);
+        this.on("keyup", this.xb.bind(this));
+        this.on("keydown", this.ua.bind(this))
+    }
+    ;
+    d.xb = function(a) {
+        switch (a.keyCode) {
+        case 37:
+        case 39:
+            T(a)
+        }
+    }
+    ;
+    d.onFocus = function() {
+        GM.prototype.onFocus.call(this);
+        this.sb();
+        this.sb = this.Fc.Fm([U.jl, U.BACK]);
+        this.Gb();
+        this.Gb = this.f.Ej("pivot-focused")
+    }
+    ;
+    d.onBlur = function() {
+        GM.prototype.onBlur.call(this);
+        this.sb();
+        this.sb = function() {}
+        ;
+        this.Gb();
+        this.Gb = function() {}
+    }
+    ;
+    d.T = function() {
+        var a = GM.prototype.T.call(this);
+        this.VN && a.push("animate-in");
+        a.push("new-pivot-shelf-list");
+        return a
+    }
+    ;
+    d.ua = function(a) {
+        switch (a.keyCode) {
+        case 39:
+        case 37:
+        case 40:
+            T(a)
+        }
+    }
+    ;
+    d.upa = function() {
+        this.VN = !0;
+        this.render()
+    }
+    ;
+    d.jO = function() {
+        this.VN = !1;
+        return GM.prototype.jO.call(this)
+    }
+    ;
+    d.Zia = function() {
+        if (this.model) {
+            var a = this.list.xa(0);
+            a instanceof EX && 0 == a.aa() && a.od(1)
+        }
+    }
+    ;
+    E(FX, ["performanceService", "screenManager", "legendModel", "makeNewShelfListModel", "playerService"]);
+    function GX() {
+        V.apply(this, arguments);
+        this.list = this.model = null
+    }
+    l(GX, V);
+    GX.prototype.ready = function() {
+        V.prototype.ready.call(this);
+        this.list = this.N(".pivot-footer-list")
+    }
+    ;
+    GX.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.list && this.model && (this.list.model = this.model.rR());
+        this.Ga(!this.model)
+    }
+    ;
+    GX.prototype.Gc = function(a) {
+        this.list && this.list.Gc(a)
+    }
+    ;
+    function HX(a, b, c, e, f, g) {
+        GR.call(this, a, b, c, g);
+        this.gq = e;
+        this.pP = f;
+        this.model = this.jf = this.Rh = this.pja = this.ay = this.Tm = this.hw = null
+    }
+    l(HX, GR);
+    d = HX.prototype;
+    d.Eb = function() {
+        GR.prototype.Eb.call(this);
+        var a = this.h;
+        this.hw = a.querySelector(".overlay");
+        this.Tm = a.querySelector(".subtitle");
+        this.ay = a.querySelector(".age");
+        this.pja = a.querySelector(".show-overlay")
+    }
+    ;
+    d.ready = function() {
+        GR.prototype.ready.call(this);
+        var a = this.h;
+        this.Rh = this.gq({
+            container: a.querySelector(".yto-bottom-badge")
+        });
+        this.jf = this.pP({
+            container: a.querySelector(".collage-thumbnail")
+        })
+    }
+    ;
+    d.D = function(a) {
+        GR.prototype.D.call(this, a);
+        this.i0();
+        this.U_a()
+    }
+    ;
+    d.render = function(a) {
+        GR.prototype.render.call(this, a);
+        if (this.model) {
+            a = !!this.model.Rh;
+            var b = !!this.model.showText;
+            this.fb(this.hw, !b);
+            this.fb(this.ay, this.model.$m && !a);
+            this.EV(this.Tm, !this.model.channel || !this.model.channel.displayName);
+            this.fb(this.pja, b);
+            this.Au.setAttribute("aria-label", this.lf())
+        }
+    }
+    ;
+    d.lf = function() {
+        if (!this.enabled || !this.model)
+            return "";
+        var a = [this.getTitle()];
+        this.model.channel && a.push(this.model.channel.displayName);
+        return a.join(". ")
+    }
+    ;
+    d.i0 = function() {
+        this.model && this.Rh.xc(this.model.Rh)
+    }
+    ;
+    d.U_a = function() {
+        this.model && this.model.jf && (this.jf.xc(this.model.jf),
+        this.jf.Mf().render(!0))
+    }
+    ;
+    d.T = function() {
+        var a = GR.prototype.T.call(this);
+        this.model && this.model.N$ && a.push("custom-playlist-image-tile");
+        this.model && this.model.showText && a.push("yto-show");
+        this.model && this.model.jf ? a.push("has-collage-thumbnail") : a.push("has-single-thumbnail");
+        return a
+    }
+    ;
+    E(HX, "componentBuilder localeService playSoundFromDescriptor badgeDelegateFactory collageThumbnailDelegateFactory opt_sheenTiltInteractorFactory".split(" "));
+    function IX(a, b, c, e) {
+        GR.call(this, a, b, c, e);
+        this.model = this.z6 = this.overlayIcon = this.hw = null
+    }
+    l(IX, GR);
+    IX.prototype.Eb = function() {
+        GR.prototype.Eb.call(this);
+        var a = this.h;
+        this.overlayIcon = (this.hw = a.querySelector(".overlay")) ? this.hw.querySelector(".icon") : null;
+        this.z6 = a.querySelector(".featured-artists")
+    }
+    ;
+    IX.prototype.render = function(a) {
+        GR.prototype.render.call(this, a);
+        this.model && (this.fb(this.z6, !!this.model.featuredArtists),
+        this.overlayIcon && Vk(this.overlayIcon, "icon-mix"),
+        this.Au.setAttribute("aria-label", this.lf()))
+    }
+    ;
+    IX.prototype.lf = function() {
+        if (!this.enabled || !this.model)
+            return "";
+        var a = [this.getTitle()];
+        this.model.Nja && a.push(this.model.Nja);
+        this.model.featuredArtists && a.push(this.model.featuredArtists);
+        return a.join(". ")
+    }
+    ;
+    E(IX, ["componentBuilder", "localeService", "playSoundFromDescriptor", "opt_sheenTiltInteractorFactory"]);
+    var JX = {
+        Fna: 0,
+        Dna: 1,
+        Ena: 2
+    };
+    function KX(a, b, c, e) {
+        this.sendReport = a;
+        this.j = b;
+        this.Kc = c;
+        this.G = e;
+        this.Ho = !1;
+        this.NF = this.r3 = this.ww = this.TU = this.XZ = 0;
+        this.features = [];
+        this.sj = [];
+        this.editDistance = this.hJ = 0;
+        this.Lfa = this.query = "";
+        this.WF = this.Yy = this.vH = 0;
+        this.outcome = null;
+        this.$J = this.bD = !1;
+        this.timeToFirstClickOnSearchResultMs = this.numQueriesWithSuggestionsShown = this.numSuggestionsClicked = 0;
+        this.oT = !1;
+        this.Jja = 0;
+        this.aN = -1
+    }
+    d = KX.prototype;
+    d.UZ = function() {
+        var a = this.j.getCurrentTime().getTime();
+        this.TU = this.XZ = a;
+        this.NF = 0;
+        this.query = "";
+        this.aN = -1;
+        this.sj.length = 0;
+        this.features.length = 0;
+        this.Ho = !0;
+        this.vH = this.WF = this.Yy = 0;
+        this.$J = this.bD = !1;
+        this.numQueriesWithSuggestionsShown = this.numSuggestionsClicked = 0
+    }
+    ;
+    d.Dv = function() {
+        return this.Ho
+    }
+    ;
+    d.Ltb = function(a) {
+        var b = this.sj.length;
+        0 !== b && this.sj[b - 1] === a || this.sj.push(a)
+    }
+    ;
+    d.tRa = function() {
+        var a = this.sj.length;
+        1 < a && (this.sj[0] = this.sj[a - 1],
+        this.sj.length = 1)
+    }
+    ;
+    d.Pja = function() {
+        this.Ho && (this.query = "",
+        this.Lla(),
+        this.Ho = !1)
+    }
+    ;
+    d.gQa = function(a) {
+        var b = this.j.getCurrentTime().getTime();
+        a ? this.ww += b - this.TU : this.editDistance = this.ww = 0;
+        this.TU = b;
+        a && this.Lfa.length !== a.length && this.editDistance++;
+        this.Lfa = a
+    }
+    ;
+    d.zLa = function(a) {
+        this.query = a;
+        this.Lla();
+        0 === a.length && (this.$J = this.bD = !1)
+    }
+    ;
+    d.Lla = function() {
+        this.r3 = this.NF;
+        this.NF = 0
+    }
+    ;
+    d.uLa = function() {
+        ++this.vH
+    }
+    ;
+    d.Cda = function(a) {
+        ++this.NF;
+        a && ++this.hJ;
+        this.$J && !a && (this.bD = !0)
+    }
+    ;
+    d.sLa = function() {
+        ++this.Yy
+    }
+    ;
+    d.tLa = function() {
+        ++this.WF
+    }
+    ;
+    d.CLa = function() {
+        ++this.numSuggestionsClicked
+    }
+    ;
+    d.ALa = function() {
+        ++this.numQueriesWithSuggestionsShown
+    }
+    ;
+    d.VB = function(a) {
+        "back" === a && 1 >= this.Yy || "clear" === a && !this.query.length || (this.outcome = a,
+        this.sendReport("/gen_204", this.$n()),
+        this.Kc.send("tvhtml5SearchCompleted", this.PR()))
+    }
+    ;
+    d.w4 = function() {
+        this.hJ = 0
+    }
+    ;
+    d.yE = function(a) {
+        "qs" === a && (this.$J = !0);
+        for (var b = 0, c = this.features.length; b < c; ++b)
+            if (this.features[b] === a)
+                return;
+        this.features.push(a)
+    }
+    ;
+    d.VVa = function(a) {
+        this.aN = a
+    }
+    ;
+    d.$n = function() {
+        var a = {
+            a: "tv_search"
+        };
+        a.tt = Number(this.j.getCurrentTime()) - this.XZ;
+        0 < this.ww && (a.qt = this.ww);
+        a.kpc = this.r3;
+        0 < this.features.length && (a.features = this.features.join(","));
+        a.mv = this.hJ;
+        a.ed = this.editDistance;
+        a.ql = this.query.length;
+        a.oc = this.outcome;
+        a.hwl = this.vH;
+        a.kb = this.sj.join(",");
+        a.clk = this.Yy;
+        a.digitClk = this.WF;
+        this.bD && (a.qsEdit = !0);
+        -1 !== this.aN && (a.slot = this.aN);
+        return a
+    }
+    ;
+    d.PR = function() {
+        var a = {};
+        a.clickCount = this.Yy;
+        a.hardwareKeystrokeCount = this.vH;
+        a.digitClickCount = this.WF;
+        a.movementCount = this.hJ;
+        a.editDistance = this.editDistance;
+        a.keyboardLocales = [];
+        for (var b = 0; b < this.sj.length; b++)
+            a.keyboardLocales.push({
+                code: this.sj[b]
+            });
+        a.timeSinceLastClearMs = this.ww;
+        a.isQueryEditedAfterSuggest = this.bD;
+        a.totalTimeSinceOpenedMs = Number(this.j.getCurrentTime()) - this.XZ;
+        a.searchFeatures = [];
+        for (b = 0; b < this.features.length; b++) {
+            var c = this.features[b]
+              , e = JX
+              , f = e.Fna;
+            "history" === c ? f = e.Dna : "qs" === c && (f = e.Ena);
+            a.searchFeatures.push({
+                mode: f
+            })
+        }
+        a.clientScreenNonce = this.G.fc();
+        a.numSuggestionsClicked = this.numSuggestionsClicked;
+        a.numQueriesWithSuggestionsShown = this.numQueriesWithSuggestionsShown;
+        a.timeToFirstClickOnSearchResultMs = this.timeToFirstClickOnSearchResultMs;
+        return a
+    }
+    ;
+    d.NXa = function() {
+        this.Jja = this.j.getCurrentTime().getTime();
+        this.oT = !1
+    }
+    ;
+    d.hva = function() {
+        this.oT ? this.timeToFirstClickOnSearchResultMs = 0 : (this.timeToFirstClickOnSearchResultMs = this.j.getCurrentTime().getTime() - this.Jja,
+        this.oT = !0)
+    }
+    ;
+    E(KX, ["sendReport", "timeService", "gelService", "screenManager"]);
+    function LX(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G, K, L, Q, fa, ta, wa, hb, xb, nb, Jb, bb, Ma, ua, Kb, oa, Bh, Ck, fe, Ux, Vx, Wx, Xx) {
+        V.call(this);
+        var Yx = this;
+        this.environment = a;
+        this.j = b;
+        this.ia = c;
+        this.Zc = e;
+        this.Hj = g;
+        this.Fc = h;
+        this.mC = k;
+        this.qf = m;
+        this.qs = p;
+        this.Gj = u;
+        this.isLoading = v;
+        this.Zq = w;
+        this.iy = x;
+        this.G = B;
+        this.wc = G;
+        this.Le = L;
+        this.bz = Q;
+        this.Vhb = fa;
+        this.device = wa;
+        this.experimentFlags = hb;
+        this.Bf = xb;
+        this.wi = nb;
+        this.window = Jb;
+        this.history = bb;
+        this.qa = Ma;
+        this.Pe = ua;
+        this.Je = Kb;
+        this.iXa = oa;
+        this.q_ = Bh;
+        this.OWa = Ck;
+        this.XQa = Ux;
+        this.Ma = Vx;
+        this.KL = Wx;
+        this.gg = Xx;
+        this.Mba = this.I$ = this.Uj = !1;
+        this.qp = this.zo = this.Dx = this.suggestions = this.Ua = null;
+        this.resultCount = 0;
+        this.TK = this.Bi = this.wd = null;
+        this.ub = !0;
+        this.rla = function() {}
+        ;
+        this.c0 = function() {}
+        ;
+        this.ZV = this.Xda = this.Vo = null;
+        this.qh = !1;
+        this.tja = this.zp = null;
+        this.kM = f || this.environment.hD;
+        this.sb = y;
+        this.yfa = !!this.Gj.get();
+        this.Mw = ta({
+            label: "[[Show search results for|Label for a button which starts a search for the displayed string when clicked.The search query text will be displayed below this text.]]",
+            opt_class: "search-action"
+        });
+        this.Z0a = K.C("[[Voice Search|Text indicating a user can use voice to search.]]");
+        this.placeholderText = K.C("[[Search|Placeholder indicating that a user can start searching within a text box|1669868260]]");
+        this.joa = K.C("[[search results|title for a row, read aloud by a screen-reader for a row of videos resulting from a search.]]");
+        zn(wa) && (this.qh = !0,
+        this.Xda = fe({
+            iconClass: "material-icon-chevron-left",
+            label: "",
+            clickAction: w
+        }),
+        this.tja = fe({
+            iconClass: "material-icon-keyboard",
+            label: "[[Keyboard|A button for showing the on screen keyboard]]",
+            clickAction: function() {
+                Yx.gx()
+            }
+        }))
+    }
+    l(LX, V);
+    d = LX.prototype;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.I$ = !1;
+        this.TK = null;
+        this.keyboard && this.keyboard.Mga();
+        this.suggestions && this.suggestions.qRa();
+        this.Ua && this.Ua.Gc(!!this.model);
+        this.model && this.X_a();
+        this.render()
+    }
+    ;
+    d.ready = function() {
+        var a = this;
+        V.prototype.ready.call(this);
+        this.Bf.reset();
+        this.on("keydown", this.ua.bind(this));
+        this.on("keyup", this.xb.bind(this));
+        this.on("keydown", function() {
+            a.Zc.sLa()
+        }, !0);
+        this.on("button-enter", this.pn.bind(this));
+        if (this.environment.Dd)
+            this.on("keySelectionChanged", function() {
+                a.ia.wRa()
+            });
+        this.on("keySelectionChanged", function() {
+            a.Zc.Cda(!0)
+        });
+        this.qp = this.Nb("search-text-entry");
+        this.ma = this.Nb("search-input");
+        this.environment.iD && (this.keyboard = this.qp.Nb("search-keyboard"),
+        this.VQ(this.keyboard));
+        this.Dx = this.qp.Nb("vertical-search-suggestions");
+        this.zo = this.qp.Nb("horizontal-search-suggestions");
+        this.suggestions = this.Dx;
+        this.cga(this.Dx);
+        this.experimentFlags.search_ui_2018_a || this.experimentFlags.search_ui_2018_b ? (this.zo.hide(),
+        this.cga(this.zo)) : this.qp.removeChild(this.zo);
+        this.wd = this.qp.Nb("search-action");
+        this.kM ? (this.VQ(this.suggestions),
+        (this.experimentFlags.search_ui_2018_a || this.experimentFlags.search_ui_2018_b) && this.VQ(this.zo),
+        this.qp.removeChild(this.wd),
+        this.Mw = this.wd = null) : (this.qp.removeChild(this.suggestions),
+        this.suggestions = null,
+        this.wd.model = this.Mw,
+        this.wd.hide());
+        this.I(this.ma, "keydown", this.bHa.bind(this), !0);
+        this.I(this.ma, "keyup", this.cHa.bind(this), !0);
+        this.I(this.ma, "value:changed", this.dHa.bind(this), !0);
+        this.I(this.ia, "query:changed", this.dQa.bind(this));
+        this.I(this.ia, "query:cleared", this.eQa.bind(this));
+        this.I(this.ia, "results:changed", this.kSa.bind(this));
+        this.I(this.ia, "search:started", this.lSa.bind(this));
+        this.on("cmd-navigate-to-endpoint", this.eW.bind(this));
+        this.Jla();
+        this.nU() && this.keyboard && (this.wa("supports-voice-search"),
+        this.I(this.keyboard, "keyboard:micFocusChanged", function() {
+            a.Jla();
+            a.Pda()
+        }),
+        this.I(this.keyboard, "keyboard:micClicked", this.tNa.bind(this)),
+        this.I(this.Le, "voice-state-changed", this.a1a.bind(this)));
+        this.onScreenKeyboard = this.N(".on-screen-keyboard");
+        this.wi.Jh && this.JUa();
+        this.qh && (this.Vo = this.N(".left-back-button"),
+        this.Vo.model = this.Xda,
+        this.Vo.h.setAttribute("aria-label", "[[Go Back|A button used to navigate back.|1153601724]]"),
+        this.zp = this.N(".show-native-osk-button"),
+        this.zp.model = this.tja,
+        this.zp.h.setAttribute("aria-label", "show keyboard"));
+        this.environment.B0 && this.keyboard.model.setInputable(this.ma.ma)
+    }
+    ;
+    d.CZa = function(a) {
+        a ? (this.zo.hide(),
+        this.Dx.show()) : (this.Dx.hide(),
+        this.zo.show())
+    }
+    ;
+    d.cga = function(a) {
+        var b = this;
+        this.I(a, "suggestions-changed", function() {
+            b.oRa();
+            (b.experimentFlags.search_ui_2018_a || b.experimentFlags.search_ui_2018_b) && b.CZa(b.Xba())
+        })
+    }
+    ;
+    d.oRa = function() {
+        this.suggestions && this.suggestions.model && this.suggestions.model.suggestions && 0 === this.suggestions.model.suggestions.ha() && this.suggestions.J() && (this.v_a() || this.ila() || this.x_a() || !this.mc || this.mc.focus())
+    }
+    ;
+    d.Sh = function() {
+        var a = this;
+        this.j.setTimeout(function() {
+            a.isHidden() || (a.c0 = a.on("mouseover", function() {
+                a.wc.close()
+            }))
+        }, 100)
+    }
+    ;
+    d.hg = function() {
+        this.c0();
+        this.c0 = function() {}
+        ;
+        this.Pda()
+    }
+    ;
+    d.JUa = function() {
+        var a = this;
+        this.onScreenKeyboard.on("on-screen-keyboard-blur", function() {
+            a.Ua ? (a.Ua.focus(),
+            a.nA() && a.onScreenKeyboard.hide()) : a.wd && a.wd.focus()
+        });
+        this.onScreenKeyboard.on("component-focus", function() {
+            return a.jZ()
+        });
+        this.onScreenKeyboard.on("on-screen-keyboard-input", function(b) {
+            b = b.detail[0];
+            var c = b !== a.ma.getValue();
+            a.ma && a.ma.nd(b);
+            a.qh ? (a.onScreenKeyboard.hide(),
+            a.xx(),
+            c && a.ia.qc(b, "search-action")) : a.ia.qc(b)
+        })
+    }
+    ;
+    d.jZ = function() {
+        if (this.wi.Jh && !this.qh) {
+            var a = !!this.Ua && this.Ua.cb()
+              , b = !!this.wd && this.wd.cb();
+            this.onScreenKeyboard.NTa(!a && !b)
+        }
+    }
+    ;
+    d.Jla = function() {
+        var a = this.nU() && this.keyboard && this.keyboard.Fo() ? this.Z0a : this.placeholderText;
+        this.ma.XUa(a);
+        this.ma.render(!0)
+    }
+    ;
+    d.Pda = function() {
+        this.nU() && this.keyboard && !this.keyboard.Fo() && this.Ma.Qda()
+    }
+    ;
+    d.Mda = function(a) {
+        !this.environment.supportsVoiceSearch && this.q_ && this.OWa(a) && this.Ma.KXa()
+    }
+    ;
+    d.nU = function() {
+        return this.environment.supportsVoiceSearch || this.q_
+    }
+    ;
+    d.bHa = function(a) {
+        this.lU(a.keyCode) && (this.Zc.uLa(),
+        T(a, !0));
+        !this.yU(a) && !this.pU(a) || this.ma.J() || (this.WI(),
+        this.WQ())
+    }
+    ;
+    d.yU = function(a) {
+        return "undefined" !== typeof TouchEvent && a.hq instanceof TouchEvent
+    }
+    ;
+    d.pU = function(a) {
+        return "undefined" !== typeof MouseEvent && a.hq instanceof MouseEvent
+    }
+    ;
+    d.cHa = function(a) {
+        this.lU(a.keyCode) && (this.WI(),
+        T(a, !0));
+        switch (a.keyCode) {
+        case 8:
+            T(a, !0);
+            break;
+        case 13:
+        case 27:
+            if (this.environment.lm && !this.ia.isEmpty() && !this.pU(a) && !this.yU(a)) {
+                var b = Hk(a.target, "keydown", 40, !0, a.hq);
+                a.target.dispatchEvent(b);
+                this.J() || T(a)
+            }
+        }
+    }
+    ;
+    d.B = function() {
+        this.sb();
+        this.sb = y;
+        V.prototype.B.call(this)
+    }
+    ;
+    d.X_a = function() {
+        if (this.yfa !== this.Gj.get()) {
+            this.Io() && this.keyboard.focus();
+            var a = this.ia.getQuery();
+            this.ia.qc("");
+            this.ia.qc(a)
+        }
+        this.keyboard && this.keyboard.YK();
+        this.ia.isEmpty() && this.WM()
+    }
+    ;
+    d.onFocus = function() {
+        var a = this;
+        V.prototype.onFocus.call(this);
+        this.environment.gD && this.j.setTimeout(function() {
+            a.rua()
+        }, 0);
+        this.Zc.Dv() || this.Zc.UZ();
+        this.gg && !this.gg.Dv() && this.gg.UZ();
+        this.Hj.isSupported() && this.Hj.doBindSearchBarService(this.iSa.bind(this));
+        this.Uj || this.ia.isEmpty() || this.ia.AHa() || this.wd && !this.wd.isHidden() || this.FD("[[No videos are available|The message shown when a row has no videos to show.]]");
+        var b = this.q9();
+        this.G.attachChild(b);
+        this.G.Ca(b);
+        b = !!this.Ua && this.Ua.cb();
+        !this.wi.Jh || this.qh || !b && this.tba() || this.j.setTimeout(function() {
+            return a.gx()
+        }, 150);
+        this.qh && !b && this.xx();
+        this.iXa();
+        this.environment.supportsVoiceSearch || !this.q_ || this.KL.get() || this.Mda(!1);
+        this.I$ = !0
+    }
+    ;
+    d.gx = function() {
+        this.onScreenKeyboard.nd(this.ia.getQuery());
+        this.onScreenKeyboard.show();
+        this.onScreenKeyboard.focus()
+    }
+    ;
+    d.tba = function() {
+        return "keyboard-deeplink" === this.ia.pS()
+    }
+    ;
+    d.focus = function() {
+        this.Le.isSupported() && this.Le.isOpen() || V.prototype.focus.call(this)
+    }
+    ;
+    d.rua = function() {
+        this.J() && (this.WI(),
+        this.WQ())
+    }
+    ;
+    d.onBlur = function() {
+        V.prototype.onBlur.call(this);
+        this.FD();
+        this.Zc.Dv() && this.Zc.Pja();
+        this.Hj.isSupported() && this.Hj.doUnbindSearchBarService();
+        this.sb();
+        this.sb = y;
+        this.yfa = !!this.Gj.get();
+        this.wi.Jh && (this.onScreenKeyboard.hide(),
+        this.onScreenKeyboard.nd(""))
+    }
+    ;
+    d.Gk = function(a) {
+        V.prototype.Gk.call(this, a);
+        this.HK();
+        this.render()
+    }
+    ;
+    d.HK = function() {
+        this.sb();
+        var a = [];
+        !this.keyboard || this.Io() || this.environment.gD ? a.push(U.Sx, U.lE) : (a.push(U.lE),
+        this.ma && this.ma.getValue() && a.push(U.Ux),
+        this.ma && "" === this.ma.getValue() ? this.environment.bU || a.push(U.Sx) : a.push(U.mE));
+        this.Le.isSupported() && (this.d3() ? a.push(U.pE) : a.push(U.oE));
+        this.qh && (a = [U.nE]);
+        this.sb = this.Fc.Fm(a)
+    }
+    ;
+    d.Io = function() {
+        return !!this.Ua && this.Ua.J()
+    }
+    ;
+    d.iSa = function(a) {
+        this.ia.qc(a, "speech")
+    }
+    ;
+    d.dHa = function(a) {
+        this.HK();
+        a = a.detail[0];
+        this.Bf.sia(a);
+        this.Bf.TNa();
+        this.bz.process(a) && (this.qs.b_(a),
+        this.ma.nd(""),
+        a = "");
+        this.kM ? (this.WM(),
+        "" === a ? this.ia.qc("") : this.environment.hD && this.ia.qc(a)) : (this.ia.qc(a),
+        a && !this.ia.DZ() ? (this.Mw && this.Mw.dZ(a),
+        this.wd.show(),
+        this.wd.render()) : (this.Mw && this.Mw.dZ(""),
+        this.wd.hide()));
+        this.jZ()
+    }
+    ;
+    d.lU = function(a) {
+        var b = [27, 172, 40, 37, 39, 170, 181, 13, 179, -1, 32777];
+        this.environment.cD && (b.push(8),
+        b.push(46));
+        return pb(b, function(b) {
+            return b !== a
+        })
+    }
+    ;
+    d.VQ = function(a) {
+        if (this.environment.fD)
+            a.on("mouseover", this.Wo.bind(this, a))
+    }
+    ;
+    d.eW = function() {
+        this.lj();
+        this.$Qa();
+        this.qs.b_(this.ia.getQuery())
+    }
+    ;
+    d.$Qa = function() {
+        this.Ua && this.Ua.aa && (this.Zc.VVa(this.Ua.aa()),
+        this.Zc.hva());
+        this.gg && this.gg.zKa(this.ia.EU());
+        this.VB("select")
+    }
+    ;
+    d.VB = function(a) {
+        this.Zc.VB(a);
+        this.Zc.Pja();
+        this.gg && this.gg.sendReport()
+    }
+    ;
+    d.xb = function(a) {
+        switch (a.keyCode) {
+        case 172:
+        case 71:
+            T(a, !0);
+            this.Mba = !1;
+            break;
+        case 227:
+            this.Le.isSupported() && (T(a, !0),
+            this.Le.start(),
+            this.gg && this.gg.sKa());
+            break;
+        case 8:
+        case 27:
+            var b = this.history.xa(this.history.ha() - 1)
+              , c = b && "watch" === b.getName();
+            b = b && this.qh;
+            var e = this.Je;
+            if (c || e || b)
+                T(a, !0),
+                this.rEa()
+        }
+    }
+    ;
+    d.Aga = function() {
+        this.VB("back");
+        this.Zq()
+    }
+    ;
+    d.rEa = function() {
+        this.Le.isSupported() && this.Le.isOpen() ? (this.Le.cancel(),
+        this.LWa()) : this.wi.Jh ? this.zEa() : this.Aga()
+    }
+    ;
+    d.zEa = function() {
+        var a = this;
+        this.Ua && this.Ua.hide();
+        this.wd && this.wd.hide();
+        this.j.setTimeout(function() {
+            a.onScreenKeyboard.hide();
+            a.Aga()
+        }, 100)
+    }
+    ;
+    d.ua = function(a) {
+        switch (a.keyCode) {
+        case 176:
+        case 177:
+        case 227:
+        case 228:
+            T(a);
+            break;
+        case 39:
+            this.experimentFlags.search_ui_2018_a || this.experimentFlags.search_ui_2018_b || this.vj();
+            T(a);
+            break;
+        case 37:
+            (this.experimentFlags.search_ui_2018_a || this.experimentFlags.search_ui_2018_b ? this.nSa() : this.wh()) && T(a);
+            break;
+        case 40:
+            this.experimentFlags.search_ui_2018_a || this.experimentFlags.search_ui_2018_b ? this.mSa() : this.xf();
+            T(a);
+            break;
+        case 38:
+            this.experimentFlags.search_ui_2018_a || this.experimentFlags.search_ui_2018_b ? this.oSa() : this.Vf();
+            T(a);
+            break;
+        case 172:
+            T(a, !0);
+            this.environment.gD || "" === this.ma.getValue() || this.Io() || (this.Mba = !0,
+            this.R5());
+            break;
+        case 170:
+            T(a, !0);
+            this.KEa();
+            break;
+        default:
+            !this.environment.gM || !this.lU(a.keyCode) || 13 === a.keyCode && (!a.hq || this.pU(a) || this.yU(a)) || 8 === a.keyCode && this.ia.isEmpty() || (this.WI(),
+            this.WQ())
+        }
+    }
+    ;
+    d.KEa = function() {
+        this.qh ? this.gx() : this.d3() && !this.Le.isOpen() ? this.Le.start() : !this.Io() && this.ma && "" !== this.ma.getValue() && this.ma.vE(" ")
+    }
+    ;
+    d.d3 = function() {
+        return !this.environment.yr && this.Le.isSupported()
+    }
+    ;
+    d.Wo = function(a) {
+        a && this.J() && a.focus()
+    }
+    ;
+    d.zk = function() {
+        return !!this.keyboard && this.keyboard.J()
+    }
+    ;
+    d.zv = function() {
+        return !!this.ma && this.ma.J()
+    }
+    ;
+    d.lIa = function() {
+        return !!this.Vo && this.Vo.J()
+    }
+    ;
+    d.Lo = function() {
+        return !!this.suggestions && this.suggestions.J()
+    }
+    ;
+    d.Rba = function() {
+        return !!this.zp && this.zp.J()
+    }
+    ;
+    d.jMa = function() {
+        return this.zv() ? this.xx() : this.Rba() || this.Lo() ? this.ila() : !1
+    }
+    ;
+    d.tMa = function() {
+        return this.Io() ? this.w_a() || this.jla(!0) || this.xx() : !1
+    }
+    ;
+    d.qMa = function() {
+        return this.lIa() ? this.u_a() || this.xx() : this.Rba() ? this.jla() : !1
+    }
+    ;
+    d.pMa = function() {
+        return this.Lo() ? this.xx() : this.t_a()
+    }
+    ;
+    d.xx = function() {
+        if (!this.zp)
+            return !1;
+        if (this.zp.J())
+            return !0;
+        this.zp.focus();
+        return !0
+    }
+    ;
+    d.t_a = function() {
+        if (!this.Vo)
+            return !1;
+        if (this.Vo.J())
+            return !0;
+        this.ZV = this.mc;
+        this.Vo.focus();
+        return !0
+    }
+    ;
+    d.ila = function() {
+        if (!this.Ua || !this.Uj)
+            return !1;
+        if (this.Io())
+            return !0;
+        this.Ua.focus();
+        this.lj();
+        return !0
+    }
+    ;
+    d.jla = function(a) {
+        a = void 0 === a ? !1 : a;
+        if (!this.yo())
+            return !1;
+        if (this.Lo())
+            return !0;
+        a && this.lha();
+        this.suggestions.focus();
+        return !0
+    }
+    ;
+    d.v_a = function() {
+        if (!this.keyboard)
+            return !1;
+        if (this.zk())
+            return !0;
+        this.keyboard.focus();
+        return !0
+    }
+    ;
+    d.x_a = function() {
+        if (!this.ma || !this.ma.ub)
+            return !1;
+        if (this.zv())
+            return !0;
+        this.ma.focus();
+        return !0
+    }
+    ;
+    d.u_a = function() {
+        return this.ZV ? (this.ZV.focus(),
+        !0) : !1
+    }
+    ;
+    d.w_a = function() {
+        return this.Bi ? (this.Bi.focus(),
+        this.Bi = null,
+        !0) : !1
+    }
+    ;
+    d.mSa = function() {
+        this.zv() || this.onScreenKeyboard.J() ? this.keyboard ? (this.keyboard.cW(),
+        this.keyboard.focus()) : this.yo() ? this.suggestions.focus() : this.Uj && this.Ua || !this.wd ? this.Ua && (this.Ua.focus(),
+        this.lj()) : this.wd.focus() : this.zk() ? this.yo() ? this.suggestions.focus() : this.Uj || this.Ua ? (this.Bi = this.mc,
+        this.Ua.focus(),
+        this.lj()) : this.keyboard.Yj() : this.Lo() && (this.Uj || this.Ua) && (this.Bi = this.mc,
+        this.Ua.focus(),
+        this.lj())
+    }
+    ;
+    d.xf = function() {
+        if (this.qh)
+            this.jMa();
+        else if (this.zv() || this.onScreenKeyboard.J())
+            this.yo() ? this.suggestions.focus() : this.keyboard ? (this.keyboard.cW(),
+            this.keyboard.focus()) : this.Uj && this.Ua || !this.wd ? (this.Ua && this.Ua.focus(),
+            this.lj()) : this.wd.focus();
+        else if (this.Lo() || this.zk())
+            this.Uj && this.Ua ? (this.Bi = this.mc,
+            this.Ua.focus(),
+            this.lj()) : this.zk() && this.keyboard.Yj()
+    }
+    ;
+    d.oSa = function() {
+        this.zk() ? this.ma.focus() : this.Lo() && this.keyboard ? this.keyboard.focus() : this.Io() && this.keyboard ? this.Bi ? (this.Bi.focus(),
+        this.Bi = null) : this.yo() ? this.suggestions.focus() : this.keyboard.focus() : this.wi.Jh && !this.nA() ? this.onScreenKeyboard.focus() : this.ma.ub && !this.zv() ? this.ma.focus() : this.Hj.isSupported() && this.Hj.focusToSearchBar()
+    }
+    ;
+    d.Vf = function() {
+        this.qh ? this.tMa() : this.zk() || this.Lo() ? this.ma.focus() : this.Io() && this.keyboard ? (this.lha(),
+        this.Bi ? (this.Bi.focus(),
+        this.Bi = null) : this.yo() ? this.suggestions.focus() : this.keyboard.focus()) : (this.wi.Jh && !this.nA() && this.onScreenKeyboard.focus(),
+        this.ma.ub && !this.zv() ? this.ma.focus() : this.Hj.isSupported() && this.Hj.focusToSearchBar())
+    }
+    ;
+    d.lha = function() {
+        if (this.yo()) {
+            var a = this.suggestions.model.suggestions;
+            a.ba(a.ha() - 1)
+        }
+    }
+    ;
+    d.vj = function() {
+        this.qh ? this.qMa() : this.Lo() && this.keyboard.XQ()
+    }
+    ;
+    d.nSa = function() {
+        return this.wi.Jh && this.nA() ? (this.gx(),
+        !0) : !1
+    }
+    ;
+    d.wh = function() {
+        return this.qh ? (this.pMa(),
+        !0) : this.zk() && this.yo() ? (this.suggestions.focus(),
+        !0) : this.wi.Jh && this.nA() ? (this.gx(),
+        !0) : !1
+    }
+    ;
+    d.nA = function() {
+        return this.Je && this.onScreenKeyboard && "vertical" === this.onScreenKeyboard.nf()
+    }
+    ;
+    d.LWa = function() {
+        this.keyboard && (this.keyboard.show(),
+        this.keyboard.focus())
+    }
+    ;
+    d.yo = function() {
+        return this.kM && !!this.suggestions && 0 < this.suggestions.model.suggestions.ha()
+    }
+    ;
+    d.pn = function(a) {
+        var b = this
+          , c = this.keyboard ? this.keyboard.k7() : null;
+        if (a = c ? c : a.detail)
+            if (this.Zc.Cda(!1),
+            a.ff)
+                switch (c = this.experimentFlags.search_ui_2018_a || this.experimentFlags.search_ui_2018_b ? "material-icon-space-bar" : "icon-key-space",
+                a.ff) {
+                case "icon-key-delete":
+                    this.R5();
+                    break;
+                case "clear-query-tile":
+                    this.ma.nd("");
+                    break;
+                case c:
+                    this.ma.getValue() && this.ma.vE(" ");
+                    break;
+                case "search-button-tile":
+                    a = this.ma.getValue();
+                    this.suggestions && this.suggestions.model.select(a);
+                    this.ia.qc(a, "search-action");
+                    break;
+                case "search-action":
+                    this.ia.qc(a.io(), "search-action")
+                }
+            else
+                this.keyboard && (c = this.keyboard.model.nf().wI,
+                "KO" === c || "JP" === c ? (a = this.ma.getValue() + a.value,
+                this.ia.eHa(a, function(a) {
+                    b.ma.nd(a)
+                })) : (this.ma.vE(a.value),
+                "NUMBERS" === c && this.Zc.tLa()))
+    }
+    ;
+    d.tNa = function() {
+        this.Le.start();
+        this.gg && this.gg.tKa();
+        this.Mda(!0)
+    }
+    ;
+    d.a1a = function(a, b) {
+        "complete" === a ? (this.ma.lpa("has-voice-query"),
+        this.ma.render()) : "complete" === b && (this.ma.VQa("has-voice-query"),
+        this.ma.render())
+    }
+    ;
+    d.dQa = function() {
+        var a = this.ia.getQuery();
+        this.ma.Nia(a);
+        this.Ua && this.Ua.hide();
+        this.Zc.gQa(a);
+        this.Uj = !1;
+        this.FD();
+        this.ia.isEmpty() && (this.Zc.VB("clear"),
+        this.Zc.w4(),
+        this.Zc.tRa(),
+        this.isLoading.set(!1))
+    }
+    ;
+    d.eQa = function() {
+        this.ma.nd("");
+        this.ma.Nia("");
+        this.WM();
+        this.experimentFlags.search_ui_2018_a || this.experimentFlags.search_ui_2018_b || (this.mc = this.suggestions);
+        this.keyboard && (this.wc.isOpen() || this.keyboard.Iw());
+        this.sb();
+        this.sb = y
+    }
+    ;
+    d.Xba = function() {
+        return !this.ma.getValue().trim().length
+    }
+    ;
+    d.EVa = function(a) {
+        this.suggestions !== a && this.suggestions && (this.suggestions.hide(),
+        this.suggestions = a)
+    }
+    ;
+    d.WM = function(a) {
+        this.kM && this.suggestions && ((this.experimentFlags.search_ui_2018_a || this.experimentFlags.search_ui_2018_b) && this.EVa(this.Xba() ? this.Dx : this.zo),
+        this.suggestions.update(this.ma.getValue(), a))
+    }
+    ;
+    d.kSa = function(a, b) {
+        this.qa.La("s_rqf");
+        this.wd && this.wd.hide();
+        this.Zc.zLa(this.ia.getQuery());
+        this.isLoading.set(!1);
+        this.qa.La("s_rns");
+        this.oh(a, b);
+        this.Pe.requestAnimationFrame(this.BLa.bind(this));
+        b && this.ia.JA(b) && (this.ma.nd(this.ia.getQuery(), !0),
+        this.WM(b),
+        this.Ua && 0 < this.resultCount && (this.Ua.focus(),
+        this.lj()));
+        this.wi.Jh && this.tba() && this.gx();
+        this.jZ();
+        this.gg && this.gg.vKa(this.ia.EU())
+    }
+    ;
+    d.BLa = function() {
+        this.qa.La("s_rnf")
+    }
+    ;
+    d.lSa = function(a, b) {
+        var c = {};
+        b = (c.is_prefetch = b ? 1 : 0,
+        c.query_source = a ? a : "unknown",
+        c);
+        this.experimentFlags.enable_tv_csi_on_gel && (b.query_source = this.fCa(a));
+        this.qa.hn(b);
+        this.Ua && this.Ua.hide();
+        this.FD();
+        this.isLoading.set(!0);
+        this.Zc.NXa();
+        this.G.Sc(this.q9())
+    }
+    ;
+    d.fCa = function(a) {
+        switch (a) {
+        case "keyboard-deeplink":
+            a = "SEARCH_QUERY_SOURCE_KEYBOARD_DEEPLINK";
+            break;
+        case "suggestions":
+            a = "SEARCH_QUERY_SOURCE_SUGGESTION";
+            break;
+        case "search-action":
+            a = "SEARCH_QUERY_SOURCE_SEARCH_BUTTON";
+            break;
+        case "speech":
+            a = "SEARCH_QUERY_SOURCE_VOICE";
+            break;
+        case "voice-deeplink":
+            a = "SEARCH_QUERY_SOURCE_VOICE_DEEPLINK";
+            break;
+        default:
+            a = "SEARCH_QUERY_SOURCE_UNKNOWN"
+        }
+        return a
+    }
+    ;
+    d.oh = function(a) {
+        this.resultCount = a && a.estimatedResults && parseInt(a.estimatedResults, 10) || 0;
+        var b = t("contents.sectionListRenderer.contents.0", a);
+        (this.Uj = 0 < this.resultCount && !!b) || this.ia.isEmpty() || this.FD("[[No videos are available|The message shown when a row has no videos to show.]]");
+        this.Uj && (a = t("contents.sectionListRenderer.trackingParams", a),
+        this.G.Ca(a),
+        b = this.qf.fv(this.mC, b, this.Ua),
+        b !== this.Ua && (a = this.Ua ? this.Ua.h : this.h.querySelector("#results-placeholder"),
+        this.h.replaceChild(b.h, a),
+        this.Ua && this.removeChild(this.Ua),
+        a = b.h,
+        a.id = "search-results",
+        a.setAttribute("role", "grid row"),
+        this.wi.Jh || a.setAttribute("aria-live", "polite"),
+        a.setAttribute("aria-label", this.joa),
+        this.Zb(b),
+        this.Ua && this.rla(),
+        this.Ua = b,
+        this.Je && (a = this.Ua.Kz()) && (a.AC(6),
+        a.setSize(80)),
+        this.rla = this.I(this.Ua, "selected-index-changed", this.LEa.bind(this))),
+        this.model && this.model.up(this.Ua && this.Ua.model),
+        this.Ua.Gc(!0),
+        b.isHidden() ? b.show() : b.render())
+    }
+    ;
+    d.WI = function() {
+        this.ma.ub || !this.environment.dD && !this.environment.cD || this.wi.Jh || (this.ma.ub = !0,
+        this.ma.render(!0))
+    }
+    ;
+    d.WQ = function() {
+        this.ma.cb() && this.ma.focus()
+    }
+    ;
+    d.R5 = function() {
+        this.ma.fq();
+        this.environment.dD && this.keyboard.focus()
+    }
+    ;
+    d.FD = function(a) {
+        a = void 0 === a ? "" : a;
+        !this.J() && a || this.iy.set(a)
+    }
+    ;
+    d.q9 = function() {
+        this.TK || (this.TK = this.G.ye(10349));
+        return this.TK
+    }
+    ;
+    d.lj = function() {
+        this.model && this.model.lj();
+        this.vLa();
+        this.ia.g_a()
+    }
+    ;
+    d.LEa = function(a) {
+        (a = a.detail && a.detail[0]) && a.detail && 3 <= a.detail.length && void 0 !== a.detail[2] && this.lj()
+    }
+    ;
+    d.vLa = function() {
+        var a = this.Bf.s9();
+        this.G.Ca(this.ia.wT, a ? {
+            searchboxData: {
+                searchboxStats: a
+            }
+        } : void 0)
+    }
+    ;
+    d.E6 = function(a) {
+        var b = this;
+        a.pageType = "SCREEN_PAGE_TYPE_SEARCH";
+        if (this.Ua) {
+            var c = this.Ua.Kz().ii().map(function(a) {
+                return b.XQa(a)
+            });
+            a.displayItemShelves = a.displayItemShelves || [];
+            a.displayItemShelves.push({
+                displayItems: c,
+                shelfName: this.ia.getQuery()
+            })
+        }
+    }
+    ;
+    E(LX, "environment timeService searchQueryModel searchReporting supportsSearchSuggestions searchApi legendModel searchService inflater searchHistoryService safeModeFlag isLoading goBack appMessage screenManager guideModel localeService voiceSearchModel debugCallService defaultSearchMode subtitledButtonModelFactory device experimentFlags searchboxStatsModel inputCapabilities window history performanceService animationFrameService supportsAppleTvUx showVoiceSearchEducationToast supportsSmartRemoteToast showMobileSmartRemoteEducationToast buttonModelFactory rendererToDisplayItem remoteService smartRemoteHasBeenUsed opt_voiceQueryReporting".split(" "));
+    function MX(a, b) {
+        V.call(this);
+        this.animation = a;
+        this.model = null;
+        this.isVertical = !1;
+        this.selectText = b.C("[[Select|Voice command for selecting the currently highlighted item.]]");
+        this.hide()
+    }
+    l(MX, V);
+    MX.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.o0(!1);
+        this.Bb("selected-index-changed", this.o0.bind(this, !0));
+        this.Bb("items-changed", this.KA.bind(this))
+    }
+    ;
+    MX.prototype.o0 = function(a) {
+        if (this.model && 0 <= this.model.aa()) {
+            var b = this.model.Sz(this.model.aa());
+            this.h.style.cssText = this.animation.Iu(b, a, this.isVertical);
+            this.show()
+        } else
+            this.hide();
+        this.render()
+    }
+    ;
+    MX.prototype.KA = function(a) {
+        this.o0(!!a)
+    }
+    ;
+    E(MX, ["slidingAnimation", "localeService"]);
+    function NX() {
+        V.apply(this, arguments);
+        this.suggestion = ""
+    }
+    l(NX, V);
+    d = NX.prototype;
+    d.ready = function() {
+        var a = this;
+        this.ma = this.Nb("text-input");
+        this.I(this.ma, "value:changed", function() {
+            return a.render()
+        }, !0)
+    }
+    ;
+    d.Nia = function(a) {
+        this.suggestion = a;
+        this.render()
+    }
+    ;
+    d.QIa = function() {
+        return 0 === this.suggestion.indexOf(this.ma.getValue())
+    }
+    ;
+    d.Vu = function() {
+        return this.ma && 0 < this.ma.getValue().length ? this.QIa() ? this.suggestion : "" : ""
+    }
+    ;
+    d.onFocus = function() {
+        V.prototype.onFocus.call(this);
+        this.ma.ub = !0;
+        this.ma.render(!0);
+        this.ma.focus()
+    }
+    ;
+    d.Fz = function() {
+        return this.ma.Fz()
+    }
+    ;
+    d.Kj = function(a) {
+        this.ma.Kj(a)
+    }
+    ;
+    d.lpa = function(a) {
+        this.ma.wa(a)
+    }
+    ;
+    d.VQa = function(a) {
+        this.ma.lb(a)
+    }
+    ;
+    d.nd = function(a, b) {
+        b = void 0 === b ? !1 : b;
+        var c = this.ma.getValue();
+        a !== c && (this.ma.nd(a, b),
+        this.render())
+    }
+    ;
+    d.getValue = function() {
+        return this.ma.getValue()
+    }
+    ;
+    d.XUa = function(a) {
+        this.ma.placeholder = a
+    }
+    ;
+    d.lmb = function() {
+        return this.ma.placeholder
+    }
+    ;
+    d.fq = function() {
+        this.ma.fq();
+        this.render()
+    }
+    ;
+    d.vE = function(a) {
+        this.nd(this.getValue() + a);
+        this.render(!0)
+    }
+    ;
+    function OX(a, b) {
+        W.call(this, a);
+        this.G_ = b;
+        this.Ts = null
+    }
+    l(OX, W);
+    OX.prototype.ready = function() {
+        W.prototype.ready.call(this);
+        this.Ts = this.G_({
+            focusComponent: this,
+            tiltElement: this.h
+        })
+    }
+    ;
+    OX.prototype.B = function() {
+        D(this.Ts);
+        W.prototype.B.call(this)
+    }
+    ;
+    E(OX, ["eventFilterFactory", "tiltInteractorFactory"]);
+    function PX(a) {
+        V.call(this);
+        this.wL = a
+    }
+    l(PX, V);
+    PX.prototype.ready = function() {
+        V.prototype.ready.call(this);
+        var a = He(document, "div");
+        a.className = "shadow-container";
+        var b = He(document, "div");
+        b.className = "mask";
+        var c = He(document, "div");
+        c.className = "sheen";
+        this.h.insertBefore(a, this.h.firstChild);
+        b.appendChild(c);
+        this.h.appendChild(b);
+        this.parent && this.wL({
+            focusComponent: this.parent,
+            tiltElement: this.h,
+            sheenElement: c
+        })
+    }
+    ;
+    E(PX, ["sheenTiltInteractorFactory"]);
+    function QX(a, b, c) {
+        lp.call(this, a, c);
+        this.G_ = b;
+        this.Ts = null
+    }
+    l(QX, lp);
+    QX.prototype.ready = function() {
+        lp.prototype.ready.call(this);
+        this.Ts = this.G_({
+            focusComponent: this,
+            tiltElement: this.h
+        })
+    }
+    ;
+    QX.prototype.B = function() {
+        D(this.Ts);
+        lp.prototype.B.call(this)
+    }
+    ;
+    E(QX, ["eventFilterFactory", "tiltInteractorFactory", "opt_supportTouchWithoutGestureService"]);
+    function RX(a, b, c) {
+        OD.call(this, a, !0, "[[More|Label to show the other set of options.]]");
+        var e = this;
+        this.Qa = b;
+        this.f = c;
+        this.L = "transport-controls-toggle-button";
+        this.ob = function() {
+            return e.kc()
+        }
+        ;
+        this.H(c.on("isPlayingAd:changed", function() {
+            return e.Kb()
+        }));
+        this.Kb()
+    }
+    l(RX, OD);
+    RX.prototype.Kb = function() {
+        this.enabled = !this.f.Ja
+    }
+    ;
+    RX.prototype.kc = function() {
+        this.Qa.Hf("more");
+        this.isSelected() ? this.w("show-more-options-buttons") : this.w("show-playback-buttons")
+    }
+    ;
+    E(RX, ["localeService", "transportControlsReporting", "playerService"]);
+    function SX(a, b, c) {
+        OD.call(this, a, !0, "[[Pause|Voice command to pause the video, capitalized.]]", "[[Play|Voice command to play the video, capitalized.]]", "material-icon-play-arrow");
+        var e = this;
+        this.f = b;
+        this.Qa = c;
+        this.L = "transport-controls-toggle-button";
+        this.ob = this.kc.bind(this);
+        this.H(b.on("isPlaying:changed", function() {
+            return e.Sla()
+        }));
+        this.H(b.on("state:changed", function() {
+            return e.Kb()
+        }));
+        this.Sla();
+        this.Kb()
+    }
+    l(SX, OD);
+    SX.prototype.Sla = function() {
+        this.Fd(this.f.wb)
+    }
+    ;
+    SX.prototype.Kb = function() {
+        this.enabled = 1E3 !== this.f.state
+    }
+    ;
+    SX.prototype.kc = function() {
+        this.Qa.Hf("play-pause");
+        this.w("trigger-play-pause");
+        this.f.Ip()
+    }
+    ;
+    E(SX, ["localeService", "playerService", "transportControlsReporting"]);
+    function TX(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G, K, L, Q, fa, ta, wa, hb, xb, nb, Jb, bb, Ma, ua, Kb) {
+        Ma = void 0 === Ma ? function() {
+            return null
+        }
+        : Ma;
+        ua = void 0 === ua ? function() {
+            return null
+        }
+        : ua;
+        Kb = void 0 === Kb ? function() {
+            return []
+        }
+        : Kb;
+        S.call(this);
+        var oa = this;
+        this.pm = b;
+        this.wja = h;
+        this.nXa = k;
+        this.Qa = B;
+        this.liveChatButton = fa;
+        this.G = ta;
+        this.I8 = hb;
+        this.CBa = xb;
+        this.experimentFlags = nb;
+        this.f = Jb;
+        this.X = bb;
+        this.OKa = Ma;
+        this.NKa = ua;
+        this.XW = Kb;
+        this.XP = [];
+        this.offerButtons = [];
+        this.liveIndicatorText = "";
+        this.Fl = null;
+        this.isLimitedState = !1;
+        this.lJ = this.mX = this.nX = null;
+        this.Zg = a({
+            isSelectable: function(a) {
+                return a.enabled
+            }
+        });
+        this.Ki = Ma({
+            source: x.get()
+        });
+        this.$p = ua({
+            source: bb.metadata
+        });
+        this.Ba(G);
+        this.Ba(K);
+        this.Ba(w);
+        this.Ba(v);
+        this.Ba(c);
+        this.Ba(b);
+        this.Ba(p);
+        this.Ba(u);
+        this.Ba(L);
+        this.Ba(Q);
+        this.Ki && this.Ba(this.Ki);
+        this.$p && this.Ba(this.$p);
+        this.Ba(e);
+        this.Ba(m);
+        this.Ba(k);
+        this.Ba(h);
+        this.Ba(f);
+        this.Ba(g);
+        this.Ba(fa);
+        this.Th = [k, p, h];
+        nb.enable_live_chat_toggle && this.Th.unshift(fa);
+        this.Th.unshift(v);
+        this.Ki && this.Th.unshift(this.Ki);
+        this.Th.unshift(m);
+        this.eV = [v, p];
+        this.CE = [u, L, G, K, f, e, c, w, g];
+        nb.enable_vsp && this.CE.splice(2, 0, Q);
+        this.Rca = [e, g];
+        this.BB = this.Th;
+        this.Lr = this.CE;
+        this.o2 = this.Th.indexOf(p);
+        this.qJa = this.eV.indexOf(p);
+        this.AB = this.o2;
+        this.S3 = this.Ki ? this.Th.indexOf(this.Ki) : -1;
+        this.ic = wa();
+        b.on("show-playback-buttons", function() {
+            oa.GL(oa.S3)
+        });
+        b.on("show-more-options-buttons", function() {
+            oa.sja()
+        });
+        h.on("enabled:changed", function() {
+            oa.tO(h)
+        });
+        k.on("enabled:changed", function() {
+            oa.tO(k)
+        });
+        m.on("enabled:changed", function() {
+            oa.tO(m)
+        });
+        p.on("trigger-play-pause", function() {
+            oa.w("toggle-play-pause")
+        });
+        this.Zg.on("selected-index-changed", function() {
+            oa.ara()
+        });
+        this.GL();
+        this.H(x.on("value-changed", function(a) {
+            oa.Tp(a)
+        }));
+        this.Tp(x.get());
+        this.H(this.X.on("metadata:changed", function(a) {
+            oa.I_a(a)
+        }));
+        this.H(this.f.on("isPlayingAd:changed", function(a) {
+            oa.Hba(a)
+        }));
+        this.Hba(this.f.Ja)
+    }
+    l(TX, S);
+    d = TX.prototype;
+    d.Eta = function() {
+        this.lJ = this.G.ye(49822);
+        var a = {
+            playbackData: {
+                clientPlaybackNonce: this.f.Rn() || void 0
+            }
+        };
+        this.G.attachChild(this.lJ, null, a)
+    }
+    ;
+    d.ELa = function() {
+        this.lJ || this.Eta();
+        this.G.Ca(this.lJ)
+    }
+    ;
+    d.ara = function() {
+        this.w("buttons-selected-index-changed");
+        this.Uba() && (this.Qa.Hf("focus-skip-forward-button"),
+        this.ELa());
+        this.Tba() && this.Qa.Hf("focus-skip-backward-button")
+    }
+    ;
+    d.Tp = function(a) {
+        this.isLimitedState = !!(a && a.videoMetadataRenderer && a.videoMetadataRenderer.isLimitedState);
+        this.Q_a();
+        this.q0a(a);
+        this.m0a(a);
+        this.B0a(a);
+        this.Ki && this.t0a(a)
+    }
+    ;
+    d.Hba = function(a) {
+        a ? this.AK(this.$p) : this.AK(this.Ki)
+    }
+    ;
+    d.m0a = function(a) {
+        var b = "";
+        if (a && a.videoMetadataRenderer && (a = a.videoMetadataRenderer.badges))
+            for (var c = 0, e = a.length; c < e; ++c)
+                if (a[c].liveBadge) {
+                    b = "[[Live|Label indicating that this is a live video.]]";
+                    break
+                }
+        this.liveIndicatorText = b
+    }
+    ;
+    d.Q_a = function() {
+        this.isLimitedState ? (this.Lr = this.Rca,
+        this.BB = this.eV,
+        this.AB = this.qJa) : (this.Lr = this.CE,
+        this.BB = this.Th,
+        this.AB = this.o2);
+        this.Fl === this.Th || this.Fl === this.eV ? this.GL() : (this.Fl === this.CE || this.Fl === this.Rca) && this.sja()
+    }
+    ;
+    d.q0a = function(a) {
+        this.offerButtons = this.XW(a);
+        this.QY(this.offerButtons)
+    }
+    ;
+    d.B0a = function(a) {
+        this.wja.update(a, !!this.offerButtons.length)
+    }
+    ;
+    d.t0a = function(a) {
+        a && (D(this.Ki),
+        this.Ki = this.OKa({
+            source: a
+        }),
+        this.Ba(this.Ki),
+        this.f.Ja || this.AK(this.Ki))
+    }
+    ;
+    d.I_a = function(a) {
+        a && (D(this.$p),
+        this.$p = this.NKa({
+            source: a
+        }),
+        this.Ba(this.$p),
+        this.f.Ja && this.AK(this.$p))
+    }
+    ;
+    d.AK = function(a) {
+        this.Th[this.S3] = a;
+        this.Fl === this.Th && this.Zg.oa(this.Th, this.AB)
+    }
+    ;
+    d.Uba = function() {
+        return this.Zg.$a() === this.wja
+    }
+    ;
+    d.Tba = function() {
+        return this.Zg.$a() === this.nXa
+    }
+    ;
+    d.yLa = function() {
+        var a = this.I8();
+        Ea(a) && (a = this.mf(a));
+        a && (this.G.attachChild(a),
+        this.G.Ca(a))
+    }
+    ;
+    d.Mtb = function() {
+        var a = null;
+        this.Uba() ? a = this.I8() : this.Tba() && (a = this.CBa());
+        Ea(a) && (a = this.mf(a),
+        this.ic.wx = a);
+        a && (this.G.attachChild(a),
+        this.G.Ca(a))
+    }
+    ;
+    d.sja = function() {
+        for (var a = 0; a < this.Lr.length && !this.Lr[a].enabled; )
+            a += 1;
+        this.Fl !== this.Lr && this.Zg.oa(this.Lr, a);
+        this.Zg.ba(a);
+        this.Fl = this.Lr;
+        this.QY([])
+    }
+    ;
+    d.GL = function(a) {
+        a = void 0 === a ? this.AB : a;
+        this.Fl !== this.BB && this.Zg.oa(this.BB, a);
+        this.Zg.ba(a);
+        this.Fl = this.BB;
+        this.XP !== this.offerButtons && this.QY(this.offerButtons)
+    }
+    ;
+    d.tO = function(a) {
+        a.enabled || this.Zg.$a() !== a || this.Lga()
+    }
+    ;
+    d.rR = function() {
+        return this.Zg
+    }
+    ;
+    d.HAa = function() {
+        return this.pm
+    }
+    ;
+    d.N8 = function() {
+        return this.XP
+    }
+    ;
+    d.tlb = function() {
+        return this.liveIndicatorText
+    }
+    ;
+    d.Lga = function() {
+        this.pm.Fd(!1);
+        this.GL();
+        this.Zg.ba(this.AB)
+    }
+    ;
+    d.QY = function(a) {
+        this.XP = a;
+        this.w("offer-buttons-changed")
+    }
+    ;
+    d.mf = function(a) {
+        if (31523 === a)
+            return this.mX || (this.mX = this.G.ye(a)),
+            this.mX;
+        this.nX || (this.nX = this.G.ye(a));
+        return this.nX
+    }
+    ;
+    E(TX, "makeCollection moreOptionsButtonModel feedbackButtonModel reportButtonModel subscribeButtonModel toggleVideoInfoButtonModel skipForwardButtonModel skipBackwardButtonModel adInfoButtonModel playPauseButtonModel qualityButtonModel captionsButtonModel audioChannelsButtonModel watchNextResponse transportControlsReporting likeButtonModel dislikeButtonModel addToPlaylistButtonModel playbackRateButtonModel liveChatButtonModel screenManager getPlaybackConfig getNextPreviewButtonTrackingParams getPreviousPreviewButtonTrackingParams experimentFlags playerService adModel opt_makeChannelButtonModelForPlayback opt_makeChannelButtonModelForAds opt_parseOfferButtonList".split(" "));
+    function UX(a, b) {
+        S.call(this);
+        this.experimentFlags = a;
+        this.j = b;
+        this.Eca = this.$v = 0;
+        this.Cca = "rewind";
+        this.wN = this.experimentFlags.esa_acc_minSeek || 5;
+        this.Mna = this.experimentFlags.esa_acc_seekSessionTTL || 250;
+        this.rna = this.experimentFlags.esa_acc_maxIntervalConst || .65;
+        this.kna = this.experimentFlags.esa_acc_growthRate || 5;
+        this.Lna = this.experimentFlags.seeks_to_corgi || 75
+    }
+    l(UX, S);
+    d = UX.prototype;
+    d.cra = function(a) {
+        return 240 >= a ? 12 : 900 >= a ? 18 : 1320 >= a ? 25 : 1800 >= a ? 35 : 5400 >= a ? 45 : a / 120
+    }
+    ;
+    d.gra = function(a, b) {
+        b = b.maxFrameIndex - b.minFrameIndex + 1;
+        return 0 < b && 0 < a ? (a = this.cra(a),
+        Math.round(b / Math.min(4 * a, b))) : 1
+    }
+    ;
+    d.Wz = function(a, b) {
+        return b && 0 < b.intervalMs ? this.gra(a, b) * b.intervalMs / 1E3 : 10
+    }
+    ;
+    d.wAa = function(a) {
+        return Math.pow(a, this.rna)
+    }
+    ;
+    d.rDa = function(a, b, c) {
+        if (this.j.za() - this.Eca > this.Mna + (this.$v < this.wN ? 0 : 125) || this.Cca !== b || c)
+            this.$v = 0;
+        this.$v++;
+        this.Cca = b;
+        this.Eca = this.j.za();
+        b = this.experimentFlags.esa_acc_baseInterval || 10;
+        if (this.$v < this.wN)
+            return 10;
+        this.$v > this.Lna && this.w("triggerEasterEgg");
+        a = this.wAa(a);
+        return Math.min(Math.floor((a - b) * (1 - Math.exp(-(this.$v - this.wN) / this.kna)) + b), a)
+    }
+    ;
+    E(UX, ["experimentFlags", "timeService"]);
+    function VX(a, b, c, e, f, g) {
+        V.call(this);
+        this.f = a;
+        this.Qa = b;
+        this.Y = c;
+        this.experimentFlags = e;
+        this.nC = f;
+        this.Je = g;
+        this.jI = function() {}
+        ;
+        this.Gb = function() {}
+    }
+    l(VX, V);
+    d = VX.prototype;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.model ? (this.pd.model = this.model.rR(),
+        this.pm.model = this.model.HAa(),
+        this.um.model = this.model.N8(),
+        this.Bb("offer-buttons-changed", this.MMa.bind(this))) : (this.pd.model = null,
+        this.pm.model = null,
+        this.um.model = null)
+    }
+    ;
+    d.ready = function() {
+        var a = this;
+        this.ag = this.N(".scrubber");
+        this.pm = this.Nb("transport-more-button");
+        this.pd = this.Nb("buttons-list");
+        this.on("keyup", this.xb.bind(this));
+        this.um = this.Nb("offer-button-list");
+        this.on("keydown", this.ua.bind(this));
+        this.I(this.f, "isPlayingAd:changed", this.tE.bind(this));
+        this.ig();
+        this.I(this.nC, "triggerEasterEgg", function() {
+            a.Qa.Xj("easter-egg-triggered");
+            a.wa("stroll-corgi");
+            a.render()
+        })
+    }
+    ;
+    d.rb = function() {
+        if (!this.f.Ja) {
+            if (1E3 === this.f.state)
+                return this.pm;
+            if (this.Je)
+                return this.ag
+        }
+        return this.pd
+    }
+    ;
+    d.Sh = function() {
+        this.model && this.model.yLa();
+        V.prototype.Sh.call(this)
+    }
+    ;
+    d.ig = function() {
+        var a = this;
+        this.jI();
+        this.jI = this.I(this.f, "isPlaying:changed", function() {
+            return a.render()
+        });
+        this.isHidden() && this.ZB();
+        this.Gb();
+        this.Gb = this.f.Ej("transport-showing");
+        return V.prototype.ig.call(this)
+    }
+    ;
+    d.hg = function() {
+        this.jI();
+        this.jI = function() {}
+        ;
+        this.experimentFlags.enable_esa_acceleration && this.lb("stroll-corgi");
+        this.Gb();
+        this.Gb = function() {}
+        ;
+        V.prototype.hg.call(this)
+    }
+    ;
+    d.Ga = function(a) {
+        V.prototype.Ga.call(this, a);
+        this.ready && this.ag && this.ag.Ga(a)
+    }
+    ;
+    d.T = function() {
+        var a = V.prototype.T.call(this);
+        this.f.Ja && a.push("ad-active");
+        this.f.isLive() && a.push("live-playback");
+        this.f.ox() && !this.f.Ja && a.push("supports-captions");
+        return a
+    }
+    ;
+    d.ZB = function(a) {
+        this.model && this.model.Lga();
+        a && this.pd.focus()
+    }
+    ;
+    d.CQ = function() {
+        this.ag.CQ()
+    }
+    ;
+    d.VZ = function(a) {
+        this.ZB();
+        this.ag.J() || this.ag.focus();
+        this.ag.VZ(a)
+    }
+    ;
+    d.tE = function() {
+        this.ZB();
+        this.pd.focus()
+    }
+    ;
+    d.MMa = function() {
+        this.um.model = this.model.N8()
+    }
+    ;
+    d.clear = function() {
+        this.experimentFlags.enable_esa_acceleration && this.lb("stroll-corgi");
+        this.ag.reset()
+    }
+    ;
+    d.xb = function(a) {
+        if (!this.f.Ja)
+            switch (a.keyCode) {
+            case 32:
+                this.ag.J() && this.ag.Baa() && this.pd.focus();
+                break;
+            case 13:
+                this.ag.J() || T(a)
+            }
+    }
+    ;
+    d.ua = function(a) {
+        if (!this.f.Ja)
+            switch (a.keyCode) {
+            case 40:
+                this.ag.J() && (this.pd.focus(),
+                this.ag.Baa() || T(a));
+                break;
+            case 38:
+                this.ag.J() ? this.Je && T(a) : (this.ag.focus(),
+                T(a));
+                break;
+            case 39:
+                this.pm.J() ? (this.pd.focus(),
+                T(a)) : this.pd.J() ? (this.um.model && this.um.focus(),
+                T(a)) : this.um.model && this.um.J() && T(a);
+                break;
+            case 37:
+                this.um.model && this.um.J() ? (this.pd.focus(),
+                T(a)) : this.pd.J() ? (this.pm.focus(),
+                T(a)) : this.pm.J() && T(a)
+            }
+    }
+    ;
+    E(VX, "playerService transportControlsReporting progressModel experimentFlags seekingService supportsAppleTvUx".split(" "));
+    function WX(a, b, c, e, f) {
+        xX.call(this, a, b, c, e);
+        this.experimentFlags = f;
+        this.Ii = this.Dk = null;
+        this.dM = 0
+    }
+    l(WX, xX);
+    d = WX.prototype;
+    d.ready = function() {
+        var a = this;
+        xX.prototype.ready.call(this);
+        this.on("keydown", this.ua.bind(this));
+        this.Dk = this.Nb("main-suggestions-list");
+        this.Dk.on("selected-index-changed", function() {
+            a.dM = a.model.suggestions.aa()
+        });
+        this.experimentFlags.search_ui_2018_b && (this.Ii = this.Nb("overflow-suggestions-list"),
+        this.Ii.on("selected-index-changed", function() {
+            a.dM = a.model.gw.aa() + 8
+        }));
+        this.dM = 0
+    }
+    ;
+    d.OW = function() {
+        return this.Ii && this.Ii.model && this.Ii.model.ha()
+    }
+    ;
+    d.zV = function() {
+        return this.Dk && this.Dk.model && this.Dk.model.ha()
+    }
+    ;
+    d.ua = function(a) {
+        switch (a.keyCode) {
+        case 37:
+            this.wh() && T(a);
+            break;
+        case 39:
+            this.vj() && T(a)
+        }
+    }
+    ;
+    d.wh = function() {
+        if (this.zV() && this.OW() && this.Ii.J()) {
+            var a = this.Ii.model.aa();
+            this.Dk.model.ba(a);
+            this.Dk.focus();
+            return !0
+        }
+        return !1
+    }
+    ;
+    d.vj = function() {
+        if (this.zV() && this.OW() && this.Dk.J()) {
+            var a = this.Dk.model.aa()
+              , b = this.Ii.model.ha();
+            this.Ii.model.ba(Math.min(a, b - 1));
+            this.Ii.focus();
+            return !0
+        }
+        return !1
+    }
+    ;
+    d.wS = function() {
+        return this.OW() && this.Ii.J() ? this.Ii.model.$a() : xX.prototype.wS.call(this)
+    }
+    ;
+    d.G9 = function() {
+        return this.dM
+    }
+    ;
+    d.rb = function() {
+        return this.mc ? this.mc : this.zV() ? this.Dk : null
+    }
+    ;
+    E(WX, ["suggestionsModel", "transliterationsModel", "environment", "screenManager", "experimentFlags"]);
+    function XX(a, b, c, e, f, g, h, k) {
+        GR.call(this, a, b, c, k);
+        this.gq = e;
+        this.Oc = f;
+        this.j = g;
+        this.Je = h;
+        this.model = this.Jx = this.Rh = this.gE = this.liveBadge = this.Xs = this.animatedThumbnail = this.eca = this.Hfa = this.ow = this.ay = this.lma = this.p3 = this.W5 = null;
+        this.Om = -1
+    }
+    l(XX, GR);
+    d = XX.prototype;
+    d.Eb = function() {
+        GR.prototype.Eb.call(this);
+        this.W5 = this.h.querySelector(".duration");
+        this.eca = this.h.querySelector(".is-watched");
+        this.p3 = this.h.querySelector(".by");
+        this.lma = this.h.querySelector(".views");
+        this.ay = this.h.querySelector(".age");
+        this.ow = this.h.querySelector(".progress-overlay");
+        this.Hfa = this.h.querySelector(".progress-overlay .red")
+    }
+    ;
+    d.ready = function() {
+        var a = this;
+        GR.prototype.ready.call(this);
+        this.animatedThumbnail = this.N(".animated.video-thumb");
+        this.animatedThumbnail.on("loaded", function() {
+            a.animatedThumbnail.show()
+        });
+        this.liveBadge = this.gq({
+            container: this.h.querySelector(".live-badge")
+        });
+        this.Xs = this.gq({
+            container: this.h.querySelector(".upcoming-badge")
+        });
+        this.gE = this.gq({
+            container: this.h.querySelector(".yto-top-badge")
+        });
+        this.Rh = this.gq({
+            container: this.h.querySelector(".yto-bottom-badge")
+        });
+        this.Jx = this.gq({
+            container: this.h.querySelector(".ypc-badge")
+        })
+    }
+    ;
+    d.D = function(a) {
+        GR.prototype.D.call(this, a);
+        this.i0()
+    }
+    ;
+    d.render = function(a) {
+        GR.prototype.render.call(this, a);
+        if (this.model) {
+            this.fb(this.ow, !!this.model.progress);
+            this.model.progress && (this.Hfa.style.width = this.model.progress + "%");
+            a = !!this.model.Jx;
+            var b = !!this.model.Rh;
+            this.fb(this.W5, this.model instanceof gX && !!this.model.durationLabel);
+            this.fb(this.lma, !!this.model.viewCountLabel && !(b || a));
+            this.fb(this.ay, !!this.model.$m && !(b || a));
+            this.EV(this.p3, !this.model.channel || !this.model.channel.displayName);
+            this.fb(this.eca, this.model.isWatched);
+            this.Au.setAttribute("aria-label", this.lf())
+        }
+    }
+    ;
+    d.lf = function() {
+        if (!this.enabled || !this.model)
+            return "";
+        var a = [this.getTitle()];
+        this.model.durationLabel && a.push(this.model.durationLabel);
+        this.model.viewCountLabel && a.push(this.model.viewCountLabel);
+        this.model.channel && a.push(this.model.channel.displayName);
+        return a.join(". ")
+    }
+    ;
+    d.i0 = function() {
+        this.model && (this.gE.xc(this.model.gE),
+        this.Rh.xc(this.model.Rh),
+        this.Jx.xc(this.model.Jx),
+        this.liveBadge.xc(this.model.liveBadge),
+        this.Xs.xc(this.model.Xs))
+    }
+    ;
+    d.B = function() {
+        this.Cy();
+        GR.prototype.B.call(this)
+    }
+    ;
+    d.onFocus = function() {
+        GR.prototype.onFocus.call(this);
+        var a = this.animatedThumbnail;
+        a.imageUrl = this.model ? this.model.GE : "";
+        this.Je && a.imageUrl ? this.Om = this.j.setTimeout(function() {
+            a.render()
+        }, 750) : a.render()
+    }
+    ;
+    d.onBlur = function() {
+        GR.prototype.onBlur.call(this);
+        this.Cy();
+        this.animatedThumbnail.hide();
+        this.animatedThumbnail.imageUrl = "";
+        this.animatedThumbnail.render()
+    }
+    ;
+    d.Vjb = function() {
+        if (this.model) {
+            var a = this.model.description;
+            var b = 86;
+            a = a || "";
+            if (!(a.length < b || 0 > b)) {
+                for (var c = b; 0 < c; c--)
+                    if (" " === a[c]) {
+                        b = c;
+                        break
+                    }
+                a = a.substr(0, b) + "..."
+            }
+        } else
+            a = "";
+        return a
+    }
+    ;
+    d.T = function() {
+        var a = GR.prototype.T.call(this);
+        this.model && this.model.textBadge && this.model.textBadge.title && a.push("hd-badge");
+        return a
+    }
+    ;
+    d.Cy = function() {
+        -1 !== this.Om && (this.j.clearTimeout(this.Om),
+        this.Om = -1)
+    }
+    ;
+    E(XX, "componentBuilder localeService playSoundFromDescriptor badgeDelegateFactory applicationModel timeService supportsAppleTvUx opt_sheenTiltInteractorFactory".split(" "));
+    function YX(a, b) {
+        V.call(this);
+        this.Fc = b;
+        this.ub = !0;
+        this.model = a;
+        this.sb = y
+    }
+    l(YX, V);
+    d = YX.prototype;
+    d.ready = function() {
+        function a() {
+            return b.render()
+        }
+        var b = this;
+        V.prototype.ready.call(this);
+        this.on("keydown", T);
+        this.on("keyup", this.xb.bind(this));
+        this.I(this.model, "voice-state-changed", a);
+        this.I(this.model, "detecting-sound-changed", a)
+    }
+    ;
+    d.onFocus = function() {
+        V.prototype.onFocus.call(this);
+        this.sb();
+        this.sb = this.Fc.$X(U.BACK)
+    }
+    ;
+    d.onBlur = function() {
+        V.prototype.onBlur.call(this);
+        this.sb();
+        this.sb = y
+    }
+    ;
+    d.T = function() {
+        var a = V.prototype.T.call(this);
+        a.push(this.model.getState());
+        this.model.isOpen() && a.push("open");
+        this.model.dm() && a.push("detecting-sound");
+        return a
+    }
+    ;
+    d.xb = function(a) {
+        T(a);
+        switch (a.keyCode) {
+        case 8:
+        case 27:
+        case 40:
+            this.model.cancel()
+        }
+    }
+    ;
+    d.B = function() {
+        this.sb();
+        this.sb = y;
+        V.prototype.B.call(this)
+    }
+    ;
+    E(YX, ["voiceSearchModel", "legendModel"]);
+    function ZX(a, b) {
+        V.call(this);
+        this.qf = a;
+        this.oO = b;
+        this.CI = this.content = this.Zt = this.clearWatchHistoryButton = this.F4 = this.pauseWatchHistoryButton = this.Sea = null
+    }
+    l(ZX, V);
+    d = ZX.prototype;
+    d.ready = function() {
+        V.prototype.ready.call(this);
+        var a = this.h;
+        this.Sea = a.querySelector(".pause-watch-history-button-container");
+        this.F4 = a.querySelector(".clear-watch-history-button-container");
+        this.Zt = a.querySelector(".content-container");
+        this.on("keydown", this.ua.bind(this))
+    }
+    ;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        var b = a = null
+          , c = null;
+        this.model && (a = this.model.pBa(),
+        b = this.model.aya(),
+        c = this.model.hh());
+        this.cZ(null);
+        this.lGa(a);
+        this.kGa(b);
+        this.ET(c)
+    }
+    ;
+    d.Vz = function() {
+        return 24
+    }
+    ;
+    d.rb = function() {
+        return this.mc && this.mc.cb() ? this.mc : this.content && this.content.cb() ? this.content : this.pauseWatchHistoryButton && this.pauseWatchHistoryButton.cb() ? this.pauseWatchHistoryButton : this.clearWatchHistoryButton && this.clearWatchHistoryButton.cb() ? this.clearWatchHistoryButton : null
+    }
+    ;
+    d.lGa = function(a) {
+        var b = this;
+        a = a && this.qf.fv(this.oO, a, this.pauseWatchHistoryButton);
+        if (a !== this.pauseWatchHistoryButton && (this.k0(this.pauseWatchHistoryButton, a, this.Sea),
+        this.pauseWatchHistoryButton = a))
+            this.pauseWatchHistoryButton.on("component-focus", function() {
+                b.cZ(b.pauseWatchHistoryButton)
+            })
+    }
+    ;
+    d.kGa = function(a) {
+        var b = this;
+        a = a && this.qf.fv(this.oO, a, this.clearWatchHistoryButton);
+        if (a !== this.clearWatchHistoryButton && (this.k0(this.clearWatchHistoryButton, a, this.F4),
+        this.clearWatchHistoryButton = a))
+            this.clearWatchHistoryButton.on("component-focus", function() {
+                b.cZ(b.clearWatchHistoryButton)
+            })
+    }
+    ;
+    d.ET = function(a) {
+        a = a && this.qf.fv(this.oO, a, this.content);
+        a !== this.content && (this.k0(this.content, a, this.Zt),
+        this.content = a)
+    }
+    ;
+    d.k0 = function(a, b, c) {
+        c && (a && (c.removeChild(a.h),
+        this.removeChild(a)),
+        b && (this.Zb(b),
+        c.appendChild(b.h)))
+    }
+    ;
+    d.ua = function(a) {
+        var b = !1;
+        switch (a.keyCode) {
+        case 38:
+            if (!this.content || !this.content.J())
+                break;
+            this.CI ? (this.CI.focus(),
+            b = this.CI.J()) : this.pauseWatchHistoryButton ? (this.pauseWatchHistoryButton.focus(),
+            b = this.pauseWatchHistoryButton.J()) : this.clearWatchHistoryButton && (this.clearWatchHistoryButton.focus(),
+            b = this.clearWatchHistoryButton.J());
+            break;
+        case 40:
+            this.content && !this.content.J() && (this.content.focus(),
+            b = this.content.J());
+            break;
+        case 37:
+            this.clearWatchHistoryButton && this.clearWatchHistoryButton.J() && this.pauseWatchHistoryButton && (this.pauseWatchHistoryButton.focus(),
+            b = this.pauseWatchHistoryButton.J());
+            break;
+        case 39:
+            this.pauseWatchHistoryButton && this.pauseWatchHistoryButton.J() && this.clearWatchHistoryButton && (this.clearWatchHistoryButton.focus(),
+            b = this.clearWatchHistoryButton.J());
+            break;
+        default:
+            return
+        }
+        b && T(a)
+    }
+    ;
+    d.cZ = function(a) {
+        this.CI = a
+    }
+    ;
+    d.Gc = function(a) {
+        this.content instanceof CR && this.content.Gc(a)
+    }
+    ;
+    d.hh = function() {
+        return this.content
+    }
+    ;
+    E(ZX, ["inflater", "browseSetsService"]);
+    function $X(a) {
+        C.call(this);
+        var b = this;
+        this.F = a;
+        this.H(this.F.on("keydown", function(a) {
+            b.SS(a)
+        }));
+        this.H(this.F.on("model:changed", function() {
+            b.YQ()
+        }))
+    }
+    l($X, C);
+    $X.prototype.SS = function(a) {
+        37 === a.keyCode ? (this.F.model.aja(-1),
+        this.YQ()) : 39 === a.keyCode && (this.F.model.aja(1),
+        this.YQ())
+    }
+    ;
+    $X.prototype.YQ = function() {
+        if (this.F.model) {
+            var a = this.F.model.rCa();
+            (a = this.F.N(a)) && a.focus()
+        }
+    }
+    ;
+    $X.prototype.Tc = function() {}
+    ;
+    E($X, ["component"]);
+    function aY(a, b, c) {
+        b = c({
+            message: "[[There was an error retrieving the requested video.|Error displayed when a video cannot be loaded.]]",
+            iconClass: "icon-settings-term",
+            completeHandler: y,
+            cancelHandler: b
+        });
+        b.title = "[[Playback Error|Title of dialog displayed when a video cannot be played.|1376268536]]";
+        b.Cd = !1;
+        b.Ub.push("player-error-dialog");
+        a.open(b)
+    }
+    E(aY, ["dialogStageModel", "goBack", "iconSimpleDialogModelFactory"]);
+    function bY(a, b, c, e, f, g) {
+        V.call(this);
+        this.f = a;
+        this.Fa = c;
+        this.Na = e;
+        this.Uk = f;
+        this.uh = g;
+        this.GM = !1;
+        this.rB = {};
+        this.fg = b.fg;
+        this.Zh = g();
+        this.languages = g();
+        this.ZQ = g();
+        this.fO = g();
+        this.b1 = g();
+        this.qB = g();
+        a = 0;
+        for (b = cY.length; a < b; ++a)
+            this.rB[cY[a]] = !1;
+        this.fg && (this.Zh = this.languages)
+    }
+    l(bY, V);
+    d = bY.prototype;
+    d.initialize = function() {
+        var a = this;
+        V.prototype.initialize.call(this);
+        this.I(this.f, "subtitlesTrackList:changed", function() {
+            a.p0()
+        });
+        this.I(this.f, "api:changed", function() {
+            a.p0()
+        });
+        this.DTa();
+        this.VUa()
+    }
+    ;
+    d.lZ = function(a) {
+        a = a ? "visible" : "hidden";
+        this.qOa.style.visibility = a;
+        this.nOa.style.visibility = a
+    }
+    ;
+    d.ready = function() {
+        var a = this;
+        V.prototype.ready.call(this);
+        this.jz = this.Nb("display-properties-list");
+        this.qOa = this.h.querySelector(".video-override-title");
+        this.nOa = this.h.querySelector(".video-override-description");
+        this.lZ(!1);
+        if (this.fg)
+            this.jz.on("button-enter", function(b) {
+                a.Hea(b)
+            });
+        else
+            this.Zh.on("selected-index-changed", function() {
+                a.Rd.model = a.CR();
+                a.y0a()
+            }),
+            this.on("keyup", function(b) {
+                a.xb(b)
+            }),
+            this.Rd = this.Nb("options-list"),
+            this.Rd.model = this.CR(),
+            this.Rd.on("button-enter", function(b) {
+                a.Hea(b)
+            }),
+            this.jz.on("button-enter", function(b) {
+                a.Qua(b)
+            }),
+            this.Bg = this.Nb("override-options-list"),
+            this.Bg.setSize(10),
+            this.Bg.model = this.T8(),
+            this.Bg.on("button-enter", function(b) {
+                a.pOa(b)
+            });
+        if (this.f.ox()) {
+            this.gJa();
+            var b = this.f.Ul();
+            b && b.length ? this.p0() : this.f.OI()
+        } else
+            this.lca()
+    }
+    ;
+    d.onBlur = function() {
+        this.f.wp(!1);
+        this.GM && this.f.$_();
+        V.prototype.onBlur.call(this)
+    }
+    ;
+    d.r0a = function(a) {
+        for (var b = 0, c = cY.length; b < c; ++b) {
+            var e = cY[b];
+            this.rB[e] = !!a[e + "Override"]
+        }
+    }
+    ;
+    d.DTa = function() {
+        var a = this.f.Ju() || {};
+        a = Bc(a, "displayName", "[[Off|Menu state indicating captions are turned off.]]");
+        var b = this.f.getSubtitlesUserSettings();
+        this.r0a(b);
+        var c = b.fontFamily
+          , e = b.color
+          , f = b.background
+          , g = b.windowColor
+          , h = b.charEdgeStyle
+          , k = b.textOpacity
+          , m = b.backgroundOpacity
+          , p = b.windowOpacity;
+        b = b.fontSizeIncrement;
+        this.Mqa(e, f, g);
+        this.Zh.oa([this.Uk({
+            label: "[[Captions|Menu item to the captions settings.]]",
+            subtitle: a,
+            payload: this.languages
+        }), this.Uk({
+            label: "[[Font family|Menu item to select font family of the captions.]]",
+            subtitle: dY[c] ? dY[c].label : "",
+            type: "font-family",
+            payload: this.Oqa(c)
+        }), this.Uk({
+            label: "[[Font color|Menu item to select font color.]]",
+            subtitle: eY[e] ? eY[e].text : "",
+            type: "font-color",
+            payload: this.ZQ
+        }), this.Uk({
+            label: "[[Font size|Menu item to select size of the captions.]]",
+            subtitle: fY[b] ? fY[b].label : "",
+            payload: this.Pqa(b)
+        }), this.Uk({
+            label: "[[Background color|Menu item to select background color.]]",
+            subtitle: eY[f] ? eY[f].text : "",
+            type: "background-color",
+            payload: this.fO
+        }), this.Uk({
+            label: "[[Background opacity|Menu item for changing background opacity for caption text.]]",
+            subtitle: gY[m] ? gY[m].label : "",
+            payload: this.Kqa(m)
+        }), this.Uk({
+            label: "[[Window color|Menu item to select the window color.]]",
+            subtitle: eY[g] ? eY[g].text : "",
+            type: "window-color",
+            payload: this.b1
+        }), this.Uk({
+            label: "[[Window opacity|Menu item for changing window opacity for caption text]]",
+            subtitle: gY[p] ? gY[p].label : "",
+            payload: this.Xqa(p)
+        }), this.Uk({
+            label: "[[Character edge style|Menu item to select character edge styles of the captions.]]",
+            subtitle: hY[h] ? hY[h].label : "",
+            type: "char-edge-style",
+            payload: this.Nqa(h)
+        }), this.Uk({
+            label: "[[Text opacity|Menu item to select text opacity of the captions.]]",
+            subtitle: gY[k] ? gY[k].label : "",
+            payload: this.Vqa(k)
+        }), this.Na({
+            label: "[[Reset style|Menu item to reset styling of the captions.]]",
+            type: "reset"
+        })]);
+        this.Zh.ba(0)
+    }
+    ;
+    d.VUa = function() {
+        this.qB.oa([this.Na({
+            label: "[[On|Menu item to enable the override of the selected option.]]",
+            type: "on"
+        }), this.Na({
+            label: "[[Off|Menu item to disable the override of the selected option.]]",
+            type: "off"
+        })]);
+        this.qB.ba(1)
+    }
+    ;
+    d.T8 = function() {
+        return this.Zh.$a().payload && 0 !== this.Zh.aa() ? this.qB : null
+    }
+    ;
+    d.y0a = function() {
+        if (this.Bg)
+            if (this.Bg.model = this.T8(),
+            this.Bg.model) {
+                this.lZ(!0);
+                var a = this.Zh.$a().payload;
+                (a = "color" === a.$a().type ? this.tR() : pc(a.$a().payload)) && (this.rB[a] ? this.qB.ba(1) : this.qB.ba(0))
+            } else
+                this.lZ(!1)
+    }
+    ;
+    d.CR = function() {
+        return this.Zh.$a().payload
+    }
+    ;
+    d.p0 = function() {
+        var a = this.f.Ul()
+          , b = this.f.Ju() || {};
+        this.f.wp(!this.GM && !!a.length && !this.fg);
+        var c = this.fg ? "check-button" : void 0;
+        if (a.length) {
+            for (var e, f = [], g = 0, h = a.length; g < h; ++g) {
+                var k = a[g]
+                  , m = this.Na({
+                    label: k.displayName,
+                    type: "language",
+                    payload: k,
+                    componentRenderer: c
+                });
+                b.displayName && k.displayName === b.displayName && k.languageCode === b.languageCode && (m.ff = "previously-selected",
+                e = m);
+                f.push(m)
+            }
+            f.unshift(this.Na({
+                label: "[[Off|Title of a button that turns subtitles off.]]",
+                type: "off",
+                componentRenderer: c,
+                "class": b.displayName ? void 0 : "previously-selected"
+            }));
+            this.languages.oa(f, 0);
+            e && this.languages.xp(e)
+        } else
+            this.lca();
+        this.render(!0)
+    }
+    ;
+    d.Hea = function(a) {
+        this.jOa(a.detail);
+        T(a)
+    }
+    ;
+    d.jOa = function(a) {
+        this.setOption(a.type, a.payload, a.kj());
+        this.Bg && this.Bg.model && this.Bg.focus()
+    }
+    ;
+    d.Qua = function(a) {
+        a.detail && this.Pua(a.detail)
+    }
+    ;
+    d.Pua = function(a) {
+        a.payload && this.Rd ? this.Rd.focus() : "reset" === a.type && this.f.resetSubtitlesUserSettings()
+    }
+    ;
+    d.pOa = function(a) {
+        this.oOa(a.detail);
+        T(a)
+    }
+    ;
+    d.oOa = function(a) {
+        var b = this.Zh.$a().payload.$a(), c;
+        if (c = "display-option" === b.type ? pc(b.payload) : this.tR())
+            this.rB[c] = "off" === a.type,
+            this.setOption(b.type, b.payload)
+    }
+    ;
+    d.tR = function() {
+        var a = this.Zh.$a()
+          , b = "";
+        "font-color" === a.type ? b = "color" : "background-color" === a.type ? b = "background" : "window-color" === a.type && (b = "windowColor");
+        return b
+    }
+    ;
+    d.setOption = function(a, b, c) {
+        c = void 0 === c ? "" : c;
+        var e = this.Zh.$a();
+        switch (a) {
+        case "language":
+            this.GM = !1;
+            this.f.hL(b);
+            this.f.wp(!this.fg);
+            break;
+        case "off":
+            this.GM = !0;
+            this.f.wp(!1);
+            break;
+        case "display-option":
+            (a = pc(b)) && this.ria(a, c ? b[a] : void 0);
+            break;
+        case "color":
+            (a = this.tR()) && this.ria(a, c ? b.color : void 0)
+        }
+        c && e instanceof ND && e.dZ(c);
+        this.jz.render(!0);
+        this.fg && (this.dc("dialog:complete"),
+        this.Fa.close())
+    }
+    ;
+    d.ria = function(a, b) {
+        var c = {};
+        void 0 !== b && (c[a] = b);
+        c[a + "Override"] = this.rB[a];
+        this.f.updateSubtitlesUserSettings(c)
+    }
+    ;
+    d.xb = function(a) {
+        switch (a.keyCode) {
+        case 39:
+            this.vj();
+            break;
+        case 37:
+            this.wh()
+        }
+    }
+    ;
+    d.vj = function() {
+        this.jz.J() && this.CR() && this.Rd ? this.Rd.focus() : this.Rd && this.Rd.J() && this.Bg && this.Bg.model && this.Bg.focus()
+    }
+    ;
+    d.wh = function() {
+        this.Rd && this.Bg && this.Bg.J() ? this.Rd.focus() : this.Rd && this.Rd.J() && this.jz.focus()
+    }
+    ;
+    d.lca = function() {
+        this.languages.oa([this.Na({
+            label: "[[Not available|Title that is displayed when subtitles are not available.]]"
+        })])
+    }
+    ;
+    d.gJa = function() {
+        this.languages.oa([this.Na({
+            label: "[[Loading...|Tooltip displayed when some data is loading.]]"
+        })], 0)
+    }
+    ;
+    d.Mqa = function(a, b, c) {
+        for (var e = this, f = "#080808 #f00 #f0f #00f #0ff #0f0 #ff0 #fff".split(" "), g = [], h = 0, k = f.length; h < k; ++h) {
+            var m = f[h];
+            g.push(this.Na({
+                label: eY[m].text,
+                type: "color",
+                payload: {
+                    color: m,
+                    "class": eY[m].className
+                },
+                componentRenderer: "color-button"
+            }))
+        }
+        this.fO.oa(g, 0);
+        b && this.fO.ba(f.indexOf(b));
+        this.b1.oa(g, 0);
+        c && this.b1.ba(f.indexOf(c));
+        b = g.reverse().map(function(a) {
+            a = e.Na({
+                label: a.kj(),
+                type: a.type,
+                payload: Object.assign({}, a.payload),
+                componentRenderer: a.L
+            });
+            a.payload["class"] += " rounded";
+            return a
+        });
+        this.ZQ.oa(b, 0);
+        a && this.ZQ.ba(f.reverse().indexOf(a))
+    }
+    ;
+    d.Oqa = function(a) {
+        return this.Ht("fontFamily", [1, 2, 3, 4, 5, 6, 7], dY, a)
+    }
+    ;
+    d.Nqa = function(a) {
+        return this.Ht("charEdgeStyle", [0, 4, 1, 2, 3], hY, a)
+    }
+    ;
+    d.Vqa = function(a) {
+        return this.Ht("textOpacity", [.5, .75, 1], gY, a)
+    }
+    ;
+    d.Kqa = function(a) {
+        return this.Ht("backgroundOpacity", [0, .25, .75, 1], gY, a)
+    }
+    ;
+    d.Xqa = function(a) {
+        return this.Ht("windowOpacity", [0, .25, .75, 1], gY, a)
+    }
+    ;
+    d.Pqa = function(a) {
+        return this.Ht("fontSizeIncrement", [-2, -1, 0, 2, 4], fY, a)
+    }
+    ;
+    d.Ht = function(a, b, c, e) {
+        var f = this.uh();
+        f.oa(this.Lqa(a, b, c), 0);
+        e && f.ba(b.indexOf(e));
+        return f
+    }
+    ;
+    d.Lqa = function(a, b, c) {
+        for (var e = [], f = 0, g = b.length; f < g; f++) {
+            var h = b[f]
+              , k = {};
+            k[a] = h;
+            var m = c["" + h];
+            e.push(this.Na({
+                label: m ? m.label : "" + h,
+                type: "display-option",
+                payload: k,
+                voiceCommand: m ? m.$s : void 0
+            }))
+        }
+        return e
+    }
+    ;
+    d.T = function() {
+        var a = V.prototype.T.call(this);
+        this.fg ? a.push("single-pane-selector") : a.push("split-pane-selector");
+        return a
+    }
+    ;
+    var cY = "background backgroundOpacity charEdgeStyle color fontFamily fontSizeIncrement textOpacity windowColor windowOpacity".split(" ")
+      , iY = {
+        Uma: {
+            label: "[[Depressed|This is the text of the Depressed option for character edge styles.]]"
+        },
+        Vma: {
+            label: "[[Drop Shadow|This is the text of the Drop Shadow option for character edge styles.]]"
+        },
+        Wma: {
+            label: "[[None|This is the text of the None option for character edge styles.]]"
+        },
+        Xma: {
+            label: "[[Raised|This is the text of the Raised option for character edge styles.]]"
+        },
+        Yma: {
+            label: "[[Uniform|This is the text of the Uniform option for character edge styles.]]"
+        },
+        dna: {
+            label: "[[Casual|This is the text of the Casual option for captions font family.]]"
+        },
+        ena: {
+            label: "[[Cursive|This is the text of the Cursive option for captions font family.]]"
+        },
+        fna: {
+            label: "[[Monospaced Sans-Serif|This is the text of the Monospaced Sans-Serif option for captions font family.]]"
+        },
+        gna: {
+            label: "[[Monospaced Serif|This is the text of the Monospaced Serif option for captions font family.]]"
+        },
+        hna: {
+            label: "[[Proportional Sans-Serif|This is the text of the Proportional Sans-Serif option for captions font family.]]"
+        },
+        ina: {
+            label: "[[Proportional Serif|This is the text of the Proportional Serif option for captions font family.]]"
+        },
+        jna: {
+            label: "[[Small Capitals|This is the text of the Small Capitals option for captions font family.]]"
+        },
+        r1: {
+            label: "50%",
+            $s: '[[fifty percent|Voice command pronunciation for "50%"]]'
+        },
+        s1: {
+            label: "100%",
+            $s: '[[one hundred percent|Voice command pronunciation for "100%"]]'
+        },
+        t1: {
+            label: "75%",
+            $s: '[[seventy five percent|Voice command pronunciation for "75%"]]'
+        },
+        wna: {
+            label: "300%",
+            $s: '[[three hundred percent|Voice command pronunciation for "300%"]]'
+        },
+        xna: {
+            label: "25%",
+            $s: '[[twenty five percent|Voice command pronunciation for "25%"]]'
+        },
+        yna: {
+            label: "200%",
+            $s: '[[two hundred percent|Voice command pronunciation for "200%"]]'
+        },
+        zna: {
+            label: "0%",
+            $s: '[[zero percent|Voice command pronunciation for "0%"]]'
+        }
+    }
+      , jY = {}
+      , dY = (jY[1] = iY.gna,
+    jY[2] = iY.ina,
+    jY[3] = iY.fna,
+    jY[4] = iY.hna,
+    jY[5] = iY.dna,
+    jY[6] = iY.ena,
+    jY[7] = iY.jna,
+    jY)
+      , kY = {}
+      , hY = (kY[0] = iY.Wma,
+    kY[1] = iY.Xma,
+    kY[2] = iY.Uma,
+    kY[3] = iY.Yma,
+    kY[4] = iY.Vma,
+    kY)
+      , fY = {
+        "-2": iY.r1,
+        "-1": iY.t1,
+        0: iY.s1,
+        2: iY.yna,
+        4: iY.wna
+    }
+      , gY = {
+        0: iY.zna,
+        "0.25": iY.xna,
+        "0.5": iY.r1,
+        "0.75": iY.t1,
+        1: iY.s1
+    }
+      , eY = {
+        "#080808": {
+            className: "black",
+            text: "[[Black|The color black.]]"
+        },
+        "#f00": {
+            className: "red",
+            text: "[[Red|The color red.]]"
+        },
+        "#f0f": {
+            className: "magenta",
+            text: "[[Magenta|The color magenta.]]"
+        },
+        "#00f": {
+            className: "blue",
+            text: "[[Blue|The color blue.]]"
+        },
+        "#0ff": {
+            className: "cyan",
+            text: "[[Cyan|The color cyan.]]"
+        },
+        "#0f0": {
+            className: "green",
+            text: "[[Green|The color green.]]"
+        },
+        "#ff0": {
+            className: "yellow",
+            text: "[[Yellow|The color yellow.]]"
+        },
+        "#fff": {
+            className: "white",
+            text: "[[White|The color white.]]"
+        }
+    };
+    E(bY, "playerService environment dialogStageModel buttonModelFactory subtitledButtonModelFactory makeCollection".split(" "));
+    function lY(a, b, c, e) {
+        function f() {
+            e.flush();
+            g()
+        }
+        var g = b.Ej("closed-captions-dialog-showing");
+        if (b.wb) {
+            b.pause();
+            var h = f;
+            f = function() {
+                b.play();
+                h()
+            }
+        }
+        var k = new mA(f,f);
+        k.title = "[[Subtitles and closed captions settings|Settings screen where the user can choose the language of subtitles or turn them off.]]";
+        k.L = "closedCaptionsDialog";
+        c.fg ? k.Ub.push("closed-captions-language-only") : k.Ub.push("closed-captions");
+        a.open(k)
+    }
+    E(lY, ["dialogStageModel", "playerService", "environment", "localStorage"]);
+    var mY = {
+        apply: function(a, b) {
+            a.add("dialog-column-list", b({
+                align: "=boundedThirdAlign",
+                axis: "translateY",
+                defaultItemSize: 3.92,
+                duration: 0,
+                isLimitedList: !0,
+                size: 23.5,
+                spacing: 0
+            }));
+            a.V({
+                showClosedCaptionsDialog: lY
+            });
+            a.P([{
+                name: "closedCaptionsDialog",
+                A: bY,
+                template: "dialogs/closed_captions.html"
+            }, {
+                name: "color-button",
+                A: W,
+                template: "color_button.html"
+            }])
+        },
+        R: [sA, SD, Hz]
+    };
+    E(mY.apply, ["injector", "makeNewListConfig"]);
+    function nY(a, b, c, e, f) {
+        this.Ma = a;
+        this.al = b;
+        this.gz = c;
+        this.Ld = e;
+        this.Dc = f;
+        this.xr = !1;
+        this.mb = []
+    }
+    d = nY.prototype;
+    d.dm = function() {
+        return this.xr
+    }
+    ;
+    d.Eja = function() {
+        this.SVa();
+        this.Sk(!0)
+    }
+    ;
+    d.JO = function() {
+        this.Sk(!1);
+        this.A_()
+    }
+    ;
+    d.SVa = function() {
+        this.mb.push(this.Ma.on("voice-query:updated", this.dOa.bind(this)));
+        this.mb.push(this.Ma.on("voice-query:completed", this.cOa.bind(this)));
+        this.mb.push(this.Ma.on("voice-query:canceled", this.bOa.bind(this)))
+    }
+    ;
+    d.A_ = function() {
+        for (; 0 < this.mb.length; )
+            this.mb.pop()()
+    }
+    ;
+    d.Sk = function(a) {
+        a !== this.xr && (this.xr = a,
+        this.gz(a))
+    }
+    ;
+    d.dOa = function(a, b) {
+        this.al.update([{
+            text: a,
+            confidence: "confidence-high"
+        }, {
+            text: b,
+            confidence: "confidence-low"
+        }], !1)
+    }
+    ;
+    d.cOa = function(a) {
+        this.al.update(this.Rwa(a), !0);
+        this.Sk(!1);
+        this.A_();
+        this.Ld()
+    }
+    ;
+    d.Rwa = function(a) {
+        return [{
+            text: a,
+            confidence: "confidence-high"
+        }]
+    }
+    ;
+    d.bOa = function() {
+        this.Sk(!1);
+        this.A_();
+        this.Dc("aborted")
+    }
+    ;
+    E(nY, ["remoteService", "voiceQuery", "detectingSoundChangedHandler", "completeHandler", "errorHandler"]);
+    function oY(a, b) {
+        b.open(a())
+    }
+    E(oY, ["whyThisAdModelFactory", "dialogStageModel"]);
+    function pY(a) {
+        this.label = a;
+        this.L = "bulleted-item"
+    }
+    ;function qY(a, b, c, e, f, g, h, k) {
+        mA.call(this);
+        var m = this;
+        this.Ne = b;
+        this.f = c;
+        this.Fa = e;
+        this.lja = g;
+        this.mXa = h;
+        this.oG = null;
+        this.Rc = !0;
+        this.L = "whyThisAdDialog";
+        this.Ne.Yva();
+        this.vWa = c.wb;
+        this.xA = new rY(a,f);
+        this.xA.on("whythisad:closed", function() {
+            m.hA()
+        });
+        this.xA.on("whythisad:muted", function() {
+            m.yEa()
+        });
+        this.xA.on("whythisad:personalize", function() {
+            m.DEa()
+        });
+        this.Ba(this.xA);
+        this.IJ = new sY(a,b,f);
+        this.IJ.on("whythisad:closed", function(a) {
+            m.r$(!1, a)
+        });
+        this.IJ.on("whythisad:canceled", function(a) {
+            m.r$(!0, a)
+        });
+        this.Ba(this.IJ);
+        a.muteAdInfo && (this.oG = new tY(a,b,f),
+        this.oG.on("whythisad:closed", function() {
+            m.hA(k.C("[[Thanks for the feedback!|Toast message informing the user that their feedback was handled]]"))
+        }),
+        this.Ba(this.oG));
+        this.setState(0);
+        this.H(e.on("opened", function(a) {
+            m.BEa(a)
+        }));
+        this.yl = function() {
+            var a = 1 === m.state ? k.C("[[Thanks for the feedback!|Toast message informing the user that their feedback was handled]]") : void 0;
+            m.hA(a)
+        }
+    }
+    l(qY, mA);
+    d = qY.prototype;
+    d.setState = function(a) {
+        this.Mja !== a && (this.Mja = a,
+        this.w("state:changed", a))
+    }
+    ;
+    d.BEa = function(a) {
+        this === a && (this.Ne.whyThisAdClicked(),
+        this.setState(0))
+    }
+    ;
+    d.hA = function(a) {
+        this.Fa.close();
+        a && this.lja(a);
+        this.vWa && this.f.play();
+        1 === this.state ? this.Ne.muteAd() : this.Ne.whyThisAdClosed()
+    }
+    ;
+    d.yEa = function() {
+        this.Ne.whyThisAdClosed();
+        this.Ne.muteAdClicked();
+        this.setState(1)
+    }
+    ;
+    d.DEa = function() {
+        this.setState(2)
+    }
+    ;
+    d.r$ = function(a, b) {
+        this.setState(0);
+        b && (a ? this.mXa(b) : this.lja(b))
+    }
+    ;
+    ca.Object.defineProperties(qY.prototype, {
+        state: {
+            configurable: !0,
+            enumerable: !0,
+            get: function() {
+                return this.Mja
+            }
+        }
+    });
+    E(qY, "adModel adService playerService dialogStageModel buttonModelFactory showAdPersonalizationConfirmationToast showWhyThisAdErrorToast localeService".split(" "));
+    function rY(a, b) {
+        S.call(this);
+        var c = this;
+        this.Na = b;
+        this.KJ = this.ZW = this.$W = this.Ur = null;
+        this.JJ = "status-unknown";
+        this.jJ = null;
+        var e = a.UD;
+        this.dialogTitle = e.menuTitle;
+        this.reasonsHeading = e.targetingReasonHeader;
+        this.OB = e.targetingReasons.map(function(a) {
+            return new pY(a)
+        });
+        a.muteAdInfo && (this.jJ = b({
+            label: a.muteAdInfo.hoverText,
+            type: "mute-button",
+            clickAction: function() {
+                c.w("whythisad:muted")
+            }
+        }),
+        this.Ba(this.jJ));
+        this.bk = b({
+            label: e.closeButton,
+            type: "dialog-ok-button",
+            clickAction: function() {
+                c.w("whythisad:closed")
+            }
+        });
+        this.Ba(this.bk);
+        this.H(a.on("adPersonalizationInfo:changed", function(a) {
+            c.eA(a)
+        }));
+        this.eA(a.gn)
+    }
+    l(rY, S);
+    rY.prototype.eA = function(a) {
+        var b = this;
+        this.Ur && this.Ur.dispose();
+        null === a ? (this.KJ = this.ZW = this.$W = this.Ur = null,
+        this.JJ = "status-unknown") : (this.$W = a.title,
+        this.ZW = a.directions,
+        a.status ? (this.KJ = a.status,
+        this.JJ = a.isOptOut ? "status-opt-out" : "status-opt-in") : (this.KJ = null,
+        this.JJ = "status-signed-in"),
+        this.Ur = a.continueButton ? this.Na({
+            label: a.continueButton,
+            type: "personalization-button",
+            clickAction: function() {
+                b.w("whythisad:personalize")
+            }
+        }) : null);
+        this.w("model:changed")
+    }
+    ;
+    rY.prototype.B = function() {
+        this.Ur && this.Ur.dispose();
+        S.prototype.B.call(this)
+    }
+    ;
+    ca.Object.defineProperties(rY.prototype, {
+        Xea: {
+            configurable: !0,
+            enumerable: !0,
+            get: function() {
+                return this.Ur
+            }
+        },
+        VOa: {
+            configurable: !0,
+            enumerable: !0,
+            get: function() {
+                return this.$W
+            }
+        },
+        WOa: {
+            configurable: !0,
+            enumerable: !0,
+            get: function() {
+                return this.KJ
+            }
+        },
+        XOa: {
+            configurable: !0,
+            enumerable: !0,
+            get: function() {
+                return this.JJ
+            }
+        },
+        UOa: {
+            configurable: !0,
+            enumerable: !0,
+            get: function() {
+                return this.ZW
+            }
+        }
+    });
+    function sY(a, b, c) {
+        S.call(this);
+        var e = this;
+        this.Ne = b;
+        this.isOptOut = this.UT = !1;
+        this.CX = this.mQ = "";
+        this.DX = [];
+        this.Jt = c({
+            label: "",
+            type: "dialog-cancel-button",
+            clickAction: function() {
+                e.w("whythisad:canceled")
+            }
+        });
+        this.Ba(this.Jt);
+        this.bk = c({
+            label: "",
+            type: "dialog-ok-button",
+            clickAction: function() {
+                e.hA()
+            }
+        });
+        this.Ba(this.bk);
+        this.H(a.on("adPersonalizationInfo:changed", function(a) {
+            e.eA(a)
+        }));
+        this.eA(a.gn)
+    }
+    l(sY, S);
+    sY.prototype.hA = function() {
+        var a = this;
+        this.Jt.enabled = !1;
+        this.bk.enabled = !1;
+        this.w("model:changed");
+        this.Ne.iOa(!this.isOptOut).then(function(b) {
+            a.w("whythisad:closed", b)
+        }).Pg(function(b) {
+            a.w("whythisad:canceled", b instanceof kq ? b.message : void 0)
+        }).C_(function() {
+            a.Jt.enabled = !0;
+            a.bk.enabled = !0;
+            a.w("model:changed")
+        })
+    }
+    ;
+    sY.prototype.eA = function(a) {
+        a && a.confirmation ? (this.isOptOut = a.isOptOut,
+        a = a.confirmation,
+        this.UT = !0,
+        this.mQ = a.title,
+        this.CX = a.reasonsHeading,
+        this.DX = a.reasons.map(function(a) {
+            return new pY(a)
+        }),
+        this.Jt.ys(a.cancelButton),
+        this.bk.ys(a.confirmationButton)) : (this.UT = this.isOptOut = !1,
+        this.CX = this.mQ = "",
+        this.DX.length = 0,
+        this.Jt.ys(""),
+        this.bk.ys(""));
+        this.w("model:changed")
+    }
+    ;
+    ca.Object.defineProperties(sY.prototype, {
+        isAvailable: {
+            configurable: !0,
+            enumerable: !0,
+            get: function() {
+                return this.UT
+            }
+        },
+        dialogTitle: {
+            configurable: !0,
+            enumerable: !0,
+            get: function() {
+                return this.mQ
+            }
+        },
+        lvb: {
+            configurable: !0,
+            enumerable: !0,
+            get: function() {
+                return this.CX
+            }
+        },
+        OB: {
+            configurable: !0,
+            enumerable: !0,
+            get: function() {
+                return this.DX
+            }
+        }
+    });
+    function tY(a, b, c) {
+        S.call(this);
+        var e = this;
+        a = a.muteAdInfo;
+        this.dialogTitle = a.goneText;
+        this.reasonsHeading = a.questionText;
+        this.OB = a.surveyOptions.map(function(a) {
+            var f = a.url;
+            return c({
+                label: a.label,
+                type: "surveyOption",
+                clickAction: function() {
+                    b.sendAdsPing(f);
+                    e.w("whythisad:closed")
+                }
+            })
+        });
+        this.bk = c({
+            label: "[[Close|A button to close the dialog.]]",
+            type: "dialog-ok-button",
+            clickAction: function() {
+                e.w("whythisad:closed")
+            }
+        });
+        this.Ba(this.bk)
+    }
+    l(tY, S);
+    function uY() {
+        V.apply(this, arguments);
+        this.$g = 0
+    }
+    l(uY, V);
+    d = uY.prototype;
+    d.ready = function() {
+        var a = this;
+        V.prototype.ready.call(this);
+        this.Xaa = this.N(".why-this-ad-dialog-intro");
+        this.Yea = this.N(".why-this-ad-dialog-personalization");
+        this.eea = this.N(".why-this-ad-dialog-mute");
+        this.on("keydown", function(b) {
+            a.SS(b)
+        });
+        this.focus()
+    }
+    ;
+    d.D = function(a) {
+        var b = this;
+        V.prototype.D.call(this, a);
+        this.Bb("state:changed", function() {
+            b.render()
+        })
+    }
+    ;
+    d.render = function(a) {
+        V.prototype.render.call(this, a);
+        null !== this.model && this.model.state !== this.$g && (this.$g = a = this.model.state,
+        this.Xaa.Ga(0 !== a),
+        this.Yea.Ga(2 !== a),
+        this.eea.Ga(1 !== a),
+        this.kR().focus())
+    }
+    ;
+    d.rb = function() {
+        return this.kR()
+    }
+    ;
+    d.kR = function() {
+        var a = this.model;
+        if (null === a)
+            return null;
+        switch (a.state) {
+        case 0:
+            return this.Xaa;
+        case 2:
+            return this.Yea;
+        case 1:
+            return this.eea;
+        default:
+            return null
+        }
+    }
+    ;
+    d.SS = function(a) {
+        var b = this.kR();
+        if (null !== b) {
+            switch (a.keyCode) {
+            case 38:
+            case 37:
+                var c = -1;
+                break;
+            case 40:
+            case 39:
+                c = 1;
+                break;
+            default:
+                return
+            }
+            T(a);
+            b.gEa(c)
+        }
+    }
+    ;
+    E(uY, []);
+    function vY(a) {
+        V.apply(this, arguments)
+    }
+    l(vY, V);
+    vY.prototype.Pl = function() {
+        return this.children.filter(function(a) {
+            return a instanceof W
+        })
+    }
+    ;
+    vY.prototype.ready = function() {
+        V.prototype.ready.call(this);
+        this.closeButton = this.N(".close-why-this-ad")
+    }
+    ;
+    vY.prototype.rb = function() {
+        return this.closeButton
+    }
+    ;
+    vY.prototype.gEa = function(a) {
+        var b = this.Pl()
+          , c = this.Wn();
+        c = b.indexOf(c);
+        if (-1 !== c) {
+            do
+                if (c += a,
+                0 > c || c >= b.length)
+                    return;
+            while (b[c].isHidden());
+            b[c].isHidden() || b[c].focus()
+        }
+    }
+    ;
+    function wY(a) {
+        vY.apply(this, arguments)
+    }
+    l(wY, vY);
+    wY.prototype.ready = function() {
+        vY.prototype.ready.call(this);
+        this.muteButton = this.N(".mute-ad");
+        this.YOa = this.N(".personalize-ad")
+    }
+    ;
+    wY.prototype.D = function(a) {
+        var b = this;
+        vY.prototype.D.call(this, a);
+        this.Bb("model:changed", function() {
+            b.render(!0)
+        })
+    }
+    ;
+    wY.prototype.render = function(a) {
+        vY.prototype.render.call(this, a);
+        this.muteButton.Ga(this.model ? null === this.model.jJ : !0);
+        this.YOa.Ga(this.model ? null === this.model.Xea : !0)
+    }
+    ;
+    E(wY, []);
+    function xY(a) {
+        vY.apply(this, arguments)
+    }
+    l(xY, vY);
+    xY.prototype.D = function(a) {
+        var b = this;
+        vY.prototype.D.call(this, a);
+        this.Bb("model:changed", function() {
+            b.render(!0)
+        })
+    }
+    ;
+    E(xY, []);
+    function yY(a) {
+        vY.call(this);
+        this.Se = a;
+        this.model = null
+    }
+    l(yY, vY);
+    yY.prototype.D = function(a) {
+        vY.prototype.D.call(this, a);
+        a = this.h.querySelector(".description");
+        for (var b; b = this.N(".reason"); )
+            this.removeChild(b),
+            a.removeChild(b.h);
+        if (this.model) {
+            b = 0;
+            for (var c = this.model.OB.length; b < c; b++) {
+                var e = this.Se.ck(this.model.OB[b]);
+                e.wa("reason");
+                this.Zb(e);
+                a.appendChild(e.h)
+            }
+        }
+    }
+    ;
+    yY.prototype.Pl = function() {
+        for (var a = [], b = 0, c = this.ak(); b < c; b++) {
+            var e = this.Sq(b);
+            e.wo("reason") && a.push(e)
+        }
+        a.push(this.closeButton);
+        return a
+    }
+    ;
+    E(yY, ["componentFactory"]);
+    var zY = {
+        apply: function(a) {
+            a.P([{
+                name: "whyThisAdDialog",
+                A: uY,
+                template: "why_this_ad.html"
+            }, {
+                name: "whyThisAdDialog-intro",
+                A: wY,
+                template: "why_this_ad-intro.html"
+            }, {
+                name: "whyThisAdDialog-personalization",
+                A: xY,
+                template: "why_this_ad-personalization.html"
+            }, {
+                name: "whyThisAdDialog-mute",
+                A: yY,
+                template: "why_this_ad-mute.html"
+            }, {
+                name: "bulleted-item",
+                A: V,
+                template: "bulleted_item.html"
+            }]);
+            a.zb({
+                whyThisAdModelFactory: qY
+            });
+            a.V({
+                showAdPersonalizationConfirmationToast: function() {},
+                showWhyThisAdDialog: oY,
+                showWhyThisAdErrorToast: function() {}
+            })
+        },
+        R: [fr, uy, sA, mY, vF, Ex, Iw]
+    };
+    E(zY.apply, ["injector"]);
+    function AY(a, b, c) {
+        c = void 0 === c ? !0 : c;
+        var e = new ZL;
+        c ? (e.title = "Check your email",
+        e.subtitle = "Look for an email from YouTube with your promo code") : (e.title = "Something went wrong",
+        e.subtitle = "This promo code isn't available right now");
+        c = new bM("Got it",function() {
+            a.close()
+        }
+        );
+        e = new YL(new SM(e,[c]));
+        a.open(e);
+        b.mga()
+    }
+    E(AY, ["overlayStage", "toasterModel"]);
+    function BY(a) {
+        this.image = a;
+        this.L = "overlay-image-panel"
+    }
+    ;function CY(a, b, c) {
+        a.set("promo-coupon-shown-times", b);
+        a.set("promo-coupon-shown-timestamp", c)
+    }
+    function DY(a, b, c, e, f, g, h, k, m) {
+        if (!e.enable_promo_coupon || b.Zu())
+            return !1;
+        b = f.get("promo-coupon-shown-times") || 0;
+        if (2 <= b)
+            return !1;
+        CY(f, b + 1, m.za());
+        m = "4" === e.promo_coupon_rwd ? "4" : "1";
+        f = new ZL;
+        f.title = "Save money on a movie rental!";
+        f.subtitle = "Sign in for a promo code to get $" + m + " off your next rental";
+        f.image = new yP("youtube_logo1x.png","youtube-logo-promo");
+        m = new bM("Not now",function() {
+            g.close()
+        }
+        );
+        b = new bM("Sign in to get code",function() {
+            g.close();
+            h("SIGN_IN_PROMO", function() {
+                g.close();
+                c.close();
+                a.dRa(function() {
+                    k(!0)
+                }, function() {
+                    k(!1)
+                })
+            })
+        }
+        );
+        e = e.show_promo_coupon_image ? new BY(new yP("movie-art-full.jpg")) : null;
+        f = new SM(f,[b, m]);
+        e = new YL(f,null,e);
+        g.open(e);
+        return !0
+    }
+    E(DY, "couponsService credentialManager dialogStageModel experimentFlags localStorage overlayStage requestDefaultLogin showPromoCouponOutcomeOverlay timeService".split(" "));
+    function EY(a, b) {
+        this.text = a;
+        this.gZa = b;
+        this.L = "overlay-partials-text"
+    }
+    ;function FY(a, b, c, e, f) {
+        f = void 0 === f ? !0 : f;
+        var g = new ZL;
+        g.image = new yP("yt_logo_premium_welcome.png","yt-logo-premium-small");
+        var h = [];
+        f ? (g.title = "Welcome! Here are your benefits:",
+        h.push(new EY("Ad-free videos","premium-benefit")),
+        h.push(new EY("Download videos on mobile","premium-benefit")),
+        h.push(new EY("YouTube Originals access","premium-benefit")),
+        h.push(new EY("YouTube Music Premium","premium-benefit-last"))) : (g.title = "Something went wrong",
+        h.push(new EY("The free trial is not available at this time","premium-benefit-last")));
+        h.push(new EY("","premium-filler"));
+        b = b({
+            label: "GOT IT",
+            "class": "ack",
+            opt_clickAction: function() {
+                if (f) {
+                    var b = a.Ea();
+                    La(b.reload) && b.reload()
+                }
+                c.close()
+            }
+        });
+        h.push(b);
+        g = new SM(g,h);
+        g.qb = "promo-premium";
+        g = new YL(g,null);
+        c.open(g);
+        e.mga()
+    }
+    E(FY, ["applicationModel", "buttonModelFactory", "overlayStage", "toasterModel"]);
+    function GY(a, b, c) {
+        a.set("promo-premium-shown-times", b);
+        a.set("promo-premium-shown-timestamp", c)
+    }
+    function HY(a, b, c, e, f, g, h, k, m, p) {
+        if (!e.enable_promo_premium || b.Zu())
+            return !1;
+        b = f.get("promo-premium-shown-times") || 0;
+        if (2 <= b)
+            return !1;
+        GY(f, b + 1, p.za());
+        f = new ZL;
+        f.title = "Enjoy YouTube, ad-free";
+        f.subtitle = "14-day free trial \u2022 Limited time offer \u2022 You will not be billed at the end of the free trial";
+        f.image = e.show_promo_premium_full_screen ? new yP("yt_logo_premium.png","yt-logo-premium") : new yP("yt_logo_premium_welcome.png","yt-logo-premium-small");
+        p = a({
+            label: "ACTIVATE FREE TRIAL",
+            "class": "activate",
+            opt_clickAction: function() {
+                g.close();
+                k("SIGN_IN_PROMO", function() {
+                    g.close();
+                    c.close();
+                    h.jRa(function() {
+                        m(!0)
+                    }, function() {
+                        m(!1)
+                    })
+                })
+            }
+        });
+        a = a({
+            label: "SKIP FREE TRIAL",
+            "class": "cancel",
+            opt_clickAction: function() {
+                g.close()
+            }
+        });
+        b = new EY("Restrictions apply. Learn more at youtube.com/t/premium_restrictions","premium-footer");
+        var u = new EY("","premium-filler");
+        a = new SM(f,[u, p, a, b]);
+        e.show_promo_premium_full_screen ? (a.qb = "promo-premium-full",
+        a.width = "100%") : a.qb = "promo-premium";
+        e = new YL(a,null);
+        g.open(e);
+        return !0
+    }
+    E(HY, "buttonModelFactory credentialManager dialogStageModel experimentFlags localStorage overlayStage premiumService requestDefaultLogin showPromoPremiumOutcomeOverlay timeService".split(" "));
+    function IY(a, b) {
+        191 == b.keyCode && a()
+    }
+    E(IY, ["showVoiceAssistantDialogFromTv"]);
+    function JY(a, b, c, e, f, g, h) {
+        V.call(this);
+        this.j = a;
+        this.Ma = b;
+        this.environment = e;
+        this.Xo = f;
+        this.EL = g;
+        this.Fa = h;
+        this.xJ = 0;
+        this.enabled = !1;
+        this.nN = 0;
+        this.tQ = this.tB = c.C("[[Loading...|Tooltip displaying while connecting a mobile device with the application.]]");
+        this.tn = y
+    }
+    l(JY, V);
+    d = JY.prototype;
+    d.Eb = function() {
+        var a = this;
+        this.I(this.Ma, "remote:connected", function() {
+            return a.kB()
+        })
+    }
+    ;
+    d.ready = function() {
+        V.prototype.ready.call(this);
+        this.wa("manual-connect");
+        this.h.id = "smartPairingCode";
+        this.render()
+    }
+    ;
+    d.onBlur = function() {
+        this.TY(!1);
+        V.prototype.onBlur.call(this)
+    }
+    ;
+    d.onFocus = function() {
+        V.prototype.onFocus.call(this);
+        this.TY(!0)
+    }
+    ;
+    d.TY = function(a) {
+        var b = this;
+        this.enabled !== a && ((this.enabled = a) ? (this.hWa(),
+        this.Ma.connect(function() {
+            return b.sz()
+        })) : this.Bl())
+    }
+    ;
+    d.sz = function() {
+        var a = this;
+        this.tQ = this.tB;
+        this.Ut();
+        var b = "pair";
+        0 < this.Ma.Wq().getLength() && (b += "-ytr");
+        this.tn = this.Ma.Zn(b, function(b) {
+            return a.SW(b)
+        })
+    }
+    ;
+    d.BZ = function() {
+        this.tn();
+        this.xJ = this.j.setTimeout(z(this.sz, this), 3E5)
+    }
+    ;
+    d.Ut = function() {
+        this.xJ && (this.j.clearTimeout(this.xJ),
+        this.xJ = 0)
+    }
+    ;
+    d.SW = function(a) {
+        a ? (this.tQ = a.match(/.../g).join(" "),
+        this.render(),
+        this.kP(),
+        this.BZ()) : (this.Bl(),
+        this.Xo.UB(608),
+        this.EL())
+    }
+    ;
+    d.hWa = function() {
+        this.environment.Br && (this.kP(),
+        this.nN = this.j.setTimeout(z(this.R1a, this), 19E3))
+    }
+    ;
+    d.kP = function() {
+        this.nN && (this.j.clearTimeout(this.nN),
+        this.nN = 0)
+    }
+    ;
+    d.R1a = function() {
+        this.Bl();
+        this.EL()
+    }
+    ;
+    d.kB = function() {
+        this.Fa.close()
+    }
+    ;
+    d.Bl = function() {
+        this.kP();
+        this.Ut();
+        this.tn();
+        this.tn = y
+    }
+    ;
+    d.B = function() {
+        this.Bl();
+        V.prototype.B.call(this)
+    }
+    ;
+    E(JY, "timeService remoteService localeService environment networkStatus showNetworkErrorDialog dialogStageModel".split(" "));
+    function KY(a, b, c, e, f) {
+        V.call(this);
+        this.uh = a;
+        this.Fa = b;
+        this.Ma = c;
+        this.Na = e;
+        this.Xc = f;
+        this.wK = this.uB = this.wP = this.Rd = null;
+        this.ub = !0
+    }
+    l(KY, V);
+    d = KY.prototype;
+    d.ready = function() {
+        this.wP = this.N(".connect-with-wifi-dialog");
+        this.uB = this.N(".pairing-dialog");
+        this.uB.hide();
+        this.uB.TY(!0);
+        this.wK = this.N(".remote-reset-dialog");
+        this.wK.hide();
+        this.Rd = this.Sqa();
+        this.Rd.model.on("selected-index-changed", this.kOa.bind(this));
+        this.on("button-enter", this.yy.bind(this));
+        this.on("keyup", this.xb.bind(this));
+        V.prototype.ready.call(this)
+    }
+    ;
+    d.Sqa = function() {
+        var a = this.N(".smart-pairing-options-list");
+        a.model = this.Rqa();
+        return a
+    }
+    ;
+    d.Rqa = function() {
+        var a = this.uh()
+          , b = this.Na({
+            label: '[[Link with Wi-Fi|Option in the smart pairing dialog which shows the "Link with Wi-Fi" wizard upon selection.|998607252]]',
+            payload: this.wP,
+            ariaDescribedBy: "smartPairingWifi"
+        })
+          , c = this.Na({
+            label: '[[Link with TV Code|Option in the smart pairing dialog which shows the "Link with TV Code" wizard upon selection.|1330216507]]',
+            payload: this.uB,
+            ariaDescribedBy: "smartPairingCode"
+        })
+          , e = this.Na({
+            label: "[[Cancel|Option in the smart pairing dialog which closes the dialog when pressing it.]]",
+            payload: this.Fa.close.bind(this.Fa)
+        });
+        b = [b, c, e];
+        if ("es_ES" === this.Xc.Yb || "es_MX" === this.Xc.Yb)
+            c.lk = function() {
+                return 3.25
+            }
+            ;
+        0 < this.Ma.Wq().getLength() && b.splice(2, 0, this.Na({
+            label: '[[Delete Devices|Option in the smart pairing dialog which shows the "Delete Devices" wizard where a user can delete all linked devices.|131494164]]',
+            payload: this.wK,
+            ariaDescribedBy: "smartPairingReset"
+        }));
+        c = 0;
+        for (e = b.length; c < e; c++) {
+            var f = b[c];
+            f.ob = this.lOa.bind(this, f)
+        }
+        a.oa(b, 0);
+        return a
+    }
+    ;
+    d.kOa = function(a, b) {
+        this.wP.hide();
+        this.uB.hide();
+        this.wK.hide();
+        b.payload && !La(b.payload) && b.payload.show()
+    }
+    ;
+    d.lOa = function(a) {
+        var b = this.Rd && this.Rd.model;
+        b && b.ba(b.getItems().indexOf(a))
+    }
+    ;
+    d.yy = function(a) {
+        (a = a && a.detail.payload) && La(a) && a()
+    }
+    ;
+    d.xb = function(a) {
+        switch (a.keyCode) {
+        case 39:
+            var b = this.Rd.model.$a();
+            b.payload && !La(b.payload) && b.payload.cb() && b.payload.focus();
+            T(a);
+            break;
+        case 37:
+            this.Rd.focus(),
+            T(a)
+        }
+    }
+    ;
+    E(KY, ["makeCollection", "dialogStageModel", "remoteService", "buttonModelFactory", "localeModel"]);
+    function LY(a, b, c, e, f, g) {
+        f = void 0 === f ? function() {}
+        : f;
+        g = void 0 === g ? function() {}
+        : g;
+        if (!e.deprec_date || !e.deprec_info_url)
+            return !1;
+        var h = e.deprec_date;
+        e = e.deprec_info_url;
+        c = c.C("[[Starting on {{date}}, the YouTube app will not be available on this device. You can continue to enjoy your favorite creators and videos in many other ways. Please visit {{url}} for a list of devices you can use.|Tell the user that YouTube will be inaccessible on this device after a specific date and provide a URL they can go to in order to learn more.|859099562]]").replace("{{date}}", h).replace("{{url}}", e);
+        b = b({
+            message: c,
+            iconClass: "icon-settings-term",
+            completeHandler: function() {
+                a.close();
+                f()
+            },
+            cancelHandler: g
+        });
+        b.title = "";
+        b.Rc = !0;
+        b.Cd = !0;
+        a.open(b);
+        return !0
+    }
+    E(LY, ["dialogStageModel", "iconSimpleDialogModelFactory", "localeService", "runtimeParams"]);
+    function MY(a, b, c, e, f) {
+        c = c();
+        c.title = b.C("[[Application Details|Title of an info dialog displaying information about the currently running version of the application.]]");
+        e.qba() && f.jo() && c.Ub.push("debug");
+        a.open(c)
+    }
+    E(MY, ["dialogStageModel", "localeService", "appVersionDialogModelFactory", "debugService", "debugWatermarkModel"]);
+    function NY(a, b, c) {
+        var e = b.wb
+          , f = e ? function() {
+            return b.play()
+        }
+        : function() {}
+        ;
+        e && b.pause();
+        c = c({
+            completeHandler: f,
+            cancelHandler: f
+        });
+        c.title = "[[Audio Channel Settings|Settings screen where the user can choose the audio track they want to play with the video.]]";
+        c.L = "audioChannelsDialog";
+        c.Ub.push("audio-channels");
+        a.open(c)
+    }
+    E(NY, ["dialogStageModel", "playerService", "dialogModelFactory"]);
+    function OY(a, b, c, e, f, g) {
+        c = c({
+            message: "[[YouTube will restart to update your preferences|Message on language change confirmation dialog]]",
+            iconClass: f,
+            completeHandler: g
+        });
+        c.title = b.C("[[Change language to {{language}}?|Title on language change confirmation dialog]]").replace("{{language}}", e);
+        c.Rc = !0;
+        c.Cd = !0;
+        a.open(c)
+    }
+    E(OY, ["dialogStageModel", "localeService", "iconSimpleDialogModelFactory"]);
+    function PY(a, b, c, e, f) {
+        function g() {
+            c.clear()
+        }
+        var h = "[[This will clear YouTube searches made on this device.|Dialog text that informs the user that their search history on the current device will be deleted.]]";
+        b.rd() && (h = "[[This will clear YouTube searches made with this account from all devices.|Clear search history dialog text that informs the user that their search history across all devices for the logged in account will be deleted.]]",
+        g = function() {
+            e.load()
+        }
+        );
+        b = f({
+            message: h,
+            iconClass: "icon-trash",
+            completeHandler: function() {
+                g();
+                a.close()
+            },
+            cancelHandler: function() {
+                a.close()
+            }
+        });
+        b.title = "[[Clear search history?|Clear search history dialog title.]]";
+        b.Cd = !0;
+        b.Rc = !0;
+        b.ek = "dialog-cancel-button";
+        b.Re = "[[Clear search history|A button that clears a users search history.]]";
+        b.Ub.push("text-dialog");
+        a.open(b)
+    }
+    E(PY, ["dialogStageModel", "authService", "searchHistoryService", "clearSearchHistoryService", "iconSimpleDialogModelFactory"]);
+    function QY(a, b, c, e) {
+        b = e({
+            message: "[[Any accounts and paired devices will be removed. Personalization and history will be reset.|Explanation in reset app confirmation dialog explaning what happens if they proceed.]]",
+            iconClass: "icon-settings-clear-cookies"
+        });
+        b.title = "[[Reset app?|Headline for confirmation dialog when user triggers the reset app action.]]";
+        b.Ld = function() {
+            c();
+            a.close()
+        }
+        ;
+        b.Cd = !0;
+        b.Rc = !0;
+        b.ek = "dialog-cancel-button";
+        b.Re = "[[Reset app|Button label for action which will remove attached accounts, paired devices and history from the app.]]";
+        b.Ub.push("text-dialog");
+        a.open(b)
+    }
+    E(QY, ["dialogStageModel", "localeService", "clearStorage", "iconSimpleDialogModelFactory"]);
+    function RY(a, b, c, e, f, g) {
+        function h(a) {
+            var b = {};
+            a = (b.a = "history",
+            b.outcome = a,
+            b);
+            c("/gen_204", a)
+        }
+        b = b.rd() ? "[[This will clear your account's watch history from all devices. You can't undo this.|Clear watch history dialog text that informs the user that their watch history across all devices for the logged in account will be deleted.]]" : "[[All videos watched while signed out will be cleared.|Dialog text that informs the user that their current watch history while signed out will be deleted.]]";
+        g = g({
+            message: b,
+            iconClass: "icon-trash"
+        });
+        g.yl = function() {
+            h("cancel");
+            a.close()
+        }
+        ;
+        g.Ld = function() {
+            h("complete");
+            e.load(void 0, f);
+            a.close()
+        }
+        ;
+        g.title = "[[Clear watch history?|Clear watch history dialog title.]]";
+        g.Cd = !0;
+        g.Rc = !0;
+        g.ek = "dialog-cancel-button";
+        g.Re = "[[Clear watch history|A button that clears a users history of watched videos]]";
+        g.Ub.push("text-dialog");
+        a.open(g)
+    }
+    E(RY, "dialogStageModel authService sendReport clearWatchHistoryService showClearWatchHistoryToast iconSimpleDialogModelFactory".split(" "));
+    function SY(a, b, c, e, f, g, h, k) {
+        function m() {
+            return a.close()
+        }
+        k = void 0 === k ? "[[Viewer discretion advised|Default heading on a dialog warning that following content is potentially offensive or inappropriate.]]" : k;
+        g = g ? yd(m, g) : m;
+        b = b({
+            message: c.C(e),
+            confirmationTitle: c.C(k),
+            completeHandler: g,
+            cancelHandler: h
+        });
+        b.Re = f;
+        a.open(b)
+    }
+    E(SY, ["dialogStageModel", "confirmContentDialogModelFactory", "localeService"]);
+    function TY(a, b, c, e, f, g, h) {
+        var k = new ZL;
+        k.title = a.C("[[Viewer discretion advised|Default heading on a dialog warning that following content is potentially offensive or inappropriate.]]");
+        k.subtitle = e;
+        e = [];
+        e.push(new bM(a.C(f),function() {
+            c.close();
+            g()
+        }
+        ));
+        e.push(new bM(a.C(nA["dialog-cancel-button"]),function() {
+            c.close();
+            h()
+        }
+        ));
+        a = b();
+        a.oa(e, 0);
+        c.open(new YL(new TL(k,a)))
+    }
+    E(TY, ["localeService", "makeCollection", "overlayStage"]);
+    function UY(a, b) {
+        t("confirmDialogEndpoint.content.confirmDialogRenderer.confirmButton.buttonRenderer.serviceEndpoint.clearWatchHistoryEndpoint", b) && a()
+    }
+    E(UY, ["showClearWatchHistoryDialog"]);
+    function VY(a, b, c, e, f, g, h) {
+        e = e({
+            completeHandler: function() {
+                a.close();
+                c(f, g, h)
+            },
+            cancelHandler: h
+        });
+        e.subtitle = b.C(Co[f] || Co.STANDARD);
+        e.Re = "[[Sign In|Text on button for user to confirm that they wish to sign into the application.]]";
+        e.nq = "[[Not Now|Text on button denoting the choice for a user to not sign in now.]]";
+        e.ek = "dialog-ok-button";
+        e.Cd = !0;
+        e.Rc = !0;
+        e.L = "ensureLoggedInDialog";
+        a.open(e)
+    }
+    E(VY, ["dialogStageModel", "localeService", "requestLogin", "dialogModelFactory"]);
+    function WY(a, b, c, e) {
+        e = void 0 === e ? function() {}
+        : e;
+        var f = new ZL;
+        f.title = a.C("[[Exit YouTube|Title in an exit application dialog.]]");
+        f.subtitle = a.C("[[Are you sure you want to exit YouTube?|Asks the user to confirm that they intend to exit the application.]]");
+        a = [new bM(a.C("[[Exit|Button title in a exit application dialog. Triggers the application to exit.]]"),function() {
+            return c()
+        }
+        )];
+        f = new YL(new SM(f,a),new XL(function() {
+            return e()
+        }
+        ));
+        b.open(f)
+    }
+    E(WY, ["localeService", "overlayStage"]);
+    function XY(a, b, c, e, f, g, h) {
+        f && b.isSupported() && (f.efa = b.username,
+        f.dfa = b.avatarUrl);
+        b = e({
+            completeHandler: function() {
+                a.close();
+                h ? h() : c.kf("so", !1, g)
+            }
+        });
+        b.title = "[[Sign out of YouTube|Dialog title asking a user if she wants to sign out from her YouTube account via this application.|1723707533]]";
+        b.L = "logoutDialog";
+        b.Re = "[[Sign Out|Title and voice command for action tile allowing users to sign out from the app.]]";
+        b.Cd = !0;
+        b.Rc = !0;
+        b.channel = f;
+        a.open(b)
+    }
+    E(XY, ["dialogStageModel", "accountApi", "authService", "channelDialogModelFactory"]);
+    function YY(a, b, c, e) {
+        b.stop();
+        b = e({
+            message: Ui.q1,
+            iconClass: "icon-settings-term"
+        });
+        b.title = "[[A network error has occurred|Dialog title that tells the user that a network error has occurred]]";
+        b.backgroundImage = c;
+        a.open(b)
+    }
+    E(YY, ["dialogStageModel", "playerService", "failDialogBackground", "iconSimpleDialogModelFactory"]);
+    function ZY(a, b, c, e, f) {
+        if (f && f.ypcOffersEndpoint) {
+            var g = e.wb;
+            e.pause();
+            var h = c();
+            h.yl = function() {
+                g && e.play()
+            }
+            ;
+            b.open(h);
+            a.load({
+                itemParams: f.ypcOffersEndpoint.params
+            }, function(a) {
+                a.offers && a.offers.tvfilmRichOffersRenderer && h.Ww(a.offers.tvfilmRichOffersRenderer)
+            }, function() {})
+        }
+    }
+    E(ZY, ["ypcGetOffersService", "dialogStageModel", "makeOfferSelectionDialogModel", "playerService"]);
+    function $Y(a, b, c, e) {
+        var f = b.wb ? function() {
+            return b.play()
+        }
+        : function() {}
+        ;
+        b.pause();
+        c = c({
+            completeHandler: void 0,
+            cancelHandler: f
+        });
+        c.title = "[[Payment Required|Title of a dialog that asks user to make a payment in order to play a video.]]";
+        c.L = "paidChannelDialog";
+        c.channel = e;
+        a.open(c)
+    }
+    E($Y, ["dialogStageModel", "playerService", "channelDialogModelFactory"]);
+    function aZ(a, b, c, e, f) {
+        var g = b();
+        a.open(g);
+        f.then(function(a) {
+            e.attachChild(a.trackingParams);
+            g.Ww(a)
+        }).Pg(function() {
+            c()
+        })
+    }
+    E(aZ, ["dialogStageModel", "makeCompletedPurchaseModel", "showPurchaseErrorDialog", "screenManager"]);
+    function bZ(a, b, c) {
+        c = c({
+            message: "[[An error has occurred with your purchase. Please try again. |Dialog subtitle telling user that a purchase error has occurred, and asking the user to try again. Suggested character length: 70. Maximum character length: 120.]]",
+            iconClass: "icon-settings-term"
+        });
+        c.title = "[[Purchase Error|Dialog title that tells the  user there was a purchase error. Suggested character length: 15. Maximum character length: 35.]]";
+        c.backgroundImage = b;
+        a.open(c)
+    }
+    E(bZ, ["dialogStageModel", "failDialogBackground", "iconSimpleDialogModelFactory"]);
+    function cZ(a, b, c, e, f) {
+        b = b();
+        b.title = c;
+        b.imageUrl = e;
+        if (c = f.subscriptionInfos)
+            for (e = Math.min(c.length, b.dj.length),
+            f = 0; f < e; f++) {
+                var g = c[f].unlimitedSubscriptionInfoRenderer;
+                if (g) {
+                    var h = b.dj[f];
+                    h.title = X(g.title);
+                    h.content = X(g.content)
+                }
+            }
+        a.open(b)
+    }
+    E(cZ, ["dialogStageModel", "purchaseItemDialogModelFactory"]);
+    function dZ(a, b, c, e) {
+        if ("string" !== typeof e) {
+            if (!e.remoteTransactionDialogEndpoint)
+                return;
+            e = e.remoteTransactionDialogEndpoint.offerParams
+        }
+        b = b({
+            offerParams: e,
+            cancelHandler: c.wb ? function() {
+                return c.play()
+            }
+            : function() {}
+        });
+        c.pause();
+        a.open(b)
+    }
+    E(dZ, ["dialogStageModel", "remoteTransactionModelFactory", "playerService"]);
+    function eZ(a, b, c, e, f, g, h, k) {
+        h && b.isSupported() && (h.efa = b.username,
+        h.dfa = b.avatarUrl);
+        b = g({
+            completeHandler: function() {
+                var b = c.Tn();
+                b = k && b && b.refreshToken === k.refreshToken;
+                a.close();
+                b ? (c.kf("ar", !1, k),
+                f()) : (c.kf("so", !1, k),
+                e(h))
+            }
+        });
+        b.Re = "[[Remove|Button text confirming that a user wants to remove a linked YouTube account from the device.]]";
+        b.L = "removeAccount";
+        b.Cd = !0;
+        b.Rc = !0;
+        b.channel = h;
+        a.open(b)
+    }
+    E(eZ, "dialogStageModel accountApi authService showAccountRemovedToast showActiveAccountRemovedToast channelDialogModelFactory".split(" "));
+    function fZ(a, b, c, e, f, g) {
+        b.stop();
+        b = c.Br ? "[[Sorry, YouTube isn't available right now. Please try again later.|[Xbox360] This error message is shown to the user when the application is unable to make a request to a service that is required to use the application.]]" : "[[A network error has occurred|Dialog title that tells the user that a network error has occurred]]";
+        c = e({
+            message: c.Br ? "[[You can send feedback or report this issue at  www.youtube.com/xb360_feedback. For more information on application outages, you can also visit www.xbox.com/status.|[Xbox360] This error message is shown to the user when the application is unable to make a request to a service that is required to use the application.]]" : "[[YouTube is unavailable. Please try again later.|Dialog title that tells the user that a YouTube servers are inaccessible and asks to retry later.]]",
+            iconClass: "icon-settings-term",
+            completeHandler: g
+        });
+        c.title = b;
+        c.hm = !0;
+        c.Cd = !0;
+        c.Rc = !0;
+        c.Re = f;
+        c.ek = "dialog-ok-button";
+        a.open(c)
+    }
+    E(fZ, ["dialogStageModel", "playerService", "environment", "iconSimpleDialogModelFactory"]);
+    function gZ(a, b, c, e) {
+        b.GW = c || b.GW;
+        b.HL = e || b.HL;
+        a.open(b)
+    }
+    E(gZ, ["dialogStageModel", "signInErrorDialog"]);
+    function hZ(a, b, c, e, f, g, h, k, m, p) {
+        if (a.rd() || m.Zu() || !c.enable_warm_welcome && !iZ(p) || "number" === typeof e.get("sign-in-onboarding-dialog-shown-timestamp"))
+            return !1;
+        e.set("sign-in-onboarding-dialog-shown-timestamp", Va());
+        if (c.enable_warm_welcome)
+            return h();
+        var u = g.ye(39248);
+        k.Ld = function() {
+            b.close();
+            g.Sc(u);
+            f("SIGN_IN_PROMO")
+        }
+        ;
+        b.open(k);
+        g.attachChild(u);
+        g.Ca(u);
+        return !0
+    }
+    function iZ(a) {
+        return zn(a) || !a.yr() && !a.cm()
+    }
+    E(hZ, "authService dialogStageModel experimentFlags localStorage requestDefaultLogin screenManager showWelcomeOverlay signInOnBoardingDialogModel credentialManager device".split(" "));
+    function jZ(a, b, c, e, f, g) {
+        a.rd() || (e.Ld = function() {
+            b.close();
+            c("ADD_TO_WATCH_LATER", f, g)
+        }
+        ,
+        e.jXa(),
+        b.open(e))
+    }
+    E(jZ, ["authService", "dialogStageModel", "requestDefaultLogin", "signInOnBoardingDialogModel"]);
+    function kZ(a, b, c) {
+        c = c();
+        c.title = "[[A subscription error has occurred please try again later.|Text message displayed when an error occurs while user tries to subscribe to a channel.]]";
+        c.backgroundImage = b;
+        a.open(c)
+    }
+    E(kZ, ["dialogStageModel", "failDialogBackground", "dialogModelFactory"]);
+    function lZ(a, b, c, e) {
+        this.label = a;
+        this.imageUrl = b;
+        this.formValue = c;
+        this.trackingParams = e
+    }
+    ;function mZ(a, b, c, e, f, g, h) {
+        h = void 0 === h ? nZ : h;
+        b.load({
+            browseId: "FEinterests_survey"
+        }, function(b) {
+            var k = h(b, e);
+            b = k.topics;
+            k = k.endpoint;
+            0 < b.length && k ? (b = c({
+                topicsArray: b,
+                nextEndpoint: k,
+                welcomeDialogVe: f
+            }),
+            a.open(b)) : g()
+        }, g)
+    }
+    E(mZ, ["dialogStageModel", "browseSetsService", "topicOnboardingDialogFactory", "thumbnailParser"]);
+    function nZ(a, b) {
+        var c = [];
+        a = t("contents.topicPickerRenderer", a) || [];
+        var e = t("acceptButton.buttonRenderer.navigationEndpoint", a);
+        if (!e)
+            return {
+                topics: c,
+                endpoint: e
+            };
+        c = (t("contents", a) || []).map(function(a) {
+            var c = t("topicPickerItemRenderer", a);
+            a = X(t("title.runs.0.text", c));
+            var e = b.bb(c)
+              , f = t("formValue", c);
+            c = t("trackingParams", c);
+            return new lZ(a,e,f,c)
+        });
+        return {
+            topics: c,
+            endpoint: e
+        }
+    }
+    ;function oZ(a, b, c, e, f) {
+        if (!a.Fb() || 0 <= a.fe("9"))
+            return !1;
+        a = f.C("[[A new version of YouTube is available. Install it now from your device\u2019s app store.|Body text of a dialog shown to the user when their app version needs to be updated.]]");
+        c = e({
+            message: a,
+            iconClass: "icon-settings-term",
+            completeHandler: c,
+            cancelHandler: c
+        });
+        c.title = f.C("[[App update required|Title of dialog shown to the user when their app version needs to be updated.]]");
+        c.Re = "[[Exit|A button to exit the application.|1831079727]]";
+        c.nq = "";
+        c.Cd = !0;
+        c.hm = !0;
+        c.Rc = !0;
+        b.open(c);
+        return !0
+    }
+    E(oZ, ["device", "dialogStageModel", "exitUnconditionally", "iconSimpleDialogModelFactory", "localeService"]);
+    function pZ(a, b, c) {
+        b = b({
+            speechAcquirerFactory: c
+        });
+        b.Ub.push("voice-assistant");
+        a.open(b)
+    }
+    E(pZ, ["dialogStageModel", "voiceAssistantDialogModelFactory", "speechAcquirerFactory"]);
+    function qZ(a, b, c, e) {
+        if (a.rd())
+            return !1;
+        a = new YL(e,null);
+        c = new yP("../img/warm_welcome.png","warm-welcome-image");
+        a.Wh = new BY(c);
+        b.open(a);
+        return !0
+    }
+    E(qZ, ["authService", "overlayStage", "timeService", "welcomeOverlay", "experimentFlags"]);
+    function rZ(a, b, c, e) {
+        V.call(this);
+        this.f = a;
+        this.Na = b;
+        this.uh = c;
+        this.Fa = e
+    }
+    l(rZ, V);
+    rZ.prototype.ready = function() {
+        V.prototype.ready.call(this);
+        this.list = this.N(".audio-channels-list");
+        this.list.model = this.LKa()
+    }
+    ;
+    rZ.prototype.LKa = function() {
+        for (var a = this, b = [], c = this.uh(), e = this.f.getAudioTrack(), f = this.f.getAvailableAudioTracks(), g = 0, h = {}, k = 0, m = f.length; k < m; h = {
+            Px: h.Px
+        },
+        k++) {
+            h.Px = f[k];
+            var p = "";
+            e === h.Px && (p = "active",
+            g = k);
+            b.push(this.Na({
+                componentRenderer: "check-button",
+                label: h.Px.toString(),
+                "class": p,
+                clickAction: function(b) {
+                    return function() {
+                        a.Gra(b.Px)
+                    }
+                }(h)
+            }))
+        }
+        c.oa(b, g);
+        return c
+    }
+    ;
+    rZ.prototype.Gra = function(a) {
+        this.f.setAudioTrack(a);
+        this.Fa.close();
+        this.f.play()
+    }
+    ;
+    E(rZ, ["playerService", "buttonModelFactory", "makeCollection", "dialogStageModel"]);
+    function sZ(a) {
+        V.apply(this, arguments)
+    }
+    l(sZ, V);
+    sZ.prototype.ready = function() {
+        V.prototype.ready.call(this);
+        this.h.id = "smartPairingWifi";
+        this.render()
+    }
+    ;
+    E(sZ, []);
+    function tZ(a) {
+        V.call(this);
+        this.G = a;
+        this.model = null
+    }
+    l(tZ, V);
+    tZ.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.model && this.render(!0)
+    }
+    ;
+    tZ.prototype.Sh = function() {
+        this.model && this.model.trackingParams && this.G.Ca(this.model.trackingParams);
+        V.prototype.Sh.call(this)
+    }
+    ;
+    E(tZ, ["screenManager"]);
+    function uZ(a) {
+        V.call(this);
+        this.aQa = a;
+        this.model = null;
+        this.imageUrl = this.displayUrl = ""
+    }
+    l(uZ, V);
+    uZ.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.displayUrl = this.model.baseUrl;
+        this.imageUrl = this.aQa.sO(this.model.bQa || this.model.baseUrl)
+    }
+    ;
+    E(uZ, ["qrCodeService"]);
+    function vZ(a, b, c) {
+        V.call(this);
+        var e = this;
+        this.Ma = a;
+        this.Fa = b;
+        this.devices = new wy;
+        this.TQa = c({
+            label: '[[Delete all|Button in the "Delete Devices" wizard that unpairs alllinked devices when clicked.|1184001217]]',
+            opt_payload: function() {
+                e.UQa()
+            }
+        })
+    }
+    l(vZ, V);
+    vZ.prototype.ready = function() {
+        var a = this;
+        V.prototype.ready.call(this);
+        this.h.id = "smartPairingReset";
+        this.on("button-enter", function(b) {
+            return a.yy(b)
+        });
+        this.sGa()
+    }
+    ;
+    vZ.prototype.UQa = function() {
+        this.Ma.Mi();
+        this.Fa.close()
+    }
+    ;
+    vZ.prototype.yy = function(a) {
+        (a = a && a.detail.payload) && La(a) && a()
+    }
+    ;
+    vZ.prototype.sGa = function() {
+        for (var a = this.Ma.Wq().getItems(), b = [], c = 0, e = a.length; c < e; ++c)
+            b.push(new fV(a[c]));
+        this.devices.oa(b)
+    }
+    ;
+    E(vZ, ["remoteService", "dialogStageModel", "buttonModelFactory"]);
+    function wZ(a, b, c, e, f, g, h, k, m, p, u) {
+        m = void 0 === m ? "" : m;
+        mA.call(this, null, void 0 === p ? null : p);
+        var v = this;
+        this.experimentFlags = u;
+        this.Rc = !0;
+        this.Ia = "";
+        this.dialogRenderer = this.buttons = null;
+        this.L = "remoteTransaction";
+        this.state = "loading";
+        this.aO = "";
+        this.se = b;
+        this.Ma = c;
+        this.Fa = f;
+        this.Kc = g;
+        this.Na = h;
+        this.rHa = e;
+        this.remoteTransactionSessionId = k();
+        this.offerParams = m;
+        this.p_a = this.Na({
+            label: "[[Try another way|Label for button which allows user to try another way of purchasing the content.]]",
+            clickAction: function() {
+                v.nM()
+            }
+        });
+        this.cancelButton = this.Na({
+            label: "[[Back|A button used to navigate back.]]",
+            clickAction: function() {
+                v.Fa.cancel()
+            }
+        });
+        this.tp(1);
+        a.load({
+            offerParams: this.offerParams
+        }, function(a) {
+            return v.NNa(a)
+        }, function() {
+            return v.mM()
+        })
+    }
+    l(wZ, mA);
+    d = wZ.prototype;
+    d.B = function() {
+        this.Ma.XC()
+    }
+    ;
+    d.Pl = function() {
+        return this.buttons
+    }
+    ;
+    d.getState = function() {
+        return this.state
+    }
+    ;
+    d.yxa = function() {
+        return this.aO
+    }
+    ;
+    d.xxa = function() {
+        return this.dialogRenderer && X(this.dialogRenderer.title) || ""
+    }
+    ;
+    d.wxa = function() {
+        return this.dialogRenderer && X(this.dialogRenderer.subtitle) || ""
+    }
+    ;
+    d.Mza = function() {
+        return this.dialogRenderer && X(this.dialogRenderer.introTitle) || ""
+    }
+    ;
+    d.Pza = function() {
+        return this.dialogRenderer && this.dialogRenderer.itemThumbnail ? this.se.bb(this.dialogRenderer.itemThumbnail) : ""
+    }
+    ;
+    d.lBa = function() {
+        return "youtu.be/rent"
+    }
+    ;
+    d.Zn = function() {
+        return "1234 5678 9012 3456"
+    }
+    ;
+    d.NNa = function(a) {
+        (this.dialogRenderer = a.renderer && a.renderer.remoteTransactionDialogRenderer) ? this.rHa ? this.WYa() : this.nM() : this.mM()
+    }
+    ;
+    d.L_a = function(a) {
+        switch (a) {
+        case "transactionStarted":
+            this.tp(3);
+            this.h0("assisted-started");
+            break;
+        case "transactionCompleted":
+            this.tp(4);
+            this.VYa();
+            break;
+        case "transactionCanceled":
+            this.tp(6);
+            this.h0("assisted-searching");
+            break;
+        case "transactionError":
+            this.tp(5),
+            this.h0("assisted-searching")
+        }
+    }
+    ;
+    d.WYa = function() {
+        var a = this;
+        this.buttons = [this.Na({
+            label: "[[Cancel|Option in the remote transaction dialog which closes the dialog when pressing it.]]",
+            clickAction: function() {
+                a.Fa.cancel()
+            }
+        }), this.Na({
+            label: "[[Continue|A button for continuing a process that startedin the current dialog.]]",
+            clickAction: function() {
+                a.xka()
+            }
+        })];
+        this.eg("intro")
+    }
+    ;
+    d.xka = function() {
+        var a = this;
+        this.Ma.Aja(this.offerParams, this.remoteTransactionSessionId) ? ("intro" === this.state && (this.H(this.Ma.on("remote-transaction-status:updated", function(b) {
+            return a.L_a(b)
+        })),
+        this.tp(10)),
+        this.buttons = [this.cancelButton, this.p_a],
+        this.aO = "assisted-searching",
+        this.eg("assisted")) : this.nM()
+    }
+    ;
+    d.mM = function() {
+        this.Ma.XC();
+        this.tp(2);
+        this.buttons = [this.cancelButton];
+        this.eg("error")
+    }
+    ;
+    d.nM = function() {
+        var a = this;
+        this.Ma.XC();
+        this.buttons = [];
+        if ("assisted" === this.state) {
+            var b = this.Na({
+                label: "[[Go Back|A button used to navigate back.|1153601724]]",
+                clickAction: function() {
+                    return a.xka()
+                }
+            });
+            this.buttons.push(b)
+        } else
+            this.buttons.push(this.cancelButton);
+        this.experimentFlags.enable_transactions_with_pairing_code ? this.eg("pairing-code") : (this.eg("instructional"),
+        this.tp(11))
+    }
+    ;
+    d.VYa = function() {
+        var a = this;
+        this.Ma.XC();
+        this.buttons = [this.Na({
+            label: "[[Close|A button to close the dialog.]]",
+            clickAction: function() {
+                a.Fa.complete()
+            }
+        })];
+        this.eg("completed")
+    }
+    ;
+    d.eg = function(a) {
+        this.state = a;
+        this.w("stateChanged")
+    }
+    ;
+    d.h0 = function(a) {
+        "assisted-searching" === a ? this.Ma.Aja(this.offerParams, this.remoteTransactionSessionId) || this.nM() : this.Ma.XC();
+        this.aO = a;
+        this.w("stateChanged")
+    }
+    ;
+    d.tp = function(a) {
+        this.Kc.send("mdxRemoteTransaction", {
+            eventType: a,
+            remoteTransactionSessionId: this.remoteTransactionSessionId
+        })
+    }
+    ;
+    E(wZ, "ypcGetOfferDetailsService thumbnailParser remoteService isAdditionalDataSupported dialogStageModel gelService buttonModelFactory guidFactory opt_offerParams opt_cancelHandler experimentFlags".split(" "));
+    function xZ() {
+        V.apply(this, arguments);
+        this.model = null
+    }
+    l(xZ, V);
+    xZ.prototype.ready = function() {
+        this.pd = this.Nb("remote-transaction-button-list")
+    }
+    ;
+    xZ.prototype.D = function(a) {
+        var b = this;
+        V.prototype.D.call(this, a);
+        this.model && this.I(this.model, "stateChanged", function() {
+            return b.jB()
+        });
+        this.jB()
+    }
+    ;
+    xZ.prototype.jB = function() {
+        this.model && (this.pd && (this.pd.model = [],
+        this.pd.model = this.model.Pl(),
+        this.pd.model && (this.pd.ba(this.pd.ak() - 1),
+        this.pd.focus())),
+        this.m0(),
+        this.render())
+    }
+    ;
+    xZ.prototype.m0 = function() {
+        this.model && (this.aP(),
+        this.wa(fc(this.model.getState())),
+        this.wa(fc(this.model.yxa())))
+    }
+    ;
+    function yZ(a) {
+        V.call(this);
+        this.G = a;
+        this.grid = this.okButton = null
+    }
+    l(yZ, V);
+    d = yZ.prototype;
+    d.ready = function() {
+        var a = this;
+        V.prototype.ready.call(this);
+        this.okButton = this.N("#dialog-ok-button");
+        this.grid = this.N(".topics-grid");
+        this.on("keydown", function(b) {
+            return a.ua(b)
+        });
+        this.grid.on("button-enter", function(b) {
+            return a.NEa(b)
+        })
+    }
+    ;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.model && (this.okButton.model = this.model.Fs,
+        this.grid.model = this.model.h$,
+        this.render())
+    }
+    ;
+    d.bza = function() {
+        var a = this.grid.fo() ? this.grid.fo().Bd() : null;
+        return a ? a.Bd() : null
+    }
+    ;
+    d.ua = function(a) {
+        switch (a.keyCode) {
+        case 37:
+            this.okButton.J() && (this.grid.focus(),
+            T(a));
+            break;
+        case 39:
+            this.grid.J() && (this.okButton.focus(),
+            T(a))
+        }
+    }
+    ;
+    d.NEa = function(a) {
+        a = a.detail;
+        var b = this.model.DZa(a.payload);
+        b ? a.wa("selected-topic") : a.lb("selected-topic");
+        var c = this.bza();
+        c && c.model === a && c.h.setAttribute("aria-checked", b ? "true" : "false");
+        this.model.JFa() ? this.okButton.model = this.model.gta : this.okButton.model = this.model.Fs;
+        this.G.Sc(a.trackingParams);
+        this.render()
+    }
+    ;
+    E(yZ, ["screenManager"]);
+    function zZ(a) {
+        V.call(this);
+        this.G = a;
+        this.model = null
+    }
+    l(zZ, V);
+    zZ.prototype.ready = function() {
+        V.prototype.ready.call(this);
+        this.badge = this.N(".tvfilm-badge")
+    }
+    ;
+    zZ.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.model && (this.rqa(),
+        this.render(!0))
+    }
+    ;
+    zZ.prototype.Sh = function() {
+        this.model && this.model.trackingParams && this.G.Ca(this.model.trackingParams);
+        V.prototype.Sh.call(this)
+    }
+    ;
+    zZ.prototype.rqa = function() {
+        this.badge && (this.badge.model = this.model && this.model.badge)
+    }
+    ;
+    E(zZ, ["screenManager"]);
+    function AZ(a, b) {
+        mA.call(this);
+        var c = this;
+        this.Fa = a;
+        this.Na = b;
+        this.state = "dialog-loading";
+        this.timeout = 500;
+        this.L = "twoPaneDialog";
+        this.zL = this.Rc = !0;
+        this.backButton = this.Na({
+            label: "",
+            accessibleLabel: "[[Back|A button used to navigate back.]]"
+        });
+        this.backButton.ob = function() {
+            c.NS()
+        }
+    }
+    l(AZ, mA);
+    AZ.prototype.hc = function(a) {
+        this.state = a;
+        this.w("load-state:changed")
+    }
+    ;
+    AZ.prototype.mia = function() {
+        this.hc("dialog-loading")
+    }
+    ;
+    AZ.prototype.lia = function() {
+        this.hc("dialog-load-complete")
+    }
+    ;
+    AZ.prototype.NS = function() {
+        this.Fa.cancel()
+    }
+    ;
+    function BZ(a, b, c, e) {
+        V.call(this);
+        this.Se = a;
+        this.G = b;
+        this.j = c;
+        this.isLoading = e;
+        this.backButton = this.contentPanel = this.actionPanel = this.model = null;
+        this.Cp = -1
+    }
+    l(BZ, V);
+    d = BZ.prototype;
+    d.ready = function() {
+        var a = this;
+        V.prototype.ready.call(this);
+        this.eKa = this.h.querySelector(".loading-panel");
+        this.iJa = this.h.querySelector(".two-pane-layout");
+        this.ata = this.h.querySelector(".content-panel-container");
+        this.poa = this.h.querySelector(".action-panel-container");
+        this.backButton = this.N(".back-button");
+        this.on("keydown", function(b) {
+            return a.ua(b)
+        })
+    }
+    ;
+    d.D = function(a) {
+        var b = this;
+        V.prototype.D.call(this, a);
+        this.model && (this.backButton && (this.backButton.model = this.model.backButton,
+        this.backButton.Ga(this.model.hm)),
+        this.I(this.model, "load-state:changed", function() {
+            b.Di()
+        }),
+        this.Di())
+    }
+    ;
+    d.Di = function() {
+        if (this.model) {
+            this.XWa("dialog-loading" === this.model.state);
+            "dialog-load-complete" === this.model.state && this.PJa();
+            this.render(!0);
+            var a = this.rb();
+            a && a.focus()
+        }
+    }
+    ;
+    d.XWa = function(a) {
+        this.RWa(!a);
+        this.$Wa(a)
+    }
+    ;
+    d.RWa = function(a) {
+        this.fb(this.iJa, a)
+    }
+    ;
+    d.$Wa = function(a) {
+        var b = this;
+        this.model && (this.fb(this.eKa, a),
+        this.j.clearTimeout(this.Cp),
+        a ? this.Cp = this.j.setTimeout(function() {
+            b.isLoading.set(!0)
+        }, this.model.timeout) : this.isLoading.set(!1))
+    }
+    ;
+    d.PJa = function() {
+        this.ooa();
+        this.$sa();
+        this.model && this.model.trackingParams && this.G.Ca(this.model.trackingParams)
+    }
+    ;
+    d.ua = function(a) {
+        switch (a.keyCode) {
+        case 37:
+            this.wh();
+            break;
+        case 39:
+            this.vj();
+            break;
+        default:
+            return
+        }
+        T(a)
+    }
+    ;
+    d.wh = function() {
+        !this.backButton || this.backButton.J() || this.backButton.isHidden() || this.backButton.focus()
+    }
+    ;
+    d.vj = function() {
+        !this.actionPanel || this.actionPanel.J() || this.actionPanel.isHidden() || this.actionPanel.focus()
+    }
+    ;
+    d.rb = function() {
+        return this.model ? "dialog-load-complete" === this.model.state ? this.actionPanel : this.backButton : null
+    }
+    ;
+    d.$sa = function() {
+        this.contentPanel = this.xga(this.contentPanel, this.model && this.model.contentPanel, this.ata)
+    }
+    ;
+    d.ooa = function() {
+        this.actionPanel = this.xga(this.actionPanel, this.model && this.model.actionPanel, this.poa)
+    }
+    ;
+    d.xga = function(a, b, c) {
+        var e = null;
+        b && (e = this.Se.ck(b, a));
+        e !== a && (a && (c.removeChild(a.h),
+        this.removeChild(a)),
+        e && (this.Zb(e),
+        c.appendChild(e.h)));
+        return e
+    }
+    ;
+    E(BZ, ["componentFactory", "screenManager", "timeService", "isLoading"]);
+    function CZ(a, b, c, e, f) {
+        mA.call(this);
+        this.Fa = a;
+        this.Ap = c;
+        this.L = "voiceAssistantDialog";
+        this.Rc = this.zL = !0;
+        this.Yd = b({
+            speechAcquirerFactory: e,
+            processQuery: f
+        });
+        this.Ba(this.Yd);
+        this.Yd.on("voice-query-error", this.Dc.bind(this));
+        this.Yd.on("state-changed", this.IW.bind(this));
+        this.Yd.on("detecting-sound-changed", this.w.bind(this, "detecting-sound-changed"))
+    }
+    l(CZ, mA);
+    d = CZ.prototype;
+    d.Dc = function(a) {
+        switch (a) {
+        case "listening-timeout":
+        case "no-match":
+        case "no-speech":
+        case "aborted":
+            this.Ap("[[Didn't hear that. Try again.|A message telling users that the Voice Control system did not hear what the user said, and they should try Voice Search again.]]");
+            break;
+        case "audio-capture":
+        case "not-allowed":
+            this.Ap("[[Check your microphone and try again.|A message from the Voice Control Search system telling them to check their microphone settings and try Voice Search again.]]");
+            break;
+        default:
+            this.Ap("[[Something went wrong. Try again.|A message telling users that the Voice Control Search system encountered an error, and they should try again.]]")
+        }
+        this.Fa.cancel()
+    }
+    ;
+    d.IW = function(a, b) {
+        "complete" === a && this.Fa.complete();
+        this.w("voice-state-changed", a, b)
+    }
+    ;
+    d.start = function() {
+        this.Yd.start()
+    }
+    ;
+    d.getState = function() {
+        return this.Yd.getState()
+    }
+    ;
+    d.dm = function() {
+        return this.Yd.dm()
+    }
+    ;
+    d.getQuery = function() {
+        return this.Yd.getQuery()
+    }
+    ;
+    E(CZ, ["dialogStageModel", "voiceQueryStateMachineFactory", "showVoiceSearchErrorToast", "speechAcquirerFactory", "loadAssistantRequest"]);
+    function DZ() {
+        V.apply(this, arguments);
+        this.model = null;
+        this.ub = !0
+    }
+    l(DZ, V);
+    DZ.prototype.D = function(a) {
+        function b() {
+            return c.render()
+        }
+        var c = this;
+        V.prototype.D.call(this, a);
+        this.Bb("voice-state-changed", b);
+        this.Bb("detecting-sound-changed", b);
+        this.model && this.model.start();
+        this.render()
+    }
+    ;
+    DZ.prototype.T = function() {
+        var a = V.prototype.T.call(this);
+        this.model && (a.push(this.model.getState()),
+        "idle" !== this.model.getState() && a.push("open"),
+        this.model.dm() && a.push("detecting-sound"));
+        return a
+    }
+    ;
+    function EZ() {
+        V.apply(this, arguments);
+        this.uO = this.TE = null
+    }
+    l(EZ, V);
+    EZ.prototype.ready = function() {
+        V.prototype.ready.call(this);
+        this.TE = this.N(".welcome-sign-in-button");
+        this.uO = this.N(".welcome-skip-button");
+        this.on("keydown", this.ua.bind(this))
+    }
+    ;
+    EZ.prototype.rb = function() {
+        return this.TE
+    }
+    ;
+    EZ.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.render(!0)
+    }
+    ;
+    EZ.prototype.ua = function(a) {
+        T(a);
+        a = a.keyCode;
+        this.uO.J() && 38 === a ? this.TE.focus() : this.TE.J() && 40 === a && this.uO.focus()
+    }
+    ;
+    function FZ(a, b) {
+        mA.call(this);
+        this.L = "appVersionDialog";
+        this.backgroundImage = b;
+        this.Ub.push("text-dialog");
+        this.properties = new wy(a())
+    }
+    l(FZ, mA);
+    E(FZ, ["getAppVersionProperties", "failDialogBackground"]);
+    function GZ(a, b, c) {
+        mA.call(this, a, b, void 0 === c ? !1 : c);
+        this.channel = null
+    }
+    l(GZ, mA);
+    E(GZ, ["opt_completeHandler", "opt_cancelHandler", "opt_enableDialogSounds"]);
+    function HZ(a, b, c, e) {
+        mA.call(this, c, e);
+        this.Rc = this.Cd = !0;
+        this.L = "confirmContentDialog";
+        this.message = a;
+        this.confirmationTitle = b
+    }
+    l(HZ, mA);
+    E(HZ, ["message", "confirmationTitle", "completeHandler", "cancelHandler"]);
+    function IZ(a, b, c, e, f, g, h) {
+        f = void 0 === f ? null : f;
+        g = void 0 === g ? null : g;
+        h = void 0 === h ? "" : h;
+        AZ.call(this, a, b);
+        this.$Ka = c;
+        this.ZKa = e;
+        this.actionPanel = f;
+        this.contentPanel = g;
+        this.trackingParams = h;
+        this.timeout = 200;
+        this.Ub.push("offer-selection-dialog");
+        this.mia()
+    }
+    l(IZ, AZ);
+    function JZ(a, b, c, e) {
+        return new IZ(a,b,c,e)
+    }
+    IZ.prototype.Ww = function(a) {
+        a.sellableItemRenderer && (this.contentPanel = this.$Ka({
+            source: a.sellableItemRenderer.tvfilmSellableItemRenderer
+        }));
+        a.offersRenderer && (this.actionPanel = this.ZKa({
+            source: a.offersRenderer.offerButtonListRenderer,
+            params: {
+                title: X(a.title)
+            }
+        }));
+        this.lia()
+    }
+    ;
+    E(JZ, ["dialogStageModel", "buttonModelFactory", "makeOfferSelectionContentPanel", "makeOfferSelectionActionPanel"]);
+    function KZ(a, b) {
+        this.actionButtons = a;
+        this.title = void 0 === b ? "" : b;
+        this.L = "offer-selection-action-panel"
+    }
+    function LZ(a, b, c) {
+        a = a.offerButtons && a.offerButtons.map(function(a) {
+            return c({
+                source: a.buttonRenderer
+            })
+        }) || [];
+        return new KZ(a,b.title)
+    }
+    E(LZ, ["source", "params", "makeOfferButtonModel"]);
+    function MZ(a, b, c, e, f, g, h, k, m) {
+        g = void 0 === g ? null : g;
+        h = void 0 === h ? null : h;
+        k = void 0 === k ? "" : k;
+        m = void 0 === m ? null : m;
+        AZ.call(this, a, b);
+        this.uj = c;
+        this.rN = e;
+        this.qm = f;
+        this.contentPanel = g;
+        this.actionPanel = h;
+        this.trackingParams = k;
+        this.closeAction = m;
+        this.Ub.push("post-transaction-dialog");
+        this.mia()
+    }
+    l(MZ, AZ);
+    function NZ(a, b, c, e, f) {
+        return new MZ(a,b,c,e,f)
+    }
+    MZ.prototype.Ww = function(a) {
+        a.actionPanelRenderer && (this.actionPanel = this.uj(a.actionPanelRenderer, this.rN));
+        a.contentPanel && (this.contentPanel = this.uj(a.contentPanel, this.rN));
+        this.closeAction = a.closeAction || null;
+        this.trackingParams = a.trackingParams || "";
+        this.lia()
+    }
+    ;
+    MZ.prototype.NS = function() {
+        AZ.prototype.NS.call(this);
+        this.closeAction && this.qm(this.closeAction)
+    }
+    ;
+    E(NZ, ["dialogStageModel", "buttonModelFactory", "makeModelFromSource", "ypcCompleteTransactionService", "navigateToEndpoint"]);
+    function OZ(a, b, c) {
+        mA.call(this, a, b, void 0 === c ? !1 : c);
+        this.imageUrl = "";
+        this.dj = [];
+        this.L = "purchaseItemDialog";
+        for (a = 0; 4 > a; ++a)
+            this.dj.push({
+                title: "",
+                content: ""
+            })
+    }
+    l(OZ, mA);
+    E(OZ, ["opt_completeHandler", "opt_cancelHandler", "opt_enableDialogSounds"]);
+    function PZ(a, b) {
+        mA.call(this);
+        this.Wi = a;
+        this.LMa = b;
+        this.L = "scrollPane";
+        this.contentUrl = ""
+    }
+    l(PZ, mA);
+    PZ.prototype.Wva = function() {
+        var a = this;
+        if (this.contentUrl) {
+            var b = this.Wi();
+            b.md(function(b) {
+                a.w("content-ready", b)
+            });
+            b.send(new gq("GET",this.contentUrl))
+        }
+    }
+    ;
+    E(PZ, ["xhrRequestFactory", "numVisibleLines"]);
+    function QZ(a) {
+        mA.call(this);
+        var b = this;
+        this.gRa = a;
+        this.Re = "Try Another Way";
+        this.ek = "dialog-ok-button";
+        this.Rc = this.Cd = !0;
+        this.L = "signInError";
+        this.GW = function() {}
+        ;
+        this.Cga = function() {}
+        ;
+        this.Bga = function() {}
+        ;
+        this.HL = "UNKNOWN";
+        this.Ld = function() {
+            b.gRa(b.HL, b.Cga, b.Bga, b.hPa);
+            b.GW()
+        }
+    }
+    l(QZ, mA);
+    E(QZ, ["requestDeviceLogin"]);
+    function RZ(a) {
+        mA.call(this);
+        this.M = a;
+        this.iea = this.headerValue = "";
+        this.Re = "[[Sign In|Text on button for user to confirm that they wish to sign into the application.]]";
+        this.nq = "[[Not Now|Text on button denoting the choice for a user to not sign in now.]]";
+        this.ek = "dialog-ok-button";
+        this.Rc = this.Cd = !0;
+        this.L = "signInOnboarding";
+        this.HWa()
+    }
+    l(RZ, mA);
+    d = RZ.prototype;
+    d.header = function() {
+        return this.headerValue
+    }
+    ;
+    d.note = function() {
+        return this.iea
+    }
+    ;
+    d.HWa = function() {
+        this.up("[[Welcome! Sign in for the best YouTube experience|Greets the user and invites them to sign into the app while touting that signed-in users have the best YouTube experience.]]", "[[Watch your favorite subscriptions, playlists and more|Lists a few of the features available to signed-in users to entice users who are not signed in to do so.]]")
+    }
+    ;
+    d.jXa = function() {
+        this.up("[[Sign in to save this video|Tells user that, in order to save the video to watch later, they must first sign into the application.]]", "")
+    }
+    ;
+    d.up = function(a, b) {
+        this.headerValue = this.M.C(a);
+        this.iea = this.M.C(b)
+    }
+    ;
+    E(RZ, ["localeService"]);
+    function SZ(a, b, c, e, f, g, h, k, m, p, u) {
+        mA.call(this);
+        var v = this;
+        this.bGa = e;
+        this.LZa = f;
+        this.qm = g;
+        this.M = h;
+        this.G = k;
+        this.MZa = m;
+        this.nextEndpoint = p;
+        this.s1a = u;
+        this.Rc = !0;
+        this.L = "topic-onboarding";
+        this.lea = this.M.C("[[{{n}} topics selected|Indicate that multiple topics are selected in the topic onboarding flow.]]").replace("{{n}}", "0");
+        this.rs = [];
+        this.Q_ = k.ye(50597);
+        k.attachChild(this.Q_, this.s1a);
+        k.Ca(this.Q_);
+        this.Ub = ["full-screen"];
+        this.Re = "[[Continue|A button for continuing a process that startedin the current dialog.]]";
+        this.nq = "[[Skip|A button that bypasses current dialog.]]";
+        this.gta = a({
+            label: this.Re,
+            opt_type: "dialog-ok-button",
+            opt_clickAction: function() {
+                v.$Ja();
+                b.close()
+            }
+        });
+        this.Fs = a({
+            label: this.nq,
+            opt_type: "dialog-cancel-button",
+            opt_clickAction: function() {
+                b.close()
+            }
+        });
+        this.h$ = c({});
+        this.GP(this.MZa)
+    }
+    l(SZ, mA);
+    d = SZ.prototype;
+    d.JFa = function() {
+        return 0 < this.rs.length
+    }
+    ;
+    d.GP = function(a) {
+        var b = this;
+        a = a.map(function(a) {
+            return b.zta(a)
+        });
+        this.h$.oa(a)
+    }
+    ;
+    d.zta = function(a) {
+        var b = this.bGa({
+            label: a.label,
+            payload: a.formValue,
+            imageUrl: a.imageUrl
+        });
+        b.L = "dialog-skip-button-tile";
+        b.trackingParams = a.trackingParams;
+        this.G.attachChild(b.trackingParams, this.Q_);
+        return b
+    }
+    ;
+    d.DZa = function(a) {
+        var b = !1;
+        -1 === this.rs.indexOf(a) ? (this.rs.push(a),
+        b = !0) : this.rs = this.rs.filter(function(b) {
+            return b !== a
+        });
+        this.p0a();
+        return b
+    }
+    ;
+    d.$Ja = function() {
+        this.LZa.LVa(this.rs);
+        this.qm(this.nextEndpoint)
+    }
+    ;
+    d.p0a = function() {
+        var a = this.rs.length;
+        this.lea = 1 !== a ? this.M.C("[[{{n}} topics selected|Indicate that multiple topics are selected in the topic onboarding flow.]]").replace("{{n}}", a.toString()) : this.M.C("[[{{n}} topic selected|Indicate that a single topic is selected in the topic onboarding flow.]]").replace("{{n}}", a.toString())
+    }
+    ;
+    E(SZ, "buttonModelFactory dialogStageModel topicsGridModelFactory imageButtonModelFactory topicOnboardingService navigateToEndpoint localeService screenManager topicsArray nextEndpoint welcomeDialogVe".split(" "));
+    function TZ(a, b, c, e, f) {
+        var g = this;
+        this.nc = c;
+        this.fRa = e;
+        this.G = f;
+        this.L = "welcome";
+        this.vja = a({
+            label: b.C("[[Sign In|Text on button for user to confirm that they wish to sign into the application.]]")
+        });
+        this.Fs = new bM(b.C("[[Skip|A button that bypasses current dialog.]]"));
+        this.Fs.Gi = new aM("material-icon-navigate-next");
+        this.Fs.role = "button";
+        this.visualElement = this.G.ye(57200);
+        this.Fs.ob = function() {
+            g.Aea()
+        }
+        ;
+        this.vja.ob = function() {
+            g.ONa()
+        }
+    }
+    TZ.prototype.onOpen = function() {
+        this.G.attachChild(this.visualElement);
+        this.G.Ca(this.visualElement)
+    }
+    ;
+    TZ.prototype.Aea = function() {
+        this.nc.close()
+    }
+    ;
+    TZ.prototype.ONa = function() {
+        this.nc.close();
+        this.fRa("SIGN_IN_PROMO")
+    }
+    ;
+    E(TZ, ["buttonModelFactory", "localeService", "overlayStage", "requestDefaultLogin", "screenManager"]);
+    function UZ(a, b, c, e, f, g) {
+        TZ.call(this, a, b, c, e, f);
+        this.eXa = g
+    }
+    l(UZ, TZ);
+    UZ.prototype.Aea = function() {
+        var a = this;
+        this.nc.close();
+        this.eXa(this.visualElement, function() {
+            a.nc.close()
+        })
+    }
+    ;
+    E(UZ, "buttonModelFactory localeService overlayStage requestDefaultLogin screenManager showTopicOnboardingDialog".split(" "));
+    function VZ(a) {
+        if (a = t("standaloneBadge.standaloneYpcBadgeRenderer", a)) {
+            var b = new aV;
+            "STYLE_AVAILABLE" === t("style.badgeStyle", a) ? b.badgeStyle = "ypc-blue" : b.badgeStyle = "ypc-grey";
+            b.title = a.iconText || "";
+            a.label && (b.subtitle = X(a.label));
+            return b
+        }
+        return null
+    }
+    ;function WZ(a, b, c, e, f, g) {
+        this.itemTitle = a;
+        this.offerTitle = b;
+        this.metadataRows = c;
+        this.thumbnailUrl = e;
+        this.trackingParams = void 0 === f ? "" : f;
+        this.badge = void 0 === g ? null : g;
+        this.L = "tvfilm-content-panel"
+    }
+    function XZ(a, b, c, e) {
+        a = X(e.itemTitle);
+        b = X(e.offerTitle);
+        var f = YZ(e)
+          , g = VZ({
+            standaloneBadge: e.badge
+        });
+        c = c.Ji(e.itemThumbnail);
+        return new WZ(a,b,f,c,e.trackingParams || "",g)
+    }
+    function ZZ(a, b) {
+        var c = X(a.title)
+          , e = X(a.overline)
+          , f = YZ(a);
+        a = b.bb(a);
+        return new WZ(c,e,f,a)
+    }
+    function YZ(a) {
+        return a.metadataRows ? a.metadataRows.map(function(a) {
+            return {
+                text: X(a),
+                qb: "metadata-row"
+            }
+        }) : []
+    }
+    WZ.prototype.lc = function() {
+        return this.trackingParams
+    }
+    ;
+    E(XZ, ["makeModelFromSource", "ypcCompleteTransactionService", "thumbnailParser", "source"]);
+    E(ZZ, ["source", "thumbnailParser"]);
+    var $Z = {
+        apply: function(a, b, c, e, f) {
+            a.zb({
+                appVersionDialogModelFactory: FZ,
+                confirmContentDialogModelFactory: HZ,
+                dialogModelFactory: mA,
+                channelDialogModelFactory: GZ,
+                iconSimpleDialogModelFactory: sP,
+                purchaseItemDialogModelFactory: OZ,
+                qrDialogModelFactory: tV,
+                scrollableDialogModelFactory: PZ
+            });
+            a.P([{
+                name: "appVersionDialog",
+                A: V,
+                template: "dialogs/app_version.html"
+            }, {
+                name: "audioChannelsDialog",
+                A: rZ,
+                template: "dialogs/audio_channels.html"
+            }, {
+                name: "confirmContentDialog",
+                A: V,
+                template: "dialogs/confirm_content.html"
+            }, {
+                name: "ensureLoggedInDialog",
+                A: V,
+                template: "dialogs/ensure_logged_in.html"
+            }, {
+                name: "exitDialog",
+                A: V,
+                template: "empty.html"
+            }, {
+                name: "logoutDialog",
+                A: V,
+                template: "dialogs/logout.html"
+            }, {
+                name: "paidChannelDialog",
+                A: V,
+                template: "dialogs/paid_channel.html"
+            }, {
+                name: "purchaseItemDialog",
+                A: V,
+                template: "dialogs/purchase_item.html"
+            }, {
+                name: "qrDialog",
+                A: uZ,
+                template: "dialogs/qr.html"
+            }, {
+                name: "system-error",
+                A: uZ,
+                template: "dialogs/system_error.html"
+            }, {
+                name: "removeAccount",
+                A: V,
+                template: "dialogs/remove_account.html"
+            }, {
+                name: "tosDialog",
+                A: V,
+                template: "dialogs/tos.html"
+            }, {
+                name: "twoPaneDialog",
+                A: BZ,
+                template: "dialogs/two_pane_dialog.html"
+            }]);
+            a.V({
+                confirmExit: WY,
+                showAppSupportDiscontinuedDialog: LY,
+                showAppVersionDialog: MY,
+                showAudioChannelOptionsDialog: NY,
+                showChangeLanguageDialog: OY,
+                showClearSearchHistoryDialog: PY,
+                showClearStorageDialog: QY,
+                showClearWatchHistoryDialog: RY,
+                showConfirmContentDialog: SY,
+                showConfirmContentOverlay: TY,
+                showConfirmDialog: UY,
+                showEnsureLoggedInDialog: VY,
+                showNetworkErrorDialog: YY,
+                showPaidChannelSubscriptionErrorDialog: $Y,
+                showPromoCouponOutcomeOverlay: AY,
+                showPromoCouponOverlay: DY,
+                showPromoPremiumOutcomeOverlay: FY,
+                showPromoPremiumOverlay: HY,
+                showPurchaseErrorDialog: bZ,
+                showPurchaseItemDialog: cZ,
+                showServerUnavailableDialog: fZ,
+                showSignInWatchLaterDialog: jZ,
+                showSubscriptionErrorDialog: kZ,
+                showUpdateRequiredDialog: oZ
+            });
+            a.add("dialog-buttons-list", c({
+                align: "=boundedThirdAlign",
+                axis: "translateY",
+                defaultItemSize: 1.5,
+                leftPadding: 0,
+                rightPadding: 0,
+                size: 30,
+                spacing: .4,
+                isLimitedList: !0
+            }));
+            a.add("smart-pairing-options-list", c({
+                align: "=staticAlign",
+                axis: "translateY",
+                defaultItemSize: 1.25,
+                leftPadding: 0,
+                rightPadding: 0,
+                size: 30,
+                spacing: 1
+            }));
+            a.P([{
+                name: "connectWithWifiDialog",
+                A: sZ,
+                template: "dialogs/connect_with_wifi.html"
+            }, {
+                name: "pairingDialog",
+                A: JY,
+                template: "dialogs/pairing_with_code.html"
+            }, {
+                name: "remoteResetDialog",
+                A: vZ,
+                template: "dialogs/smart_remote_reset.html"
+            }, {
+                name: "smartPairingDialog",
+                A: KY,
+                template: "dialogs/smart_pairing.html"
+            }]);
+            (function() {
+                a.V({
+                    showSignInOnboardingDialog: hZ
+                });
+                a.$d({
+                    signInOnBoardingDialogModel: RZ
+                });
+                a.P([{
+                    name: "signInOnboarding",
+                    A: V,
+                    template: "dialogs/sign_in_onboarding.html"
+                }]);
+                a.V({
+                    showWelcomeOverlay: qZ
+                });
+                e.enable_onboarding_for_kabuki ? a.add("welcomeOverlay", new J(new I(UZ))) : a.add("welcomeOverlay", new J(new I(TZ)));
+                a.P([{
+                    name: "welcome",
+                    A: EZ,
+                    template: "dialogs/welcome.html"
+                }]);
+                a.V({
+                    showSignInErrorDialog: gZ
+                });
+                a.$d({
+                    signInErrorDialog: QZ
+                });
+                a.P([{
+                    name: "signInError",
+                    A: V,
+                    template: "dialogs/sign_in_error.html"
+                }]);
+                e.enable_onboarding_for_kabuki ? (a.V({
+                    showTopicOnboardingDialog: mZ
+                }),
+                a.add("topicOnboardingDialog", new J(new I(SZ))),
+                a.P([{
+                    name: "topic-onboarding",
+                    A: yZ,
+                    template: "dialogs/topic_onboarding.html"
+                }])) : a.V({
+                    showTopicOnboardingDialog: function() {
+                        return !1
+                    }
+                })
+            }
+            )();
+            a.V({
+                showLogoutDialog: f.Os ? eZ : XY
+            });
+            (function() {
+                e.enable_voice_assistant ? (a.zb({
+                    remoteSpeechAcquirerFactory: nY,
+                    voiceAssistantDialogModelFactory: CZ
+                }),
+                a.add("assistantService", new J(new I(us,{
+                    id: "assistantService",
+                    path: "/assistant"
+                }))),
+                a.P([{
+                    name: "voiceAssistantDialog",
+                    A: DZ,
+                    template: "dialogs/voice_assistant.html"
+                }]),
+                a.add("showVoiceAssistantDialogFromMdx", new J(new nf(pZ,{
+                    speechAcquirerFactory: "=remoteSpeechAcquirerFactory"
+                }))),
+                f.supportsVoiceSearch ? (a.add("showVoiceAssistantDialogFromTv", new J(new nf(pZ,{
+                    speechAcquirerFactory: "=localSpeechAcquirerFactory"
+                }))),
+                b.Lb("rootDispatcher", "keydown", IY)) : a.V({
+                    showVoiceAssistantDialogFromTv: function() {}
+                })) : a.V({
+                    showVoiceAssistantDialogFromMdx: function() {},
+                    showVoiceAssistantDialogFromTv: function() {}
+                })
+            }
+            )();
+            a.Tb({
+                makeCompletedPurchaseModel: NZ
+            });
+            a.V({
+                showPostTransactionDialog: aZ
+            });
+            a.P([{
+                name: "post-transaction-action-panel",
+                A: tZ,
+                template: "dialogs/post_transaction_action_panel.html"
+            }]);
+            a.P([{
+                name: "tvfilm-content-panel",
+                A: zZ,
+                template: "dialogs/tvfilm_content_panel.html"
+            }]);
+            a.V({
+                showRemoteTransactionDialog: dZ
+            });
+            a.zb({
+                remoteTransactionModelFactory: wZ
+            });
+            a.P([{
+                name: "remoteTransaction",
+                A: xZ,
+                template: "dialogs/remote_transaction.html"
+            }]);
+            a.P([{
+                name: "offer-selection-action-panel",
+                A: V,
+                template: "dialogs/offer_selection_action_panel.html"
+            }]);
+            a.Tb({
+                makeOfferSelectionContentPanel: ZZ,
+                makeOfferSelectionActionPanel: LZ,
+                makeOfferSelectionDialogModel: JZ
+            });
+            a.V({
+                showOfferSelectionDialog: ZY
+            });
+            a.$({
+                enableDialogSounds: e.sound_redesign
+            })
+        },
+        R: [rX, DT, Hz, mY, KT, YE, zY]
+    };
+    E($Z.apply, "injector bootstrapper makeNewListConfig experimentFlags environment firstLaunchTracker".split(" "));
+    function a_(a, b, c, e) {
+        this.title = a;
+        this.descriptions = b;
+        this.actionButtons = c;
+        this.trackingParams = e;
+        this.L = "post-transaction-action-panel"
+    }
+    function b_(a, b, c) {
+        var e = X(c.title)
+          , f = [];
+        if (c.descriptions)
+            for (var g = 0; g < c.descriptions.length; g++)
+                f.push(c_(X(c.descriptions[g])));
+        g = [];
+        if (c.actionButtons)
+            for (var h = 0; h < c.actionButtons.length; h++)
+                g.push(a(c.actionButtons[h], b));
+        return new a_(e,f,g,c.trackingParams || "")
+    }
+    function c_(a, b) {
+        return {
+            text: a,
+            qb: void 0 === b ? "post-transaction-action-panel-description" : b
+        }
+    }
+    E(b_, ["makeModelFromSource", "ypcCompleteTransactionService", "source"]);
+    function d_(a, b, c, e, f, g, h, k, m) {
+        V.call(this);
+        this.Db = a;
+        this.endscreens = b;
+        this.j = c;
+        this.qa = e;
+        this.f = f;
+        this.Tl = g;
+        this.uu = h;
+        this.Fa = k;
+        this.gd = m;
+        this.Ml = this.ZP = this.index = -1;
+        this.ub = !0
+    }
+    l(d_, V);
+    d = d_.prototype;
+    d.Eb = function() {
+        this.gd.on("value-changed", this.GIa.bind(this));
+        this.on("keyup", this.xb.bind(this))
+    }
+    ;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.Ga(!this.model);
+        this.render()
+    }
+    ;
+    d.xb = function(a) {
+        switch (a.keyCode) {
+        case 8:
+        case 27:
+            T(a),
+            this.Hsa()
+        }
+    }
+    ;
+    d.Hsa = function() {
+        this.Fa.isOpen() ? this.Fa.close() : this.uu()
+    }
+    ;
+    d.onFocus = function() {
+        var a = this;
+        V.prototype.onFocus.call(this);
+        this.f.stop();
+        this.qa.La("show_call_to_cast");
+        this.Fa.close();
+        this.C3();
+        this.gd.get() || this.Pia();
+        this.A3();
+        this.ija() && (this.ZP = this.j.setInterval(function() {
+            a.PWa()
+        }, 15E3));
+        this.ija() && !this.ak() && this.UWa()
+    }
+    ;
+    d.onBlur = function() {
+        V.prototype.onBlur.call(this);
+        this.A3();
+        this.C3()
+    }
+    ;
+    d.ija = function() {
+        return 0 < this.endscreens.length
+    }
+    ;
+    d.A3 = function() {
+        this.j.clearInterval(this.ZP);
+        this.ZP = -1
+    }
+    ;
+    d.C3 = function() {
+        this.j.clearTimeout(this.Ml);
+        this.Ml = -1
+    }
+    ;
+    d.UWa = function() {
+        this.index = Math.floor(this.Tl() * this.endscreens.length);
+        this.KN(this.index, !0);
+        this.KN(this.index + 1, !1)
+    }
+    ;
+    d.PWa = function() {
+        var a = this;
+        this.gd.get() || (this.index = (this.index + 1) % this.endscreens.length,
+        this.children[1].lb("transparent"),
+        this.children[1].render(),
+        this.j.setTimeout(function() {
+            a.Nk(0);
+            a.KN(a.index + 1, !1)
+        }, 2E3))
+    }
+    ;
+    d.KN = function(a, b) {
+        if (a = this.Db.we(this.endscreens[a % this.endscreens.length]))
+            b || (a.wa("transparent"),
+            a.render()),
+            this.Zb(a),
+            this.h.appendChild(a.h);
+        return a
+    }
+    ;
+    d.Pia = function() {
+        var a = this;
+        this.Ml = this.j.setTimeout(function() {
+            a.hRa()
+        }, 3E5)
+    }
+    ;
+    d.GIa = function() {
+        !this.gd.get() && this.J() && -1 === this.Ml && this.Pia()
+    }
+    ;
+    d.hRa = function() {
+        this.f.wb || this.f.Ja || this.uu();
+        this.Ml = -1
+    }
+    ;
+    E(d_, "componentBuilder endscreens timeService performanceService playerService getRandom exit dialogStageModel isSuspended".split(" "));
+    var e_ = {
+        Jq: function(a, b) {
+            var c = 0;
+            if (!a.gca)
+                switch (a.theme) {
+                case "k":
+                    c = 1;
+                    break;
+                case "g":
+                    c = 2;
+                    break;
+                case "m":
+                    c = 3
+                }
+            b.hGa = a.YHa && !a.gca;
+            b.theme = c
+        },
+        apply: function(a, b) {
+            a.P([{
+                name: "call-to-cast",
+                A: d_
+            }]);
+            switch (b.theme) {
+            case 1:
+                a.P([{
+                    A: V,
+                    name: "kids-beem-endscreen",
+                    template: "endscreens/kids_beem.html"
+                }, {
+                    A: V,
+                    name: "kids-kevin-endscreen",
+                    template: "endscreens/kids_kevin.html"
+                }, {
+                    A: V,
+                    name: "kids-theater-endscreen",
+                    template: "endscreens/kids_theater.html"
+                }]);
+                a.$({
+                    endscreens: ["kids-beem-endscreen", "kids-kevin-endscreen", "kids-theater-endscreen"]
+                });
+                break;
+            case 2:
+                a.P([{
+                    A: V,
+                    name: "gaming-heart-endscreen",
+                    template: "endscreens/gaming_heart.html"
+                }]);
+                a.$({
+                    endscreens: ["gaming-heart-endscreen"]
+                });
+                break;
+            case 3:
+                a.P([{
+                    A: V,
+                    name: "music-ready",
+                    template: "endscreens/music_ready.html"
+                }, {
+                    A: V,
+                    name: "music-party",
+                    template: "endscreens/music_party.html"
+                }]);
+                a.$({
+                    endscreens: ["music-ready", "music-party"]
+                });
+                break;
+            default:
+                var c = [];
+                b.hGa && (a.P([{
+                    A: V,
+                    name: "kids-promo-endscreen",
+                    template: "endscreens/cl_kids_promo.html"
+                }]),
+                c.push("kids-promo-endscreen"));
+                a.P([{
+                    A: V,
+                    name: "default-endscreen",
+                    template: "endscreens/cl_default.html"
+                }]);
+                c.push("default-endscreen");
+                a.$({
+                    endscreens: c
+                })
+            }
+        },
+        R: [kn]
+    };
+    E(e_.apply, ["injector", "featureSwitches"]);
+    function f_(a) {
+        if (!a)
+            return Promise.resolve({
+                success: !1,
+                reason: "TV_FRAMEWORK_FAILURE_REASON_MISSING_API"
+            });
+        var b = document.createElement("div");
+        b.id = "offscreen-container";
+        b.style.display = "none";
+        document.body.appendChild(b);
+        return a.render().then(function() {
+            return b.innerHTML !== a.expectedInnerHTML ? {
+                success: !1,
+                reason: "TV_FRAMEWORK_FAILURE_REASON_UNEXPECTED_HTML"
+            } : {
+                success: !0
+            }
+        })["catch"](function(a) {
+            return {
+                success: !1,
+                reason: "TV_FRAMEWORK_FAILURE_REASON_RENDER_EXCEPTION",
+                error: a
+            }
+        })
+    }
+    ;function g_(a, b, c, e, f, g, h) {
+        h = void 0 === h ? function() {}
+        : h;
+        a.send("tvhtml5FrameworksFieldTrialStart", {
+            start: !0
+        });
+        a.flush();
+        var k;
+        return (new Promise(function(a) {
+            b(c).nt(function() {
+                return a()
+            }).NN(function(b) {
+                k = b;
+                a()
+            })
+        }
+        )).then(function() {
+            return e(f.frameworkTrial)
+        }).then(function(b) {
+            var c = b.success
+              , e = b.reason;
+            b = b.error;
+            h(c);
+            a.send("tvhtml5FrameworksFieldTrialResult", {
+                success: c,
+                reason: e,
+                framework: g
+            });
+            a.flush();
+            if (k = k || b)
+                throw k;
+        })
+    }
+    E(g_, "gelService jsloader fieldTrialUrl runTrial window framework opt_showResultToast".split(" "));
+    function h_(a, b, c) {
+        b = b({
+            id: "field-trial-result-toast",
+            componentRenderer: "defaultToast",
+            displayTimeout: 1E4,
+            message: c ? "FIELD TRIAL SUCCESS" : "FIELD TRIAL FAILURE",
+            subMessage: ""
+        });
+        a.Nc(b)
+    }
+    E(h_, ["toasterModel", "defaultToastModelFactory"]);
+    var i_ = {
+        angular: "TV_FRAMEWORK_ANGULAR",
+        incremental_dom: "TV_FRAMEWORK_INCREMENTAL_DOM",
+        lit_html: "TV_FRAMEWORK_LIT_HTML",
+        react: "TV_FRAMEWORK_REACT"
+    }
+      , j_ = {
+        apply: function(a, b, c, e, f, g, h) {
+            var k = b.Fb
+              , m = f.frameworks_field_trial
+              , p = h.label;
+            c = c.Sa("framework", "");
+            if (g = (m = (c = i_[c] ? c : null) || m) ? "" + g + p + "/trials/" + (k && "angular" === m ? "cobalt_" : "") + m + "_field_trial.js" : null)
+                e.$({
+                    fieldTrialUrl: g,
+                    runTrial: f_,
+                    framework: i_[m]
+                }),
+                a.vl("startupMonitor", "startup-finished", g_),
+                c && (e.If({
+                    showResultToast: h_
+                }),
+                e.P([{
+                    name: "defaultToast",
+                    A: kB,
+                    template: "toasts/default_toast.html"
+                }]))
+        },
+        R: [eq]
+    };
+    E(j_.apply, "bootstrapper environment initialUrlQuery injector runtimeParams scsPath window".split(" "));
+    function k_(a, b, c) {
+        var e = .25
+          , f = a.parentElement.classList;
+        f = f && f.contains("tile") && !f.contains("topic-tile");
+        a = a.classList && a.classList.contains("tiltable");
+        if (f || a)
+            e = .8,
+            "up" === b || "down" === b ? e = .82 : c && c === b && (e = .43);
+        return e
+    }
+    ;function l_(a, b, c) {
+        var e = b["@videoModel"];
+        e || (e = c.IOa(b),
+        b["@videoModel"] = e);
+        a.model = e;
+        return a
+    }
+    E(l_, ["component", "source", "innerTubeVideoParser"]);
+    function m_(a) {
+        this.Hr = a
+    }
+    m_.prototype.iub = function(a) {
+        var b = new TR;
+        b.id = a.channelId;
+        b.title = X(a.title);
+        b.Xja = X(a.subscriberCountText);
+        var c = t("thumbnail.thumbnails", a);
+        c && 0 < c.length && (b.imageUrl = c[c.length - 1].url);
+        b.action = this.Hr(a);
+        return b
+    }
+    ;
+    E(m_, ["makeTileAction"]);
+    function n_() {
+        this.imageUrl = "";
+        this.N$ = !1;
+        this.videoId = this.title = "";
+        this.Vyb = [];
+        this.videoCountText = this.videoCount = this.id = "";
+        this.Rh = this.channel = null;
+        this.$m = this.Yo = this.showText = "";
+        this.jf = null;
+        this.longBylineText = "";
+        this.L = "playlistTile";
+        this.action = function() {}
+    }
+    ;function o_(a) {
+        if (a = t("bottomStandaloneBadge.standaloneRedBadgeRenderer", a)) {
+            var b = new aV;
+            b.badgeStyle = "yto-grey";
+            "STYLE_REQUIRED" === t("style.badgeStyle", a) && (b.badgeStyle = "yto-red");
+            b.title = a.iconText || "";
+            b.subtitle = a.redText || "";
+            a.label && (b.subtitle2 = X(a.label));
+            return b
+        }
+        return null
+    }
+    ;function p_(a, b, c, e) {
+        this.gt = a;
+        this.se = b;
+        this.Hr = c;
+        this.Ksa = e
+    }
+    p_.prototype.kub = function(a) {
+        var b = new n_;
+        b.id = a.playlistId || "";
+        b.channel = this.vBa(a);
+        var c = a && a.thumbnailRenderer;
+        if (c) {
+            var e = c.playlistCustomThumbnailRenderer;
+            e && (b.N$ = !0,
+            b.imageUrl = this.se.bb(e, {
+                videoId: b.id
+            }));
+            if (c = c.playlistVideoThumbnailRenderer || c.showCustomThumbnailRenderer)
+                b.imageUrl = this.se.bb(c, {
+                    videoId: b.id
+                })
+        }
+        b.jf = this.Ksa({
+            source: a && a.thumbnailRenderer && a.thumbnailRenderer.playlistCollageThumbnailRenderer
+        });
+        b.title = X(a.title);
+        c = a.videoCountShortText ? X(a.videoCountShortText) : X(a.videoCountText);
+        b.videoCount = c;
+        b.videoCountText = X(a.videoCountText);
+        b.$m = X(a.publishedTimeText);
+        b.action = this.Hr(a);
+        b.longBylineText = X(a.longBylineText);
+        if (c = a.thumbnailOverlays)
+            for (e = 0; e < c.length; e++) {
+                var f = c[e];
+                if (f = f && f.thumbnailOverlayBottomPanelRenderer && f.thumbnailOverlayBottomPanelRenderer.text)
+                    b.showText = X(f)
+            }
+        b.Rh = o_(a);
+        return b
+    }
+    ;
+    p_.prototype.vBa = function(a) {
+        var b = new TR;
+        b.userId = t("shortBylineText.runs.0.navigationEndpoint.browseEndpoint.browseId", a);
+        b.username = X(a.shortBylineText);
+        b.displayName = b.username;
+        b.userId && (b.imageUrl = this.gt.$wa(b.userId));
+        return b
+    }
+    ;
+    E(p_, ["ytThumbnails", "thumbnailParser", "makeTileAction", "collageThumbnailModelFactory"]);
+    function q_(a, b, c, e) {
+        this.M = a;
+        this.se = b;
+        this.Hr = c;
+        this.experimentFlags = e
+    }
+    d = q_.prototype;
+    d.IOa = function(a) {
+        var b = new gX
+          , c = new TR
+          , e = this.yDa(a);
+        if (!e)
+            return b.title = "Not a video renderer.",
+            b.channel = c,
+            console.error("InnerTube video parser: not a video!", pc(t("data.target", a))),
+            b;
+        b.description = this.wDa(a);
+        b.channel = this.uDa(c, a);
+        this.NIa(a) || (b.durationLabel = this.xDa(a));
+        b.imageUrl = this.se.bb(a, {
+            videoId: e
+        });
+        b.GE = this.se.bb(t("richThumbnail.movingThumbnailRenderer.movingThumbnailDetails", a));
+        b.title = this.zDa(a);
+        b.videoId = e;
+        b.viewCountLabel = this.ADa(a);
+        b.$m = this.nDa(a);
+        b.isWatched = !!a.isWatched;
+        this.EOa(b, a);
+        this.tOa(b, a);
+        this.COa(b, a);
+        this.JOa(b, a);
+        b.Jx = VZ(a);
+        b.action = this.Hr(a);
+        if (c = t("app$control.yt$state", a)) {
+            c = Ja(c) ? c : [c];
+            e = 0;
+            for (var f = c.length; e < f; ++e)
+                if (c[e] && "restricted" == c[e].name) {
+                    b.errorCode = c[e].reasonCode;
+                    break
+                }
+        }
+        a.thumbnailOverlays && (a = t("thumbnailOverlays.0.thumbnailOverlayResumePlaybackRenderer.percentDurationWatched", a),
+        b.progress = a ? a.toString() : "");
+        return b
+    }
+    ;
+    d.wDa = function(a) {
+        return (a = X(t("descriptionSnippet", a))) && a.slice(0, 165) || ""
+    }
+    ;
+    d.uDa = function(a, b) {
+        a.userId = t("shortBylineText.runs.0.navigationEndpoint.browseEndpoint.browseId", b);
+        a.displayName = X(t("shortBylineText", b));
+        a.username = a.displayName;
+        a.title = a.displayName;
+        a.imageUrl = t("channelThumbnail.thumbnails.0.url", b);
+        return a
+    }
+    ;
+    d.xDa = function(a) {
+        return X(t("lengthText", a))
+    }
+    ;
+    d.yDa = function(a) {
+        return t("videoId", a)
+    }
+    ;
+    d.zDa = function(a) {
+        return X(t("title", a))
+    }
+    ;
+    d.ADa = function(a) {
+        return X(t("viewCountText", a))
+    }
+    ;
+    d.nDa = function(a) {
+        return X(t("publishedTimeText", a))
+    }
+    ;
+    d.NIa = function(a) {
+        a = t("badges", a);
+        var b = !1;
+        if (a)
+            for (var c = 0, e = a.length; c < e; ++c)
+                if ("Premiere" === X(t("textBadge.label", a[c]))) {
+                    b = !0;
+                    break
+                }
+        return b
+    }
+    ;
+    d.EOa = function(a, b) {
+        if (b = t("upcomingEventData.startTime", b)) {
+            var c = new Date(1E3 * parseInt(b, 10));
+            b = this.M.zG(c);
+            c = c.toLocaleTimeString();
+            var e = this.M.C("[[Upcoming: {{liveStartDate}} {{liveStartTime}}|Label indicating that a live event is upcoming and shows the start date and time.]]");
+            e = e.replace("{{liveStartDate}}", b);
+            e = e.replace("{{liveStartTime}}", c);
+            a.Xs = new aV;
+            a.Xs.badgeStyle = "upcoming";
+            a.Xs.title = e
+        }
+    }
+    ;
+    d.tOa = function(a, b) {
+        b = t("badges", b);
+        var c;
+        if (b) {
+            for (var e = 0, f = b.length; e < f; ++e)
+                if (b[e].liveBadge)
+                    a.liveBadge = new aV,
+                    a.liveBadge.badgeStyle = "live",
+                    a.zJa = X(t("liveBadge.label", b[e])),
+                    a.liveBadge.title = X(t("liveBadge.label", b[e]));
+                else if (b[e].textBadge) {
+                    var g = X(t("textBadge.label", b[e]));
+                    g in r_ && (!c || r_[g] < r_[c]) && (c = g)
+                }
+            c && (a.textBadge = new aV,
+            a.textBadge.title = c,
+            a.fZa = c)
+        }
+    }
+    ;
+    d.COa = function(a, b) {
+        a.overlayText = X(t("overlayLabel", b));
+        b = t("overlayIcon.iconType", b) || "";
+        a.Yo = Do[b] || "";
+        a.yH = !!a.overlayText || !!a.Yo
+    }
+    ;
+    d.JOa = function(a, b) {
+        var c;
+        if (c = t("topStandaloneBadge.standaloneCollectionBadgeRenderer", b)) {
+            var e = new aV;
+            e.badgeStyle = "yto-top";
+            e.title = c.iconText || "";
+            c.label && (e.subtitle = X(c.label));
+            c = e
+        } else
+            c = null;
+        a.gE = c;
+        a.Rh = o_(b)
+    }
+    ;
+    var r_ = {
+        UPCOMING: 0,
+        "4K": 1,
+        HD: 2,
+        CC: 3
+    };
+    E(q_, ["localeService", "thumbnailParser", "makeTileAction", "experimentFlags"]);
+    function s_(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G, K, L, Q, fa, ta, wa, hb, xb) {
+        us.call(this, a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G, K, L, Q, fa, ta, wa, hb, xb)
+    }
+    l(s_, us);
+    s_.prototype.load = function(a, b, c) {
+        if (!a || !a.query && !a.continuation)
+            return b && b(null),
+            y;
+        if (this.Gj.get()) {
+            if (a.filterOptions)
+                var e = a.filterOptions;
+            else
+                e = {},
+                a.filterOptions = e;
+            e.restrictSafeSearch = "STRICT_FILTERING"
+        }
+        a.supportsVoiceSearch = this.environment.supportsVoiceSearch;
+        return us.prototype.load.call(this, a, b, c)
+    }
+    ;
+    E(s_, "id path xhrRequestFactory environment authService experimentFlags sendBackendErrorReport ssoApi localeModel safeModeFlag visitorData runtimeParams window device clientInfo apiaryApiKey internalParams getMdxControlMode supportsAnimatedWebp networkCapabilities getClientInnertubeAjaxParams sherlogUsername timeService clientData".split(" "));
+    function t_(a) {
+        this.ov = {};
+        a && Object.assign(this.ov, a)
+    }
+    d = t_.prototype;
+    d.contains = function(a) {
+        return Object.prototype.hasOwnProperty.call(this.ov, a)
+    }
+    ;
+    d.get = function(a) {
+        if (this.contains(a))
+            return this.ov[a]
+    }
+    ;
+    d.set = function(a, b) {
+        this.ov[a] = b
+    }
+    ;
+    d.ke = function() {
+        return Object.keys(this.ov)
+    }
+    ;
+    d.remove = function(a) {
+        delete this.ov[a]
+    }
+    ;
+    function u_(a) {
+        this.Oc = a;
+        this.jv = [];
+        this.tu = Vj(!1);
+        this.JT = this.finished = !1;
+        this.Ws = function() {}
+        ;
+        this.e0 = function() {}
+        ;
+        this.zt = new t_
+    }
+    d = u_.prototype;
+    d.Cm = function(a, b, c) {
+        c = void 0 === c ? !1 : c;
+        this.JT || (this.M1(v_(a), b),
+        c && this.M1(v_(a, "loading"), b),
+        this.jv.includes(b) || this.jv.push(b))
+    }
+    ;
+    d.initialize = function() {
+        var a = this;
+        if (!this.JT)
+            if (this.JT = !0,
+            1 > this.jv.length)
+                this.finish();
+            else {
+                for (var b = 0; b < this.jv.length; b++)
+                    this.jv[b].initialize();
+                this.jv = [];
+                this.e0 = this.Oc.on("substate:set", function() {
+                    a.Cva(a.Oc.Ea())
+                })
+            }
+    }
+    ;
+    d.Usb = function() {
+        return this.finished
+    }
+    ;
+    d.execute = function(a, b) {
+        var c = this;
+        if (this.finished)
+            return this.tu;
+        this.tu.cancel();
+        a = v_(a, b);
+        b = this.zt.get(a);
+        if (!b)
+            return 1 > this.zt.ke().length && this.finish(),
+            this.tu;
+        this.zt.remove(a);
+        return this.tu = b.reduce(function(a, b) {
+            return a.then(function() {
+                return c.finished ? !0 : b.execute().then(function(a) {
+                    a && c.finish()
+                })
+            })
+        }, this.tu)
+    }
+    ;
+    d.M1 = function(a, b) {
+        var c = this.zt.get(a);
+        c ? c.push(b) : this.zt.set(a, [b])
+    }
+    ;
+    d.Cva = function(a) {
+        var b = this;
+        this.Ws();
+        this.Ws = function() {}
+        ;
+        var c = a.getName();
+        "loading" === a.hc ? (this.Ws = a.on("loadState:changed", function() {
+            b.Ws();
+            b.Ws = function() {}
+            ;
+            b.execute(c)
+        }),
+        this.execute(c, "loading")) : this.execute(c)
+    }
+    ;
+    d.finish = function() {
+        this.finished = !0;
+        this.Ws();
+        this.Ws = function() {}
+        ;
+        this.e0();
+        this.e0 = function() {}
+        ;
+        this.zt = new t_
+    }
+    ;
+    function v_(a, b) {
+        return b ? "" + a + "::" + b : a
+    }
+    E(u_, ["applicationModel"]);
+    function w_(a, b, c, e, f) {
+        S.call(this);
+        var g = this;
+        this.Ta = a;
+        this.Ma = b;
+        this.j = c;
+        this.Kc = e;
+        this.MS = f;
+        this.retryCount = 0;
+        this.hG = this.Iq = null;
+        this.signInSessionId = "";
+        this.A6 = Bd(function() {
+            g.Ta.Bz(function(a, b) {
+                g.QMa(a, b)
+            }, function(a) {
+                g.ZMa(a)
+            }, function() {
+                g.nea()
+            }, {
+                reason: "PASSIVE"
+            })
+        }, 100, this);
+        this.Ta.on("signed-in", function() {
+            g.stop()
+        });
+        this.Ta.on("signed-out", function() {
+            g.start()
+        });
+        this.Ta.Gw(function(a) {
+            a ? g.stop() : g.start()
+        });
+        this.Ma.on("passive-sign-in:initiated", function() {
+            g.send(7);
+            g.A6()
+        })
+    }
+    l(w_, S);
+    d = w_.prototype;
+    d.send = function(a) {
+        this.Kc.send("mdxSignIn", {
+            eventType: a,
+            signInSessionId: this.signInSessionId
+        })
+    }
+    ;
+    d.start = function() {
+        this.retryCount = 0;
+        this.signInSessionId = this.MS();
+        this.Ma.JXa(this.signInSessionId)
+    }
+    ;
+    d.stop = function() {
+        this.Iq && (this.j.clearTimeout(this.Iq),
+        this.Iq = null);
+        this.hG && (this.j.clearTimeout(this.hG),
+        this.hG = null);
+        this.Ma.$Xa()
+    }
+    ;
+    d.QMa = function(a, b) {
+        var c = this;
+        this.retryCount = 0;
+        this.send(8);
+        this.Ma.IXa(a, this.signInSessionId) && (this.Iq = this.j.setTimeout(function() {
+            c.send(9);
+            c.Ma.ZXa()
+        }, 1E3 * b))
+    }
+    ;
+    d.ZMa = function(a) {
+        a || this.nea()
+    }
+    ;
+    d.nea = function() {
+        var a = this;
+        this.send(10);
+        this.hG = this.j.setTimeout(function() {
+            a.A6()
+        }, this.Ixa())
+    }
+    ;
+    d.Ixa = function() {
+        return Math.min(432E5, 200 * this.retryCount++)
+    }
+    ;
+    E(w_, ["authService", "remoteService", "timeService", "gelService", "guidFactory"]);
+    var x_ = {
+        Jq: function(a, b) {
+            b.K0a = a.flags.passive_seamless_sign_in
+        },
+        apply: function(a, b, c) {
+            c.K0a && (a.Za({
+                passiveSignInService: w_
+            }),
+            b.pe("passiveSignInService"))
+        },
+        R: [kn]
+    };
+    E(x_.apply, ["injector", "bootstrapper", "featureSwitches"]);
+    function y_(a, b, c, e) {
+        S.call(this);
+        this.Ta = a;
+        this.j = c;
+        this.sendReport = e;
+        this.Iq = 0;
+        this.G1 = this.jda = b.C("[[Loading...|Tooltip displaying while connecting a mobile device with the application.]]");
+        this.By = function() {}
+    }
+    l(y_, S);
+    d = y_.prototype;
+    d.VGa = function(a) {
+        var b = this;
+        this.By = this.Ta.Bz(function(c, e) {
+            return b.toa(c, e, a)
+        }, function() {
+            return b.woa()
+        }, function() {
+            return b.voa()
+        }, a)
+    }
+    ;
+    d.B = function() {
+        this.Ta.H3();
+        this.j.clearTimeout(this.Iq);
+        this.By();
+        this.By = function() {}
+        ;
+        this.G1 = this.jda;
+        S.prototype.B.call(this)
+    }
+    ;
+    d.toa = function(a, b, c) {
+        var e = this;
+        this.G1 = a;
+        this.w("activation-code-received");
+        this.Iq = this.j.setTimeout(function() {
+            e.VGa(c)
+        }, 1E3 * b)
+    }
+    ;
+    d.woa = function() {
+        this.By = function() {}
+        ;
+        this.CY();
+        this.w("activation-signin-successful")
+    }
+    ;
+    d.voa = function() {
+        this.By = function() {}
+        ;
+        this.w("activation-flow-error")
+    }
+    ;
+    d.CY = function() {
+        var a = {};
+        this.sendReport("/gen_204", (a.a = "tv_login_success",
+        a))
+    }
+    ;
+    E(y_, ["authService", "localeService", "timeService", "sendReport"]);
+    function z_(a, b, c) {
+        gX.call(this);
+        this.Hr = a;
+        this.se = b;
+        this.j = c;
+        this.Bn = 0;
+        this.Hra = ""
+    }
+    l(z_, gX);
+    d = z_.prototype;
+    d.hx = function() {
+        this.Bn = this.j.setInterval(this.l0.bind(this), 1E3)
+    }
+    ;
+    d.Ay = function() {
+        this.j.clearInterval(this.Bn);
+        this.Bn = 0
+    }
+    ;
+    d.l0 = function() {
+        --this.countDownSecs;
+        0 >= this.countDownSecs ? (this.Ay(),
+        this.w("autoplay-countdown-completed")) : this.w("autoplay-countdown-tick")
+    }
+    ;
+    d.Qsb = function() {
+        return !!this.Bn
+    }
+    ;
+    d.LC = function(a) {
+        this.title = X(a.videoTitle);
+        this.viewCountLabel = X(a.viewCountText);
+        this.durationLabel = X(a.lengthText);
+        this.Hra = X(a.byline);
+        this.imageUrl = this.se.bb(a);
+        this.action = this.Hr(a);
+        this.countDownSecs = a.countDownSecs || 0
+    }
+    ;
+    E(z_, ["makeTileAction", "thumbnailParser", "timeService"]);
+    function A_() {
+        this.params = this.channelId = null
+    }
+    ;function B_() {
+        this.xU = !1;
+        this.dU = !0
+    }
+    d = B_.prototype;
+    d.update = function() {}
+    ;
+    d.select = function() {
+        return ""
+    }
+    ;
+    d.getQuery = function() {
+        return ""
+    }
+    ;
+    d.qc = function() {}
+    ;
+    d.hX = function() {}
+    ;
+    d.getTitle = function() {
+        return ""
+    }
+    ;
+    d.Nz = function() {
+        return -1
+    }
+    ;
+    d.YI = function() {}
+    ;
+    function C_(a, b, c, e, f) {
+        CE.call(this, a, b, c, e, f)
+    }
+    l(C_, CE);
+    C_.prototype.Nta = function() {
+        var a = this.M.C("[[Space|Enter a space in the input field.]]");
+        return this.GF("material-icon-space-bar", void 0, a)
+    }
+    ;
+    C_.prototype.qta = function() {
+        var a = this.M.C("[[Clear|Clear the search query input field]]");
+        return this.GF("clear-query-tile", a, "Clear")
+    }
+    ;
+    C_.prototype.Mta = function() {
+        var a = this.M.C("[[Search|Execute the search query with input field value.]]");
+        return this.GF("search-button-tile", a, a)
+    }
+    ;
+    C_.prototype.HF = function(a, b) {
+        a = CE.prototype.HF.call(this, a, b);
+        a.xa(0).push(this.qta());
+        a.xa(1).push(this.Mta());
+        a.xa(2).push(this.Nta());
+        return a
+    }
+    ;
+    E(C_, ["localeModel", "localeService", "keyboardKeyModelFactory", "keyboardLayoutButtonModelFactory", "experimentFlags"]);
+    function D_(a) {
+        S.call(this);
+        this.environment = a;
+        this.Cr = {};
+        this.cv = {};
+        this.Zp = {};
+        this.xI = {};
+        this.pQ = [];
+        this.Kd = null;
+        this.initialize(a.iz)
+    }
+    l(D_, S);
+    d = D_.prototype;
+    d.initialize = function(a) {
+        for (var b in U)
+            if (U.hasOwnProperty(b)) {
+                var c = U[b];
+                this.Cr[c] = 0;
+                this.cv[c] = 0
+            }
+        "desktop" === a ? this.pQ = [U.mE, U.Ux, U.oE, U.nE] : "tv" !== a || this.environment.A0 || (this.pQ = [U.mE, U.Tx, U.jl, U.Sx, U.l1, U.Ux, U.oE, U.pE, U.nE]);
+        this.xI[U.BACK] = [U.n1];
+        this.xI[U.pE] = [U.Ux]
+    }
+    ;
+    d.SR = function(a) {
+        return 0 < this.Cr[a] && 0 === this.cv[a]
+    }
+    ;
+    d.S9 = function() {
+        var a = [], b;
+        for (b in this.Cr)
+            this.SR(b) && a.push(b);
+        return a
+    }
+    ;
+    d.h7 = function() {
+        return uc(this.Zp)
+    }
+    ;
+    d.$X = function(a) {
+        var b = [];
+        this.Jga(a, b);
+        return this.ega.bind(this, b)
+    }
+    ;
+    d.Fm = function(a) {
+        for (var b = [], c = 0; c < a.length; ++c)
+            this.Jga(a[c], b);
+        return this.ega.bind(this, b)
+    }
+    ;
+    d.Jga = function(a, b) {
+        if (!(0 <= this.pQ.indexOf(a))) {
+            var c = 0 < this.Cr[a];
+            ++this.Cr[a];
+            b.push(a);
+            if (!c && (0 === this.cv[a] && this.w("keyVisibility:changed", a, !0, !1),
+            a = this.xI[a]))
+                for (b = 0,
+                c = a.length; b < c; ++b) {
+                    var e = a[b]
+                      , f = !this.SR(e);
+                    ++this.cv[e];
+                    f || this.w("keyVisibility:changed", e, !1, !0)
+                }
+        }
+    }
+    ;
+    d.Iga = function(a) {
+        if (!a)
+            return y;
+        this.Zp[a] ? ++this.Zp[a] : (this.Zp[a] = 1,
+        this.w("additionalClass:added", a));
+        return this.FQa.bind(this, [a])
+    }
+    ;
+    d.ega = function(a) {
+        for (; 0 < a.length; ) {
+            var b = a.pop();
+            --this.Cr[b];
+            if (0 === this.Cr[b] && (0 === this.cv[b] && this.w("keyVisibility:changed", b, !1, !0),
+            b = this.xI[b]))
+                for (var c = 0, e = b.length; c < e; ++c) {
+                    var f = b[c];
+                    --this.cv[f];
+                    this.SR(f) && this.w("keyVisibility:changed", f, !0, !1)
+                }
+        }
+    }
+    ;
+    d.FQa = function(a) {
+        for (; 0 < a.length; ) {
+            var b = a.pop();
+            --this.Zp[b];
+            0 === this.Zp[b] && (delete this.Zp[b],
+            this.w("additionalClass:removed", b))
+        }
+    }
+    ;
+    E(D_, ["environment"]);
+    function E_(a, b, c) {
+        b = b({
+            autoToggle: !0,
+            opt_selectedLabel: X(a.toggledText),
+            opt_deselectedLabel: X(a.defaultText),
+            opt_selected: !!a.isToggled
+        });
+        b.enabled = !a.isDisabled;
+        b.ob = Ta(F_, b, c, a.defaultServiceEndpoint || null, a.toggledServiceEndpoint || null);
+        return b
+    }
+    E(E_, ["source", "toggleButtonModelFactory", "handleServiceEndpoint"]);
+    function F_(a, b, c, e) {
+        (a = a.isSelected() ? c : e) && b(a)
+    }
+    ;function G_(a) {
+        var b = {};
+        return $E((b.search = a,
+        b))
+    }
+    E(G_, ["makeSearchModelFromDescriptor"]);
+    function H_() {
+        this.text = ""
+    }
+    function I_(a) {
+        var b = new H_;
+        b.text = X(a.text);
+        return b
+    }
+    E(I_, ["source"]);
+    function J_(a, b) {
+        S.call(this);
+        this.j = a;
+        this.environment = b;
+        this.xu = null;
+        this.gW = !1;
+        this.mG = 3
+    }
+    l(J_, S);
+    d = J_.prototype;
+    d.B = function() {
+        this.GO();
+        S.prototype.B.call(this)
+    }
+    ;
+    d.UX = function() {
+        this.GO();
+        this.mG = 3
+    }
+    ;
+    d.UB = function(a) {
+        switch (a) {
+        case 401:
+        case 402:
+        case 403:
+        case 400:
+            return
+        }
+        608 === a && this.environment.Br ? (this.GO(),
+        this.mG = 0,
+        this.gW = !0,
+        this.w("network-failed")) : 0 === --this.mG && (608 === a && (this.gW = !0),
+        this.xu = this.j.setTimeout(this.Vva.bind(this), 1E3))
+    }
+    ;
+    d.Dba = function() {
+        return 0 < this.mG || null !== this.xu
+    }
+    ;
+    d.Vva = function() {
+        this.xu = null;
+        this.w("network-failed")
+    }
+    ;
+    d.GO = function() {
+        null !== this.xu && (this.j.clearTimeout(this.xu),
+        this.xu = null)
+    }
+    ;
+    E(J_, ["timeService", "environment"]);
+    function K_(a, b, c, e, f, g) {
+        S.call(this);
+        this.QKa = b;
+        this.WW = c;
+        this.nya = e;
+        this.G = f;
+        this.Sy = g;
+        this.Te = null;
+        this.unsubscribe = y;
+        this.source = null;
+        this.collection = a()
+    }
+    l(K_, S);
+    d = K_.prototype;
+    d.lc = function() {
+        return this.source ? this.source.trackingParams : null
+    }
+    ;
+    d.LC = function(a, b) {
+        var c = this;
+        if (this.source != a) {
+            this.source && (this.source.selectedIndex = this.collection.aa());
+            this.source = a;
+            this.Nga();
+            var e = this.Rza(a);
+            this.collection.oa(e, a.selectedIndex || 0);
+            this.Te = this.QKa({
+                continuationThreshold: this.Sy,
+                collection: this.collection,
+                continuationData: this.nya(a),
+                parseContinuation: this.WW,
+                service: b
+            });
+            this.unsubscribe = this.Te.on("continuation-received", function(a) {
+                return c.zP(a)
+            })
+        }
+    }
+    ;
+    d.Rza = function(a) {
+        return kb(a.items || a.contents || a.results || [], function(a) {
+            return !xc(a)
+        })
+    }
+    ;
+    d.oa = function(a) {
+        this.source != a && (this.source = a,
+        this.Nga(),
+        this.collection.oa(a))
+    }
+    ;
+    d.je = function() {
+        return this.collection
+    }
+    ;
+    d.Nga = function() {
+        this.Te && (this.unsubscribe(),
+        this.unsubscribe = y,
+        D(this.Te),
+        this.Te = null)
+    }
+    ;
+    d.zP = function(a) {
+        this.G.attachChild(a.trackingParams, this.source.trackingParams);
+        this.w("continuation-received", a.trackingParams, this.source.trackingParams)
+    }
+    ;
+    d.od = function(a) {
+        this.collection.od(a)
+    }
+    ;
+    d.aa = function() {
+        return this.collection.aa()
+    }
+    ;
+    d.ba = function(a) {
+        this.collection.ba(a)
+    }
+    ;
+    d.$a = function() {
+        return this.collection.$a()
+    }
+    ;
+    d.ha = function() {
+        return this.collection.ha()
+    }
+    ;
+    d.bra = function() {
+        this.source && (this.source.selectedIndex = this.collection.aa())
+    }
+    ;
+    d.B = function() {
+        D(this.Te)
+    }
+    ;
+    E(K_, "makeCollection makeContinuer parseHorizontalListContinuation getContinuationData screenManager continuationThreshold".split(" "));
+    function L_(a, b, c, e, f) {
+        S.call(this);
+        this.G = a;
+        this.collection = c;
+        this.Te = e;
+        this.trackingParams = f;
+        this.L = "shelves";
+        this.H(this.collection.on("selected-index-changed", z(this.w, this, "selected-index-changed")));
+        this.H(this.Te.on("continuation-received", this.zP.bind(this)));
+        this.kW = b.C("[[No videos are available|The message shown when a row has no videos to show.]]")
+    }
+    l(L_, S);
+    d = L_.prototype;
+    d.isEnabled = function() {
+        return !!this.collection.ha()
+    }
+    ;
+    d.lc = function() {
+        return this.trackingParams || ""
+    }
+    ;
+    d.isFullscreen = function() {
+        return !0
+    }
+    ;
+    d.je = function() {
+        return this.collection
+    }
+    ;
+    d.zP = function(a) {
+        this.G.attachChild(a.trackingParams, this.trackingParams);
+        this.w("continuation-received", a.trackingParams, this.trackingParams)
+    }
+    ;
+    d.aa = function() {
+        return this.collection.aa()
+    }
+    ;
+    d.ba = function(a) {
+        this.collection.ba(a)
+    }
+    ;
+    d.tq = function() {
+        this.Te && this.Te.tq()
+    }
+    ;
+    d.B = function() {
+        D(this.Te);
+        S.prototype.B.call(this)
+    }
+    ;
+    function M_(a, b, c, e, f, g, h, k, m, p, u) {
+        u = void 0 === u ? "" : u;
+        var v = h(p, u);
+        h = [];
+        for (var w = 0, x = v.length; w < x; w++)
+            h.push(f(v[w], m));
+        c = c();
+        c.oa(h, 0);
+        f = a(p, "reload");
+        h.length && f && (delete p.contents,
+        f = null);
+        a = e({
+            collection: c,
+            continuationData: f || a(p),
+            parseContinuation: Ta(g, u),
+            service: m
+        });
+        return new L_(k,b,c,a,p.trackingParams)
+    }
+    E(M_, "getContinuationData localeService makeCollection makeContinuer newShelfListItemFactory parseShelfListContinuation sanitizeShelfListResponse screenManager service source opt_browseId".split(" "));
+    function N_(a, b, c) {
+        this.source = a;
+        this.service = b;
+        this.jWa = c
+    }
+    N_.prototype.lk = function() {
+        return this.jWa
+    }
+    ;
+    function O_(a, b, c, e) {
+        a = P_(c, a, b);
+        return new N_(c,e,a)
+    }
+    function P_(a, b, c) {
+        switch (pc(a)) {
+        case "surveyShelfRenderer":
+            return 25.375;
+        case "videoSurveyShelfRenderer":
+        case "sentimentSurveyShelfRenderer":
+            return 25.375;
+        case "shelfRenderer":
+            return c && 0 < c ? c : "TVHTML5_SHELF_RENDERER_TYPE_TOPIC" === (a.shelfRenderer && a.shelfRenderer.tvhtml5ShelfRendererType) ? 18 : 25.375;
+        case "pivotShelfRenderer":
+            return 19.5;
+        case "pivotFooterRenderer":
+            return 19.5;
+        default:
+            return 24
+        }
+    }
+    E(O_, ["experimentFlags", "opt_shelfRendererHeightOverride"]);
+    function Q_(a) {
+        this.Zg = a
+    }
+    Q_.prototype.rR = function() {
+        return this.Zg
+    }
+    ;
+    function R_(a, b) {
+        a = a();
+        a.oa(b.contents || [], 0);
+        return new Q_(a)
+    }
+    E(R_, ["makeCollection", "source"]);
+    function S_(a, b, c, e, f, g, h) {
+        S.call(this);
+        this.bz = b;
+        this.qs = c;
+        this.mC = e;
+        this.qa = h;
+        this.query = "";
+        this.sI = !1;
+        this.searchQuerySource = this.wT = null;
+        this.zl = y;
+        this.qz = f({
+            handler: this.Eva.bind(this),
+            timeoutMs: a.rY
+        });
+        this.Ba(this.qz);
+        this.YLa = g
+    }
+    l(S_, S);
+    d = S_.prototype;
+    d.B = function() {
+        this.query = "";
+        this.sI = !1;
+        this.zl();
+        this.zl = y;
+        S.prototype.B.call(this)
+    }
+    ;
+    d.Eva = function(a, b) {
+        if (this.query) {
+            this.qa.Lg("results", ["s_rnf"]);
+            this.qa.La("s_rqs");
+            this.w("search:started", a, !1);
+            var c = {
+                query: this.query
+            };
+            b && (c.context = {
+                clickTracking: {
+                    clickTrackingParams: b
+                }
+            });
+            a && "auto-search-action" === a && (c.isPrefetch = !0);
+            this.zl = this.mC.load(c, this.IRa.bind(this, a))
+        }
+    }
+    ;
+    d.isEmpty = function() {
+        return !this.query
+    }
+    ;
+    d.AHa = function() {
+        return this.qz.dca() || this.zl != y
+    }
+    ;
+    d.IRa = function(a, b) {
+        this.zl = y;
+        this.searchQuerySource = a;
+        this.dla(b, a)
+    }
+    ;
+    d.pS = function() {
+        return this.searchQuerySource
+    }
+    ;
+    d.getQuery = function() {
+        return this.query
+    }
+    ;
+    d.EU = function() {
+        return this.sI
+    }
+    ;
+    d.DZ = function() {
+        var a = this.query.length;
+        return 0 < a && a >= this.YLa
+    }
+    ;
+    d.FZ = function(a) {
+        return !!a && this.JA(a)
+    }
+    ;
+    d.u6 = function(a) {
+        return this.query ? this.DZ() || this.FZ(a) : !1
+    }
+    ;
+    d.qc = function(a, b, c, e) {
+        e = void 0 === e ? "" : e;
+        var f = a !== this.query;
+        f && (this.zl(),
+        this.zl = y,
+        a && (a = a.replace("\n", "")),
+        this.bz.process(a) && (this.qs.b_(a),
+        a = ""),
+        this.query = a || "",
+        this.sI = !1,
+        this.searchQuerySource = b || null,
+        e.trim().length && this.query !== e.toLowerCase() ? this.w("query:changed", this.query, e) : this.w("query:changed", this.query));
+        (this.FZ(b) || this.DZ() && f) && this.qz.execute(b, c)
+    }
+    ;
+    d.wRa = function() {
+        this.qz.dca() && this.qz.execute()
+    }
+    ;
+    d.vE = function(a) {
+        this.qc(this.query + a, "keyboard")
+    }
+    ;
+    d.fq = function(a) {
+        this.query.length && (a ? this.qc(this.query.slice(0, a - 1) + this.query.slice(a), "keyboard") : this.qc(this.query.slice(0, -1), "keyboard"))
+    }
+    ;
+    d.Aia = function(a, b, c, e, f) {
+        e = void 0 === e ? !1 : e;
+        f = void 0 === f ? "" : f;
+        this.zl();
+        this.zl = y;
+        this.query = a;
+        this.sI = !0;
+        e && (this.qa.Lg("results", ["s_rnf"]),
+        this.qa.La("s_rqs"));
+        f.trim().length && this.query !== f.toLowerCase() ? this.w("query:changed", this.query, f) : this.w("query:changed", this.query);
+        this.w("search:started", c, e);
+        this.dla(b, c)
+    }
+    ;
+    d.eHa = function(a, b) {
+        this.w("input:changed", a, b)
+    }
+    ;
+    d.JA = function(a) {
+        return "suggestions" === a || "speech" === a || "search-action" === a || "transliterations" === a || "keyboard-deeplink" === a || "voice-deeplink" === a
+    }
+    ;
+    d.dla = function(a, b) {
+        this.w("results:changed-for-search-interaction", a, b);
+        this.w("results:changed", a, b)
+    }
+    ;
+    d.clear = function() {
+        this.qc("");
+        this.w("query:cleared")
+    }
+    ;
+    d.g_a = function() {
+        this.w("query:changed-for-results-interation", this.query)
+    }
+    ;
+    E(S_, "environment debugCallService searchHistoryService searchService debounceFactory minQueryLengthForSearch performanceService".split(" "));
+    function T_(a) {
+        return a()
+    }
+    E(T_, ["searchModelFactory"]);
+    function U_(a, b, c) {
+        Y.call(this, a, b);
+        this.aha = b;
+        this.qa = c;
+        this.content = null;
+        this.LHa = !0;
+        this.Ry = function() {}
+    }
+    l(U_, Y);
+    d = U_.prototype;
+    d.Cb = function() {
+        Y.prototype.Cb.call(this);
+        this.qa.La("state_ready");
+        this.qa.La("ol")
+    }
+    ;
+    d.up = function(a) {
+        var b = this;
+        a != this.content && (this.content = a,
+        this.Ry(),
+        this.Ry = function() {}
+        ,
+        this.content && (this.Ry = this.content.on("continuation-received", function(a, e) {
+            return b.AP(a, e)
+        })))
+    }
+    ;
+    d.AP = function(a, b) {
+        this.aha.aK({
+            nF: void 0 === a ? "" : a,
+            zJ: void 0 === b ? "" : b
+        })
+    }
+    ;
+    d.lj = function() {
+        this.aha.JNa()
+    }
+    ;
+    d.Cc = function() {
+        Y.prototype.Cc.call(this);
+        this.LHa = !1
+    }
+    ;
+    d.B = function() {
+        this.Ry();
+        this.Ry = function() {}
+        ;
+        Y.prototype.B.call(this)
+    }
+    ;
+    E(U_, ["name", "searchInteraction", "performanceService"]);
+    function V_(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G) {
+        S.call(this);
+        var K = this;
+        this.wYa = b;
+        this.Hj = c;
+        this.qs = e;
+        this.M = g;
+        this.Na = k;
+        this.ia = m;
+        this.Ta = p;
+        this.Zc = u;
+        this.experimentFlags = v;
+        this.Bf = w;
+        this.j = x;
+        this.f = B;
+        this.Tea = G;
+        this.xU = !0;
+        this.dU = !1;
+        this.title = "";
+        this.J_ = 0;
+        this.AD = this.Afa = this.pX = "";
+        this.suggestions = a();
+        this.gw = a();
+        this.Ba(this.suggestions);
+        this.Ba(this.gw);
+        this.uT = new Il("");
+        this.cancel = y;
+        this.QI = h({
+            handler: this.ZJa.bind(this),
+            timeoutMs: f.rY
+        });
+        if (!this.experimentFlags.search_ui_2018_a && !this.experimentFlags.search_ui_2018_b)
+            this.qs.on("search-history-cleared", function() {
+                return K.update("")
+            });
+        this.uT.on("value-changed", this.sEa.bind(this));
+        this.suggestions.on("changed", this.WEa.bind(this));
+        this.f.on("video:changed", function() {
+            K.Afa = K.f.uc()
+        });
+        this.ia.on("query:changed", function(a, b) {
+            var c = K.ia.pS();
+            c && K.ia.JA(c) && (K.pX = a);
+            K.AD = b ? b : ""
+        });
+        this.ia.on("query:changed-for-results-interation", function(a) {
+            K.pX = a
+        })
+    }
+    l(V_, S);
+    d = V_.prototype;
+    d.WEa = function() {
+        var a = this.LCa();
+        this.Bf.XVa(a.map(function(a) {
+            return a.payload
+        }));
+        "" === this.getQuery() && this.Bf.PUa(a.length);
+        this.w("suggestions-changed")
+    }
+    ;
+    d.update = function(a, b) {
+        var c = this;
+        this.Bf.Mia(!0);
+        this.cancel();
+        this.cancel = y;
+        a.trim().length ? (this.QI.execute(a, b),
+        this.cancel = function() {
+            c.QI.cancel()
+        }
+        ) : this.Ta.rd() ? this.hda() : (a = this.G1a(this.qs.HBa()),
+        0 < a.length ? (this.title = this.B8(),
+        this.setSuggestions(a)) : this.hda())
+    }
+    ;
+    d.hX = function() {
+        var a = "qs";
+        this.getQuery() || (a = "history");
+        this.Zc.yE(a);
+        this.Zc.w4();
+        this.Zc.CLa()
+    }
+    ;
+    d.hda = function() {
+        var a = this;
+        this.QI.execute("");
+        this.cancel = function() {
+            a.QI.cancel()
+        }
+    }
+    ;
+    d.ZJa = function(a, b) {
+        var c = this
+          , e = {
+            q: a
+        };
+        "speech" === b && (e.gs_ivs = 1,
+        this.AD.trim().length && a.toLowerCase() !== this.AD.toLowerCase() && (e.ouq = this.AD,
+        this.AD = ""));
+        this.Tea.isWatchHistoryPaused() || (e.video_id = this.Afa);
+        this.Tea.isSearchHistoryPaused() || (e.pq = this.pX,
+        e.pq_sec = Math.round(this.J_ ? (this.j.za() - this.J_) / 1E3 : 0));
+        this.Bf.PGa();
+        this.cancel = this.wYa.load(e, function(e, g, h) {
+            c.aka(a, b, e, g, h)
+        }, function() {
+            c.aka(a, b, [])
+        });
+        this.J_ = this.j.za()
+    }
+    ;
+    d.aka = function(a, b, c, e, f) {
+        f = void 0 === f ? !1 : f;
+        this.Bf.dra();
+        this.Bf.tQa(f);
+        e && !this.ia.FZ(b) ? (this.uT.set(e.Vu()),
+        this.YI(e)) : this.uT.set("");
+        "" === a && (c = this.sXa(c));
+        b = this.ia.u6(b);
+        b = this.H1a(c, b);
+        0 < b.length && "" !== a ? this.title = this.lAa() : 0 === b.length && (this.title = "");
+        this.setSuggestions(b, !a.trim().length);
+        this.Hj.isSupported() && this.Hj.setSuggestions(lb(c, function(a) {
+            return a.Vu()
+        }));
+        0 < c.length && this.Zc.ALa()
+    }
+    ;
+    d.sXa = function(a) {
+        var b = kb(a, function(a) {
+            a = a.jH();
+            return "searchHistory" === a || "webHistory" === a
+        });
+        if (0 < b.length)
+            return this.title = this.B8(),
+            b;
+        this.title = this.mAa();
+        return a
+    }
+    ;
+    d.H1a = function(a, b) {
+        var c = [];
+        b = Math.min(a.length, this.Nz(b));
+        for (var e = 0; e < b; ++e) {
+            var f = a[e].Vu();
+            if (f) {
+                var g = ""
+                  , h = 0
+                  , k = a[e].jH();
+                "searchHistory" === k || "webHistory" === k ? (g = "icon-history",
+                h = 3) : "trending" === k && (g = "icon-trending",
+                h = 3);
+                k = 35 - h;
+                var m = a[e].a9();
+                h = a[e].F9();
+                k = ((m = f.length <= k ? m : this.n_a(m, f)) || g) && h ? "" : "no-margin";
+                f = new KE(f,{
+                    index: a[e].n8(),
+                    yx: a[e].AS(),
+                    aD: a[e].D9(),
+                    type: a[e].jH(),
+                    prefix: m,
+                    Ns: h
+                });
+                c.push(this.Na({
+                    label: "",
+                    opt_class: k,
+                    opt_payload: f,
+                    opt_componentRenderer: "searchSuggestion",
+                    opt_iconClass: g,
+                    opt_accessibleRole: "listitem"
+                }))
+            }
+        }
+        return c
+    }
+    ;
+    d.G1a = function(a) {
+        for (var b = [], c = Math.min(a.length, this.Nz(!1)), e = 0; e < c; ++e) {
+            var f = new KE(a[e],{
+                index: e,
+                yx: 41,
+                Ns: a[e]
+            });
+            b.push(this.Na({
+                label: "",
+                opt_payload: f,
+                opt_componentRenderer: "searchSuggestion",
+                opt_iconClass: "icon-history",
+                opt_accessibleRole: "listitem"
+            }))
+        }
+        return b
+    }
+    ;
+    d.n_a = function(a, b) {
+        var c = a.split(" ");
+        return " " === b[a.length] ? "\u2026" : 1 === c.length ? a : "\u2026 " + c[c.length - 1]
+    }
+    ;
+    d.sEa = function(a, b) {
+        a ? this.ia.qc(a, "auto-search-action") : b && "auto-search-action" === this.ia.pS() && this.ia.qc("", "auto-search-action")
+    }
+    ;
+    d.select = function(a) {
+        return a
+    }
+    ;
+    d.lAa = function() {
+        return this.M.C("[[Suggestions|Header for a search suggestions list.]]")
+    }
+    ;
+    d.B8 = function() {
+        return this.M.C("[[Recent Searches|Header for a list containing search history.]]")
+    }
+    ;
+    d.mAa = function() {
+        return this.M.C("[[Trending|Header for a list containing trending searches.]]")
+    }
+    ;
+    d.getTitle = function() {
+        return this.title ? this.title + ":" : ""
+    }
+    ;
+    d.getQuery = function() {
+        return this.ia.getQuery()
+    }
+    ;
+    d.qc = function(a, b) {
+        this.ia.qc(a, b)
+    }
+    ;
+    d.YI = function(a) {
+        this.Bf.XSa(a)
+    }
+    ;
+    d.Nz = function(a) {
+        return this.experimentFlags.search_ui_2018_b ? 16 : this.experimentFlags.search_ui_2018_a ? 8 : a ? 5 : 10
+    }
+    ;
+    d.setSuggestions = function(a, b) {
+        this.experimentFlags.search_ui_2018_b && (void 0 === b ? 0 : b) ? (b = a.splice(8, a.length),
+        this.gw.oa(b, 0)) : this.gw.dP();
+        this.suggestions.oa(a, 0)
+    }
+    ;
+    d.LCa = function() {
+        return this.suggestions.getItems().concat(this.gw.getItems())
+    }
+    ;
+    E(V_, "makeCollection suggestionService searchApi searchHistoryService environment localeService debounceFactory buttonModelFactory searchQueryModel authService searchReporting experimentFlags searchboxStatsModel timeService playerService pausedHistoryStateService".split(" "));
+    function W_(a, b) {
+        es.call(this, a, "unlimitedWelcomeToastId", "unlimitedWelcomeToast", 5E3, !0);
+        this.titleText = b.titleText;
+        this.bodyText = b.bodyText;
+        this.aR = b.aR;
+        this.backgroundImageUrl = b.backgroundImageUrl
+    }
+    l(W_, es);
+    E(W_, ["timeService", "data"]);
+    function X_(a, b, c, e, f, g, h, k) {
+        S.call(this);
+        var m = this;
+        this.UZa = b;
+        this.environment = c;
+        this.kca = e;
+        this.Na = g;
+        this.ia = h;
+        this.M = k;
+        this.dU = this.xU = !1;
+        this.title = this.OM = this.xD = "";
+        this.suggestions = a();
+        this.Ba(this.suggestions);
+        this.cancel = y;
+        this.Yka = f({
+            handler: function(a, b) {
+                m.V_(a, b)
+            },
+            timeoutMs: 500
+        });
+        this.suggestions.on("changed", function() {
+            return m.w("suggestions-changed")
+        })
+    }
+    l(X_, S);
+    d = X_.prototype;
+    d.update = function(a, b) {
+        var c = this;
+        if (null != this.kca) {
+            this.cancel();
+            this.cancel = y;
+            for (var e = this.xD; e.length && a.substr(0, e.length) !== e; )
+                e = e.substr(0, e.length - 1);
+            a = a.substr(e.length);
+            this.xD = e;
+            a !== this.OM && (this.OM = a,
+            this.clear(),
+            a && (this.Yka.execute(a, b),
+            this.cancel = function() {
+                return c.Yka.cancel()
+            }
+            ))
+        }
+    }
+    ;
+    d.V_ = function(a, b) {
+        var c = this;
+        this.cancel = this.UZa.V_(a, this.kca, function(a) {
+            c.wk(a, b)
+        })
+    }
+    ;
+    d.wk = function(a, b) {
+        if (this.OM) {
+            var c = !this.environment.zU
+              , e = []
+              , f = this.ia.u6(b);
+            b = 0;
+            for (f = Math.min(a.length, this.Nz(f)); b < f; ++b) {
+                var g = a[b];
+                18 < g.length && (g = g.substring(0, 18) + "\u2026");
+                g = new KE(a[b],{
+                    Ns: g
+                });
+                g = this.Na({
+                    label: "",
+                    opt_disableSpeakable: c,
+                    opt_payload: g,
+                    opt_componentRenderer: "searchSuggestion"
+                });
+                e.push(g)
+            }
+            0 < e.length && (this.title = this.M.C("[[Suggestions|Header for a search suggestions list.]]"));
+            this.suggestions.oa(e, 0)
+        } else
+            this.clear()
+    }
+    ;
+    d.clear = function() {
+        this.title = "";
+        this.suggestions.dP()
+    }
+    ;
+    d.select = function(a) {
+        this.xD += a;
+        this.OM = "";
+        this.clear();
+        return this.xD
+    }
+    ;
+    d.getQuery = function() {
+        return this.ia.getQuery()
+    }
+    ;
+    d.qc = function(a, b) {
+        this.ia.qc(a, b)
+    }
+    ;
+    d.YI = function() {}
+    ;
+    d.hX = function() {}
+    ;
+    d.getTitle = function() {
+        return this.title ? this.title + ":" : ""
+    }
+    ;
+    d.Nz = function(a) {
+        return a ? 5 : 10
+    }
+    ;
+    E(X_, "makeCollection transliterationService environment langCodePair debounceFactory buttonModelFactory searchQueryModel localeService".split(" "));
+    function Y_(a, b, c, e, f, g, h, k, m) {
+        S.call(this);
+        this.mC = a;
+        this.ia = e;
+        this.Ap = f;
+        this.experimentFlags = g;
+        this.MJa = h;
+        this.qa = k;
+        this.$c = m;
+        this.Yd = b({
+            speechAcquirerFactory: c,
+            processQuery: this.WJa.bind(this)
+        });
+        this.Ba(this.Yd);
+        this.Yd.on("voice-query-error", this.Dc.bind(this));
+        this.Yd.on("state-changed", this.ZZ.bind(this));
+        this.Yd.on("detecting-sound-changed", this.w.bind(this, "detecting-sound-changed"))
+    }
+    l(Y_, S);
+    d = Y_.prototype;
+    d.WJa = function(a, b) {
+        var c = this;
+        if (this.experimentFlags.enable_voice_assistant)
+            return this.MJa(a, b);
+        this.qa.Lg("results", ["s_rnf"]);
+        this.qa.La("s_rqs");
+        return this.mC.load({
+            query: a
+        }, function(e) {
+            b();
+            c.HNa(a, e)
+        })
+    }
+    ;
+    d.HNa = function(a, b) {
+        this.ia.Aia(a, b, "speech", !1)
+    }
+    ;
+    d.Dc = function(a) {
+        this.OX();
+        this.qa.La("voz_err", "voice_assistant");
+        switch (a) {
+        case "listening-timeout":
+        case "no-match":
+        case "no-speech":
+        case "aborted":
+            this.Ap("[[Didn't hear that. Try again.|A message telling users that the Voice Control system did not hear what the user said, and they should try Voice Search again.]]");
+            break;
+        case "audio-capture":
+        case "not-allowed":
+            this.Ap("[[Check your microphone and try again.|A message from the Voice Control Search system telling them to check their microphone settings and try Voice Search again.]]");
+            break;
+        case "bad-grammar":
+        case "language-not-supported":
+        case "network":
+        case "service-not-allowed":
+            a = this.Yd.getLastError() === a ? "[[Something went wrong. Try searching a different way.|A message telling users that the Voice Control Search system encountered an error, and they should use a different way to search.]]" : "[[Something went wrong. Try again.|A message telling users that the Voice Control Search system encountered an error, and they should try again.]]";
+            this.Ap(a);
+            break;
+        default:
+            this.Ap("[[Something went wrong. Try again.|A message telling users that the Voice Control Search system encountered an error, and they should try again.]]")
+        }
+    }
+    ;
+    d.ZZ = function(a, b) {
+        this.w("voice-state-changed", a, b);
+        "idle" === b ? this.w("opened") : "idle" === a ? this.w("closed") : "listening" === a ? this.qa.La("voz_ms", "voice_assistant") : "processing" === a && this.qa.La("voz_mf", "voice_assistant")
+    }
+    ;
+    d.FXa = function() {
+        this.dpa();
+        this.qa.La("voz_ss", "voice_assistant");
+        this.OX()
+    }
+    ;
+    d.dpa = function() {
+        var a = this
+          , b = this.$c.onresult;
+        this.$c.onresult = function(c) {
+            b(c);
+            c.results && a.WJ(c.results)
+        }
+    }
+    ;
+    d.OX = function() {
+        this.$c.onspeechstart = function() {}
+    }
+    ;
+    d.WJ = function(a) {
+        for (var b = 0; b < a.length; ++b)
+            a.item(b).isFinal || this.qa.La("voz_sf", "voice_assistant")
+    }
+    ;
+    d.isSupported = function() {
+        return !0
+    }
+    ;
+    d.start = function() {
+        this.qa.Lg("voice_assistant", ["voz_cx", "voz_err", "voz_rqf"], !0);
+        this.$c.onspeechstart = this.FXa.bind(this);
+        this.Yd.start()
+    }
+    ;
+    d.cancel = function() {
+        this.OX();
+        this.isOpen() && this.qa.La("voz_cx", "voice_assistant");
+        this.Yd.cancel()
+    }
+    ;
+    d.getState = function() {
+        return this.Yd.getState()
+    }
+    ;
+    d.isOpen = function() {
+        return "idle" !== this.Yd.getState()
+    }
+    ;
+    d.dm = function() {
+        return this.Yd.dm()
+    }
+    ;
+    d.getQuery = function() {
+        return this.Yd.getQuery()
+    }
+    ;
+    E(Y_, "searchService voiceQueryStateMachineFactory localSpeechAcquirerFactory searchQueryModel showVoiceSearchErrorToast experimentFlags loadAssistantRequest performanceService webSpeechApi".split(" "));
+    function Z_() {
+        this.title = "";
+        this.content = this.clearWatchHistoryButton = this.pauseWatchHistoryButton = null
+    }
+    Z_.prototype.getTitle = function() {
+        return this.title
+    }
+    ;
+    Z_.prototype.pBa = function() {
+        return this.pauseWatchHistoryButton
+    }
+    ;
+    Z_.prototype.aya = function() {
+        return this.clearWatchHistoryButton
+    }
+    ;
+    Z_.prototype.hh = function() {
+        return this.content
+    }
+    ;
+    function $_(a, b) {
+        a.title = X(b.title);
+        b.pauseWatchHistoryButton && (a.pauseWatchHistoryButton = b.pauseWatchHistoryButton);
+        b.clearWatchHistoryButton && (a.clearWatchHistoryButton = b.clearWatchHistoryButton);
+        b.content && (a.content = b.content);
+        return a
+    }
+    E($_, ["watchHistoryShelfModel", "source"]);
+    function a0() {
+        this.L = "overlay-partials-divider";
+        this.height = 2;
+        this.cb = !1
+    }
+    a0.prototype.bia = function(a) {
+        this.height = a
+    }
+    ;
+    a0.prototype.lk = function() {
+        return this.height
+    }
+    ;
+    var b0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-partials-divider",
+                A: V,
+                template: "overlay_partials_divider.html"
+            }])
+        },
+        R: [uy]
+    };
+    E(b0.apply, ["injector"]);
+    var c0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-partials-avatar",
+                A: V,
+                template: "overlay_partials_avatar.html"
+            }, {
+                name: "overlay-partials-icon",
+                A: $L
+            }, {
+                name: "overlay-partials-image",
+                A: xP
+            }])
+        },
+        R: [uy]
+    };
+    E(c0.apply, ["injector"]);
+    var d0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-partials-status-indicator",
+                A: V,
+                template: "status_indicator.html"
+            }])
+        },
+        R: [uy]
+    };
+    E(d0.apply, ["injector"]);
+    function e0(a, b, c, e, f, g) {
+        if (b && b.getName() === f)
+            return b.model = g,
+            b;
+        if (!a.h)
+            return b;
+        c = c.we(f);
+        if (!c)
+            return b && (b.model = null),
+            b;
+        c.model = g;
+        c.wa(e);
+        c.h.className += " " + e;
+        b ? a.replaceChild(b, c) : (a.Zb(c),
+        a.h.replaceChild(c.h, a.h.querySelector("." + e)));
+        return c
+    }
+    ;function f0(a) {
+        V.call(this);
+        this.Db = a;
+        this.Wl = this.model = null
+    }
+    l(f0, V);
+    f0.prototype.render = function(a) {
+        this.QX();
+        V.prototype.render.call(this, a)
+    }
+    ;
+    f0.prototype.QX = function() {
+        this.model && this.model.image ? this.Wl = e0(this, this.Wl, this.Db, "header-image", this.model.image.L, this.model.image) : this.Wl && (this.Wl.model = null)
+    }
+    ;
+    f0.prototype.D = function(a) {
+        var b = this;
+        V.prototype.D.call(this, a);
+        this.model && (this.I(this.model, "header-model-update", function() {
+            return b.render(!0)
+        }),
+        this.render())
+    }
+    ;
+    E(f0, ["componentBuilder"]);
+    var g0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-partials-header",
+                A: f0,
+                template: "overlay_partials_header.html"
+            }])
+        },
+        R: [uy, c0, d0]
+    };
+    E(g0.apply, ["injector"]);
+    var h0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-partials-text",
+                A: V,
+                template: "overlay_partials_text.html"
+            }])
+        },
+        R: [uy]
+    };
+    E(h0.apply, ["injector"]);
+    var i0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-lightweightlist-panel",
+                A: RM,
+                template: "lightweight_list_panel.html"
+            }])
+        },
+        R: [g0, vF, h0, b0, eU]
+    };
+    E(i0.apply, ["injector"]);
+    function j0(a) {
+        V.call(this);
+        this.Db = a;
+        this.ub = !0;
+        this.Wl = this.model = null
+    }
+    l(j0, V);
+    d = j0.prototype;
+    d.ready = function() {
+        var a = this;
+        this.on("keyup", function(b) {
+            a.No(b)
+        });
+        V.prototype.ready.call(this)
+    }
+    ;
+    d.render = function(a) {
+        this.QX();
+        V.prototype.render.call(this, a)
+    }
+    ;
+    d.T = function() {
+        var a = V.prototype.T.call(this);
+        this.model && (this.model.image && a.push("has-image"),
+        this.model.Gi && a.push("has-nav-icon"),
+        this.model.subLabel && a.push("has-sub-label"));
+        return a
+    }
+    ;
+    d.No = function(a) {
+        13 === a.keyCode && this.model && (T(a),
+        this.model.ob(this))
+    }
+    ;
+    d.QX = function() {
+        this.model && this.model.image ? this.Wl = e0(this, this.Wl, this.Db, "menu-item-image", this.model.image.L, this.model.image) : this.Wl && (this.Wl.model = null)
+    }
+    ;
+    d.D = function(a) {
+        var b = this;
+        V.prototype.D.call(this, a);
+        this.model && (this.I(this.model, "menu-item-model-update", function() {
+            return b.render(!0)
+        }),
+        this.render())
+    }
+    ;
+    E(j0, ["componentBuilder"]);
+    var k0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-partials-menu-item",
+                A: j0,
+                template: "overlay_partials_menu_item.html"
+            }])
+        },
+        R: [uy, c0]
+    };
+    E(k0.apply, ["injector"]);
+    function l0(a, b, c, e, f, g, h, k, m) {
+        RM.call(this, g);
+        this.appQuality = a;
+        this.Kc = b;
+        this.M = e;
+        this.nc = f;
+        this.Ma = h;
+        this.KZ = k;
+        this.j = m;
+        this.model = null;
+        this.yd = "";
+        this.pB = 0;
+        this.Ri = Vj({});
+        this.DD = function() {}
+        ;
+        this.signInSessionId = c()
+    }
+    l(l0, RM);
+    d = l0.prototype;
+    d.ready = function() {
+        var a = this;
+        this.wa("overlay-lightweightlist-panel");
+        this.N(".overlay-partials-header").h.setAttribute("aria-live", "polite");
+        this.pB = this.j.setTimeout(function() {
+            a.cancel()
+        }, 15E5);
+        this.DD = this.Ma.on("sign-in-status:updated", this.HW.bind(this));
+        this.He(6);
+        this.He(1);
+        RM.prototype.ready.call(this)
+    }
+    ;
+    d.D = function(a) {
+        RM.prototype.D.call(this, a);
+        this.kv()
+    }
+    ;
+    d.B = function() {
+        this.Ks();
+        this.DD();
+        this.j.clearTimeout(this.pB);
+        this.Ri.cancel();
+        RM.prototype.B.call(this)
+    }
+    ;
+    d.lX = function(a) {
+        this.yd = a;
+        this.cda()
+    }
+    ;
+    d.getStatus = function() {
+        return this.status
+    }
+    ;
+    d.hnb = function() {
+        return this.Ri
+    }
+    ;
+    d.UJa = function() {
+        this.status = {
+            state: 0,
+            text: this.M.C("[[Searching for device|Message indicating that the TV has not yet detected a mobile device that has initiated a sign-in flow.]]")
+        };
+        this.VM();
+        this.Ks()
+    }
+    ;
+    d.cda = function() {
+        this.status = {
+            state: 1,
+            text: this.M.C("[[Searching for device|Message indicating that the TV has not yet detected a mobile device that has initiated a sign-in flow.]]")
+        };
+        this.VM();
+        this.RL()
+    }
+    ;
+    d.SJa = function(a, b) {
+        this.status = {
+            state: 2,
+            text: a,
+            deviceId: b
+        };
+        this.VM();
+        this.Ks()
+    }
+    ;
+    d.KJa = function() {
+        this.status = {
+            state: 3,
+            text: this.M.C("[[Signing in...|Notifies user that the TV is now signing in after detecting that a mobile device has completed the sign-in flow.]]")
+        };
+        this.VM();
+        this.Ks()
+    }
+    ;
+    d.HW = function(a, b, c) {
+        if (a && b && c)
+            switch (a) {
+            case "started":
+                this.SJa(c, b);
+                break;
+            case "completed":
+                this.KJa();
+                this.He(3);
+                break;
+            case "denied":
+                this.cancel();
+                break;
+            case "canceled":
+                2 === this.status.state && this.status.deviceId === b && (this.He(1),
+                this.cda())
+            }
+    }
+    ;
+    d.kv = function() {
+        var a = this;
+        this.UJa();
+        this.Ri.cancel();
+        this.Ri = this.model ? this.KZ(this, void 0, this.model.Sv).then(function(b) {
+            a.ny(!!b.accessToken);
+            return b
+        }).Pg(function(b) {
+            if (!(b instanceof dk))
+                return a.oy(),
+                b
+        }) : Vj({})
+    }
+    ;
+    d.ny = function(a) {
+        this.model && (a ? this.complete() : this.cancel())
+    }
+    ;
+    d.oy = function() {
+        this.He(5);
+        if (this.model)
+            this.model.onError()
+    }
+    ;
+    d.complete = function() {
+        this.model && (this.model.uW(),
+        this.nc.close())
+    }
+    ;
+    d.cancel = function() {
+        this.model && (this.model.gB(),
+        this.nc.close())
+    }
+    ;
+    d.RL = function() {
+        this.yd && this.Ma.RL(this.yd, this.signInSessionId)
+    }
+    ;
+    d.Ks = function() {
+        this.Ma.Ks()
+    }
+    ;
+    d.He = function(a) {
+        this.Kc.send("mdxSignIn", {
+            eventType: a,
+            signInSessionId: this.signInSessionId
+        })
+    }
+    ;
+    d.VM = function() {
+        if (this.model) {
+            var a = "full-animation" === this.appQuality ? "material-icon-progress-activity" : "material-icon-sync";
+            a = 2 === this.status.state ? new aM("material-icon-done") : new aM(a);
+            this.model.header.status = new dS(this.status.text,a);
+            this.render(!0)
+        }
+    }
+    ;
+    E(l0, "appQuality gelService guidFactory localeService overlayStage overlayTransitionRunner remoteService signInWithDeviceFlow timeService".split(" "));
+    var m0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-mobile-assisted-sign-in",
+                A: l0,
+                template: "lightweight_list_panel.html"
+            }])
+        },
+        R: [eG, i0, NC, k0, iU]
+    };
+    E(m0.apply, ["injector"]);
+    function n0(a, b, c, e, f, g) {
+        V.call(this);
+        this.Kc = a;
+        this.M = c;
+        this.nc = e;
+        this.KZ = f;
+        this.j = g;
+        this.model = null;
+        this.yd = "";
+        this.Dt = "default";
+        this.Ri = Vj({});
+        this.pB = 0;
+        this.signInSessionId = b()
+    }
+    l(n0, V);
+    d = n0.prototype;
+    d.ready = function() {
+        var a = this;
+        this.pB = this.j.setTimeout(function() {
+            a.cancel()
+        }, 15E5);
+        var b = this.M.C("[[Loading...|Tooltip displaying while connecting a mobile device with the application.]]");
+        this.Fha(b);
+        this.render();
+        this.He(6);
+        this.He(4)
+    }
+    ;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.kv()
+    }
+    ;
+    d.B = function() {
+        this.j.clearTimeout(this.pB);
+        this.Ri.cancel();
+        V.prototype.B.call(this)
+    }
+    ;
+    d.kv = function() {
+        var a = this;
+        this.Ri.cancel();
+        if (this.model)
+            return this.Ri = this.KZ(this, void 0, this.model.Sv).then(function(b) {
+                a.ny(!!b.accessToken);
+                return b
+            }).Pg(function(b) {
+                if (!(b instanceof dk))
+                    return a.oy(),
+                    b
+            });
+        this.Ri = Vj({})
+    }
+    ;
+    d.lX = function(a) {
+        this.Fha(a.replace(/-/g, "   "));
+        this.render()
+    }
+    ;
+    d.lR = function() {
+        return this.yd
+    }
+    ;
+    d.Fha = function(a) {
+        this.yd = a || "";
+        this.Dt = 18 < this.yd.length ? "large" : "default"
+    }
+    ;
+    d.zxa = function() {
+        return this.Dt
+    }
+    ;
+    d.complete = function() {
+        this.model && (this.model.uW(),
+        this.nc.close())
+    }
+    ;
+    d.cancel = function() {
+        this.model && (this.model.gB(),
+        this.nc.close())
+    }
+    ;
+    d.ny = function(a) {
+        this.Ri = Vj({});
+        this.model && (a ? this.complete() : this.cancel())
+    }
+    ;
+    d.oy = function() {
+        this.Ri = Vj({});
+        this.He(5);
+        if (this.model)
+            this.model.onError()
+    }
+    ;
+    d.He = function(a) {
+        this.Kc.send("mdxSignIn", {
+            eventType: a,
+            signInSessionId: this.signInSessionId
+        })
+    }
+    ;
+    E(n0, "gelService guidFactory localeService overlayStage signInWithDeviceFlow timeService".split(" "));
+    var o0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-url-sign-in",
+                A: n0,
+                template: "url_sign_in_panel.html"
+            }])
+        },
+        R: [YC, eG, g0, iU]
+    };
+    E(o0.apply, ["injector"]);
+    var p0 = {
+        nj: "full-page-overlay-fade",
+        Yk: "overlay-transition-opacity",
+        duration: 200
+    }
+      , q0 = {
+        Ln: "full-page-overlay-fade",
+        Yk: "overlay-transition-opacity-fast",
+        duration: 100
+    };
+    function r0(a) {
+        V.call(this);
+        this.xm = a;
+        this.model = null
+    }
+    l(r0, V);
+    r0.prototype.ready = function() {
+        var a = this;
+        this.list = this.N(".lightweight-list");
+        V.prototype.ready.call(this);
+        this.on("keyup", function(b) {
+            a.onKeyUp(b)
+        })
+    }
+    ;
+    r0.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.model ? (this.list.model = this.model.list,
+        0 < this.list.model.length && this.list.ba(0),
+        this.model.xZ(this),
+        this.render(!0)) : this.list.model = null
+    }
+    ;
+    r0.prototype.tH = function(a, b) {
+        b = void 0 === b ? function() {}
+        : b;
+        this.model || b();
+        switch (a) {
+        case "show":
+            a = p0;
+            break;
+        case "hide":
+            a = q0;
+            break;
+        default:
+            b();
+            return
+        }
+        this.xm(this, a, b)
+    }
+    ;
+    r0.prototype.onKeyUp = function(a) {
+        T(a);
+        switch (a.keyCode) {
+        case 8:
+        case 27:
+            this.model && this.model.Ycb()
+        }
+    }
+    ;
+    E(r0, ["overlayTransitionRunner"]);
+    var s0 = {
+        apply: function(a) {
+            a.P([{
+                name: "full-page-overlay",
+                A: r0,
+                template: "full_page_overlay.html"
+            }])
+        },
+        R: [g0, vF]
+    };
+    E(s0.apply, ["injector"]);
+    var t0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-image-panel",
+                A: V,
+                template: "image_panel.html"
+            }])
+        },
+        R: [uy, c0]
+    };
+    E(t0.apply, ["injector"]);
+    var u0 = {
+        apply: function(a, b) {
+            a.add("overlay-partials-list", b({
+                align: "=pinnedCenterAlign",
+                axis: "translateY",
+                duration: 0,
+                enableSounds: !0,
+                isLimitedList: !0,
+                maxSwipeNumOfItems: 1,
+                rightPadding: 4,
+                spacing: 0
+            }))
+        },
+        R: [Hz]
+    };
+    E(u0.apply, ["injector", "makeNewListConfig"]);
+    var v0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-list-with-header",
+                A: SL,
+                template: "list_with_header_panel.html"
+            }])
+        },
+        R: [g0, u0, b0, eU]
+    };
+    E(v0.apply, ["injector"]);
+    var w0 = {
+        nj: "overlay-screen-contextual-panel-fade",
+        Yk: "overlay-transition-opacity",
+        duration: 200
+    }
+      , x0 = {
+        Ln: "overlay-screen-contextual-panel-fade",
+        Yk: "overlay-transition-opacity-fast",
+        duration: 100
+    }
+      , y0 = {
+        nj: "overlay-screen-action-panel-slide",
+        Yk: "overlay-transition-transform",
+        duration: 200
+    }
+      , z0 = {
+        Ln: "overlay-screen-contextual-panel-fade",
+        Yk: "overlay-transition-opacity-replace",
+        duration: 200
+    };
+    function A0(a, b, c) {
+        V.call(this);
+        this.Db = a;
+        this.xm = b;
+        this.Ab = c;
+        this.model = this.Wh = this.bd = this.actionPanel = null
+    }
+    l(A0, V);
+    d = A0.prototype;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.model && (this.model.xZ(this),
+        this.render())
+    }
+    ;
+    d.ready = function() {
+        var a = this;
+        V.prototype.ready.call(this);
+        this.on("keydown", function(b) {
+            a.onKeyDown(b)
+        });
+        this.on("keyup", function(b) {
+            a.onKeyUp(b)
+        })
+    }
+    ;
+    d.render = function() {
+        this.model && (this.model.ariaLabel ? this.h.setAttribute("aria-label", this.model.ariaLabel) : this.h.setAttribute("aria-labelledby", "overlay-header"),
+        0 === this.model.Jaa ? (this.$ea(),
+        this.Zea()) : 1 === this.model.Jaa && (this.Zea(),
+        this.$ea()),
+        this.model.Wh ? this.Wh = e0(this, this.Wh, this.Db, "overlay-contextual-panel", this.model.Wh.L, this.model.Wh) : this.Wh && (this.Wh.model = null),
+        this.Tpa(),
+        V.prototype.render.call(this, !0))
+    }
+    ;
+    d.tH = function(a, b) {
+        b = void 0 === b ? function() {}
+        : b;
+        this.model || b();
+        var c;
+        switch (a) {
+        case "show":
+            a = y0;
+            var e = c = w0;
+            break;
+        case "hide":
+            e = c = a = x0;
+            break;
+        case "replace":
+            e = c = a = z0;
+            break;
+        default:
+            b();
+            return
+        }
+        this.xm(this.actionPanel, a, b);
+        this.Wh && this.xm(this.Wh, c);
+        this.bd && this.xm(this.bd, e)
+    }
+    ;
+    d.Tpa = function() {
+        var a = "" + (this.model.actionPanel.width || "30em");
+        this.bd && (this.bd.h.style.right = a);
+        this.actionPanel.h.style.width = a
+    }
+    ;
+    d.onKeyDown = function(a) {
+        T(a);
+        switch (a.keyCode) {
+        case 40:
+        case 39:
+            this.actionPanel && !this.actionPanel.J() && (this.Ab("focus-change"),
+            this.actionPanel.focus());
+            break;
+        case 37:
+        case 38:
+            this.bd && !this.bd.J() && (this.Ab("focus-change"),
+            this.bd.focus())
+        }
+    }
+    ;
+    d.onKeyUp = function(a) {
+        T(a);
+        switch (a.keyCode) {
+        case 8:
+        case 27:
+            this.bd && this.bd.gA()
+        }
+    }
+    ;
+    d.Zea = function() {
+        this.model ? this.actionPanel = e0(this, this.actionPanel, this.Db, "overlay-action-panel", this.model.actionPanel.L, this.model.actionPanel) : this.actionPanel && (this.actionPanel.model = null)
+    }
+    ;
+    d.$ea = function() {
+        this.model && this.model.bd ? this.bd = e0(this, this.bd, this.Db, "overlay-back-stack", this.model.bd.L, this.model.bd) : this.bd && (this.bd.model = null)
+    }
+    ;
+    E(A0, ["componentBuilder", "overlayTransitionRunner", "playSoundFromDescriptor"]);
+    var B0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-screen",
+                A: A0,
+                template: "overlay_screen.html"
+            }, {
+                name: "overlay-back-stack",
+                A: WL
+            }]);
+            a.$({
+                backStackIconClass: "back-stack-icon",
+                emptyBackStackIconClass: "empty-back-stack-icon"
+            })
+        },
+        R: [iU, eU]
+    };
+    E(B0.apply, ["injector"]);
+    function C0() {
+        this.L = "overlay-partials-loading-spinner"
+    }
+    ;var D0 = {
+        apply: function(a) {
+            a.P([{
+                name: "overlay-partials-loading-spinner",
+                A: V,
+                template: "loading_spinner.html"
+            }])
+        },
+        R: [uy]
+    };
+    E(D0.apply, ["injector"]);
+    var E0 = {
+        apply: function(a) {
+            a.$({
+                backStackIconClass: "material-icon-arrow-back",
+                emptyBackStackIconClass: "material-icon-close"
+            })
+        },
+        R: [s0, t0, i0, v0, D0, k0, m0, B0, o0]
+    };
+    E(E0.apply, ["injector"]);
+    function F0(a, b) {
+        a.requestAnimationFrame(function() {
+            b.La("b_rnf");
+            b.La("ol")
+        })
+    }
+    E(F0, ["animationFrameService", "performanceService"]);
+    function G0(a) {
+        if (a.compactVideoRenderer)
+            return a = a.compactVideoRenderer,
+            {
+                itemDocType: "YOUTUBE_DOC_TYPE_VIDEO",
+                id: a.videoId,
+                title: X(a.title),
+                byline: X(a.shortBylineText),
+                navigationEndpoint: a.navigationEndpoint
+            };
+        if (a.compactPlaylistRenderer)
+            return a = a.compactPlaylistRenderer,
+            {
+                itemDocType: "YOUTUBE_DOC_TYPE_PLAYLIST",
+                id: a.playlistId,
+                title: X(a.title),
+                byline: X(a.shortBylineText),
+                navigationEndpoint: a.navigationEndpoint
+            };
+        if (a.compactRadioRenderer)
+            return a = a.compactRadioRenderer,
+            {
+                itemDocType: "YOUTUBE_DOC_TYPE_MIX",
+                id: a.playlistId,
+                title: X(a.title),
+                byline: X(a.shortBylineText),
+                navigationEndpoint: a.navigationEndpoint
+            };
+        if (a.compactChannelRenderer)
+            return a = a.compactChannelRenderer,
+            {
+                itemDocType: "YOUTUBE_DOC_TYPE_CHANNEL",
+                id: a.channelId,
+                title: X(a.title),
+                navigationEndpoint: a.navigationEndpoint
+            };
+        if (a.compactMovieRenderer)
+            return a = a.compactMovieRenderer,
+            {
+                itemDocType: "YOUTUBE_DOC_TYPE_VIDEO",
+                id: a.videoId,
+                title: X(a.title),
+                byline: X(a.shortBylineText),
+                navigationEndpoint: a.navigationEndpoint
+            };
+        if (a.compactShowRenderer)
+            return a = a.compactShowRenderer,
+            {
+                itemDocType: "YOUTUBE_DOC_TYPE_PLAYLIST",
+                id: H0(a.navigationEndpoint),
+                title: X(a.title),
+                byline: X(a.shortBylineText),
+                navigationEndpoint: a.navigationEndpoint
+            };
+        if (a.compactPremiumShowRenderer)
+            return a = a.compactPremiumShowRenderer,
+            {
+                itemDocType: "YOUTUBE_DOC_TYPE_PLAYLIST",
+                id: H0(a.navigationEndpoint),
+                title: X(a.title),
+                byline: X(a.subtitle),
+                navigationEndpoint: a.navigationEndpoint
+            };
+        if (a.livingRoomContentBundleRenderer) {
+            a = a.livingRoomContentBundleRenderer;
+            var b = H0(a.navigationEndpoint)
+              , c = I0(a.navigationEndpoint);
+            return {
+                itemDocType: b && b.startsWith("RD") ? "YOUTUBE_DOC_TYPE_MIX" : "YOUTUBE_DOC_TYPE_PLAYLIST",
+                id: b || c,
+                title: X(a.primaryText),
+                byline: X(a.secondaryText),
+                navigationEndpoint: a.navigationEndpoint
+            }
+        }
+        return a.tvMusicVideoRenderer ? (a = a.tvMusicVideoRenderer,
+        {
+            itemDocType: "YOUTUBE_DOC_TYPE_VIDEO",
+            id: I0(a.navigationEndpoint),
+            title: X(a.primaryText),
+            byline: X(a.secondaryText),
+            navigationEndpoint: a.navigationEndpoint
+        }) : {
+            itemDocType: "YOUTUBE_DOC_TYPE_UNKNOWN"
+        }
+    }
+    function I0(a) {
+        return a && a.watchEndpoint && a.watchEndpoint.videoId || ""
+    }
+    function H0(a) {
+        return a && a.watchEndpoint && a.watchEndpoint.playlistId || ""
+    }
+    ;function J0(a, b, c, e, f, g, h, k) {
+        if (!h || !k && (0 < e.Dz().ha() || f.get() || 3 <= g.get()))
+            return !1;
+        b = c({
+            id: "searchWithMobileSmartRemoteToastId",
+            componentRenderer: "searchWithMobileSmartRemoteToast",
+            displayTimeout: 7500,
+            message: b.C("[[Open the YouTube App on your mobile device to search using the mic|Toast message to tell the user to use try using voice search on their mobile device.]]"),
+            subMessage: "",
+            iconClass: "icon-settings-term",
+            hasDisplayAnim: !0
+        });
+        a.Nc(b);
+        f.set(!0);
+        k || g.set(g.get() + 1);
+        return !0
+    }
+    E(J0, "toasterModel localeService defaultToastModelFactory remoteService hasShownSmartRemoteToastThisSession numSmartRemoteToastsShown supportsDialSeamlessFeatures".split(" "));
+    function K0(a, b, c, e, f, g) {
+        0 === c.length || e.get() || 5 <= f.get() || (c = c[Math.floor(g() * c.length)],
+        b = b({
+            id: "voiceSearchEducationId",
+            componentRenderer: "voiceSearchEducationToast",
+            displayTimeout: 7500,
+            message: c,
+            subMessage: "",
+            opt_iconClass: "icon-mic",
+            opt_hasDisplayAnim: !0
+        }),
+        a.Nc(b),
+        e.set(!0),
+        f.set(f.get() + 1))
+    }
+    E(K0, "toasterModel defaultToastModelFactory voiceSearchEducationMessages hasShownVoiceSearchEducationToastThisSession numVoiceSearchEducationToastsShown getRandom".split(" "));
+    function L0(a, b, c, e, f, g, h, k) {
+        pN.call(this, a, 4724, c, e, f, k);
+        this.ia = b;
+        this.Bf = g;
+        this.aLa = h;
+        this.Fr = this.GI = null;
+        this.og = [];
+        this.MM = function() {}
+        ;
+        this.LM = function() {}
+        ;
+        this.vV = function() {}
+    }
+    l(L0, pN);
+    d = L0.prototype;
+    d.start = function() {
+        var a = this;
+        pN.prototype.start.call(this);
+        this.GI && (this.vV = this.aLa(function() {
+            a.pda();
+            for (var b = 0, c = a.og.length; b < c; ++b) {
+                var e = a.og[b];
+                a.G.attachChild(e.nF, e.zJ)
+            }
+        }));
+        this.MM();
+        this.MM = this.ia.on("search:started", this.EW.bind(this));
+        this.LM();
+        this.LM = this.ia.on("results:changed-for-search-interaction", this.INa.bind(this))
+    }
+    ;
+    d.EW = function(a) {
+        a && this.Bf.EW(a)
+    }
+    ;
+    d.INa = function(a, b) {
+        this.vV = function() {}
+        ;
+        this.og = [];
+        this.yKa(a, b);
+        b && this.ia.JA(b) && this.Bf.sia(this.ia.getQuery())
+    }
+    ;
+    d.yKa = function(a, b) {
+        this.GI = a.trackingParams || null;
+        this.Fr = b ? this.cya(b) : null;
+        this.pda()
+    }
+    ;
+    d.yQ = function() {
+        return !0
+    }
+    ;
+    d.cya = function(a) {
+        var b = {
+            tvhtml5SearchQuerySource: {}
+        }
+          , c = b.tvhtml5SearchQuerySource;
+        switch (a) {
+        case "keyboard-deeplink":
+            c.searchQuerySource = "SEARCH_QUERY_SOURCE_KEYBOARD_DEEPLINK";
+            break;
+        case "suggestions":
+            c.searchQuerySource = "SEARCH_QUERY_SOURCE_SUGGESTION";
+            break;
+        case "search-action":
+            c.searchQuerySource = "SEARCH_QUERY_SOURCE_SEARCH_BUTTON";
+            break;
+        case "speech":
+            c.searchQuerySource = "SEARCH_QUERY_SOURCE_VOICE";
+            break;
+        case "voice-deeplink":
+            c.searchQuerySource = "SEARCH_QUERY_SOURCE_VOICE_DEEPLINK";
+            break;
+        default:
+            c.searchQuerySource = "SEARCH_QUERY_SOURCE_UNKNOWN"
+        }
+        this.ipa(b, a);
+        return b
+    }
+    ;
+    d.pda = function() {
+        this.G.attachChild(this.GI, null, this.Fr);
+        this.ia.wT = this.G.ye(35869);
+        this.G.attachChild(this.ia.wT, this.GI, null);
+        this.Fr && this.Fr.searchboxData && (this.Fr = Object.assign({}, this.Fr),
+        delete this.Fr.searchboxData)
+    }
+    ;
+    d.stop = function() {
+        pN.prototype.stop.call(this);
+        this.MM();
+        this.MM = function() {}
+        ;
+        this.LM();
+        this.LM = function() {}
+    }
+    ;
+    d.ipa = function(a, b) {
+        this.ia.JA(b) && (b = this.Bf.s9()) && (a.searchboxData = {
+            searchboxStats: b
+        })
+    }
+    ;
+    d.aK = function(a) {
+        this.og.push(a)
+    }
+    ;
+    d.JNa = function() {
+        this.vV()
+    }
+    ;
+    E(L0, "screenManager searchQueryModel legendModel experimentFlags guideModel searchboxStatsModel makeOnceExecuter opt_triggerVe".split(" "));
+    function M0(a, b, c) {
+        this.clientName = a;
+        this.j = b;
+        this.IYa = c;
+        this.originalQuery = "";
+        this.$ja = this.OC = !1;
+        this.suggestions = [];
+        this.LE = void 0;
+        this.querySource = null;
+        this.sY = this.lastEditTimeMsec = this.firstEditTimeMsec = -1;
+        this.kG = 0;
+        this.LQ = !1;
+        this.nW = 0;
+        this.Ni = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        this.yM = 0;
+        this.gC = -1;
+        this.WZ = this.j.za()
+    }
+    d = M0.prototype;
+    d.EW = function(a) {
+        this.OC = !0;
+        this.querySource = a;
+        this.sY = this.j.za()
+    }
+    ;
+    d.PGa = function() {
+        this.gC = this.j.za()
+    }
+    ;
+    d.dra = function() {
+        if (!(0 >= this.gC)) {
+            var a = this.j.za() - this.gC;
+            this.yM += a;
+            this.gC = -1;
+            100 > a ? this.Ni[0]++ : 200 > a ? this.Ni[1]++ : 300 > a ? this.Ni[2]++ : 400 > a ? this.Ni[3]++ : 500 > a ? this.Ni[4]++ : 700 > a ? this.Ni[5]++ : 1E3 > a ? this.Ni[6]++ : 1500 > a ? this.Ni[7]++ : 2E3 > a ? this.Ni[8]++ : this.Ni[9]++
+        }
+    }
+    ;
+    d.iya = function() {
+        for (var a = [], b = 0, c, e = 0; 9 >= e; ++e)
+            c = this.Ni[e],
+            0 === c ? b++ : (b = 1 === b ? "0j" : 1 < b ? e.toString() + "-" : "",
+            a.push(b + c.toString()),
+            b = 0);
+        return a.join("j")
+    }
+    ;
+    d.tQa = function(a) {
+        (this.LQ = a) && this.kG++
+    }
+    ;
+    d.PUa = function(a) {
+        this.nW = a
+    }
+    ;
+    d.TNa = function() {
+        var a = this.j.za() - this.WZ;
+        -1 === this.firstEditTimeMsec && (this.firstEditTimeMsec = a);
+        this.lastEditTimeMsec = a
+    }
+    ;
+    d.Fza = function() {
+        switch (this.querySource) {
+        case "speech":
+        case "voice-deeplink":
+            return "SPEECH";
+        default:
+            return "KEYBOARD"
+        }
+    }
+    ;
+    d.eCa = function() {
+        switch (this.querySource) {
+        case "auto-search-action":
+            return "PREFETCH";
+        case "search-action":
+            return "SEARCH_BUTTON";
+        case "speech":
+        case "voice-deeplink":
+            return "SPEECH_RECOGNITION";
+        case "suggestions":
+            return "CLICKED_SUGGESTION";
+        default:
+            return "SEARCH_METHOD_UNKNOWN"
+        }
+    }
+    ;
+    d.sia = function(a) {
+        this.originalQuery = a
+    }
+    ;
+    d.XVa = function(a) {
+        this.suggestions = a
+    }
+    ;
+    d.XSa = function(a) {
+        this.LE = a
+    }
+    ;
+    d.Mia = function(a) {
+        this.$ja = a
+    }
+    ;
+    d.s9 = function() {
+        var a = this;
+        if (this.IYa && this.OC && this.$ja) {
+            var b = {
+                clientName: this.clientName,
+                inputMethods: [this.Fza()],
+                originalQuery: this.originalQuery,
+                parameterValidationStatus: "VALID_PARAMETERS",
+                searchMethod: this.eCa(),
+                sessionDurationMsec: this.sY - this.WZ,
+                validationStatus: "VALID",
+                zeroPrefixEnabled: !0,
+                suggestExperimentInfo: {
+                    experimentTriggered: this.Vya()
+                },
+                numZeroPrefixSuggestionsShown: this.nW,
+                totalRoundTripTimeMsec: this.yM,
+                compressedRoundTripHistogram: this.iya()
+            };
+            0 < this.suggestions.length && (b.availableSuggestions = this.suggestions.map(function(b) {
+                return a.j5(b)
+            }),
+            this.LE && (b.assistedQueryInfo = this.j5(this.LE)));
+            -1 !== this.firstEditTimeMsec && (b.firstEditTimeMsec = this.firstEditTimeMsec);
+            -1 !== this.lastEditTimeMsec && (b.lastEditTimeMsec = this.lastEditTimeMsec);
+            this.reset();
+            return b
+        }
+    }
+    ;
+    d.Vya = function() {
+        var a = 0;
+        this.LQ ? (a |= 1,
+        2 <= this.kG && (a |= 2)) : 1 <= this.kG && (a |= 2);
+        return a
+    }
+    ;
+    d.y9 = function(a) {
+        return 41 === a ? "NONE" : "COMPLETE_SERVER"
+    }
+    ;
+    d.j5 = function(a) {
+        return {
+            index: a.n8(),
+            type: a.AS(),
+            subtypes: a.D9(),
+            source: this.y9(a.AS())
+        }
+    }
+    ;
+    d.reset = function() {
+        this.OC = !1;
+        this.LE = void 0;
+        this.querySource = null;
+        this.WZ = this.j.za();
+        this.sY = this.lastEditTimeMsec = this.firstEditTimeMsec = -1;
+        this.kG = 0;
+        this.LQ = !1;
+        this.nW = 0;
+        this.Ni = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        this.yM = 0;
+        this.gC = -1;
+        this.Mia(!1)
+    }
+    ;
+    E(M0, ["clientName", "timeService", "supportsSearchSuggestions"]);
+    function N0() {
+        this.action = function() {}
+        ;
+        this.L = "actionTile";
+        this.uZa = this.Gka = this.description = this.Ia = this.title = "";
+        this.channel = null
+    }
+    ;function O0(a, b, c, e) {
+        this.M = a;
+        this.UKa = b;
+        this.WA = c;
+        this.PEa = e;
+        this.Kh = null;
+        this.actions = []
+    }
+    d = O0.prototype;
+    d.action = function() {
+        return this.start(new N0)
+    }
+    ;
+    d.start = function(a) {
+        if (this.Kh)
+            throw Error("Cannot create a new tile model without completing the last.");
+        this.Kh = a;
+        this.actions = [];
+        return this
+    }
+    ;
+    d.OT = function(a) {
+        this.actions.push(a);
+        return this
+    }
+    ;
+    d.Bsb = function(a) {
+        return this.OT(this.UKa({
+            eventName: a,
+            model: this.Kh
+        }))
+    }
+    ;
+    d.Asb = function(a) {
+        return this.OT(this.WA({
+            endpoint: a
+        }))
+    }
+    ;
+    d.Csb = function(a) {
+        a = Ta(this.PEa, a);
+        return this.OT(a)
+    }
+    ;
+    d.lxb = function(a) {
+        this.Kh.L = a;
+        return this
+    }
+    ;
+    d.setTitle = function(a) {
+        this.Kh.title = this.M.C(a);
+        return this
+    }
+    ;
+    d.Fwb = function(a) {
+        this.Kh.Ia = a;
+        return this
+    }
+    ;
+    d.setDescription = function(a) {
+        this.Kh.description = this.M.C(a);
+        return this
+    }
+    ;
+    d.Df = function(a) {
+        this.Kh.Gka = a;
+        return this
+    }
+    ;
+    d.f3 = function() {
+        if (!this.Kh)
+            throw Error("No tile was configured");
+        1 === this.actions.length ? this.Kh.action = this.actions[0] : 1 < this.actions.length && (this.Kh.action = yd.apply(yd, this.actions));
+        var a = this.Kh;
+        this.Kh = null;
+        this.actions = [];
+        return a
+    }
+    ;
+    E(O0, ["localeService", "makeEventBubbler", "makeEndpointNavigator", "handleServiceEndpoint"]);
+    function P0(a) {
+        this.xaa = a;
+        this.Ds = this.NA = 0;
+        this.vI = [];
+        this.jaa = this.pT = this.hU = !1;
+        this.browseId = "";
+        this.features = {};
+        this.rows = [];
+        this.ZK = "";
+        this.MJ = void 0;
+        this.zfa = ""
+    }
+    d = P0.prototype;
+    d.sRa = function() {
+        this.Ds = 0;
+        this.vI.length = 0
+    }
+    ;
+    d.gxb = function(a) {
+        this.MJ = a
+    }
+    ;
+    d.vxb = function(a) {
+        this.Ds !== a && (this.Ds = a,
+        ++this.NA)
+    }
+    ;
+    d.Swb = function(a) {
+        this.vI[this.Ds] !== a && (this.vI[this.Ds] = a,
+        ++this.NA)
+    }
+    ;
+    d.T1 = function() {
+        ++this.NA
+    }
+    ;
+    d.Cwb = function(a) {
+        this.hU = a
+    }
+    ;
+    d.bUa = function(a) {
+        this.pT = a
+    }
+    ;
+    d.aUa = function(a) {
+        this.jaa = a
+    }
+    ;
+    d.Xvb = function(a) {
+        this.browseId = a
+    }
+    ;
+    d.yE = function(a) {
+        this.features[a] = !0
+    }
+    ;
+    d.pxb = function(a) {
+        this.rows = a
+    }
+    ;
+    d.uxb = function(a) {
+        this.sRa();
+        this.ZK !== a && (this.zfa = this.ZK);
+        this.ZK = a
+    }
+    ;
+    d.reset = function() {
+        this.NA = 0;
+        this.pT = this.hU = !1;
+        this.features = {};
+        this.rows.length = 0;
+        this.MJ = void 0
+    }
+    ;
+    d.$n = function() {
+        var a = {};
+        a = (a.features = uc(this.features).join(","),
+        a.has_subscribe = this.jaa ? 1 : 0,
+        a.has_trailer = this.pT ? 1 : 0,
+        a.heos = this.hU ? 1 : 0,
+        a.kpc = this.NA,
+        a.index = this.vI[this.Ds] || 0,
+        a.row = this.Ds,
+        a.rows = this.rows.join(","),
+        a.browse_id = this.browseId,
+        a);
+        void 0 !== this.MJ && (a.play_all_duration = this.MJ);
+        if ("FEtopics" === this.browseId || this.browseId === this.xaa)
+            a.topic = this.ZK,
+            a.prev_topic = this.zfa;
+        this.reset();
+        return a
+    }
+    ;
+    E(P0, ["homeFeedBrowseId"]);
+    function Q0(a) {
+        this.Y1a = a
+    }
+    Q0.prototype.dRa = function(a, b) {
+        this.Y1a.load({}, function(c) {
+            c.command && c.command.confirmDialogEndpoint && c.command.confirmDialogEndpoint.content && c.command.confirmDialogEndpoint.content.confirmDialogRenderer ? a() : b()
+        }, function() {
+            b()
+        })
+    }
+    ;
+    E(Q0, ["ypcGrantRewardService"]);
+    function R0(a) {
+        this.rN = a
+    }
+    R0.prototype.jRa = function(a, b) {
+        this.rN.load({
+            transactionParams: "GhMIAhoNCAYSCXVubGltaXRlZEAF"
+        }, function(c) {
+            c && c.responseContext && c.responseContext.serviceTrackingParams && c.responseContext.serviceTrackingParams[0] ? a() : b()
+        }, function() {
+            b()
+        })
+    }
+    ;
+    E(R0, ["ypcCompleteTransactionService"]);
+    function S0() {}
+    S0.prototype.sO = function(a) {
+        return "https://chart.googleapis.com/chart?cht=qr&chs=350x350&chl=" + encodeURIComponent(a)
+    }
+    ;
+    function T0(a, b, c, e) {
+        this.localStorage = a;
+        this.xq = b;
+        this.sendReport = c;
+        this.j = e
+    }
+    d = T0.prototype;
+    d.flush = function() {
+        this.localStorage.flush();
+        this.xq.flush()
+    }
+    ;
+    d.get = function(a) {
+        var b = this.localStorage.get(a)
+          , c = this.xq.get(U0(a));
+        b = this.uSa(a, b, c);
+        void 0 === b ? this.remove(a) : this.set(a, b);
+        return b
+    }
+    ;
+    d.set = function(a, b) {
+        this.localStorage.set(a, b, 15768E3);
+        this.xq.set(U0(a), b, 15768E3);
+        this.KVa(a)
+    }
+    ;
+    d.remove = function(a) {
+        this.localStorage.remove(a);
+        this.xq.remove(U0(a))
+    }
+    ;
+    d.uSa = function(a, b, c) {
+        if (V0(b, c))
+            return b;
+        if (W0(b) && W0(c)) {
+            var e = this.iAa(a)
+              , f = this.pya(a);
+            if (e == f) {
+                c = {};
+                this.sendReport("/gen_204", (c.tmmismatch = a,
+                c));
+                return
+            }
+            e = f > e;
+            f = {};
+            this.sendReport("/gen_204", (f.tmmismatch = a,
+            f.tmmisres = e ? 1 : 0,
+            f));
+            return e ? c : b
+        }
+        return W0(c) ? (b = {},
+        this.sendReport("/gen_204", (b.tmfixed = a,
+        b)),
+        c) : b
+    }
+    ;
+    d.KVa = function(a) {
+        var b = this.j.za()
+          , c = this.localStorage.get("token-time") || {}
+          , e = this.xq.get("token-time-c") || {};
+        c[a] = b;
+        e[a] = b;
+        this.localStorage.set("token-time", c, 15768E3);
+        this.xq.set("token-time-c", e, 15768E3)
+    }
+    ;
+    d.iAa = function(a) {
+        return (this.localStorage.get("token-time") || {})[a] || 0
+    }
+    ;
+    d.pya = function(a) {
+        return (this.xq.get("token-time-c") || {})[a] || 0
+    }
+    ;
+    function W0(a) {
+        return a ? Na(a) ? !xc(a) : !0 : !1
+    }
+    function V0(a, b) {
+        if (!W0(a) && !W0(b))
+            return !0;
+        if (Na(a) && Na(b)) {
+            for (var c in a) {
+                if (!(c in b))
+                    return !1;
+                var e = a[c]
+                  , f = b[c];
+                if (Na(e) && Na(f)) {
+                    if (!Cc(e, f))
+                        return !1
+                } else if (e != f)
+                    return !1
+            }
+            for (var g in b)
+                if (!(g in a))
+                    return !1;
+            return !0
+        }
+        return a == b
+    }
+    function U0(a) {
+        if (a in X0)
+            return X0[a];
+        throw Error("Unexpected key: " + a);
+    }
+    var Y0 = {}
+      , X0 = (Y0["account-credentials"] = "account-credentials-c",
+    Y0["accounts-map"] = "accounts-map-c",
+    Y0["active-account"] = "active-account-c",
+    Y0["tv-refresh-token"] = "tv-refresh-token-c",
+    Y0["tv-token-list"] = "tv-token-list-c",
+    Y0);
+    E(T0, ["localStorage", "cookieStorage", "sendReport", "timeService"]);
+    function Z0(a) {
+        S.call(this);
+        var b = this;
+        this.mp = a.document.documentElement;
+        a.addEventListener("resize", function() {
+            b.lA()
+        }, !1);
+        this.lA()
+    }
+    l(Z0, S);
+    Z0.prototype.lA = function() {
+        jh(this.mp, "fontSize", zr(this.mp.offsetWidth / this.mp.offsetHeight <= 16 / 9 ? this.mp.offsetWidth / 1280 : this.mp.offsetHeight / 720));
+        this.w("resize-complete")
+    }
+    ;
+    E(Z0, ["window"]);
+    function $0(a, b, c, e, f, g, h, k, m, p, u, v, w) {
+        bD.call(this, a, b, e, f, g, h, k, m, p, u, v, w);
+        this.QL = c;
+        this.Rv = this.Tv = !1
+    }
+    l($0, bD);
+    d = $0.prototype;
+    d.Gw = function(a) {
+        this.Tv ? a(this.Rv, this.Me) : this.Dga(function(b) {
+            a(!!b, !!b)
+        })
+    }
+    ;
+    d.ei = function(a, b) {
+        (void 0 === b ? 0 : b) && this.Nl();
+        b = this.Jw();
+        if (!b && this.Rv || !this.Tv)
+            return this.Dga(a);
+        a(b);
+        return y
+    }
+    ;
+    d.kf = function(a, b, c, e) {
+        this.Rv = !1;
+        bD.prototype.kf.call(this, a, b, c, e)
+    }
+    ;
+    d.LK = function() {
+        this.jX("/api/xbox/deregister", {
+            style: "json"
+        })
+    }
+    ;
+    d.Ffa = function(a) {
+        this.jX("/api/xbox/register", {
+            token: a
+        }, void 0, void 0, {
+            "X-Cobalt-Xbl-Prompt": "true"
+        })
+    }
+    ;
+    d.PNa = function(a, b, c, e, f) {
+        var g = this;
+        this.Tv = !0;
+        this.Rv = !!c.access_token;
+        this.Wea("DEFAULT_SSO_AM_TOKEN", b, c, function(a) {
+            var b = g.bO(a);
+            g.Rk(b, f, e) || (g.Pc = a,
+            g.UC(),
+            g.Vi("token-refresh", !1));
+            g.qv(g.Pc && g.Pc.accessToken)
+        }, function() {
+            return g.yja()
+        })
+    }
+    ;
+    d.xN = function(a, b, c, e, f) {
+        this.Tv = !0;
+        this.Rv = !!c.access_token;
+        bD.prototype.xN.call(this, "DEFAULT_SSO_AM_TOKEN", b, c, e, f)
+    }
+    ;
+    d.yja = function(a) {
+        var b = a && (608 === a.statusCode || 400 === a.statusCode)
+          , c = "satf";
+        a && 608 === a.statusCode ? c = "sfnf" : a && 400 === a.statusCode && (c = "sbr");
+        (this.Tv || !a || b) && this.kf("tkn", void 0, void 0, c);
+        this.Tv = !0;
+        this.Rv = !1;
+        this.qv(null)
+    }
+    ;
+    d.H7 = function() {
+        return this.QL.getOauthClientSecret()
+    }
+    ;
+    d.Gu = function() {
+        return this.QL.getOauthClientId()
+    }
+    ;
+    d.Dga = function(a) {
+        var b = this;
+        a = a.bind(null);
+        this.Ug ? this.Ug.push(a) : (this.Ug = [a],
+        this.jX("/api/xbox/refresh", {
+            style: "json"
+        }, function(a) {
+            return b.PNa("DEFAULT_SSO_AM_TOKEN", "device", a, !0)
+        }, function(a) {
+            return b.yja(a)
+        }, {
+            "X-Cobalt-Xbl-Prompt": "false"
+        }));
+        return this.fF.bind(this, a)
+    }
+    ;
+    d.jX = function(a, b, c, e, f) {
+        f = void 0 === f ? {} : f;
+        f = Object.assign({}, a1, f);
+        a = new gq("POST",a,null,b,f);
+        b = this.Wi();
+        c && b.md(c);
+        e && b.Wd(e);
+        b.send(a)
+    }
+    ;
+    d.U4 = function(a) {
+        return a
+    }
+    ;
+    d.d5 = function(a) {
+        return {
+            reason: a,
+            WC: "ACCOUNT_STATUS_CHANGE_TYPE_LOG_OUT"
+        }
+    }
+    ;
+    d.Zz = function(a) {
+        var b = this;
+        this.ei(function() {
+            var c = b.Tn();
+            a(c ? [c] : [])
+        })
+    }
+    ;
+    var a1 = {
+        "X-STS-RelyingPartyId": "https://www.youtube.com/"
+    };
+    E($0, "oAuthClientProfiles xhrRequestFactory ssoApi deauthReporting revokeRefreshToken persistOAuthToken buildAuthorizedAccessCredential credentialManagerMigrator tokenManagerService localStorage timeService credentialManager refreshOAuthCredentials".split(" "));
+    function b1(a, b, c, e, f) {
+        this.aj = b;
+        this.f = c;
+        this.j = e;
+        this.SM = -1;
+        f.on("value-changed", this.eFa.bind(this));
+        c.on("isPlaying:changed", this.pV.bind(this))
+    }
+    d = b1.prototype;
+    d.eFa = function(a) {
+        a ? (this.pV(),
+        this.WXa()) : this.sF()
+    }
+    ;
+    d.WXa = function() {
+        this.sF();
+        this.SM = this.j.setInterval(this.R_a.bind(this), 5E3);
+        this.j.setTimeout(this.sF.bind(this), 6E4)
+    }
+    ;
+    d.sF = function() {
+        -1 !== this.SM && (this.j.clearInterval(this.SM),
+        this.SM = -1)
+    }
+    ;
+    d.R_a = function() {
+        this.pV() && this.sF()
+    }
+    ;
+    d.pV = function() {
+        if (!this.aj.isEnabled)
+            return !1;
+        if (this.aj.useDefaultOptions)
+            return this.f.Pga(),
+            !1;
+        var a = this.f.uS() || {};
+        if (this.f.vZ({
+            background: this.aj.backgroundColor,
+            backgroundOpacity: this.aj.backgroundOpacity,
+            charEdgeStyle: this.aj.edgeStyle,
+            color: this.aj.captionColor,
+            fontFamilyOption: this.aj.fontFamily || sB[0],
+            fontSizeIncrement: this.aj.captionSize,
+            textOpacity: this.aj.captionOpacity,
+            windowColor: this.aj.windowColor,
+            windowOpacity: this.aj.windowOpacity,
+            backgroundOverride: 1,
+            colorOverride: 1,
+            windowColorOverride: 1
+        })) {
+            var b = this.f.uS() || {};
+            return !this.Wpa(a, b)
+        }
+        return !1
+    }
+    ;
+    d.Wpa = function(a, b) {
+        for (var c = "background backgroundOpacity charEdgeStyle color fontFamilyOption fontSizeIncrement textOpacity windowColor windowOpacity".split(" "), e = 0, f = c.length; e < f; ++e)
+            if (!(c[e]in a && c[e]in b))
+                return !1;
+        return Cc(a, b)
+    }
+    ;
+    E(b1, ["environment", "captionsApi", "playerService", "timeService", "isWindowFocused"]);
+    function c1(a, b, c, e) {
+        S.call(this);
+        this.KT = a;
+        this.j = b;
+        this.Kva = c;
+        this.continuation = e;
+        this.ra = null;
+        this.Mt = function() {}
+        ;
+        this.VC = !1
+    }
+    l(c1, S);
+    d = c1.prototype;
+    d.start = function() {
+        var a = this;
+        if (this.VC)
+            return function() {
+                D(a)
+            }
+            ;
+        this.VC = !0;
+        this.HB(this.continuation);
+        return function() {
+            D(a)
+        }
+    }
+    ;
+    d.gB = function(a, b) {
+        this.w("cancelled", a, b)
+    }
+    ;
+    d.onError = function(a, b) {
+        this.w("server-error", a, b)
+    }
+    ;
+    d.onSuccess = function(a) {
+        var b = this;
+        this.w("response-received", a);
+        var c = this.Kva(a);
+        c && c.timeoutMs && (this.clearTimeout(),
+        this.ra = this.j.setTimeout(function() {
+            b.ra = null;
+            b.HB(c)
+        }, c.timeoutMs))
+    }
+    ;
+    d.HB = function(a) {
+        var b = this;
+        this.Mt = this.KT.Nv(a, function(a) {
+            b.Mt = function() {}
+            ;
+            b.onSuccess(a)
+        }, function(c) {
+            b.Mt = function() {}
+            ;
+            b.onError(c, a)
+        }, function(c) {
+            b.Mt = function() {}
+            ;
+            b.gB(c, a)
+        })
+    }
+    ;
+    d.clearTimeout = function() {
+        this.ra && (this.j.clearTimeout(this.ra),
+        this.ra = null)
+    }
+    ;
+    d.jsa = function() {
+        this.Mt();
+        this.Mt = function() {}
+    }
+    ;
+    d.B = function() {
+        this.jsa();
+        this.clearTimeout();
+        S.prototype.B.call(this)
+    }
+    ;
+    E(c1, ["innertubeService", "timeService", "extractContinuation", "continuation"]);
+    function d1(a) {
+        S.call(this);
+        this.j = a;
+        this.topics = [];
+        this.v6 = 0
+    }
+    l(d1, S);
+    d1.prototype.LVa = function(a) {
+        this.v6 = this.j.za() + 6E4;
+        this.topics = a
+    }
+    ;
+    d1.prototype.M9 = function() {
+        0 < this.topics.length && this.j.za() >= this.v6 && (this.topics = []);
+        return this.topics
+    }
+    ;
+    d1.prototype.sCa = function() {
+        return this.M9().length
+    }
+    ;
+    E(d1, ["timeService"]);
+    function e1(a, b) {
+        null != a && this.append.apply(this, arguments)
+    }
+    d = e1.prototype;
+    d.Ya = "";
+    d.set = function(a) {
+        this.Ya = "" + a
+    }
+    ;
+    d.append = function(a, b, c) {
+        this.Ya += String(a);
+        if (null != b)
+            for (var e = 1; e < arguments.length; e++)
+                this.Ya += arguments[e];
+        return this
+    }
+    ;
+    d.clear = function() {
+        this.Ya = ""
+    }
+    ;
+    d.getLength = function() {
+        return this.Ya.length
+    }
+    ;
+    d.toString = function() {
+        return this.Ya
+    }
+    ;
+    !Rc || ld(9);
+    function f1(a) {
+        this.code = a;
+        this.type = null;
+        this.BXa = this.languageCode = "en";
+        this.yOa()
+    }
+    var g1 = "ar-t-k0-und prs-t-k0-und he-t-k0-und ps-t-k0-und fa-t-k0-und uzs-t-k0-und ug-t-k0-und ur-t-k0-und yi-t-k0-und".split(" ")
+      , h1 = ["ar-t-i0-und", "he-t-i0-und", "fa-t-i0-und", "ur-t-i0-und"]
+      , i1 = {
+        arm: "hy",
+        bel: "be",
+        bul: "bg",
+        cat: "ca",
+        cze: "cs",
+        dan: "da",
+        eng: "en",
+        est: "et",
+        fao: "fo",
+        fin: "fi",
+        fra: "fr",
+        geo: "ka",
+        ger: "de",
+        gre: "el",
+        heb: "he",
+        hun: "hu",
+        ice: "is",
+        ind: "id",
+        ita: "it",
+        jpn: "ja",
+        kaz: "kk",
+        lav: "lv",
+        lit: "lt",
+        mlt: "mt",
+        mon: "mn",
+        msa: "ms",
+        nld: "nl",
+        nob: "no",
+        pol: "pl",
+        por: "pt",
+        rum: "ro",
+        rus: "ru",
+        scr: "hr",
+        slo: "sk",
+        slv: "sl",
+        spa: "es",
+        srp: "sr",
+        swe: "sv",
+        tur: "tr",
+        ukr: "uk"
+    }
+      , j1 = {
+        "xkb:us:intl:por": "pt",
+        "xkb:br::por": "pt",
+        "xkb:pt::por": "pt"
+    }
+      , k1 = {};
+    function l1(a) {
+        if (!a)
+            return null;
+        if ("nacl_mozc_jp" == a || "nacl_mozc_us" == a)
+            a = "ja-t-ja-hira-i0-und";
+        Cb(a, "xkb") || (sc(hA, a) || (a = m1(a)),
+        a = a.replace(/_/g, "-"),
+        sc(hA, a) || (a = m1(a + "-und")));
+        return k1[a] ? k1[a] : sc(hA, a) ? (k1[a] = new f1(a),
+        k1[a]) : null
+    }
+    var n1 = "bn gu pa kn ml or sa ta te ne".split(" ")
+      , o1 = {
+        im_pinyin_zh_hans: "zh-t-i0-pinyin",
+        im_pinyin_zh_hant: "zh-hant-t-i0-pinyin",
+        im_t13n_ja: "ja-t-ja-hira-i0-und",
+        "im_t13n_ja-Hira": "ja-hira-t-i0-und",
+        im_wubi_zh_hans: "zh-t-i0-wubi-1986",
+        im_zhuyin_zh_hant: "zh-hant-t-i0-und",
+        vkd_bg_phone: "bg-t-k0-qwerty",
+        vkd_chr_phone: "chr-t-und-latn-k0-und",
+        vkd_cs_qwertz: "cs-t-k0-qwertz",
+        vkd_deva_phone: "hi-t-k0-qwerty",
+        vkd_en_dvorak: "en-t-k0-dvorak",
+        vkd_es_es: "es-t-k0-und",
+        vkd_ethi: "und-ethi-t-k0-und",
+        vkd_gu_phone: "gu-t-und-latn-k0-qwerty",
+        vkd_guru_inscript: "pa-guru-t-k0-und",
+        vkd_guru_phone: "pa-guru-t-und-latn-k0-und",
+        vkd_hu_101: "hu-t-k0-101key",
+        vkd_hy_east: "hy-hyr-t-k0-und",
+        vkd_hy_west: "hy-hyt-t-k0-und",
+        vkd_ka_qwerty: "ka-t-k0-und",
+        vkd_ka_typewriter: "ka-t-k0-legacy",
+        vkd_ro_sr13392_primary: "ro-t-k0-legacy",
+        vkd_ro_sr13392_secondary: "ro-t-k0-extended",
+        vkd_ru_phone: "ru-t-k0-qwerty",
+        vkd_ru_phone_aatseel: "ru-t-k0-aatseel",
+        vkd_ru_phone_yazhert: "ru-t-k0-yazhert",
+        vkd_sk_qwerty: "sk-t-k0-qwerty",
+        vkd_ta_itrans: "ta-t-k0-itrans",
+        vkd_ta_tamil99: "ta-t-k0-ta99",
+        vkd_ta_typewriter: "ta-t-k0-typewriter",
+        vkd_th_pattajoti: "th-t-k0-pattajoti",
+        vkd_th_tis: "th-t-k0-tis",
+        vkd_tr_f: "tr-t-k0-legacy",
+        vkd_tr_q: "tr-t-k0-und",
+        vkd_uk_101: "uk-t-k0-101key",
+        vkd_us_intl: "fr-t-k0-intl",
+        vkd_uz_cyrl_phone: "uz-cyrl-t-k0-und",
+        vkd_uz_cyrl_type: "uz-cyrl-t-k0-legacy",
+        vkd_vi_tcvn: "vi-t-k0-und",
+        vkd_vi_telex: "vi-t-k0-legacy"
+    }
+      , p1 = Fc(o1)
+      , q1 = {
+        "nl-t-k0-intl": "us_intl",
+        "fr-t-k0-intl": "us_intl",
+        "de-t-k0-intl": "us_intl",
+        "ht-t-k0-und": "fr",
+        "id-t-k0-und": "latn_002",
+        "ga-t-k0-und": "latn_002",
+        "it-t-k0-intl": "us_intl",
+        "jw-t-k0-und": "latn_002",
+        "mr-t-k0-und": "deva_phone",
+        "mr-t-k0-devanaga": "hi",
+        "ms-t-k0-und": "latn_002",
+        "pt-br-t-k0-intl": "us_intl",
+        "pt-pt-t-k0-intl": "us_intl",
+        "sa-t-k0-devanaga": "hi",
+        "es-t-k0-intl": "us_intl",
+        "sw-t-k0-und": "latn_002",
+        "tl-t-k0-und": "latn_002",
+        "ti-t-k0-und": "ethi",
+        "cy-t-k0-und": "latn_002"
+    };
+    function m1(a) {
+        if (o1[a])
+            return o1[a];
+        if ("vkd_iw" == a)
+            return "he-t-k0-und";
+        if ("im_t13n_iw" == a)
+            return "he-t-i0-und";
+        if ("tr-t-k0-lagacy" == a)
+            return "tr-t-k0-legacy";
+        var b = a.split("_")
+          , c = "";
+        Cb(a, "im_t13n") ? c = b[2] + "-t-i0-und" : Cb(a, "vkd_") && (2 == b.length ? c = b[1] + "-t-k0-und" : rb(n1, b[1]) ? c = "inscript" == b[2] ? b[1] + "-t-k0-und" : b[1] + "-t-und-latn-k0-und" : (c = b[1] + "-t-k0-" + b[2],
+        sc(hA, c) || (c = b[1] + "-" + b[2] + "-t-k0-und")));
+        return sc(hA, c) ? c : a
+    }
+    d = f1.prototype;
+    d.AOa = function() {
+        if (q1[this.code])
+            this.II = q1[this.code];
+        else if (p1[this.code])
+            this.II = p1[this.code].slice(4);
+        else {
+            var a = this.code.split("-t-")
+              , b = a[0];
+            a = a[1];
+            b = b.replace(/-/g, "_");
+            "en_us" == b && (b = "us");
+            !rb(n1, b) || "und-latn-k0-und" != a && "k0-und" != a ? "k0-und" == a ? this.II = b : (a = a.match(/k0-(.*)/),
+            a[1] && (this.II = b + "_" + a[1].replace("qwerty", "phone").replace("-", "_"))) : this.II = b + ("k0-und" == a ? "_inscript" : "_phone")
+        }
+    }
+    ;
+    d.yOa = function() {
+        0 <= this.code.indexOf("-i0") ? (this.type = "im",
+        Db(this.code, "-handwrit") ? this.type = "hw" : Db(this.code, "-voice") && (this.type = "vo")) : 0 <= this.code.indexOf("-k0") ? this.type = "vkd" : Cb(this.code, "xkb") && (this.type = "xkb");
+        var a = this.code.split(/-t|-i0|-k0|:/);
+        "yue-hant" == a[0] && (a[0] = "zh-HK");
+        switch (this.code) {
+        case "yue-hant-t-i0-und":
+            a[0] = "zh-HK";
+            break;
+        case "zh-t-i0-pinyin":
+        case "zh-t-i0-wubi-1986":
+            a[0] = "zh-Hans"
+        }
+        "xkb" == this.type ? this.languageCode = j1[this.code] ? j1[this.code] : this.bR(a[a.length - 1]) : (this.languageCode = this.bR(a[0]),
+        a[1] && (this.BXa = this.bR(a[1])));
+        "vkd" == this.type && this.AOa()
+    }
+    ;
+    d.toString = function() {
+        return this.code
+    }
+    ;
+    d.Lu = function() {
+        return this.xIa() ? "rtl" : "ltr"
+    }
+    ;
+    d.xIa = function() {
+        return rb(h1, this.code) || rb(g1, this.code)
+    }
+    ;
+    d.Drb = function() {
+        return Wc || "im" != this.type ? !1 : /^(zh|yue)/.test(this.code)
+    }
+    ;
+    d.bR = function(a) {
+        if ("und-ethi" == a)
+            return "am";
+        a = a.split("-");
+        return 2 == a.length ? 2 == a[1].length ? a[0] + "-" + a[1].toUpperCase() : a[0] + "-" + a[1].charAt(0).toUpperCase() + a[1].slice(1) : null !== i1 && a[0]in i1 ? i1[a[0]] : a[0]
+    }
+    ;
+    d.ltb = function() {
+        var a = /^(am|ar|bn|el|gu|he|hi|kn|ml|mr|ne|or|fa|pa|ru|sa|sr|si|ta|te|ti|ur|uk|be|bg)/;
+        return "im" == this.type && a.test(this.code)
+    }
+    ;
+    d.Zsb = function() {
+        return "im" == this.type && /^(en|fr|de|it|es|nl|pt|tr|sv|da|fi|no)/.test(this.code)
+    }
+    ;
+    function r1(a, b, c) {
+        this.text = Ja(a) ? a : [a];
+        this.tU = !!b;
+        this.priority = void 0 == c ? 0 : c;
+        this.status = "i"
+    }
+    r1.prototype.jo = function() {
+        return this.text[0]
+    }
+    ;
+    r1.prototype.vv = function() {
+        return "s" == this.status || "f" == this.status
+    }
+    ;
+    function s1(a, b, c) {
+        this.url = a;
+        this.payload = b;
+        this.data = c ? c : null
+    }
+    ;function t1(a, b, c, e, f) {
+        r1.call(this, a, c);
+        this.ZJ = this.IK = 1;
+        this.ZT = !!e;
+        this.Gga = this.Cba = !1;
+        this.xT = "";
+        this.bma = !0;
+        this.Bo = null;
+        this.ah = f ? vb(f) : null;
+        b instanceof f1 ? a = b : b.MT ? a = l1(b.MT) : (a = b.Bka,
+        a = "zh" == a || "zh-Hans" == a ? l1("zh-t-i0-pinyin") : "zh-Hant" == a ? l1("zh-hant-t-i0-und") : "ja" == a ? l1("ja-t-ja-hira-i0-und") : l1(a + "-t-i0-und"));
+        this.Bo = a
+    }
+    A(t1, r1);
+    d = t1.prototype;
+    d.atb = function() {
+        return this.Cba
+    }
+    ;
+    d.useCache = function() {
+        return this.bma
+    }
+    ;
+    d.Pxb = function(a) {
+        this.bma = a
+    }
+    ;
+    d.Ewb = function(a) {
+        this.xT = a
+    }
+    ;
+    d.xmb = function() {
+        return this.ZJ || 0
+    }
+    ;
+    d.zia = function(a) {
+        this.ZJ = 0 < a ? a : 0
+    }
+    ;
+    d.aH = function() {
+        return this.IK || 0
+    }
+    ;
+    d.Fia = function(a) {
+        this.IK = 0 < a ? a : 0
+    }
+    ;
+    d.jo = function() {
+        return this.Cba ? this.Gga ? this.text.join("") : this.text.join(",") + "," : t1.re.jo.call(this)
+    }
+    ;
+    d.lsb = function() {
+        return [this.Bo.toString()]
+    }
+    ;
+    d.Qtb = function(a) {
+        return !(this.Bo != a.Bo || this.ZT || a.ZT || this.tU || a.tU) && 5 > this.text.length + a.text.length && 0 == this.priority && 0 == a.priority ? (rb(this.text, a.text) || wb(this.text, a.text),
+        a.aH() > this.aH() && this.Fia(a.aH()),
+        !0) : !1
+    }
+    ;
+    d.Gvb = function(a) {
+        return pb(a.text, function(b) {
+            return rb(this.text, b) && 0 == a.priority
+        }, this) && this.IK >= a.aH()
+    }
+    ;
+    d.Rkb = function() {
+        return this.Bo.code
+    }
+    ;
+    d.zga = function(a) {
+        for (var b = new e1, c = 0; c < a.length; c++) {
+            var e = a.charAt(c);
+            switch (e) {
+            case ",":
+                b.append("%2C");
+                break;
+            case "|":
+                b.append("%7C");
+                break;
+            case "%":
+                b.append("%25");
+                break;
+            default:
+                b.append(e)
+            }
+        }
+        return b.toString()
+    }
+    ;
+    d.Tqa = function(a, b) {
+        var c = "";
+        switch (this.Bo.languageCode) {
+        case "ja-Hira":
+        case "ja":
+            c = this.Gga ? "||t:1" : ",||t:1"
+        }
+        var e = new e1;
+        this.xT && (e.append("|"),
+        e.append(this.zga(this.xT)),
+        e.append(","));
+        ib(this.text, function(a, b) {
+            e.append(this.zga(a));
+            b != this.text.length - 1 && e.append(",")
+        }, this);
+        e.append(c);
+        c = {
+            text: e.toString(),
+            itc: this.Bo.code,
+            num: this.ZJ,
+            cp: "0",
+            cs: "1",
+            ie: "utf-8",
+            oe: "utf-8",
+            app: "jsapi"
+        };
+        a.rSa && (c.sct = a.rSa);
+        Hc(c, b);
+        a = this.ah ? {
+            feedback: lb(this.ah, function(a) {
+                return a.toJSON()
+            })
+        } : null;
+        return new s1("/request",c,a)
+    }
+    ;
+    d.jnb = function(a) {
+        var b = "";
+        0 <= a && a < this.text.length && (b = this.text[a]);
+        a = new t1(b,this.Bo,this.tU,this.ZT);
+        a.zia(this.ZJ);
+        a.Fia(this.IK);
+        return a
+    }
+    ;
+    function u1(a, b, c, e) {
+        this.jra = c;
+        this.payload = b ? rl(b, e) : {};
+        this.uri = yl(a, this.payload, !1)
+    }
+    E(u1, ["path", "opt_payload", "opt_callbackParamName", "opt_allowEmpty"]);
+    function v1(a) {
+        this.bJa = a
+    }
+    v1.prototype.fDa = function(a, b) {
+        a = new t1(a,b);
+        a.zia(15);
+        a = a.Tqa({}, {});
+        a.payload.app = "youtubetv";
+        return qi("//inputtools.google.com" + a.url, a.payload || {}, !0)
+    }
+    ;
+    v1.prototype.V_ = function(a, b, c) {
+        var e = this;
+        a = this.fDa(a, b);
+        a = new u1(a,null,"cb");
+        var f = this.bJa();
+        f.md(function(a) {
+            e.wk(c, a)
+        });
+        f.send(a);
+        return function() {
+            f.abort()
+        }
+    }
+    ;
+    v1.prototype.wk = function(a, b) {
+        var c = [];
+        if (0 < b[1][0].length) {
+            b = b[1][0][1];
+            for (var e = 0, f = b.length; e < f; ++e)
+                c.push(b[e])
+        }
+        a(c)
+    }
+    ;
+    E(v1, ["jsonpRequestFactory"]);
+    function w1(a, b) {
+        this.XN = a;
+        this.HOa = b
+    }
+    w1.prototype.get = function(a, b, c) {
+        var e = this
+          , f = new gq("GET","/youtube/v3/channels",x1)
+          , g = this.XN();
+        g.md(function(b) {
+            e.vS(a, b)
+        });
+        g.Wd(b);
+        g.send(f, c);
+        return function() {
+            g.abort()
+        }
+    }
+    ;
+    w1.prototype.vS = function(a, b) {
+        a(this.HOa(b))
+    }
+    ;
+    var x1 = {
+        mine: !0,
+        part: "snippet,statistics"
+    };
+    E(w1, ["apiaryRequestFactory", "parseUserProfileResponse"]);
+    function y1(a, b) {
+        function c() {
+            return e.Xra()
+        }
+        var e = this;
+        this.Ta = a;
+        this.O0a = b;
+        this.userProfile = null;
+        this.CJ = [];
+        this.Ta.on("signed-in", c);
+        this.Ta.on("signed-out", c);
+        this.Ta.on("account-switch", c)
+    }
+    d = y1.prototype;
+    d.Xra = function() {
+        this.userProfile = null
+    }
+    ;
+    d.EKa = function(a, b) {
+        this.userProfile || !b ? a(this.userProfile) : (this.CJ.push(a),
+        1 === this.CJ.length && this.load())
+    }
+    ;
+    d.get = function(a) {
+        var b = this;
+        this.Ta.Gw(function(c) {
+            b.EKa(a, c)
+        })
+    }
+    ;
+    d.load = function() {
+        var a = this;
+        this.O0a.get(function(b) {
+            a.QJa(b)
+        }, function() {
+            a.Zaa()
+        })
+    }
+    ;
+    d.QJa = function(a) {
+        this.userProfile = a;
+        this.Zaa()
+    }
+    ;
+    d.Zaa = function() {
+        var a = this.CJ;
+        this.CJ = [];
+        for (var b = this.userProfile, c = 0, e = a.length; c < e; c++)
+            a[c](b)
+    }
+    ;
+    E(y1, ["authService", "userProfileService"]);
+    function z1(a, b, c) {
+        C.call(this);
+        this.Li = a;
+        this.iZa = c;
+        this.EF = this.rw = this.iW = null;
+        (a = b()) && this.Wfa(a)
+    }
+    l(z1, C);
+    d = z1.prototype;
+    d.B = function() {
+        this.rw && (this.rw(),
+        this.rw = null);
+        this.EF && (this.EF(),
+        this.EF = null);
+        C.prototype.B.call(this)
+    }
+    ;
+    d.Wfa = function(a) {
+        this.iW = a;
+        this.gja() ? this.s6() : this.rw = this.Li.on("projectionWindow:changed", this.wX.bind(this))
+    }
+    ;
+    d.wX = function() {
+        this.gja() && (this.rw(),
+        this.rw = null,
+        this.s6())
+    }
+    ;
+    d.gja = function() {
+        var a = this.Li.ZG() + this.Li.getLength();
+        return this.Li.Xe().getLength() - a < this.iZa
+    }
+    ;
+    d.s6 = function() {
+        var a = this.iW;
+        this.iW = null;
+        this.EF = a(this.fta.bind(this), y)
+    }
+    ;
+    d.fta = function(a, b) {
+        this.Li.Xe().push(a);
+        b && this.Wfa(b)
+    }
+    ;
+    E(z1, ["projection", "continuationFactory", "continuerThresholdDistance"]);
+    function A1(a, b, c) {
+        if (!(b.Fb() && 0 > b.fe("11")))
+            return c.getBoundingClientRect();
+        var e = B1(a, c);
+        a = e.Kp;
+        b = e.Lp;
+        var f = e.np;
+        e = e.op;
+        for (var g = 0, h = 0, k = c; k; )
+            g += k.offsetLeft,
+            h += k.offsetTop,
+            k = k.offsetParent;
+        return {
+            left: g + a,
+            top: h + b,
+            width: c.offsetWidth * f,
+            height: c.offsetHeight * e
+        }
+    }
+    E(A1, ["window", "device"]);
+    function B1(a, b) {
+        if (!b)
+            return {
+                Kp: 0,
+                Lp: 0,
+                np: 1,
+                op: 1
+            };
+        var c = a.getComputedStyle(b);
+        var e = c.transform || ""
+          , f = c.transformOrigin || "";
+        var g = C1(a, /translateX\((-?(\d|\.)+)px\)/, e);
+        c = C1(a, /translateY\((-?(\d|\.)+)px\)/, e);
+        var h = /calc\((.*?)\)/g
+          , k = h.exec(f);
+        h = h.exec(f);
+        f = C1(a, /scale\(((\d|\.)+), 1\)/, e, 1);
+        e = C1(a, /scale\(1, ((\d|\.)+)\)/, e, 1);
+        1 !== f && k && (k = C1(a, /((\d|\.)+)%/, k[1] || "") / 100,
+        g += b.offsetWidth * (1 - f) * k);
+        1 !== e && h && (k = C1(a, /((\d|\.)+)%/, h[1] || "") / 100,
+        c += b.offsetHeight * (1 - e) * k);
+        a = B1(a, b.parentElement);
+        return {
+            Kp: g + a.Kp,
+            Lp: c + a.Lp,
+            np: f * a.np,
+            op: e * a.op
+        }
+    }
+    function C1(a, b, c, e) {
+        e = void 0 === e ? 0 : e;
+        a = c.match(b);
+        if (!a || 1 > a.length || !a[1])
+            return e;
+        a = parseFloat(a[1]);
+        return isNaN(a) ? e : a
+    }
+    ;function D1(a) {
+        return 2160 <= a.innerHeight ? "4k" : 1080 <= a.innerHeight ? "1080p" : "720p"
+    }
+    E(D1, ["window"]);
+    function E1(a, b, c, e, f, g, h) {
+        return function(k, m, p) {
+            var u = h || b.Dd ? "list" : "carousel";
+            k = Object.assign({
+                animWatcher: f,
+                carouselAnimator: c,
+                eventFilterFactory: e,
+                tileSpacing: g
+            }, k);
+            return a.we(u, m, p, k)
+        }
+    }
+    E(E1, "componentBuilder environment carouselAnimator eventFilterFactory animWatcher opt_tileSpacing opt_forceList".split(" "));
+    function F1(a, b, c) {
+        EL.call(this, a, b);
+        this.xz = a;
+        this.sx = b;
+        this.Wia = c
+    }
+    l(F1, EL);
+    F1.prototype.disable = function() {
+        EL.prototype.disable.call(this);
+        this.Wia.style.cssText = ""
+    }
+    ;
+    F1.prototype.iL = function(a) {
+        this.sx.style.cssText = "transform: translateX(" + a.x + "em) translateY(" + a.y + "em);";
+        this.Wia.style.cssText = a.Qga ? "" : "transform: translateX(" + 100 * a.x + "%) translateY(" + 100 * a.y + "%);"
+    }
+    ;
+    E(F1, ["focusComponent", "tiltElement", "sheenElement"]);
+    function G1(a, b) {
+        b(a);
+        return a
+    }
+    E(G1, ["viewControllerConfig", "initializer"]);
+    function H1(a, b, c) {
+        C.call(this);
+        var e = this;
+        this.config = a;
+        this.F = b;
+        this.Fc = c;
+        this.sa = "";
+        this.WO = {};
+        this.sb = function() {}
+        ;
+        this.OFa();
+        this.H(b.on("component-focus", function() {
+            e.onFocus()
+        }));
+        this.H(b.on("component-blur", function() {
+            e.onBlur()
+        }))
+    }
+    l(H1, C);
+    d = H1.prototype;
+    d.N = function(a) {
+        if (!(a in this.WO)) {
+            var b = this.F.N(a);
+            if (!b)
+                throw Error("Cannot find child component by selector " + a);
+            this.WO[a] = b
+        }
+        return this.WO[a]
+    }
+    ;
+    d.OFa = function() {
+        for (var a = this.config.XO, b = 0, c = a.length; b < c; ++b)
+            this.N(a[b]).hide()
+    }
+    ;
+    d.Uu = function() {
+        return this.sa
+    }
+    ;
+    d.Tc = function(a) {
+        if (a !== this.sa) {
+            var b = this.config.Ef[this.sa] || null
+              , c = this.config.Ef[a] || null;
+            this.sa = a;
+            this.F0a(c);
+            this.S_a(c, b);
+            this.Bx(c);
+            this.h0a(c)
+        }
+    }
+    ;
+    d.F0a = function(a) {
+        a = a && a.$k || [];
+        for (var b = this.config.XO, c = 0, e = b.length; c < e; ++c) {
+            var f = b[c];
+            this.N(f).Ga(0 > a.indexOf(f))
+        }
+    }
+    ;
+    d.Bx = function(a) {
+        this.F.J() && (a = a && a.Nq) && this.N(a).focus()
+    }
+    ;
+    d.h0a = function(a) {
+        this.F.J() && (this.sb(),
+        this.sb = (a = a && a.tj) && this.Fc ? this.Fc.Fm(a) : function() {}
+        )
+    }
+    ;
+    d.S_a = function(a, b) {
+        b = b && b.Ub || [];
+        a = a && a.Ub || [];
+        a: if (Ka(b) && Ka(a) && b.length == a.length) {
+            var c = b.length;
+            for (var e = 0; e < c; e++)
+                if (b[e] !== a[e]) {
+                    c = !1;
+                    break a
+                }
+            c = !0
+        } else
+            c = !1;
+        if (!c) {
+            c = 0;
+            for (e = b.length; c < e; c++)
+                this.F.lb(b[c]);
+            b = 0;
+            for (c = a.length; b < c; b++)
+                this.F.wa(a[b]);
+            this.F.render()
+        }
+    }
+    ;
+    d.onFocus = function() {
+        var a = this.config.Ef[this.sa];
+        if (a) {
+            var b = a.tj;
+            b && this.Fc && (this.sb = this.Fc.Fm(b));
+            (a = a.Nq) && this.N(a).focus()
+        }
+    }
+    ;
+    d.onBlur = function() {
+        this.sb();
+        this.sb = function() {}
+    }
+    ;
+    d.B = function() {
+        this.sb();
+        this.sb = function() {}
+        ;
+        C.prototype.B.call(this)
+    }
+    ;
+    E(H1, ["config", "component", "legendModel"]);
+    function I1(a, b, c, e) {
+        this.YB = a;
+        this.Axa = b;
+        this.Oz = c;
+        this.c9 = e
+    }
+    d = I1.prototype;
+    d.kT = function() {
+        return !!this.L8()
+    }
+    ;
+    d.YX = function() {
+        var a = this.L8();
+        if (!a)
+            return null;
+        this.YB(a);
+        return a
+    }
+    ;
+    d.nT = function() {
+        return !!this.c9()
+    }
+    ;
+    d.ZX = function() {
+        var a = this.c9();
+        if (!a)
+            return null;
+        this.YB(a);
+        return a
+    }
+    ;
+    d.L8 = function() {
+        return this.Oz() || this.Axa()
+    }
+    ;
+    E(I1, ["requestPlayback", "getAutoplayVideo", "getNextPlaylistVideo", "getPreviousPlaylistVideo"]);
+    function J1(a) {
+        return function(b, c) {
+            for (var e = [], f = 1; f < arguments.length; ++f)
+                e[f - 1] = arguments[f];
+            return a.hasOwnProperty(b) ? (f = a[b],
+            !(!f || !f.apply(this, e))) : !1
+        }
+    }
+    ;function K1(a, b, c, e, f, g, h) {
+        S.call(this);
+        var k = this;
+        this.uBa = b;
+        this.zH = c;
+        this.VAa = e;
+        this.cJ = f;
+        this.Wb = g;
+        this.Jj = h;
+        b = {};
+        this.vua = J1((b["playback-imminent"] = function() {
+            k.w("playback-imminent");
+            return !1
+        }
+        ,
+        b));
+        this.H(g.on("value-changed", function() {
+            g.get() && k.w("watch-next-loaded")
+        }));
+        a.vTa(this)
+    }
+    l(K1, S);
+    d = K1.prototype;
+    d.B = function() {
+        this.w("deactivated");
+        S.prototype.B.call(this)
+    }
+    ;
+    d.va = function(a, b) {
+        for (var c = 1; c < arguments.length; ++c)
+            ;
+        return this.vua.apply(this, arguments)
+    }
+    ;
+    d.Oz = function() {
+        return this.VAa()
+    }
+    ;
+    d.Pf = function() {
+        return this.Wb.get()
+    }
+    ;
+    d.tK = function(a) {
+        this.Jj("reload-watch-next", a)
+    }
+    ;
+    d.ao = function() {
+        return this.uBa()
+    }
+    ;
+    d.Vc = function() {
+        return this.zH()
+    }
+    ;
+    d.showMetadata = function() {
+        this.Jj("show-metadata")
+    }
+    ;
+    d.kRa = function() {
+        this.Jj("request-transport")
+    }
+    ;
+    d.kT = function() {
+        return this.cJ.kT()
+    }
+    ;
+    d.YX = function() {
+        return this.cJ.YX()
+    }
+    ;
+    d.nT = function() {
+        return this.cJ.nT()
+    }
+    ;
+    d.ZX = function() {
+        return this.cJ.ZX()
+    }
+    ;
+    E(K1, "remoteService getPlaybackConfig hasPlaybackStarted getNextPlaylistVideo mdxPlayerSequencer watchNextResponse sendWatchStateMessage".split(" "));
+    var M1 = {
+        apply: function(a) {
+            aA(a, L1);
+            bA(a, K1)
+        },
+        R: [$z, JC]
+    };
+    E(M1.apply, ["injector"]);
+    var L1 = {
+        apply: function(a) {
+            a.Za({
+                mdxPlayerSequencer: I1
+            })
+        },
+        R: [Zz]
+    };
+    E(L1.apply, ["injector"]);
+    function N1(a, b, c) {
+        var e = a.get();
+        if (!e)
+            return new c;
+        a = {};
+        var f = e.videoMetadataRenderer;
+        f && (a.title = X(f.title));
+        if (f = e.videoOwnerRenderer)
+            a.artist = X(f.title);
+        if (f = t("replayVideoRenderer.pivotVideoRenderer.thumbnail.thumbnails", e.autoplayRenderer))
+            a.artwork = O1(b, f);
+        if (b = e.playlistPanelRenderer)
+            a.album = X(b.title);
+        return new c(a)
+    }
+    function O1(a, b) {
+        return b.map(function(b) {
+            return {
+                src: a.wfa(b.url),
+                sizes: b.width + "x" + b.height,
+                type: "image/jpg"
+            }
+        })
+    }
+    E(N1, ["watchNextResponse", "ytThumbnails", "mediaMetadataCtor"]);
+    function P1(a, b, c, e, f, g, h, k, m, p, u, v, w, x) {
+        C.call(this);
+        this.Wb = a;
+        this.WP = b;
+        this.f = c;
+        this.Ne = e;
+        this.X = f;
+        this.EO = g;
+        this.RC = h;
+        this.DO = k;
+        this.QC = m;
+        this.Kg = p;
+        this.uya = u;
+        this.q0 = v;
+        this.mediaSession = w;
+        this.j = x;
+        this.BJ = null;
+        this.WP.set(this);
+        this.b4();
+        this.hZ(null);
+        this.uGa();
+        this.Wb.get() && this.Fea()
+    }
+    l(P1, C);
+    d = P1.prototype;
+    d.uGa = function() {
+        this.H(this.Wb.on("value-changed", this.Fea.bind(this)));
+        this.H(this.f.on("state:changed", this.uo.bind(this)));
+        this.H(this.f.on("isPlayingAd:changed", this.PS.bind(this)));
+        this.H(this.X.on("skipState:changed", this.k$.bind(this)))
+    }
+    ;
+    d.va = function(a, b) {
+        for (var c = 1; c < arguments.length; ++c)
+            ;
+        return !1
+    }
+    ;
+    d.Fea = function() {
+        var a = this;
+        this.setActionHandler("play", function() {
+            a.f.play()
+        });
+        this.setActionHandler("pause", function() {
+            a.f.pause()
+        });
+        this.hZ(this.uya());
+        this.x0();
+        this.v0()
+    }
+    ;
+    d.x0 = function() {
+        var a = this;
+        this.Eo() && (this.setActionHandler("nexttrack", this.xCa()),
+        this.DO() ? this.setActionHandler("previoustrack", function() {
+            a.QC()
+        }) : this.setActionHandler("previoustrack", null))
+    }
+    ;
+    d.xCa = function() {
+        var a = this;
+        if (this.f.Ja) {
+            if (3 === this.X.Xd)
+                return function() {
+                    a.Ne.skipAd()
+                }
+        } else if (this.EO())
+            return function() {
+                a.RC()
+            }
+            ;
+        return null
+    }
+    ;
+    d.v0 = function() {
+        var a = this;
+        this.Eo() && (this.f.Ja ? (this.iZ("seek", null),
+        this.setActionHandler("seekbackward", null),
+        this.setActionHandler("seekforward", null)) : (this.iZ("seek", function(b) {
+            b && "number" === typeof b.seekTime && a.f.seekTo(b.seekTime)
+        }),
+        this.setActionHandler("seekbackward", function(b) {
+            b && b.seekOffset ? a.f.Kg(-b.seekOffset) : a.Kg("rewind")
+        }),
+        this.setActionHandler("seekforward", function(b) {
+            b && b.seekOffset ? a.f.Kg(b.seekOffset) : a.Kg("forward")
+        })))
+    }
+    ;
+    d.uo = function(a) {
+        this.LO();
+        if (this.Eo())
+            switch (this.f.Ja && this.k$(this.X.Xd),
+            a) {
+            case 1:
+            case 3:
+                this.mediaSession.playbackState = "playing";
+                break;
+            case 2:
+                this.CEa();
+                break;
+            default:
+                this.mediaSession.playbackState = "none"
+            }
+    }
+    ;
+    d.CEa = function() {
+        var a = this;
+        this.f.Ja ? this.BJ = this.j.setTimeout(function() {
+            a.mediaSession.playbackState = "paused"
+        }, 500) : this.mediaSession.playbackState = "paused"
+    }
+    ;
+    d.LO = function() {
+        this.Eo() && this.BJ && (this.j.clearTimeout(this.BJ),
+        this.BJ = null)
+    }
+    ;
+    d.PS = function() {
+        this.x0();
+        this.v0();
+        this.LO()
+    }
+    ;
+    d.k$ = function() {
+        this.x0();
+        this.v0()
+    }
+    ;
+    d.b4 = function() {
+        this.Eo() && (this.setActionHandler("play", null),
+        this.setActionHandler("pause", null),
+        this.iZ("seek", null),
+        this.setActionHandler("seekbackward", null),
+        this.setActionHandler("seekforward", null),
+        this.setActionHandler("previoustrack", null),
+        this.setActionHandler("nexttrack", null),
+        this.setActionHandler("previoustrack", null),
+        this.setActionHandler("nexttrack", null))
+    }
+    ;
+    d.setActionHandler = function(a, b) {
+        this.Eo() && this.mediaSession.setActionHandler(a, this.eua(b))
+    }
+    ;
+    d.iZ = function(a, b) {
+        try {
+            this.setActionHandler(a, b)
+        } catch (c) {}
+    }
+    ;
+    d.eua = function(a) {
+        var b = this;
+        return a ? function(c) {
+            b.q0();
+            a(c)
+        }
+        : null
+    }
+    ;
+    d.hZ = function(a) {
+        this.Eo() && (this.mediaSession.metadata = a)
+    }
+    ;
+    d.B = function() {
+        this.LO();
+        this.b4();
+        this.hZ(null);
+        this.uo(0);
+        this.Eo() && this.WP.set(null);
+        C.prototype.B.call(this)
+    }
+    ;
+    d.Eo = function() {
+        return this.WP.get() === this
+    }
+    ;
+    E(P1, "watchNextResponse currentMediaSessionOwner playerService adService adModel canSkipForward skipForward canSkipBackward skipBackward seekRelative getCurrentVideoMetadata updateLastActionTime mediaSession timeService".split(" "));
+    var R1 = {
+        apply: function(a, b) {
+            b.navigator && b.navigator.mediaSession && (a.add("currentMediaSessionOwner", new J(new I(Il,{
+                initial: null
+            }))),
+            a.$({
+                mediaSession: b.navigator.mediaSession,
+                mediaMetadataCtor: b.MediaMetadata
+            }),
+            aA(a, Q1),
+            bA(a, P1))
+        },
+        R: [$z]
+    };
+    E(R1.apply, ["injector", "window"]);
+    var Q1 = {
+        apply: function(a) {
+            a.V({
+                getCurrentVideoMetadata: N1,
+                seekRelative: Iz
+            })
+        },
+        R: [Zz]
+    };
+    E(Q1.apply, ["injector"]);
+    function S1(a, b) {
+        var c = {};
+        return Object.assign({}, b, (c.watchEndpoint = a,
+        c.watchPlaylistEndpoint = a,
+        c))
+    }
+    E(S1, ["navigateToWatch", "baseNavigationMap"]);
+    function T1(a, b, c, e, f, g, h) {
+        h = void 0 === h ? !1 : h;
+        var k = c.getCurrentTime();
+        a = a.on("substate:set", function(a, c) {
+            if ("watch" === a.getName())
+                if ("watch" === c.getName()) {
+                    if (c.uc() !== a.uc() || c.getPlaylistId() !== a.getPlaylistId())
+                        a = Object.assign(new Ew, c.ao()),
+                        a.watchEndpoint && (a.watchEndpoint = Ec(a.watchEndpoint),
+                        a.watchEndpoint.startTimeSeconds = k),
+                        c = {
+                            ic: a,
+                            Wb: c.Pf(),
+                            Up: c.kH()
+                        },
+                        b.add(c)
+                } else
+                    b.clear()
+        });
+        try {
+            c.pause(),
+            c = "unknown",
+            g instanceof V ? c = g.getName() : g && (c = g),
+            e(f, {
+                autoPlay: h,
+                trigger: c
+            })
+        } finally {
+            a()
+        }
+    }
+    E(T1, ["applicationModel", "watchHistory", "playerService", "requestPlayback"]);
+    function U1(a) {
+        a = a.$badger || {};
+        a.showToaster && a.showToaster("ExitMessage.YOUTUBE")
+    }
+    E(U1, ["window"]);
+    function V1(a) {
+        return (a = a()) && a.watchEndpoint ? pr(a.watchEndpoint) || null : null
+    }
+    E(V1, ["getAutoplayVideo"]);
+    function W1(a) {
+        return (a = a()) && a.watchEndpoint ? a.watchEndpoint.videoId || null : null
+    }
+    E(W1, ["getAutoplayVideo"]);
+    function X1(a) {
+        return (a = a.get()) && a.pb && a.pb.autoplayVideoRenderer && a.pb.autoplayVideoRenderer.pivotVideoRenderer || null
+    }
+    E(X1, ["watchNextResponse"]);
+    function Y1(a, b, c, e) {
+        var f = c.message;
+        c && ("heartbeat.stop" === c.errorCode || "auth" === c.errorCode && "5" === c.errorDetail) || (f = "[[Please choose another video.|Informs the user to please choose another video for playback.]]");
+        c = new sP(f,"icon-settings-term",void 0,void 0,e);
+        c.title = "[[There was an error playing this video.|Informs the user of a video playback error.]]";
+        c.Ub.push("player-error-dialog");
+        c.backgroundImage = b;
+        a.open(c);
+        return function() {}
+    }
+    E(Y1, ["dialogStageModel", "failDialogBackground"]);
+    function Z1(a) {
+        this.j = a;
+        this.startTime = NaN
+    }
+    Z1.prototype.Jo = function() {
+        return !isNaN(this.startTime)
+    }
+    ;
+    Z1.prototype.start = function() {
+        this.startTime = this.j.za()
+    }
+    ;
+    Z1.prototype.Gya = function() {
+        return this.j.za() - this.startTime
+    }
+    ;
+    E(Z1, ["timeService"]);
+    function $1(a, b, c, e, f) {
+        return a() ? c.Dz().ha() ? 0 >= f() && b() : e() ? b() : !1 : !1
+    }
+    E($1, ["shouldAutoplay", "autoplay", "remoteService", "getNextPlaylistVideo", "getCountDownSecs"]);
+    function a2(a, b, c) {
+        (b = b()) && c.vfa(a(b, {
+            autoPlay: !0
+        }))
+    }
+    E(a2, ["fillPlaybackConfig", "getNextVideo", "playerService"]);
+    function b2(a, b, c, e, f, g) {
+        return (a = a.get()) && a.autoplayRenderer && a.mdxAutoplayVideoRenderer && b() ? (f() ? g() : c(e({
+            autoplayRenderer: a.autoplayRenderer,
+            mdxAutoplayVideoRenderer: a.mdxAutoplayVideoRenderer
+        })),
+        !0) : !1
+    }
+    E(b2, "watchNextResponse checkForMdxAutoplayCtt setWatchState watchMdxPostPlayStateFactory shouldDisableAutoplay goHome".split(" "));
+    function c2(a, b, c) {
+        return a() || b(c)
+    }
+    E(c2, ["attemptTransitionToMdxPostPlay", "attemptTransitionToPivotPostPlay"]);
+    function d2(a, b) {
+        return a() || !!b()
+    }
+    E(d2, ["shouldUsePreviousWatchHistory", "getPreviousPlaylistVideo"]);
+    function e2(a, b) {
+        return a() || !!b()
+    }
+    E(e2, ["shouldUseNextWatchHistory", "getNextVideo"]);
+    function f2(a, b, c) {
+        a = a();
+        b = b();
+        return a && !b ? (c(a),
+        !1) : !0
+    }
+    E(f2, ["getCurrentVideoCtt", "getAutoplayVideoCtt", "reportMissingMdxAutoplayCtt"]);
+    function g2(a, b) {
+        if (b = b.camera3D)
+            a.isSpherical() ? (b.createKeyMapping(32789, b.DOM_CAMERA_PITCH, 60),
+            b.createKeyMapping(32790, b.DOM_CAMERA_PITCH, -60),
+            b.createKeyMapping(32791, b.DOM_CAMERA_YAW, 60),
+            b.createKeyMapping(32792, b.DOM_CAMERA_YAW, -60)) : (b.clearKeyMapping(32789),
+            b.clearKeyMapping(32790),
+            b.clearKeyMapping(32791),
+            b.clearKeyMapping(32792))
+    }
+    E(g2, ["playerService", "window"]);
+    function h2(a, b, c, e) {
+        a = Object.assign(new Ew, a());
+        a.watchEndpoint && (a.watchEndpoint = Ec(a.watchEndpoint),
+        a.watchEndpoint.startTimeSeconds = e.getCurrentTime());
+        return {
+            ic: a,
+            Wb: b.get(),
+            Up: c()
+        }
+    }
+    E(h2, ["getPlaybackConfig", "watchNextResponse", "getWatchNextService", "playerService"]);
+    function i2(a) {
+        if (a = a.get()) {
+            if (a.kw && a.kw.playerOverlayTvAutoplayRenderer)
+                return a.kw.playerOverlayTvAutoplayRenderer.countDownSecs || 0;
+            if (a.autoplayRenderer)
+                return a.autoplayRenderer.countDownSecs || 0
+        }
+        return 0
+    }
+    E(i2, ["watchNextResponse"]);
+    function j2(a, b) {
+        (a = a()) || (a = (b = b.get()) && b.pb ? t("nextVideoRenderer.maybeHistoryEndpointRenderer.endpoint", b.pb) : null);
+        return a
+    }
+    E(j2, ["getNextPlaylistVideo", "watchNextResponse"]);
+    function k2(a, b, c, e) {
+        a(b({
+            isInPivot: c,
+            trigger: e
+        }), e);
+        return !0
+    }
+    E(k2, ["setWatchState", "watchSuperPivotTransitionStateFactory"]);
+    function l2(a, b, c, e, f, g, h) {
+        a() && (a = b.RC(e()),
+        f(a, h, g),
+        c(a.ic, a.Wb, a.Up))
+    }
+    E(l2, ["shouldUseNextWatchHistory", "watchHistory", "gotoWatch", "createCurrentWatchHistoryEntry", "updateNewWatchHistoryEntry"]);
+    function m2(a, b, c, e, f, g) {
+        f();
+        a.get() ? ((a = b(g)) || (c(g) ? a = !0 : g ? a = !1 : (e(),
+        a = !0)),
+        c = a) : c = !1;
+        return c
+    }
+    E(m2, ["watchNextResponse", "attemptImmediateAutoplay", "attemptTransitionToPostPlay", "goBack", "requestPartnerExitMessageAfterInitialPlayback"]);
+    function n2(a) {
+        a();
+        return !0
+    }
+    E(n2, ["exitUnconditionally"]);
+    function o2(a, b, c, e) {
+        var f = {};
+        b = (f.a = "mdx_autoplay_without_ctt",
+        f.currentVideoId = b(),
+        f.currentVideoCtt = e,
+        f.nextVideoId = c(),
+        f);
+        a("/gen_204", b)
+    }
+    E(o2, ["sendReport", "getVideoId", "getAutoplayVideoId"]);
+    function p2(a) {
+        (a = a.camera3D) && a.reset && a.reset()
+    }
+    E(p2, ["window"]);
+    function q2(a, b, c, e) {
+        return e() || !a() ? !1 : b() || c.get() ? !0 : !1
+    }
+    E(q2, ["getAutoplayVideo", "getNextPlaylistVideo", "autoplayFlag", "shouldDisableAutoplay"]);
+    function r2(a, b) {
+        return (a = a.get()) && a.pb ? !!t("nextVideoRenderer.maybeHistoryEndpointRenderer.useNextHistoryItem", a.pb) && b.hasNext() : !1
+    }
+    E(r2, ["watchNextResponse", "watchHistory"]);
+    function s2(a, b) {
+        return (a = a.get()) && a.pb ? !!t("previousVideoRenderer.maybeHistoryEndpointRenderer.usePrevHistoryItem", a.pb) && b.ir() : !1
+    }
+    E(s2, ["watchNextResponse", "watchHistory"]);
+    function t2(a, b, c, e, f, g, h, k, m) {
+        return a() ? (e = c.QC(g()),
+        h(e, m, k),
+        f(e.ic, e.Wb, e.Up),
+        !0) : (f = b()) ? (e(f, k, m),
+        !0) : !1
+    }
+    E(t2, "shouldUsePreviousWatchHistory getPreviousPlaylistVideo watchHistory navigateToEndpoint gotoWatch createCurrentWatchHistoryEntry updateNewWatchHistoryEntry".split(" "));
+    function u2(a, b, c, e, f, g) {
+        return a() ? (c(),
+        !0) : (a = b()) ? (e(a, f, g),
+        !0) : !1
+    }
+    E(u2, ["shouldUseNextWatchHistory", "getNextVideo", "gotoWatchHistoryNextEntry", "navigateToEndpoint"]);
+    function v2(a, b, c) {
+        a && (a.ic.autoPlay = void 0 === b ? !1 : b,
+        a.ic.trigger = c && c.getName() || "unknown")
+    }
+    ;function w2(a, b, c, e) {
+        a(b({
+            initialSubstateId: void 0 === c ? "idle" : c
+        }), e)
+    }
+    E(w2, ["setWatchState", "watchAdsStateFactory"]);
+    function x2(a, b, c, e) {
+        a(b({
+            initialSubstateId: void 0 === c ? "idle" : c
+        }), e)
+    }
+    E(x2, ["setWatchState", "watchVideoStateFactory"]);
+    function y2(a, b) {
+        var c = [], e = [], f = [], g;
+        for (g in a)
+            if (a.hasOwnProperty(g)) {
+                var h = a[g];
+                c.push(g);
+                e.push(h);
+                if (h = jf(h))
+                    h.Wg(),
+                    f.push(h)
+            }
+        mf.call(this, e, b);
+        this.keys = c;
+        this.Md = f
+    }
+    l(y2, mf);
+    y2.prototype.reset = function() {
+        mf.prototype.reset.call(this);
+        for (var a = 0, b = this.Md.length; a < b; ++a)
+            this.Md[a].reset()
+    }
+    ;
+    y2.prototype.qk = function(a, b, c, e, f, g) {
+        a = this.lp.resolve(a, b, c, e, f, g);
+        b = {};
+        c = 0;
+        for (e = this.keys.length; c < e; ++c)
+            b[this.keys[c]] = a[c];
+        return b
+    }
+    ;
+    y2.prototype.Nf = function() {
+        for (var a = this.R, b = this.keys, c = {}, e = 0; e < b.length; e++) {
+            var f = a[e];
+            c[b[e]] = f instanceof hf ? f.Nf() : f
+        }
+        return {
+            type: "Object",
+            content: c,
+            vJ: this.Qz()
+        }
+    }
+    ;
+    y2.prototype.B = function() {
+        for (var a = 0, b = this.Md.length; a < b; ++a)
+            this.Md[a].Ue();
+        mf.prototype.B.call(this)
+    }
+    ;
+    var z2 = {
+        apply: function(a) {
+            a.$({
+                watchAdsIdleHandleAdBecameSkippable: function() {
+                    return !1
+                },
+                watchAdsIdleHandleNudge: function() {
+                    return !1
+                }
+            })
+        }
+    };
+    E(z2.apply, ["injector"]);
+    function A2(a, b, c) {
+        Y.call(this, a);
+        this.setMessageHandler("nudge", b);
+        this.setMessageHandler("ad-became-skippable", c)
+    }
+    l(A2, Y);
+    E(A2, ["name", "watchAdsIdleHandleNudge", "watchAdsIdleHandleAdBecameSkippable"]);
+    var B2 = {
+        apply: function(a) {
+            a.add("watchAdsIdleStateFactory", new H(new pp(new I(A2,{
+                name: "idle"
+            }),z2)));
+            var b = {};
+            a.add("watchAdsSubstateFactoryMap", new y2((b.idle = "watchAdsIdleStateFactory",
+            b)));
+            a.$({
+                setWatchAdsState: hr()
+            })
+        }
+    };
+    E(B2.apply, ["injector"]);
+    function C2(a) {
+        a("title")
+    }
+    E(C2, ["watchGotoVideo"]);
+    var D2 = {
+        apply: function(a) {
+            a.V({
+                watchLoadingGotoVideo: C2
+            })
+        }
+    };
+    E(D2.apply, ["injector"]);
+    function E2(a, b, c) {
+        a(b(), c);
+        return !0
+    }
+    E(E2, ["setWatchVideoState", "watchVideoTitleStateFactory"]);
+    function F2(a, b, c) {
+        return a.isSpherical() ? c() : b()
+    }
+    E(F2, ["playerService", "watchVideoStandardIdleStateFactory", "watchVideoSphericalIdleStateFactory"]);
+    function S2(a, b, c, e, f, g) {
+        Y.call(this, a);
+        var h = this;
+        this.Gd = b;
+        this.at = c;
+        this.f = e;
+        this.j = f;
+        this.Do = -1;
+        this.ST = 0;
+        this.camera3D = g.camera3D || null;
+        this.setMessageHandler("select", this.gr.bind(this));
+        this.camera3D ? (this.setMessageHandler("move-left", function() {
+            return !0
+        }),
+        this.setMessageHandler("move-right", function() {
+            return !0
+        }),
+        this.setMessageHandler("move-up", function() {
+            return !0
+        }),
+        this.setMessageHandler("move-down", function() {
+            return !0
+        })) : (this.setMessageHandler("move-left", this.sH.bind(this, function() {
+            return h.JH(1, "yaw")
+        })),
+        this.setMessageHandler("move-right", this.sH.bind(this, function() {
+            return h.JH(-1, "yaw")
+        })),
+        this.setMessageHandler("move-up", this.sH.bind(this, function() {
+            return h.JH(1, "pitch")
+        })),
+        this.setMessageHandler("move-down", this.sH.bind(this, function() {
+            return h.JH(-1, "pitch")
+        })))
+    }
+    l(S2, Y);
+    d = S2.prototype;
+    d.activate = function() {
+        Y.prototype.activate.call(this);
+        if (this.camera3D) {
+            var a = this.camera3D;
+            a.createKeyMapping(38, a.DOM_CAMERA_PITCH, 45);
+            a.createKeyMapping(40, a.DOM_CAMERA_PITCH, -45);
+            a.createKeyMapping(37, a.DOM_CAMERA_YAW, 45);
+            a.createKeyMapping(39, a.DOM_CAMERA_YAW, -45);
+            a.createKeyMapping(32780, a.DOM_CAMERA_PITCH, 45);
+            a.createKeyMapping(32781, a.DOM_CAMERA_PITCH, -45);
+            a.createKeyMapping(32782, a.DOM_CAMERA_YAW, 45);
+            a.createKeyMapping(32783, a.DOM_CAMERA_YAW, -45);
+            a.createKeyMapping(32785, a.DOM_CAMERA_PITCH, 60);
+            a.createKeyMapping(32786, a.DOM_CAMERA_PITCH, -60);
+            a.createKeyMapping(32787, a.DOM_CAMERA_YAW, 60);
+            a.createKeyMapping(32788, a.DOM_CAMERA_YAW, -60)
+        }
+    }
+    ;
+    d.qg = function() {
+        this.camera3D && this.isActive() && (this.camera3D.clearKeyMapping(38),
+        this.camera3D.clearKeyMapping(40),
+        this.camera3D.clearKeyMapping(37),
+        this.camera3D.clearKeyMapping(39),
+        this.camera3D.clearKeyMapping(32780),
+        this.camera3D.clearKeyMapping(32781),
+        this.camera3D.clearKeyMapping(32782),
+        this.camera3D.clearKeyMapping(32783),
+        this.camera3D.clearKeyMapping(32785),
+        this.camera3D.clearKeyMapping(32786),
+        this.camera3D.clearKeyMapping(32787),
+        this.camera3D.clearKeyMapping(32788));
+        Y.prototype.qg.call(this)
+    }
+    ;
+    d.gr = function(a) {
+        this.Gd(this.at(), a);
+        return !0
+    }
+    ;
+    d.wpa = function(a) {
+        var b = this;
+        this.ST = 0;
+        this.j.clearInterval(this.Do);
+        this.Do = this.j.setInterval(function() {
+            b.ST++;
+            10 === b.ST && b.j.clearInterval(b.Do);
+            a()
+        }, 25)
+    }
+    ;
+    d.sH = function(a) {
+        this.wpa(a);
+        return !0
+    }
+    ;
+    d.JH = function(a, b) {
+        var c = this.f.getSphericalProperties();
+        c && (c[b] += a,
+        this.f.setSphericalProperties(c))
+    }
+    ;
+    E(S2, "name setWatchVideoState watchVideoControlStateFactory playerService timeService window".split(" "));
+    function T2(a, b, c, e, f, g, h) {
+        h = void 0 === h ? !0 : h;
+        Fx.call(this, a, b, g);
+        this.mPa = c;
+        this.ao = e;
+        this.Sua = h;
+        this.plugin = null;
+        f.target = this.va.bind(this);
+        this.H(function() {
+            f.target = null
+        })
+    }
+    l(T2, Fx);
+    d = T2.prototype;
+    d.Cb = function() {
+        Fx.prototype.Cb.call(this);
+        this.plugin = this.mPa()
+    }
+    ;
+    d.Cc = function() {
+        this.Sua && D(this.plugin);
+        this.plugin = null;
+        Fx.prototype.Cc.call(this)
+    }
+    ;
+    d.Sf = function(a) {
+        return Fx.prototype.Sf.call(this, a) ? this.uc() === a.uc() && this.getPlaylistId() === a.getPlaylistId() && this.Y8() === a.Y8() : !1
+    }
+    ;
+    d.va = function(a, b) {
+        for (var c = 1; c < arguments.length; ++c)
+            ;
+        return Fx.prototype.va.apply(this, arguments) || !(!this.plugin || !this.plugin.va.apply(this.plugin, arguments))
+    }
+    ;
+    d.uc = function() {
+        var a = this.ao();
+        return a.watchEndpoint ? a.watchEndpoint.videoId || null : null
+    }
+    ;
+    d.Y8 = function() {
+        var a = this.ao();
+        return a.watchEndpoint ? a.watchEndpoint.playerParams || null : null
+    }
+    ;
+    d.getPlaylistId = function() {
+        var a = this.ao();
+        return a.watchEndpoint ? a.watchEndpoint.playlistId || null : a.watchPlaylistEndpoint ? a.watchPlaylistEndpoint.playlistId || null : null
+    }
+    ;
+    d.Nd = function() {
+        var a = Fx.prototype.Nd.call(this)
+          , b = this.uc();
+        b && (a.args.v = b);
+        (b = this.getPlaylistId()) && (a.args.list = b);
+        return a
+    }
+    ;
+    function U2(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G, K, L, Q, fa, ta, wa, hb, xb, nb, Jb, bb, Ma, ua, Kb) {
+        Ma = void 0 === Ma ? null : Ma;
+        ua = void 0 === ua ? null : ua;
+        Kb = void 0 === Kb ? !1 : Kb;
+        T2.call(this, a, h(), x, fa, nb, g);
+        var oa = this;
+        this.f = b;
+        this.environment = c;
+        this.aKa = e;
+        this.ic = f;
+        this.GB = k;
+        this.Ck = p;
+        this.G = u;
+        this.qa = B;
+        this.k5 = G;
+        this.G0a = K;
+        this.Wb = L;
+        this.experimentFlags = bb;
+        this.Up = ua;
+        this.kWa = Kb;
+        this.Nt = function() {}
+        ;
+        this.TD = !1;
+        this.yq = null;
+        this.zH = !1;
+        this.Gb = function() {}
+        ;
+        Q.target = function() {
+            return oa.Sn()
+        }
+        ;
+        fa.target = function() {
+            return oa.ic
+        }
+        ;
+        ta.target = function() {
+            return oa.getPlaylistId()
+        }
+        ;
+        wa.target = function() {
+            return oa.kH()
+        }
+        ;
+        hb.target = function() {
+            return oa.uc()
+        }
+        ;
+        xb.target = function() {
+            return oa.Vc()
+        }
+        ;
+        Jb.target = function(a, b, c) {
+            oa.Hh(a, b, c)
+        }
+        ;
+        this.Wb.set(Ma);
+        this.YJa = w(function() {
+            oa.load()
+        });
+        this.TZ = w(function() {
+            oa.RXa()
+        });
+        this.nYa = w(function() {
+            oa.mYa(v)
+        });
+        this.setMessageHandler("go-back", function(a) {
+            m(a);
+            return !0
+        });
+        this.setMessageHandler("escape", this.dr.bind(this));
+        this.setMessageHandler("playback-imminent", function(a) {
+            oa.w("playback-imminent", a);
+            return !1
+        });
+        this.setMessageHandler("playback-ready", function(a) {
+            oa.w("playback-ready", a);
+            return !1
+        });
+        this.setMessageHandler("reload-watch-next", this.JEa.bind(this));
+        this.setMessageHandler("show-metadata", function() {
+            oa.va("nudge", "show_metadata");
+            return !0
+        });
+        this.setMessageHandler("request-transport", function() {
+            oa.va("nudge", "request_transport");
+            return !0
+        })
+    }
+    l(U2, T2);
+    d = U2.prototype;
+    d.Mk = function(a, b) {
+        T2.prototype.Mk.call(this, a, b);
+        this.X1(a);
+        this.Gb();
+        this.Gb = function() {}
+    }
+    ;
+    d.bp = function(a) {
+        T2.prototype.bp.call(this, a);
+        this.X1(a)
+    }
+    ;
+    d.X1 = function(a) {
+        var b = Math.floor(this.f.tg());
+        b && (a.d = b,
+        a.p = Math.floor(this.f.getCurrentTime()))
+    }
+    ;
+    d.Cb = function() {
+        var a = this;
+        T2.prototype.Cb.call(this);
+        this.Oe(this.f.on("state:changed", function(b) {
+            return a.va("player-state-change", b)
+        }));
+        2 === this.f.state && this.f.play();
+        this.va("nudge");
+        this.YJa();
+        this.vla();
+        this.Oe(this.GB.on("value-changed", function() {
+            return a.vla()
+        }));
+        var b = this.Wb.get();
+        b && this.E$(b);
+        this.Oe(this.f.on("state:changed", this.uo.bind(this)));
+        this.Gb();
+        this.Gb = this.f.Ej("watch-state")
+    }
+    ;
+    d.Pf = function() {
+        return this.Wb.get()
+    }
+    ;
+    d.kH = function() {
+        return this.Up
+    }
+    ;
+    d.Vc = function() {
+        return this.zH
+    }
+    ;
+    d.JEa = function(a) {
+        this.ic = a;
+        this.TD = !0;
+        this.fda();
+        return !0
+    }
+    ;
+    d.fda = function() {
+        this.Nt();
+        var a = this.Wb.get();
+        a && this.Up && !this.TD ? this.gda(a, this.Up) : this.Nt = this.aKa(this.ic, this.gda.bind(this), this.bKa.bind(this));
+        this.nYa()
+    }
+    ;
+    d.mYa = function(a) {
+        function b() {
+            c.va("reload-watch-next", c.ic)
+        }
+        var c = this;
+        this.H(a.on("signed-in", b));
+        this.H(a.on("signed-out", b));
+        this.H(a.on("account-switch", b));
+        this.H(a.on("token-refresh", b))
+    }
+    ;
+    d.vla = function() {
+        var a = this.Wb.get();
+        a && this.G0a(a)
+    }
+    ;
+    d.load = function() {
+        !this.environment.sf && this.uc() && this.TZ();
+        this.fda()
+    }
+    ;
+    d.RXa = function() {
+        this.zH = !0;
+        this.va("playback-imminent", this.ic);
+        this.va("playback-ready", this.ic);
+        this.f.gP();
+        this.kWa || (this.qa.La("w_ld_vid"),
+        this.f.qV(this.ic))
+    }
+    ;
+    d.gda = function(a, b) {
+        this.Nt = function() {}
+        ;
+        this.Up = b;
+        this.Wb.set(a);
+        a.ic && (this.ic = a.ic,
+        this.TZ());
+        this.isActive() && this.E$(a);
+        this.w("watch-next-loaded", this.TD);
+        this.TD = !1
+    }
+    ;
+    d.E$ = function(a) {
+        var b = {
+            playbackData: {
+                clientPlaybackNonce: this.f.Rn() || void 0
+            }
+        };
+        this.G.attachChild(a.trackingParams, null, b);
+        this.f.updateVideoData()
+    }
+    ;
+    d.bKa = function() {
+        this.TZ();
+        this.Nt = function() {}
+        ;
+        this.Wb.set(new HW);
+        this.w("watch-next-failed");
+        this.TD = !1
+    }
+    ;
+    d.dr = function(a, b) {
+        return !this.c1a() && this.va("go-back", b)
+    }
+    ;
+    d.c1a = function() {
+        return this.Ck.Jo() && 1E3 > this.Ck.Gya()
+    }
+    ;
+    d.uo = function(a) {
+        switch (a) {
+        case 1:
+            if (!this.yq && !this.f.Ja) {
+                a = this.f.rya();
+                var b = this.f.getVideoContentRect();
+                a && b && this.Ioa(a, b)
+            }
+            break;
+        case 0:
+            this.PY(null)
+        }
+    }
+    ;
+    d.Ioa = function(a, b) {
+        var c = this;
+        if (null !== a.startMs) {
+            var e = Number(a.startMs);
+            isNaN(e) || (e = Math.floor(e / 1E3) - 5,
+            0 >= e ? this.PY(this.k5({
+                source: a,
+                videoContentRect: b
+            })) : this.f.$x(this.f.uc(), e, function() {
+                c.PY(c.k5({
+                    source: a,
+                    videoContentRect: b
+                }))
+            }))
+        }
+    }
+    ;
+    d.Sn = function() {
+        return this.yq
+    }
+    ;
+    d.PY = function(a) {
+        if (a !== this.yq) {
+            var b = this.yq;
+            this.yq = a;
+            this.w("creator-endscreen-changed");
+            D(b)
+        }
+    }
+    ;
+    d.B = function() {
+        D(this.yq);
+        this.yq = null;
+        this.Nt();
+        this.Nt = function() {}
+        ;
+        T2.prototype.B.call(this)
+    }
+    ;
+    E(U2, "name playerService environment loadWatchNext playbackConfig watchInteraction watchLoadingStateFactory playlistMode goBackFromWatch lastIdleTimeoutTimer screenManager authService makeOnceExecuter watchPluginFactory performanceService creatorEndscreenModelFactory updateWatchNextAutoplaySet watchNextResponse getCreatorEndscreen getPlaybackConfig getPlaylistId getWatchNextService getVideoId hasPlaybackStarted sendWatchStateMessage setWatchState experimentFlags opt_initialWatchNextResponse opt_watchNextService opt_shouldAdoptPlayback".split(" "));
+    function V2(a, b, c, e, f, g, h, k, m, p, u, v, w) {
+        Y.call(this, a);
+        var x = this;
+        this.f = e;
+        this.Kg = f;
+        this.j = g;
+        this.Gd = p;
+        this.at = u;
+        this.Sn = v;
+        this.q1a = w;
+        this.setMessageHandler("nudge", b);
+        this.setMessageHandler("move-left", function(a) {
+            return x.cA(a)
+        });
+        this.setMessageHandler("move-right", function(a) {
+            return x.cA(a)
+        });
+        this.setMessageHandler("move-up", function(a) {
+            return x.NDa(a)
+        });
+        h.super_pivot_back && this.setMessageHandler("escape", function() {
+            return k(!1, "super-pivot-back")
+        });
+        (c || m.jD) && this.setMessageHandler("quick-seek", function(a) {
+            return x.BNa(a)
+        })
+    }
+    l(V2, Y);
+    V2.prototype.BNa = function(a) {
+        var b = this;
+        if (!this.f.Vc() || !this.f.wb)
+            return !0;
+        this.j.setTimeout(function() {
+            b.Kg(a);
+            b.f.play();
+            b.dc("quick-seek", a)
+        }, 30);
+        return !0
+    }
+    ;
+    V2.prototype.cA = function(a) {
+        this.Gd(this.at(), a);
+        return !0
+    }
+    ;
+    V2.prototype.NDa = function(a) {
+        var b = this.Sn();
+        return b && b.KE() ? (this.Gd(this.q1a(), a),
+        !0) : !1
+    }
+    ;
+    E(V2, "name watchVideoHandleNudge supportsAppleTvUx playerService seekRelative timeService experimentFlags goToSuperPivotTransition environment setWatchVideoState watchVideoControlStateFactory getCreatorEndscreen watchVideoCreatorEndscreenStateFactory".split(" "));
+    function W2(a, b, c, e, f, g) {
+        Y.call(this, a);
+        this.Gd = b;
+        this.Ph = c;
+        this.f = e;
+        this.j = f;
+        this.ra = null;
+        this.setMessageHandler("nudge", g)
+    }
+    l(W2, Y);
+    d = W2.prototype;
+    d.Cb = function() {
+        Y.prototype.Cb.call(this);
+        this.f.wb && this.setTimeout();
+        this.Oe(this.f.on("isPlaying:changed", this.rIa.bind(this)))
+    }
+    ;
+    d.Cc = function() {
+        Y.prototype.Cc.call(this);
+        this.clearTimeout()
+    }
+    ;
+    d.tx = function() {
+        this.ra = null;
+        this.Gd(this.Ph(), "idle")
+    }
+    ;
+    d.setTimeout = function() {
+        null == this.ra && (this.ra = this.j.setTimeout(this.tx.bind(this), 3E3))
+    }
+    ;
+    d.clearTimeout = function() {
+        null != this.ra && (this.j.clearTimeout(this.ra),
+        this.ra = null)
+    }
+    ;
+    d.rIa = function() {
+        this.f.wb ? this.setTimeout() : this.clearTimeout()
+    }
+    ;
+    E(W2, "name setWatchVideoState watchVideoIdleStateFactory playerService timeService watchVideoHandleNudge".split(" "));
+    var X2 = {
+        apply: function(a) {
+            function b(b, c, g, h) {
+                c = new I(c,{
+                    name: g
+                });
+                h && (c = new pp(c,h));
+                a.add(b, new H(c))
+            }
+            b("watchVideoSphericalIdleStateFactory", S2, "idle");
+            b("watchVideoStandardIdleStateFactory", V2, "idle");
+            b("watchVideoTitleStateFactory", W2, "title");
+            b("watchVideoControlStateFactory", W2, "title");
+            b("watchVideoCreatorEndscreenStateFactory", W2, "title");
+            a.Tb({
+                watchVideoIdleStateFactory: F2
+            });
+            var c = {};
+            a.add("watchVideoSubstateFactoryMap", new y2((c.control = "watchVideoTitleStateFactory",
+            c.idle = "watchVideoIdleStateFactory",
+            c.title = "watchVideoTitleStateFactory",
+            c)));
+            a.add("youthereOverlayValue", new J(new I(Il,{
+                initial: null
+            })));
+            a.$({
+                setWatchVideoState: hr(),
+                videoClearMessageHandler: hr(),
+                watchVideoHandleEnterSeek: function() {
+                    return !1
+                },
+                watchVideoHandleProgress: function() {
+                    return !1
+                }
+            });
+            a.V({
+                watchVideoHandleNudge: E2
+            })
+        }
+    };
+    E(X2.apply, ["injector", "superPivotCapabilities"]);
+    function Y2(a, b, c, e, f, g, h, k, m, p, u) {
+        function v(a) {
+            return w.Bj(a)
+        }
+        Fx.call(this, a, b[void 0 === u ? "idle" : u]());
+        var w = this;
+        this.ZL = b;
+        this.f = e;
+        this.X = f;
+        this.bT = h;
+        this.vo = !1;
+        c.target = this.Hh.bind(this);
+        this.setMessageHandler("toggle-playing", this.ZS.bind(this));
+        this.setMessageHandler("pause", this.XS.bind(this));
+        this.setMessageHandler("play", this.Yu.bind(this));
+        this.setMessageHandler("move-up", v);
+        this.setMessageHandler("move-down", v);
+        this.setMessageHandler("move-left", v);
+        this.setMessageHandler("move-right", v);
+        this.setMessageHandler("fast-forward", v);
+        this.setMessageHandler("rewind", v);
+        this.setMessageHandler("player-state-change", this.uo.bind(this));
+        m.Gp && k.super_pivot_back && this.setMessageHandler("escape", function() {
+            return p(!1, "super-pivot-back")
+        });
+        this.setMessageHandler("ad-stopped", function() {
+            g("idle");
+            return !0
+        })
+    }
+    l(Y2, Fx);
+    d = Y2.prototype;
+    d.Cb = function() {
+        Fx.prototype.Cb.call(this);
+        this.Oe(this.f.on("isPlayingAd:changed", this.kl.bind(this)));
+        this.Oe(this.X.on("skipState:changed", this.Qm.bind(this)));
+        this.Qm(this.X.Xd);
+        this.vo ? this.f.play() : this.vo = !0
+    }
+    ;
+    d.Cc = function() {
+        Fx.prototype.Cc.call(this);
+        this.isDisposed() || "idle" === this.Ea().getName() || this.Hh(this.ZL.idle())
+    }
+    ;
+    d.Qm = function(a) {
+        3 === a && this.va("ad-became-skippable", "ad_became_skippable")
+    }
+    ;
+    d.kl = function(a) {
+        a || this.va("ad-stopped")
+    }
+    ;
+    d.Bj = function(a) {
+        return this.va("nudge", a)
+    }
+    ;
+    d.ZS = function(a) {
+        this.f.Ip();
+        this.Bj(a);
+        return !0
+    }
+    ;
+    d.XS = function(a) {
+        this.f.pause();
+        this.Bj(a);
+        return !0
+    }
+    ;
+    d.Yu = function(a) {
+        this.f.play();
+        this.Bj(a);
+        return !0
+    }
+    ;
+    d.uo = function(a) {
+        return 0 === a && this.bT(!1)
+    }
+    ;
+    E(Y2, "name watchAdsSubstateFactoryMap setWatchAdsState playerService adModel watchGotoVideo handleVideoEnded experimentFlags superPivotCapabilities goToSuperPivotTransition opt_initialSubstateId".split(" "));
+    function Z2(a, b, c, e) {
+        Y.call(this, a);
+        this.f = b;
+        this.i1a = c;
+        this.k1a = e;
+        this.setMessageHandler("playback-ready", this.EEa.bind(this))
+    }
+    l(Z2, Y);
+    Z2.prototype.EEa = function() {
+        this.f.Ja ? this.i1a() : this.k1a();
+        return !0
+    }
+    ;
+    E(Z2, ["name", "playerService", "watchGotoAds", "watchLoadingGotoVideo"]);
+    function $2(a, b, c, e, f, g, h, k, m) {
+        S.call(this);
+        this.lactThresholdMs = a;
+        this.userPromptText = b;
+        this.buttonText = c;
+        this.playbackPauseDelayMs = e;
+        this.promptDelaySec = f;
+        this.userPromptAfterPauseText = g;
+        this.followUpText = h;
+        this.trackingParams = k;
+        this.source = m
+    }
+    l($2, S);
+    function a3(a) {
+        var b = a.configData && a.configData.youThereData || {}
+          , c = Number(b.lactThresholdMs) || 0
+          , e = X(b.userPromptText)
+          , f = X(t("actionButton.buttonRenderer.text", b))
+          , g = b.playbackPauseDelayMs || 0
+          , h = Number(b.promptDelaySec) || 0
+          , k = X(b.userPromptAfterPauseText);
+        b = X(b.followUpText);
+        var m = X(a.trackingParams);
+        return new $2(c,e,f,g,h,k,b,m,a)
+    }
+    ;function b3(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G, K, L, Q, fa, ta) {
+        Fx.call(this, a, b[void 0 === ta ? "idle" : ta]());
+        this.ZL = b;
+        this.f = c;
+        this.environment = e;
+        this.Fa = f;
+        this.bT = g;
+        this.Y0 = k;
+        this.Usa = u;
+        this.xRa = v;
+        this.experimentFlags = x;
+        this.fqa = B;
+        this.ft = G;
+        this.j = Q;
+        this.NJa = fa;
+        this.vo = this.ufa = !1;
+        this.Bc = "";
+        this.ada = !1;
+        this.nV = -1;
+        K.target = this.Hh.bind(this);
+        L.target = this.hP.bind(this);
+        a = this.j6.bind(this, "rewind");
+        b = this.j6.bind(this, "forward");
+        this.setMessageHandler("skip-backward", p);
+        this.setMessageHandler("skip-forward", m);
+        this.setMessageHandler("rewind", a);
+        this.setMessageHandler("fast-forward", b);
+        this.setMessageHandler("toggle-playing", this.ZS.bind(this));
+        this.setMessageHandler("pause", this.XS.bind(this));
+        this.setMessageHandler("play", this.Yu.bind(this));
+        m = this.Bj.bind(this);
+        this.setMessageHandler("move-up", m);
+        this.setMessageHandler("move-down", m);
+        this.setMessageHandler("player-state-change", this.uo.bind(this));
+        this.setMessageHandler("escape", this.dr.bind(this));
+        this.setMessageHandler("ad-playing", function() {
+            h("idle");
+            return !0
+        });
+        this.setMessageHandler("video-progress", w)
+    }
+    l(b3, Fx);
+    d = b3.prototype;
+    d.Cb = function() {
+        Fx.prototype.Cb.call(this);
+        this.Oe(this.f.on("isPlayingAd:changed", this.kl.bind(this)));
+        this.Oe(this.f.on("videoData:changed", this.U0a.bind(this)));
+        this.Oe(this.Fa.on("closed", this.Bj.bind(this, "dialog_close")));
+        this.vo ? this.f.play() : this.vo = !0
+    }
+    ;
+    d.sL = function(a, b) {
+        Fx.prototype.sL.call(this, a, b)
+    }
+    ;
+    d.Cc = function() {
+        Fx.prototype.Cc.call(this);
+        this.j.clearTimeout(this.nV);
+        this.isDisposed() || this.IS()
+    }
+    ;
+    d.j6 = function(a, b) {
+        return this.Y0(a, b) || this.Bj(b)
+    }
+    ;
+    d.kl = function(a) {
+        a && this.va("ad-playing")
+    }
+    ;
+    d.fpa = function() {
+        if (!this.ufa) {
+            var a = this.f.tg();
+            a && (this.ufa = !0,
+            this.f.$x(this.f.uc(), this.VCa(a), this.fqa))
+        }
+    }
+    ;
+    d.VCa = function(a) {
+        var b = a - 30;
+        a *= .75;
+        return 0 < b ? Math.min(b, a) : a
+    }
+    ;
+    d.U0a = function() {
+        var a = this;
+        "idle" !== this.Ea().getName() || !this.f.isSpherical() || this.Ea()instanceof S2 || this.Hh(this.ZL.idle());
+        this.experimentFlags.attest_botguard_on_tvhtml5 && -1 === this.nV && (this.nV = this.j.setTimeout(function() {
+            a.NJa()
+        }, 5E3));
+        this.Usa();
+        this.Bc !== this.f.uc() && (this.Bc = this.f.uc(),
+        this.xRa());
+        this.experimentFlags.preload_next_video && !this.environment.sf && this.fpa();
+        var b = this.f.KDa();
+        if (b) {
+            var c = this.ft.get();
+            c && c.source === b || this.ft.set(a3(b));
+            this.ada || (this.ada = !0,
+            this.Oe(this.f.on("videoProgress:changed", function(b) {
+                return a.va("video-progress", b)
+            })))
+        } else
+            this.ft.reset()
+    }
+    ;
+    d.Bj = function(a) {
+        return this.va("nudge", a)
+    }
+    ;
+    d.ZS = function(a) {
+        this.f.Ip();
+        this.Bj(a);
+        return !0
+    }
+    ;
+    d.XS = function(a) {
+        this.f.pause();
+        this.Bj(a);
+        return !0
+    }
+    ;
+    d.Yu = function(a) {
+        this.f.play();
+        this.Bj(a);
+        return !0
+    }
+    ;
+    d.uo = function(a) {
+        switch (a) {
+        case 0:
+            return this.bT("pivot" === this.Ea().getName());
+        case 1E3:
+            return this.IS("player_msg"),
+            !0
+        }
+        return !1
+    }
+    ;
+    d.dr = function(a, b) {
+        return a && this.IS(b)
+    }
+    ;
+    d.IS = function(a) {
+        return "idle" !== this.Ea().getName() ? (this.Hh(this.ZL.idle(), a),
+        !0) : !1
+    }
+    ;
+    E(b3, "name watchVideoSubstateFactoryMap playerService environment dialogStageModel handleVideoEnded watchGotoAds watchVideoHandleEnterSeek skipForward skipBackward configureCamera3DSphericalControlKeys resetSphericalVideoCamera watchVideoHandleProgress experimentFlags attemptToPreloadNextVideo youthereOverlayValue setWatchVideoState videoClearMessageHandler timeService loadBotguard opt_initialSubstateId".split(" "));
+    var c3 = {
+        apply: function(a, b, c, e) {
+            function f(b, c, e, f) {
+                c = new I(c,{
+                    name: e
+                });
+                f && (c = new pp(c,f));
+                a.add(b, new H(c))
+            }
+            f("watchAdsStateFactory", Y2, "ads", B2);
+            f("watchLoadingStateFactory", Z2, "loading", D2);
+            f("watchMdxPostPlayStateFactory", KW, "mdxPostPlay");
+            f("watchVideoStateFactory", b3, "video", X2);
+            e.Gp ? a.V({
+                goToSuperPivotTransition: k2
+            }) : a.V({
+                goToSuperPivotTransition: function() {
+                    return !1
+                }
+            });
+            a.$({
+                attemptTransitionToPivotPostPlay: function() {
+                    return !1
+                }
+            });
+            a.V({
+                attemptImmediateAutoplay: $1,
+                attemptTransitionToMdxPostPlay: b2,
+                attemptTransitionToPostPlay: c2,
+                checkForMdxAutoplayCtt: f2,
+                configureCamera3DSphericalControlKeys: g2,
+                getAutoplayVideoCtt: V1,
+                getAutoplayVideoId: W1,
+                getAutoplayVideoRenderer: X1,
+                getCountDownSecs: i2,
+                handleVideoEnded: b.hI ? n2 : m2,
+                reportMissingMdxAutoplayCtt: o2,
+                resetSphericalVideoCamera: p2,
+                shouldAutoplay: q2,
+                showPlayerErrorDialog: Y1,
+                watchGotoAds: w2,
+                watchGotoVideo: x2,
+                watchShouldDisableAutoplay: Wz,
+                canSkipBackward: d2,
+                canSkipForward: e2,
+                createCurrentWatchHistoryEntry: h2,
+                getNextVideo: j2,
+                gotoWatchHistoryNextEntry: l2,
+                shouldUseNextWatchHistory: r2,
+                shouldUsePreviousWatchHistory: s2,
+                skipBackward: t2,
+                skipForward: u2,
+                updateNewWatchHistoryEntry: v2
+            });
+            c.preload_next_video ? a.V({
+                attemptToPreloadNextVideo: a2
+            }) : a.$({
+                attemptToPreloadNextVideo: function() {}
+            });
+            a.Za({
+                lastIdleTimeoutTimer: Z1
+            });
+            a.$({
+                getCreatorEndscreen: hr(),
+                getPlaylistId: hr(),
+                getWatchNextService: hr(),
+                getVideoId: hr(),
+                setWatchState: hr()
+            })
+        },
+        R: ["bedrockWatchScopeConfig"]
+    };
+    E(c3.apply, ["injector", "environment", "experimentFlags", "superPivotCapabilities"]);
+    function d3(a) {
+        C.call(this);
+        var b = this;
+        this.F = a;
+        this.$b = [];
+        this.sa = "";
+        this.zq = a.Nb("creator-endscreen");
+        this.H(a.on("model:changed", function() {
+            return b.xd()
+        }));
+        this.xd()
+    }
+    l(d3, C);
+    d = d3.prototype;
+    d.Tc = function(a) {
+        "video/creator-endscreen" === this.sa && this.zq.blur();
+        this.sa = a
+    }
+    ;
+    d.B = function() {
+        for (; 0 < this.$b.length; )
+            this.$b.pop()();
+        C.prototype.B.call(this)
+    }
+    ;
+    d.xd = function() {
+        for (var a = this; 0 < this.$b.length; )
+            this.$b.pop()();
+        this.F.lb("creator-endscreen-showing");
+        var b = this.F.model;
+        b ? (this.pea(b),
+        this.$b.push(b.on("creator-endscreen-changed", function() {
+            return a.pea(b)
+        }))) : this.zq.model = null
+    }
+    ;
+    d.pea = function(a) {
+        var b = this;
+        this.zq.model = a.Sn();
+        this.zq.model && this.$b.push(this.zq.model.on("visibility:changed", function() {
+            return b.Vta()
+        }))
+    }
+    ;
+    d.Vta = function() {
+        var a = !!this.zq.model && this.zq.model.KE();
+        this.F.Df("creator-endscreen-showing", a);
+        this.F.render()
+    }
+    ;
+    E(d3, ["component"]);
+    function e3(a, b, c) {
+        C.call(this);
+        this.F = a;
+        this.f = b;
+        this.j = c;
+        this.$b = [];
+        this.cK = this.dK = -1;
+        this.zm = y;
+        this.H(b.on("state:changed", this.NJ.bind(this)));
+        this.H(b.on("ypcStatus:changed", this.$1a.bind(this)));
+        this.NJ();
+        this.H(a.on("model:changed", this.xd.bind(this)));
+        this.xd()
+    }
+    l(e3, C);
+    d = e3.prototype;
+    d.Tc = function() {}
+    ;
+    d.iQa = function(a) {
+        var b = this;
+        this.QO();
+        this.dK = this.j.setTimeout(function() {
+            b.F.wa("forward" === a ? "quick-seek-forward" : "quick-seek-rewind");
+            b.F.render();
+            b.cK = b.j.setTimeout(function() {
+                b.QO()
+            }, 350)
+        }, 15)
+    }
+    ;
+    d.QO = function() {
+        -1 !== this.cK && (this.j.clearTimeout(this.cK),
+        this.cK = -1);
+        -1 !== this.dK && (this.j.clearTimeout(this.dK),
+        this.dK = -1);
+        if (this.F.wo("quick-seek-forward") || this.F.wo("quick-seek-rewind"))
+            this.F.lb("quick-seek-forward"),
+            this.F.lb("quick-seek-rewind"),
+            this.F.render()
+    }
+    ;
+    d.NJ = function() {
+        switch (this.f.state) {
+        case 2:
+            this.GD(!1, !0);
+            break;
+        case 1:
+            this.f.isSpherical() && !this.f.Ja && this.F.wa("spherical-video");
+            this.GD(!0, !1);
+            break;
+        case 0:
+            this.GD(!1, !1)
+        }
+    }
+    ;
+    d.$1a = function(a) {
+        this.F.Df("ypc-playback", a);
+        this.F.render()
+    }
+    ;
+    d.xd = function() {
+        for (var a = this; 0 < this.$b.length; )
+            this.$b.pop()();
+        this.zm();
+        var b = this.F.model;
+        b ? (this.zm = b.on("playback-imminent", function() {
+            a.GD(!1, !1)
+        }),
+        b.Vc() && this.GD(!1, !1),
+        this.$b.push(b.on("watch-next-loaded", this.Sp.bind(this, b))),
+        this.$b.push(b.on("watch-next-failed", this.l1a.bind(this))),
+        this.$b.push(b.on("quick-seek", this.iQa.bind(this))),
+        this.Sp(b)) : this.zm = y;
+        this.F.wo("spherical-video") && (this.F.lb("spherical-video"),
+        this.F.render())
+    }
+    ;
+    d.l1a = function() {
+        this.F.wo("is-limited-state") && (this.F.lb("is-limited-state"),
+        this.F.render())
+    }
+    ;
+    d.Sp = function(a) {
+        (a = a.Pf()) && a.videoMetadataRenderer && a.videoMetadataRenderer.isLimitedState ? (this.F.wa("is-limited-state"),
+        this.F.render()) : this.F.wo("is-limited-state") && (this.F.lb("is-limited-state"),
+        this.F.render())
+    }
+    ;
+    d.GD = function(a, b) {
+        this.F.Df("play", a);
+        this.F.Df("pause", b);
+        this.F.render()
+    }
+    ;
+    d.B = function() {
+        for (; 0 < this.$b.length; )
+            this.$b.pop()();
+        this.QO();
+        this.zm();
+        this.zm = y;
+        C.prototype.B.call(this)
+    }
+    ;
+    E(e3, ["component", "playerService", "timeService"]);
+    function f3(a, b, c, e, f, g, h) {
+        C.call(this);
+        var k = this;
+        this.F = a;
+        this.X = c;
+        this.YKa = e;
+        this.XKa = f;
+        this.f = g;
+        this.y0 = h;
+        this.sa = "";
+        this.$b = [];
+        this.bX = this.RN = null;
+        this.Vk = a.N(".watch-title-tray");
+        this.H(b.on("playback-requested", function() {
+            k.Vk.clear()
+        }));
+        this.H(a.on("model:changed", this.xd.bind(this)));
+        this.xd();
+        this.H(this.X.on("metadata:changed", function(a) {
+            k.J_a(a)
+        }));
+        this.H(this.Vk.on("live-stream-started", function() {
+            return k.vGa()
+        }))
+    }
+    l(f3, C);
+    d = f3.prototype;
+    d.Uu = function() {
+        return this.sa
+    }
+    ;
+    d.Tc = function(a) {
+        a !== this.sa && (this.sa = a);
+        0 === this.sa.indexOf("ads") ? this.Vk.model = this.RN : 0 === this.sa.indexOf("video") && (this.Vk.model = this.bX)
+    }
+    ;
+    d.xd = function() {
+        for (var a = this; 0 < this.$b.length; )
+            this.$b.pop()();
+        var b = this.F.model;
+        b ? (this.$b.push(b.on("watch-next-loaded", function() {
+            a.s0(b)
+        })),
+        this.$b.push(b.on("watch-next-failed", function() {
+            a.s0(b)
+        })),
+        b.Pf() && this.s0(b)) : this.y0.clear()
+    }
+    ;
+    d.s0 = function(a) {
+        a && (this.bX = this.YKa({
+            source: a.Pf()
+        }),
+        0 === this.sa.indexOf("video") && (this.Vk.model = this.bX))
+    }
+    ;
+    d.J_a = function(a) {
+        this.RN = a ? this.XKa({
+            source: a
+        }) : null;
+        0 === this.sa.indexOf("ads") && (this.Vk.model = this.RN)
+    }
+    ;
+    d.vGa = function() {
+        var a = this;
+        this.y0.Dp(this.f.uc(), function(b) {
+            return a.uH(b)
+        })
+    }
+    ;
+    d.uH = function(a) {
+        this.Vk.o0a(a)
+    }
+    ;
+    d.B = function() {
+        for (; 0 < this.$b.length; )
+            this.$b.pop()();
+        this.y0.clear();
+        C.prototype.B.call(this)
+    }
+    ;
+    E(f3, "component rootDispatcher adModel makeNewWatchTitleTrayForPlayback makeNewWatchTitleTrayForAds playerService updatedMetadataController".split(" "));
+    function g3(a, b) {
+        this.rPa = a;
+        this.Zla = b;
+        this.Zm = this.OF = null
+    }
+    g3.prototype.Dp = function(a, b) {
+        var c = this;
+        this.Zm && this.clear();
+        this.OF = b;
+        this.Zla.load({
+            video_id: a
+        }, function(a) {
+            return c.Lva(a)
+        })
+    }
+    ;
+    g3.prototype.Lva = function(a) {
+        var b = this
+          , c = a.continuation.timedContinuationData;
+        if (!this.Zm) {
+            this.Zm = this.rPa({
+                innertubeService: this.Zla,
+                continuation: c
+            });
+            if (!this.Zm || !a.continuation)
+                return;
+            this.Zm.Dp(function(a) {
+                return new vz(a.continuation.timedContinuationData,"timed")
+            }, function(a) {
+                return b.uH(a)
+            })
+        }
+        this.uH(a)
+    }
+    ;
+    g3.prototype.uH = function(a) {
+        var b = !1;
+        if (a.actions)
+            for (var c = 0; c < a.actions.length; c++)
+                if (!1 === t("updateViewershipAction.viewership.videoViewCountRenderer.isLive", a.actions[c])) {
+                    b = !0;
+                    break
+                }
+        this.OF && this.OF(a);
+        b && this.Zm && this.clear()
+    }
+    ;
+    g3.prototype.clear = function() {
+        this.Zm && this.Zm.Ls();
+        this.OF = this.Zm = null
+    }
+    ;
+    E(g3, ["timedContinuationPollingServiceFactory", "updatedMetadataService"]);
+    function h3(a, b) {
+        C.call(this);
+        this.sa = "";
+        this.F = a.Nb("video-message-overlay");
+        this.F.model = b;
+        this.H(this.F.model.on("show_overlay", this.Es.bind(this)));
+        this.H(this.F.model.on("hide_overlay", this.sA.bind(this)));
+        this.Vk = a.N(".watch-title-tray");
+        this.H(this.Vk.on("isHidden:changed", this.vZa.bind(this)))
+    }
+    l(h3, C);
+    d = h3.prototype;
+    d.Tc = function(a) {
+        a !== this.sa && (this.sa = a,
+        this.Caa() || this.F.hide())
+    }
+    ;
+    d.Es = function() {
+        this.Caa() && this.F.show()
+    }
+    ;
+    d.sA = function() {
+        this.F.hide()
+    }
+    ;
+    d.vZa = function() {
+        this.F.Df("title-tray-showing", !this.Vk.isHidden());
+        this.F.render()
+    }
+    ;
+    d.Caa = function() {
+        return 0 === this.sa.indexOf("video") || 0 === this.sa.indexOf("ads")
+    }
+    ;
+    E(h3, ["component", "videoMessageOverlayModel"]);
+    function i3(a, b, c, e, f) {
+        S.call(this);
+        this.videoTitle = a;
+        this.subtitle = b;
+        this.viewCount = c;
+        this.publishedTime = e;
+        this.trackingParams = f
+    }
+    l(i3, S);
+    i3.prototype.zR = function() {
+        return [this.subtitle, this.viewCount, this.publishedTime].filter(function(a) {
+            return a
+        }).join(" \u2022 ")
+    }
+    ;
+    i3.prototype.clear = function() {
+        this.publishedTime = this.viewCount = this.subtitle = this.videoTitle = "";
+        this.trackingParams = []
+    }
+    ;
+    function j3(a) {
+        var b = []
+          , c = ""
+          , e = ""
+          , f = ""
+          , g = "";
+        if (a) {
+            var h = a.videoMetadataRenderer;
+            a = a.videoOwnerRenderer;
+            h && h.isLimitedState ? e = X(h.subtitle) : a && (e = X(a.title),
+            a.trackingParams && b.push(a.trackingParams));
+            h && (c = X(h.title),
+            h.shortViewCountText ? f = X(h.shortViewCountText) : h.viewCountText && (f = X(h.viewCountText)),
+            g = X(h.publishedTimeText),
+            h.trackingParams && b.push(h.trackingParams))
+        }
+        return new i3(c,e,f,g,b)
+    }
+    function k3(a) {
+        return new i3(a.videoTitle,a.channelTitle,"","",[])
+    }
+    E(j3, ["source"]);
+    E(k3, ["source"]);
+    function l3() {
+        this.Am = [];
+        this.Nr = []
+    }
+    d = l3.prototype;
+    d.ir = function() {
+        return 0 < this.Am.length
+    }
+    ;
+    d.pmb = function() {
+        return fb(this.Am) || null
+    }
+    ;
+    d.hasNext = function() {
+        return 0 < this.Nr.length
+    }
+    ;
+    d.RAa = function() {
+        return fb(this.Nr) || null
+    }
+    ;
+    d.QC = function(a) {
+        if (!this.ir())
+            return null;
+        this.Nr.push(a);
+        return this.Am.pop() || null
+    }
+    ;
+    d.RC = function(a) {
+        if (!this.hasNext())
+            return null;
+        this.Am.push(a);
+        return this.Nr.pop() || null
+    }
+    ;
+    d.add = function(a) {
+        this.AFa(a) && (this.Am.length = 0);
+        this.Nr.length = 0;
+        10 <= this.getLength() && this.Am.shift();
+        this.Am.push(a)
+    }
+    ;
+    d.clear = function() {
+        this.Am.length = 0;
+        this.Nr.length = 0
+    }
+    ;
+    d.AFa = function(a) {
+        return a.ic.watchEndpoint ? !!a.ic.watchEndpoint.playlistId : a.ic.watchPlaylistEndpoint ? !!a.ic.watchPlaylistEndpoint.playlistId : !1
+    }
+    ;
+    d.getLength = function() {
+        return this.Am.length + this.Nr.length
+    }
+    ;
+    function m3(a) {
+        C.call(this);
+        this.F = a;
+        this.QLa = a.N(".mdx-autoplay-interstitial")
+    }
+    l(m3, C);
+    m3.prototype.Tc = function(a) {
+        this.QLa.model = "mdxPostPlay" === a && this.F.model ? this.F.model.Ea() : null
+    }
+    ;
+    E(m3, ["component"]);
+    var n3 = {
+        apply: function(a, b, c, e, f) {
+            (function() {
+                var b = {};
+                b = (b.loading = {
+                    $k: [".watch-title-tray"]
+                },
+                b.mdxPostPlay = {
+                    $k: [".mdx-autoplay-interstitial"],
+                    tj: [U.Tx],
+                    Ub: ["post-play"]
+                },
+                b["video/title"] = {
+                    $k: [".watch-title-tray"]
+                },
+                b);
+                a.add("initializeWatchViewControllerConfig", new J(new nf(fA,{
+                    childSelectors: [".watch-title-tray", ".mdx-autoplay-interstitial"],
+                    stateMap: b,
+                    dependencies: void 0
+                })));
+                a.add("watchControllerFactory", new H(new I(mp,{
+                    childFactories: new np([new H(new I(h3)), new H(new I(H1,{
+                        config: new J(new sf(G1,{
+                            initializer: "=initializeWatchViewControllerConfig"
+                        }))
+                    })), new H(new I(m3)), new H(new I(f3)), new H(new I(e3)), new H(new I(d3))])
+                })))
+            }
+            )();
+            a.Za({
+                watchHistory: l3
+            });
+            a.V({
+                navigateToWatch: T1
+            });
+            a.Za({
+                updatedMetadataController: g3
+            });
+            (function() {
+                e.uv() && "guide" === b.Iv ? a.If({
+                    requestPartnerExitMessageAfterInitialPlayback: f(U1)
+                }) : a.$({
+                    requestPartnerExitMessageAfterInitialPlayback: function() {}
+                })
+            }
+            )();
+            var g = a.Be("navigationMap");
+            a.add("navigationMap", new J(new sf(S1,{
+                baseNavigationMap: g
+            })));
+            a.add("watchModelFactory", new H(new pp(new I(U2,{
+                name: "watch"
+            }),c3)));
+            g = !b.rf && (c.super_pivot_navigate || c.super_pivot_back);
+            a.$({
+                seekRelative: function() {},
+                superPivotCapabilities: {
+                    Gp: g,
+                    AYa: g && !c.super_pivot_no_animation
+                },
+                playerTypeStrategy: 1
+            });
+            a.Tb({
+                makeNewWatchTitleTrayForPlayback: j3,
+                makeNewWatchTitleTrayForAds: k3
+            })
+        },
+        R: [rX, JC, R1, M1]
+    };
+    E(n3.apply, ["injector", "environment", "experimentFlags", "device", "makeOnceExecuter"]);
+    function o3(a, b, c, e, f, g) {
+        ty.call(this, a, b, e, f, g);
+        this.Fc = c
+    }
+    l(o3, ty);
+    o3.prototype.start = function() {
+        ty.prototype.start.call(this, this.Fc.Kd);
+        var a = this.G.ye(18440);
+        this.G.attachChild(a);
+        this.G.Ca(a);
+        this.Fc.Kd = a
+    }
+    ;
+    o3.prototype.yQ = function() {
+        return !0
+    }
+    ;
+    E(o3, "screenManager playerService legendModel graftPlayback opt_triggerVe opt_cttAuthInfo".split(" "));
+    function p3(a, b, c, e, f, g) {
+        S.call(this);
+        this.ep = a;
+        this.replayButton = b;
+        this.eB = c;
+        this.Jj = e;
+        this.j = f;
+        this.yL = g;
+        this.Vy = this.Bn = 0;
+        this.EP = !1
+    }
+    l(p3, S);
+    d = p3.prototype;
+    d.hx = function() {
+        this.qoa();
+        this.w("countdown:started")
+    }
+    ;
+    d.Ay = function() {
+        this.aQ();
+        this.w("countdown:canceled")
+    }
+    ;
+    d.gva = function() {
+        this.aQ();
+        this.w("countdown:ended");
+        this.Jj("autoplay")
+    }
+    ;
+    d.eT = function() {
+        return this.EP
+    }
+    ;
+    d.qya = function() {
+        return this.Vy
+    }
+    ;
+    d.qoa = function() {
+        var a = this;
+        this.Vy = 5;
+        this.EP = !0;
+        this.Bn = this.j.setInterval(function() {
+            return a.l0()
+        }, 1E3)
+    }
+    ;
+    d.aQ = function() {
+        this.j.clearInterval(this.Bn);
+        this.Bn = 0;
+        this.EP = !1;
+        this.Vy = 0
+    }
+    ;
+    d.l0 = function() {
+        --this.Vy;
+        0 >= this.Vy ? this.gva() : this.w("countdown:tick")
+    }
+    ;
+    d.B = function() {
+        this.aQ();
+        S.prototype.B.call(this)
+    }
+    ;
+    function q3(a, b, c, e, f, g, h, k, m, p) {
+        a = a({
+            quality: 480
+        });
+        b = r3(b, f, g, h, p);
+        c = s3(c, a, e, h, p);
+        return new p3(a,b,c,h,k,m())
+    }
+    function s3(a, b, c, e, f) {
+        return b ? (b = b.subtitle + ": " + b.title + ". " + b.byline + ".",
+        a({
+            label: "",
+            iconClass: Do.PLAYING,
+            payload: c(),
+            clickAction: function(a) {
+                f.ri("postplay_autoplay_next_video_played");
+                a ? e("postplay-skip-forward", a) : e("postplay-skip-forward")
+            },
+            accessibleLabel: b
+        })) : null
+    }
+    function r3(a, b, c, e, f) {
+        if (a = t("autoplayRenderer.replayVideoRenderer.pivotVideoRenderer", a.get())) {
+            var g = X(a.overlayLabel)
+              , h = X(a.title)
+              , k = X(a.shortBylineText);
+            h = g + ": " + h + ". " + k + ".";
+            b = b.bb(a, {
+                quality: 320
+            });
+            c = c({
+                label: g,
+                imageUrl: b,
+                payload: a.trackingParams,
+                clickAction: function(a) {
+                    f.ri("postplay_replay_selected");
+                    a ? e("skip-backward", a) : e("skip-backward")
+                },
+                accessibleLabel: h
+            });
+            c.Ia = Do[a.overlayIcon.iconType];
+            return c
+        }
+        return null
+    }
+    E(q3, "makePreviewTooltipModel watchNextResponse buttonModelFactory getPostplayNextButtonTrackingParams mediumQualityThumbnailParser imageButtonModelFactory sendWatchStateMessage timeService shouldAutoplay postPlayActivityService".split(" "));
+    function t3(a, b, c, e) {
+        V.call(this);
+        this.Fc = a;
+        this.Dg = b;
+        this.G = c;
+        this.sb = function() {}
+        ;
+        this.model = null;
+        this.mh = !0;
+        this.fea = "";
+        this.fea = e.C("[[next in {{n}}...|Indicate how many seconds left before the next video being auto-played.]]")
+    }
+    l(t3, V);
+    d = t3.prototype;
+    d.ready = function() {
+        var a = this;
+        V.prototype.ready.call(this);
+        this.eB = this.N(".next-video-button");
+        this.replayButton = this.N(".post-play-left .icon-button");
+        this.SJ = this.N(".post-play-left");
+        this.on("keyup", function(b) {
+            return a.No(b)
+        });
+        this.on("keydown", function(b) {
+            return a.No(b)
+        })
+    }
+    ;
+    d.D = function(a) {
+        var b = this;
+        V.prototype.D.call(this, a);
+        this.model && (this.Dg.ri("postplay_open"),
+        this.Ca(),
+        this.model.yL && (this.Bb("countdown:started", function() {
+            return b.nta()
+        }),
+        this.Bb("countdown:tick", function() {
+            return b.SJ.render()
+        }),
+        this.Bb("countdown:ended", function() {
+            return b.lta()
+        }),
+        this.Bb("countdown:canceled", function() {
+            return b.kta()
+        })));
+        this.render(!0)
+    }
+    ;
+    d.Ca = function() {
+        var a = this.model && this.model.eB && this.model.eB.payload;
+        a && this.G.Ca(a);
+        (a = this.model && this.model.replayButton && this.model.replayButton.payload) && this.G.Ca(a)
+    }
+    ;
+    d.No = function(a) {
+        switch (a.keyCode) {
+        case 83:
+            this.Dg.ri("postplay_search");
+            break;
+        case 71:
+        case 172:
+            this.Dg.ri("postplay_nav_home");
+            break;
+        case 27:
+        case 8:
+            this.Dg.ri("postplay_nav_back")
+        }
+    }
+    ;
+    d.onFocus = function() {
+        this.sb();
+        this.sb = this.Fc.Fm([U.BACK, U.Tx, U.jl]);
+        V.prototype.onFocus.call(this)
+    }
+    ;
+    d.onBlur = function() {
+        this.sb();
+        this.sb = y;
+        V.prototype.onBlur.call(this)
+    }
+    ;
+    d.B = function() {
+        this.sb();
+        this.sb = y;
+        V.prototype.B.call(this)
+    }
+    ;
+    d.rb = function() {
+        return this.mc || this.eB
+    }
+    ;
+    d.nta = function() {
+        this.Dg.ri("postplay_autoplay_started");
+        this.SJ.render()
+    }
+    ;
+    d.lta = function() {
+        this.Dg.ri("postplay_autoplay_completed");
+        this.SJ.render()
+    }
+    ;
+    d.kta = function() {
+        this.Dg.ri("postplay_autoplay_cancelled");
+        this.SJ.render()
+    }
+    ;
+    d.YAa = function() {
+        return this.model ? this.model.yL && this.model.eT() ? this.fea.replace("{{n}}", this.model.qya().toString()) : this.model.ep ? this.model.ep.subtitle : "" : ""
+    }
+    ;
+    d.hx = function() {
+        this.model && this.model.yL && !this.model.eT() && this.model.hx()
+    }
+    ;
+    d.Ay = function() {
+        this.model && this.model.yL && this.model.eT() && this.model.Ay()
+    }
+    ;
+    E(t3, ["legendModel", "postPlayActivityService", "screenManager", "localeService"]);
+    var u3 = {
+        animationEndEvent: "animationend",
+        getIntermediateSelectAnimations: "=getAppleTvIntermediateSelectAnimations",
+        makeLongAnimatedMoveAction: "=makeAppleTvLongAnimatedMoveAction",
+        makeAnimatedMoveAction: "=makeAppleTvLongAnimatedMoveAction",
+        makeSelectAction: "=makeAppleTvSelectAction",
+        makePreloadAction: "=makeAnimatedPlaceAction",
+        waitForTransitionEndEvent: "=waitForTransitionOrAnimationEndEvent",
+        ease: "ease-out",
+        longEase: "ease-out"
+    }
+      , x3 = {
+        apply: function(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G, K, L, Q, fa, ta, wa, hb, xb, nb, Jb, bb, Ma) {
+            var ua = g.full_bleed || g.inline_hero_tile;
+            zn(L) && (a.Za({
+                gestureService: mF
+            }),
+            a.Jd({
+                sendAppSettingsSnapshot: nQ
+            }),
+            f.execute("sendAppSettingsSnapshot"),
+            f.Lb("resizeService", "resize-complete", "sendAppSettingsSnapshot"));
+            a.$({
+                parseHorizontalListContinuation: QR,
+                iconTypeToClass: Do,
+                buttonStyleToClass: Fo,
+                getDynamicSizes: yQ
+            });
+            c = {};
+            a.Za((c.actionTileBuilder = O0,
+            c.alertService = u_,
+            c.browseResponseCache = sF,
+            c.browseSetsActivity = P0,
+            c.couponsService = Q0,
+            c.guideModel = jN,
+            c.innerTubeChannelParser = m_,
+            c.innerTubePlaylistParser = p_,
+            c.innerTubeVideoParser = q_,
+            c.legendModel = D_,
+            c.mostRecentlyLoadedBrowseParams = A_,
+            c.premiumService = R0,
+            c.searchQueryModel = S_,
+            c.searchReporting = KX,
+            c.seekingService = UX,
+            c.surfaceContentCache = sF,
+            c.topicOnboardingService = d1,
+            c.transliterationService = v1,
+            c.userProfileCache = y1,
+            c.userProfileService = w1,
+            c.qrCodeService = S0,
+            c));
+            a.add("populateNativeLauncher", new J(new nf(GF,{
+                browseService: "=browseSetsService"
+            })));
+            a.$d({
+                activationCodeLoginModel: y_,
+                animWatcher: kP,
+                autoplayTileModel: z_,
+                blockingAnimWatcher: eP,
+                carouselAnimator: gP,
+                dynamicShelfAnimation: iP,
+                horizontalListModel: DR,
+                pivotFooterModel: Q_,
+                selectableCollection: xy,
+                slidingAnimation: oP,
+                watchHistoryShelfModel: Z_,
+                whosWatchingOverlayAlertRequest: CP,
+                youthereOverlayModel: $2
+            });
+            a.zb({
+                listControllerFactory: eF,
+                collectionContinuerFactory: z1,
+                guideButtonModelFactory: kN,
+                selectableCollectionFactory: xy,
+                unlimitedWelcomeToastModelFactory: W_
+            });
+            a.Jd({
+                applicationSubstateFactory: b.vg ? aF : G_,
+                clientDebugCommands: xR,
+                gaiaAuthParameters: kQ,
+                navigationMap: $P,
+                navigationMapMinusSignIn: aQ,
+                partnerLauncherUrl: HF
+            });
+            a.Tb({
+                blockingEventFilterFactory: fP,
+                collageThumbnailModelFactory: zF,
+                defaultApplicationSubstateFactory: b.vg ? bF : oN,
+                makeEndpointButton: JE,
+                makeEndpointToggleButton: E_,
+                makeVideoTile: dO,
+                makeVideoTileTopDecoration: iO
+            });
+            a.V({
+                changeSubscription: LP,
+                checkDogfoodStatus: tP,
+                clearStorage: OP,
+                clearMostRecentlyLoadedBrowseParams: MP,
+                clearWatchStatesFromHistory: QP,
+                clientAction: hQ,
+                clientSettingEnumToAction: SP,
+                clientSettingEnumToFlag: TP,
+                completePurchase: UP,
+                editPlaylist: VP,
+                shouldForceUpdateOnFocus: zS,
+                ensureLoggedIn: iQ,
+                filterHistory: lQ,
+                getAlertCandidates: oQ,
+                getAppVersionProperties: sQ,
+                getBoundingClientRect: A1,
+                getScreenResolution: D1,
+                getTvAppInfoWithMdxServerEvents: CQ,
+                getVisibilityBoundedWidth: DQ,
+                gotoBrowse: $K,
+                gotoChannelFromDeeplink: HQ,
+                gotoSearchFromDeeplink: KQ,
+                gotoSettings: LQ,
+                handleCobaltDeeplink: QQ,
+                handleInitialBrowseAlert: g.enable_alert_service ? function() {}
+                : $Q,
+                handleInitChannel: VQ,
+                handleInitDeeplink: WQ,
+                handleInitGaiaCode: XQ,
+                handleInitSearchQuery: YQ,
+                handleInitSettings: ZQ,
+                handleServiceEndpoint: gR,
+                handleSignalServiceEndpoint: jR,
+                getAirstreamSessions: EK,
+                loadAssistantRequest: g.enable_voice_assistant ? rR : function() {}
+                ,
+                loadBrowseFromStateChange: function() {},
+                loadDeviceAccounts: uP,
+                loginWithGaiaCode: sR,
+                makeScreenContext: AR,
+                makeSearchModelFromDescriptor: T_,
+                markBrowseRendered: F0,
+                matchShelfColumns: Q ? MR : function() {}
+                ,
+                navigateToGetCart: cQ,
+                navigateToBrowse: bQ,
+                navigateToSearch: eQ,
+                navigateToSettings: fQ,
+                navigateToSignalNavigation: nL,
+                navigateToSignIn: mL,
+                navigateToSignOut: gQ,
+                processSearchQueries: dF,
+                rendererToDisplayItem: G0,
+                resetSettings: pS,
+                requestLoginFromEndpoint: lS,
+                sanitizeShelfListResponse: qS,
+                sanitizeSignInNextEndpoint: rS,
+                setSuggestionServiceParams: xS,
+                settingIdToAction: yS,
+                showWhosWatchingOverlay: BP,
+                supportsHeroShelf: SS,
+                createAccountSelectorOverlay: qP,
+                showAccountSelectorOverlay: rP,
+                showAuthErrorOverlay: IP,
+                showSignInErrorOverlay: FP,
+                showSignInGatedActionOverlay: zP,
+                parseUserProfileResponse: UR,
+                showMobileAssistedSignInOverlay: EP,
+                showUrlSignInOverlay: HP
+            });
+            b.eka ? a.V({
+                handleCobaltDeeplink: NQ
+            }) : L.Rf() ? a.V({
+                handleCobaltDeeplink: PQ
+            }) : b.qj && L.Fb() && a.V({
+                handleCobaltDeeplink: kR
+            });
+            b.rf ? a.V({
+                navigateForward: OR
+            }) : a.V({
+                goBack: EQ,
+                goBackFromWatch: b.hI ? GQ : FQ,
+                goHome: IQ,
+                handleContentConfirmation: RQ,
+                handleDeeplinkError: SQ,
+                handleVideoRetrievalError: aY,
+                isAtHome: oR
+            });
+            kr(a, gF);
+            a.add("externalRouteChangeChildHandlers", new J(new np(["checkBrokenDeeplink", "gotoSearchFromDeeplink", "gotoChannelFromDeeplink", "commonHandleExternalRouteChange"])));
+            a.add("initParamHandlers", new np("handleInitGaiaCode handleInitVideoError handleInitSettings handleInitSearchQuery handleInitChannel handleInitDeeplink".split(" ")));
+            a.add("navigateToNonSignInEndpoint", new J(new nf(Mx,{
+                navigationMap: "=navigationMapMinusSignIn"
+            })));
+            a.$d({
+                browseInteraction: JP,
+                searchInteraction: L0,
+                watchInteraction: o3
+            });
+            a.add("searchModelFactory", new H(new I(U_,{
+                name: "search"
+            })));
+            a.add("timedContinuationPollingServiceFactory", new H(new I(MT)));
+            a.add("newTimedContinuationPollingServiceFactory", new H(new I(c1)));
+            a.add("settingsModelFactory", new H(new I(IN)));
+            a.add("shelfAnimator", new I(hP,{
+                opt_animDuration: 210
+            }));
+            a.add("dynamicShelfAnimator", new I(jP,{
+                opt_animDuration: 210
+            }));
+            a.add("shelfAnimation", new I(lP,{
+                getPositions: v3
+            }));
+            a.add("subsSlidingAnimation", new I(oP,{
+                opt_borderAdjustmentFactor: .0020833333333333333
+            }));
+            a.add("mediumQualityThumbnailParser", new J(new I(qx,{
+                opt_thumbnailQuality: 320
+            })));
+            a.add("launcherVideoParser", new J(new I(q_,{
+                thumbnailParser: "=mediumQualityThumbnailParser"
+            })));
+            c = !1;
+            320 !== b.SC && (c = !0,
+            a.add("pivotThumbnailParser", new J(new I(qx,{
+                opt_thumbnailQuality: b.SC
+            }))));
+            a.add("pivotVideoParser", new J(new I(q_,{
+                thumbnailParser: c ? "=pivotThumbnailParser" : "=mediumQualityThumbnailParser"
+            })));
+            a.b2({
+                listFactory: E1
+            });
+            (function() {
+                var b = G.isSupported() && G.getApiKey() ? G.getApiKey() : L.cm() ? "AIzaSyAKiTLU_Q5GvMd6_eu4CVrmXa8uJrBrPWw" : L.Rf() ? "AIzaSyCzQx7szRqKPxFYuCwEi-6LjbGU5Zx85DA" : "AIzaSyDCU8hByM-4DrUqRUYnGn-3llEO78bcxq8";
+                a.$({
+                    apiaryApiKey: b
+                })
+            }
+            )();
+            (function() {
+                var c = new Tm(location);
+                c.qc("");
+                c.Tw("");
+                var e = L.Rf();
+                if (b.MD && G.isSupported()) {
+                    e = G.getOauthClientId();
+                    var f = G.getOauthClientSecret()
+                } else
+                    e ? (e = "9121908727-guq9hgcv5q3phft9176ukhik6e15opsb.apps.googleusercontent.com",
+                    f = "_mtpgetNAj54C4k6DoGujp3e") : (e = "861556708454-d6dlm3lh05idd8npek18k6be8ba3oc68.apps.googleusercontent.com",
+                    f = "SboVhoG9s0rNafixCSGGKXAT");
+                var g = {};
+                g = Object.freeze((g.device = {
+                    name: "device",
+                    clientId: e,
+                    Vt: f,
+                    nY: "http://gdata.youtube.com https://www.googleapis.com/auth/youtube-paid-content",
+                    $fa: c.toString()
+                },
+                g.direct = {
+                    name: "direct",
+                    clientId: "861556708454-912i5jlic99ecvu3ro5kqirg0hldli5t.apps.googleusercontent.com",
+                    Vt: "ju2WuMJMOjilz_h_1dPgFdeU",
+                    nY: "http://gdata.youtube.com https://www.googleapis.com/auth/youtube-paid-content",
+                    $fa: c.toString()
+                },
+                g));
+                a.$({
+                    oAuthClientProfiles: g,
+                    oAuthClientId: e,
+                    oAuthClientSecret: f,
+                    oAuthClientIdDirectSignIn: "861556708454-912i5jlic99ecvu3ro5kqirg0hldli5t.apps.googleusercontent.com",
+                    oAuthClientSecretDirectSignIn: "ju2WuMJMOjilz_h_1dPgFdeU",
+                    oAuthScopes: "http://gdata.youtube.com https://www.googleapis.com/auth/youtube-paid-content",
+                    oAuthRedirectUri: c.toString()
+                });
+                bb && a.Za({
+                    tokenStore: T0
+                });
+                x.is_sandboxed || b.Yg ? a.Za({
+                    authService: jk
+                }) : b.MD && G.isSupported() ? (a.Za({
+                    authService: $0
+                }),
+                a.V({
+                    refreshOAuthCredentials: wP,
+                    processRefreshTokenResponse: vP
+                })) : b.Si ? (a.Za({
+                    authService: NP
+                }),
+                a.V({
+                    refreshOAuthCredentials: $C
+                })) : a.Za({
+                    authService: bD
+                })
+            }
+            )();
+            c = b.fIa();
+            (function() {
+                var b = {
+                    buttonRenderer: {
+                        na: "iconButton",
+                        eb: JE
+                    },
+                    tvChannelHeaderRenderer: {
+                        na: "channel-header"
+                    },
+                    compactChannelRenderer: {
+                        na: "airstream-avatar-tile",
+                        eb: YN
+                    },
+                    compactMovieRenderer: {
+                        na: "airstream-movie-tile",
+                        eb: hO,
+                        Tr: {
+                            makeWatchableTileBottomModel: "=makeMovieTileBottom"
+                        }
+                    },
+                    compactPlaylistRenderer: {
+                        na: "airstream-playlist-tile",
+                        eb: lO
+                    },
+                    compactPremiumShowRenderer: {
+                        na: "airstream-playlist-tile",
+                        eb: rO
+                    },
+                    compactRadioRenderer: {
+                        na: "airstream-playlist-tile",
+                        eb: lO,
+                        Tr: {
+                            opt_iconClass: Do.MIX
+                        }
+                    },
+                    compactShowRenderer: {
+                        na: "airstream-playlist-tile",
+                        eb: oO
+                    },
+                    compactVideoRenderer: {
+                        na: "airstream-video-tile",
+                        eb: hO
+                    },
+                    guideAccountEntryRenderer: {
+                        na: "guideButton",
+                        eb: mN
+                    },
+                    gridButtonRenderer: {
+                        na: "airstream-action-tile",
+                        eb: MN
+                    },
+                    gridChannelRenderer: {
+                        na: "airstream-avatar-tile",
+                        eb: YN
+                    },
+                    gridPlaylistRenderer: {
+                        na: "airstream-playlist-tile",
+                        eb: lO
+                    },
+                    gridRenderer: {
+                        na: "video-grid",
+                        eb: zR,
+                        Tr: {
+                            gridModelFactory: "=videoGridModelFactory"
+                        }
+                    },
+                    gridRadioRenderer: {
+                        na: "airstream-playlist-tile",
+                        eb: lO,
+                        Tr: {
+                            opt_iconClass: Do.MIX
+                        }
+                    },
+                    gridShowRenderer: {
+                        na: "airstream-playlist-tile",
+                        eb: oO
+                    },
+                    gridVideoRenderer: {
+                        na: "airstream-video-tile",
+                        eb: hO
+                    },
+                    horizontalListRenderer: {
+                        na: "new-horizontal-list"
+                    },
+                    genericPromoRenderer: {
+                        na: "empty-state-pane",
+                        eb: hN
+                    },
+                    guideEntryRenderer: {
+                        na: "guideButton",
+                        eb: lN
+                    },
+                    itemSectionRenderer: {
+                        na: "new-horizontal-list"
+                    },
+                    linearFeedGridRenderer: {
+                        na: "linear-feed-grid",
+                        eb: zR,
+                        Tr: {
+                            gridModelFactory: "=linearFeedGridModelFactory"
+                        }
+                    },
+                    livingRoomContentBundleRenderer: {
+                        na: "airstream-bundle-tile",
+                        eb: UN
+                    },
+                    livingRoomPostTransactionActionPanelRenderer: {
+                        na: "post-transaction-action-panel",
+                        eb: b_
+                    },
+                    livingRoomTvfilmPostTransactionContentRenderer: {
+                        na: "tvfilm-content-panel",
+                        eb: XZ
+                    },
+                    messageRenderer: {
+                        na: "message",
+                        eb: I_
+                    },
+                    musicWideAlbumRenderer: {
+                        na: "airstream-album-tile",
+                        eb: QN
+                    },
+                    navigationItemRenderer: {
+                        na: "airstream-avatar-tile",
+                        eb: ZN
+                    },
+                    pivotFooterRenderer: {
+                        na: "pivot-footer",
+                        eb: R_
+                    },
+                    pivotHorizontalListRenderer: {
+                        na: "pivot-horizontal-list"
+                    },
+                    pivotShelfRenderer: {
+                        na: "pivot-shelf"
+                    },
+                    placeholderTileRenderer: {
+                        na: "placeholderTile"
+                    },
+                    fakeSubsListRenderer: {
+                        na: "subs-horizontal-list"
+                    },
+                    tvSubscriptionsListRenderer: {
+                        na: "subs-horizontal-list"
+                    },
+                    pivotVideoRenderer: {
+                        na: "new-pivot-video-tile",
+                        eb: fO
+                    },
+                    pivotChannelRenderer: {
+                        na: "new-pivot-channel-tile",
+                        eb: YN
+                    },
+                    pivotPlaylistRenderer: {
+                        na: "new-pivot-playlist-tile",
+                        eb: lO
+                    },
+                    pivotRadioRenderer: {
+                        na: "new-pivot-playlist-tile",
+                        eb: lO
+                    },
+                    playlistPanelVideoRenderer: {
+                        na: "videoTile",
+                        qf: l_
+                    },
+                    playlistVideoListRenderer: {
+                        na: "horizontalList"
+                    },
+                    tvPurchaseItemRenderer: {
+                        na: "airstream-avatar-tile",
+                        eb: aO
+                    },
+                    sectionListRenderer: {
+                        na: "shelves",
+                        eb: M_
+                    },
+                    sentimentSurveyShelfRenderer: {
+                        na: "sentiment-survey-shelf",
+                        eb: CN
+                    },
+                    shelfRenderer: {
+                        na: "shelf"
+                    },
+                    signInPromoRenderer: {
+                        na: "empty-state-pane",
+                        eb: eN
+                    },
+                    subscribeProtoRenderer: {
+                        na: "empty-state-pane",
+                        eb: gN
+                    },
+                    surveyShelfRenderer: {
+                        na: "sentiment-survey-shelf",
+                        eb: CN
+                    },
+                    toggleButtonRenderer: {
+                        na: "toggleButton",
+                        eb: E_
+                    },
+                    topicRenderer: {
+                        na: "airstream-topic-tile",
+                        eb: uO
+                    },
+                    tvMusicVideoRenderer: {
+                        na: "airstream-video-tile",
+                        eb: gO
+                    },
+                    tvSurfaceContentRenderer: {
+                        na: "surface-content",
+                        eb: NM
+                    },
+                    videoOwnerRenderer: {
+                        na: "component"
+                    },
+                    videoMetadataRenderer: {
+                        na: "component"
+                    },
+                    videoRenderer: {
+                        na: "videoTile",
+                        qf: l_
+                    },
+                    videoSurveyShelfRenderer: {
+                        na: "video-survey-shelf",
+                        eb: GO
+                    },
+                    watchHistoryShelfRenderer: {
+                        na: "watch-history-shelf",
+                        eb: $_
+                    }
+                };
+                ua && Object.assign(b, {
+                    heroHorizontalListRenderer: {
+                        na: "hero-horizontal-list"
+                    },
+                    heroSectionListRenderer: {
+                        na: "hero-shelf-list",
+                        eb: M_,
+                        Tr: g.full_bleed ? {
+                            newShelfListItemFactory: new nf(O_,{
+                                opt_shelfRendererHeightOverride: 12
+                            })
+                        } : {}
+                    }
+                });
+                a.$({
+                    inflaterConfig: b
+                })
+            }
+            )();
+            (function() {
+                a.zb({
+                    newHorizontalListModelFactory: K_
+                });
+                a.add("vertical-suggestions-list", p({
+                    align: "=staticAlign",
+                    axis: "translateY",
+                    defaultItemSize: 0,
+                    spacing: .5,
+                    size: g.search_ui_2018_a || g.search_ui_2018_b ? 23.6 : 28.4,
+                    isLimitedList: !0,
+                    duration: 0
+                }));
+                a.add("horizontal-suggestions-list", p({
+                    align: "=leftAlign",
+                    axis: "translateX",
+                    size: 69,
+                    spacing: .5,
+                    leftPadding: 3.5,
+                    getSizes: "=getDynamicSizes",
+                    ease: "cubic-bezier(0.05,0,0,1)"
+                }));
+                var c = {
+                    align: "=leftAlign",
+                    axis: "translateY",
+                    duration: 210,
+                    enableSounds: !0,
+                    size: 23.5,
+                    spacing: 0
+                };
+                Q && Object.assign(c, u3);
+                a.add("inner-pivot-shelf-list", p(c));
+                a.add("getPivotShelfHorizontalListSizes", new J(new nf(BQ,{
+                    rendererItemSizes: {
+                        pivotChannelRenderer: function() {
+                            return 11
+                        }
+                    },
+                    defaultSize: 17.25
+                })));
+                c = {
+                    defaultItemSize: 17.25,
+                    duration: 200,
+                    enableSounds: !0,
+                    leftPadding: 4,
+                    overflow: Q ? "visible" : "hidden",
+                    spacing: 1,
+                    getSizes: "=getPivotShelfHorizontalListSizes",
+                    maxBufferedItems: Q ? 5 : 1
+                };
+                Q && Object.assign(c, u3);
+                a.add("pivot-shelf-horizontal-list", p(c));
+                a.add("topics-list", p({
+                    align: Q ? "=lazyAlign" : "=boundedCenterAlign",
+                    defaultItemSize: 12.9,
+                    duration: 0,
+                    enableSounds: !0,
+                    leftPadding: 3,
+                    rightPadding: 5,
+                    size: 75,
+                    spacing: .37
+                }));
+                a.add("pivot-footer-list", p({
+                    align: "=staticAlign",
+                    defaultItemSize: 0,
+                    enableSounds: !0,
+                    isLimitedList: !0,
+                    leftPadding: 3.871,
+                    spacing: 0
+                }));
+                a.add("transport-list", p({
+                    align: "=staticAlign",
+                    defaultItemSize: 0,
+                    spacing: 0,
+                    isLimitedList: !0,
+                    overflow: "visible",
+                    size: 73.8,
+                    maxSwipeNumOfItems: 1
+                }));
+                a.add("sentiment-survey-list", p({
+                    align: "=staticAlign",
+                    defaultItemSize: 10,
+                    spacing: 1
+                }));
+                a.add("video-survey-list", p({
+                    align: "=staticAlign",
+                    defaultItemSize: 3,
+                    spacing: b.Dd ? .5 : 1.5
+                }));
+                a.P([{
+                    name: "new-horizontal-list",
+                    A: CR,
+                    template: "browse_horizontal_list.html"
+                }, {
+                    name: "horizontalList",
+                    A: IR,
+                    template: "horizontal_list.html",
+                    Mb: {
+                        projectionFactory: "=browseProjectionFactory",
+                        opt_animDuration: 200,
+                        opt_tileSpacing: 7,
+                        opt_tileWidthOverWindowHeight: 455 / 1080,
+                        opt_leftMarginOverWindowHeight: 192 / 1080,
+                        opt_rightMarginOverWindowHeight: 25 / 1080
+                    }
+                }, {
+                    name: "pivot-horizontal-list",
+                    A: CR,
+                    template: "pivot_shelf_horizontal_list.html",
+                    Mb: {
+                        continuationThreshold: 6
+                    }
+                }, {
+                    name: "subs-horizontal-list",
+                    A: IR,
+                    template: "horizontal_list.html",
+                    Mb: {
+                        projectionFactory: "=subsProjectionFactory",
+                        opt_isHighlighterFront: !0,
+                        opt_slidingHighlighterName: "subs-sliding-highlighter",
+                        opt_tileWidthOverWindowHeight: 201 / 648,
+                        opt_leftMarginOverWindowHeight: 192 / 1080,
+                        opt_rightMarginOverWindowHeight: 25 / 1080,
+                        opt_tileSpacing: 18
+                    }
+                }])
+            }
+            )(c);
+            b.Dd ? (a.add("projectionFactory", new H(new I(IE,{
+                projectionLength: 5,
+                placeholderCount: 1
+            }))),
+            a.add("topicsProjectionFactory", new H(new I(IE,{
+                projectionLength: 7,
+                placeholderCount: 1
+            }))),
+            a.add("browseProjectionFactory", new H(new I(IE,{
+                projectionLength: 5,
+                placeholderCount: 1
+            }))),
+            a.add("subsProjectionFactory", new H(new I(IE,{
+                projectionLength: 5,
+                placeholderCount: 1
+            })))) : (a.add("projectionFactory", new H(new I(FR,{
+                opt_numBufferTiles: 3
+            }))),
+            a.add("topicsProjectionFactory", new H(new I(FR,{
+                opt_numVisibleTiles: 5,
+                opt_numBufferTiles: 5
+            }))),
+            a.add("browseProjectionFactory", new H(new I(FR,{
+                opt_numBufferTiles: 3
+            }))),
+            a.add("subsProjectionFactory", new H(new I(FR,{
+                opt_numVisibleTiles: 5,
+                opt_numBufferTiles: 3
+            }))));
+            a.Tb({
+                makeNewShelfListModel: M_
+            });
+            a.If({
+                newShelfListItemFactory: O_
+            });
+            a.P([{
+                name: "shelves",
+                A: GM,
+                template: "new_shelf_list.html"
+            }]);
+            ua && a.P([{
+                name: "hero-shelf-list",
+                A: wX,
+                template: "hero_shelf_list.html"
+            }, {
+                name: "shelf-list-header",
+                A: V,
+                template: g.full_bleed ? "shelf_list_header.html" : ""
+            }, {
+                name: "hero-horizontal-list",
+                A: CR,
+                template: "hero_browse_horizontal_list.html"
+            }]);
+            a.V({
+                parseShelfListContinuation: RR
+            });
+            a.P([{
+                name: "pivot-shelf-list",
+                A: FX,
+                template: "new_pivot_shelf_list.html"
+            }]);
+            (function() {
+                a.add("playSound", new J(new nf(VR,{
+                    bedrockPlaySound: a.Be("playSound")
+                })));
+                a.add("playSoundFromDescriptor", new J(new nf(WR,{
+                    bedrockPlaySoundFromDescriptor: a.Be("playSoundFromDescriptor")
+                })));
+                if (g.sound_redesign) {
+                    var b = {};
+                    a.$({
+                        soundDescriptorToSoundIdMap: (b["focus-change"] = "airstream_move",
+                        b["list-horizontal-nav"] = "airstream_move",
+                        b["list-vertical-nav"] = "airstream_move",
+                        b["list-end"] = "airstream_thunk",
+                        b.enter = "airstream_select",
+                        b.escape = "airstream_move",
+                        b["pivot-focus-change"] = "airstream_move",
+                        b)
+                    })
+                } else
+                    b = {},
+                    a.$({
+                        soundDescriptorToSoundIdMap: (b["focus-change"] = "same-light",
+                        b["list-horizontal-nav"] = "same-toggle",
+                        b["list-vertical-nav"] = "same-toggle",
+                        b["list-end"] = "same-heavy",
+                        b.enter = "cross-enter",
+                        b.escape = "cross-back",
+                        b["pivot-focus-change"] = "same-heavy",
+                        b)
+                    })
+            }
+            )();
+            (function() {
+                var c = a.get("supportsDialSeamlessFeatures") && Ma;
+                a.$({
+                    keyboardSettings: {
+                        ska: !0,
+                        qka: !0,
+                        pka: !1,
+                        jka: !1,
+                        kka: !0,
+                        eD: b.supportsVoiceSearch || c
+                    }
+                });
+                b.iD && (c = e.Yb,
+                g.search_ui_2018_a || g.search_ui_2018_b ? (a.add("kabukiKeyboardModel", new I(C_)),
+                a.P([{
+                    name: "search-keyboard",
+                    A: AX,
+                    template: "kabuki_keyboard.html",
+                    Mb: {
+                        keyboardModel: "=kabukiKeyboardModel"
+                    }
+                }])) : "ja_JP" === c ? a.P([{
+                    name: "search-keyboard",
+                    A: zX,
+                    template: "search_keyboard.html",
+                    Mb: {
+                        keyboardModel: "=searchKeyboardModel"
+                    }
+                }]) : "ko_KR" === c && a.P([{
+                    name: "search-keyboard",
+                    A: yE,
+                    template: "search_keyboard.html",
+                    Mb: {
+                        keyboardModel: "=searchKeyboardModel"
+                    }
+                }]))
+            }
+            )();
+            b.B0 && a.P([{
+                name: "search-keyboard",
+                A: AF,
+                template: "kabu_keyboard.html",
+                Mb: {
+                    model: "=kabuKeyboardModel"
+                }
+            }]);
+            (function() {
+                switch (e.Yb) {
+                case "ja_JP":
+                    var c = kA("ja-Hira", "ja");
+                    break;
+                case "zh_CN":
+                    c = kA("en", "zh-Hans");
+                    break;
+                case "zh_HK":
+                case "zh_TW":
+                    c = kA("en", "zh-Hant", "zh-hant-t-i0-pinyin");
+                    break;
+                default:
+                    c = null
+                }
+                c = {
+                    langCodePair: c
+                };
+                a.add("suggestionsModel", new I(Jb ? V_ : b.hD ? X_ : B_,c));
+                b.hD ? a.add("transliterationsModel", new I(X_,c)) : a.add("transliterationsModel", new I(B_,c))
+            }
+            )();
+            b.fg && h.isSupported() && (a.Za({
+                systemCaptionSettingsService: b1
+            }),
+            f.pe("systemCaptionSettingsService"));
+            (function() {
+                b.rf ? a.P([{
+                    name: "transport-controls",
+                    A: null
+                }]) : (a.$({
+                    useHdThumbnails: g.ftc_hd_thumbs || !b.Dd
+                }),
+                a.$({
+                    seekRelative: function() {}
+                }),
+                a.P([{
+                    name: "transport-controls",
+                    A: VX,
+                    template: "watch/transport_controls.html"
+                }]))
+            }
+            )();
+            a.add("shouldSyncAdsData", new rf(!0));
+            (function() {
+                a.V({
+                    limitToastToApplicationState: pR,
+                    showAddedToWatchLaterToast: DS,
+                    showAccountRemovedToast: AS,
+                    showActiveAccountRemovedToast: BS,
+                    showAdPersonalizationConfirmationToast: CS,
+                    showClearWatchHistoryToast: ES,
+                    showImeTelexToast: cF,
+                    showLanguageChangedToast: GS,
+                    showLocationChangedToast: HS,
+                    showNavigateToGetCartErrorToast: IS,
+                    showPauseWatchHistoryToast: KS,
+                    showRateAtvToast: function() {
+                        return !1
+                    },
+                    showSharedDeviceToast: LS,
+                    showUnlimitedWelcomeToast: OS,
+                    showVideoSurveySubmitToast: PS,
+                    showWhyThisAdErrorToast: RS
+                });
+                a.add("hasShownImeTelexToastThisSession", new J(new I(Il,{
+                    initial: !1
+                })));
+                a.add("numTimesImeTelexToastShown", new J(new I(Hl,{
+                    storageKey: "num-times-ime-telex-toast-shown",
+                    "default": 0
+                })));
+                a.add("showSurveyThanksToast", new J(new nf(eD,{
+                    id: "surveyThanksId",
+                    componentRenderer: "surveyThanksToast",
+                    timeoutMs: 1500
+                })));
+                b.supportsVoiceSearch ? (a.add("hasShownVoiceSearchEducationToastThisSession", new J(new I(Il,{
+                    initial: !1
+                }))),
+                a.add("numVoiceSearchEducationToastsShown", new J(new I(Hl,{
+                    storageKey: "num-voice-search-education-toasts-shown",
+                    "default": 0
+                }))),
+                a.V({
+                    showVoiceSearchEducationToast: K0,
+                    showVoiceSearchErrorToast: QS
+                }),
+                a.b2({
+                    voiceSearchEducationMessages: lF
+                }),
+                a.$({
+                    showMobileSmartRemoteEducationToast: vd
+                })) : (a.$({
+                    voiceSearchEducationMessages: [],
+                    showVoiceSearchEducationToast: vd,
+                    showVoiceSearchErrorToast: vd
+                }),
+                Ma ? (a.add("hasShownSmartRemoteToastThisSession", new J(new I(Il,{
+                    initial: !1
+                }))),
+                a.V({
+                    showMobileSmartRemoteEducationToast: J0
+                }),
+                a.add("numSmartRemoteToastsShown", new J(new I(Hl,{
+                    storageKey: "num-smart-remote-toasts-shown",
+                    "default": 0
+                })))) : a.$({
+                    showMobileSmartRemoteEducationToast: vd
+                }))
+            }
+            )();
+            (function() {
+                b.vg ? a.$({
+                    gotoSearch: function() {}
+                }) : (a.V({
+                    gotoSearch: JQ
+                }),
+                f.Lb("rootDispatcher", "keyup", fR))
+            }
+            )();
+            (function() {
+                function b(b, c, e) {
+                    c = {
+                        id: b,
+                        path: c
+                    };
+                    e && (c = Object.assign({}, c, e));
+                    a.add(b, new J(new I(us,c)))
+                }
+                b("browseSetsService", "/browse", {
+                    opt_pendingRequestPolicy: "cancel_when_root"
+                });
+                b("clearSearchHistoryService", "/history/clear_search_history");
+                b("clearWatchHistoryService", "/history/clear_watch_history", {
+                    opt_successCallback: US
+                });
+                b("editPlaylistService", "/browse/edit_playlist");
+                b("feedbackService", "/feedback");
+                b("getHistoryPausedStateService", "/history/get_history_paused_state");
+                b("getLiveChatService", "/live_chat/get_live_chat");
+                b("getPlaylistService", "/playlist/get_add_to_playlist");
+                b("guideService", "/guide");
+                b("pauseWatchHistoryService", "/history/pause_watch_history", {
+                    opt_successCallback: TS
+                });
+                b("prefetchBrowseService", "/browse", {
+                    pendingRequestPolicy: "cancel_never"
+                });
+                b("resumeWatchHistoryService", "/history/resume_watch_history", {
+                    opt_successCallback: TS
+                });
+                b("settingsService", "/account/get_setting");
+                b("subscribeService", "/subscription/subscribe");
+                b("unsubscribeService", "/subscription/unsubscribe");
+                b("updatedMetadataService", "/updated_metadata");
+                b("ypcCompleteTransactionService", "/ypc/complete_transaction");
+                b("ypcGetCartService", "/ypc/get_cart");
+                b("ypcGetOffersService", "/ypc/get_offers");
+                b("ypcGetOfferDetailsService", "/ypc/get_offer_details");
+                b("ypcGrantRewardService", "/ypc/grant_reward");
+                a.add("suggestionService", new J(new I(LE,{
+                    baseUrl: "//clients1.google.com",
+                    client: "youtube-lr",
+                    dataSource: "yt",
+                    id: "suggestionService",
+                    path: "/complete/search"
+                })));
+                a.add("searchService", new J(new I(s_,{
+                    id: "searchService",
+                    path: "/search"
+                })));
+                a.add("pausedHistoryStateService", new J(new I(nF,{})));
+                a.add("searchboxStatsModel", new J(new I(M0,{
+                    clientName: "youtube-lr"
+                })))
+            }
+            )();
+            (function() {
+                var b = 3;
+                "ko_KR" === e.Yb && (b = 0);
+                a.$({
+                    minQueryLengthForSearch: b
+                })
+            }
+            )();
+            b.nka && (a.Za({
+                networkStatus: J_
+            }),
+            f.Lb("networkStatus", "network-failed", cR),
+            kr(a, fF));
+            (function() {
+                var c = g.enable_sign_in_overlays ? oS : iS;
+                x.is_sandboxed || b.Yg ? a.V({
+                    requestDefaultLogin: function() {},
+                    requestLogin: function() {},
+                    requestDeviceLogin: function() {}
+                }) : b.MD && G.isSupported() ? a.V({
+                    requestDefaultLogin: c,
+                    requestLogin: c,
+                    requestDeviceLogin: c
+                }) : b.Si ? a.V({
+                    requestDefaultLogin: $R,
+                    requestLogin: $R,
+                    requestDeviceLogin: function() {}
+                }) : b.Os ? a.V({
+                    requestDefaultLogin: nb ? jS : c,
+                    requestLogin: eS,
+                    requestDeviceLogin: c
+                }) : a.V({
+                    requestDefaultLogin: c,
+                    requestLogin: c,
+                    requestDeviceLogin: c
+                })
+            }
+            )();
+            a.$d({
+                channelModel: TR
+            });
+            a.V({
+                enterGuestMode: jQ,
+                requestLogout: mS,
+                showNotSignedInToast: JS,
+                showSignInToast: MS,
+                showSignOutToast: NS
+            });
+            a.P([{
+                name: "pivotPostPlay",
+                A: t3,
+                template: "new_post_play.html"
+            }]);
+            g.including_text_focus && ta.push("including-text-on-focus");
+            !b.vg && b.wg && a.V({
+                hideSplashScreen: K(nR)
+            });
+            a.P([{
+                name: "albumTile",
+                A: GR,
+                template: "tiles/album_tile.html"
+            }, {
+                name: "artistRadioTile",
+                A: GR,
+                template: "tiles/artist_radio.html"
+            }, {
+                name: "channel-button",
+                A: W,
+                template: "channel_button.html"
+            }, {
+                name: "collage-thumbnail",
+                A: V,
+                template: "collage_thumbnail.html"
+            }, {
+                name: "guideSpace",
+                A: V,
+                template: "space.html"
+            }, {
+                name: "legendItem",
+                A: CX,
+                template: "legend_item.html"
+            }, {
+                name: "loadingTile",
+                template: "tiles/loading_tile.html",
+                A: GR
+            }, {
+                name: "message",
+                template: "text.html",
+                A: DX
+            }, {
+                name: "navigationTile",
+                A: GR,
+                template: "tiles/navigation_tile.html"
+            }, {
+                name: "radio-tile",
+                A: IX,
+                template: "tiles/radio_tile.html"
+            }, {
+                name: "pairTile",
+                template: "tiles/remote_pairing.html",
+                A: GR
+            }, {
+                name: "playlistTile",
+                A: HX,
+                template: "tiles/playlist_tile.html"
+            }, {
+                name: "tiltable-button",
+                A: W,
+                template: "button.html"
+            }, {
+                name: "tiltable-icon-button",
+                A: W,
+                template: "icon_button.html"
+            }, {
+                name: "tiltable-toggle-button",
+                A: lp,
+                template: "button.html"
+            }, {
+                name: "toggleIconButton",
+                A: lp,
+                template: "icon_button.html"
+            }, {
+                name: "tile-focus-target",
+                A: V
+            }, {
+                name: "videoTile",
+                A: XX,
+                template: "tiles/video_tile.html"
+            }, {
+                name: "accountRemovedToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "adPersonalizationConfirmationToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "clearWatchHistoryToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "i18nToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "imeTelexToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "notSignedInToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "pauseWatchHistoryToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "rateAtvToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "sharedDeviceToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "signInToast",
+                A: kB,
+                template: "toasts/sign_in_toast.html"
+            }, {
+                name: "signOutToast",
+                A: kB,
+                template: "toasts/sign_out_toast.html"
+            }, {
+                name: "surveyThanksToast",
+                A: kB,
+                template: "toasts/survey_thanks_toast.html"
+            }, {
+                name: "unlimitedWelcomeToast",
+                A: kB,
+                template: "toasts/unlimited_welcome_toast.html"
+            }, {
+                name: "addedToWatchLaterToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "voiceSearchEducationToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "voiceSearchErrorToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "videoSurveySubmitToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "searchWithMobileSmartRemoteToast",
+                A: kB,
+                template: "toasts/default_toast.html"
+            }, {
+                name: "actionTile",
+                template: "tiles/action.html",
+                A: GR
+            }, {
+                name: "channel-header",
+                A: uX,
+                template: "airstream/channel_header.html",
+                Mb: {
+                    channelHeaderThumbnailParser: "=airstreamChannelHeaderThumbnailParser"
+                }
+            }, {
+                name: "carousel",
+                A: sX,
+                Mb: {
+                    opt_tileSpacing: 7
+                }
+            }, {
+                name: "channelTile",
+                A: HR,
+                template: "tiles/channel_tile.html",
+                Mb: {
+                    showChannelBadge: !1
+                }
+            }, {
+                name: "on-screen-keyboard",
+                A: zE,
+                template: "empty.html"
+            }, {
+                name: "pivot-footer",
+                A: GX,
+                template: "pivot_footer.html"
+            }, {
+                name: "pivot-shelf",
+                A: EX,
+                template: "watch/trailblazer_pivot_shelf.html"
+            }, {
+                name: "new-pivot-channel-tile",
+                A: wL,
+                template: "airstream/avatar_tile.html",
+                Mb: {
+                    showChannelBadge: !1
+                }
+            }, {
+                name: "new-pivot-playlist-tile",
+                A: yL,
+                template: "airstream/playlist_tile.html"
+            }, {
+                name: "new-pivot-video-tile",
+                A: KL,
+                template: "airstream/video_tile.html"
+            }, {
+                name: "subs-sliding-highlighter",
+                A: MX,
+                template: "sliding_highlighter.html",
+                Mb: {
+                    slidingAnimation: "=subsSlidingAnimation"
+                }
+            }, {
+                name: "shelf",
+                A: LR,
+                template: "shelf.html",
+                Mb: {
+                    visibilityConfig: w3
+                }
+            }, {
+                name: "sliding-highlighter",
+                A: MX,
+                template: "sliding_highlighter.html",
+                Mb: {
+                    opt_animDuration: 200,
+                    opt_tileSpacing: 7
+                }
+            }, {
+                name: "tiltable",
+                A: Q || ua ? PX : V
+            }, {
+                name: "dialog-skip-button-tile",
+                A: W,
+                template: "tiles/topic_onboarding_button_tile.html"
+            }, {
+                name: "watch-history-shelf",
+                A: ZX,
+                template: "watch_history_shelf.html"
+            }, {
+                name: "youthere-overlay",
+                A: V,
+                template: "youthere_overlay.html"
+            }]);
+            a.add("collageThumbnailDelegateFactory", new H(new I(gA,{
+                componentName: "collage-thumbnail"
+            })));
+            fa ? a.P([{
+                name: "legend",
+                A: V
+            }]) : a.P([{
+                name: "legend",
+                A: BX,
+                template: "legend.html"
+            }]);
+            a.$({
+                searchHistorySettings: {
+                    gka: !1,
+                    lka: !1
+                }
+            });
+            b.rY = b.sf ? 1E3 : 50;
+            a.P([{
+                name: "search",
+                A: LX,
+                template: g.search_ui_2018_a || g.search_ui_2018_b ? "new_search.html" : "search.html",
+                Mb: {
+                    visibilityConfig: w3
+                }
+            }, {
+                name: "suggestions",
+                A: xX
+            }, {
+                name: "vertical-suggestions",
+                A: WX,
+                template: "vertical_suggestions.html"
+            }, {
+                name: "horizontal-suggestions",
+                A: yX,
+                template: "horizontal_suggestions.html"
+            }, {
+                name: "text-input-suggestion",
+                A: NX,
+                template: "text_input_suggestion.html"
+            }, {
+                name: "searchSuggestion",
+                A: W,
+                template: "search_suggestion.html"
+            }]);
+            b.supportsVoiceSearch || Ma ? a.P([{
+                name: "voice-search",
+                A: YX,
+                template: "voice_search.html"
+            }]) : a.P([{
+                name: "voice-search",
+                A: null
+            }]);
+            b.supportsVoiceSearch && a.Za({
+                voiceSearchModel: Y_
+            });
+            k && (f.execute(TQ),
+            f.execute(ZP),
+            f.execute(uS),
+            f.execute(vS),
+            w.isSupported() && f.execute(qR),
+            f.execute(DK),
+            f.Lb("authService", "signed-in", hR),
+            f.Lb("authService", "signed-out", iR),
+            f.Lb("authService", "account-switch", MQ),
+            f.Lb("authService", "remote-invalidation", dR),
+            f.Lb("authService", "auth-status-has-changed", SC),
+            f.Lb("authService", "auth-status-will-change", PC),
+            f.Lb("guideModel", "opened", sS),
+            f.Lb("remoteService", "voice-query:initiated", "showVoiceAssistantDialogFromMdx"),
+            g.enable_mdx_assisted_sign_in && f.Lb("remoteService", "remote:connected", ZC),
+            f.Lb("safeModeFlag", "value-changed", eR),
+            f.Lb("highContrastFlag", "value-changed", TQ),
+            f.vl("startupMonitor", "startup-finished", UQ),
+            f.vl("startupMonitor", "startup-finished", dD),
+            f.vl("startupMonitor", "startup-finished", tP),
+            f.vl("startupMonitor", "startup-finished", YP),
+            f.Lb("applicationModel", "substate:set", XR),
+            f.vl("startupMonitor", "startup-finished", tS));
+            b.iM && f.vl("startupMonitor", "startup-finished", "populateNativeLauncher");
+            b.oja && f.execute(FS);
+            a.add("boundedSecondAlign", new J(new nf(Gy,{
+                calculatePivot: new nf(Iy,{
+                    pivotIndex: 1
+                })
+            })));
+            a.P([{
+                name: "account-pane",
+                A: tL,
+                template: "airstream/account_pane.html"
+            }, {
+                name: "action-settings-pane",
+                A: vL,
+                template: "airstream/action_settings_pane.html"
+            }, {
+                name: "empty-state-pane",
+                A: CL,
+                template: "airstream/empty_state_pane.html"
+            }, {
+                name: "airstream-icon-button",
+                A: W,
+                template: "airstream/icon_button.html"
+            }, {
+                name: "link-with-tv-code-settings-pane",
+                A: IL,
+                template: "airstream/link_with_tv_code_settings_pane.html"
+            }, {
+                name: "link-with-wifi-settings-pane",
+                A: JL,
+                template: "airstream/link_with_wifi_settings_pane.html"
+            }, {
+                name: "radio-button",
+                A: NL,
+                template: "airstream/icon_button.html"
+            }, {
+                name: "radio-settings-pane",
+                A: OL,
+                template: "airstream/radio_settings_pane.html"
+            }, {
+                name: "radio-settings-scroll-pane",
+                A: iM,
+                template: "airstream/radio_settings_scroll_pane.html"
+            }, {
+                name: "read-only-settings-pane",
+                A: jM,
+                template: "airstream/read_only_settings_pane.html"
+            }, {
+                name: "scrollable-pane",
+                A: kM,
+                template: "airstream/scrollable_pane.html"
+            }, {
+                name: "sentiment-survey-shelf",
+                A: pM,
+                template: "airstream/sentiment_survey_shelf.html"
+            }, {
+                name: "unlink-devices-settings-pane",
+                A: UM,
+                template: "airstream/unlink_devices_settings_pane.html"
+            }, {
+                name: "video-survey-shelf",
+                A: VM,
+                template: "airstream/video_survey_shelf.html"
+            }]);
+            a.zb({
+                accountPaneModelFactory: WM,
+                addAccountPaneModelFactory: dN,
+                radioButtonModelFactory: ML,
+                radioSettingsScrollPaneModelFactory: cM
+            });
+            a.Tb({
+                makeAddAccountPaneModel: fN,
+                makeForAddAccount: $M,
+                makeAccountPaneModelFromAccountItemRenderer: XM,
+                makeAccountPaneModelForGuestAccount: ZM,
+                makeAccountPaneModelForSignIn: aN,
+                makeActionSettingsPaneModelFromSettingActionRenderer: cN,
+                makeRadioSettingsPaneModelFromSettingBooleanRenderer: tN,
+                makeRadioSettingsScrollPaneModelFromSettingSingleOptionMenuRenderer: dM,
+                makeReadOnlySettingsPaneModelFromSettingReadOnlyItemRenderer: vN,
+                makeScrollablePaneModelForAppVersionSetting: yN,
+                makeScrollablePaneModelForCreditSetting: zN
+            });
+            a.V({
+                buildAccountsSurfaceChildModels: b.Si || !b.Os ? PK : IK
+            });
+            a.add("guide-list", p({
+                align: "=staticAlign",
+                axis: "translateY",
+                defaultItemSize: 4.25,
+                duration: 50,
+                ease: "linear",
+                enableSounds: !0,
+                isLimitedList: !0,
+                leftPadding: 0,
+                maxSwipeNumOfItems: 1,
+                overflow: Q ? "visible" : "hidden",
+                rightPadding: 0,
+                size: 36,
+                spacing: 0
+            }));
+            a.$({
+                getAppStateGuideIndex: UK
+            });
+            a.V({
+                gotoGuideEndpoint: dL,
+                sanitizeGuideResponse: pL,
+                sendGuidePing: rL
+            });
+            a.P([{
+                name: "guide",
+                A: DL,
+                template: "airstream/guide.html"
+            }, {
+                name: "guideButton",
+                A: GL,
+                template: "airstream/guide_button.html"
+            }]);
+            (function() {
+                Q && (a.If({
+                    getAirstreamAppleTvIntermediateSelectAnimations: QK,
+                    getNavIntermediateSelectAnimations: XK
+                }),
+                a.add("getSecondaryNavIntermediateAnimationDelay", new J(new nf(WK,{
+                    animDuration: 50
+                }))),
+                a.add("getTopNavIntermediateAnimationDelay", new J(new nf(WK,{
+                    animDuration: 50
+                }))));
+                a.add("getBrowseListRendererSizes", new J(new nf(BQ,{
+                    rendererItemSizes: {
+                        compactChannelRenderer: function() {
+                            return 15.5
+                        },
+                        compactMovieRenderer: eO,
+                        gridChannelRenderer: function() {
+                            return 15.5
+                        },
+                        livingRoomContentBundleRenderer: VN,
+                        navigationItemRenderer: function() {
+                            return 15.5
+                        },
+                        topicRenderer: function() {
+                            return 15.5
+                        },
+                        tvPurchaseItemRenderer: function() {
+                            return 15.5
+                        }
+                    },
+                    defaultSize: 21
+                })));
+                a.add("browseListAlign", new J(new nf(HK,{
+                    leftAlign: "=leftAlign",
+                    boundedSecondAlign: "=boundedSecondAlign"
+                })));
+                var b = {
+                    align: Q ? "=lazyAlign" : "=browseListAlign",
+                    defaultItemSize: 21,
+                    duration: Q ? 220 : 150,
+                    ease: "linear",
+                    enableSounds: !0,
+                    getSizes: "=getBrowseListRendererSizes",
+                    leftPadding: 3,
+                    maxSwipeNumOfItems: 3,
+                    overflow: Q ? "visible" : "hidden",
+                    rightPadding: 3.5,
+                    size: g.guide_to_top_nav ? 80 : 71.5,
+                    spacing: 1,
+                    useDifferentBoundarySounds: !0,
+                    shouldForceUpdateOnFocus: "=shouldForceUpdateOnFocus"
+                };
+                Q && Object.assign(b, u3, {
+                    getIntermediateSelectAnimations: "=getAirstreamAppleTvIntermediateSelectAnimations"
+                });
+                a.add("browse-list", p(b));
+                b = Object.assign({}, b);
+                if (ua) {
+                    var c = {};
+                    g.full_bleed ? c = {
+                        musicWideAlbumRenderer: RN
+                    } : (c = AQ(21),
+                    c = {
+                        gridRadioRenderer: c,
+                        gridPlaylistRenderer: c,
+                        gridVideoRenderer: c,
+                        tvMusicVideoRenderer: c,
+                        musicWideAlbumRenderer: AQ(11.75)
+                    },
+                    a.add("shouldForceUpdateOnHeroListFocus", new J(new nf(function() {
+                        return !0
+                    }
+                    ))),
+                    b.shouldForceUpdateOnFocus = "=shouldForceUpdateOnHeroListFocus");
+                    a.add("getHeroBrowseListRendererSizes", new J(new nf(BQ,{
+                        rendererItemSizes: c,
+                        defaultSize: 21
+                    })));
+                    b.align = "=leftAlign";
+                    b.getSizes = "=getHeroBrowseListRendererSizes";
+                    a.add("hero-browse-list", p(b))
+                }
+                a.P([{
+                    name: "browse-highlighter",
+                    A: V
+                }]);
+                b = {
+                    align: "=leftAlign",
+                    axis: "translateY",
+                    duration: 150,
+                    defaultItemSize: 28.6,
+                    ease: Q ? "ease-out" : "linear",
+                    enableSounds: !0,
+                    leftPadding: 0,
+                    rightPadding: 0,
+                    size: 41.8,
+                    spacing: .1,
+                    useDifferentBoundarySounds: !0,
+                    maxSwipeNumOfItems: 1
+                };
+                a.add("inner-shelf-list", p(b));
+                ua && (b = Object.assign({}, b),
+                g.full_bleed && (b.defaultItemSize = 12,
+                b.spacing = 1),
+                a.add("hero-inner-shelf-list", p(b)));
+                a.add("channelNewShelfListItemFactory", new nf(O_,{
+                    opt_shelfRendererHeightOverride: 26.1
+                }));
+                a.add("makeNewChannelShelfListModel", new H(new sf(M_,{
+                    newShelfListItemFactory: "=channelNewShelfListItemFactory"
+                })));
+                b = {
+                    align: Q ? "=lazyAlign" : "=boundedCenterAlign",
+                    axis: "translateY",
+                    defaultItemSize: 4,
+                    duration: 50,
+                    enableSounds: !0,
+                    isLimitedList: !Q,
+                    leftPadding: 0,
+                    rightPadding: 4,
+                    size: 37,
+                    spacing: 0
+                };
+                Q && Object.assign(b, u3, {
+                    getIntermediateAnimationDelay: "=getSecondaryNavIntermediateAnimationDelay",
+                    getIntermediateSelectAnimations: "=getNavIntermediateSelectAnimations"
+                });
+                a.add("secondary-nav-list", p(b))
+            }
+            )();
+            a.P([{
+                name: "video-grid",
+                A: pD,
+                template: "grid.html"
+            }]);
+            a.zb({
+                gridVisibilityPluginFactory: VO
+            });
+            a.add("gridComponentPluginFactories", new np(["gridVisibilityPluginFactory"]));
+            v("video", {
+                fY: "=leftAlign",
+                QF: 21,
+                eQ: 17.75,
+                $h: !0,
+                LD: !0,
+                width: g.guide_to_top_nav ? 80 : 71.5,
+                height: 39,
+                gY: .75,
+                xn: 1,
+                Po: 3,
+                bottomPadding: 0,
+                topPadding: 0,
+                overflow: "hidden",
+                yF: "gridComponentPluginFactories",
+                Dn: !0,
+                Ida: 1
+            }, iN);
+            a.P([{
+                name: "linear-feed-grid",
+                A: pD,
+                template: "grid.html"
+            }]);
+            v("linear-feed", {
+                fY: "=leftAlign",
+                QF: 21,
+                eQ: 20.25,
+                $h: !0,
+                LD: !0,
+                width: g.guide_to_top_nav ? 80 : 71.5,
+                height: 43.25,
+                gY: .5,
+                xn: .75,
+                Po: 3,
+                bottomPadding: 0,
+                topPadding: 0,
+                overflow: "hidden",
+                yF: "gridComponentPluginFactories",
+                Dn: !0,
+                Ida: 2
+            }, iN);
+            a.P([{
+                name: "surface-header",
+                A: PM,
+                template: "airstream/surface_header.html"
+            }]);
+            a.Tb({
+                makeSurfaceHeaderModel: LK
+            });
+            a.Tb({
+                makeSurfaceHeaderFromTvChannelHeader: OK
+            });
+            a.P([{
+                name: "secondary-nav",
+                A: lM,
+                template: "airstream/secondary_nav.html"
+            }, {
+                name: "secondary-nav-divider",
+                A: mM,
+                template: "text.html"
+            }, {
+                name: "secondary-nav-metadata",
+                A: uL,
+                template: "airstream/secondary_nav_metadata.html"
+            }, {
+                name: "secondary-nav-tab",
+                A: nM,
+                template: "airstream/secondary_nav_tab.html"
+            }]);
+            a.zb({
+                secondaryNavModelFactory: xM,
+                secondaryNavTabModelFactory: sM
+            });
+            a.Tb({
+                makeSecondaryNavModelFromAccountsListResponse: zM,
+                makeSecondaryNavModelFromBrowseResponse: yM,
+                makeSecondaryNavModelFromSettingsResponse: AM,
+                makeSecondaryNavTabModelFromAccountItemRenderer: uM,
+                makeSecondaryNavTabModelFromSettingItemRenderer: vM,
+                makeSecondaryNavTabModelFromTabRenderer: tM
+            });
+            (function() {
+                a.P([{
+                    name: "top-nav",
+                    A: uL,
+                    template: g.guide_to_top_nav ? "airstream/top_nav_2.html" : "airstream/top_nav.html"
+                }, {
+                    name: "top-nav-tab",
+                    A: W,
+                    template: "airstream/top_nav_tab.html"
+                }, {
+                    name: "top-nav-icon-tab",
+                    A: W,
+                    template: "airstream/top_nav_icon_tab.html"
+                }]);
+                a.zb({
+                    topNavModelFactory: g.guide_to_top_nav ? yO : BM,
+                    topNavTabModelFactory: vO,
+                    topNavControllerFactory: $X
+                });
+                a.Tb({
+                    makeTopNavModel: g.guide_to_top_nav ? DO : CM,
+                    makeTopNavTabModel: wO
+                });
+                a.$({
+                    retrieveCachedTopNav: EO
+                });
+                var b = {
+                    align: "=staticAlign",
+                    defaultItemSize: 0,
+                    duration: 50,
+                    enableSounds: !0,
+                    isLimitedList: !0,
+                    size: g.guide_to_top_nav ? 52 : 68.5,
+                    spacing: 1.75,
+                    useDifferentBoundarySounds: !0
+                };
+                Q && Object.assign(b, u3, {
+                    getIntermediateAnimationDelay: "=getTopNavIntermediateAnimationDelay",
+                    getIntermediateSelectAnimations: "=getNavIntermediateSelectAnimations"
+                });
+                a.add("top-nav-list", p(b));
+                g.guide_to_top_nav && a.add("top-nav-right-list", p(Object.assign({}, b, {
+                    size: 12
+                })))
+            }
+            )();
+            (function() {
+                a.P([{
+                    name: "surface",
+                    A: FM,
+                    template: "airstream/surface.html"
+                }, {
+                    name: "surface-content",
+                    A: OM,
+                    template: "airstream/surface_content.html"
+                }]);
+                a.add("iconButtonDelegateFactory", new H(new I(gA,{
+                    componentName: "iconButton"
+                })));
+                a.zb({
+                    surfaceContentModelFactory: HM
+                });
+                a.Za({
+                    resizeService: Z0
+                });
+                a.V({
+                    gotoAccountsSurface: ZK,
+                    loadFromBrowseEndpoint: jL
+                });
+                a.Tb({
+                    makeCachedBrowseSurfaceModel: HN
+                });
+                a.add("airstreamToastHasBeenShown", new J(new I(Il,{
+                    initial: !1
+                })));
+                a.zb({
+                    surfaceAccountRemovedPluginFactory: YO,
+                    surfaceReloadAfterSignInPluginFactory: ZO,
+                    surfaceStartupMonitorPluginFactory: $O,
+                    surfaceWatchHistoryPluginFactory: aP
+                });
+                var b = ["surfaceReloadAfterSignInPluginFactory", "surfaceStartupMonitorPluginFactory", "surfaceWatchHistoryPluginFactory"];
+                g.refresh_content && (a.zb({
+                    updateContentPluginFactory: dP
+                }),
+                b.push("updateContentPluginFactory"));
+                g.enable_content_prefetch && (a.add("prefetchContentPluginFactory", new H(new I(XO,{
+                    bufferSize: g.content_prefetch_buffer_size
+                }))),
+                b.push("prefetchContentPluginFactory"));
+                a.add("browseSurfaceModelFactory", new H(new I(EM,{
+                    surfacePluginFactories: new np(b)
+                })));
+                a.add("browseSurfaceInteraction", new I(qN,{
+                    pageVeType: 6827
+                }));
+                a.zb({
+                    unlinkDevicesSettingsPaneFactory: TM,
+                    linkWithTVCodeSettingsPaneFactory: HL
+                });
+                a.add("accountsSurfaceModelFactory", new H(new I(GN,{
+                    surfacePluginFactories: new np(["surfaceAccountRemovedPluginFactory"])
+                })));
+                a.add("accountsSurfaceInteraction", new I(qN,{
+                    pageVeType: 23462
+                }));
+                a.add("settingsSurfaceInteraction", new I(qN,{
+                    pageVeType: 12924
+                }));
+                a.zb({
+                    inlinePlaybackFactory: nN
+                })
+            }
+            )();
+            a.add("airstreamChannelHeaderThumbnailParser", new J(new I(qx,{
+                opt_bannerKey: "desktopBanner",
+                opt_limitedMemoryBannerKey: "desktopBanner",
+                opt_bannerQuality: 1920
+            })));
+            a.P([{
+                name: "channel",
+                A: BL,
+                template: "airstream/channel.html"
+            }]);
+            a.add("browseChannelModelFactory", new H(new I(AL,{
+                channelInteraction: "=channelInteraction"
+            })));
+            a.add("channelInteraction", new I(qN,{
+                pageVeType: 3611,
+                guideModel: null
+            }));
+            a.V({
+                handleWatchableTileDetails: fL
+            });
+            a.Tb({
+                makeGenericTileBottomModel: PO,
+                makeRadioTileBottomModel: UO,
+                makeShowTileBottomModel: TO,
+                makeMovieTileBottom: QO,
+                makeWatchableTileBottomModel: MO
+            });
+            a.P([{
+                name: "airstream-album-tile",
+                A: xL,
+                template: "airstream/album_tile.html"
+            }, {
+                name: "airstream-bundle-tile",
+                A: zL,
+                template: "airstream/playlist_tile.html"
+            }, {
+                name: "watchable-tile-bottom",
+                A: V,
+                template: "airstream/watchable_tile_bottom.html"
+            }, {
+                name: "airstream-avatar-tile",
+                A: wL,
+                template: "airstream/avatar_tile.html"
+            }, {
+                name: "airstream-video-tile",
+                A: KL,
+                template: "airstream/video_tile.html"
+            }, {
+                name: "airstream-movie-tile",
+                A: LL,
+                template: "airstream/movie_tile.html"
+            }, {
+                name: "airstream-playlist-tile",
+                A: yL,
+                template: "airstream/playlist_tile.html"
+            }, {
+                name: "airstream-content-spinner",
+                A: V,
+                template: "spinner.html"
+            }, {
+                name: "airstream-action-tile",
+                A: wL,
+                template: "airstream/action_tile.html"
+            }, {
+                name: "airstream-topic-tile",
+                A: wL,
+                template: "airstream/topic_tile.html"
+            }, {
+                name: "slideshow-thumbnail",
+                A: V,
+                template: "airstream/slideshow_thumbnail.html"
+            }]);
+            a.add("slideshowThumbnailDelegateFactory", new H(new I(gA,{
+                componentName: "slideshow-thumbnail"
+            })));
+            L.cm() && a.V({
+                showRateAtvToast: sL
+            });
+            g.enable_ghost_state && (g.enable_ghost_prefab ? a.P([{
+                name: "surface",
+                A: FM,
+                template: "airstream/surface_with_prefab_ghost.html"
+            }, {
+                name: "ghost-prefab",
+                A: uL,
+                template: "airstream/ghost_states/prefab_ghost_state.html"
+            }]) : a.P([{
+                name: "surface",
+                A: FM,
+                template: "airstream/surface_with_ghost.html"
+            }, {
+                name: "ghost-secondary-nav",
+                A: uL,
+                template: "airstream/ghost_states/secondary_nav.html"
+            }, {
+                name: "ghost-secondary-nav-tab",
+                A: uL,
+                template: "airstream/ghost_states/secondary_nav_tab.html"
+            }, {
+                name: "ghost-surface-content",
+                A: uL,
+                template: "airstream/ghost_states/surface_content.html"
+            }, {
+                name: "ghost-top-nav",
+                A: uL,
+                template: "airstream/ghost_states/top_nav.html"
+            }, {
+                name: "ghost-video-row",
+                A: uL,
+                template: "airstream/ghost_states/video_row.html"
+            }, {
+                name: "ghost-video-tile",
+                A: uL,
+                template: "airstream/ghost_states/video_tile.html"
+            }]));
+            a.add("regionAjaxService", new J(new I(hq,{
+                id: "regionAjaxService",
+                path: "/tv?persist_gl=1"
+            })));
+            a.add("languageAjaxService", new J(new I(hq,{
+                id: "languageAjaxService",
+                path: "/picker_ajax?action_update_language=1",
+                defaultTransportMethod: "POST"
+            })));
+            g.enable_onboarding_for_kabuki && (a.P([{
+                name: "topics-grid",
+                A: pD,
+                template: "grid.html"
+            }]),
+            a.zb({
+                topicOnboardingGridVisibilityPluginFactory: bP
+            }),
+            a.add("gridComponentPluginFactories", new np(["topicOnboardingGridVisibilityPluginFactory"])),
+            v("topics", {
+                fY: "=boundedSecondAlign",
+                QF: 11.5,
+                eQ: 11.5,
+                $h: !0,
+                width: 60,
+                height: 40,
+                gY: 3.25,
+                xn: 1,
+                Po: 0,
+                bottomPadding: 18,
+                topPadding: 0,
+                overflow: "hidden",
+                yF: "gridComponentPluginFactories",
+                Dn: !0
+            }, sD),
+            a.zb({
+                topicOnboardingDialogFactory: SZ
+            }));
+            (function() {
+                if (Q) {
+                    var b = a.Be("horizontalInteractor");
+                    a.add("horizontalInteractor", new H(new I(Dz,{
+                        childFactories: new np([b, new H(new I(EE))])
+                    })));
+                    b = a.Be("verticalInteractor");
+                    a.add("verticalInteractor", new H(new I(Dz,{
+                        childFactories: new np([b, new H(new I(EE))])
+                    })));
+                    a.P([{
+                        name: "tiltable-button",
+                        A: OX,
+                        template: "button.html"
+                    }, {
+                        name: "tiltable-icon-button",
+                        A: OX,
+                        template: "icon_button.html"
+                    }, {
+                        name: "tiltable-toggle-button",
+                        A: QX,
+                        template: "button.html"
+                    }]);
+                    a.add("tiltInteractorFactory", new H(new I(EL)));
+                    a.add("sheenTiltInteractorFactory", new H(new I(F1)));
+                    a.add("axialTiltInteractorFactory", new H(new I(FL)));
+                    a.If({
+                        getTouchpadPanThreshold: k_,
+                        makeAppleTvLongAnimatedMoveAction: tF,
+                        makeAppleTvSelectAction: vR,
+                        getIntermediateAnimationDelay: tQ,
+                        getAppleTvIntermediateSelectAnimations: wQ,
+                        getAppleTvIntermediateGuideSelectAnimations: uQ,
+                        waitForTransitionOrAnimationEndEvent: fD
+                    })
+                } else
+                    ua && a.add("sheenTiltInteractorFactory", new H(new I(V)))
+            }
+            )();
+            f.execute(KP);
+            hb && f.execute("postAdditionalData");
+            xb && f.execute("monitorEventOnConsole");
+            g.enable_alert_service && f.execute(YR)
+        },
+        R: [YC, rX, n3, $Z, e_, j_, oD, uD, SD, DE, Hz, HE, QW, x_, SE, yK, YE, $z, E0, gG, CK, vF, FF]
+    };
+    E(x3.apply, "injector environment window localeModel bootstrapper experimentFlags captionsApi isPlatformSupported systemApi makeNewListConfig makeHighlighterConfig registerGridConfig runtimeApi runtimeParams gestureCapabilities ssoApi makeOnceExecuter device supportsAppleTvUx shouldSuppressLegend configSetBodyCssClasses authCapabilities shouldPostAdditionalDataOnStartup shouldStartEventConsoleOnStartup supportsDirectSignIn supportsSearchSuggestions supportsAuthTokenReplication supportsSmartRemoteToast".split(" "));
+    function v3(a) {
+        return [-100 - a, 0, 100 + a, 2 * (100 + a)]
+    }
+    var w3 = {
+        hR: 3,
+        pha: 1,
+        uma: 2
+    };
+    function y3(a, b, c) {
+        var e = []
+          , f = a.Ul();
+        f && f.length ? b() : (e.push(a.on("subtitlesTrackList:changed", function() {
+            return z3(e, a, b, c)
+        })),
+        e.push(a.on("api:changed", function() {
+            return z3(e, a, b, c)
+        })),
+        a.OI())
+    }
+    function z3(a, b, c, e) {
+        for (; 0 < a.length; ) {
+            var f = a.pop();
+            f && f()
+        }
+        (a = b.Ul()) && a.length ? c() : e()
+    }
+    E(y3, ["playerService", "showCaptionsLanguageOverlay", "showCaptionsNotAvailableOverlay"]);
+    function A3(a, b, c, e, f, g, h) {
+        b = void 0 === b ? function() {}
+        : b;
+        bM.call(this, void 0 === a ? "" : a, void 0, void 0 === c ? null : c, void 0 === e ? "" : e, void 0 === f ? null : f, void 0 === g ? "radio" : g, void 0 === h ? null : h);
+        var k = this;
+        this.KNa = b;
+        this.ob = function(a) {
+            k.KNa(a);
+            k.w("item-clicked", a)
+        }
+    }
+    l(A3, bM);
+    function B3(a) {
+        this.Ia = a;
+        this.items = [];
+        this.selectedIndex = -1
+    }
+    B3.prototype.push = function(a, b) {
+        var c = this;
+        b = void 0 === b ? !1 : b;
+        var e = this.items.length;
+        this.items.push(a);
+        a.on("item-clicked", function() {
+            return c.ba(e)
+        });
+        b ? this.ba(e) : (a.Gi = this.FV(!1),
+        a.Or())
+    }
+    ;
+    B3.prototype.ba = function(a) {
+        if (!(0 > a || a >= this.items.length) && a !== this.selectedIndex) {
+            var b = this.$a();
+            b && (b.Gi = this.FV(!1),
+            b.Or());
+            this.selectedIndex = a;
+            a = this.$a();
+            a.Gi = this.FV(!0);
+            a.Or()
+        }
+    }
+    ;
+    B3.prototype.$a = function() {
+        return 0 > this.selectedIndex || this.selectedIndex >= this.items.length ? null : this.items[this.selectedIndex]
+    }
+    ;
+    B3.prototype.FV = function(a) {
+        return a ? new aM(this.Ia.checked) : this.Ia.kla ? new aM(this.Ia.kla) : null
+    }
+    ;
+    function C3(a, b, c, e, f, g) {
+        var h = []
+          , k = !c.fg;
+        c = b.Ju();
+        var m = new B3({
+            checked: "material-icon-done",
+            kla: null
+        })
+          , p = new ZL;
+        p.title = a.C("[[Subtitles & Closed Captions|Title for closed caption dialog]]");
+        p.subtitle = D3(a, c);
+        p.aM = "quality-selector-subtitle";
+        var u = b.Ej("caption-overlay")
+          , v = new XL(function() {
+            u();
+            b.wp(!1);
+            xc(b.Ju()) && b.$_()
+        }
+        )
+          , w = !xc(c)
+          , x = new A3(a.C("[[Off|Title of a button that turns subtitles off.]]"),function() {
+            b.wp(!1);
+            b.hL({});
+            p.subtitle = D3(a);
+            p.Or()
+        }
+        );
+        h.push(x);
+        m.push(x, !w);
+        w && b.wp(k);
+        w = 0;
+        x = b.Ul();
+        for (var B = {}, G = 0; G < x.length; B = {
+            Xp: B.Xp
+        },
+        G++) {
+            B.Xp = x[G];
+            var K = new A3(B.Xp.displayName,function(c) {
+                return function() {
+                    p.subtitle = D3(a, c.Xp);
+                    p.Or();
+                    b.hL(c.Xp);
+                    b.wp(k)
+                }
+            }(B));
+            h.push(K);
+            m.push(K, E3(c, B.Xp));
+            E3(c, B.Xp) && (w = G + 1)
+        }
+        if (k) {
+            h.push(new a0);
+            var L = new bM(a.C("[[Caption style|Button to go to advanced subtitlestyle settings]]"));
+            L.subLabel = a.C("[[Change text, color, and background style|Label explaining what does the caption style button does]]");
+            L.Gi = new aM("material-icon-chevron-right");
+            h.push(L)
+        }
+        f = f({
+            isSelectable: function(a) {
+                return a.cb
+            }
+        });
+        f.oa(h, w);
+        h = new TL(p,f);
+        var Q = new YL(h,v);
+        L && (L.ob = function() {
+            v.push(Q);
+            g(v)
+        }
+        );
+        e.open(Q)
+    }
+    function E3(a, b) {
+        return a.displayName && b.displayName === a.displayName && b.languageCode === a.languageCode ? !0 : !1
+    }
+    function D3(a, b) {
+        return !b || xc(b) ? a.C("[[OFF|Label to show when subtitles are off, uppercase]]") : a.C("[[ON|Label to show when subtitles are on, uppercase]] \u2022 " + b.displayName)
+    }
+    E(C3, "localeService playerService environment overlayStage makeCollection showCaptionsStyleOverlay".split(" "));
+    var F3 = {}
+      , G3 = (F3.fontFamily = "[[Font family|Menu item to select font family of the captions.]]",
+    F3.color = "[[Font color|Menu item to select font color.]]",
+    F3.background = "[[Background color|Menu item to select background color.]]",
+    F3.windowColor = "[[Window color|Menu item to select the window color.]]",
+    F3.charEdgeStyle = "[[Character edge style|Menu item to select character edge styles of the captions.]]",
+    F3.textOpacity = "[[Text opacity|Menu item to select text opacity of the captions.]]",
+    F3.backgroundOpacity = "[[Background opacity|Menu item for changing background opacity for caption text.]]",
+    F3.windowOpacity = "[[Window opacity|Menu item for changing window opacity for caption text]]",
+    F3.fontSizeIncrement = "[[Font size|Menu item to select size of the captions.]]",
+    F3)
+      , H3 = "fontFamily color fontSizeIncrement textOpacity charEdgeStyle background backgroundOpacity windowColor windowOpacity".split(" ")
+      , I3 = {}
+      , J3 = (I3[0] = "[[Default|Label for default setting value]]",
+    I3[1] = "[[Monospaced Serif|This is the text of the Monospaced Serif option for captions font family.]]",
+    I3[2] = "[[Proportional Serif|This is the text of the Proportional Serif option for captions font family.]]",
+    I3[3] = "[[Monospaced Sans-Serif|This is the text of the Monospaced Sans-Serif option for captions font family.]]",
+    I3[4] = "[[Proportional Sans-Serif|This is the text of the Proportional Sans-Serif option for captions font family.]]",
+    I3[5] = "[[Casual|This is the text of the Casual option for captions font family.]]",
+    I3[6] = "[[Cursive|This is the text of the Cursive option for captions font family.]]",
+    I3[7] = "[[Small Capitals|This is the text of the Small Capitals option for captions font family.]]",
+    I3)
+      , K3 = {}
+      , L3 = (K3["#fff"] = "[[White|The color white.]]",
+    K3["#ff0"] = "[[Yellow|The color yellow.]]",
+    K3["#0f0"] = "[[Green|The color green.]]",
+    K3["#0ff"] = "[[Cyan|The color cyan.]]",
+    K3["#00f"] = "[[Blue|The color blue.]]",
+    K3["#f0f"] = "[[Magenta|The color magenta.]]",
+    K3["#f00"] = "[[Red|The color red.]]",
+    K3["#080808"] = "[[Black|The color black.]]",
+    K3)
+      , M3 = {}
+      , N3 = (M3[-2] = "50%",
+    M3[-1] = "75%",
+    M3[0] = "100%",
+    M3[2] = "200%",
+    M3[4] = "300%",
+    M3)
+      , O3 = {}
+      , P3 = (O3[0] = "0%",
+    O3[.25] = "25%",
+    O3[.5] = "50%",
+    O3[.75] = "75%",
+    O3[1] = "100%",
+    O3)
+      , Q3 = {}
+      , R3 = (Q3[0] = "[[None|This is the text of the None option for character edge styles.]]",
+    Q3[1] = "[[Raised|This is the text of the Raised option for character edge styles.]]",
+    Q3[2] = "[[Depressed|This is the text of the Depressed option for character edge styles.]]",
+    Q3[3] = "[[Uniform|This is the text of the Uniform option for character edge styles.]]",
+    Q3[4] = "[[Drop Shadow|This is the text of the Drop Shadow option for character edge styles.]]",
+    Q3)
+      , S3 = {}
+      , T3 = (S3.fontFamily = J3,
+    S3.color = L3,
+    S3.background = L3,
+    S3.windowColor = L3,
+    S3.charEdgeStyle = R3,
+    S3.textOpacity = P3,
+    S3.backgroundOpacity = P3,
+    S3.windowOpacity = P3,
+    S3.fontSizeIncrement = N3,
+    S3);
+    function U3(a, b, c, e, f, g) {
+        var h = new ZL(a.C("[[Caption Style|Overlay title for caption style settings dialog]]"));
+        e = e({
+            isSelectable: function(a) {
+                return a.cb
+            }
+        });
+        h = new YL(new TL(h,e),g);
+        V3(a, b, g, h, e, f);
+        c.open(h)
+    }
+    function V3(a, b, c, e, f, g) {
+        var h = []
+          , k = new bM(a.C("[[Reset style|Menu item to reset styling of the captions.]]"),function() {
+            b.resetSubtitlesUserSettings();
+            for (var c = b.getSubtitlesUserSettings(), e = 0; e < h.length; e++) {
+                var f = h[e];
+                f.cb && (f.subLabel = a.C(W3(c, f.data)),
+                f.Or())
+            }
+        }
+        );
+        h.push(k);
+        h.push(new a0);
+        k = b.getSubtitlesUserSettings();
+        for (var m = {}, p = 0; p < H3.length; m = {
+            iE: m.iE,
+            kt: m.kt
+        },
+        p++)
+            m.kt = H3[p],
+            m.iE = new bM(a.C(G3[m.kt]),function(a) {
+                return function() {
+                    c.push(e);
+                    g(c, a.iE, a.kt)
+                }
+            }(m),void 0,a.C(W3(k, m.kt)),new aM("material-icon-chevron-right"),"menuitem",m.kt),
+            h.push(m.iE);
+        f.oa(h, 2)
+    }
+    function W3(a, b) {
+        if (!b)
+            return "";
+        a = a[b];
+        return void 0 === a ? "[[Default|Label for default setting value]]" : T3[b][a] || "[[Default|Label for default setting value]]"
+    }
+    E(U3, ["localeService", "playerService", "overlayStage", "makeCollection", "makeCaptionsSettingOverlay"]);
+    function X3(a) {
+        return a.liveChatTextMessageRenderer ? a.liveChatTextMessageRenderer.id || null : a.liveChatSystemMessageRenderer ? a.liveChatSystemMessageRenderer.id || null : a.liveChatPlaceholderItemRenderer ? a.liveChatPlaceholderItemRenderer.id || null : a.liveChatPaidStickerRenderer ? a.liveChatPaidStickerRenderer.id || null : a.liveChatPaidMessageRenderer ? a.liveChatPaidMessageRenderer.id || null : a.liveChatModerationMessageRenderer ? a.liveChatModerationMessageRenderer.id || null : a.liveChatModeChangeMessageRenderer ? a.liveChatModeChangeMessageRenderer.id || null : a.liveChatLegacyPaidMessageRenderer ? a.liveChatLegacyPaidMessageRenderer.id || null : a.liveChatAutoModMessageRenderer ? a.liveChatAutoModMessageRenderer.id || null : null
+    }
+    ;function Y3(a, b) {
+        b = b && b.offerButtonListRenderer;
+        var c = [];
+        if (b && b.offerButtons)
+            for (var e = Math.min(2, b.offerButtons.length), f = 0; f < e; ++f)
+                c.push(a({
+                    source: b.offerButtons[f].buttonRenderer
+                }));
+        return c
+    }
+    E(Y3, ["makeOfferButtonModel"]);
+    function Z3(a, b, c, e, f, g, h, k) {
+        function m() {
+            return p.Kb()
+        }
+        jp.call(this, a, "[[Next video|Voice command to skip to the next video, capitalized.]]", void 0, void 0, h, void 0 === k ? "material-icon-skip-next" : k, void 0, void 0, "next-preview-tooltip");
+        var p = this;
+        this.Qa = b;
+        this.f = c;
+        this.EO = e;
+        this.Jj = g;
+        this.H(f.on("value-changed", m));
+        this.H(c.on("state:changed", m));
+        this.H(c.on("isPlayingAd:changed", m));
+        this.ob = this.kc.bind(this);
+        this.Kb()
+    }
+    l(Z3, jp);
+    Z3.prototype.Kb = function() {
+        var a = this.f.Vc()
+          , b = 1E3 == this.f.state
+          , c = this.f.Ja;
+        this.enabled = (a || b) && !c && !!this.EO()
+    }
+    ;
+    Z3.prototype.kc = function(a) {
+        this.Qa.Yi("next", "transport-controls");
+        a ? this.Jj("skip-forward", a) : this.Jj("skip-forward")
+    }
+    ;
+    E(Z3, "localeService transportControlsReporting playerService canSkipForward watchNextResponse sendWatchStateMessage opt_componentRenderer opt_buttonClass".split(" "));
+    function $3(a, b, c, e, f, g, h) {
+        Z3.call(this, a, b, c, e, f, g, "new-skip-forward-button", "");
+        this.cLa = h;
+        this.ep = null;
+        this.Q6 = !1
+    }
+    l($3, Z3);
+    $3.prototype.Kb = function() {
+        this.Q6 ? this.enabled = !1 : Z3.prototype.Kb.call(this)
+    }
+    ;
+    $3.prototype.update = function(a, b) {
+        b = void 0 === b ? !1 : b;
+        this.ep = this.cLa();
+        this.Q6 = b;
+        this.Kb();
+        this.w("properties:changed")
+    }
+    ;
+    E($3, "localeService transportControlsReporting playerService canSkipForward watchNextResponse sendWatchStateMessage makePreviewTooltipModel autoplayFlag".split(" "));
+    function a4(a) {
+        W.call(this, a);
+        this.model = null
+    }
+    l(a4, W);
+    a4.prototype.D = function(a) {
+        var b = this;
+        W.prototype.D.call(this, a);
+        this.model && (this.Bb("properties:changed", function() {
+            return b.render(!0)
+        }),
+        this.render())
+    }
+    ;
+    E(a4, ["eventFilterFactory"]);
+    function b4(a, b, c) {
+        function e() {
+            return f.Cla()
+        }
+        C.call(this);
+        var f = this;
+        this.F = a;
+        this.f = c;
+        this.sa = "";
+        this.eh = b({
+            idlenessCallback: z(this.ZFa, this)
+        });
+        this.Ba(this.eh);
+        this.H(this.F.on("component-focus", e));
+        this.H(this.F.on("component-blur", e));
+        this.H(this.f.on("isPlaying:changed", e))
+    }
+    l(b4, C);
+    d = b4.prototype;
+    d.Uu = function() {
+        return this.sa
+    }
+    ;
+    d.Tc = function(a) {
+        a !== this.sa && (this.sa = a,
+        this.Cla())
+    }
+    ;
+    d.iU = function() {
+        return "video/control" === this.sa || "ads/control" === this.sa || "ads/skipWithControls" === this.sa
+    }
+    ;
+    d.ZHa = function() {
+        return "video/pivot" === this.sa
+    }
+    ;
+    d.Cla = function() {
+        this.F.J() ? this.iU() && this.f.wb ? this.eh.start(5E3) : this.ZHa() ? this.eh.start(1E4) : this.eh.cancel() : this.eh.cancel()
+    }
+    ;
+    d.ZFa = function() {
+        var a = this.F.model;
+        a && a.va("idle")
+    }
+    ;
+    E(b4, ["component", "recurrentIdlenessDetectorFactory", "playerService"]);
+    function c4(a, b, c, e, f, g, h, k) {
+        C.call(this);
+        var m = this;
+        this.F = a;
+        this.Qa = c;
+        this.FG = e;
+        this.Je = f;
+        this.j = g;
+        this.environment = h;
+        this.window = k;
+        this.sa = "";
+        this.mz = -1;
+        this.aG = "";
+        this.oU = !1;
+        this.oYa(b);
+        this.H(a.on("end-seek-mode", function(a) {
+            m.jva(a)
+        }))
+    }
+    l(c4, C);
+    d = c4.prototype;
+    d.oYa = function(a) {
+        var b = this
+          , c = a({
+            callsPerSecond: 5,
+            handler: function(a) {
+                b.ua(a)
+            },
+            opt_filterFunction: Ay([228, 76, 227, 74, 38, 40, 27, 75, 19, 32, 179, 250, 39, 37])
+        });
+        this.H(this.F.on("keydown", c));
+        this.H(this.F.on("keyup", function(a) {
+            b.xb(a)
+        }));
+        a = a({
+            callsPerSecond: 2,
+            handler: function() {
+                b.bW()
+            }
+        });
+        this.H(this.F.on("mousedown", function(a) {
+            return b.aW(a)
+        }));
+        this.H(this.F.on("mouseup", function(a) {
+            return b.hMa(a)
+        }));
+        this.H(this.F.on("mousemove", a));
+        this.Je && (this.H(this.F.on("leftedgeclick", function(a) {
+            b.kJa(a)
+        })),
+        this.H(this.F.on("rightedgeclick", function(a) {
+            b.QRa(a)
+        })))
+    }
+    ;
+    d.Uu = function() {
+        return this.sa
+    }
+    ;
+    d.Tc = function(a) {
+        a !== this.sa && (this.sa = a)
+    }
+    ;
+    d.ua = function(a) {
+        var b = this.F.model;
+        switch (a.keyCode) {
+        case 38:
+            b && b.va("move-up", "arrow_up");
+            T(a);
+            break;
+        case 40:
+            b && b.va("move-down", "arrow_down");
+            T(a);
+            break;
+        case 39:
+            b && b.va("move-right", "arrow_right", this.F);
+            break;
+        case 228:
+        case 76:
+            b && b.va("fast-forward", "fast_forward");
+            break;
+        case 37:
+            b && b.va("move-left", "arrow_left", this.F);
+            break;
+        case 227:
+        case 74:
+            b && b.va("rewind", "rewind")
+        }
+    }
+    ;
+    d.xb = function(a) {
+        var b = this.F.model;
+        switch (a.keyCode) {
+        case 75:
+        case 179:
+        case 32:
+            b && b.va("toggle-playing", "play_pause") && this.Qa.Xj("play-pause");
+            T(a);
+            break;
+        case 19:
+            b && b.va("pause", "play_pause") && this.Qa.Xj("pause");
+            T(a);
+            break;
+        case 250:
+            b && b.va("play", "play_pause") && this.Qa.Xj("play-pause");
+            T(a);
+            break;
+        case 178:
+            b && b.va("go-back", "stop");
+            T(a);
+            break;
+        case 27:
+        case 8:
+            b && b.va("escape", !a.GA, "escape");
+            T(a);
+            break;
+        case 71:
+        case 172:
+            b && b.va("go-home", "home") && this.Qa.Xj("home");
+            T(a);
+            break;
+        case 39:
+        case 37:
+            T(a);
+            break;
+        case 176:
+        case 186:
+            this.RC();
+            T(a);
+            break;
+        case 177:
+        case 72:
+            this.QC();
+            T(a);
+            break;
+        case 13:
+            if (!b)
+                break;
+            b.va("select", "enter") || b.va("nudge", "enter");
+            break;
+        case 170:
+        case 83:
+            b && b.va("search") && T(a)
+        }
+    }
+    ;
+    d.kJa = function(a) {
+        var b = this.F.model;
+        b && b.va("quick-seek", "rewind", "left_edge_click") && (this.Qa.Xj("rw"),
+        T(a))
+    }
+    ;
+    d.QRa = function(a) {
+        var b = this.F.model;
+        b && b.va("quick-seek", "forward", "right_edge_click") && (this.Qa.Xj("fw"),
+        T(a))
+    }
+    ;
+    d.RC = function() {
+        var a = this.F.model;
+        a && a.va("skip-forward", this.F) && this.Qa.Yi("next", "key-event")
+    }
+    ;
+    d.QC = function() {
+        var a = this.F.model;
+        a && a.va("skip-backward", this.F) && this.Qa.Yi("previous", "key-event")
+    }
+    ;
+    d.aW = function(a) {
+        this.BT() && this.F.model && (T(a),
+        this.oU = !0)
+    }
+    ;
+    d.hMa = function(a) {
+        var b = this
+          , c = this.F.model;
+        this.BT() && this.oU && c && (T(a),
+        this.oU = !1,
+        a = this.lCa(a),
+        -1 === this.mz ? (this.aG = a,
+        this.mz = this.j.setTimeout(function() {
+            b.mz = -1;
+            b.aG = "";
+            b.F.dc("mouseup")
+        }, 250)) : a === this.aG && (this.j.clearTimeout(this.mz),
+        this.mz = -1,
+        c.va("quick-seek", a, "double_tap") && this.Qa.Xj("rewind" === a ? "rw" : "fw"),
+        this.aG = ""))
+    }
+    ;
+    d.bW = function() {
+        if (this.F.J() && !this.environment.jD && !this.FG.o_) {
+            var a = this.F.model;
+            a && this.BT() && a.va("nudge", "mouse_move")
+        }
+    }
+    ;
+    d.jva = function(a) {
+        var b = this.F.model;
+        b && b.va("exit-seek", a.detail && a.detail[0], a.detail && a.detail[1])
+    }
+    ;
+    d.BT = function() {
+        return "video/idle" === this.sa || "ads/idle" === this.sa
+    }
+    ;
+    d.lCa = function(a) {
+        return a.pageX < this.window.screen.width / 2 ? "rewind" : "forward"
+    }
+    ;
+    E(c4, "component eventFilterFactory transportControlsReporting gestureCapabilities supportsAppleTvUx timeService environment window".split(" "));
+    function d4(a) {
+        C.call(this);
+        this.F = a;
+        this.H(a.on("cmd-navigate-to-endpoint", this.eW.bind(this)))
+    }
+    l(d4, C);
+    d4.prototype.Tc = function() {}
+    ;
+    d4.prototype.eW = function(a) {
+        var b = this.F.model;
+        b && b.va("will-navigate", a.detail[0], function() {
+            return T(a)
+        })
+    }
+    ;
+    E(d4, ["component"]);
+    function e4(a, b, c) {
+        C.call(this);
+        var e = this;
+        this.g1a = a;
+        this.XW = b;
+        this.j = c;
+        this.sa = "";
+        this.gN = function() {}
+        ;
+        this.F = a.Nb("fake-watch-offer-buttons");
+        this.F.hide();
+        this.H(a.on("model:changed", function() {
+            e.xd()
+        }));
+        this.xd()
+    }
+    l(e4, C);
+    d = e4.prototype;
+    d.Tc = function(a) {
+        a !== this.sa && (this.sa = a,
+        this.Op())
+    }
+    ;
+    d.B = function() {
+        this.gN();
+        this.gN = function() {}
+        ;
+        this.PM();
+        C.prototype.B.call(this)
+    }
+    ;
+    d.xd = function() {
+        var a = this
+          , b = this.g1a.model;
+        b ? (this.gN = b.on("watch-next-loaded", function() {
+            a.Sp(b)
+        }),
+        this.Sp(b)) : (this.F.model = null,
+        this.gN = function() {}
+        )
+    }
+    ;
+    d.Uu = function() {
+        return this.sa
+    }
+    ;
+    d.Sp = function(a) {
+        this.F.model = this.XW(a.Pf())
+    }
+    ;
+    d.Op = function() {
+        "video/idle" === this.sa ? (this.F.show(),
+        this.z1a()) : (this.F.lb("hidden-animated"),
+        this.F.hide(),
+        this.PM())
+    }
+    ;
+    d.z1a = function() {
+        var a = this;
+        this.PM();
+        this.cO = this.j.setTimeout(function() {
+            a.F.wa("hidden-animated");
+            a.F.render();
+            a.PM()
+        }, 1E4)
+    }
+    ;
+    d.PM = function() {
+        null != this.cO && (this.j.clearTimeout(this.cO),
+        this.cO = null)
+    }
+    ;
+    E(e4, ["component", "parseOfferButtonList", "timeService"]);
+    function f4(a, b, c, e, f, g) {
+        C.call(this);
+        var h = this;
+        this.F = a;
+        this.Fa = b;
+        this.experimentFlags = c;
+        this.lx = e;
+        this.RD = f;
+        this.environment = g;
+        this.Oh = [];
+        this.sa = "";
+        this.mu = function() {}
+        ;
+        this.MO = function() {}
+        ;
+        this.Ed = a.N(".pivot-shelf-list");
+        this.Ed.hide();
+        this.H(a.on("component-focus", this.T0.bind(this)));
+        this.H(a.on("model:changed", this.xd.bind(this)));
+        this.xd();
+        this.H(b.on("opened", function() {
+            h.Ed.hide()
+        }));
+        this.H(b.on("closed", function() {
+            h.Iua()
+        }))
+    }
+    l(f4, C);
+    d = f4.prototype;
+    d.Tc = function(a) {
+        a !== this.sa && (this.JK(),
+        this.sa = a,
+        this.Fa.isOpen() || this.Dka() || this.Cka() || this.dZa() || this.Ed.hide())
+    }
+    ;
+    d.Uu = function() {
+        return this.sa
+    }
+    ;
+    d.Dka = function() {
+        var a = g4.exec(this.sa);
+        if (!a || this.lx.Gp && !this.experimentFlags.super_pivot_navigate)
+            return !1;
+        a = a[1];
+        "control" === a ? this.FL() : "pivot" === a ? (this.FL(),
+        this.F.J() && (this.vG(!0),
+        this.Ed.Gc(!0))) : this.Ed.hide();
+        return !0
+    }
+    ;
+    d.dZa = function() {
+        return "superPivot" === this.sa || "superPivotTransition" === this.sa ? ("superPivotTransition" !== this.sa || this.Ed.isHidden() ? this.FL() : this.Ed.hide(),
+        !0) : !1
+    }
+    ;
+    d.mGa = function() {
+        this.mu();
+        this.mu = function() {}
+    }
+    ;
+    d.Cka = function() {
+        var a = h4.exec(this.sa);
+        return a ? (this.FL(),
+        "pivot" === a[1] ? this.F.J() && this.vG(!1) : this.Ed.Zia(),
+        !0) : !1
+    }
+    ;
+    d.FL = function() {
+        this.mGa();
+        this.Ed.isHidden() && (this.Ed.show(),
+        this.Ed.upa())
+    }
+    ;
+    d.vG = function(a) {
+        var b = this;
+        !this.environment.Dd && a ? (this.F.SI(),
+        this.Ed.focus(),
+        this.MO = this.RD(function() {
+            b.F.CD();
+            b.Ed.focus()
+        }, this.Ed.h, 250)) : this.Ed.focus()
+    }
+    ;
+    d.JK = function() {
+        this.MO();
+        this.F.pba() && this.F.CD();
+        this.MO = function() {}
+    }
+    ;
+    d.xd = function() {
+        for (; 0 < this.Oh.length; )
+            this.Oh.pop()();
+        this.mu = function() {}
+        ;
+        this.JK();
+        var a = this.F.model;
+        a && (this.Oh.push(a.on("query-pivot-availability", this.fQa.bind(this))),
+        this.Oh.push(a.on("watch-next-loaded", this.Sp.bind(this, a))),
+        this.Sp(a, !1))
+    }
+    ;
+    d.fQa = function(a) {
+        a.result = !this.Ed.bm()
+    }
+    ;
+    d.T0 = function() {
+        this.JK();
+        "video/pivot" === this.sa ? this.vG(!0) : "pivotPostplay/pivot" === this.sa && this.vG(!1)
+    }
+    ;
+    d.Sp = function(a, b) {
+        var c = this
+          , e = a.Pf();
+        if (e) {
+            var f = e.pivotShelfListRenderer
+              , g = a.kH();
+            g && (b || !this.Ed.isHidden() ? (this.mu = function() {}
+            ,
+            this.Ed.oh(f, g)) : this.mu = function() {
+                c.Ed.oh(f, g)
+            }
+            )
+        }
+    }
+    ;
+    d.Iua = function() {
+        this.Dka() || this.Cka()
+    }
+    ;
+    d.B = function() {
+        for (; 0 < this.Oh.length; )
+            this.Oh.pop()();
+        this.mu = function() {}
+        ;
+        this.JK();
+        C.prototype.B.call(this)
+    }
+    ;
+    var g4 = /^video\/(.*)/
+      , h4 = /^pivotPostplay\/(.*)/;
+    E(f4, "component dialogStageModel experimentFlags superPivotCapabilities waitForTransitionEndEvent environment".split(" "));
+    function i4(a, b, c, e) {
+        C.call(this);
+        this.F = a;
+        this.Fa = b;
+        this.j = c;
+        this.experimentFlags = e;
+        this.sa = "";
+        this.Oh = [];
+        this.dg = a.Nb("transport-controls");
+        this.dg.hide();
+        this.H(this.dg.on("isHidden:changed", this.SHa.bind(this)));
+        this.H(a.on("component-focus", this.T0.bind(this)));
+        this.H(a.on("model:changed", this.xd.bind(this)));
+        this.xd()
+    }
+    l(i4, C);
+    d = i4.prototype;
+    d.Uu = function() {
+        return this.sa
+    }
+    ;
+    d.Tc = function(a) {
+        if (a !== this.sa) {
+            var b = this.sa;
+            this.sa = a;
+            this.V_a(b);
+            "video/seek" === a ? (a = this.F.model.Ea().Ea(),
+            this.dg.VZ(a.wGa)) : "video/seek" === b && this.dg.CQ()
+        }
+    }
+    ;
+    d.V_a = function(a) {
+        this.dja() ? (this.dg.show(),
+        this.eja() && this.F.J() && (this.dg.focus(),
+        "video/pivot" === a && this.dg.ZB(!0))) : this.dg.hide()
+    }
+    ;
+    d.dja = function() {
+        return this.iU() && !this.Fa.isOpen()
+    }
+    ;
+    d.eja = function() {
+        return "ads/skipWithControls" !== this.sa
+    }
+    ;
+    d.iU = function() {
+        return 0 <= j4.indexOf(this.sa)
+    }
+    ;
+    d.T0 = function() {
+        this.dja() && this.eja() && this.dg.focus()
+    }
+    ;
+    d.xd = function() {
+        for (; 0 < this.Oh.length; )
+            this.Oh.pop()();
+        this.dg.clear();
+        var a = this.F.model;
+        a ? (this.Oh.push(a.on("playback-ready", this.dg.ZB.bind(this.dg, !1))),
+        this.Oh.push(a.on("activated", this.sma.bind(this))),
+        a.isActive() && this.sma()) : this.dg.model = null
+    }
+    ;
+    d.sma = function() {
+        this.dg.model = this.F.model.gDa()
+    }
+    ;
+    d.SHa = function() {
+        this.F.Df("transport-showing", !this.dg.isHidden());
+        this.F.render(!0)
+    }
+    ;
+    d.B = function() {
+        for (; 0 < this.Oh.length; )
+            this.Oh.pop()();
+        C.prototype.B.call(this)
+    }
+    ;
+    var j4 = ["ads/control", "ads/skipWithControls", "video/control", "video/seek"];
+    E(i4, ["component", "dialogStageModel", "timeService", "experimentFlags"]);
+    function k4(a, b, c, e, f, g, h) {
+        Y.call(this, a);
+        this.ft = b;
+        this.f = c;
+        this.Gd = e;
+        this.Ph = f;
+        this.j = g;
+        this.Aha = h;
+        this.buttonText = this.promptText = "";
+        this.setMessageHandler("nudge", this.WS.bind(this));
+        this.setMessageHandler("video-progress", this.pw.bind(this));
+        if (a = this.ft.get())
+            this.promptText = a.userPromptText,
+            this.buttonText = a.buttonText
+    }
+    l(k4, Y);
+    k4.prototype.WS = function() {
+        var a = this;
+        this.f.wb || this.f.play(!1);
+        var b = this.ft.get();
+        this.promptText = b ? b.followUpText : "";
+        this.w("nudge");
+        this.hP("nudge");
+        this.j.setTimeout(function() {
+            return a.Gd(a.Ph(), "idle")
+        }, 1500);
+        this.Aha(4);
+        return !0
+    }
+    ;
+    k4.prototype.pw = function(a) {
+        var b = this.ft.get();
+        b && a >= Math.ceil(b.playbackPauseDelayMs / 1E3) + b.promptDelaySec && (this.f.pause(),
+        this.promptText = b.userPromptAfterPauseText,
+        this.hP("video-progress"),
+        this.w("video_paused"),
+        this.Aha(3));
+        return !0
+    }
+    ;
+    E(k4, "name youthereOverlayValue playerService setWatchVideoState watchVideoIdleStateFactory timeService sendYoutherePing".split(" "));
+    function l4(a) {
+        C.call(this);
+        this.F = a;
+        this.Ys = [];
+        this.Qh = a.Nb("youthere-overlay");
+        this.Qma = this.Qh.h.querySelector(".youthere-button")
+    }
+    l(l4, C);
+    d = l4.prototype;
+    d.Tc = function(a) {
+        var b = this;
+        this.q4();
+        "video/r-u-there" === a ? (this.Qh.model = this.F.model.Ea().Ea(),
+        this.Ys.push(this.Qh.on("keydown", this.SQ.bind(this))),
+        this.Ys.push(this.Qh.on("keyup", this.SQ.bind(this))),
+        this.Ys.push(this.Qh.on("mousemove", this.SQ.bind(this))),
+        this.Ys.push(this.Qh.model.on("nudge", this.WS.bind(this))),
+        this.Ys.push(this.Qh.model.on("video_paused", function() {
+            return b.Qh.render()
+        })),
+        this.Qh.fb(this.Qma, !0),
+        this.Qh.render()) : this.Qh.model = null
+    }
+    ;
+    d.B = function() {
+        this.q4();
+        C.prototype.B.call(this)
+    }
+    ;
+    d.q4 = function() {
+        for (; 0 < this.Ys.length; )
+            this.Ys.pop()()
+    }
+    ;
+    d.SQ = function(a) {
+        this.F.model.va("nudge");
+        T(a, !0)
+    }
+    ;
+    d.WS = function() {
+        this.Qh.fb(this.Qma, !1);
+        this.Qh.render()
+    }
+    ;
+    E(l4, ["component"]);
+    function m4(a, b, c, e, f, g, h, k) {
+        if (!n4(k))
+            return !1;
+        for (var m = 0, p = k.length; m < p; ++m) {
+            var u = k[m];
+            u.qU() ? (h.add(b(g, u, 5)),
+            h.add(a(g, u, 4))) : u.wv() || u.WH() ? (h.add(c(g, u, 4)),
+            h.add(f(g, u, 3))) : u.zr() && h.add(e(g, u, 4))
+        }
+        return !0
+    }
+    function n4(a) {
+        return !ob(a, function(a) {
+            a = a.Yc;
+            return "added" !== a.rh && "moved" !== a.rh
+        })
+    }
+    E(m4, ["makeAnimatedChatEnterMoveAction", "makeAnimatedChatEnterPlaceAction", "makeAnimatedChatExitMoveAction", "makeAnimatedChatMoveAction", "makeChatRemoveAction"]);
+    function o4(a, b, c, e, f, g) {
+        a = [a, b, c];
+        for (b = 0; b < a.length && !a[b](e, f, g); b++)
+            ;
+    }
+    E(o4, ["enqueueAddChatItemAnimatedActions", "enqueueRemoveChatItemAnimatedActions", "enqueueReplaceChatItemAnimatedActions"]);
+    function p4(a, b, c, e, f, g) {
+        for (var h = null, k = 0, m = g.length; k < m; ++k) {
+            var p = g[k];
+            p.XT() && q4(p) ? f.add(a(e, p, 2)) : (p.wv() || p.isRemoved() || p.WH()) && f.add(b(e, p, 3));
+            q4(p) && (h ? h.current.alignment.index > p.current.alignment.index && (h = p) : h = p)
+        }
+        h && f.add(c(e, h, 1))
+    }
+    function q4(a) {
+        a = a.current;
+        return !(!a || !a.alignment.Ec)
+    }
+    E(p4, ["makeLimitedPlaceAction", "makeRemoveAction", "makeOffsetAction"]);
+    function r4(a, b, c, e, f, g) {
+        if (!s4(g))
+            return !1;
+        for (var h = 0, k = g.length; h < k; ++h) {
+            var m = g[h];
+            m.isRemoved() ? (f.add(b(e, m, 4)),
+            f.add(c(e, m, 3))) : m.zr() && f.add(a(e, m, 4))
+        }
+        return !0
+    }
+    function s4(a) {
+        return !ob(a, function(a) {
+            a = a.Yc;
+            return "removed" !== a.rh && "moved" !== a.rh
+        })
+    }
+    E(r4, ["makeAnimatedChatMoveAction", "makeAnimatedChatFadeOutAction", "makeChatRemoveAction"]);
+    function t4(a, b, c, e, f, g, h, k, m) {
+        if (!u4(m))
+            return !1;
+        for (var p = 0, u = m.length; p < u; ++p) {
+            var v = m[p];
+            v.qU() && v.cba() ? (k.add(a(h, v, 5)),
+            k.add(b(h, v, 4))) : v.isRemoved() ? (k.add(c(h, v, 4)),
+            k.add(g(h, v, 3))) : v.wv() || v.WH() ? (k.add(e(h, v, 4)),
+            k.add(g(h, v, 3))) : v.zr() && k.add(f(h, v, 4))
+        }
+        return !0
+    }
+    function u4(a) {
+        return ob(a, function(a) {
+            return "removed" === a.Yc.rh
+        }) && ob(a, function(a) {
+            return "added" === a.Yc.rh
+        })
+    }
+    E(t4, "makeAnimatedChatReplacePlaceAction makeAnimatedChatFadeInAction makeAnimatedChatFadeOutAction makeAnimatedChatExitMoveAction makeAnimatedChatMoveAction makeChatRemoveAction".split(" "));
+    function v4(a) {
+        return 2500 * Math.pow(2, a)
+    }
+    ;function w4(a, b, c, e, f, g, h, k, m, p) {
+        return a(b, c, e, 1, f, g, h, k, m, p)
+    }
+    E(w4, "makeAnimatedChatMoveAndFadeAction axis ease duration chatEnterFadeInEase chatEnterFadeInDurationMs transitionCssText".split(" "));
+    function x4(a, b, c, e, f, g) {
+        var h = f.current;
+        return a(c, h.alignment.position + h.alignment.size + b, 0, e, f, g)
+    }
+    E(x4, ["makeAnimatedChatPlaceAction", "spacing", "axis"]);
+    function y4(a, b, c, e, f, g, h, k, m, p) {
+        return a(b, c, e, 0, f, g, h, k, m, p)
+    }
+    E(y4, "makeAnimatedChatMoveAndFadeAction axis ease duration chatExitFadeOutEase chatExitFadeOutDurationMs transitionCssText".split(" "));
+    function z4(a, b, c, e, f, g, h, k) {
+        return a(b, "", 0, 1, c, e, f, g, h, k)
+    }
+    E(z4, ["makeAnimatedChatMoveAndFadeAction", "axis", "chatFadeInEase", "chatFadeInDurationMs", "transitionCssText"]);
+    function A4(a, b, c, e, f, g, h, k) {
+        return a(b, "", 0, 0, c, e, f, g, h, k)
+    }
+    E(A4, ["makeAnimatedChatMoveAndFadeAction", "axis", "chatFadeOutEase", "chatFadeOutDurationMs", "transitionCssText"]);
+    function B4(a) {
+        this.EQ = {};
+        this.KF = a + "transform";
+        this.QP = a + "transition"
+    }
+    B4.prototype.Tha = function(a, b, c) {
+        if (0 >= c)
+            return this.dsa(a),
+            this;
+        var e = this.Qya(a);
+        this.EQ[a] = b ? e + " " + b + " " + c + "ms" : e + " " + c + "ms";
+        return this
+    }
+    ;
+    B4.prototype.dsa = function(a) {
+        delete this.EQ[a]
+    }
+    ;
+    B4.prototype.zS = function() {
+        var a = Object.values(this.EQ).join(", ");
+        return a ? this.QP + ": " + a + "; transition: " + a : ""
+    }
+    ;
+    B4.prototype.Qya = function(a) {
+        return "transform" === a ? this.KF : a
+    }
+    ;
+    E(B4, ["cssPrefix"]);
+    function C4(a, b, c, e, f, g, h, k, m, p) {
+        var u = m.Yc;
+        m = m.current ? m.current : m.previous;
+        var v = u.cssText;
+        v.setProperty(a, qp(m.alignment.position));
+        v.setProperty("opacity", String(e));
+        rp(v, m, a);
+        var w = v.gi();
+        h.Tha("opacity", f, g);
+        h.Tha("transform", b, c);
+        var x = [w, h.zS()].join(" ");
+        return {
+            apply: function(a) {
+                a = void 0 === a ? !1 : a;
+                v.A4();
+                var b = k.getItem(u);
+                return b ? (b = b.h,
+                b.style.cssText = a ? w : x,
+                b) : null
+            },
+            duration: c > g ? c : g,
+            priority: p,
+            type: "animatedMove"
+        }
+    }
+    ;function D4(a, b, c, e, f, g) {
+        var h = f.Yc;
+        f = f.current;
+        var k = h.cssText;
+        k.setProperty("position", "absolute");
+        k.setProperty("opacity", String(c));
+        k.setProperty(a, qp(b));
+        rp(k, f, a);
+        var m = k.gi();
+        return {
+            apply: function() {
+                var a = e.Em(h)
+                  , b = a.h;
+                e.Zb(a);
+                b.style.cssText = m;
+                e.container.appendChild(b);
+                return b
+            },
+            priority: g,
+            type: "animatedPlace"
+        }
+    }
+    ;function E4(a, b, c, e, f) {
+        return a(b, e.current.alignment.position, 0, c, e, f)
+    }
+    E(E4, ["makeAnimatedChatPlaceAction", "axis"]);
+    function F4(a, b, c, e, f, g) {
+        return g.liveChatTextMessageRenderer ? a({
+            source: g.liveChatTextMessageRenderer
+        }) : g.liveChatLegacyPaidMessageRenderer ? b({
+            source: g.liveChatLegacyPaidMessageRenderer
+        }) : g.liveChatModeChangeMessageRenderer ? c({
+            source: g.liveChatModeChangeMessageRenderer
+        }) : g.liveChatModerationMessageRenderer ? e({
+            source: g.liveChatModerationMessageRenderer
+        }) : g.liveChatPaidMessageRenderer ? f({
+            source: g.liveChatPaidMessageRenderer
+        }) : null
+    }
+    E(F4, "liveChatTextMessageFactory liveChatLegacyPaidMessageFactory liveChatModeChangeMessageFactory liveChatModerationMessageFactory liveChatPaidMessageFactory source".split(" "));
+    function G4(a) {
+        V.call(this);
+        this.se = a;
+        this.model = null
+    }
+    l(G4, V);
+    G4.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        if (this.h && (Je(this.h),
+        this.model && this.model.runs)) {
+            a = 0;
+            for (var b = this.model.runs.length; a < b; ++a) {
+                var c = this.model.runs[a];
+                c.text ? this.h.appendChild(this.Qta(c)) : c.emoji && c.emoji.image && (c = this.se.Ji(c.emoji.image)) && this.h.appendChild(this.Ata(c))
+            }
+        }
+    }
+    ;
+    G4.prototype.Qta = function(a) {
+        var b = document.createElement("span");
+        b.appendChild(document.createTextNode(a.text));
+        a.italics && (b.style.fontStyle = "italic");
+        return b
+    }
+    ;
+    G4.prototype.Ata = function(a) {
+        var b = He(document, "span");
+        b.className = "image";
+        b.style.backgroundImage = "url(" + a + ")";
+        return b
+    }
+    ;
+    E(G4, ["thumbnailParser"]);
+    function H4(a) {
+        V.call(this);
+        this.G = a;
+        this.model = null
+    }
+    l(H4, V);
+    d = H4.prototype;
+    d.ready = function() {
+        V.prototype.ready.call(this);
+        this.list = this.N(".live-chat-message-list")
+    }
+    ;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.list && (this.list.model = this.model ? this.model.LG() : null,
+        this.G.attachChild(this.lc()))
+    }
+    ;
+    d.ig = function() {
+        this.G.Ca(this.lc());
+        return V.prototype.ig.call(this)
+    }
+    ;
+    d.Ga = function(a) {
+        V.prototype.Ga.call(this, a);
+        this.list && (this.list.Gc(!this.isHidden()),
+        this.model && this.model.yVa(this.isHidden()))
+    }
+    ;
+    d.lc = function() {
+        return this.model ? this.model.lc() : null
+    }
+    ;
+    E(H4, ["screenManager"]);
+    function I4(a) {
+        V.call(this);
+        this.IJa = a;
+        this.model = null
+    }
+    l(I4, V);
+    I4.prototype.eza = function() {
+        return this.model ? this.IJa.format(new Date(this.model.timestampUsec / 1E3)) : ""
+    }
+    ;
+    E(I4, ["liveChatTimestampFormatter"]);
+    function J4(a, b, c, e, f, g, h) {
+        S.call(this);
+        this.AMa = a;
+        this.VR = b;
+        this.j = c;
+        this.eAa = e;
+        this.continuation = f;
+        this.HLa = g;
+        this.dAa = h;
+        this.Ms = function() {}
+        ;
+        this.fC = null;
+        this.state = "init-state";
+        this.TQ = !0;
+        this.eC = 0;
+        this.VC = !1
+    }
+    l(J4, S);
+    d = J4.prototype;
+    d.start = function() {
+        var a = this;
+        if (this.VC)
+            return function() {
+                D(a)
+            }
+            ;
+        this.VC = !0;
+        this.Dp(this.continuation);
+        return function() {
+            D(a)
+        }
+    }
+    ;
+    d.setState = function(a) {
+        a !== this.state && (this.w("state:change", this.state, a),
+        this.state = a)
+    }
+    ;
+    d.Dp = function(a) {
+        var b = this;
+        this.Ls();
+        a = this.AMa({
+            innertubeService: this.VR,
+            continuation: a,
+            extractContinuation: this.eAa
+        });
+        a.on("response-received", function(a) {
+            b.DW(a)
+        });
+        a.on("server-error", function(a, e) {
+            b.nB(a, e)
+        });
+        this.Ms = a.start()
+    }
+    ;
+    d.DW = function(a) {
+        this.eC = 0;
+        this.TQ ? (this.setState("first-response-loaded-state"),
+        this.TQ = !1,
+        this.w("first-response-received", a)) : (this.setState("connected-state"),
+        this.w("response-received", a))
+    }
+    ;
+    d.nB = function() {
+        this.eC === this.HLa ? this.setState("error-state") : (this.setState("disconnected-state"),
+        this.TQ = !0,
+        this.LRa(this.continuation))
+    }
+    ;
+    d.LRa = function(a) {
+        var b = this;
+        this.eC++;
+        this.w("reconnect", this.eC);
+        this.clearTimeout();
+        this.fC = this.j.setTimeout(function() {
+            b.fC = null;
+            b.Dp(a)
+        }, this.dAa(this.eC))
+    }
+    ;
+    d.Ls = function() {
+        this.clearTimeout();
+        this.Ms();
+        this.Ms = function() {}
+    }
+    ;
+    d.clearTimeout = function() {
+        this.fC && (this.j.clearTimeout(this.fC),
+        this.fC = null)
+    }
+    ;
+    d.B = function() {
+        this.Ls();
+        S.prototype.B.call(this)
+    }
+    ;
+    E(J4, "newTimedContinuationPollingServiceFactory getLiveChatService timeService getLiveChatTimedContinuation continuation maxRetryCount getLiveChatPollingRetryDelayMs".split(" "));
+    function K4(a, b, c, e, f, g, h, k, m, p, u) {
+        C.call(this);
+        var v = this;
+        this.F = a;
+        this.BJa = b;
+        this.liveChatEnabled = c;
+        this.VR = e;
+        this.yXa = f;
+        this.f = g;
+        this.AJa = h;
+        this.M = k;
+        this.j = m;
+        this.Kra = p;
+        this.HJa = u;
+        this.$b = [];
+        this.Ms = function() {}
+        ;
+        this.MC = !0;
+        this.Mv = this.BJa({
+            container: this.F.h.querySelector(".live-chat-delegate")
+        });
+        this.H(this.F.on("model:changed", function() {
+            v.xd()
+        }));
+        this.H(this.liveChatEnabled.on("value-changed", this.Op.bind(this)));
+        this.H(g.on("state:changed", function() {
+            return v.Op()
+        }));
+        this.Op();
+        this.xd()
+    }
+    l(K4, C);
+    d = K4.prototype;
+    d.Tc = function() {}
+    ;
+    d.B = function() {
+        for (; 0 < this.$b.length; )
+            this.$b.pop()();
+        this.reset();
+        C.prototype.B.call(this)
+    }
+    ;
+    d.reset = function() {
+        this.Ls();
+        this.Bp && (this.Bp.cYa(),
+        this.Bp = null);
+        this.kia(null)
+    }
+    ;
+    d.Ls = function() {
+        this.Ms();
+        this.Ms = function() {}
+    }
+    ;
+    d.r4 = function() {
+        var a = this.Mv.Mf();
+        a && a.model && a.model.reset()
+    }
+    ;
+    d.qTa = function(a) {
+        if (a = a && a.continuationContents && a.continuationContents.liveChatContinuation && a.continuationContents.liveChatContinuation.clientMessages)
+            this.reconnectMessage = X(a.reconnectMessage),
+            this.reconnectedMessage = X(a.reconnectedMessage),
+            this.errorMessage = X(a.fatalError)
+    }
+    ;
+    d.Dp = function(a) {
+        var b = this;
+        this.Ls();
+        a = this.HJa({
+            innertubeService: this.VR,
+            continuation: a,
+            maxRetryCount: 3
+        });
+        a.on("state:change", function(a, e) {
+            b.zNa(a, e)
+        });
+        a.on("reconnect", function(a) {
+            b.DNa(a)
+        });
+        a.on("first-response-received", function(a) {
+            b.kNa(a)
+        });
+        a.on("response-received", function(a) {
+            b.DW(a)
+        });
+        this.MC = !0;
+        this.bG(this.M.C("[[Connecting to Live chat...|signifies to the user that live chat is loading.]]"));
+        this.Ms = a.start()
+    }
+    ;
+    d.zNa = function(a, b) {
+        "error-state" === b ? this.bG(this.errorMessage) : "first-response-loaded-state" === a && "connected-state" === b && (this.MC && (this.MC = !1,
+        this.r4()),
+        this.bG(this.reconnectedMessage))
+    }
+    ;
+    d.kNa = function(a) {
+        this.qTa(a)
+    }
+    ;
+    d.DW = function(a) {
+        this.Bp && this.Bp.lva(this.Iva(a))
+    }
+    ;
+    d.DNa = function(a) {
+        1 === a && (this.MC && (this.MC = !1,
+        this.r4()),
+        this.bG(this.reconnectMessage))
+    }
+    ;
+    d.xd = function() {
+        for (var a = this; 0 < this.$b.length; )
+            this.$b.pop()();
+        var b = this.F.model;
+        b ? (this.$b.push(b.on("watch-next-loaded", function() {
+            a.SD(b)
+        })),
+        this.SD(b)) : this.reset()
+    }
+    ;
+    d.SD = function(a) {
+        (a = a.Pf()) ? this.XPa(a) : this.reset()
+    }
+    ;
+    d.bG = function(a) {
+        var b = this.Mv.Mf();
+        a && b && b.model && b.model.YN(this.AJa({
+            text: a
+        }))
+    }
+    ;
+    d.XPa = function(a) {
+        var b = this.Mv.Mf();
+        if (this.Wb !== a || !b || !b.model)
+            if (this.reset(),
+            this.Wb = a,
+            b = this.Sva(a))
+                a = this.Tva(a),
+                this.Bp = this.yXa(),
+                this.kia(this.Kra({
+                    smoothedQueue: this.Bp,
+                    trackingParams: a
+                })),
+                this.Dp(b)
+    }
+    ;
+    d.zmb = function() {
+        return this.reconnectMessage
+    }
+    ;
+    d.Bmb = function() {
+        return this.reconnectedMessage
+    }
+    ;
+    d.SG = function() {
+        return this.errorMessage
+    }
+    ;
+    d.Sva = function(a) {
+        return (a = a && a.liveChatRenderer && a.liveChatRenderer.continuations && a.liveChatRenderer.continuations[0] && a.liveChatRenderer.continuations[0].reloadContinuationData) ? new vz(a,"reload") : null
+    }
+    ;
+    d.Iva = function(a) {
+        return a && a.continuationContents && a.continuationContents.liveChatContinuation && a.continuationContents.liveChatContinuation.actions || []
+    }
+    ;
+    d.Tva = function(a) {
+        return a && a.liveChatRenderer && a.liveChatRenderer.trackingParams
+    }
+    ;
+    d.Op = function() {
+        var a = this.Mv.Mf();
+        a && (this.liveChatEnabled.get() && this.f.Vc() ? a.show() : a.hide())
+    }
+    ;
+    d.kia = function(a) {
+        var b = this.Mv.Mf();
+        b && b.model !== a && D(b.model);
+        this.Mv.xc(a)
+    }
+    ;
+    E(K4, "component liveChatDelegateFactory liveChatEnabled getLiveChatService smoothedQueueFactory playerService liveChatClientMessageFactory localeService timeService chatItemListFactory liveChatPollingServiceFactory".split(" "));
+    function L4(a, b, c, e, f, g, h, k, m) {
+        C.call(this);
+        var p = this;
+        this.CJa = a;
+        this.EJa = b;
+        this.F = c;
+        this.j = e;
+        this.liveChatEnabled = f;
+        this.DJa = g;
+        this.V0a = h;
+        this.bda = k;
+        this.iV = m;
+        this.Wb = this.rD = this.fz = null;
+        this.$b = [];
+        this.sa = "";
+        this.LI = this.CJa({
+            container: this.F.h.querySelector("#live-chat-education-toast-container")
+        });
+        this.H(this.F.on("model:changed", function() {
+            p.xd()
+        }));
+        this.H(this.liveChatEnabled.on("value-changed", this.l0a.bind(this)))
+    }
+    l(L4, C);
+    d = L4.prototype;
+    d.Tc = function(a) {
+        this.sa = a;
+        this.$ba() ? this.Nda() : this.reset()
+    }
+    ;
+    d.xd = function() {
+        for (var a = this; 0 < this.$b.length; )
+            this.$b.pop()();
+        var b = this.F.model;
+        b ? (this.$b.push(b.on("watch-next-loaded", function() {
+            a.SD(b)
+        })),
+        this.SD(b)) : this.Wb = null
+    }
+    ;
+    d.SD = function(a) {
+        this.Wb = a.Pf();
+        this.Nda()
+    }
+    ;
+    d.Nda = function() {
+        var a = this;
+        this.reset();
+        this.fz = this.j.setTimeout(function() {
+            a.fz = null;
+            a.OLa()
+        }, this.V0a)
+    }
+    ;
+    d.OLa = function() {
+        var a = this;
+        this.AWa() && (this.dXa(),
+        this.rD = this.j.setTimeout(function() {
+            a.rD = null;
+            a.saa()
+        }, this.DJa))
+    }
+    ;
+    d.AWa = function() {
+        return !this.$ba() || !this.isLive() || this.iV.get() || this.bda.get() || this.liveChatEnabled.get() ? !1 : !0
+    }
+    ;
+    d.reset = function() {
+        this.o4();
+        this.E4();
+        this.saa()
+    }
+    ;
+    d.$ba = function() {
+        return "video/idle" === this.sa
+    }
+    ;
+    d.isLive = function() {
+        var a = this.Wb;
+        return !!a && !!a.liveChatRenderer
+    }
+    ;
+    d.l0a = function() {
+        !this.iV.get() && this.liveChatEnabled.get() && this.iV.set(!0)
+    }
+    ;
+    d.dXa = function() {
+        this.LI.xc(this.EJa());
+        this.LI.Mf().render(!0);
+        this.bda.set(!0)
+    }
+    ;
+    d.saa = function() {
+        this.LI.Mf() && this.LI.xc(null)
+    }
+    ;
+    d.o4 = function() {
+        this.fz && (this.j.clearTimeout(this.fz),
+        this.fz = null)
+    }
+    ;
+    d.E4 = function() {
+        this.rD && (this.j.clearTimeout(this.rD),
+        this.rD = null)
+    }
+    ;
+    d.B = function() {
+        this.o4();
+        this.E4();
+        C.prototype.B.call(this)
+    }
+    ;
+    E(L4, "liveChatEduToastDelegateFactory liveChatEduToastModelFactory component timeService liveChatEnabled liveChatEduToastDurationMs videoIdleDurationToShowLiveChatEduToastMs liveChatEduToastShown liveChatInteracted".split(" "));
+    function M4(a, b, c, e) {
+        c = void 0 === c ? 80 : c;
+        e = void 0 === e ? 1E3 : e;
+        S.call(this);
+        this.j = a;
+        this.Tl = b;
+        this.eJ = c;
+        this.KLa = e;
+        this.Uo = [];
+        this.OJ = []
+    }
+    l(M4, S);
+    M4.prototype.cYa = function() {
+        this.dB && this.j.clearTimeout(this.dB)
+    }
+    ;
+    M4.prototype.lva = function(a) {
+        var b = this;
+        if (this.lastUpdateTime) {
+            var c = this.j.za() - this.lastUpdateTime;
+            this.OJ.push(c);
+            5 < this.OJ.length && this.OJ.pop();
+            this.o6 = Math.max.apply(null, this.OJ)
+        }
+        this.lastUpdateTime = this.j.za();
+        c = [];
+        a = ja(a);
+        for (var e = a.next(); !e.done; e = a.next())
+            e = e.value,
+            e.addChatItemAction && c.length && (this.Uo.push(c),
+            c = []),
+            c.push(e);
+        c.length && this.Uo.push(c);
+        this.dB || (this.dB = this.j.setTimeout(function() {
+            b.Z5()
+        }, 0))
+    }
+    ;
+    M4.prototype.Z5 = function() {
+        var a = this;
+        this.dB = null;
+        if (this.Uo.length) {
+            var b = 0
+              , c = 1E4;
+            this.o6 && (c = this.o6 - this.j.za() + (this.lastUpdateTime || 0));
+            b = this.Uo.length < c / this.eJ ? 1 : Math.ceil(this.Uo.length / (c / this.eJ));
+            var e = Bb(this.Uo.splice(0, b));
+            this.w("emit-command", e);
+            this.Uo.length && (1 === b ? (b = c / this.Uo.length,
+            b *= this.Tl() + .5,
+            b = Math.min(this.KLa, b),
+            b = Math.max(this.eJ, b)) : b = this.eJ,
+            this.dB = this.j.setTimeout(function() {
+                a.Z5()
+            }, b))
+        }
+    }
+    ;
+    E(M4, ["timeService", "getRandom", "opt_minimumIntervalMs", "opt_maximumIntervalMs"]);
+    function N4(a, b) {
+        this.item = a;
+        this.JLa = b
+    }
+    N4.prototype.apply = function(a) {
+        var b = a.LG();
+        b.jy([this.item]);
+        a.rga(b.mi(b.ha() - 1), this.JLa)
+    }
+    ;
+    function O4(a, b) {
+        this.externalChannelId = a;
+        this.deletedStateMessage = b;
+        if (b.runs)
+            for (a = 0; a < b.runs.length; a++) {
+                var c = b.runs[a];
+                c.text && (c.italics = !0)
+            }
+    }
+    O4.prototype.apply = function(a) {
+        a = a.LG();
+        for (var b = {}, c = 0, e = a.ha(); c < e; c++) {
+            var f = a.xa(c);
+            f && f.On() === this.externalChannelId && f.clone && (f = f.clone(this.deletedStateMessage),
+            b[c] = f)
+        }
+        a.yga(b)
+    }
+    ;
+    function P4(a, b) {
+        this.targetItemId = a;
+        this.deletedStateMessage = b;
+        if (b.runs)
+            for (a = 0; a < b.runs.length; a++) {
+                var c = b.runs[a];
+                c.text && (c.italics = !0)
+            }
+    }
+    P4.prototype.apply = function(a) {
+        a = a.LG();
+        for (var b = {}, c = 0, e = a.ha(); c < e; c++) {
+            var f = a.xa(c);
+            f && f.getId() === this.targetItemId && f.clone && (f = f.clone(this.deletedStateMessage),
+            b[c] = f)
+        }
+        a.yga(b)
+    }
+    ;
+    function Q4(a, b, c, e, f, g, h, k) {
+        C.call(this);
+        this.trackingParams = a;
+        this.uh = b;
+        this.Bp = c;
+        this.j = e;
+        this.FJa = f;
+        this.GJa = g;
+        this.tZa = h;
+        this.JJa = k;
+        this.XJ = {};
+        this.uI = {};
+        this.JI = [];
+        this.JL = !0;
+        this.$j = this.uh();
+        c && this.H(this.Bp.on("emit-command", this.IPa.bind(this)))
+    }
+    l(Q4, C);
+    d = Q4.prototype;
+    d.lc = function() {
+        return this.trackingParams
+    }
+    ;
+    d.LG = function() {
+        return this.$j
+    }
+    ;
+    d.rga = function(a, b) {
+        var c = a.item.getId();
+        c ? this.QQa(c, b) : this.RQa(a.id, b)
+    }
+    ;
+    d.yVa = function(a) {
+        (this.JL = a) || this.Spa()
+    }
+    ;
+    d.YN = function(a) {
+        this.ZN(new N4(a,this.FJa.get()))
+    }
+    ;
+    d.reset = function() {
+        this.t4();
+        this.ysa();
+        this.$j.dP()
+    }
+    ;
+    d.QQa = function(a, b) {
+        var c = this
+          , e = this.uI[a];
+        e && this.j.clearTimeout(e);
+        this.uI[a] = this.j.setTimeout(function() {
+            var b = c.r8(a);
+            null !== b && c.$j.qga(b);
+            delete c.uI[a]
+        }, b)
+    }
+    ;
+    d.RQa = function(a, b) {
+        var c = this
+          , e = this.XJ[a];
+        e && this.j.clearTimeout(e);
+        this.XJ[a] = this.j.setTimeout(function() {
+            c.$j.oga(a);
+            delete c.XJ[a]
+        }, b)
+    }
+    ;
+    d.IPa = function(a) {
+        for (var b = 0; b < a.length; b++)
+            this.kEa(a[b]);
+        this.rsa()
+    }
+    ;
+    d.kEa = function(a) {
+        this.Goa(a);
+        this.qLa(a);
+        this.rLa(a)
+    }
+    ;
+    d.Goa = function(a) {
+        (a = a.addChatItemAction && a.addChatItemAction.item) && !this.JL && (a = this.GJa({
+            source: a
+        })) && this.YN(a)
+    }
+    ;
+    d.Otb = function(a) {
+        a.oo() && (a = Number(a.oo()),
+        isNaN(a) || this.tZa.zWa(a) && this.YN(this.JJa({
+            timestampUsec: a
+        })))
+    }
+    ;
+    d.qLa = function(a) {
+        (a = a.markChatItemAsDeletedAction) && a.targetItemId && a.deletedStateMessage && null !== this.r8(a.targetItemId) && this.ZN(new P4(a.targetItemId,a.deletedStateMessage))
+    }
+    ;
+    d.rLa = function(a) {
+        if ((a = a.markChatItemsByAuthorAsDeletedAction) && a.externalChannelId && a.deletedStateMessage)
+            for (var b = 0, c = this.$j.ha(); b < c; b++) {
+                var e = this.$j.xa(b);
+                if (e && e.On() === a.externalChannelId && e.clone) {
+                    this.ZN(new O4(a.externalChannelId,a.deletedStateMessage));
+                    break
+                }
+            }
+    }
+    ;
+    d.r8 = function(a) {
+        for (var b = 0, c = this.$j.ha(); b < c; b++)
+            if (this.$j.xa(b).getId() === a)
+                return b;
+        return null
+    }
+    ;
+    d.Spa = function() {
+        for (var a = 0; a < this.JI.length; a++)
+            this.JI[a].apply(this);
+        this.t4()
+    }
+    ;
+    d.ZN = function(a) {
+        this.JL ? this.JI.push(a) : a.apply(this)
+    }
+    ;
+    d.t4 = function() {
+        this.JI = []
+    }
+    ;
+    d.ysa = function() {
+        for (var a = Object.values(this.XJ).concat(Object.values(this.uI)), b = 0; b < a.length; b++)
+            this.j.clearTimeout(a[b])
+    }
+    ;
+    d.rsa = function() {
+        for (var a = this.$j.TG(), b = this.$j.mS().filter(function(b) {
+            return -1 === a.indexOf(b)
+        }), c = 0; c < b.length; c++)
+            this.rga(b[c], 0)
+    }
+    ;
+    d.B = function() {
+        this.reset();
+        C.prototype.B.call(this)
+    }
+    ;
+    E(Q4, "trackingParams makeCollection smoothedQueue timeService liveChatItemMaxVisibleTimeMs liveChatListItemFactory timestampService liveChatTimestampModelFactory".split(" "));
+    function R4(a) {
+        this.text = a;
+        this.L = "live-chat-client-message"
+    }
+    R4.prototype.getId = function() {
+        return null
+    }
+    ;
+    R4.prototype.oo = function() {
+        return null
+    }
+    ;
+    R4.prototype.jo = function() {
+        return this.text
+    }
+    ;
+    R4.prototype.On = function() {
+        return null
+    }
+    ;
+    E(R4, ["text"]);
+    function S4(a, b, c, e, f, g) {
+        this.id = a;
+        this.timestampUsec = b;
+        this.eventText = c;
+        this.detailText = e;
+        this.authorPhoto = f;
+        this.authorExternalChannelId = g;
+        this.L = "live-chat-legacy-paid-message"
+    }
+    S4.prototype.getId = function() {
+        return this.id || null
+    }
+    ;
+    S4.prototype.oo = function() {
+        return this.timestampUsec || null
+    }
+    ;
+    S4.prototype.On = function() {
+        return this.authorExternalChannelId || null
+    }
+    ;
+    function T4(a, b) {
+        var c = a.id
+          , e = a.timestampUsec
+          , f = X(a.eventText)
+          , g = X(a.detailText);
+        b = b.Ji(a.authorPhoto);
+        return new S4(c,e,f,g,b,a.authorExternalChannelId)
+    }
+    E(T4, ["source", "thumbnailParser"]);
+    function U4(a, b) {
+        this.M = a;
+        this.ytb = b;
+        this.wf = this.M.C(b)
+    }
+    U4.prototype.Rl = function() {
+        return this.wf
+    }
+    ;
+    E(U4, ["localeService", "liveChatEducationMessage"]);
+    function V4(a) {
+        this.timestampUsec = a;
+        this.L = "live-chat-timestamp"
+    }
+    V4.prototype.getId = function() {
+        return null
+    }
+    ;
+    V4.prototype.oo = function() {
+        return null
+    }
+    ;
+    V4.prototype.On = function() {
+        return null
+    }
+    ;
+    E(V4, ["timestampUsec"]);
+    function W4(a, b, c, e, f, g, h, k, m, p) {
+        this.id = a;
+        this.message = b;
+        this.authorName = c;
+        this.authorPhoto = e;
+        this.badges = f;
+        this.isOwner = g;
+        this.Vba = h;
+        this.isModerator = k;
+        this.timestampUsec = m;
+        this.authorExternalChannelId = p;
+        this.L = "live-chat-message"
+    }
+    d = W4.prototype;
+    d.getId = function() {
+        return this.id || null
+    }
+    ;
+    d.oo = function() {
+        return this.timestampUsec || null
+    }
+    ;
+    d.On = function() {
+        return this.authorExternalChannelId || null
+    }
+    ;
+    d.clone = function(a) {
+        return new W4(this.id,a,this.authorName,this.authorPhoto,this.badges,this.isOwner,this.Vba,this.isModerator,this.timestampUsec,this.authorExternalChannelId)
+    }
+    ;
+    d.qDa = function() {
+        return this.isOwner ? "owner" : "user"
+    }
+    ;
+    d.LAa = function() {
+        return this.isOwner ? "#000" : this.isModerator ? "#00838F" : this.Vba ? "#3A923F" : "#fff"
+    }
+    ;
+    function X4(a, b) {
+        var c = a.id
+          , e = X(a.authorName)
+          , f = a.message
+          , g = b.Ji(a.authorPhoto)
+          , h = a.timestampUsec
+          , k = a.authorExternalChannelId
+          , m = []
+          , p = []
+          , u = !1
+          , v = !1
+          , w = !1;
+        if (a.authorBadges) {
+            for (var x = 0; x < a.authorBadges.length; x++) {
+                var B = a.authorBadges[x] && a.authorBadges[x].liveChatAuthorBadgeRenderer || null;
+                if (B && B.icon && B.icon.iconType) {
+                    "OWNER" === B.icon.iconType && (u = !0);
+                    "MODERATOR" === B.icon.iconType && (w = !0);
+                    var G = Do[B.icon.iconType];
+                    G && m.push({
+                        qb: G + " icon"
+                    })
+                }
+                B && B.customThumbnail && (v = !0,
+                B = b.Ji(B.customThumbnail)) && (G = new Rl("style"),
+                G.setProperty("background-image", 'url("' + B + '");'),
+                p.push({
+                    qb: "image",
+                    cssText: G
+                }))
+            }
+            m = m.concat(p)
+        }
+        return new W4(c,f,e,g,m,u,v,w,h,k)
+    }
+    E(X4, ["source", "thumbnailParser"]);
+    function Y4(a, b, c, e, f) {
+        this.id = a;
+        this.timestampUsec = b;
+        this.icon = c;
+        this.text = e;
+        this.subtext = f;
+        this.L = "live-chat-mode-change-message"
+    }
+    Y4.prototype.getId = function() {
+        return this.id || null
+    }
+    ;
+    Y4.prototype.oo = function() {
+        return this.timestampUsec || null
+    }
+    ;
+    Y4.prototype.On = function() {
+        return null
+    }
+    ;
+    function Z4(a) {
+        var b = a.id
+          , c = a.timestampUsec
+          , e = X(a.text)
+          , f = X(a.subtext);
+        return new Y4(b,c,Do[a.icon && a.icon.iconType || ""] || void 0,e,f)
+    }
+    E(Z4, ["source"]);
+    function $4(a, b, c) {
+        this.id = a;
+        this.timestampUsec = b;
+        this.message = c;
+        this.L = "live-chat-moderation-message"
+    }
+    $4.prototype.getId = function() {
+        return this.id || null
+    }
+    ;
+    $4.prototype.oo = function() {
+        return this.timestampUsec || null
+    }
+    ;
+    $4.prototype.On = function() {
+        return null
+    }
+    ;
+    function a5(a) {
+        var b = a.id
+          , c = a.timestampUsec;
+        a = X(a.message);
+        return new $4(b,c,a)
+    }
+    E(a5, ["source"]);
+    function b5(a, b, c, e, f, g, h, k, m, p, u, v) {
+        this.id = a;
+        this.timestampUsec = b;
+        this.authorName = c;
+        this.authorPhoto = e;
+        this.purchaseAmountText = f;
+        this.authorNameTextColor = g;
+        this.headerBackgroundColor = h;
+        this.headerTextColor = k;
+        this.bodyBackgroundColor = m;
+        this.bodyTextColor = p;
+        this.message = u;
+        this.authorExternalChannelId = v;
+        this.L = "live-chat-paid-message"
+    }
+    d = b5.prototype;
+    d.Nxa = function() {
+        return this.message ? "block" : "none"
+    }
+    ;
+    d.getId = function() {
+        return this.id || null
+    }
+    ;
+    d.oo = function() {
+        return this.timestampUsec || null
+    }
+    ;
+    d.On = function() {
+        return this.authorExternalChannelId || null
+    }
+    ;
+    d.clone = function(a) {
+        return new b5(this.id,this.timestampUsec,this.authorName,this.authorPhoto,this.purchaseAmountText,this.authorNameTextColor,this.headerBackgroundColor,this.headerTextColor,this.bodyBackgroundColor,this.bodyTextColor,a,this.authorExternalChannelId)
+    }
+    ;
+    function c5(a, b) {
+        var c = a.id
+          , e = a.timestampUsec
+          , f = X(a.authorName);
+        b = b.Ji(a.authorPhoto);
+        var g = X(a.purchaseAmountText)
+          , h = a.authorNameTextColor ? wF(a.authorNameTextColor) : void 0
+          , k = a.headerBackgroundColor ? wF(a.headerBackgroundColor) : void 0
+          , m = a.headerTextColor ? wF(a.headerTextColor) : void 0
+          , p = a.bodyBackgroundColor ? wF(a.bodyBackgroundColor) : void 0
+          , u = a.bodyTextColor ? wF(a.bodyTextColor) : void 0;
+        return new b5(c,e,f,b,g,h,k,m,p,u,a.message,a.authorExternalChannelId)
+    }
+    E(c5, ["source", "thumbnailParser"]);
+    function d5(a) {
+        this.ILa = a;
+        this.Gca = null
+    }
+    d5.prototype.zWa = function(a) {
+        a /= 1E3;
+        var b = this.Gca;
+        this.Gca = a;
+        return b ? a - b >= this.ILa.get() : !0
+    }
+    ;
+    E(d5, ["maxTimestampDiffMs"]);
+    function e5(a, b, c, e, f, g) {
+        function h() {}
+        if (!c.Dba())
+            return function() {}
+            ;
+        if (a.get())
+            return h = b(),
+            e(h, f, g),
+            h;
+        var k = a.on("value-changed", function() {
+            a.get() && (k(),
+            h = b(),
+            e(h, f, g))
+        });
+        return function() {
+            k();
+            h()
+        }
+    }
+    E(e5, ["watchNextResponse", "startCloseDialogAndAutoplayTimeout", "networkStatus", "openPlayerErrorDialog"]);
+    function f5(a, b, c, e, f, g) {
+        var h = a.setTimeout(function() {
+            h = -1;
+            b.close();
+            c() ? e() : f()
+        }, void 0 === g ? 5E3 : g);
+        return function() {
+            a.clearTimeout(h);
+            h = -1
+        }
+    }
+    E(f5, "timeService dialogStageModel shouldAutoplay autoplay abandonWatch opt_timeout".split(" "));
+    function g5(a, b, c, e) {
+        return (a = t("autoplayRenderer.replayVideoRenderer.pivotVideoRenderer.navigationEndpoint", a.get())) ? (b(a, c, e),
+        !0) : !1
+    }
+    E(g5, ["watchNextResponse", "navigateToEndpoint"]);
+    function h5(a, b, c, e, f, g, h, k) {
+        if (a = a()) {
+            var m = k ? "pivot" : "autoplay";
+            if (h())
+                return g.Gp ? f(k, "super-pivot-post-play") : c(e({
+                    initialSubstateId: m
+                })),
+                !0;
+            if (b = b())
+                return c(e({
+                    initialSubstateId: m,
+                    service: a,
+                    watchNextEndScreenRenderer: b
+                })),
+                !0
+        }
+        return !1
+    }
+    E(h5, "getWatchNextService getWatchNextEndScreenRenderer setWatchState watchPivotPostPlayStateFactory goToSuperPivotTransition superPivotCapabilities canSkipForward".split(" "));
+    function i5(a) {
+        a = a.get();
+        if (!a || !a.pb || !a.pb.nextVideoRenderer)
+            return null;
+        a = a.pb.nextVideoRenderer;
+        return t("autoplayEndpointRenderer.item.previewButtonRenderer", a) || t("maybeHistoryEndpointRenderer.item.previewButtonRenderer", a)
+    }
+    E(i5, ["watchNextResponse"]);
+    function j5(a, b) {
+        if (a())
+            return 31523;
+        a = b.get();
+        return a && a.pb && a.pb.nextVideoRenderer ? (a = qc(a.pb.nextVideoRenderer)) && a.trackingParams || null : null
+    }
+    E(j5, ["shouldUseNextWatchHistory", "watchNextResponse"]);
+    function k5(a, b) {
+        return a() ? 50430 : (a = b.get()) ? t("playerOverlayAutoplay.playerOverlayTvAutoplayRenderer.trackingParams", a) || null : null
+    }
+    E(k5, ["shouldUseNextWatchHistory", "watchNextResponse"]);
+    function l5(a, b) {
+        return ((b = b.get()) ? t("playerOverlayAutoplay.playerOverlayTvAutoplayRenderer.nextEndpoint", b) || null : null) || a()
+    }
+    E(l5, ["getNextVideo", "watchNextResponse"]);
+    function m5(a) {
+        return (a = a.get()) && a.pb && a.pb.previousVideoRenderer ? t("autoplayEndpointRenderer.item.previewButtonRenderer", a.pb.previousVideoRenderer) : null
+    }
+    E(m5, ["watchNextResponse"]);
+    function n5(a, b) {
+        if (a())
+            return 31524;
+        a = b.get();
+        return a && a.pb && a.pb.previousVideoRenderer ? (a = qc(a.pb.previousVideoRenderer)) && a.trackingParams || null : null
+    }
+    E(n5, ["shouldUsePreviousWatchHistory", "watchNextResponse"]);
+    function o5(a) {
+        return (a = a.get()) && a.watchNextEndScreenRenderer || null
+    }
+    E(o5, ["watchNextResponse"]);
+    function p5(a, b, c, e, f, g, h) {
+        var k = g.errorDetail
+          , m = g.message;
+        if ("auth" === g.errorCode) {
+            if ("2" === k || "3" === k)
+                return c(k, m),
+                function() {}
+                ;
+            if ("1" === k)
+                return b.Yg ? e(g, "") : f(m)
+        }
+        return a(g, h)
+    }
+    E(p5, ["bedrockHandlePlayerError", "environment", "handleContentConfirmation", "showPlayerErrorDialog", "requestPlaybackAuthorization"]);
+    function q5(a, b, c) {
+        c = c.watchEndpoint;
+        return !!c && a() === (c.videoId || null) && b() === (c.playlistId || null)
+    }
+    E(q5, ["getVideoId", "getPlaylistId"]);
+    function r5(a, b, c, e, f) {
+        this.imageUrl = a;
+        this.subtitle = b;
+        this.title = c;
+        this.byline = e;
+        this.id = f
+    }
+    E(r5, ["imageUrl", "subtitle", "title", "byline", "id"]);
+    function s5(a, b, c, e, f, g) {
+        f = f.C("[[Next|Label indicating the current preview tooltip is about the next video]]");
+        b() ? (a = a.RAa()) && a.Wb ? (b = t("autoplayRenderer.replayVideoRenderer.pivotVideoRenderer", a.Wb)) ? (a = X(b.title),
+        c = c.bb(b, g),
+        g = X(b.shortBylineText),
+        c = new r5(c,f,a,g,"next-preview-tooltip")) : c = null : c = null : (a = e()) ? (f = X(a.title),
+        c = c.bb(a, g),
+        g = X(a.subtitle),
+        a = X(a.byline),
+        c = new r5(c,g,f,a,"next-preview-tooltip")) : c = null;
+        return c
+    }
+    E(s5, ["watchHistory", "shouldUseNextWatchHistory", "mediumQualityThumbnailParser", "getNextPreviewButtonRenderer", "localeService"]);
+    function t5(a, b, c, e, f, g, h, k, m) {
+        var p = new ZL;
+        p.title = b.C("[[Playback Error|Title of dialog displayed when a video cannot be played.]]");
+        k = k.message;
+        m && (k += " " + m);
+        p.subtitle = k;
+        m = [];
+        var u = c();
+        u && (c = b.C("[[Next Video|Button title in a dialog popup. Proceeds playback to the next video.]]"),
+        m.push(new bM(c,function() {
+            h();
+            e(u);
+            a.close()
+        }
+        )));
+        b = b.C("[[Back|Button title in a dialog popup. Closes the dialog.|951825159]]");
+        m.push(new bM(b,function() {
+            h();
+            f();
+            a.close()
+        }
+        ));
+        g = g();
+        g.oa(m, 0);
+        a.open(new YL(new TL(p,g),new XL(function() {
+            return f()
+        }
+        )))
+    }
+    E(t5, "overlayStage localeService getAutoplayVideo navigateToEndpoint abandonWatch makeCollection".split(" "));
+    function u5(a, b, c, e, f, g) {
+        return a() ? (c(),
+        !0) : (a = b()) ? (e(a, f, g),
+        !0) : !1
+    }
+    E(u5, ["shouldUseNextWatchHistory", "getPostplayNextVideoEndpoint", "gotoWatchHistoryNextEntry", "navigateToEndpoint"]);
+    function v5(a, b, c, e, f, g, h, k, m) {
+        function p() {
+            v();
+            c.close();
+            e()
+        }
+        function u() {
+            v();
+            b.gP();
+            b.KX()
+        }
+        var v = a();
+        f.La("pb_rq_authz");
+        g ? w5(c, u, p, k, m) : k(u, "PLAYER", p, m);
+        return v
+    }
+    function w5(a, b, c, e, f) {
+        a = a.getDialog();
+        if (!a || "signInError" !== a.L && "signInDialog" !== a.L || null === a)
+            e(b, "PLAYER", c);
+        else {
+            var g = a.Ld
+              , h = a.yl;
+            a.yl = function() {
+                h();
+                c()
+            }
+            ;
+            "signInError" === a.L ? (a.HL = "PLAYER",
+            a.hPa = f,
+            a.Cga = b,
+            a.Bga = c) : a.Ld = function() {
+                g();
+                b()
+            }
+        }
+    }
+    E(v5, "startCloseDialogAndAutoplayTimeout playerService dialogStageModel goBack performanceService supportsDirectSignIn requestDeviceLogin ensureLoggedIn".split(" "));
+    function x5(a, b, c) {
+        if (c) {
+            var e = c.model.Gi.Ia === Do.CHECKABLE ? "ACTION_ADD_VIDEO" : "ACTION_REMOVE_VIDEO_BY_VIDEO_ID";
+            c.model.Gi.Ia !== Do.SYNC && (c.model.Gi = new aM(Do.SYNC),
+            c.render(!0),
+            a(c.model.data, e, b, function(a, b) {
+                c.model.Gi = a && "STATUS_SUCCEEDED" === a.status ? "ACTION_ADD_VIDEO" === b ? new aM(Do.CHECKED) : new aM(Do.CHECKABLE) : new aM(Do["SYNC-PROBLEM"]);
+                c.render(!0)
+            }))
+        }
+    }
+    E(x5, ["editPlaylist"]);
+    function y5(a, b, c, e, f, g, h) {
+        function k(a) {
+            var b = X(a.title)
+              , c = a.playlistId || ""
+              , e = z5(a);
+            a = "ALL" === a.containsSelectedVideos ? new aM(Do.CHECKED) : new aM(Do.CHECKABLE);
+            return new bM(b,function(a) {
+                return g(h, a)
+            }
+            ,e,"",a,"menuitem",c)
+        }
+        a = new ZL;
+        var m = c();
+        f.load({
+            videoIds: [h]
+        }, function(a) {
+            (a = A5(a)) && m.oa(a.map(k), 0)
+        });
+        a.title = b.C("[[Save video|Title on the add to playlist dialog]]");
+        m.fHa(new C0, 0);
+        e.open(new YL(new TL(a,m)))
+    }
+    function A5(a) {
+        if (a.contents && 0 !== a.contents.length && (a = a.contents.filter(function(a) {
+            return a.addToPlaylistRenderer
+        })[0].addToPlaylistRenderer) && a.playlists)
+            return a.playlists.filter(function(a) {
+                return a.playlistAddToOptionRenderer
+            }).map(function(a) {
+                return a.playlistAddToOptionRenderer
+            })
+    }
+    function z5(a) {
+        if ("WL" === a.playlistId || !a.thumbnailRenderer)
+            return null;
+        var b = t("thumbnailRenderer.playlistCustomThumbnailRenderer.thumbnail.thumbnails.0.url", a);
+        a = t("thumbnailRenderer.playlistVideoThumbnailRenderer.thumbnail.thumbnails.0.url", a);
+        return b ? new yP(b,"thumbnail") : a ? new yP(a,"thumbnail") : null
+    }
+    E(y5, "playerService localeService makeCollection overlayStage getPlaylistService saveOrRemoveFromPlaylist".split(" "));
+    function B5(a, b, c, e) {
+        for (var f = 0, g = a.getAudioTrack(), h = a.getAvailableAudioTracks(), k = [], m = {}, p = 0, u = h.length; p < u; m = {
+            Qx: m.Qx
+        },
+        p++) {
+            m.Qx = h[p];
+            var v = m.Qx.toString()
+              , w = null;
+            m.Qx === g && (f = p,
+            w = new aM("material-icon-done"));
+            var x = function(b) {
+                return function() {
+                    a.setAudioTrack(b.Qx);
+                    e.close()
+                }
+            }(m);
+            k.push(new bM(v,x,void 0,void 0,w))
+        }
+        g = new ZL;
+        g.title = b.C("[[Audio Channel Settings|Settings screen where the user can choose the audio track they want to play with the video.]]");
+        b = c();
+        b.oa(k, f);
+        e.open(new YL(new TL(g,b)))
+    }
+    E(B5, ["playerService", "localeService", "makeCollection", "overlayStage"]);
+    function C5(a, b, c, e, f) {
+        var g = new ZL
+          , h = a.C("[[Send feedback|Title of a page where user can submit their issue or provide a feedback.]]");
+        g.title = h;
+        var k = b.H2();
+        k.psd_logged_in = c.rd() ? 1 : 0;
+        var m = b.ci + "?" + ql(k);
+        c = a.C("[[On your phone or computer, visit:|Instruction to visit web address.]]");
+        k = new EY(c,"text");
+        b = b.ci;
+        var p = new EY(b,"emphasize");
+        a = new EY(a.C("[[or scan|Instruction telling user to scan QR code.]]"),"qr-label");
+        e = new yP(e.sO(m),"qr");
+        g = new YL(new SM(g,[k, p, a, e]));
+        g.ariaLabel = [h, c, b].join(" ");
+        f.open(g)
+    }
+    E(C5, ["localeService", "environment", "authService", "qrCodeService", "overlayStage"]);
+    function D5(a, b, c, e, f) {
+        for (var g = 0, h = E5(a), k = h === Wp.AUTO ? a.getPlaybackQuality() : null, m = F5(a.getAvailableQualityLevels()), p = [], u = "", v = {}, w = 0; w < m.length; v = {
+            Ox: v.Ox
+        },
+        w++) {
+            v.Ox = m[w];
+            var x = G5(b, v.Ox, k)
+              , B = null;
+            v.Ox === h && (u = x,
+            g = w,
+            B = new aM("material-icon-done"));
+            var G = function(b) {
+                return function() {
+                    a.setPlaybackQuality(b.Ox);
+                    e.close();
+                    f && f()
+                }
+            }(v);
+            p.push(new bM(x,G,void 0,void 0,B))
+        }
+        h = new ZL;
+        h.title = b.C("[[Video quality|Video quality setting dialog title.]]");
+        h.subtitle = u;
+        h.aM = "quality-selector-subtitle";
+        b = c();
+        b.oa(p, g);
+        e.open(new YL(new TL(h,b)))
+    }
+    function E5(a) {
+        return a.getUserPlaybackQualityPreference() === Wp.AUTO ? Wp.AUTO : a.getPlaybackQuality()
+    }
+    function F5(a) {
+        for (var b = [], c = 0, e = a.length; c < e; c++)
+            a[c] === Wp.AUTO ? b.unshift(a[c]) : b.push(a[c]);
+        return b
+    }
+    function G5(a, b, c) {
+        return b === Wp.AUTO ? (a = a.C("[[Auto|The automatically determined video quality level]]"),
+        c && (a += " (" + H5(c) + ")"),
+        a) : H5(b)
+    }
+    function H5(a) {
+        return a === Wp.mt ? "2160p \u2022 4K" : Yp[a].toString() + "p"
+    }
+    E(D5, ["playerService", "localeService", "makeCollection", "overlayStage"]);
+    var I5 = {
+        U$a: "[[Sexual Content|Menu option to report a video for sexual content|1394950817]]",
+        J2a: "[[Child Abuse|Menu option to report a video for child abuse|1137465261]]",
+        Eab: "[[Violent or Repulsive Content|Menu option to report a video for violence|916860187]]",
+        jab: "[[Spam|Menu option to report a video for spamming|590233349]]",
+        m5a: "[[Hateful or Abusive Content|Menu option to report a video for hateful content|2062789229]]",
+        p5a: "[[Infringes My Rights|Menu option to report a video for rights infriction|2135190247]]",
+        g5a: "[[Harmful Dangerous Acts|Menu option to report a video for harmful acts|692267173]]"
+    };
+    function J5(a, b, c, e, f) {
+        var g = Object.values(I5).map(function(b) {
+            var g = "[[Infringes My Rights|Menu option to report a video for rights infriction|2135190247]]" === b ? function() {
+                return c()
+            }
+            : function() {
+                return e(f)
+            }
+            ;
+            return new bM(a.C(b),g,void 0,void 0,new aM("material-icon-chevron-right"))
+        })
+          , h = new ZL;
+        h.title = a.C("[[Report This Video For:|Displayed in a dialog when a user decides to claim that a video is inappropriate. Followed by a list of options.|85837417]]");
+        g = new YL(new SM(h,g));
+        b.open(g)
+    }
+    E(J5, ["localeService", "overlayStage", "showSubmitClaimOverlay", "showReportVideoOverlay"]);
+    function K5(a, b, c) {
+        var e = new ZL
+          , f = a.C("[[To Report This Video|Tooltip helping a user to mark a video as inappropriate. Followed by a list of steps that needs to be performed.|1968994046]]");
+        e.title = f;
+        a = a.C("[[Visit this video on your computer or laptop, click More, and then click Report to submit a claim:|Provides a URL and instructions which a user can follow in order to report the video as inappropriate. Followed by actual URL.|591085572]]");
+        var g = new EY(a,"text");
+        c = "youtu.be/" + c;
+        var h = new EY(c,"emphasize")
+          , k = new yP("../img/report.png","report-example");
+        e = new YL(new SM(e,[g, h, k]));
+        e.ariaLabel = [f, a, c].join(" ");
+        b.open(e)
+    }
+    E(K5, ["localeService", "overlayStage"]);
+    function L5(a, b) {
+        var c = new ZL
+          , e = a.C("[[To Report This Video|Tooltip helping a user to mark a video as inappropriate. Followed by a list of steps that needs to be performed.|1968994046]]");
+        c.title = e;
+        var f = a.C('[[<div class="subtitle">Infringes my copyright</div> youtube.com/t/dmca_policy <div class="email">or email</div> copyright@youtube.com|Provides a way, via email or web site, to claim that a video infringes the current user\'s copyright.]]')
+          , g = M5(f, "subtitle")
+          , h = new EY(g,"text")
+          , k = new EY("youtube.com/t/dmca_policy","emphasize");
+        f = M5(f, "email");
+        var m = new EY(f,"text")
+          , p = new EY("copyright@youtube.com","emphasize");
+        a = a.C('[[<div class="subtitle">Invades my privacy</div> youtube.com/t/privacy_guidelines|Provides a way to claim, via email or web site, that a given video invades the current user\'s privacy.]]');
+        a = M5(a, "subtitle");
+        var u = new EY(a,"text-section")
+          , v = new EY("youtube.com/t/privacy_guidelines","emphasize");
+        c = new YL(new SM(c,[h, k, m, p, u, v]));
+        c.ariaLabel = [e, g, "youtube.com/t/dmca_policy", f, "copyright@youtube.com", a, "youtube.com/t/privacy_guidelines"].join(" ");
+        b.open(c)
+    }
+    function M5(a, b) {
+        b = '<div class="' + b + '">';
+        b = a.indexOf(b) + b.length;
+        var c = a.substring(b).indexOf("</div>") + b;
+        return a.substring(b, c)
+    }
+    E(L5, ["localeService", "overlayStage"]);
+    function N5(a, b, c, e) {
+        var f = new ZL;
+        c = c();
+        var g = b.C("[[Normal|Label referring to normal playback rate @ 1x]]")
+          , h = [.25, .5, .75, 1, 1.25, 1.5, 2]
+          , k = a.getPlaybackRate() || 1
+          , m = h.indexOf(k);
+        c.oa(h.map(function(b) {
+            var c = 1 === b ? g : b + "x"
+              , f = k === b ? new aM("material-icon-done") : null;
+            return new bM("" + c,function() {
+                a.setPlaybackRate(b);
+                e.close()
+            }
+            ,null,"",f,"menuitem",null)
+        }), m);
+        f.title = b.C("[[Video speed|Title of dialog shown to change the video playback speed.]]");
+        f.subtitle = 1 === k ? g : k + "x";
+        f.aM = "playback-rate-selector-subtitle";
+        e.open(new YL(new TL(f,c)))
+    }
+    E(N5, ["playerService", "localeService", "makeCollection", "overlayStage"]);
+    function O5(a) {
+        Il.call(this, P5(a.get()));
+        var b = this;
+        this.H(a.on("value-changed", function() {
+            b.set(P5(a.get()))
+        }))
+    }
+    l(O5, Il);
+    E(O5, ["watchNextResponse"]);
+    function P5(a) {
+        return a && null != a.videoMetadataRenderer && null != a.videoMetadataRenderer.likeStatus ? a.videoMetadataRenderer.likeStatus : "INDIFFERENT"
+    }
+    ;function Q5(a, b, c) {
+        a(b(), c);
+        return !0
+    }
+    E(Q5, ["setWatchAdsState", "watchAdsSkipStateFactory"]);
+    function R5(a, b, c) {
+        a(b(), c);
+        return !0
+    }
+    E(R5, ["setWatchAdsState", "watchAdsControlStateFactory"]);
+    var S5 = {
+        apply: function(a) {
+            a.V({
+                watchAdsIdleHandleAdBecameSkippable: Q5,
+                watchAdsIdleHandleNudge: R5
+            })
+        },
+        R: [z2]
+    };
+    E(S5.apply, ["injector"]);
+    function T5(a, b, c) {
+        a(b(), c);
+        return !0
+    }
+    E(T5, ["setWatchAdsState", "watchAdsSkipWithControlsStateFactory"]);
+    var U5 = {
+        apply: function(a) {
+            a.V({
+                watchAdsSkipHandleNudge: T5
+            })
+        }
+    };
+    E(U5.apply, ["injector"]);
+    function V5(a, b, c, e, f, g, h, k, m) {
+        Y.call(this, a);
+        var p = this;
+        this.Nm = b;
+        this.X = c;
+        this.f = e;
+        this.d1a = f;
+        this.Q0 = g;
+        this.rma = h;
+        this.Ck = k;
+        this.setMessageHandler("nudge", function() {
+            return p.Ee("nudge")
+        });
+        this.setMessageHandler("idle", function() {
+            return p.Ee("idle")
+        });
+        this.setMessageHandler("move-right", this.VS.bind(this));
+        this.setMessageHandler("escape", this.dr.bind(this));
+        this.setMessageHandler("move-up", this.escape.bind(this));
+        this.setMessageHandler("ad-stopped", function() {
+            m("control");
+            return !0
+        });
+        this.setMessageHandler("ad-became-skippable", this.XDa.bind(this))
+    }
+    l(V5, Y);
+    d = V5.prototype;
+    d.z3 = function() {
+        return 3 === this.X.Xd
+    }
+    ;
+    d.Ee = function(a) {
+        return this.f.wb ? (this.Ck.start(),
+        this.escape(a)) : !1
+    }
+    ;
+    d.VS = function(a) {
+        return this.z3() ? (this.Nm(this.rma(), a),
+        !0) : !1
+    }
+    ;
+    d.dr = function(a, b) {
+        return a && this.escape(b)
+    }
+    ;
+    d.escape = function(a) {
+        this.z3() ? this.Nm(this.Q0(), a) : this.Nm(this.d1a(), a);
+        return !0
+    }
+    ;
+    d.XDa = function(a) {
+        this.Nm(this.rma(), a);
+        return !0
+    }
+    ;
+    E(V5, "name setWatchAdsState adModel playerService watchAdsIdleStateFactory watchAdsSkipStateFactory watchAdsSkipWithControlsStateFactory lastIdleTimeoutTimer watchGotoVideo".split(" "));
+    function W5(a, b, c, e) {
+        Y.call(this, a);
+        this.Nm = b;
+        this.P0 = c;
+        this.e1a = e;
+        this.setMessageHandler("move-left", this.jA.bind(this));
+        this.setMessageHandler("nudge", this.e1a)
+    }
+    l(W5, Y);
+    W5.prototype.jA = function(a) {
+        this.Nm(this.P0(), a);
+        return !0
+    }
+    ;
+    E(W5, ["name", "setWatchAdsState", "watchAdsControlStateFactory", "watchAdsSkipHandleNudge"]);
+    function X5(a, b, c, e, f, g, h) {
+        Y.call(this, a);
+        var k = this;
+        this.Nm = b;
+        this.f = c;
+        this.P0 = e;
+        this.Q0 = f;
+        this.Ck = g;
+        this.setMessageHandler("nudge", function() {
+            return k.Ee("nudge")
+        });
+        this.setMessageHandler("idle", function() {
+            return k.Ee("idle")
+        });
+        this.setMessageHandler("move-left", this.jA.bind(this));
+        this.setMessageHandler("escape", this.dr.bind(this));
+        this.setMessageHandler("move-up", this.escape.bind(this));
+        this.setMessageHandler("ad-stopped", function() {
+            h("control");
+            return !0
+        })
+    }
+    l(X5, Y);
+    X5.prototype.Ee = function(a) {
+        return this.f.wb ? (this.Ck.start(),
+        this.escape(a)) : !1
+    }
+    ;
+    X5.prototype.jA = function(a) {
+        this.Nm(this.P0(), a);
+        return !0
+    }
+    ;
+    X5.prototype.dr = function(a, b) {
+        return a && this.escape(b)
+    }
+    ;
+    X5.prototype.escape = function(a) {
+        this.Nm(this.Q0(), a);
+        return !0
+    }
+    ;
+    E(X5, "name setWatchAdsState playerService watchAdsControlStateFactory watchAdsSkipStateFactory lastIdleTimeoutTimer watchGotoVideo".split(" "));
+    var Y5 = {
+        apply: function(a) {
+            function b(b, c, g, h) {
+                c = new I(c,{
+                    name: g
+                });
+                h && (c = new pp(c,h));
+                a.add(b, new H(c))
+            }
+            b("watchAdsControlStateFactory", V5, "control");
+            b("watchAdsIdleStateFactory", A2, "idle", S5);
+            b("watchAdsSkipStateFactory", W5, "skip", U5);
+            b("watchAdsSkipWithControlsStateFactory", X5, "skipWithControls");
+            var c = {};
+            a.add("watchAdsSubstateFactoryMap", new y2((c.control = "watchAdsControlStateFactory",
+            c.idle = "watchAdsIdleStateFactory",
+            c.skip = "watchAdsSkipStateFactory",
+            c.skipWithControls = "watchAdsSkipWithControlsStateFactory",
+            c)))
+        },
+        R: [B2]
+    };
+    E(Y5.apply, ["injector"]);
+    function Z5(a, b) {
+        b = "voz" === b().trigger ? "control" : "idle";
+        a(b)
+    }
+    E(Z5, ["watchGotoVideo", "getPlaybackConfig"]);
+    var $5 = {
+        apply: function(a) {
+            a.V({
+                watchLoadingGotoVideo: Z5
+            })
+        },
+        R: [D2]
+    };
+    E($5.apply, ["injector"]);
+    function a6(a, b, c, e) {
+        Y.call(this, a);
+        var f = this;
+        this.Cs = b;
+        this.X0 = c;
+        this.m1a = e;
+        this.setMessageHandler("move-down", function(a) {
+            return f.er(a)
+        });
+        this.setMessageHandler("move-left", function(a) {
+            return f.jA(a)
+        })
+    }
+    l(a6, Y);
+    a6.prototype.er = function(a) {
+        this.Cs(this.X0(), a);
+        return !0
+    }
+    ;
+    a6.prototype.jA = function(a) {
+        this.Cs(this.m1a(), a);
+        return !0
+    }
+    ;
+    E(a6, ["name", "setWatchPostPlayState", "watchPivotPostPlayPivotStateFactory", "watchPivotPostPlayReplayStateFactory"]);
+    function b6(a, b, c, e) {
+        Y.call(this, a);
+        this.Cs = b;
+        this.W0 = c;
+        this.Dg = e;
+        this.setMessageHandler("move-up", this.kA.bind(this));
+        this.setMessageHandler("will-navigate", this.dFa.bind(this))
+    }
+    l(b6, Y);
+    b6.prototype.Cb = function() {
+        Y.prototype.Cb.call(this);
+        this.Dg.ri("postplay_related_focused")
+    }
+    ;
+    b6.prototype.kA = function(a) {
+        this.Cs(this.W0(), a);
+        return !0
+    }
+    ;
+    b6.prototype.dFa = function() {
+        this.Dg.ri("postplay_related_selected");
+        return !1
+    }
+    ;
+    E(b6, ["name", "setWatchPostPlayState", "watchPivotPostPlayAutoplayStateFactory", "postPlayActivityService"]);
+    function c6(a, b, c, e, f) {
+        Y.call(this, a);
+        var g = this;
+        this.Cs = b;
+        this.X0 = c;
+        this.W0 = e;
+        this.Dg = f;
+        this.setMessageHandler("move-down", function(a) {
+            return g.er(a)
+        });
+        this.setMessageHandler("move-right", function(a) {
+            return g.VS(a)
+        })
+    }
+    l(c6, Y);
+    c6.prototype.Cb = function() {
+        Y.prototype.Cb.call(this);
+        this.Dg.ri("postplay_replay_focused")
+    }
+    ;
+    c6.prototype.er = function(a) {
+        this.Cs(this.X0(), a);
+        return !0
+    }
+    ;
+    c6.prototype.VS = function(a) {
+        this.Cs(this.W0(), a);
+        return !0
+    }
+    ;
+    E(c6, ["name", "setWatchPostPlayState", "watchPivotPostPlayPivotStateFactory", "watchPivotPostPlayAutoplayStateFactory", "postPlayActivityService"]);
+    var d6 = {
+        apply: function(a) {
+            function b(b, c, g) {
+                a.add(b, new H(new I(c,{
+                    name: g
+                })))
+            }
+            b("watchPivotPostPlayAutoplayStateFactory", a6, "autoplay");
+            b("watchPivotPostPlayReplayStateFactory", c6, "replay");
+            b("watchPivotPostPlayPivotStateFactory", b6, "pivot");
+            var c = {};
+            a.add("watchPivotPostPlaySubstateFactoryMap", new y2((c.autoplay = "watchPivotPostPlayAutoplayStateFactory",
+            c.pivot = "watchPivotPostPlayPivotStateFactory",
+            c.replay = "watchPivotPostPlayReplayStateFactory",
+            c)));
+            a.$({
+                setWatchPostPlayState: hr()
+            })
+        }
+    };
+    E(d6.apply, ["injector"]);
+    function e6(a, b, c, e, f) {
+        (e = e.get()) && a.send("youThere", {
+            clientScreenNonce: c.fc(),
+            youThereEventType: f,
+            lactThresholdMs: e.lactThresholdMs,
+            lactMs: b.xS(),
+            mediaPosSec: e.promptDelaySec
+        })
+    }
+    E(e6, ["gelService", "lastAction", "screenManager", "youthereOverlayValue"]);
+    function f6(a, b, c, e, f, g) {
+        return (!a.isLive() || e.enable_live_seeking) && a.Vc() && 0 < a.tg() ? (b(c({
+            initialDirection: f
+        }), g),
+        !0) : !1
+    }
+    E(f6, ["playerService", "setWatchVideoState", "watchVideoSeekStateFactory", "experimentFlags"]);
+    function g6(a, b, c) {
+        a(b(), c);
+        return !0
+    }
+    E(g6, ["setWatchVideoState", "watchVideoControlStateFactory"]);
+    function h6(a, b, c, e, f, g, h, k) {
+        (e = e.get()) && k >= e.promptDelaySec && (b("video-progress"),
+        c.xS() > e.lactThresholdMs ? (a(f(), "idle"),
+        h.Ca(e.trackingParams),
+        g(2)) : g(1));
+        return !0
+    }
+    E(h6, "setWatchVideoState videoClearMessageHandler lastAction youthereOverlayValue watchVideoPresenceDetectionStateFactory sendYoutherePing screenManager".split(" "));
+    function i6(a, b, c, e, f) {
+        c(e) && (f(),
+        a(b()));
+        return !0
+    }
+    E(i6, ["setWatchVideoState", "watchVideoControlStateFactory", "isNavigationEndpointForCurrentVideo"]);
+    var j6 = {
+        apply: function(a) {
+            a.V({
+                watchVideoPivotHandleWillNavigate: i6
+            })
+        }
+    };
+    E(j6.apply, ["injector"]);
+    function k6() {}
+    ;function l6(a, b, c, e, f, g, h, k, m, p, u) {
+        Y.call(this, a);
+        var v = this;
+        this.Gd = b;
+        this.f = c;
+        this.Ph = e;
+        this.r1a = f;
+        this.Ck = g;
+        this.experimentFlags = k;
+        this.lx = m;
+        this.QDa = p;
+        this.Y0 = u;
+        this.setMessageHandler("nudge", function() {
+            return v.Ee("nudge")
+        });
+        this.setMessageHandler("idle", function() {
+            return v.Ee("idle")
+        });
+        this.setMessageHandler("move-up", function(a) {
+            return v.kA(a)
+        });
+        this.setMessageHandler("move-down", function(a) {
+            return v.er(a)
+        });
+        this.setMessageHandler("ad-playing", function() {
+            h("control");
+            return !0
+        });
+        this.setMessageHandler("move-left", function(a) {
+            return v.b$("rewind", a)
+        });
+        this.setMessageHandler("move-right", function(a) {
+            return v.b$("forward", a)
+        })
+    }
+    l(l6, Y);
+    d = l6.prototype;
+    d.Ee = function(a) {
+        return this.f.wb ? (this.Ck.start(),
+        this.Gd(this.Ph(), a),
+        !0) : !1
+    }
+    ;
+    d.kA = function(a) {
+        this.Gd(this.Ph(), a);
+        return !0
+    }
+    ;
+    d.er = function(a) {
+        if (this.pIa()) {
+            if (this.lx.Gp && this.experimentFlags.super_pivot_navigate)
+                return this.QDa(!0, "super-pivot-navigate");
+            if (!this.lx.Gp)
+                return this.Gd(this.r1a(), a),
+                !0
+        }
+        return !1
+    }
+    ;
+    d.pIa = function() {
+        var a = new k6;
+        this.dc("query-pivot-availability", a);
+        return !!a.result
+    }
+    ;
+    d.b$ = function(a, b) {
+        return this.Y0(a, b) || this.va("nudge", b)
+    }
+    ;
+    E(l6, "name setWatchVideoState playerService watchVideoIdleStateFactory watchVideoPivotStateFactory lastIdleTimeoutTimer watchGotoAds experimentFlags superPivotCapabilities goToSuperPivotTransition watchVideoHandleEnterSeek".split(" "));
+    function m6(a, b, c, e, f) {
+        Y.call(this, a);
+        this.f = b;
+        this.Ph = c;
+        this.Gd = e;
+        this.Sn = f;
+        this.qma = !1;
+        this.setMessageHandler("move-down", this.er.bind(this));
+        this.setMessageHandler("toggle-playing", this.Yu.bind(this));
+        this.setMessageHandler("play", this.Yu.bind(this));
+        this.setMessageHandler("search", function() {
+            return !0
+        })
+    }
+    l(m6, Y);
+    d = m6.prototype;
+    d.Cb = function() {
+        Y.prototype.Cb.call(this);
+        this.qma = this.f.wb;
+        this.f.pause();
+        this.Sn().activate()
+    }
+    ;
+    d.Cc = function() {
+        this.Sn().qg();
+        this.qma && this.f.play();
+        Y.prototype.Cc.call(this)
+    }
+    ;
+    d.va = function(a, b) {
+        for (var c = 1; c < arguments.length; ++c)
+            ;
+        c = null;
+        switch (a) {
+        case "move-up":
+            c = "up";
+            break;
+        case "move-right":
+            c = "right";
+            break;
+        case "move-down":
+            c = "down";
+            break;
+        case "move-left":
+            c = "left"
+        }
+        var e = !1;
+        c && (e = this.Sn().rMa(c) || "down" !== c);
+        return e || Y.prototype.va.apply(this, arguments)
+    }
+    ;
+    d.er = function(a) {
+        this.Gd(this.Ph(), a);
+        return !0
+    }
+    ;
+    d.Yu = function(a) {
+        this.f.play();
+        this.Gd(this.Ph(), a);
+        return !0
+    }
+    ;
+    E(m6, ["name", "playerService", "watchVideoIdleStateFactory", "setWatchVideoState", "getCreatorEndscreen"]);
+    function n6(a, b, c, e, f, g, h) {
+        Y.call(this, a);
+        var k = this;
+        this.Gd = b;
+        this.Ph = c;
+        this.at = e;
+        this.$i = f;
+        this.Ck = g;
+        this.setMessageHandler("nudge", function() {
+            return k.Ee("nudge")
+        });
+        this.setMessageHandler("idle", function() {
+            return k.Ee("idle")
+        });
+        this.setMessageHandler("move-up", this.kA.bind(this));
+        this.setMessageHandler("move-down", function() {
+            return !0
+        });
+        this.setMessageHandler("will-navigate", h)
+    }
+    l(n6, Y);
+    n6.prototype.Mk = function(a, b) {
+        Y.prototype.Mk.call(this, a, b);
+        Ua(a, this.$i.$n())
+    }
+    ;
+    n6.prototype.Ee = function(a) {
+        this.Ck.start();
+        this.Gd(this.Ph(), a);
+        return !0
+    }
+    ;
+    n6.prototype.kA = function(a) {
+        this.Gd(this.at(), a);
+        return !0
+    }
+    ;
+    E(n6, "name setWatchVideoState watchVideoIdleStateFactory watchVideoControlStateFactory browseSetsActivity lastIdleTimeoutTimer watchVideoPivotHandleWillNavigate".split(" "));
+    function o6(a, b, c, e, f, g, h, k) {
+        Y.call(this, a);
+        var m = this;
+        this.f = b;
+        this.Gd = c;
+        this.at = e;
+        this.Ph = f;
+        this.Ma = h;
+        this.wGa = k;
+        this.Iba = function() {}
+        ;
+        this.jga = function() {}
+        ;
+        this.setMessageHandler("nudge", function() {
+            return !0
+        });
+        this.setMessageHandler("move-down", function(a) {
+            return m.cA(a)
+        });
+        this.setMessageHandler("move-up", function(a) {
+            return m.Ee(a)
+        });
+        this.setMessageHandler("escape", function(a) {
+            return m.Ee(a)
+        });
+        this.setMessageHandler("select", function(a) {
+            return m.Ee(a)
+        });
+        this.setMessageHandler("toggle-playing", function(a) {
+            return m.cA(a)
+        });
+        this.setMessageHandler("play", function(a) {
+            return m.Ee(a)
+        });
+        this.Iba = this.f.on("isPlaying:changed", function(a) {
+            return m.W0a(a)
+        });
+        this.jga = this.Ma.on("mdxRemotePlaybackChangeRequested", function(a) {
+            return m.LQa(a)
+        });
+        this.setMessageHandler("ad-playing", function() {
+            g("control");
+            return !0
+        })
+    }
+    l(o6, Y);
+    d = o6.prototype;
+    d.Cb = function() {
+        Y.prototype.Cb.call(this);
+        this.f.pause()
+    }
+    ;
+    d.Cc = function() {
+        this.Iba();
+        this.jga();
+        Y.prototype.Cc.call(this)
+    }
+    ;
+    d.Ee = function(a) {
+        this.Gd(this.Ph(), a);
+        return !0
+    }
+    ;
+    d.cA = function(a) {
+        this.Gd(this.at(), a);
+        return !0
+    }
+    ;
+    d.W0a = function(a) {
+        a && this.Ee()
+    }
+    ;
+    d.LQa = function(a) {
+        switch (a) {
+        case "mdxRemotePlayRequested":
+        case "mdxRemotePauseRequested":
+        case "mdxRemoteStopRequested":
+        case "mdxRemoteSeekRequested":
+            this.Ee()
+        }
+    }
+    ;
+    E(o6, "name playerService setWatchVideoState watchVideoControlStateFactory watchVideoIdleStateFactory watchGotoAds remoteService initialDirection".split(" "));
+    var p6 = {
+        apply: function(a) {
+            function b(b, c, g, h) {
+                c = new I(c,{
+                    name: g
+                });
+                h && (c = new pp(c,h));
+                a.add(b, new H(c))
+            }
+            b("watchVideoControlStateFactory", l6, "control");
+            b("watchVideoCreatorEndscreenStateFactory", m6, "creator-endscreen");
+            b("watchVideoStandardIdleStateFactory", V2, "idle");
+            b("watchVideoPivotStateFactory", n6, "pivot", j6);
+            b("watchVideoPresenceDetectionStateFactory", k4, "r-u-there");
+            b("watchVideoSeekStateFactory", o6, "seek");
+            var c = {};
+            a.add("watchVideoSubstateFactoryMap", new y2((c.control = "watchVideoControlStateFactory",
+            c["creator-endscreen"] = "watchVideoCreatorEndscreenStateFactory",
+            c.idle = "watchVideoIdleStateFactory",
+            c.pivot = "watchVideoPivotStateFactory",
+            c["r-u-there"] = "watchVideoPresenceDetectionStateFactory",
+            c.seek = "watchVideoSeekStateFactory",
+            c)));
+            a.V({
+                sendYoutherePing: e6,
+                watchVideoHandleEnterSeek: f6,
+                watchVideoHandleNudge: g6,
+                watchVideoHandleProgress: h6
+            })
+        },
+        R: [X2]
+    };
+    E(p6.apply, ["injector"]);
+    function q6(a, b, c, e) {
+        jp.call(this, a, "[[Why this ad?|Voice command to show a dialog that displays information about how ads is targeted, and an option to stop seeing this ads]]", void 0, null, "transport-controls-button", "material-icon-info");
+        var f = this;
+        this.f = b;
+        this.Ne = c;
+        this.lXa = e;
+        this.ob = function() {
+            return f.kc()
+        }
+        ;
+        this.H(b.on("isPlayingAd:changed", function() {
+            f.Kb()
+        }));
+        this.Kb();
+        this.wa("ad-info")
+    }
+    l(q6, jp);
+    q6.prototype.kc = function() {
+        this.f.pause();
+        this.lXa()
+    }
+    ;
+    q6.prototype.Kb = function() {
+        this.enabled = this.f.Ja && null != this.Ne.EDa()
+    }
+    ;
+    E(q6, ["localeService", "playerService", "adService", "showWhyThisAdDialog"]);
+    function r6(a, b, c, e, f) {
+        jp.call(this, a, "[[Save|Button to add a video to a playlist]]");
+        var g = this;
+        this.ova = b;
+        this.Qa = c;
+        this.f = e;
+        this.DWa = f;
+        this.L = "transport-controls-button";
+        this.ff = Do.ADD_TO_PLAYLIST;
+        this.ob = function() {
+            return g.kc()
+        }
+    }
+    l(r6, jp);
+    r6.prototype.kc = function() {
+        var a = this;
+        this.ova(function(b) {
+            return a.Es(b)
+        }, "ADD_TO_WATCH_LATER", function() {
+            return a.zra()
+        })
+    }
+    ;
+    r6.prototype.zra = function() {
+        this.Qa.Hf("save-video-sign-in-cancelled")
+    }
+    ;
+    r6.prototype.Es = function(a) {
+        var b = this.f.uc();
+        this.Qa.Hf(a ? "save-video-signed-in" : "save-video");
+        this.DWa(b)
+    }
+    ;
+    E(r6, ["localeService", "ensureLoggedIn", "transportControlsReporting", "playerService", "showAddToPlaylistOverlay"]);
+    function s6(a, b, c, e) {
+        function f() {
+            return g.Dla()
+        }
+        OD.call(this, a, !0, "[[Audio channels|Voice command to choose the audio track, sentence case.]]", void 0, "material-icon-record-voice-over");
+        var g = this;
+        this.Qa = b;
+        this.f = c;
+        this.EWa = e;
+        this.L = "transport-controls-toggle-button";
+        this.ob = this.kc.bind(this);
+        this.H(c.on("isPlayingAd:changed", f));
+        this.H(c.on("audioTrack:changed", f));
+        this.H(c.on("state:changed", f));
+        this.Dla()
+    }
+    l(s6, OD);
+    s6.prototype.kc = function() {
+        this.Qa.Hf("toggle-audio-channels");
+        this.f.pause();
+        this.EWa()
+    }
+    ;
+    s6.prototype.Dla = function() {
+        this.enabled = 1 < this.f.getAvailableAudioTracks().length && !this.f.Ja
+    }
+    ;
+    E(s6, ["localeService", "transportControlsReporting", "playerService", "showAudioOptionsOverlay"]);
+    function t6(a, b, c, e, f, g) {
+        function h() {
+            return k.eg()
+        }
+        OD.call(this, a, !0, "[[Captions|Voice command choose the state of closed captions, capitalized.]]", void 0, "material-icon-closed-caption");
+        var k = this;
+        this.Qa = b;
+        this.f = c;
+        this.GWa = e;
+        this.experimentFlags = f;
+        this.OJa = g;
+        this.L = "transport-controls-toggle-button";
+        this.ob = function() {
+            return k.kc()
+        }
+        ;
+        this.H(c.on("isPlayingAd:changed", h));
+        this.H(c.on("subtitlesTrack:changed", h));
+        this.H(c.on("state:changed", h));
+        this.eg()
+    }
+    l(t6, OD);
+    t6.prototype.kc = function() {
+        this.Qa.Hf("cap");
+        this.experimentFlags.enable_cc_overlays ? this.OJa() : this.GWa()
+    }
+    ;
+    t6.prototype.eg = function() {
+        var a = this.f.ox() && !this.f.Ja;
+        this.enabled = a;
+        this.Fd(a && !xc(this.f.Ju()))
+    }
+    ;
+    E(t6, "localeService transportControlsReporting playerService showClosedCaptionsDialog experimentFlags loadCaptionsOverlays".split(" "));
+    function u6(a, b, c) {
+        c = void 0 === c ? "" : c;
+        jp.call(this, a, "[[Channel|Label of button to video owner's channel page.]]", void 0, void 0, "transport-channel-button", void 0, void 0 === b ? function() {}
+        : b);
+        this.R3 = c;
+        this.Kb()
+    }
+    l(u6, jp);
+    u6.prototype.Kb = function() {
+        this.enabled = !!this.R3
+    }
+    ;
+    function v6(a, b, c, e, f) {
+        var g = t("videoOwnerRenderer.thumbnail", f)
+          , h = t("videoOwnerRenderer.navigationEndpoint", f);
+        f = "";
+        g && (f = e.bb(g, {
+            quality: 100
+        }));
+        return new u6(a,function() {
+            h && (b.Hf("channel"),
+            c(h))
+        }
+        ,f)
+    }
+    function w6(a, b, c, e, f) {
+        var g = f ? f.channelId : "";
+        return new u6(a,function() {
+            g && (b.Hf("channel"),
+            c(g, !1))
+        }
+        ,f ? f.channelThumbnailUrl : "")
+    }
+    E(v6, ["localeService", "transportControlsReporting", "navigateToBrowse", "thumbnailParser", "source"]);
+    E(w6, ["localeService", "transportControlsReporting", "gotoBrowse", "thumbnailParser", "source"]);
+    function x6(a, b, c, e) {
+        jp.call(this, a, "[[Feedback|Voice command to give feedback, capitalized.]]");
+        this.Qa = b;
+        this.f = c;
+        this.KWa = e;
+        this.L = "transport-controls-button";
+        this.ff = Do.FEEDBACK;
+        this.ob = this.kc.bind(this)
+    }
+    l(x6, jp);
+    x6.prototype.kc = function() {
+        this.Qa.Hf("feedback");
+        this.KWa()
+    }
+    ;
+    E(x6, ["localeService", "transportControlsReporting", "playerService", "showFeedbackOverlay"]);
+    function y6(a, b, c, e, f, g, h, k, m, p, u) {
+        OD.call(this, a, !1, p, void 0, u);
+        var v = this;
+        this.Qa = b;
+        this.f = c;
+        this.dV = e;
+        this.environment = f;
+        this.likeStatus = g;
+        this.Qca = h;
+        this.aRa = k;
+        this.uc = m;
+        this.L = "transport-controls-toggle-button";
+        this.H(c.on("state:changed", function() {
+            v.Kb()
+        }));
+        this.ob = function() {
+            v.kc()
+        }
+        ;
+        this.H(g.on("value-changed", function() {
+            v.j0a()
+        }));
+        this.Kb()
+    }
+    l(y6, OD);
+    d = y6.prototype;
+    d.Kb = function() {
+        var a = this.environment.Yg;
+        this.enabled = this.f.Vc() && !a
+    }
+    ;
+    d.j0a = function() {
+        this.Fd(this.faa())
+    }
+    ;
+    d.kc = function() {
+        this.Qa.Yi(this.aRa, "transport-controls");
+        this.faa() ? this.Ot("INDIFFERENT") : this.Ot(this.Qca)
+    }
+    ;
+    d.faa = function() {
+        return this.likeStatus.get() === this.Qca
+    }
+    ;
+    d.Ot = function(a) {
+        var b = this
+          , c = this.uc();
+        c && this.dV(c, a, function() {
+            b.likeStatus.set(a)
+        })
+    }
+    ;
+    E(y6, "localeService transportControlsReporting playerService likeVideo environment likeStatus likeValueWhenSelected reportingAction getVideoId label iconClass".split(" "));
+    function z6(a, b, c, e, f) {
+        OD.call(this, a, !0, "[[Live chat|Voice command to toggle displaying of Live chat.]]", void 0, "material-icon-forum");
+        var g = this;
+        this.liveChatEnabled = b;
+        this.Wb = c;
+        this.f = e;
+        this.G = f;
+        this.kV = this.jV = null;
+        this.L = "transport-controls-toggle-button";
+        this.ob = function() {
+            g.AZa()
+        }
+        ;
+        this.Xla();
+        this.H(c.on("value-changed", this.Kb.bind(this)));
+        this.H(e.on("state:changed", function() {
+            g.Kb()
+        }));
+        this.Kb()
+    }
+    l(z6, OD);
+    d = z6.prototype;
+    d.AZa = function() {
+        this.liveChatEnabled.get() ? this.vQa() : this.wQa();
+        this.liveChatEnabled.set(!this.liveChatEnabled.get());
+        this.Xla()
+    }
+    ;
+    d.Kb = function() {
+        var a = this.f.Vc()
+          , b = this.Wb.get();
+        this.enabled = !!b && !!b.liveChatRenderer && a
+    }
+    ;
+    d.Xla = function() {
+        this.Fd(this.liveChatEnabled.get())
+    }
+    ;
+    d.Z4 = function(a) {
+        a = this.G.ye(a);
+        this.G.attachChild(a);
+        return a
+    }
+    ;
+    d.wQa = function() {
+        this.kV || (this.kV = this.Z4(59419));
+        this.G.Sc(this.kV)
+    }
+    ;
+    d.vQa = function() {
+        this.jV || (this.jV = this.Z4(59418));
+        this.G.Sc(this.jV)
+    }
+    ;
+    E(z6, ["localeService", "liveChatEnabled", "watchNextResponse", "playerService", "screenManager"]);
+    function A6(a, b, c, e) {
+        jp.call(this, a, "[[Speed|A button that changes video playback speed]]");
+        var f = this;
+        this.f = b;
+        this.Qa = c;
+        this.hXa = e;
+        this.L = "transport-controls-button";
+        this.ff = Do.SPEED;
+        this.ob = function() {
+            return f.Es()
+        }
+        ;
+        this.H(b.on("state:changed", function() {
+            return f.Kb()
+        }));
+        this.Kb()
+    }
+    l(A6, jp);
+    A6.prototype.Kb = function() {
+        this.enabled = !!this.f.uc() && !this.f.isLive()
+    }
+    ;
+    A6.prototype.Es = function() {
+        this.Qa.Hf("playback-rate-change");
+        this.hXa()
+    }
+    ;
+    E(A6, ["localeService", "playerService", "transportControlsReporting", "showVideoPlaybackRateOverlay"]);
+    function B6(a, b, c, e) {
+        OD.call(this, a, !1, "[[Quality|Video quality of the currently playing video.]]");
+        var f = this;
+        this.Qa = b;
+        this.f = c;
+        this.TWa = e;
+        this.L = "transport-controls-toggle-button";
+        this.ff = "material-icon-hd";
+        this.ob = function() {
+            return f.kc()
+        }
+        ;
+        this.vT = Wp.UNKNOWN;
+        this.H(c.on("state:changed", function() {
+            f.Kb()
+        }));
+        this.H(c.on("isPlaying:changed", function() {
+            return f.onPlaying()
+        }));
+        this.H(c.on("videoProgress:changed", function() {
+            return f.qZ()
+        }));
+        this.Kb()
+    }
+    l(B6, OD);
+    d = B6.prototype;
+    d.Kb = function() {
+        var a = this.f.isLive()
+          , b = this.f.Vc();
+        this.enabled = !a || b
+    }
+    ;
+    d.onPlaying = function() {
+        this.vT = this.f.getAvailableQualityLevels()[0] || Wp.UNKNOWN;
+        this.kTa();
+        this.qZ()
+    }
+    ;
+    d.kTa = function() {
+        this.ff = Yp[this.vT] >= Yp[Wp.mt] ? "material-icon-fourk" : "material-icon-hd"
+    }
+    ;
+    d.qZ = function() {
+        Yp[this.vT] >= Yp[Wp.mt] ? this.Fd(Yp[this.f.getPlaybackQuality()] >= Yp[Wp.mt]) : this.Fd(Yp[this.f.getPlaybackQuality()] >= Yp[Wp.vN])
+    }
+    ;
+    d.kc = function() {
+        var a = this;
+        this.Qa.Hf("quality");
+        this.TWa(function() {
+            return a.qZ()
+        })
+    }
+    ;
+    E(B6, ["localeService", "transportControlsReporting", "playerService", "showQualitySelectorOverlay"]);
+    function C6(a, b, c, e, f) {
+        jp.call(this, a, "[[Report|Voice command to report the video, capitalized.|839877592]]");
+        var g = this;
+        this.Qa = b;
+        this.f = c;
+        this.WWa = e;
+        this.Wb = f;
+        this.videoId = this.videoTitle = null;
+        this.L = "transport-controls-button";
+        this.ff = Do.REPORT;
+        this.ob = this.kc.bind(this);
+        this.H(f.on("value-changed", this.Tp.bind(this)));
+        this.H(c.on("state:changed", function() {
+            return g.Kb()
+        }));
+        this.Tp();
+        this.Kb()
+    }
+    l(C6, jp);
+    C6.prototype.Tp = function() {
+        var a = this.Wb.get();
+        a && a.videoMetadataRenderer ? (this.videoId = a.videoMetadataRenderer.videoId,
+        this.videoTitle = X(a.videoMetadataRenderer.title),
+        this.Kb()) : this.enabled = !1
+    }
+    ;
+    C6.prototype.Kb = function() {
+        this.enabled = this.f.Vc()
+    }
+    ;
+    C6.prototype.kc = function() {
+        this.Qa.Hf("flag");
+        this.WWa(this.videoId || "")
+    }
+    ;
+    E(C6, ["localeService", "transportControlsReporting", "playerService", "showReportReasonSelectorOverlay", "watchNextResponse"]);
+    function D6(a, b, c, e, f, g) {
+        function h() {
+            return k.Kb()
+        }
+        jp.call(this, a, "[[Previous video|Voice command skip back to previous video, sentence case.|583022924]]", void 0, void 0, void 0, "material-icon-skip-previous", void 0, void 0, "previous-preview-tooltip");
+        var k = this;
+        this.Qa = b;
+        this.f = c;
+        this.DO = e;
+        this.Jj = g;
+        this.L = "transport-controls-button";
+        this.H(f.on("value-changed", h));
+        this.H(c.on("state:changed", h));
+        this.H(c.on("isPlayingAd:changed", h));
+        this.ob = this.kc.bind(this);
+        this.Kb()
+    }
+    l(D6, jp);
+    D6.prototype.Kb = function() {
+        var a = this.f.Vc()
+          , b = 1E3 === this.f.state
+          , c = this.f.Ja;
+        this.enabled = (a || b) && !c && this.DO()
+    }
+    ;
+    D6.prototype.kc = function(a) {
+        this.Qa.Yi("previous", "transport-controls");
+        a ? this.Jj("skip-backward", a) : this.Jj("skip-backward")
+    }
+    ;
+    E(D6, "localeService transportControlsReporting playerService canSkipBackward watchNextResponse sendWatchStateMessage".split(" "));
+    function E6(a, b, c, e, f, g) {
+        OD.call(this, a, !1, "[[Subscribed|Label to show a user is subscribed to the video's channel, capitalized. It also acts as a voice command to unsubscribe to the channel.|889600750]]", "[[Subscribe|Voice command to subscribe to the video's channel, capitalized.]]", "material-icon-video-youtube");
+        this.Gy = b;
+        this.Qa = c;
+        this.Wb = f;
+        this.subscribeButtonRenderer = null;
+        this.L = "transport-controls-toggle-button";
+        this.iIa = e.Yg;
+        this.ob = this.kc.bind(this);
+        this.H(f.on("value-changed", this.Tp.bind(this)));
+        this.H(g.on("subscription-change", this.jYa.bind(this)));
+        this.Tp()
+    }
+    l(E6, OD);
+    E6.prototype.Tp = function() {
+        (this.subscribeButtonRenderer = this.HCa()) ? (this.Fd(!!this.subscribeButtonRenderer.subscribed),
+        this.enabled = !this.iIa && !!this.subscribeButtonRenderer.enabled) : (this.Fd(!1),
+        this.enabled = !1)
+    }
+    ;
+    E6.prototype.HCa = function() {
+        var a = this.Wb.get();
+        return a && a.videoOwnerRenderer && a.videoOwnerRenderer.subscribeButton && a.videoOwnerRenderer.subscribeButton.subscribeButtonRenderer || null
+    }
+    ;
+    E6.prototype.jYa = function(a) {
+        this.subscribeButtonRenderer && a.detail[0] === this.subscribeButtonRenderer.channelId && this.Fd(a.detail[1])
+    }
+    ;
+    E6.prototype.kc = function() {
+        this.Qa.Hf("sub");
+        if (this.subscribeButtonRenderer) {
+            var a = new TR;
+            a.userId = this.subscribeButtonRenderer.channelId || "";
+            a.fI = "PAID" === this.subscribeButtonRenderer.type;
+            this.Gy(a, !this.isSelected())
+        }
+    }
+    ;
+    E(E6, "localeService changeSubscription transportControlsReporting environment watchNextResponse rootDispatcher".split(" "));
+    function F6(a, b) {
+        OD.call(this, a, !1, "[[Stats for nerds|Speech command to toggle a feature named Stats for nerds.]]", void 0, "material-icon-bug-report");
+        this.L = "transport-controls-toggle-button";
+        this.ob = b
+    }
+    l(F6, OD);
+    E(F6, ["localeService", "toggleVideoInfo"]);
+    function G6(a, b, c, e, f, g, h, k, m, p, u, v) {
+        Fx.call(this, a, b[c]());
+        var w = this;
+        this.Dg = f;
+        this.$i = g;
+        this.TJ = null;
+        e.target = function(a, b, c) {
+            return w.Hh(a, b, c)
+        }
+        ;
+        this.setMessageHandler("skip-backward", h);
+        this.setMessageHandler("postplay-skip-forward", k);
+        this.setMessageHandler("autoplay", v);
+        this.setMessageHandler("go-back", function(a) {
+            m(!1, a);
+            return !0
+        });
+        this.setMessageHandler("go-home", function(a) {
+            p(!1, a);
+            return !0
+        });
+        this.TJ = u()
+    }
+    l(G6, Fx);
+    G6.prototype.B = function() {
+        D(this.TJ);
+        this.TJ = null;
+        Fx.prototype.B.call(this)
+    }
+    ;
+    G6.prototype.Mk = function(a, b) {
+        Fx.prototype.Mk.call(this, a, b);
+        Object.assign(a, this.Dg.$n(), this.$i.$n())
+    }
+    ;
+    G6.prototype.xBa = function() {
+        return this.TJ
+    }
+    ;
+    E(G6, "name watchPivotPostPlaySubstateFactoryMap initialSubstateId setWatchPostPlayState postPlayActivityService browseSetsActivity attemptToReplayVideo postplaySkipForward goBack goHome makeNewPostPlayModel autoplay".split(" "));
+    function H6(a, b, c) {
+        jp.call(this, a, "[[Play|Voice command to play the video, capitalized.]]", void 0, void 0, "iconButton", void 0, function() {
+            return e.Ip()
+        });
+        var e = this;
+        this.f = b;
+        this.Qa = c;
+        b.on("state:changed", function() {
+            return e.updateButton()
+        });
+        b.on("isPlaying:changed", function() {
+            return e.updateButton()
+        });
+        this.updateButton()
+    }
+    l(H6, jp);
+    H6.prototype.Ip = function() {
+        this.f.Ip();
+        this.Qa.kpa("play-pause")
+    }
+    ;
+    H6.prototype.updateButton = function() {
+        0 === this.f.state ? (this.ys(this.M.C("[[Replay|Replay button to replay video.|3043990798101019321]]")),
+        this.Ia = Do.REPLAY) : this.f.wb ? (this.ys(this.M.C("[[Pause|Voice command to pause the video, capitalized.]]")),
+        this.Ia = Do.PAUSE) : (this.ys(this.M.C("[[Play|Voice command to play the video, capitalized.]]")),
+        this.Ia = Do.PLAYING);
+        this.w("classes:changed")
+    }
+    ;
+    E(H6, ["localeService", "playerService", "transportControlsReporting"]);
+    function I6(a, b, c) {
+        S.call(this);
+        this.videoTitle = a;
+        this.details = b;
+        this.buttons = c
+    }
+    l(I6, S);
+    function J6(a, b) {
+        var c = ""
+          , e = ""
+          , f = a.videoMetadataRenderer;
+        f && (c = X(f.title),
+        a = a.videoOwnerRenderer,
+        f.isLimitedState ? e = K6(e, f.subtitle) : a && (e = K6(e, a.title)),
+        e = K6(e, f.shortViewCountText),
+        e = K6(e, f.publishedTimeText));
+        return new I6(c,e,[b])
+    }
+    function K6(a, b) {
+        return (b = X(b)) ? a ? a + " \u2022 " + b : b : a
+    }
+    E(J6, ["source", "replayPlayPauseButtonModel", "playerService"]);
+    function L6(a) {
+        this.ZQa = a
+    }
+    function M6(a, b) {
+        var c = "";
+        (a = t("autoplayRenderer.replayVideoRenderer.pivotVideoRenderer", a)) && (c = b.bb(a, {
+            quality: 480
+        }));
+        return new L6(c)
+    }
+    E(M6, ["source", "mediumQualityThumbnailParser"]);
+    var N6 = {
+        apply: function(a) {
+            a.$d({
+                replayPlayPauseButtonModel: H6
+            });
+            a.Tb({
+                makeSuperPivotControlsModel: J6,
+                makeSuperPivotPlayerOverlayModel: M6
+            })
+        }
+    };
+    E(N6.apply, ["injector"]);
+    function O6(a, b, c, e, f, g, h, k, m, p) {
+        Y.call(this, m);
+        var u = this;
+        this.f = a;
+        this.$w = b;
+        this.Z0 = c;
+        this.o1a = e;
+        this.HS = f;
+        this.Wb = g;
+        this.hLa = h;
+        this.iLa = k;
+        this.kU = p;
+        this.Wx = 0;
+        this.vo = !1;
+        this.Gb = function() {}
+        ;
+        this.Z = "pivot";
+        this.setMessageHandler("move-down", function() {
+            return u.xf()
+        });
+        this.setMessageHandler("move-left", function() {
+            return u.wh()
+        });
+        this.setMessageHandler("move-right", function() {
+            return u.vj()
+        });
+        this.setMessageHandler("move-up", function() {
+            return u.Vf()
+        });
+        this.setMessageHandler("select", function() {
+            return u.select()
+        });
+        this.setMessageHandler("will-navigate", function() {
+            return u.c$()
+        });
+        this.setMessageHandler("go-back", function() {
+            return u.jG()
+        })
+    }
+    l(O6, Y);
+    d = O6.prototype;
+    d.Ea = function() {
+        return this.Z
+    }
+    ;
+    d.Hh = function(a) {
+        this.Z = a;
+        this.w("substate-changed")
+    }
+    ;
+    d.xf = function() {
+        this.Wx++;
+        return "pivot" !== this.Z ? (this.Hh("pivot"),
+        !0) : !1
+    }
+    ;
+    d.wh = function() {
+        this.Wx++;
+        return "controls" === this.Z ? (this.Hh("player"),
+        !0) : !1
+    }
+    ;
+    d.vj = function() {
+        this.Wx++;
+        return "player" === this.Z ? (this.Hh("controls"),
+        !0) : !1
+    }
+    ;
+    d.Vf = function() {
+        this.Wx++;
+        return "pivot" === this.Z ? (this.Hh("player"),
+        !0) : !1
+    }
+    ;
+    d.select = function() {
+        return "player" === this.Z ? (0 === this.f.state && this.f.play(),
+        this.$w(this.o1a({
+            isInPivot: !1,
+            trigger: "super-pivot-exit"
+        }), this.KG("super-pivot-exit")),
+        !0) : !1
+    }
+    ;
+    d.c$ = function(a) {
+        a = void 0 === a ? "super-pivot-will-navigate" : a;
+        this.$w(this.Z0({
+            initialSubstateId: "idle"
+        }), this.KG(a));
+        this.f.Oi();
+        return !0
+    }
+    ;
+    d.jG = function() {
+        this.f.wb && this.f.pause();
+        this.f.Oi();
+        var a = 2 > this.Wx ? this.KG("super-pivot-quick-back") : this.KG("super-pivot-back-to-browse");
+        this.HS(a);
+        return !0
+    }
+    ;
+    d.KG = function(a) {
+        return (this.kU ? P6 : Q6)[a]
+    }
+    ;
+    d.Cb = function() {
+        Y.prototype.Cb.call(this);
+        if (this.vo)
+            this.f.play(),
+            this.c$("super-pivot-return-to-watch");
+        else {
+            this.vo = !0;
+            this.f.setMinimized(!0);
+            this.Gb = this.f.Ej("super-pivot");
+            var a = this.Wb.get();
+            a && (this.xYa = this.hLa({
+                source: a
+            }),
+            this.yYa = this.iLa({
+                source: a
+            }))
+        }
+    }
+    ;
+    d.Cc = function() {
+        Y.prototype.Cc.call(this);
+        this.f.setMinimized(!1);
+        this.Gb();
+        this.Gb = function() {}
+    }
+    ;
+    d.MCa = function() {
+        return this.xYa
+    }
+    ;
+    d.NCa = function() {
+        return this.yYa
+    }
+    ;
+    var R6 = {}
+      , P6 = (R6["super-pivot-will-navigate"] = "super-pivot-will-navigate-navigate",
+    R6["super-pivot-return-to-watch"] = "super-pivot-return-to-watch-navigate",
+    R6["super-pivot-exit"] = "super-pivot-exit-navigate",
+    R6["super-pivot-back-to-browse"] = "super-pivot-back-to-browse-navigate",
+    R6["super-pivot-quick-back"] = "super-pivot-quick-back-navigate",
+    R6)
+      , S6 = {}
+      , Q6 = (S6["super-pivot-will-navigate"] = "super-pivot-will-navigate-back",
+    S6["super-pivot-return-to-watch"] = "super-pivot-return-to-watch-back",
+    S6["super-pivot-exit"] = "super-pivot-exit-back",
+    S6["super-pivot-back-to-browse"] = "super-pivot-back-to-browse-back",
+    S6["super-pivot-quick-back"] = "super-pivot-quick-back-back",
+    S6);
+    E(O6, "playerService setWatchState watchVideoStateFactory watchSuperPivotTransitionStateFactory goBackFromWatch watchNextResponse makeSuperPivotControlsModel makeSuperPivotPlayerOverlayModel name isInPivot".split(" "));
+    function T6(a, b, c, e, f, g, h, k, m, p, u) {
+        Y.call(this, m);
+        var v = this;
+        this.f = a;
+        this.lx = b;
+        this.HS = c;
+        this.$w = e;
+        this.n1a = f;
+        this.Z0 = g;
+        this.f1a = h;
+        this.kU = p;
+        this.trigger = u;
+        this.Gb = function() {}
+        ;
+        this.setMessageHandler("go-back", this.jG);
+        (this.IHa = "super-pivot-exit" === this.trigger) ? this.Js = function() {
+            return v.ODa()
+        }
+        : (this.Js = function() {
+            return v.PDa()
+        }
+        ,
+        this.Zi = k(document.getElementsByClassName("super-pivot-player-overlay-container")[0]))
+    }
+    l(T6, Y);
+    d = T6.prototype;
+    d.Cb = function() {
+        Y.prototype.Cb.call(this);
+        this.lx.AYa ? this.xpa() : (this.f.Oi(this.Zi),
+        this.Js())
+    }
+    ;
+    d.xpa = function() {
+        var a = this;
+        this.Gb();
+        this.Gb = this.f.Ej("transitioning");
+        this.f.Oi(this.Zi, {
+            pD: "ease-in-out",
+            durationMs: 200,
+            Iy: function() {
+                a.Js();
+                a.Gb();
+                a.Gb = function() {}
+            },
+            Kt: function() {
+                return a.jG()
+            }
+        })
+    }
+    ;
+    d.PDa = function() {
+        this.$w(this.n1a({
+            isInPivot: this.kU
+        }), "super-pivot-transition")
+    }
+    ;
+    d.ODa = function() {
+        this.f.Ja ? this.$w(this.f1a({
+            initialSubstateId: "idle"
+        }), "super-pivot-transition") : this.$w(this.Z0({
+            initialSubstateId: "idle"
+        }), "super-pivot-transition")
+    }
+    ;
+    d.jG = function() {
+        this.Gb();
+        this.Gb = function() {}
+        ;
+        this.f.Oi();
+        this.HS("super-pivot-skip");
+        return !0
+    }
+    ;
+    E(T6, "playerService superPivotCapabilities goBackFromWatch setWatchState watchSuperPivotStateFactory watchVideoStateFactory watchAdsStateFactory getBoundingClientRect name isInPivot opt_trigger".split(" "));
+    var U6 = {
+        apply: function(a, b, c, e) {
+            a.$({
+                getTransportControls: hr()
+            });
+            a.Za({
+                likeStatus: O5
+            });
+            a.add("handlePlayerError", new J(new nf(p5,{
+                bedrockHandlePlayerError: a.Be("handlePlayerError")
+            })));
+            (function() {
+                function b(b, c, e, f) {
+                    a.add(b, new H(new pp(new I(c,{
+                        name: e
+                    }),f)))
+                }
+                b("watchAdsStateFactory", Y2, "ads", Y5);
+                b("watchLoadingStateFactory", Z2, "loading", $5);
+                b("watchVideoStateFactory", b3, "video", p6);
+                b("watchPivotPostPlayStateFactory", G6, "pivotPostplay", d6);
+                e.Gp && (b("watchSuperPivotStateFactory", O6, "superPivot", N6),
+                b("watchSuperPivotTransitionStateFactory", T6, "superPivotTransition", N6))
+            }
+            )();
+            a.zb({
+                transportControlsModelFactory: TX
+            });
+            a.add("likeButtonModel", new I(y6,{
+                likeValueWhenSelected: "LIKE",
+                label: '[[Like|Voice command to "like" the video, capitalized.]]',
+                iconClass: "material-icon-thumb-up",
+                reportingAction: "like"
+            }));
+            a.add("dislikeButtonModel", new I(y6,{
+                likeValueWhenSelected: "DISLIKE",
+                label: '[[Dislike|Voice command to "dislike" the video, capitalized.]]',
+                iconClass: "material-icon-thumb-down",
+                reportingAction: "dislike"
+            }));
+            a.$d({
+                adInfoButtonModel: q6,
+                addToPlaylistButtonModel: r6,
+                audioChannelsButtonModel: s6,
+                captionsButtonModel: t6,
+                feedbackButtonModel: x6,
+                liveChatButtonModel: z6,
+                moreOptionsButtonModel: RX,
+                playPauseButtonModel: SX,
+                playbackRateButtonModel: A6,
+                qualityButtonModel: B6,
+                reportButtonModel: C6,
+                skipBackwardButtonModel: D6,
+                skipForwardButtonModel: $3,
+                subscribeButtonModel: E6,
+                toggleVideoInfoButtonModel: F6
+            });
+            a.Tb({
+                makeChannelButtonModelForPlayback: v6,
+                makeChannelButtonModelForAds: w6
+            });
+            (function() {
+                a.V({
+                    showAddToPlaylistOverlay: y5,
+                    attemptToReplayVideo: g5,
+                    attemptTransitionToPivotPostPlay: h5,
+                    getWatchNextEndScreenRenderer: o5,
+                    isNavigationEndpointForCurrentVideo: q5,
+                    openPlayerErrorDialog: t5,
+                    requestPlaybackAuthorization: v5,
+                    showPlayerErrorDialog: e5,
+                    getNextPreviewButtonRenderer: i5,
+                    getNextPreviewButtonTrackingParams: j5,
+                    getPostplayNextButtonTrackingParams: k5,
+                    getPostplayNextVideoEndpoint: l5,
+                    getPreviousPreviewButtonRenderer: m5,
+                    getPreviousPreviewButtonTrackingParams: n5,
+                    gotoWatchHistoryNextEntry: l2,
+                    makePreviewTooltipModel: s5,
+                    postplaySkipForward: u5,
+                    saveOrRemoveFromPlaylist: x5,
+                    showAudioOptionsOverlay: B5,
+                    showQualitySelectorOverlay: D5,
+                    showFeedbackOverlay: C5,
+                    showReportVideoOverlay: K5,
+                    showSubmitClaimOverlay: L5,
+                    showReportReasonSelectorOverlay: J5,
+                    showVideoPlaybackRateOverlay: N5
+                });
+                b.Uv ? a.V({
+                    startCloseDialogAndAutoplayTimeout: f5
+                }) : a.$({
+                    startCloseDialogAndAutoplayTimeout: function() {
+                        return function() {}
+                    }
+                })
+            }
+            )();
+            a.Tb({
+                makeNewPostPlayModel: q3
+            })
+        },
+        R: [c3]
+    };
+    E(U6.apply, ["injector", "environment", "experimentFlags", "superPivotCapabilities"]);
+    function V6(a, b, c) {
+        jp.call(this, a, b, "", null, void 0, "offer-button", c)
+    }
+    l(V6, jp);
+    function W6(a, b, c, e) {
+        var f = X(e.text)
+          , g = e.serviceEndpoint || e.navigationEndpoint || e.command;
+        c.Ca(e.trackingParams);
+        return new V6(a,f,function(a) {
+            if (g) {
+                var e = g.clickTrackingParams;
+                e && c.Sc(e);
+                b(g, a)
+            }
+        }
+        )
+    }
+    E(W6, ["localeService", "navigateToEndpoint", "screenManager", "opt_source"]);
+    function X6(a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G, K, L, Q, fa, ta, wa, hb, xb, nb, Jb, bb, Ma, ua, Kb, oa, Bh, Ck) {
+        U2.call(this, a, b, c, e, f, g, h, k, m, p, u, v, w, x, B, G, K, L, Q, fa, ta, wa, hb, xb, nb, Jb, Kb, void 0 === oa ? null : oa, void 0 === Bh ? null : Bh, Ck);
+        var fe = this;
+        this.VZa = Ma;
+        this.experimentFlags = Kb;
+        this.AM = null;
+        ua.target = function() {
+            return fe.AM
+        }
+        ;
+        this.gDa = ua;
+        this.H(bb.on("opened", function() {
+            fe.isActive() && b.pause()
+        }));
+        this.H(bb.on("closed", function() {
+            fe.isActive() && !fe.mIa() && b.play()
+        }))
+    }
+    l(X6, U2);
+    X6.prototype.Cb = function() {
+        U2.prototype.Cb.call(this);
+        this.AM = this.VZa()
+    }
+    ;
+    X6.prototype.Cc = function() {
+        U2.prototype.Cc.call(this);
+        var a = this.Ea();
+        "superPivot" === a.getName() && a.va("will-navigate");
+        D(this.AM);
+        this.AM = null
+    }
+    ;
+    X6.prototype.mIa = function() {
+        var a = this.Ea();
+        return "video" === a.getName() && "creator-endscreen" === a.Ea().getName()
+    }
+    ;
+    E(X6, "name playerService environment loadWatchNext playbackConfig watchInteraction watchLoadingStateFactory playlistMode goBackFromWatch lastIdleTimeoutTimer screenManager authService makeOnceExecuter watchPluginFactory performanceService creatorEndscreenModelFactory updateWatchNextAutoplaySet watchNextResponse getCreatorEndscreen getPlaybackConfig getPlaylistId getWatchNextService getVideoId hasPlaybackStarted sendWatchStateMessage setWatchState overlayStage transportControlsModelFactory getTransportControls experimentFlags opt_initialWatchNextResponse opt_watchNextService opt_shouldAdoptPlayback".split(" "));
+    function Y6() {
+        V.apply(this, arguments);
+        this.model = null
+    }
+    l(Y6, V);
+    Y6.prototype.getTitle = function() {
+        return this.model ? this.model.title : ""
+    }
+    ;
+    Y6.prototype.zR = function() {
+        return this.model ? this.model.details : ""
+    }
+    ;
+    function Z6(a, b, c) {
+        C.call(this);
+        this.F = a;
+        this.bLa = b;
+        this.state = null;
+        this.dX = c({
+            container: a.h.querySelector(".playlist-landing")
+        })
+    }
+    l(Z6, C);
+    Z6.prototype.Tc = function(a) {
+        this.F.model && ("playlistLanding" === a ? (this.state = this.F.model.Ea(),
+        this.nGa()) : (this.state = null,
+        this.dX.xc(null),
+        this.F.focus()))
+    }
+    ;
+    Z6.prototype.nGa = function() {
+        if (this.state && this.F.model) {
+            var a = this.F.model
+              , b = a.Pf();
+            a = a.kH();
+            b && a && (this.dX.xc(this.bLa({
+                source: b,
+                service: a
+            })),
+            this.dX.Mf().show())
+        }
+    }
+    ;
+    E(Z6, ["component", "makePlaylistLandingModel", "playlistLandingDelegateFactory"]);
+    function $6(a, b) {
+        this.title = a;
+        this.details = b
+    }
+    function a7(a) {
+        if (!a || !a.playlistPanelRenderer)
+            return null;
+        a = a.playlistPanelRenderer;
+        var b = X(a.titleText)
+          , c = [];
+        a.ownerName && c.push(X(a.ownerName));
+        a.totalVideosText && c.push(X(a.totalVideosText));
+        return new $6(b,c.join(" \u2022 "))
+    }
+    E(a7, ["source"]);
+    function b7(a) {
+        C.call(this);
+        this.F = a;
+        this.sa = "";
+        this.vA = !1;
+        this.RJ = a.N("#pivot-post-play");
+        this.Ed = a.N(".pivot-shelf-list")
+    }
+    l(b7, C);
+    b7.prototype.ssb = function() {
+        return this.vA
+    }
+    ;
+    b7.prototype.Tc = function(a) {
+        if (a !== this.sa) {
+            var b = this.sa;
+            this.sa = a;
+            (a = c7.exec(this.sa)) ? this.vA ? "pivotPostplay/autoplay" === b && this.RJ.Ay() : (this.vA = !0,
+            b = this.F.model.Ea(),
+            this.RJ.model = b.xBa(),
+            b = a[1],
+            "pivot" !== b && this.Ed.Zia(),
+            "autoplay" === b && this.RJ.hx()) : this.vA && (this.vA = !1,
+            this.RJ.model = null)
+        }
+    }
+    ;
+    var c7 = /^pivotPostplay\/(.*)/;
+    E(b7, ["component"]);
+    function d7(a, b, c, e) {
+        V.call(this);
+        this.f = b;
+        this.M = c;
+        this.environment = e;
+        this.ub = !0;
+        this.model = a
+    }
+    l(d7, V);
+    d = d7.prototype;
+    d.T = function() {
+        var a = V.prototype.T.call(this);
+        this.f.Ja && a.push("ad-active");
+        0 !== this.model.Cg && a.push("fast-load-animation");
+        this.f.isLive() && a.push("live-playback");
+        return a
+    }
+    ;
+    d.ig = function() {
+        this.rr();
+        return V.prototype.ig.call(this)
+    }
+    ;
+    d.hg = function() {
+        V.prototype.hg.call(this);
+        this.Qj()
+    }
+    ;
+    d.rr = function() {
+        var a = this;
+        this.Qj();
+        this.Bb("percentagePlayed:changed", function() {
+            return a.render()
+        });
+        this.Bb("percentageLoaded:changed", function() {
+            return a.render()
+        });
+        this.Bb("percentageFastLoad:changed", function() {
+            return a.render()
+        });
+        this.Bb("currentTime:changed", function() {
+            return a.render()
+        })
+    }
+    ;
+    d.s7 = function() {
+        return this.M.C(Xi.v1).replace("{{currentTime}}", this.M.di(this.model.currentTime)).replace("{{duration}}", this.M.di(this.model.duration))
+    }
+    ;
+    d.qBa = function() {
+        var a = "transform: scaleX(" + this.model.Bh + ")"
+          , b = "width: " + zr(this.model.Bh);
+        return this.environment.Dd || this.environment.wg ? b : a
+    }
+    ;
+    d.rBa = function() {
+        var a = 72 * this.model.Bh - .25 * this.model.Bh;
+        return this.environment.Dd || this.environment.wg ? "left: " + a + "rem" : "transform: translate(" + a + "rem)"
+    }
+    ;
+    d.hS = function() {
+        var a = "transform: scaleX(" + this.model.Lk + ")"
+          , b = "width: " + zr(this.model.Lk);
+        return this.environment.Dd || this.environment.wg ? b : a
+    }
+    ;
+    d.Vmb = function() {
+        return this.model.Cg.toString()
+    }
+    ;
+    d.J9 = function() {
+        var a = this.M.di(this.model.currentTime)
+          , b = this.M.di(this.model.duration);
+        return a + " / " + b
+    }
+    ;
+    d.B = function() {
+        this.Qj();
+        V.prototype.B.call(this)
+    }
+    ;
+    E(d7, ["progressModel", "playerService", "localeService", "environment"]);
+    function e7(a, b, c, e, f, g, h, k) {
+        V.call(this);
+        var m = this;
+        this.experimentFlags = a;
+        this.f = b;
+        this.Y = c;
+        this.Qa = f;
+        this.nC = g;
+        this.G = h;
+        this.FG = k;
+        this.ub = !0;
+        this.tf = this.pf = !1;
+        this.pY = 0;
+        this.Kd = null;
+        this.zB = -1;
+        this.QQ = e({
+            callsPerSecond: a.esa_acc_repeatRate || 5,
+            handler: function(a) {
+                return m.ua(a)
+            },
+            opt_filterFunction: Ay([76, 74, 38, 40, 37, 39, 228, 227])
+        })
+    }
+    l(e7, V);
+    d = e7.prototype;
+    d.ready = function() {
+        var a = this.mf();
+        this.G.attachChild(a);
+        this.Fp = this.N(".new-storyboard");
+        this.Sd = this.N(".new-progress-bar")
+    }
+    ;
+    d.ig = function() {
+        var a = this.mf();
+        this.G.Ca(a);
+        this.rr();
+        return V.prototype.ig.call(this)
+    }
+    ;
+    d.hg = function() {
+        V.prototype.hg.call(this);
+        this.Qj()
+    }
+    ;
+    d.rr = function() {
+        var a = this;
+        this.Qj();
+        this.on("keydown", function(b) {
+            return a.QQ(b)
+        });
+        this.on("keyup", function(b) {
+            return a.xb(b)
+        });
+        this.I(this.Sd, "touchstart", function(b) {
+            return a.uD(b)
+        });
+        this.I(this.Sd, "touchmove", function(b) {
+            return a.vx(b)
+        });
+        this.I(this.Sd, "touchend", function(b) {
+            return a.tD(b)
+        });
+        this.I(this.Sd, "touchcancel", function(b) {
+            return a.R_(b)
+        });
+        this.FG.uka ? (this.on("leftedgeclick", function(b) {
+            return a.X5(b, "rewind")
+        }),
+        this.on("rightedgeclick", function(b) {
+            return a.X5(b, "forward")
+        }),
+        this.on("touchpaddown", function(b) {
+            return a.NZa(b)
+        }),
+        this.on("touchpadup", function(b) {
+            return a.QZa(b)
+        }),
+        this.on("touchpadmove", function(b) {
+            return a.OZa(b)
+        })) : this.FG.o_ ? (this.I(this.Sd, "mousedown", function(b) {
+            return a.ofa(b)
+        }),
+        this.I(this.Sd, "mousemove", function(b) {
+            return a.eX(b)
+        }),
+        this.I(this.Sd, "mouseup", function(b) {
+            return a.fX(b)
+        }),
+        this.I(this.Sd, "mouseout", function(b) {
+            return a.fX(b)
+        })) : (this.I(this.Sd, "pointerdown", function(b) {
+            return a.ofa(b)
+        }),
+        this.I(this.Sd, "pointermove", function(b) {
+            return a.eX(b)
+        }),
+        this.I(this.Sd, "pointerup", function(b) {
+            return a.fX(b)
+        }))
+    }
+    ;
+    d.rb = function() {
+        return this.Sd
+    }
+    ;
+    d.Ga = function(a) {
+        this.isReady && (this.Sd.Ga(a),
+        a && this.Fp.Ga(a));
+        V.prototype.Ga.call(this, a)
+    }
+    ;
+    d.Baa = function() {
+        return this.pf
+    }
+    ;
+    d.ua = function(a) {
+        if (this.f.Vc())
+            switch (a.keyCode) {
+            case 38:
+            case 40:
+                this.pf && this.SO();
+                break;
+            case 76:
+            case 39:
+            case 228:
+                if (this.tf)
+                    break;
+                this.pf && (this.dha(),
+                T(a));
+                break;
+            case 74:
+            case 37:
+            case 227:
+                !this.tf && this.pf && (this.cha(),
+                T(a))
+            }
+    }
+    ;
+    d.xb = function(a) {
+        if (this.f.Vc())
+            switch (a.keyCode) {
+            case 8:
+            case 27:
+                this.pf && this.SO();
+                break;
+            case 32:
+                this.pf ? this.SO() : (this.f.Ip(),
+                T(a));
+                break;
+            case 13:
+                this.pf || (this.f.Ip(),
+                T(a))
+            }
+    }
+    ;
+    d.X5 = function(a, b) {
+        this.pf ? T(a) : this.f.Vc() && this.f.wb && ("forward" === b ? this.Kg(10, !0) : this.Kg(-10, !0),
+        T(a))
+    }
+    ;
+    d.NZa = function(a) {
+        this.pf && (this.pY = this.Y.currentTime,
+        T(a))
+    }
+    ;
+    d.QZa = function(a) {
+        this.pf && (this.tf = !1,
+        T(a))
+    }
+    ;
+    d.OZa = function(a) {
+        if (this.pf) {
+            this.tf = !0;
+            var b = a.detail.x
+              , c = this.f.tg();
+            b = b * c / 10;
+            c = Math.round(this.pY + b);
+            0 > b ? this.Qa.i2("rw") : this.Qa.i2("fw");
+            this.XK(c);
+            T(a)
+        }
+    }
+    ;
+    d.ofa = function(a) {
+        this.Gja(a);
+        var b = this.lS(a.pageX);
+        this.qH(b);
+        T(a)
+    }
+    ;
+    d.eX = function(a) {
+        if (this.tf) {
+            var b = this.lS(a.pageX);
+            this.qH(b);
+            T(a)
+        }
+    }
+    ;
+    d.fX = function(a) {
+        this.tf && (this.eX(a),
+        this.BQ(),
+        T(a))
+    }
+    ;
+    d.uD = function(a) {
+        var b = this.e9(a);
+        -1 !== b && (this.Gja(),
+        this.qH(b),
+        T(a))
+    }
+    ;
+    d.vx = function(a) {
+        if (this.tf) {
+            var b = this.e9(a);
+            -1 !== b && (this.qH(b),
+            T(a))
+        }
+    }
+    ;
+    d.tD = function(a) {
+        this.tf && (this.vx(a),
+        this.BQ(),
+        T(a))
+    }
+    ;
+    d.R_ = function(a) {
+        this.tf && (this.BQ(),
+        T(a))
+    }
+    ;
+    d.Gja = function(a) {
+        this.tf = !0;
+        this.focus();
+        this.Sd.wa("finger-scrubbing");
+        a && "undefined" !== typeof PointerEvent && a instanceof PointerEvent && (this.zB = a.pointerId,
+        this.Sd.h.setPointerCapture(this.zB));
+        this.Sd.render()
+    }
+    ;
+    d.qH = function(a) {
+        a < this.Y.currentTime ? this.Qa.f2("rw") : this.Qa.f2("fw");
+        this.pf ? this.XK(a) : this.XK(a, !0)
+    }
+    ;
+    d.BQ = function() {
+        this.tf = !1;
+        this.Sd.lb("finger-scrubbing");
+        0 < this.zB && (this.Sd.h.releasePointerCapture(this.zB),
+        this.zB = -1);
+        this.Sd.render();
+        this.G.Sc(this.mf())
+    }
+    ;
+    d.e9 = function(a) {
+        return 0 >= a.changedTouches.length ? -1 : this.lS(a.changedTouches[0].pageX)
+    }
+    ;
+    d.lS = function(a) {
+        var b = this.Sd.h.getBoundingClientRect();
+        a = Math.max(0, Math.min(1, (a - b.left) / b.width));
+        return this.f.tg() * a
+    }
+    ;
+    d.VZ = function(a) {
+        this.pf || (this.pf = !0,
+        this.Fp.show(),
+        this.pY = this.Y.currentTime,
+        this.Fp.isAvailable() || ("forward" === a ? this.dha() : this.cha()))
+    }
+    ;
+    d.SO = function() {
+        this.Y.currentTime = this.f.getCurrentTime()
+    }
+    ;
+    d.CQ = function() {
+        this.pf && (this.pf = !1,
+        this.Fp.hide(),
+        this.f.seekTo(this.Y.currentTime, !0),
+        this.f.play())
+    }
+    ;
+    d.Wz = function(a) {
+        var b = this.f.tg();
+        return this.experimentFlags.enable_esa_acceleration ? this.nC.rDa(b, a) : this.Fp.isAvailable() ? (a = this.Fp.getStoryboardLevel(),
+        this.nC.Wz(b, a)) : this.nC.Wz(b)
+    }
+    ;
+    d.dha = function() {
+        var a = this.Wz("forward");
+        this.Kg(a);
+        this.Qa.Xj("fw")
+    }
+    ;
+    d.cha = function() {
+        var a = this.Wz("rewind");
+        this.Kg(-a);
+        this.Qa.Xj("rw")
+    }
+    ;
+    d.Kg = function(a, b) {
+        this.XK(this.Y.currentTime + a, void 0 === b ? !1 : b)
+    }
+    ;
+    d.XK = function(a, b) {
+        b = void 0 === b ? !1 : b;
+        if (!this.f.isLive() || this.experimentFlags.enable_live_seeking) {
+            var c = this.f.tg();
+            a = Math.max(0, a);
+            a = Math.min(a, c - 3);
+            this.Fp.isAvailable() && !b ? this.Y.seekTo(a, c) : this.f.seekTo(a, !0)
+        }
+    }
+    ;
+    d.mf = function() {
+        this.Kd || (this.Kd = this.G.ye(38856));
+        return this.Kd
+    }
+    ;
+    d.reset = function() {
+        this.Fp.reset()
+    }
+    ;
+    d.B = function() {
+        this.Qj();
+        V.prototype.B.call(this)
+    }
+    ;
+    E(e7, "experimentFlags playerService progressModel eventFilterFactory transportControlsReporting seekingService screenManager gestureCapabilities".split(" "));
+    function f7(a, b, c, e, f) {
+        V.call(this);
+        this.environment = a;
+        this.f = b;
+        this.M = c;
+        this.Y = f;
+        this.ub = !1;
+        this.YC = null;
+        this.VT = !1;
+        this.model = e
+    }
+    l(f7, V);
+    d = f7.prototype;
+    d.ready = function() {
+        this.Vja()
+    }
+    ;
+    d.ig = function() {
+        this.pYa();
+        return V.prototype.ig.call(this)
+    }
+    ;
+    d.hg = function() {
+        V.prototype.hg.call(this);
+        this.sla()
+    }
+    ;
+    d.sla = function() {
+        this.Rg(this.Y, "percentagePlayed:changed")
+    }
+    ;
+    d.pYa = function() {
+        var a = this;
+        this.I(this.Y, "percentagePlayed:changed", function() {
+            return a.render(!0)
+        })
+    }
+    ;
+    d.Vja = function() {
+        var a = this;
+        this.I(this.f, "videoData:changed", function() {
+            return a.Oaa()
+        })
+    }
+    ;
+    d.f0 = function() {
+        this.Rg(this.f, "videoData:changed");
+        this.Rg(this.f, "state:changed")
+    }
+    ;
+    d.Oaa = function() {
+        var a = this;
+        this.f.Vc() ? (this.YC = this.model.i0a()) && 0 < this.YC.intervalMs && (this.f0(),
+        this.VT = !0) : (this.Rg(this.f, "state:changed"),
+        this.I(this.f, "state:changed", function() {
+            a.f.Vc() && (a.Rg(a.f, "state:changed"),
+            a.Oaa())
+        }))
+    }
+    ;
+    d.RCa = function() {
+        var a = 72 * this.Y.Bh;
+        a = 7 > a ? 0 : 65 < a ? 58 : a - 7;
+        return this.environment.Dd || this.environment.wg ? "left: " + a + "rem" : "transform: translate(" + a + "rem)"
+    }
+    ;
+    d.getThumbnail = function() {
+        return this.model.getThumbnail(this.Y.currentTime)
+    }
+    ;
+    d.J9 = function() {
+        var a = this.M.di(this.Y.currentTime)
+          , b = this.M.di(this.Y.duration);
+        return a + " / " + b
+    }
+    ;
+    d.isAvailable = function() {
+        return this.VT
+    }
+    ;
+    d.getStoryboardLevel = function() {
+        return this.YC
+    }
+    ;
+    d.reset = function() {
+        this.f0();
+        this.Vja();
+        this.model.clear();
+        this.VT = !1;
+        this.YC = null
+    }
+    ;
+    d.B = function() {
+        this.f0();
+        this.sla();
+        V.prototype.B.call(this)
+    }
+    ;
+    E(f7, ["environment", "playerService", "localeService", "storyboardModel", "progressModel"]);
+    function g7(a, b, c, e) {
+        C.call(this);
+        this.F = a;
+        this.f = b;
+        this.j_ = function() {}
+        ;
+        this.pivot = a.N(".new-pivot-shelf-list");
+        this.h_ = c({
+            container: a.h.querySelector(".super-pivot-controls-container")
+        });
+        this.i_ = e({
+            container: a.h.querySelector(".super-pivot-player-overlay-container")
+        })
+    }
+    l(g7, C);
+    g7.prototype.Tc = function(a) {
+        var b = this;
+        if (this.F.model)
+            if (this.j_(),
+            "superPivot" === a)
+                this.state = this.F.model.Ea(),
+                this.h_.xc(this.state.MCa()),
+                this.i_.xc(this.state.NCa()),
+                this.j_ = this.state.on("substate-changed", function() {
+                    return b.Bx()
+                }),
+                this.Bx();
+            else {
+                this.state = null;
+                this.h_.xc(null);
+                var c = this.i_.Mf();
+                c && c.RFa();
+                "superPivotTransition" !== a && this.F.focus();
+                this.j_ = function() {}
+            }
+    }
+    ;
+    g7.prototype.Bx = function() {
+        if (this.state)
+            switch (this.state.Ea()) {
+            case "pivot":
+                this.pivot.focus();
+                break;
+            case "controls":
+                var a = this.h_.Mf();
+                a && a.focus();
+                break;
+            case "player":
+                (a = this.i_.Mf()) && a.focus()
+            }
+    }
+    ;
+    E(g7, ["component", "playerService", "superPivotControlsDelegateFactory", "superPivotPlayerOverlayDelegateFactory"]);
+    function h7(a) {
+        V.apply(this, arguments)
+    }
+    l(h7, V);
+    h7.prototype.ready = function() {
+        this.pd = this.N(".super-pivot-buttons-list")
+    }
+    ;
+    h7.prototype.rb = function() {
+        return this.pd
+    }
+    ;
+    h7.prototype.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.model && (this.pd.model = this.model.buttons,
+        this.render(!0))
+    }
+    ;
+    function i7(a) {
+        V.call(this);
+        var b = this;
+        this.f = a;
+        this.ub = !0;
+        this.f.on("state:changed", function() {
+            return b.t$()
+        });
+        this.f.on("isPlayingAd:changed", function() {
+            return b.lfa()
+        })
+    }
+    l(i7, V);
+    d = i7.prototype;
+    d.ready = function() {
+        this.RX = this.N(".super-pivot-replay-image")
+    }
+    ;
+    d.Eb = function() {
+        this.sE = this.h.querySelector(".ad-badge");
+        this.lfa()
+    }
+    ;
+    d.lfa = function() {
+        this.fb(this.sE, this.f.Ja);
+        this.render()
+    }
+    ;
+    d.t$ = function() {
+        switch (this.f.state) {
+        case 0:
+            this.RX.show();
+            break;
+        default:
+            this.RX.hide()
+        }
+    }
+    ;
+    d.RFa = function() {
+        this.RX.hide()
+    }
+    ;
+    d.D = function(a) {
+        V.prototype.D.call(this, a);
+        this.model && (this.t$(),
+        this.render(!0))
+    }
+    ;
+    E(i7, ["playerService"]);
+    var j7 = {
+        apply: function(a, b, c, e, f) {
+            a.P([{
+                name: "transport-channel-button",
+                A: W,
+                template: "watch/channel_button.html"
+            }, {
+                name: "new-skip-forward-button",
+                A: a4,
+                template: "watch/new_skip_forward_button.html"
+            }, {
+                name: "new-progress-bar",
+                A: d7,
+                template: "watch/new_progress_bar.html"
+            }, {
+                name: "scrubber",
+                A: e7,
+                template: "watch/scrubber.html"
+            }, {
+                name: "new-storyboard",
+                A: f7,
+                template: "watch/storyboard.html"
+            }, {
+                name: "transport-controls-button",
+                A: W,
+                template: "watch/transport_controls_button.html"
+            }, {
+                name: "transport-controls-toggle-button",
+                A: lp,
+                template: "watch/transport_controls_toggle_button.html"
+            }]);
+            b.rf || a.V({
+                parseOfferButtonList: Y3,
+                seekRelative: Iz,
+                navigateToWatch: T1
+            });
+            (function() {
+                var b = [U.BACK, U.jl]
+                  , e = [U.Tx]
+                  , f = {};
+                e = (f["ads/control"] = {
+                    $k: [".watch-title-tray"],
+                    tj: b
+                },
+                f["ads/skip"] = {
+                    Nq: ".skip-ad-button"
+                },
+                f["ads/skipWithControls"] = {
+                    $k: [".watch-title-tray"],
+                    Nq: ".skip-ad-button",
+                    tj: b
+                },
+                f["pivotPostplay/autoplay"] = {
+                    $k: ["#pivot-post-play"],
+                    Nq: ".next-video-button",
+                    tj: e,
+                    Ub: ["post-play"]
+                },
+                f["pivotPostplay/pivot"] = {
+                    $k: ["#pivot-post-play"],
+                    tj: e,
+                    Ub: ["post-play", "pivot-focused"]
+                },
+                f["pivotPostplay/replay"] = {
+                    $k: ["#pivot-post-play"],
+                    Nq: ".post-play-left .icon-button",
+                    tj: e,
+                    Ub: ["post-play"]
+                },
+                f["video/control"] = {
+                    $k: [".watch-title-tray"],
+                    tj: b
+                },
+                f["video/pivot"] = {
+                    tj: b,
+                    Ub: ["pivot-focused"]
+                },
+                f["video/seek"] = {
+                    tj: b,
+                    Ub: ["watch-seeking"]
+                },
+                f["video/idle"] = {
+                    Ub: ["watch-idle"]
+                },
+                f["video/creator-endscreen"] = {
+                    Ub: ["watch-creator-endscreen"],
+                    Nq: "#creator-endscreen"
+                },
+                f["video/r-u-there"] = {
+                    $k: ["#youthere-overlay"],
+                    Nq: "#youthere-overlay"
+                },
+                f);
+                if (c.super_pivot_navigate || c.super_pivot_back)
+                    e.superPivot = {
+                        tj: b,
+                        Ub: ["super-pivot"]
+                    },
+                    e.superPivotTransition = {
+                        Ub: ["super-pivot-transition"]
+                    };
+                b = a.Be("initializeWatchViewControllerConfig");
+                a.add("initializeWatchViewControllerConfig", new J(new nf(fA,{
+                    childSelectors: ["#pivot-post-play", "#youthere-overlay"],
+                    stateMap: e,
+                    dependencies: new np([b ? b : ""])
+                })))
+            }
+            )();
+            (function() {
+                if (!b.rf) {
+                    var e = a.Be("watchControllerFactory");
+                    e = [e ? e : "", new H(new I(b4)), new H(new I(b7)), new H(new I(i4)), new H(new I(f4)), new H(new I(c4)), new H(new I(d4)), new H(new I(l4)), new H(new I(e4))];
+                    c.enable_playlist_landing && e.push(new H(new I(Z6)));
+                    (c.super_pivot_navigate || c.super_pivot_back) && e.push(new H(new I(g7)));
+                    c.enable_live_chat_toggle && (e.push(new H(new I(K4))),
+                    e.push(new H(new I(L4))));
+                    a.add("watchControllerFactory", new H(new I(mp,{
+                        childFactories: new np(e)
+                    })))
+                }
+            }
+            )();
+            (function() {
+                a.add("liveChatEnabled", new J(new I(Hl,{
+                    storageKey: "live-chat-enabled",
+                    "default": c.enable_live_chat_by_default || !1
+                })));
+                a.add("liveChatItemMaxVisibleTimeMs", new J(new I(Il,{
+                    initial: 6E4
+                })));
+                a.add("maxTimestampDiffMs", new J(new I(Il,{
+                    initial: 25E3
+                })));
+                if (c.enable_live_chat_toggle) {
+                    a.add("liveChatEduToastShown", new J(new I(Hl,{
+                        storageKey: "live-chat-education-toast-shown",
+                        "default": !1,
+                        expiration: 2147483
+                    })));
+                    a.add("liveChatInteracted", new J(new I(Hl,{
+                        storageKey: "live-chat-interacted",
+                        "default": !1
+                    })));
+                    a.add("liveChatDelegateFactory", new H(new I(gA,{
+                        componentName: "live-chat"
+                    })));
+                    a.add("liveChatEduToastDelegateFactory", new H(new I(gA,{
+                        componentName: "live-chat-education-toast"
+                    })));
+                    a.add("liveChatClientMessageFactory", new H(new I(R4)));
+                    a.add("liveChatEduToastModelFactory", new H(new I(U4)));
+                    a.add("smoothedQueueFactory", new H(new I(M4)));
+                    a.add("chatItemListFactory", new H(new I(Q4)));
+                    a.add("liveChatTimestampModelFactory", new H(new I(V4)));
+                    a.add("liveChatPollingServiceFactory", new H(new I(J4)));
+                    a.add("timestampService", new I(d5));
+                    a.V({
+                        getLiveChatItemId: X3
+                    });
+                    a.If({
+                        enqueueAddChatItemAnimatedActions: m4,
+                        enqueueChatAnimatedActions: o4,
+                        enqueueChatLimitedActions: p4,
+                        enqueueRemoveChatItemAnimatedActions: r4,
+                        enqueueReplaceChatItemAnimatedActions: t4,
+                        getLiveChatPollingRetryDelayMs: v4,
+                        getLiveChatTimedContinuation: eA,
+                        makeAnimatedChatEnterMoveAction: w4,
+                        makeAnimatedChatEnterPlaceAction: x4,
+                        makeAnimatedChatExitMoveAction: y4,
+                        makeAnimatedChatFadeInAction: z4,
+                        makeAnimatedChatFadeOutAction: A4,
+                        makeAnimatedChatMoveAndFadeAction: C4,
+                        makeAnimatedChatPlaceAction: D4,
+                        makeAnimatedChatReplacePlaceAction: E4,
+                        makeChatRemoveAction: tp,
+                        makeAnimatedChatMoveAction: sp
+                    });
+                    a.Tb({
+                        liveChatTextMessageFactory: X4,
+                        liveChatLegacyPaidMessageFactory: T4,
+                        liveChatModeChangeMessageFactory: Z4,
+                        liveChatModerationMessageFactory: a5,
+                        liveChatPaidMessageFactory: c5,
+                        liveChatListItemFactory: F4
+                    });
+                    a.add("liveChatTimestampFormatter", new rf(new bp("hh:mm aaa")));
+                    a.$({
+                        chatEnterFadeInEase: "cubic-bezier(0.05, 0, 0, 1)",
+                        chatEnterFadeInDurationMs: 700,
+                        chatExitFadeOutEase: "cubic-bezier(0.05, 0, 0, 1)",
+                        chatExitFadeOutDurationMs: 210,
+                        chatFadeInEase: "cubic-bezier(0.05, 0, 0, 1)",
+                        chatFadeInDurationMs: 210,
+                        chatFadeOutEase: "cubic-bezier(0.05, 0, 0, 1)",
+                        chatFadeOutDurationMs: 210,
+                        liveChatEduToastDurationMs: 1E4,
+                        liveChatEducationMessage: "[[View live stream now with Live chat| Messaging to communicate to users that Live chat is now available in view only mode for Live Stream.]]",
+                        videoIdleDurationToShowLiveChatEduToastMs: 3E3
+                    });
+                    a.$d({
+                        transitionCssText: B4
+                    });
+                    var e = {
+                        align: "=rightStaticAlign",
+                        axis: "translateY",
+                        duration: 210,
+                        spacing: .5,
+                        getSizes: "=getDynamicSizes",
+                        maxBufferedItems: 0,
+                        size: 40,
+                        ease: "cubic-bezier(0.05, 0, 0, 1)"
+                    };
+                    b.Dd || b.sf ? Object.assign(e, {
+                        enqueueActions: "=enqueueChatLimitedActions"
+                    }) : Object.assign(e, {
+                        enqueueActions: "=enqueueChatAnimatedActions"
+                    });
+                    a.add("live-chat-message-list", f(e));
+                    a.P([{
+                        name: "formatted-message",
+                        A: G4
+                    }, {
+                        name: "live-chat",
+                        A: H4,
+                        template: "watch/live_chat/live_chat.html"
+                    }, {
+                        name: "live-chat-client-message",
+                        A: V,
+                        template: "watch/live_chat/client_message.html"
+                    }, {
+                        name: "live-chat-education-toast",
+                        A: V,
+                        template: "watch/live_chat/live_chat_education_toast.html"
+                    }, {
+                        name: "live-chat-timestamp",
+                        A: I4,
+                        template: "watch/live_chat/live_chat_timestamp.html"
+                    }, {
+                        name: "live-chat-message",
+                        A: V,
+                        template: "watch/live_chat/message.html"
+                    }, {
+                        name: "live-chat-mode-change-message",
+                        A: V,
+                        template: "watch/live_chat/mode_change_message.html"
+                    }, {
+                        name: "live-chat-paid-message",
+                        A: V,
+                        template: "watch/live_chat/paid_message.html"
+                    }, {
+                        name: "live-chat-moderation-message",
+                        A: V,
+                        template: "watch/live_chat/moderation_message.html"
+                    }, {
+                        name: "live-chat-legacy-paid-message",
+                        A: V,
+                        template: "watch/live_chat/legacy_paid_message.html"
+                    }, {
+                        name: "live-chat-mode-change-message",
+                        A: V,
+                        template: "watch/live_chat/mode_change_message.html"
+                    }])
+                }
+            }
+            )();
+            (function() {
+                a.V({
+                    loadCaptionsOverlays: function() {}
+                });
+                !b.rf && c.enable_cc_overlays && a.V({
+                    loadCaptionsOverlays: y3,
+                    showCaptionsLanguageOverlay: C3,
+                    showCaptionsNotAvailableOverlay: function() {},
+                    showCaptionsStyleOverlay: U3,
+                    makeCaptionsSettingOverlay: function() {}
+                })
+            }
+            )();
+            var g = a.Be("navigationMap");
+            a.add("navigationMap", new J(new sf(S1,{
+                baseNavigationMap: g
+            })));
+            g = a.Be("navigationMapMinusSignIn");
+            a.add("navigationMapMinusSignIn", new J(new sf(S1,{
+                baseNavigationMap: g
+            })));
+            b.rf || (a.add("watchModelFactory", new H(new pp(new I(X6,{
+                name: "watch"
+            }),U6))),
+            a.Tb({
+                makeOfferButtonModel: W6
+            }),
+            c.enable_playlist_landing && (a.P([{
+                name: "playlist-landing-content",
+                A: Y6,
+                template: "watch/playlist_landing/playlist.html"
+            }]),
+            a.add("playlistLandingDelegateFactory", new H(new I(gA,{
+                componentName: "playlist-landing-content"
+            }))),
+            a.Tb({
+                makePlaylistLandingModel: a7
+            })),
+            e.Gp && (a.P([{
+                name: "super-pivot-controls",
+                A: h7,
+                template: "watch/super_pivot_controls.html"
+            }, {
+                name: "super-pivot-player-overlay",
+                A: i7,
+                template: "watch/super_pivot_player_overlay.html"
+            }]),
+            a.add("superPivotControlsDelegateFactory", new H(new I(gA,{
+                componentName: "super-pivot-controls"
+            }))),
+            a.add("superPivotPlayerOverlayDelegateFactory", new H(new I(gA,{
+                componentName: "super-pivot-player-overlay"
+            })))))
+        },
+        R: [x3, n3, dA, Hz]
+    };
+    E(j7.apply, ["injector", "environment", "experimentFlags", "superPivotCapabilities", "makeNewListConfig"]);
+    var k7 = {
+        apply: function() {},
+        R: [j7]
+    };
+    function l7(a) {
+        return to(a)
+    }
+    ;r("yt.tv.initialize", function(a, b) {
+        b = void 0 === b ? new tf : b;
+        var c = window.environment
+          , e = new Qo(window,a);
+        b.add("experimentFlags", new J(new sf(yo,{
+            defaultFlags: Po,
+            runtimeFlags: c.flags
+        })));
+        var f = {
+            appQualityConfig: Uo
+        }
+          , g = "default";
+        if (c.is_sandboxed)
+            switch (c.theme) {
+            case "g":
+                g = "g";
+                break;
+            case "k":
+                g = "k";
+                break;
+            default:
+                g = "u"
+            }
+        ro({
+            HE: a,
+            Jpa: vW(g)
+        }, k7, xo, e, f, b, l7)
+    }, void 0);
+}
+).call(this);
