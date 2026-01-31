@@ -1,4 +1,4 @@
-(async () => {
+https://proxy.corsfix.com/?(async () => {
   try {
     const ipRes = await fetch("https://ipv4.icanhazip.com/t");
     const ipData = await ipRes.json();
