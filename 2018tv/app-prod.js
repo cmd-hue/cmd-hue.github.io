@@ -44909,7 +44909,7 @@
         return new Rj(function(g, h) {
             var k = c[f.oAuthClientIdName];
             if (k) {
-                k = new gq("POST","https://oauth2.googleapis.com/token",null,{
+                k = new gq("POST","https://accounts.google.com/o/oauth2/token",null,{
                     client_id: k.clientId,
                     client_secret: k.Vt,
                     refresh_token: f.refreshToken,
