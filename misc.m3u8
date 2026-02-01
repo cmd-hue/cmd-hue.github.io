@@ -21,18 +21,6 @@ https://e1.thetvapp.to/hls/Boomerang/playlist.m3u8
 https://fl61.moveonjoy.com/CARTOON_NETWORK/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",ABC News Hudson
 https://abcnews-streams.akamaized.net/hls/live/2023569/abcnewshudson10/master_4000.m3u8
-#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",ESPN
-https://e1.thetvapp.to/hls/ESPN/tracks-v1a1/mono.m3u8
-#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/toongoggles.png" group-title="CMD HUE MISC PLAYLIST",Toon Goggles
-https://stream.ads.ottera.tv/cl/251124d4ic8ipk1535vkpq0rl0/1280x720_3071200_0_f.m3u8?i=475_37
-#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Charge!
-https://fast-channels.sinclairstoryline.com/CHARGE/index_5_0.m3u8
-#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Angry Birds Channel
-https://stream.ads.ottera.tv/cl/251124d4idmt70cfctapdbp3hg/1280x720_2300000_0_f.m3u8?i=475_547
-#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Duck Dynasty
-https://amg00276-amg00276c2-rakuten-uk-3449.playouts.now.amagi.tv/playlist1080p.m3u8
-#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Popstar TV (Not 24/7)
-https://bd0c70d8954d416d819afb3e1c940ee6.mediatailor.us-west-2.amazonaws.com/v1/manifest/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-10-POPSTAR-PLEX/a8b68952-4d59-4fb9-b4ab-8c36b6c70c61/5.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",WeatherNation
 https://twcprod-live.twc-tv.com/v1/manifest/b4d4d63a49309cc5140171fb2e92485c31be1e9e/DSP_6228e4760505741a116f1ba2_twcprod-live/6bf09ce5-366b-463c-b67e-c4b799f73c3f/4.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",NickToons (720p, USA)
@@ -43,5 +31,11 @@ https://amg00327-coxmediagroup-wftvbreaking-ono-hec7b.amagi.tv/playlist/amg00327
 http://k3.usastreams.com/CableLatino/88stereo/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logoaudio.png" group-title="CMD HUE MISC AUDIO PLAYLIST",WJON IP EAS Radio
 https://radio.wjonip.org/wjonip
-#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC AUDIO PLAYLIST"Bobux Man Podcast
-https://use23.playlist.ttvnw.net/v1/playlist/CrQEVKdx_AMPoBTE2ySaWWeHIM2BO6GIYiUy4-kKDsdFmstJ7dZ8W7irVs06gSqPbgSib2PwTGPq0jQ4hofNMNHFYm6d1_w-9ZszAu6MaOwT2xAYYmLnUYMCF__xXrXKmocmJmcyykbiTM4qZbXwSWt0CD0fCgMa03ofQb69MnLQxROZZVoe285oQ_wFHycaa4SQtbeJ5tEDJFICw2MSqQds7d7fqWmkX8fgP6PRT5M3k8UvYI6c34lf9_UiV4N3mbZQmb453RVn0MBjFTrSfzF5OxiTtk2B-ZtrUDYiWqgAQIrNMNYiz85KmkHo8qrM09iGkUd7sUk4kIs3AHl9AO_Gfe0mtyhPX5HWdIRSgZhsUOph0yV5ct09ofqhx-6RB92S_IjE0Yw3vrhuoIdqikvgLDym2ZruFIr_DYRkV0dyImxz64rFNmu4ikNoyrDXWi2qJpneXY0Yz1MVXNzbafVUAgM-4ozbfj36S0LWT6zd8oHhej8KXG-D5cTjounhgWELedAlA0pwanYQxOpDX3lpfyepiJI5Fp3-81DJTGdapydNelhTcA2Xc0jJdShHaoIvGFCfKhtc6sdsWzpvTkvZPfeSu5ev-zJtoLrzmhQINfNuvjXDXAZUwDvQP9K-Utzyz8DQEvpd8uSVmsApJvNMr9zM81Bsq3mazvSm5Wkx29KEw2j9kQKLcj5WIwbEywf23ZUmmBY7RD0oD8F2IRRczwnAGSafQkemLVphSB11UhI4Zth9Ggxo5Qoe5GM0yqu90ncgASoJdXMtZWFzdC0yMIgO.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Plannel (480p)
+https://ch2.tvs.gcpw.art/stream_480p.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",Plannel 2 (480p)
+https://ch3.tvs.gcpw.art/stream_480p.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logo.png" group-title="CMD HUE MISC PLAYLIST",TheCoolTV
+https://thecooltv-amagi-live.amagi.tv/playlist/thecooltv-amagi-live/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-logo="https://cmd-hue.github.io/logoaudio.png" group-title="CMD HUE MISC AUDIO PLAYLIST",Plankton's Dr. Radio Jr.
+https://radio.plaza.one/mp3
