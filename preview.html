@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CMD HUE</title>
+
+<link rel="stylesheet" href="https://unpkg.com/7.css">
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: url("https://cmd-hue.github.io/perch.jpg") center / cover no-repeat fixed;
+}
+
+/* Viewer counter */
+.viewer-counter {
+  position: fixed;
+  top: 55px;
+  right: 6px;
+  z-index: 999;
+}
+
+/* Top banner */
+.top-banner {
+  display: block;
+  margin: 12px auto;
+  max-width: 732px;
+  width: 100%;
+  height: 94px;
+  border: none;
+}
+
+/* Desktop layout */
+.desktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 140px);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+}
+
+/* Main window */
+.main-window {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+}
+
+/* Left media column */
+.media-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.media-column iframe {
+  border: none;
+}
+
+/* Quote box */
+.quote-box {
+  font-size: 12px;
+  padding: 6px 8px;
+  color: #000;
+  text-align: center;
+  border-radius: 4px;
+  opacity: 0.9;
+  cursor: pointer;
+  user-select: text;
+}
+
+.quote-box:hover {
+  background: rgba(255,255,255,0.35);
+}
+  .quote-author {
+  margin-top: 4px;
+  font-size: 11px;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+
+
+/* Links window */
+.links-window {
+  width: 300px;
+}
+
+.links-window hr {
+  margin: 6px 0;
+}
+
+/* Spotify badge */
+.spotify {
+  display: block;
+  margin: 10px auto 0;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Viewer counter -->
+<a class="viewer-counter"
+   href="http://www.snazzyspace.com/generators/viewer-counter/"
+   target="_blank">
+  <img src="http://www.snazzyspace.com/generators/viewer-counter/counter.php/fid=1767193164/style=6/counter.png">
+</a>
+
+<!-- Top banner -->
+<iframe
+  class="top-banner"
+  src="https://john.citrons.xyz/embed?ref=cmd-hue.github.io">
+</iframe>
+
+<div class="desktop">
+  <div class="window active glass">
+    <div class="title-bar">
+      <div class="title-bar-text">CMD HUE</div>
+    </div>
+
+    <div class="window-body main-window">
+
+      <!-- LEFT: Twitch + VDO Ninja -->
+      <div class="media-column">
+        <iframe
+          src="https://player.twitch.tv/?channel=theabeasty&parent=cmd-hue.github.io&autoplay=true"
+          width="320"
+          height="180">
+        </iframe>
+
+        <iframe
+          src="https://vdo.ninja/?scene&room=cmdtv_v1&nocontrols&background=https://cmd-hue.github.io/cmdtv/offair.png"
+          width="320"
+          height="180"
+          allow="autoplay">
+        </iframe>
+
+        <!-- Random Quote -->
+<div id="quoteBox" class="quote-box glass" title="Click to copy quote">
+  <div id="quoteText">Loading quote…</div>
+  <div id="quoteAuthor" class="quote-author"></div>
+</div>
+
+
+      </div>
+
+      <!-- RIGHT: Links -->
+      <div class="window links-window glass">
+        <div class="title-bar">
+          <div class="title-bar-text">Links</div>
+        </div>
+
+        <div class="window-body has-space">
+          <a href="/albuquerque.mp3">Albuquerque MP3 File</a><hr>
+          <a href="/deck/deck.user.js">Deck</a><hr>
+          <a href="/userscriptmods/CarTomb.user.js">CarTomb</a><hr>
+          <a href="/xbox">Xbox 2011 Page Revival</a><hr>
+          <a href="/directv">DirecTV July 2010 Revival</a><hr>
+          <a href="/firefoxstartgoogle/">Google Firefox Start Page Revival (2009)</a><hr>
+          <a href="/lab/">Banjo's Lab</a><hr>
+          <a href="/2013tv/">YouTube for TV 2013</a><hr>
+          <a href="/drats.user.js">Drats – OWOT Hacking</a><hr>
+          <a href="/2011leanback">YouTube Leanback 2011–2012</a><hr>
+          <a href="/2017tv/">YouTube for TV 2017</a><hr>
+          <a href="/cmdtv/">CMDTV</a><hr>
+          <a href="/archivehome/">Archives</a>
+
+          <!-- Spotify badge -->
+          <img id="spotifyBadge" class="spotify" width="250" alt="Spotify Status">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const quoteBox = document.getElementById("quoteBox");
+const quoteText = document.getElementById("quoteText");
+const quoteAuthor = document.getElementById("quoteAuthor");
+
+/* Spotify badge cache bust */
+document.getElementById("spotifyBadge").src =
+  "https://api.statusbadges.me/badge/spotify/927697144448708658?t=" + Date.now();
+
+/* Load random quote */
+fetch("https://goob18.github.io/cmdquote.json?t=" + Date.now())
+  .then(res => res.json())
+  .then(data => {
+    if (!Array.isArray(data) || data.length === 0) {
+      quoteText.textContent = "No quotes available.";
+      quoteAuthor.textContent = "";
+      return;
+    }
+
+    const item = data[Math.floor(Math.random() * data.length)];
+
+    if (typeof item === "string") {
+      quoteText.textContent = item;
+      quoteAuthor.textContent = "";
+    } else {
+      quoteText.textContent = item.quote || "";
+      quoteAuthor.textContent = item.author || "";
+    }
+  })
+  .catch(() => {
+    quoteText.textContent = "Failed to load quote.";
+    quoteAuthor.textContent = "";
+  });
+
+/* Click-to-copy (includes author if present) */
+quoteBox.addEventListener("click", () => {
+  let text = quoteText.textContent;
+  if (quoteAuthor.textContent) {
+    text += "\n— " + quoteAuthor.textContent;
+  }
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text);
+  } else {
+    const temp = document.createElement("textarea");
+    temp.value = text;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
+  }
+
+  const oldText = quoteText.textContent;
+  const oldAuthor = quoteAuthor.textContent;
+
+  quoteText.textContent = "Copied!";
+  quoteAuthor.textContent = "";
+
+  setTimeout(() => {
+    quoteText.textContent = oldText;
+    quoteAuthor.textContent = oldAuthor;
+  }, 800);
+});
+</script>
+
+
+</body>
+</html>
