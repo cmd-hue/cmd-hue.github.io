@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>iHeartRadio – Now Playing</title>
+
+  <!-- 98.css -->
+  <link rel="stylesheet" href="https://unpkg.com/7.css">
+
+  <style>
+    body {
+      background: teal;
+      padding: 20px;
+    }
+
+    .player {
+      width: 320px;
+    }
+
+    .album-art {
+      width: 100%;
+      height: auto;
+      border: 2px inset;
+      margin-bottom: 8px;
+    }
+
+    .field {
+      margin-bottom: 4px;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="window player glass">
+    <div class="title-bar">
+      <div class="title-bar-text">102.7 WEBN Tracker (Made With ChatGPT for fun)</div>
+    </div>
+
+    <div class="window-body">
+      <img id="art" class="album-art" src="" alt="Album Art">
+
+      <div class="field"><span class="label">Title:</span> <span id="title">Loading…</span></div>
+      <div class="field"><span class="label">Artist:</span> <span id="artist">—</span></div>
+      <div class="field"><span class="label">Album:</span> <span id="album">—</span></div>
+      <div class="field"><span class="label">Duration:</span> <span id="duration">—</span></div>
+    </div>
+  </div>
+
+  <script>
+  const BASE_URL =
+    "https://us.api.iheart.com/api/v3/live-meta/stream/1701/currentTrackMeta?defaultMetadata=true";
+
+  function secondsToTime(sec) {
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return `${m}:${s.toString().padStart(2, "0")}`;
+  }
+
+  function fetchNowPlaying() {
+    const url = BASE_URL + "&_cb=" + Date.now(); // cache bust
+
+    fetch(url)
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById("title").textContent = data.title || "—";
+        document.getElementById("artist").textContent = data.artist || "—";
+        document.getElementById("album").textContent = data.album || "—";
+        document.getElementById("duration").textContent =
+          data.trackDuration ? secondsToTime(data.trackDuration) : "—";
+
+        if (data.imagePath) {
+          document.getElementById("art").src =
+            data.imagePath.replace("http://", "https://") + "?_cb=" + Date.now();
+        }
+      })
+      .catch(err => {
+        console.error("Fetch failed:", err);
+      });
+  }
+
+  // initial load
+  fetchNowPlaying();
+
+  // refetch every 5 seconds
+  setInterval(fetchNowPlaying, 5000);
+</script>
+<!-- USES 7.css to look like Windows 7 with windows 95 teal background. -->
+</body>
+</html>
