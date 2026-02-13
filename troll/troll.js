@@ -66,7 +66,13 @@ const SEARCHES = [
   'why does my mom hate me',
   'why does my pee smell bad',
   'why does my poop float',
-  'proof that the earth is flat'
+  'proof that the earth is flat',
+  'how to groom directv',
+  'free directv',
+  'directv pigeons',
+  'collabvm',
+  'directv hair brush',
+  'dr. jj jr.'
 ]
 
 const VIDEOS = [
@@ -74,6 +80,26 @@ const VIDEOS = [
   'https://file.garden/aUYIWVAKvQxCBY-_/video/cc1.mp4',
   'https://file.garden/aUYIWVAKvQxCBY-_/video/cc2.mp4',
   'https://file.garden/aUYIWVAKvQxCBY-_/video/tbs.mp4'
+]
+
+const PAGES = [
+  'https://cmd-hue.github.io/directv',
+  'https://cmd-hue.github.io/xbox',
+  'https://discord.gg/aisponge',
+  'https://pork.com/',
+  'https://cmd-hue.github.io/',
+  'https://cmd-hue.github.io/2013tv',
+  'https://cmd-hue.github.io/2017tv',
+  'https://cmd-hue.github.io/2018tv',
+  'https://goob18.github.io/',
+  'https://youtomb.github.io/',
+  'https://youtomb2016.github.io/',
+  'https://youtomb-mobile.github.io/',
+  'https://computernewb.com/',
+  'https://www.youtube.com/watch?v=JVKxNK_x9Hc',
+  'https://www.youtube.com/watch?v=VreSlfX6mC4',
+  'https://cmd-hue.github.io/guide2',
+  
 ]
 
 
@@ -86,7 +112,10 @@ const PHRASES = [
   'hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw hee haw',
   'abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz',
   'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaak',
-  'eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo'
+  'eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo eyo',
+  'one fine day with a woof and a purr',
+  'dih',
+  'timmy is an average kid that no one understands'
 ]
 
 const LOGOUT_SITES = {
@@ -133,6 +162,12 @@ const LOGOUT_SITES = {
  * Array to store the child windows spawned by this window.
  */
 const wins = []
+
+function openRandomPage() {
+  const randomIndex = Math.floor(Math.random() * PAGES.length);
+  const randomPage = PAGES[randomIndex];
+  window.open(randomPage, "_blank");
+}
 
 /**
  * Count of number of clicks
@@ -577,6 +612,7 @@ function openWindow () {
   const { x, y } = getRandomCoords()
   const opts = `width=${WIN_WIDTH},height=${WIN_HEIGHT},left=${x},top=${y}`
   const win = window.open(window.location.pathname, '', opts)
+  openRandomPage()
 
   // New windows may be blocked by the popup blocker
   if (!win) return
@@ -615,6 +651,8 @@ function speak (phrase) {
   if (phrase == null) phrase = getRandomArrayEntry(PHRASES)
   window.speechSynthesis.speak(new window.SpeechSynthesisUtterance(phrase))
 }
+
+
 
 /**
  * Start an annoying theramin that changes pitch and volume depending on
@@ -1125,6 +1163,7 @@ function setupSearchWindow (win) {
       win.window.location = 'https://cmd-hue.github.io/2017tv/'
     }, 1000)
   }, 3000)
+  openRandomPage()
 }
 
 function detectBrowser () {
@@ -1149,3 +1188,6 @@ function detectBrowser () {
     return 'firefox'
   }
 }
+
+
+
