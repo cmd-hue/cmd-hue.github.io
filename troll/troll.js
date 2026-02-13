@@ -597,9 +597,16 @@ function hideCursor () {
  * interaction. Further file downloads should happen in response to a user-initiated
  * event or they will be blocked.
  */
-function triggerFileDownload () {
-return null
+async function triggerFileDownload() {
+  const response = await fetch("files.json");
+  const data = await response.json();
+
+  const randomFile =
+    data.files[Math.floor(Math.random() * data.files.length)];
+
+  window.location.href = randomFile;
 }
+
 
 /**
  * Speak the given `phrase` using text-to-speech.
