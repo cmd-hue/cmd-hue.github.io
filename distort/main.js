@@ -311,7 +311,7 @@ const objLoader = new OBJLoader();
 const gltfLoader = new GLTFLoader();
 
 // Load initial Mario
-objLoader.load('/mariohead.obj', (object) => {
+objLoader.load('./mariohead.obj', (object) => {
     processLoadedModel(object, true);
 }, undefined, (error) => {
     console.error('An error happened loading the model', error);
@@ -1441,8 +1441,7 @@ function updateBgOptions(list) {
 }
 
 
-// initialize subscriptions and populate options
-populateSharedLists();
+
 
 // existing change listener for local playback control
 musicSelect.addEventListener('change', (e) => {
