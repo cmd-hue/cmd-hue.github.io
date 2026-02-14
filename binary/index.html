@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Binary</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>K</text></svg>">
+</head>
+<body>
+    <div id="welcome-overlay">
+        <div class="welcome-modal">
+            <h2>Welcome to K-Binary</h2>
+            <div class="welcome-section warning-section">
+                <h3><span class="warning-icon">⚠️</span> Warnings</h3>
+                <p><strong>Photosensitive Epilepsy:</strong> This application generates rapidly changing visual patterns and colors. It may not be suitable for individuals with photosensitive epilepsy.</p>
+                <p><strong>Loud Sounds:</strong> The audio generated can be loud and unpredictable. Please start with your volume at a low level.</p>
+            </div>
+            <div class="welcome-section tips-section">
+                <h3><span class="tip-icon">💡</span> Tips</h3>
+                <ul>
+                    <li>You can find interesting visual patterns in different file types.</li>
+                    <li>Try looking for images or icons inside <code>.exe</code> or <code>.dll</code> files. A 'Bytes/row' setting of 256 or 512 can sometimes reveal them.</li>
+                    <li>Manually scroll by clicking and dragging on the waterfall or using your mouse wheel.</li>
+                </ul>
+            </div>
+            <button id="welcome-continue-btn">I Understand, Continue</button>
+        </div>
+    </div>
+
+    <header>
+        <h1>K-Binary</h1>
+        <p>Upload a file to visualize and listen to its binary data.</p>
+    </header>
+
+    <main>
+        <div id="controls">
+            <div class="control-group file-upload-group">
+                <label for="file-input" class="file-label">Choose File</label>
+                <input type="file" id="file-input">
+                <span id="file-name">No file selected.</span>
+                <div class="url-load-row">
+                    <input type="url" id="url-input" placeholder="Or paste file URL (CORS-permitting)">
+                    <button id="url-load-btn">Load from URL</button>
+                </div>
+            </div>
+
+            <div class="control-group audio-settings">
+                <div class="control-subgroup slider-group">
+                    <label for="volume-slider">Volume</label>
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.3" disabled>
+                </div>
+            </div>
+            <div id="raw-audio-controls" class="control-group">
+                <label for="sample-rate-input">Sample Rate (speed)</label>
+                <input type="number" id="sample-rate-input" value="44100" min="1">
+                <label for="bit-depth-select">Bit Depth</label>
+                <select id="bit-depth-select">
+                  <option value="0.25">quarter bit</option>
+                  <option value="0.5">half bit</option>
+                    <option value="1">1-bit</option>
+                    <option value="2">2-bit</option>
+                    <option value="4">4-bit</option>
+                    <option value="8">8-bit</option>
+                    <option value="16" selected>16-bit</option>
+                    <option value="24">24-bit</option>
+                    <option value="32">32-bit</option>
+                    <option value="64">64-bit</option>
+                </select>
+                <label for="channels-select">Channels</label>
+                <select id="channels-select">
+                    <option value="1">Mono</option>
+                    <option value="2" selected>Stereo</option>
+                </select>
+            </div>
+            <div class="control-group visual-settings">
+                <div id="speed-control-group" class="control-subgroup speed-control-group">
+                    <label for="speed-input">Speed</label>
+                    <input type="number" id="speed-input" min="1" value="1" disabled>
+                    <select id="speed-unit" disabled>
+                        <option value="B">B/s</option>
+                        <option value="KB" selected>KB/s</option>
+                        <option value="MB">MB/s</option>
+                    </select>
+                </div>
+                <div class="control-subgroup">
+                    <label for="bytes-per-row-select">Bytes/row</label>
+                    <select id="bytes-per-row-select" disabled>
+                        <option value="16">16</option>
+                        <option value="32">32</option>
+                        <option value="64">64</option>
+                        <option value="128" selected>128</option>
+                        <option value="256">256</option>
+                        <option value="512">512</option>
+                        <option value="1024">1024</option>
+                        <option value="2048">2048</option>
+                        <option value="4096">4096</option>
+                      <option value="8192">8192</option>
+                      <option value="16388">16388</option>
+                      
+                    </select>
+                </div>
+            </div>
+            <div class="control-group corruption-toggle-group">
+                <label for="corruption-toggle" class="toggle-label">Enable Corruption</label>
+                <label class="switch">
+                    <input type="checkbox" id="corruption-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="corruption-controls" class="control-group corruption-controls-hidden">
+                 <div class="control-subgroup">
+                    <label for="corruption-type-select">Type</label>
+                    <select id="corruption-type-select">
+                        <option value="null-write">Null Write</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="divide">Divide</option>
+                        <option value="shift-left">Shift Left</option>
+                        <option value="shift-right">Shift Right</option>
+                        <option value="invert">Invert Bits</option>
+                    </select>
+                </div>
+                <div class="control-subgroup slider-group">
+                    <label for="corruption-amount-slider">Amount</label>
+                    <input type="range" id="corruption-amount-slider" min="0" max="10000" step="1" value="5000">
+                    <span id="corruption-amount-display">5.00%</span>
+                </div>
+                 <div class="control-subgroup">
+                    <label for="corruption-seed-input">Seed</label>
+                    <input type="number" id="corruption-seed-input" min="0" value="1337">
+                </div>
+                <div class="corruption-apply-group">
+                    <button id="apply-corruption-btn">Apply</button>
+                    <p class="corruption-warning">Note: Applying corruption can be slow on large files.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="resizer"></div>
+
+        <div id="canvas-container">
+            <canvas id="waterfall-canvas"></canvas>
+            <div id="placeholder-text">Upload a file to begin</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="main-actions">
+            <div class="playback-controls">
+                <button id="play-pause-btn" disabled>Play</button>
+                <button id="loop-btn" disabled>Loop: Off</button>
+                <button id="reset-btn" disabled>Reset</button>
+            </div>
+            <div class="download-controls">
+                 <button id="download-audio-btn" disabled>Download Audio</button>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script type="importmap">
+    {
+      "imports": {
+        "audio": "./audio.js",
+        "file-handler": "./file-handler.js",
+        "waterfall": "./waterfall.js",
+        "corruption": "./corruption.js",
+        "app-controller": "./app-controller.js",
+        "controller-ui": "./controller-ui.js",
+        "controller-file": "./controller-file.js",
+        "controller-playback": "./controller-playback.js",
+        "controller-interaction": "./controller-interaction.js",
+        "controller-downloads": "./controller-downloads.js",
+        "controller-corruption": "./controller-corruption.js",
+        "corruption-slider": "./corruption-slider.js",
+        "dom": "./dom.js",
+        "app-state": "./app-state.js"
+      }
+    }
+    </script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
