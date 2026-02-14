@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Image Softbody Physics</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+      }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <!-- Sticky floor toggle (top-left) + separate X / Y controls -->
+  <div id="topLeftControls" style="position:fixed; top:10px; left:10px; z-index:60; display:flex; gap:8px; align-items:center;">
+    <button id="stickyBtn" aria-pressed="false" style="padding:6px 10px; border-radius:8px; background:#f5f5f5; color:#111; font-size:12px;">Sticky Floor: Off</button>
+    <button id="separateXBtn" title="Separate columns" style="padding:6px 8px; border-radius:8px; background:#f5f5f5; color:#111; font-size:12px;">Separate X</button>
+    <button id="separateYBtn" title="Separate rows" style="padding:6px 8px; border-radius:8px; background:#f5f5f5; color:#111; font-size:12px;">Separate Y</button>
+
+    <!-- Brush controls -->
+    <input id="brushColor" type="color" value="#ffffff" title="Brush color" style="width:36px; height:32px; padding:2px; border-radius:6px; border:none;" />
+  </div>
+
+
+
+  <div class="ui">
+    <label class="ui-row">
+      <span>Pixel step</span>
+      <input id="step" type="range" min="1" max="6" step="0.25" value="3" />
+      <input id="stepNumber" type="number" min="1" max="6" step="0.25" value="3" />
+    </label>
+
+    <label class="ui-row file-row">
+      <span>Image</span>
+      <input id="imageInput" type="file" accept="image/*" />
+    </label>
+
+    <button id="resetBtn">Reset</button>
+    <button id="stepFrameBtn">Step Frame</button>
+
+    <label class="ui-row">
+      <span>Gravity</span>
+      <input id="gravity" type="range" min="0" max="2000" step="10" value="500" />
+      <input id="gravityNumber" type="number" min="0" max="2000" step="10" value="500" />
+    </label>
+
+    <button id="takeApartBtn">Take Apart</button>
+    <button id="pressBtn">Hydraulic</button>
+    <button id="modeBtn">Mode: Drag</button>
+    <button id="mergeBtn">Merge</button>
+
+    <button id="exportBtn">Export Pixels</button>
+    <button id="importBtn">Import Pixels</button>
+    <input id="importJsonInput" type="file" accept=".json" style="display:none" />
+
+    <!-- New color controls -->
+    <label class="ui-row">
+      <span>Background</span>
+      <input id="bgColor" type="color" value="#111111" title="Background color" />
+    </label>
+
+    <label class="ui-row">
+      <span>Floor</span>
+      <input id="floorColor" type="color" value="#202020" title="Floor color" />
+    </label>
+
+    <button id="resetColorsBtn">Reset Colors</button>
+
+    <button id="pauseBtn">Pause</button>
+  </div>
+
+  <div id="keyboardPanel" class="keyboard-panel" aria-hidden="false">
+    <div class="kp-row"><strong>Keyboard Controls</strong></div>
+    <div class="kp-row">Space: Pause / Resume</div>
+    <div class="kp-row">S: Step one frame</div>
+    <div class="kp-row">T: Take apart</div>
+    <div class="kp-row">M: Merge</div>
+    <div class="kp-row">B: Pin dragged pixel</div>
+    <div class="kp-row">Alt + B: Unpin all</div>
+    <div class="kp-row">G: Toggle pin/unpin all pixels</div>
+    <div class="kp-row">H: Spawn green pixel at cursor</div>
+    <div class="kp-row">Q: Spawn random color pixel</div>
+    <div class="kp-row">J: Spawn red pixel</div>
+    <div class="kp-row">E: Eraser mode (hold to erase)</div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
