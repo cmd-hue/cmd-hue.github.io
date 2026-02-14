@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mario Distorter</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-image: url('tumblr_mhrzd8BOJ51rrftcdo1_400.png');
+            background-repeat: repeat;
+            background-size: 512px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: white;
+            user-select: none;
+            touch-action: none;
+        }
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+        }
+        #ui {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            pointer-events: none;
+            z-index: 10;
+            width: auto;
+            max-width: 340px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            padding-right: 12px;
+        }
+        /* Custom scrollbar for the UI panel */
+        #ui::-webkit-scrollbar {
+            width: 4px;
+        }
+        #ui::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+        }
+        .ui-row {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+            pointer-events: none;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        .btn {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            pointer-events: auto;
+            transition: all 0.2s;
+            flex: 0 1 auto;
+            min-width: 60px;
+            text-align: center;
+            position: relative;
+        }
+        /* Expand hitbox so it's easier to click with the custom cursor */
+        .btn::after, .crazy-toggle-btn::after, #color-picker::after, #env-select::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            bottom: -8px;
+            left: -4px;
+            right: -4px;
+        }
+        .btn:active {
+            transform: scale(0.95);
+        }
+        .btn.active {
+            background: #ff3e3e;
+            border-color: #ff3e3e;
+            box-shadow: 0 0 15px rgba(255, 62, 62, 0.4);
+        }
+        .slider-container {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 8px 12px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            pointer-events: auto;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .slider-container label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        #size-slider {
+            flex-grow: 1;
+            accent-color: #ff3e3e;
+            height: 32px;
+        }
+        #instructions {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            opacity: 0.7;
+            pointer-events: none;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        #color-picker-container {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 6px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            pointer-events: auto;
+        }
+        #color-picker-container label {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        #color-picker {
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            width: 50px;
+            height: 30px;
+            background: none;
+            padding: 0;
+            border-radius: 4px;
+            pointer-events: auto;
+        }
+        #crazy-panel {
+            display: none;
+            flex-direction: column;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+            pointer-events: auto;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        .crazy-section-title {
+            font-size: 9px;
+            font-weight: 900;
+            color: #00ccff;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+            margin-bottom: 2px;
+            border-left: 2px solid #00ccff;
+            padding-left: 6px;
+        }
+        .crazy-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .crazy-row label {
+            font-size: 11px;
+            text-transform: uppercase;
+            opacity: 0.8;
+            flex-shrink: 0;
+            width: 80px;
+        }
+        .crazy-row input[type="range"] {
+            flex-grow: 1;
+            accent-color: #00ccff;
+            height: 24px;
+        }
+        .crazy-toggle-btn {
+            background: #444;
+            border: none;
+            color: white;
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            position: relative;
+        }
+        .crazy-toggle-btn.active {
+            background: #00ccff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="instructions">Drag to stretch Mario's face!</div>
+    <div id="custom-cursor" draggable="false" style="position: fixed; width: 32px; height: 32px; pointer-events: none; z-index: 999999; background-size: contain; background-repeat: no-repeat; background-position: center; display: none;"></div>
+    <div id="canvas-container"></div>
+    <div id="ui">
+        <div class="ui-row">
+            <button class="btn tool-btn active" data-tool="stretch">Stretch</button>
+            <button class="btn tool-btn" data-tool="enlarge">Enlarge</button>
+            <button class="btn tool-btn" data-tool="shrink">Shrink</button>
+            <button class="btn tool-btn" data-tool="revert">Revert</button>
+            <button class="btn tool-btn" data-tool="mesh-stretch">Pull Part</button>
+            <button class="btn tool-btn" data-tool="twirl">Twirl</button>
+            <button class="btn tool-btn" data-tool="paint">Paint</button>
+            <button class="btn" id="texture-editor-btn">Textures</button>
+        </div>
+        <div class="ui-row" id="color-picker-container">
+            <label for="color-picker">Paint Color</label>
+            <input type="color" id="color-picker" value="#ff0000">
+        </div>
+        <div class="slider-container">
+            <label for="size-slider">Brush Size</label>
+            <input type="range" id="size-slider" min="0.1" max="3.0" step="0.1" value="0.8">
+        </div>
+
+        <div class="ui-row">
+            <button class="btn" id="reset-shape-btn">Reset Changes</button>
+            <button class="btn" id="reset-btn">Reset All</button>
+            <button class="btn" id="crazy-toggle">Crazy Tools</button>
+        </div>
+        <input type="file" id="model-file-input" accept=".obj,.gltf,.glb" style="display: none;">
+        <div id="crazy-panel">
+            <div class="crazy-section-title">Model & Mode</div>
+            <div class="crazy-row">
+                <select id="model-select" style="flex-grow: 1; background: #333; color: white; border: 1px solid #555; border-radius: 5px; font-size: 11px; padding: 4px;">
+                    <option value="./mariohead.obj" selected>Mario (64)</option>
+                    <option value="./kai-lan.glb">Kai-Lan</option>
+                    <option value="./thunder_the_cat_the_house_of_magic.glb">Thunder</option>
+                    <option value="./Loudward.glb">Loudward</option>
+                    <option value="./Perch.glb">Perch Perkins</option>
+                    <option value="./spongebob.glb">Spongebob</option>
+                    <option value="./plankton.glb">Plankton</option>
+                    <option value="./minitom.glb">Minitom</option>
+                    <option value="./ai_sponge_donation_fish.glb">AI Sponge Fish</option>
+                    <option value="./Cartoon Network Logo (2004-2010).glb">Cartoon Network Logo</option>
+                    <option id="custom-model-option" value="custom" disabled>Custom Model</option>
+                </select>
+                <button class="crazy-toggle-btn" id="import-btn" title="Import Model" style="padding: 4px 8px;">Import</button>
+                <button class="crazy-toggle-btn" id="classic-toggle" style="flex: 1;">Classic Mode: OFF</button>
+            </div>
+
+            <div class="crazy-section-title">Geometry Deform</div>
+            <div class="crazy-row">
+                <button class="crazy-toggle-btn" id="jitter-btn">Jitter</button>
+                <button class="crazy-toggle-btn" id="explode-btn">Explode</button>
+                <button class="crazy-toggle-btn" id="melt-btn">Melt</button>
+                <button class="crazy-toggle-btn" id="voxel-btn">Voxel</button>
+                <button class="crazy-toggle-btn" id="squash-btn">Squash</button>
+                <button class="crazy-toggle-btn" id="squishx-btn">Squish X</button>
+                <button class="crazy-toggle-btn" id="squishy-btn">Squish Y</button>
+                <button class="crazy-toggle-btn" id="squishz-btn">Squish Z</button>
+                <button class="crazy-toggle-btn" id="stretchx-btn">Stretch X</button>
+                <button class="crazy-toggle-btn" id="stretchy-btn">Stretch Y</button>
+                <button class="crazy-toggle-btn" id="stretchz-btn">Stretch Z</button>
+                <button class="crazy-toggle-btn" id="inflate-btn">Inflate</button>
+                <button class="crazy-toggle-btn" id="vortex-btn">Vortex</button>
+                <button class="crazy-toggle-btn" id="flatten-btn">Flatten</button>
+                <button class="crazy-toggle-btn" id="flatten-btn2">Flatten Alt</button>
+                <button class="crazy-toggle-btn" id="mirror-obj-btn">Mirror Obj</button>
+                <button class="crazy-toggle-btn" id="thin-btn">Thin</button>
+                <button class="crazy-toggle-btn" id="spiky-btn">Spiky</button>
+                <button class="crazy-toggle-btn" id="taper-btn">Taper</button>
+                <button class="crazy-toggle-btn" id="shear-btn">Shear</button>
+                <button class="crazy-toggle-btn" id="helix-btn">Helix</button>
+                <button class="crazy-toggle-btn" id="bend-btn">Bend</button>
+                <button class="crazy-toggle-btn" id="squiggles-btn">Squiggles</button>
+                <button class="crazy-toggle-btn active" id="shading-toggle-btn">Shading: ON</button>
+            </div>
+            <div class="crazy-row">
+                <label style="font-size: 10px;">Twist</label>
+                <input type="range" id="twist-slider" min="-5" max="5" step="0.1" value="0" style="flex-grow:1;">
+            </div>
+
+            <div class="crazy-section-title">Material & Style</div>
+            <div class="crazy-row">
+                <button class="crazy-toggle-btn" id="random-btn">Random Color</button>
+                <button class="crazy-toggle-btn" id="gold-btn">Gold</button>
+                <button class="crazy-toggle-btn" id="silver-btn">Silver</button>
+                <button class="crazy-toggle-btn" id="statue-btn">Statue</button>
+                <button class="crazy-toggle-btn" id="slime-btn">Slime</button>
+                <button class="crazy-toggle-btn" id="rainbow-btn">Rainbow</button>
+                <button class="crazy-toggle-btn" id="snow-btn">Snowify</button>
+                <button class="crazy-toggle-btn" id="toon-toggle">Toon: OFF</button>
+                <button class="crazy-toggle-btn" id="ghost-toggle">Ghost: OFF</button>
+                <button class="crazy-toggle-btn" id="xray-toggle">X-Ray: OFF</button>
+                <button class="crazy-toggle-btn" id="wireframe-toggle">Wire: OFF</button>
+            </div>
+            <div class="crazy-row">
+                <label style="font-size: 10px;">Shine</label>
+                <input type="range" id="metal-slider" min="0" max="1" step="0.01" value="0.1" style="flex-grow:1;">
+                <label style="font-size: 10px;">Rough</label>
+                <input type="range" id="rough-slider" min="0" max="1" step="0.01" value="0.4" style="flex-grow:1;">
+            </div>
+
+            <div class="crazy-section-title">Advanced Geometry</div>
+            <div class="crazy-row">
+                <button class="crazy-toggle-btn" id="glitch-toggle">Glitch: OFF</button>
+                <button class="crazy-toggle-btn" id="shatter-btn">Shatter</button>
+                <button class="crazy-toggle-btn" id="blackhole-btn">Black Hole</button>
+                <button class="crazy-toggle-btn" id="supernova-btn">Supernova</button>
+            </div>
+
+            <div class="crazy-section-title">Motion & Physics</div>
+            <div class="crazy-row">
+                <button class="crazy-toggle-btn" id="disco-toggle">Disco: OFF</button>
+                <button class="crazy-toggle-btn" id="wave-toggle">Wave: OFF</button>
+                <button class="crazy-toggle-btn" id="jello-toggle">Jello: OFF</button>
+                <button class="crazy-toggle-btn" id="pulse-toggle">Pulse: OFF</button>
+                <button class="crazy-toggle-btn" id="secret-btn" style="background: #600; color: #f00; font-weight: bold;">SECRET</button>
+            </div>
+
+            <div class="crazy-section-title" id="unlocked-title" style="display: none; color: #ff00ff; border-left-color: #ff00ff;">UNLOCKED SECRETS</div>
+            <div class="crazy-row" id="unlocked-row">
+                <!-- Dynamically found secrets go here -->
+            </div>
+
+            <div class="crazy-section-title">Background & Sound</div>
+            <div class="crazy-row">
+                <select id="bg-select" style="flex-grow: 1; background: #333; color: white; border: 1px solid #555; border-radius: 5px; font-size: 11px; padding: 4px;">
+                    <option value="grid">Default Grid</option>
+                    <option value="blue">Bright Blue</option>
+                    <option value="red">Vibrant Red</option>
+                    <option value="skin">Peach Skin</option>
+                    <option value="black">Deep Black</option>
+                    <option value="white">Clean White</option>
+                    <option id="custom-bg-option" value="custom" disabled>Custom Background</option>
+                </select>
+                <button class="crazy-toggle-btn" id="upload-bg-btn" title="Upload background image">📁 Upload</button>
+                <button class="crazy-toggle-btn" id="save-bg-btn" title="Save Background">Save BG</button>
+                <input type="file" id="bg-file-input" accept="image/*" style="display: none;">
+            </div>
+            <div class="crazy-row">
+                <label style="font-size: 10px;">Tile Size</label>
+                <input type="range" id="bg-size-slider" min="32" max="1024" step="8" value="512" style="flex-grow:1;">
+            </div>
+            <div class="crazy-row">
+                <label style="font-size: 10px;">Music</label>
+                <select id="music-select" style="flex-grow: 1; background: #333; color: white; border: 1px solid #555; border-radius: 5px; font-size: 11px; padding: 4px;">
+                    <option value="1-02 Title Theme.mp3">Title Theme</option>
+                    <option value="music_water.mp3">Water Theme</option>
+                    <option value="music_slider.mp3">Slider Theme</option>
+                    <option value="Weird Al Yankovic - Albuquerque_ THE MOVIE [JE37e1eK2mY].mp3" selected>Weird Al — Albuquerque (Default)</option>
+                    <option value="none">None</option>
+                </select>
+            </div>
+
+            <div class="crazy-section-title">Reflection Environment</div>
+            <div class="crazy-row">
+                <select id="env-select" style="flex-grow: 1; background: #333; color: white; border: 1px solid #555; border-radius: 5px; font-size: 11px; padding: 4px;">
+                    <option value="studio">Studio (Default)</option>
+                    <option value="sunset">Sunset Glow</option>
+                    <option value="neon">Neon Nights</option>
+                    <option value="chrome">High Contrast</option>
+                    <option value="none">None</option>
+                    <option id="custom-env-option" value="custom" disabled>Custom Image</option>
+                </select>
+                <button class="crazy-toggle-btn" id="upload-env-btn" title="Upload reflection image">📁 Upload</button>
+                <input type="file" id="env-file-input" accept="image/*" style="display: none;">
+            </div>
+
+            <div class="crazy-section-title">View & Advanced Tools</div>
+            <div class="crazy-row">
+                <button class="crazy-toggle-btn" id="dev-log-btn">Log Colors</button>
+                <button class="crazy-toggle-btn" id="load-log-btn">Load Colors</button>
+                <button class="crazy-toggle-btn" id="log-stretch-btn">Log Stretch</button>
+                <button class="crazy-toggle-btn" id="load-stretch-btn">Load Stretch</button>
+                <button class="crazy-toggle-btn" id="debug-reset-cam">Reset Cam</button>
+                <button class="crazy-toggle-btn" id="debug-helpers">Show Helpers</button>
+                <button class="crazy-toggle-btn" id="debug-axes">Axes</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://esm.sh/three@0.160.0",
+                "three/examples/jsm/loaders/OBJLoader.js": "https://esm.sh/three@0.160.0/examples/jsm/loaders/OBJLoader.js",
+                "three/examples/jsm/loaders/GLTFLoader.js": "https://esm.sh/three@0.160.0/examples/jsm/loaders/GLTFLoader.js",
+                "three/examples/jsm/controls/OrbitControls.js": "https://esm.sh/three@0.160.0/examples/jsm/controls/OrbitControls.js",
+                "three/examples/jsm/utils/BufferGeometryUtils.js": "https://esm.sh/three@0.160.0/examples/jsm/utils/BufferGeometryUtils.js"
+            }
+        }
+    </script>
+    <!-- Texture Editor Modal -->
+    <div id="texture-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; display: none; flex-direction: column; align-items: center; justify-content: center; backdrop-filter: blur(5px); padding: 20px; box-sizing: border-box;">
+        <div style="background: #1a1a1a; width: 100%; max-width: 450px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); padding: 25px; display: flex; flex-direction: column; max-height: 85vh; box-shadow: 0 20px 60px rgba(0,0,0,0.8);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 style="margin: 0; font-size: 16px; letter-spacing: 2px; color: #00ccff;">MODEL TEXTURES</h2>
+                <button id="close-texture-modal" class="btn" style="min-width: 40px; padding: 5px; border-radius: 50%; background: rgba(255,255,255,0.1);">✕</button>
+            </div>
+            <div id="texture-list" style="overflow-y: auto; flex-grow: 1; display: flex; flex-direction: column; gap: 12px; padding-right: 5px;">
+                <!-- Texture items injected here -->
+            </div>
+            <div id="no-textures-msg" style="display:none; text-align: center; opacity: 0.5; padding: 40px 0; font-size: 12px;">No textures found in this model.</div>
+        </div>
+    </div>
+
+    <!-- Texture Painting Overlay -->
+    <div id="paint-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 10001; display: none; flex-direction: column;">
+        <div style="width: 100%; background: #111; padding: 15px; display: flex; justify-content: space-around; align-items: center; box-sizing: border-box; border-bottom: 1px solid #333; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <input type="color" id="tex-paint-color" value="#ffffff" style="width: 40px; height: 40px; border: none; background: none;">
+                <input type="range" id="tex-paint-size" min="1" max="100" value="20" style="width: 100px; accent-color: #00ccff;">
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <button class="btn" id="tex-paint-save" style="background: #28a745; border: none;">Apply</button>
+                <button class="btn" id="tex-paint-cancel" style="background: #dc3545; border: none;">Cancel</button>
+            </div>
+        </div>
+        <div id="canvas-wrapper" style="flex-grow: 1; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; background: repeating-conic-gradient(#222 0% 25%, #333 0% 50%) 50% / 20px 20px;">
+            <canvas id="tex-editor-canvas" style="box-shadow: 0 0 50px rgba(0,0,0,0.5);"></canvas>
+        </div>
+    </div>
+
+    <input type="file" id="texture-upload-input" accept="image/*" style="display: none;">
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
