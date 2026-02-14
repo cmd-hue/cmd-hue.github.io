@@ -1411,16 +1411,14 @@ envFileInput.addEventListener('change', (e) => {
 // --- Background Changer Logic ---
 const bgSelect = document.getElementById('bg-select');
 const bgFileInput = document.getElementById('bg-file-input');
-const uploadBgBtn = document.getElementById('upload-bg-btn');
-const customBgOption = document.getElementById('custom-bg-option');
 
 const BG_ASSETS = {
-    grid: '/tumblr_mhrzd8BOJ51rrftcdo1_400.png',
-    blue: '/BLUE.png',
-    red: '/RED.png',
-    skin: '/SKIN.png',
-    black: '/BLACK.png',
-    white: '/WHITE.png'
+    grid: './tumblr_mhrzd8BOJ51rrftcdo1_400.png',
+    blue: './BLUE.png',
+    red: './RED.png',
+    skin: './SKIN.png',
+    black: './BLACK.png',
+    white: './WHITE.png'
 };
 
 function updateBackground(url, isCustom = false) {
