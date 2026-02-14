@@ -251,16 +251,22 @@ function processLoadedModel(object, isMario = false) {
             child.userData.originalRotation = child.rotation.clone();
 
             // If the mesh is part of a complex hierarchy, we want to be able to drag it
-            // Merge vertices to allow for smooth shading
-            child.geometry = BufferGeometryUtils.mergeVertices(child.geometry);
-            child.geometry.computeVertexNormals();
+            // Clone geometry to ensure each mesh has its own unique geometry.
+            // Preserve original indexing (do NOT merge vertices) so distinct facial features
+            // (eyes, mustache, etc.) remain separate and won't collapse together on reset.
+            const geomClone = child.geometry.clone();
+            child.geometry = geomClone;
+            if (child.geometry.computeVertexNormals) child.geometry.computeVertexNormals();
 
             const geometry = child.geometry;
             const positions = geometry.attributes.position;
             
             // Store original data
             originalVertices.set(child.uuid, positions.array.slice());
-            originalGeometries.set(child.uuid, child.geometry.clone());
+            // Save the original geometry both in the map and directly on the mesh to ensure a stable reference
+            const geomCloneSaved = child.geometry.clone();
+            originalGeometries.set(child.uuid, geomCloneSaved);
+            child.userData.originalGeometry = geomCloneSaved;
 
             const MARIO_COLORS = {
                 0: 0x111111, 1: 0x111111, 2: 0x111111, 3: 0xeeeeee,
@@ -405,7 +411,7 @@ function openTextureEditor() {
 
     if (textures.size === 0) {
         noTexturesMsg.style.display = 'block';
-        if (modelSelect.value === '/mariohead.obj') {
+        if (modelSelect.value === './mariohead.obj') {
             noTexturesMsg.innerText = "This model uses colors instead of textures. Use the Paint tool instead.";
         } else {
             noTexturesMsg.innerText = "No textures found in this model.";
@@ -919,10 +925,31 @@ document.getElementById('reset-shape-btn').addEventListener('click', () => {
             return;
         }
         if (child.isMesh) {
-            if (originalGeometries.has(child.uuid)) {
-                const oldGeom = child.geometry;
-                child.geometry = originalGeometries.get(child.uuid).clone();
-                oldGeom.dispose();
+            // Prefer restoring the geometry stored directly on the mesh (userData) to avoid any mismatch by uuid.
+            const savedGeom = child.userData && child.userData.originalGeometry ? child.userData.originalGeometry : (originalGeometries.has(child.uuid) ? originalGeometries.get(child.uuid) : null);
+            if (savedGeom) {
+                try {
+                    if (child.geometry) child.geometry.dispose();
+                } catch (e) {}
+                // Deep-clone geometry and all BufferAttributes (including index) so the mesh gets unique buffers
+                const newGeom = new THREE.BufferGeometry();
+                // Clone attributes individually to avoid sharing underlying ArrayBuffers
+                for (const name in savedGeom.attributes) {
+                    const attr = savedGeom.attributes[name];
+                    if (!attr) continue;
+                    newGeom.setAttribute(name, attr.clone());
+                }
+                // Clone index if present
+                if (savedGeom.index) {
+                    newGeom.setIndex(savedGeom.index.clone());
+                }
+                // Preserve groups and bounding info
+                if (savedGeom.groups) newGeom.groups = savedGeom.groups.map(g => ({ ...g }));
+                if (savedGeom.boundingBox) newGeom.boundingBox = savedGeom.boundingBox.clone();
+                if (savedGeom.boundingSphere) newGeom.boundingSphere = savedGeom.boundingSphere.clone();
+                child.geometry = newGeom;
+                if (child.geometry.attributes.position) child.geometry.attributes.position.needsUpdate = true;
+                if (child.geometry.computeVertexNormals) child.geometry.computeVertexNormals();
             }
             if (child.userData.originalPosition) {
                 child.position.copy(child.userData.originalPosition);
@@ -941,158 +968,211 @@ document.getElementById('reset-shape-btn').addEventListener('click', () => {
 
 document.getElementById('reset-btn').addEventListener('click', () => {
     if (!marioHead) return;
-    
-    // 1. Reset Root Transform
-    if (marioHead.userData.initialPosition) marioHead.position.copy(marioHead.userData.initialPosition);
-    if (marioHead.userData.initialRotation) marioHead.rotation.copy(marioHead.userData.initialRotation);
-    if (marioHead.userData.initialScale) marioHead.scale.copy(marioHead.userData.initialScale);
-    marioHead.visible = true;
 
-    // 2. Clear Physics/Transient Collections
-    snappingMeshes.clear();
-    meshVelocities.clear();
-    shatterVelocities.clear();
-
-    // 3. Reset Children and Materials
-    safeTraverse(marioHead, (child) => {
-        if (child && child.isMesh) {
-            // Clean up outlines and point clouds before geometry replacement
-            if (child.userData.isOutline && child.parent) {
-                child.parent.remove(child);
+    // If a built-in or remote model is selected, refetch it to ensure original separate meshes/geometries are restored.
+    // This avoids issues where restoring cloned geometry from stored buffers can still leave meshes merged.
+    try {
+        const path = (modelSelect && modelSelect.value) ? modelSelect.value : null;
+        if (path && path !== 'custom') {
+            const ext = path.split('.').pop().toLowerCase();
+            if (ext === 'obj') {
+                objLoader.load(path, (obj) => {
+                    processLoadedModel(obj, path.includes('mariohead'));
+                    playSound('reset');
+                }, undefined, (err) => {
+                    console.warn('Reset: failed to reload OBJ, falling back to in-place reset', err);
+                    // fallthrough to in-place reset below
+                    performInPlaceReset();
+                });
+                return; // model reload will handle reset
+            } else if (ext === 'gltf' || ext === 'glb') {
+                gltfLoader.load(path, (gltf) => {
+                    processLoadedModel(gltf.scene, false);
+                    playSound('reset');
+                }, undefined, (err) => {
+                    console.warn('Reset: failed to reload GLTF, falling back to in-place reset', err);
+                    performInPlaceReset();
+                });
                 return;
             }
-            if (child.userData.pts && child.userData.pts.parent) {
-                child.userData.pts.parent.remove(child.userData.pts);
-                child.userData.pts = null;
-            }
-
-            // Restore Geometry
-            if (originalGeometries.has(child.uuid)) {
-                if (child.geometry) child.geometry.dispose();
-                child.geometry = originalGeometries.get(child.uuid).clone();
-            }
-
-            // Restore Mesh Transforms
-            if (child.userData.originalPosition) {
-                child.position.copy(child.userData.originalPosition);
-                child.scale.copy(child.userData.originalScale);
-                child.rotation.copy(child.userData.originalRotation);
-                if (child.userData.posVelocity) child.userData.posVelocity.set(0, 0, 0);
-            }
-            
-            child.visible = true;
-            child.userData.isSpinning = false;
-
-            // Reset Materials
-            if (child.material) {
-                const materials = Array.isArray(child.material) ? child.material : [child.material];
-                materials.forEach(m => {
-                    if (m) {
-                        if (m.userData.originalColor) m.color.copy(m.userData.originalColor);
-                        if (m.metalness !== undefined) m.metalness = 0.1;
-                        if (m.roughness !== undefined) m.roughness = 0.4;
-                        m.wireframe = false;
-                        m.flatShading = false;
-                        m.opacity = 1;
-                        m.transparent = false;
-                        m.vertexColors = false;
-                        m.needsUpdate = true;
-                    }
-                });
-            }
         }
-    });
-
-    // 4. Reset All Logic Flags
-    shatterActive = false;
-    toonMode = false;
-    glitchMode = false;
-    waveMode = false;
-    ghostMode = false;
-    xrayMode = false;
-    jelloMode = false;
-    pulseMode = false;
-    discoMode = false;
-    autoSpin = false;
-    gravityMode = false;
-    balloonMode = false;
-    floatingMode = false;
-    drunkenCam = false;
-    strobeMode = false;
-    vertexRainbow = false;
-    lowPolyPulse = false;
-    twistAmount = 0;
-    classicMode = false;
-    deathMode = false;
-    if (deathSound) {
-        deathSound.pause();
-        deathSound.currentTime = 0;
+    } catch (e) {
+        console.warn('Reset: reload attempt failed, continuing with in-place reset', e);
     }
 
-    // Reset All Secret Modes
-    dizzyMode = false;
-    melterMode = false;
-    elasticMode = false;
-    bouncerMode = false;
-    atomicMode = false;
-    feverDreamMode = false;
-    hologramMode = false;
-    zFightMode = false;
-    spiralMode = false;
-    magnetMode = false;
-    zeroGMode = false;
-    staticMode = false;
-    tornadoMode = false;
-    asciiMode = false;
-    glitchVtxMode = false;
-    swellMode = false;
-    sunLordMode = false;
-    vibratoMode = false;
-    chaosMode = false;
-    driftVel.set(0, 0, 0);
+    // Fallback in-place reset if reload not possible (custom models, errors, etc.)
+    function performInPlaceReset() {
+        // 1. Reset Root Transform
+        if (marioHead.userData.initialPosition) marioHead.position.copy(marioHead.userData.initialPosition);
+        if (marioHead.userData.initialRotation) marioHead.rotation.copy(marioHead.userData.initialRotation);
+        if (marioHead.userData.initialScale) marioHead.scale.copy(marioHead.userData.initialScale);
+        marioHead.visible = true;
 
-    // 5. Restore Scene Environment/Lights
-    dirLight.intensity = 1.0;
-    ambientLight.intensity = 0.5;
-    ambientLight.color.setHex(0xffffff);
+        // 2. Clear Physics/Transient Collections
+        snappingMeshes.clear();
+        meshVelocities.clear();
+        shatterVelocities.clear();
 
-    // 6. Update UI Elements
-    const toggles = [
-        ['glitch-toggle', 'Glitch: OFF'],
-        ['wave-toggle', 'Wave: OFF'],
-        ['disco-toggle', 'Disco: OFF'],
-        ['ghost-toggle', 'Ghost: OFF'],
-        ['xray-toggle', 'X-Ray: OFF'],
-        ['jello-toggle', 'Jello: OFF'],
-        ['pulse-toggle', 'Pulse: OFF'],
-        ['wireframe-toggle', 'Wireframe: OFF'],
-        ['toon-toggle', 'Toon: OFF'],
-        ['classic-toggle', 'Classic Mode: OFF']
-    ];
-    toggles.forEach(([id, text]) => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.innerText = text;
-            el.classList.remove('active');
+        // 3. Reset Children and Materials
+        safeTraverse(marioHead, (child) => {
+            if (child && child.isMesh) {
+                // Clean up outlines and point clouds before geometry replacement
+                if (child.userData.isOutline && child.parent) {
+                    child.parent.remove(child);
+                    return;
+                }
+                if (child.userData.pts && child.userData.pts.parent) {
+                    child.userData.pts.parent.remove(child.userData.pts);
+                    child.userData.pts = null;
+                }
+
+                // Restore Geometry (prefer per-mesh stored originalGeometry to avoid uuid/index mismatch issues)
+                const savedGeom = child.userData && child.userData.originalGeometry ? child.userData.originalGeometry : (originalGeometries.has(child.uuid) ? originalGeometries.get(child.uuid) : null);
+                if (savedGeom) {
+                    try {
+                        if (child.geometry) child.geometry.dispose();
+                    } catch (e) {}
+
+                    // Use geometry.clone() on the stored original geometry to ensure a proper deep copy
+                    // (this avoids accidentally sharing underlying ArrayBuffers between meshes)
+                    let clonedGeom = null;
+                    if (child.userData && child.userData.originalGeometry) {
+                        clonedGeom = child.userData.originalGeometry.clone();
+                    } else if (originalGeometries.has(child.uuid)) {
+                        clonedGeom = originalGeometries.get(child.uuid).clone();
+                    }
+
+                    if (clonedGeom) {
+                        child.geometry = clonedGeom;
+                        if (child.geometry.attributes.position) child.geometry.attributes.position.needsUpdate = true;
+                        if (child.geometry.computeVertexNormals) child.geometry.computeVertexNormals();
+                    }
+                }
+
+                // Restore Mesh Transforms
+                if (child.userData.originalPosition) {
+                    child.position.copy(child.userData.originalPosition);
+                    child.scale.copy(child.userData.originalScale);
+                    child.rotation.copy(child.userData.originalRotation);
+                    if (child.userData.posVelocity) child.userData.posVelocity.set(0, 0, 0);
+                }
+                
+                child.visible = true;
+                child.userData.isSpinning = false;
+
+                // Reset Materials
+                if (child.material) {
+                    const materials = Array.isArray(child.material) ? child.material : [child.material];
+                    materials.forEach(m => {
+                        if (m) {
+                            if (m.userData.originalColor) m.color.copy(m.userData.originalColor);
+                            if (m.metalness !== undefined) m.metalness = 0.1;
+                            if (m.roughness !== undefined) m.roughness = 0.4;
+                            m.wireframe = false;
+                            m.flatShading = false;
+                            m.opacity = 1;
+                            m.transparent = false;
+                            m.vertexColors = false;
+                            m.needsUpdate = true;
+                        }
+                    });
+                }
+            }
+        });
+
+        // 4. Reset All Logic Flags
+        shatterActive = false;
+        toonMode = false;
+        glitchMode = false;
+        waveMode = false;
+        ghostMode = false;
+        xrayMode = false;
+        jelloMode = false;
+        pulseMode = false;
+        discoMode = false;
+        autoSpin = false;
+        gravityMode = false;
+        balloonMode = false;
+        floatingMode = false;
+        drunkenCam = false;
+        strobeMode = false;
+        vertexRainbow = false;
+        lowPolyPulse = false;
+        twistAmount = 0;
+        classicMode = false;
+        deathMode = false;
+        if (deathSound) {
+            deathSound.pause();
+            deathSound.currentTime = 0;
         }
-    });
 
-    // Handle Unlocked Secret Toggles - Reset their state but don't remove them
-    document.querySelectorAll('#unlocked-row .unlocked-secret-btn').forEach(btn => {
-        if (btn.userData && btn.userData.toggle) {
-            btn.userData.toggle(false);
-        }
-    });
+        // Reset All Secret Modes
+        dizzyMode = false;
+        melterMode = false;
+        elasticMode = false;
+        bouncerMode = false;
+        atomicMode = false;
+        feverDreamMode = false;
+        hologramMode = false;
+        zFightMode = false;
+        spiralMode = false;
+        magnetMode = false;
+        zeroGMode = false;
+        staticMode = false;
+        tornadoMode = false;
+        asciiMode = false;
+        glitchVtxMode = false;
+        swellMode = false;
+        sunLordMode = false;
+        vibratoMode = false;
+        chaosMode = false;
+        driftVel.set(0, 0, 0);
 
-    const shadeBtn = document.getElementById('shading-toggle-btn');
-    shadeBtn.innerText = "Shading: ON";
-    shadeBtn.classList.add('active');
-    shadingOn = true;
-    document.getElementById('metal-slider').value = 0.1;
-    document.getElementById('rough-slider').value = 0.4;
-    document.getElementById('twist-slider').value = 0;
+        // 5. Restore Scene Environment/Lights
+        dirLight.intensity = 1.0;
+        ambientLight.intensity = 0.5;
+        ambientLight.color.setHex(0xffffff);
 
-    playSound('reset');
+        // 6. Update UI Elements
+        const toggles = [
+            ['glitch-toggle', 'Glitch: OFF'],
+            ['wave-toggle', 'Wave: OFF'],
+            ['disco-toggle', 'Disco: OFF'],
+            ['ghost-toggle', 'Ghost: OFF'],
+            ['xray-toggle', 'X-Ray: OFF'],
+            ['jello-toggle', 'Jello: OFF'],
+            ['pulse-toggle', 'Pulse: OFF'],
+            ['wireframe-toggle', 'Wireframe: OFF'],
+            ['toon-toggle', 'Toon: OFF'],
+            ['classic-toggle', 'Classic Mode: OFF']
+        ];
+        toggles.forEach(([id, text]) => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.innerText = text;
+                el.classList.remove('active');
+            }
+        });
+
+        // Handle Unlocked Secret Toggles - Reset their state but don't remove them
+        document.querySelectorAll('#unlocked-row .unlocked-secret-btn').forEach(btn => {
+            if (btn.userData && btn.userData.toggle) {
+                btn.userData.toggle(false);
+            }
+        });
+
+        const shadeBtn = document.getElementById('shading-toggle-btn');
+        shadeBtn.innerText = "Shading: ON";
+        shadeBtn.classList.add('active');
+        shadingOn = true;
+        document.getElementById('metal-slider').value = 0.1;
+        document.getElementById('rough-slider').value = 0.4;
+        document.getElementById('twist-slider').value = 0;
+
+        playSound('reset');
+    }
+
+    performInPlaceReset();
 });
 
 document.getElementById('size-slider').addEventListener('input', (e) => {
@@ -1381,8 +1461,11 @@ document.getElementById('bg-size-slider').addEventListener('input', (e) => {
 const musicSelect = document.getElementById('music-select');
 
 
-
 // Populate shared lists from database and subscribe to updates
+async function populateSharedLists() {
+console.log(null);
+}
+
 function updateMusicOptions(list) {
     // keep built-ins and 'none' and then append shared
     const builtIns = [
@@ -1441,7 +1524,8 @@ function updateBgOptions(list) {
 }
 
 
-
+// initialize subscriptions and populate options
+populateSharedLists();
 
 // existing change listener for local playback control
 musicSelect.addEventListener('change', (e) => {
@@ -1677,21 +1761,6 @@ document.getElementById('flatten-btn').addEventListener('click', () => {
             const pos = child.geometry.attributes.position;
             for (let i = 0; i < pos.count; i++) {
                 pos.setZ(i, pos.getZ(i) * Math.pow(0.5, 6));
-            }
-            pos.needsUpdate = true;
-            child.geometry.computeVertexNormals();
-        }
-    });
-    playSound('stretch');
-});
-
-document.getElementById('flatten-btn2').addEventListener('click', () => {
-    if (!marioHead) return;
-    safeTraverse(marioHead, child => {
-        if (child.isMesh) {
-            const pos = child.geometry.attributes.position;
-            for (let i = 0; i < pos.count; i++) {
-                pos.setZ(i, pos.getZ(i) * Math.pow(0.5, 12));
             }
             pos.needsUpdate = true;
             child.geometry.computeVertexNormals();
