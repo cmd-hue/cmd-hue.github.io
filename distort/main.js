@@ -1540,9 +1540,7 @@ musicSelect.addEventListener('change', (e) => {
     }
 });
 
-uploadBgBtn.addEventListener('click', () => {
-    bgFileInput.click();
-});
+
 
 bgFileInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
