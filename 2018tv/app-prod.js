@@ -21341,7 +21341,7 @@
         if (this.QE)
             return this.QE.baseUrl;
         var a = ws[this.kJ.NH];
-        return void 0 !== a ? a : "ppg" === this.kJ.NH ? "https://" + this.kJ.CPa : "https://proxy.corsfix.com/?https://www.youtube.com/youtubei/v1"
+        return void 0 !== a ? a : "ppg" === this.kJ.NH ? "https://" + this.kJ.CPa : "https://corsproxy.io/?url=https://yt2009.truehosting.net/youtubei/v1"
     }
     ;
     d.Xn = function(a, b) {

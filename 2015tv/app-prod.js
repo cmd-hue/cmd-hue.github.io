@@ -17217,7 +17217,7 @@
     }
     ;
     d.fo = function() {
-        return this.f.JB ? "/youtubei/v1" : this.f.pr ? "https://corsproxy.io/https://www-googleapis-test.sandbox.google.com/youtubei/vi" : this.f.cj ? "https://corsproxy.io/https://www-googleapis-staging.sandbox.google.com/youtubei/v1" : this.f.nr ? this.f.dj ? "https://youtubei.googleapis.com/youtubei/vi" : "https://corsproxy.io/https://www.googleapis.com/youtubei/vi" : this.f.ej ? "https://corsproxy.io/https://www-googleapis-staging.sandbox.google.com/youtubei/v1release" : this.f.dj ? "https://corsproxy.io/https://youtubei.googleapis.com/youtubei/v1" : "https://corsproxy.io/https://www.googleapis.com/youtubei/v1"
+        return this.f.JB ? "/youtubei/v1" : this.f.pr ? "https://corsproxy.io/?url=https://yt2009.truehosting.net/youtubei/v1" : this.f.cj ? "https://corsproxy.io/?url=https://yt2009.truehosting.net/youtubei/v1" : this.f.nr ? this.f.dj ? "https://corsproxy.io/?url=https://yt2009.truehosting.net/youtubei/v1" : "https://corsproxy.io/?url=https://yt2009.truehosting.net/youtubei/v1" : this.f.ej ? "https://corsproxy.io/https://www-googleapis-staging.sandbox.google.com/youtubei/v1release" : this.f.dj ? "https://corsproxy.io/?url=https://yt2009.truehosting.net/youtubei/v1" : "https://corsproxy.io/?url=https://yt2009.truehosting.net/youtubei/v1"
     }
     ;
     d.nk = function(a) {
