@@ -72,7 +72,8 @@ const SEARCHES = [
   'directv pigeons',
   'collabvm',
   'directv hair brush',
-  'dr. jj jr.'
+  'dr. jj jr.',
+  "how to pet pigeons"
 ]
 
 const VIDEOS = [
@@ -99,7 +100,7 @@ const PAGES = [
   'https://www.youtube.com/watch?v=JVKxNK_x9Hc',
   'https://www.youtube.com/watch?v=VreSlfX6mC4',
   'https://cmd-hue.github.io/guide2',
-  
+  'https://cmd-hue.github.io/camel'
 ]
 
 
