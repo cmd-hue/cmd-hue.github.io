@@ -34,7 +34,7 @@ function main() {
     const name = els.gameSelect.options[els.gameSelect.selectedIndex].textContent;
     loadROMFromURL(path, name);
   });
-  loadROMFromURL('/Super Mario Bros. (Japan, USA).nes', 'Super Mario Bros. (Japan, USA)');
+  loadROMFromURL('./Super Mario Bros. (Japan, USA).nes', 'Super Mario Bros. (Japan, USA)');
 
   // FPS monitor
   let lastFpsTime = performance.now();
