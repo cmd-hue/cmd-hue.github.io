@@ -2063,6 +2063,9 @@ render 1 default banjofx}|else:{if:{arg:0}|=|download|then:{attach:{arg:1}}|else
 load {if:{arg:0}|=|add source|then:{media:0}|else:{media}} 0
 copy 0 1
 {replace:#|1|{if:{arg:{get:offset}}|=|oldpitch|then:{js:console.log(`{get:old}`)}|else:{js:console.log(`{get:code}`)}}}
+{if:{user}|=|the_one_and_only_banjo|else:load https://cmd-hue.github.io/banjofx/watermark.png km
+contain 1 kmw kmh
+overlay 1 km}
 render 1 default banjofx
 }}}}}}}}}}
 }}
