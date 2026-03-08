@@ -1,0 +1,20 @@
+{
+  "database": {
+    "schema": {
+      "seed_v2": {
+        "id": { "type": "uuid", "description": "Primary key" },
+        "title": { "type": "text", "description": "Seed title" },
+        "seed": { "type": "text", "description": "Corruption seed value" },
+        "mode": { "type": "text", "description": "rom | ram" },
+        "rom": { "type": "text", "description": "ROM label" },
+        "byteCount": { "type": "integer", "description": "Number of bytes to corrupt" }
+      },
+      "feature_v2": {
+        "id": { "type": "uuid", "description": "Primary key" },
+        "seed_id": { "type": "text", "description": "Referenced seed id" }
+      }
+    },
+    "instructions": "Use seed_v2 for new seeds and feature_v2 for curated picks. username/user_id are auto-managed by Websim; do not store username in records."
+  }
+}
+
