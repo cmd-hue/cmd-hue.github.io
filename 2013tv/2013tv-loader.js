@@ -68,11 +68,9 @@ window.labels = {
         if (window.yt && yt.tv && yt.tv.initializer) {
             document.title = "2013TV"
             yt.tv.initializer(d);
-            archiveit(location.href);
         } else {
             document.title = "2013TV - Site Load Error"
             alert("The Site cannot load, That is all we know.");
-            archiveit(location.href);
         }
     };
 
