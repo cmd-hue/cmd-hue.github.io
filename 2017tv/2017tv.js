@@ -1,22 +1,4 @@
-var _____WB$wombat$assign$function_____ = function(name) {
-    return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name];
-};
-if (!self.__WB_pmw) {
-    self.__WB_pmw = function(obj) {
-        this.__WB_source = obj;
-        return this;
-    }
-}
-{
-    let window = _____WB$wombat$assign$function_____("window");
-    let self = _____WB$wombat$assign$function_____("self");
-    let document = _____WB$wombat$assign$function_____("document");
-    let location = _____WB$wombat$assign$function_____("location");
-    let top = _____WB$wombat$assign$function_____("top");
-    let parent = _____WB$wombat$assign$function_____("parent");
-    let frames = _____WB$wombat$assign$function_____("frames");
-    let opens = _____WB$wombat$assign$function_____("opens");
-    (function() {
+(function() {
         var d, aa = "function" == typeof Object.defineProperties ? Object.defineProperty : function(a, b, c) {
             a != Array.prototype && a != Object.prototype && (a[b] = c.value)
         }
@@ -8594,7 +8576,7 @@ if (!self.__WB_pmw) {
         ;
         d.sm = function() {
             var a = Yh[this.g.Gs];
-            return void 0 != a ? a : "ppg" == this.g.Gs ? "https://" + this.g.Vca : "https://corsproxy.io/?url=https://yt2009.truehosting.net/youtubei/v1"
+            return void 0 != a ? a : "ppg" == this.g.Gs ? "https://" + this.g.Vca : "https://thedust.pages.dev/youtubei/v1"
         }
         ;
         d.Bm = function(a) {
@@ -68104,24 +68086,3 @@ if (!self.__WB_pmw) {
     }
     ).call(this);
 
-}
-/*
-     FILE ARCHIVED ON 17:59:36 Dec 28, 2017 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 22:39:22 Jan 04, 2026.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  captures_list: 0.486
-  exclusion.robots: 0.019
-  exclusion.robots.policy: 0.008
-  esindex: 0.011
-  cdx.remote: 51.484
-  LoadShardBlock: 307.208 (3)
-  PetaboxLoader3.datanode: 277.346 (4)
-  load_resource: 77.428
-  PetaboxLoader3.resolve: 48.049
-*/
