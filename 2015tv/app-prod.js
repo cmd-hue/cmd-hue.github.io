@@ -17217,7 +17217,7 @@
     }
     ;
     d.fo = function() {
-        return this.f.JB ? "/youtubei/v1" : this.f.pr ? "https://thedust.pages.dev/youtubei/v1" : this.f.cj ? "https://thedust.pages.dev/youtubei/v1" : this.f.nr ? this.f.dj ? "https://thedust.pages.dev/youtubei/v1" : "https://thedust.pages.dev/youtubei/v1" : this.f.ej ? "https://corsproxy.io/https://www-googleapis-staging.sandbox.google.com/youtubei/v1release" : this.f.dj ? "https://thedust.pages.dev/youtubei/v1" : "https://thedust.pages.dev/youtubei/v1"
+        return this.f.JB ? "/youtubei/v1" : this.f.pr ? "https://tv36.pages.dev/invidious/youtubei/v1" : this.f.cj ? "https://tv36.pages.dev/invidious/youtubei/v1" : this.f.nr ? this.f.dj ? "https://tv36.pages.dev/invidious/youtubei/v1" : "https://tv36.pages.dev/invidious/youtubei/v1" : this.f.ej ? "https://corsproxy.io/https://www-googleapis-staging.sandbox.google.com/youtubei/v1release" : this.f.dj ? "https://tv36.pages.dev/invidious/youtubei/v1" : "https://tv36.pages.dev/invidious/youtubei/v1"
     }
     ;
     d.nk = function(a) {
