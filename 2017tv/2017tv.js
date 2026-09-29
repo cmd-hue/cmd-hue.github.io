@@ -8576,7 +8576,7 @@
         ;
         d.sm = function() {
             var a = Yh[this.g.Gs];
-            return void 0 != a ? a : "ppg" == this.g.Gs ? "https://" + this.g.Vca : "https://tv36.pages.dev/invidious/youtubei/v1"
+            return void 0 != a ? a : "ppg" == this.g.Gs ? "https://" + this.g.Vca : "https://2014ltv.pages.dev/youtubei/v1"
         }
         ;
         d.Bm = function(a) {

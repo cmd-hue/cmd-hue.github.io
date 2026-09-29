@@ -17217,7 +17217,7 @@
     }
     ;
     d.fo = function() {
-        return this.f.JB ? "/youtubei/v1" : this.f.pr ? "https://tv36.pages.dev/invidious/youtubei/v1" : this.f.cj ? "https://tv36.pages.dev/invidious/youtubei/v1" : this.f.nr ? this.f.dj ? "https://tv36.pages.dev/invidious/youtubei/v1" : "https://tv36.pages.dev/invidious/youtubei/v1" : this.f.ej ? "https://corsproxy.io/https://www-googleapis-staging.sandbox.google.com/youtubei/v1release" : this.f.dj ? "https://tv36.pages.dev/invidious/youtubei/v1" : "https://tv36.pages.dev/invidious/youtubei/v1"
+        return this.f.JB ? "/youtubei/v1" : this.f.pr ? "https://2014ltv.pages.dev/youtubei/v1" : this.f.cj ? "https://2014ltv.pages.dev/youtubei/v1" : this.f.nr ? this.f.dj ? "https://2014ltv.pages.dev/youtubei/v1" : "https://2014ltv.pages.dev/youtubei/v1" : this.f.ej ? "https://www-googleapis-staging.sandbox.google.com/youtubei/v1release" : this.f.dj ? "https://2014ltv.pages.dev/youtubei/v1" : "https://2014ltv.pages.dev/youtubei/v1"
     }
     ;
     d.nk = function(a) {
@@ -24262,7 +24262,7 @@
             refresh_token: a,
             grant_type: "refresh_token"
         };
-        a = new rk("POST","https://corsproxy.io/https://accounts.google.com/o/oauth2/token",null,a);
+        a = new rk("POST","https://accounts.google.com/o/oauth2/token",null,a);
         var b = this.o();
         b.be(v(this.vh, this));
         b.Qf(v(this.zj, this));
@@ -24321,7 +24321,7 @@
             b(!!a);
             this.Zm()
         }, this)
-          , e = new rk("POST","https://corsproxy.io/https://oauth2.googleapis.com/device/code",null,e)
+          , e = new rk("POST","https://oauth2.googleapis.com/device/code",null,e)
           , g = this.o();
         g.be(v(this.qF, this, a, f));
         g.Qf(v(this.Zm, this, c));
@@ -24358,7 +24358,7 @@
             code: a,
             grant_type: "http://oauth.net/grant_type/device/1.0"
         }
-          , e = new rk("POST","https://corsproxy.io/https://accounts.google.com/o/oauth2/token",null,e)
+          , e = new rk("POST","https://accounts.google.com/o/oauth2/token",null,e)
           , f = this.o();
         f.be(v(this.PS, this, a, b, c));
         f.Mb(e)
